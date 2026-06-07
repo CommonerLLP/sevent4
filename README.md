@@ -35,6 +35,25 @@ Ahmedabad is the first working example. Fork the repo, replace the city data,
 and build the same console for Kolkata, Chennai, Bengaluru, Hyderabad, Pune,
 Mumbai, Delhi, Surat, Jaipur, Lucknow, or any other urban local body.
 
+## Public Atlas
+
+The public municipal atlas is served as a static GitHub Pages site from the
+checked-in `public/` directory:
+
+```text
+https://commonerllp.github.io/sevent4/
+```
+
+The published bundle exposes:
+
+- `/about/`
+- `/cities/ahmedabad/`
+- `/cities/ahmedabad/layers/*.geojson`
+- `/assets/*`
+
+There is no backend service. The atlas HTML, map assets, and processed city
+layers are static files.
+
 ## Start Ahmedabad
 
 ```bash
