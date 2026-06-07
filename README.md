@@ -81,6 +81,45 @@ Use another port:
 PORT=8080 scripts/start.sh
 ```
 
+## Data Recipes
+
+SevenT4 ships processed Ahmedabad layers so the console can run immediately.
+The public recipes under `scripts/recipes/ahmedabad/` document how to rebuild
+key pieces of that seed from public sources.
+
+Ahmedabad city budgets are published as PDFs on the AMC budget page. AMC also
+publishes balance sheets/audit reports and finance context pages:
+
+```text
+https://ahmedabadcity.gov.in/SP/Budget
+https://ahmedabadcity.gov.in/SP/BalanceSheet
+https://ahmedabadcity.gov.in/SP/AboutAMCFinance
+```
+
+The budget recipe is city-generic by filename but Ahmedabad-specific by default:
+
+```bash
+python3 scripts/recipes/ahmedabad/fetch_city_budget.py
+python3 scripts/recipes/ahmedabad/fetch_city_budget.py --kind balance-sheet
+python3 scripts/recipes/ahmedabad/fetch_city_representatives.py
+python3 scripts/recipes/ahmedabad/parse_city_representatives.py
+python3 scripts/recipes/ahmedabad/ocr_city_budget.py
+python3 scripts/recipes/ahmedabad/parse_city_budget.py
+```
+
+That shape is intentional. Other cities may publish budgets through different
+websites, portals, PDF naming schemes, spreadsheets, or tender-like archives, so
+each city needs its own fetch adapter. Once PDFs are present under
+`data/cities/<city>/source/budget/pdfs/`, the OCR and parse scripts can be
+extended city by city.
+
+Ahmedabad representative, officer, civic-center, and department source notes are
+tracked in:
+
+```text
+data/cities/ahmedabad/source/public_sources.json
+```
+
 ## What The Console Shows
 
 The Ahmedabad seed is built around one workflow: pick a public geography, then
@@ -90,7 +129,8 @@ It includes:
 
 - ward boundaries and ward-level service access
 - Assembly constituency and Parliamentary constituency boundaries
-- ward councillor, MLA, and MP attribution where public data is available
+- ward councillor, municipal commissioner, MLA, and MP attribution where public
+  data is available
 - bus, BRTS, and metro layers
 - public services such as libraries, schools, health facilities, toilets, fire,
   police, universities, and colleges

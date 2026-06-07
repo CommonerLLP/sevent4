@@ -8,7 +8,22 @@
       "group": "Civic baseline",
       "default": true,
       "outline": true,
-      "popup": ["Name", "deprivation", "service_access", "libraries", "schools", "health", "gtfs_stops"],
+      "popup": [
+        "Name",
+        "councillors",
+        "councillor_parties",
+        "councillor_phones",
+        "municipal_commissioner",
+        "municipal_commissioner_phone",
+        "municipal_commissioner_email",
+        "deprivation",
+        "service_access",
+        "service_priority",
+        "libraries",
+        "schools",
+        "health",
+        "gtfs_stops"
+      ],
       "paint": {
         "fill-color": ["interpolate", ["linear"], ["to-number", ["get", "deprivation"], 0], 0, "#1f6f8b", 0.45, "#6b7f64", 0.75, "#d9a94f", 0.95, "#c84646"],
         "fill-opacity": 0.55
