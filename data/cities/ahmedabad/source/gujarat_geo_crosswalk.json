@@ -1,0 +1,238 @@
+{
+  "ac": {
+    "37": {
+      "ac_no": 37,
+      "ac_name": "Mansa",
+      "reservation": "GEN",
+      "district": "Gandhinagar",
+      "zone": "North Gujarat",
+      "pc_code": 4,
+      "pc_name": "MAHESANA"
+    },
+    "39": {
+      "ac_no": 39,
+      "ac_name": "Viramgam",
+      "reservation": "GEN",
+      "district": "Ahmedabad",
+      "zone": "North Gujarat",
+      "pc_code": 9,
+      "pc_name": "SURENDRANAGAR"
+    },
+    "35": {
+      "ac_no": 35,
+      "ac_name": "Gandhinagar South",
+      "reservation": "GEN",
+      "district": "Gandhinagar",
+      "zone": "North Gujarat",
+      "pc_code": 7,
+      "pc_name": "AHMEDABAD EAST"
+    },
+    "38": {
+      "ac_no": 38,
+      "ac_name": "Kalol",
+      "reservation": "GEN",
+      "district": "Gandhinagar",
+      "zone": "North Gujarat",
+      "pc_code": 6,
+      "pc_name": "GANDHINAGAR"
+    },
+    "36": {
+      "ac_no": 36,
+      "ac_name": "Gandhinagar North",
+      "reservation": "GEN",
+      "district": "Gandhinagar",
+      "zone": "North Gujarat",
+      "pc_code": 6,
+      "pc_name": "GANDHINAGAR"
+    },
+    "34": {
+      "ac_no": 34,
+      "ac_name": "Dehgam",
+      "reservation": "GEN",
+      "district": "Gandhinagar",
+      "zone": "North Gujarat",
+      "pc_code": 7,
+      "pc_name": "AHMEDABAD EAST"
+    },
+    "41": {
+      "ac_no": 41,
+      "ac_name": "Ghatlodia",
+      "reservation": "GEN",
+      "district": "Ahmedabad",
+      "zone": "North Gujarat",
+      "pc_code": 6,
+      "pc_name": "GANDHINAGAR"
+    },
+    "40": {
+      "ac_no": 40,
+      "ac_name": "Sanand",
+      "reservation": "GEN",
+      "district": "Ahmedabad",
+      "zone": "North Gujarat",
+      "pc_code": 6,
+      "pc_name": "GANDHINAGAR"
+    },
+    "44": {
+      "ac_no": 44,
+      "ac_name": "Ellis Bridge",
+      "reservation": "GEN",
+      "district": "Ahmedabad",
+      "zone": "North Gujarat",
+      "pc_code": 8,
+      "pc_name": "AHMEDABAD WEST(SC)"
+    },
+    "57": {
+      "ac_no": 57,
+      "ac_name": "Daskroi",
+      "reservation": "GEN",
+      "district": "Ahmedabad",
+      "zone": "North Gujarat",
+      "pc_code": 17,
+      "pc_name": "KHEDA"
+    },
+    "42": {
+      "ac_no": 42,
+      "ac_name": "Vejalpur",
+      "reservation": "GEN",
+      "district": "Ahmedabad",
+      "zone": "North Gujarat",
+      "pc_code": 6,
+      "pc_name": "GANDHINAGAR"
+    },
+    "43": {
+      "ac_no": 43,
+      "ac_name": "Vatva",
+      "reservation": "GEN",
+      "district": "Ahmedabad",
+      "zone": "North Gujarat",
+      "pc_code": 7,
+      "pc_name": "AHMEDABAD EAST"
+    },
+    "58": {
+      "ac_no": 58,
+      "ac_name": "Dholka",
+      "reservation": "GEN",
+      "district": "Ahmedabad",
+      "zone": "North Gujarat",
+      "pc_code": 17,
+      "pc_name": "KHEDA"
+    },
+    "59": {
+      "ac_no": 59,
+      "ac_name": "Dhandhuka",
+      "reservation": "GEN",
+      "district": "Ahmedabad",
+      "zone": "North Gujarat",
+      "pc_code": 9,
+      "pc_name": "SURENDRANAGAR"
+    },
+    "50": {
+      "ac_no": 50,
+      "ac_name": "Amraiwadi",
+      "reservation": "GEN",
+      "district": "Ahmedabad",
+      "zone": "North Gujarat",
+      "pc_code": 8,
+      "pc_name": "AHMEDABAD WEST(SC)"
+    },
+    "52": {
+      "ac_no": 52,
+      "ac_name": "Jamalpur-Khadia",
+      "reservation": "GEN",
+      "district": "Ahmedabad",
+      "zone": "North Gujarat",
+      "pc_code": 8,
+      "pc_name": "AHMEDABAD WEST(SC)"
+    },
+    "47": {
+      "ac_no": 47,
+      "ac_name": "Naroda",
+      "reservation": "GEN",
+      "district": "Ahmedabad",
+      "zone": "North Gujarat",
+      "pc_code": 8,
+      "pc_name": "AHMEDABAD WEST(SC)"
+    },
+    "45": {
+      "ac_no": 45,
+      "ac_name": "Naranpura",
+      "reservation": "GEN",
+      "district": "Ahmedabad",
+      "zone": "North Gujarat",
+      "pc_code": 8,
+      "pc_name": "AHMEDABAD WEST(SC)"
+    },
+    "55": {
+      "ac_no": 55,
+      "ac_name": "Sabarmati",
+      "reservation": "GEN",
+      "district": "Ahmedabad",
+      "zone": "North Gujarat",
+      "pc_code": 8,
+      "pc_name": "AHMEDABAD WEST(SC)"
+    },
+    "56": {
+      "ac_no": 56,
+      "ac_name": "Asarwa",
+      "reservation": "SC",
+      "district": "Ahmedabad",
+      "zone": "North Gujarat",
+      "pc_code": 8,
+      "pc_name": "AHMEDABAD WEST(SC)"
+    },
+    "51": {
+      "ac_no": 51,
+      "ac_name": "Dariapur",
+      "reservation": "GEN",
+      "district": "Ahmedabad",
+      "zone": "North Gujarat",
+      "pc_code": 8,
+      "pc_name": "AHMEDABAD WEST(SC)"
+    },
+    "54": {
+      "ac_no": 54,
+      "ac_name": "Danilimda",
+      "reservation": "SC",
+      "district": "Ahmedabad",
+      "zone": "North Gujarat",
+      "pc_code": 8,
+      "pc_name": "AHMEDABAD WEST(SC)"
+    },
+    "48": {
+      "ac_no": 48,
+      "ac_name": "Thakkarbapa Nagar",
+      "reservation": "GEN",
+      "district": "Ahmedabad",
+      "zone": "North Gujarat",
+      "pc_code": 8,
+      "pc_name": "AHMEDABAD WEST(SC)"
+    },
+    "46": {
+      "ac_no": 46,
+      "ac_name": "Nikol",
+      "reservation": "GEN",
+      "district": "Ahmedabad",
+      "zone": "North Gujarat",
+      "pc_code": 8,
+      "pc_name": "AHMEDABAD WEST(SC)"
+    },
+    "49": {
+      "ac_no": 49,
+      "ac_name": "Bapunagar",
+      "reservation": "GEN",
+      "district": "Ahmedabad",
+      "zone": "North Gujarat",
+      "pc_code": 8,
+      "pc_name": "AHMEDABAD WEST(SC)"
+    },
+    "53": {
+      "ac_no": 53,
+      "ac_name": "Maninagar",
+      "reservation": "GEN",
+      "district": "Ahmedabad",
+      "zone": "North Gujarat",
+      "pc_code": 8,
+      "pc_name": "AHMEDABAD WEST(SC)"
+    }
+  }
+}

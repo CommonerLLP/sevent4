@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sevent4"
+version = "0.1.0"
+description = "City-layer intelligence toolkit for urban local body devolution work."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "geopandas",
+  "numpy",
+  "pandas",
+  "PyYAML",
+  "shapely",
+]
+
+[project.optional-dependencies]
+heat = [
+  "Pillow",
+  "planetary-computer",
+  "pystac-client",
+  "rasterio",
+  "rioxarray",
+  "xarray",
+]
+
+[project.scripts]
+sevent4-console = "sevent4.build_city_console:main"
+sevent4-gtfs-corridors = "sevent4.transit.gtfs_corridors:main"
+sevent4-ward-service-access = "sevent4.metrics.ward_service_access:main"
+
+[tool.setuptools.packages.find]
+include = ["sevent4*"]
