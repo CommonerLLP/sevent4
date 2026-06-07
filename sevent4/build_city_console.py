@@ -43,7 +43,11 @@ def _copy_layers(city: CityDataset, manifest: LayerManifest, layer_out: Path) ->
 
 def _html(city: CityDataset, manifest: LayerManifest) -> str:
     groups = _groups(manifest.layers)
-    ward_options = _feature_options(city.layers_dir / "wards.geojson", "Name")
+    ward_options = _feature_options(
+        city.layers_dir / "wards.geojson",
+        "Name",
+        extra_keys=("councillors", "councillor_phones", "councillor_parties", "councillor_summaries"),
+    )
     ac_options = _feature_options(city.layers_dir / "acs.geojson", "ac_name") if (city.layers_dir / "acs.geojson").exists() else ""
     pc_options = _feature_options(city.layers_dir / "pcs.geojson", "pc_name") if (city.layers_dir / "pcs.geojson").exists() else ""
     ac_disabled = "" if ac_options else " disabled"
@@ -156,17 +160,27 @@ def _legend_color(paint: dict[str, Any]) -> str:
     return "#5a86f5"
 
 
-def _feature_options(path: Path, label_key: str) -> str:
+def _feature_options(path: Path, label_key: str, extra_keys: tuple[str, ...] = ()) -> str:
     data = json.loads(path.read_text())
     rows = []
     for feature in sorted(data["features"], key=lambda item: str(item["properties"].get(label_key, ""))):
-        label = str(feature["properties"].get(label_key, "")).strip()
+        props = feature["properties"]
+        label = str(props.get(label_key, "")).strip()
         if not label:
             continue
         bounds = json.dumps(_bbox(feature["geometry"]))
         rings = json.dumps(_rings(feature["geometry"]))
         safe = html.escape(label, quote=True)
-        rows.append(f"<option value='{safe}' data-b='{bounds}' data-g='{rings}'>{safe}</option>")
+        extra_attrs = []
+        for key in extra_keys:
+            value = str(props.get(key, "")).strip()
+            if value:
+                attr = key.replace("_", "-")
+                extra_attrs.append(f"data-{html.escape(attr)}='{html.escape(value, quote=True)}'")
+        attrs = " ".join(extra_attrs)
+        if attrs:
+            attrs = " " + attrs
+        rows.append(f"<option value='{safe}' data-b='{bounds}' data-g='{rings}'{attrs}>{safe}</option>")
     return "".join(rows)
 
 
@@ -251,8 +265,14 @@ def _js() -> str:
   });
 
   document.getElementById("wardsel").addEventListener("change", (event) => focusWard(event.target));
-  document.getElementById("acsel").addEventListener("change", (event) => focusJurisdiction(event.target, "acs_hi", "ac_name", ["wardsel", "pcsel"]));
-  document.getElementById("pcsel").addEventListener("change", (event) => focusJurisdiction(event.target, "pcs_hi", "pc_name", ["wardsel", "acsel"]));
+  document.getElementById("acsel").addEventListener("change", (event) => {
+    clearCouncillorSelect();
+    focusJurisdiction(event.target, "acs_hi", "ac_name", ["wardsel", "pcsel"]);
+  });
+  document.getElementById("pcsel").addEventListener("change", (event) => {
+    clearCouncillorSelect();
+    focusJurisdiction(event.target, "pcs_hi", "pc_name", ["wardsel", "acsel"]);
+  });
   document.getElementById("resetf").addEventListener("click", resetFocus);
 
   function addLayer(layer) {
@@ -291,7 +311,10 @@ def _js() -> str:
   }
 
   function focusWard(sel) {
+    const option = sel.options[sel.selectedIndex];
+    if (!option.value) return resetFocus();
     focusJurisdiction(sel, "wards_hi", "Name", ["acsel", "pcsel"]);
+    updateCouncillorSelect(option);
   }
 
   function focusJurisdiction(sel, highlightLayer, property, others) {
@@ -320,6 +343,7 @@ def _js() -> str:
       const el = document.getElementById(id);
       if (el && !el.disabled) el.value = "";
     });
+    clearCouncillorSelect();
     if (map.getLayer("wards_hi")) map.setFilter("wards_hi", ["==", "Name", "__none__"]);
     if (map.getLayer("acs_hi")) map.setFilter("acs_hi", ["==", "ac_name", "__none__"]);
     if (map.getLayer("pcs_hi")) map.setFilter("pcs_hi", ["==", "pc_name", "__none__"]);
@@ -341,7 +365,8 @@ def _js() -> str:
     let rows = layer.popup.map((key) => {
       const value = props[key] ?? "";
       if (value === "") return "";
-      return `<div><span class="k">${escapeHtml(key.replace(/_/g, " "))}:</span> ${escapeHtml(clip(String(value), 72))}</div>`;
+      const limit = key === "councillors" ? 180 : 72;
+      return `<div><span class="k">${escapeHtml(key.replace(/_/g, " "))}:</span> ${escapeHtml(clip(String(value), limit))}</div>`;
     }).join("");
     new maplibregl.Popup()
       .setLngLat(event.lngLat)
@@ -355,6 +380,27 @@ def _js() -> str:
 
   function clip(value, n) {
     return value.length > n ? `${value.slice(0, n - 1)}...` : value;
+  }
+
+  function updateCouncillorSelect(option) {
+    const sel = document.getElementById("councillorsel");
+    const summaries = splitList(option.dataset.councillorSummaries || "");
+    if (!summaries.length) return clearCouncillorSelect();
+    const rows = summaries.map((summary) => `<option>${escapeHtml(summary)}</option>`);
+    sel.innerHTML = `<option value="">Ward councillors</option>${rows.join("")}`;
+    sel.disabled = false;
+    sel.classList.remove("muted");
+  }
+
+  function clearCouncillorSelect() {
+    const sel = document.getElementById("councillorsel");
+    sel.innerHTML = "<option>Councillor data not loaded</option>";
+    sel.disabled = true;
+    sel.classList.add("muted");
+  }
+
+  function splitList(value) {
+    return value.split(";").map((item) => item.trim()).filter(Boolean);
   }
 
   function escapeHtml(value) {
