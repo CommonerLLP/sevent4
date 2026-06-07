@@ -1,63 +1,236 @@
 # SevenT4
 
-SevenT4 (`sevent4`) is a city-layer intelligence toolkit for civic groups.
-It starts with Ahmedabad and is structured so the same console can be adapted
-for Kolkata, Chennai, Bengaluru, other large Indian cities, and eventually all
-urban local bodies.
+Indian city government is built so that responsibility is hard to see.
 
-The core idea is simple: keep public jurisdiction boundaries, transit, public
-services, land use, heat exposure, and municipal finance in a reusable data
-contract, then render a local-first city console from that contract.
+The Seventy-fourth Amendment brought municipalities into the Constitution as
+urban local self-government. The Twelfth Schedule names the work cities should be
+able to govern: planning, land use, roads, water, sanitation, public health, fire
+services, slum improvement, urban poverty, parks, public amenities, street
+lights, bus stops, and more.
 
-## Current Seed
+But the city people actually live in is usually split across municipal
+corporations, state departments, development authorities, parastatals, police,
+transport agencies, utilities, contractors, engineers, ward councillors, MLAs,
+and MPs. When a road breaks, a ward has no library, a bus route fails, a heat
+pocket grows, a street floods again, or a public toilet disappears,
+responsibility gets scattered until nobody is answerable.
 
-- Ahmedabad city configuration in `data/cities/ahmedabad/city.yaml`
-- Ahmedabad source data in `data/cities/ahmedabad/source/`
-- Ahmedabad processed layers in `data/cities/ahmedabad/layers/`
-- Public jurisdiction layers for ward, AC, and PC selection
-- Vendored MapLibre assets in `public/assets/`
-- Python package code in `sevent4/`
+SevenT4 does one small thing: it helps internet-literate residents map a city
+problem to the public geography and public office around it.
 
-## Deliberately Absent
+It puts ward, Assembly constituency, Parliamentary constituency, transit, public
+service, land-use, heat, and civic gap layers in one city console. A resident can
+select a ward, AC, or PC and connect a road, drainage, heat, transport, library,
+school, health, sanitation, or public-space issue to the ward councillor, MLA,
+MP, and relevant public office where the data is available.
 
-This seed does not include private operational datasets, campaign dossiers,
-private brand assets, or organiser workflows.
+This is not a smart-city dashboard and it does not decide legal liability. It
+makes the first accountability question easier to ask: whose jurisdiction is
+this, and why is this power not with the urban local body?
 
-It does include public jurisdiction geography and representative attribution.
-Ward, councillor, MLA, and MP accountability is part of the civic toolkit: if a
-road, drainage, heat, transit, or service issue falls inside a ward, AC, or PC,
-the console should help residents see which public office is responsible.
+Ahmedabad is the first working example. Fork the repo, replace the city data,
+and build the same console for Kolkata, Chennai, Bengaluru, Hyderabad, Pune,
+Mumbai, Delhi, Surat, Jaipur, Lucknow, or any other urban local body.
 
-## Build The Ahmedabad Console
+## Start Ahmedabad
 
 ```bash
-python3 -m venv .venv
-. .venv/bin/activate
-pip install -r requirements.txt
+git clone https://github.com/CommonerLLP/sevent4.git
+cd sevent4
+scripts/start.sh
+```
+
+Open the URL printed by the script:
+
+```text
+http://127.0.0.1:9174/public/cities/ahmedabad/index.html
+```
+
+`scripts/start.sh` creates the local environment if needed, builds the Ahmedabad
+console, and serves the repo on localhost.
+
+## Common Commands
+
+Set up the local environment:
+
+```bash
+scripts/setup.sh
+```
+
+Build the Ahmedabad console:
+
+```bash
+scripts/build-ahmedabad.sh
+```
+
+Build any configured city:
+
+```bash
+scripts/build-city.sh ahmedabad
+```
+
+Serve the repo locally:
+
+```bash
+scripts/serve.sh ahmedabad
+```
+
+Use another port:
+
+```bash
+PORT=8080 scripts/start.sh
+```
+
+## What The Console Shows
+
+The Ahmedabad seed is built around one workflow: pick a public geography, then
+read the city problem through the offices that touch it.
+
+It includes:
+
+- ward boundaries and ward-level service access
+- Assembly constituency and Parliamentary constituency boundaries
+- ward councillor, MLA, and MP attribution where public data is available
+- bus, BRTS, and metro layers
+- public services such as libraries, schools, health facilities, toilets, fire,
+  police, universities, and colleges
+- land-use and road layers
+- ward heat and 30m surface heat layers
+- search, layer toggles, light/dark mode, and ward/AC/PC focus filters
+
+The filters matter. A resident should be able to select a ward, AC, or PC and
+see the city layers in relation to that public geography. As city datasets
+improve, the same pattern can attach engineers, departments, zones, contractors,
+budgets, public works, and grievance channels.
+
+## Governance Frame
+
+SevenT4 starts from a narrow claim: public data should help residents attribute
+ordinary civic problems to public jurisdiction.
+
+The project avoids the usual smart-city habit of making data look apolitical.
+Indian urban governance is political because powers, functions, funds, land, and
+service delivery are split across institutions. A useful city console should make
+that split visible instead of hiding it behind a neutral map.
+
+For each city, the base data contract should therefore include:
+
+- ward boundaries and councillor attribution
+- Assembly constituency boundaries and MLA attribution
+- Parliamentary constituency boundaries and MP attribution
+- municipal zones, departments, engineers, works, budgets, and grievance channels
+  where public data is available
+- public service and infrastructure layers that let a resident connect a visible
+  issue to the office that can be questioned
+
+The Ahmedabad console is the example, not the limit. The same contract should be
+usable for Kolkata, Chennai, Bengaluru, Hyderabad, Pune, Mumbai, Delhi, Surat,
+Jaipur, Lucknow, and eventually any urban local body.
+
+## City Data Contract
+
+Each city lives under `data/cities/<city-id>/`.
+
+```text
+data/cities/ahmedabad/
+  city.yaml
+  source/
+  layers/
+    layer_manifest.json
+    wards.geojson
+    acs.geojson
+    pcs.geojson
+```
+
+`city.yaml` tells SevenT4 where the city is and where its data lives:
+
+```yaml
+id: ahmedabad
+name: Ahmedabad
+country: India
+state: Gujarat
+center: [72.58, 23.03]
+bbox: [72.45, 22.90, 72.74, 23.18]
+crs_metric: EPSG:32643
+layers_dir: data/cities/ahmedabad/layers
+source_dir: data/cities/ahmedabad/source
+outputs_dir: public/cities/ahmedabad
+```
+
+`layer_manifest.json` controls what appears in the console: layer id, display
+name, GeoJSON or image file, layer type, default visibility, popup fields, and
+map styling.
+
+Minimum useful layers:
+
+- `wards.geojson`: urban local body ward polygons
+- `acs.geojson`: Assembly constituency polygons
+- `pcs.geojson`: Parliamentary constituency polygons
+- service points: schools, health facilities, libraries, toilets, transit stops,
+  and other city-specific public infrastructure
+
+Ward councillor data should be joined into `wards.geojson` when a public ward
+roster is available. MLA and MP attribution should be joined into `acs.geojson`
+and `pcs.geojson` when public representative data is available.
+
+## Make A New City
+
+1. Copy `data/cities/ahmedabad` to `data/cities/<your-city>`.
+2. Edit `city.yaml`: name, center, bbox, CRS, and paths.
+3. Replace `layers/wards.geojson`, `layers/acs.geojson`, and
+   `layers/pcs.geojson`.
+4. Replace or remove service layers in `layers/`.
+5. Edit `layers/layer_manifest.json` so it names the layers you actually have.
+6. Build:
+
+```bash
+scripts/build-city.sh <your-city>
+scripts/serve.sh <your-city>
+```
+
+The output will be written to:
+
+```text
+public/cities/<your-city>/index.html
+```
+
+## Project Layout
+
+```text
+sevent4/                  Python package code
+scripts/                  startup and build scripts
+data/cities/              city configs and source/layer data
+public/assets/            vendored MapLibre files
+public/cities/            built city consoles
+```
+
+## Python Entry Points
+
+The shell scripts call these package entry points:
+
+```bash
+sevent4-console
+sevent4-gtfs-corridors
+sevent4-ward-service-access
+```
+
+You can also run the builder directly:
+
+```bash
 python -m sevent4.build_city_console \
   --city data/cities/ahmedabad/city.yaml \
   --layers data/cities/ahmedabad/layers/layer_manifest.json \
   --out public/cities/ahmedabad/index.html
 ```
 
-Then serve the repo root and open `public/cities/ahmedabad/index.html`.
+## Reading
 
-## Data Contract
-
-Each city gets:
-
-- `city.yaml`: identity, center, bbox, CRS, source paths, output paths
-- `layers/layer_manifest.json`: layer ids, files, display labels, paint, popup fields
-- `source/`: original source files
-- `layers/`: processed layers used by the console
-
-Minimum jurisdiction layers:
-
-- `layers/wards.geojson`: ULB ward polygons; should include a display field such as `Name`
-- `layers/acs.geojson`: assembly constituency polygons; should include `ac_name`, `representative`, `office`, `party`, and `pc_name` when available
-- `layers/pcs.geojson`: parliamentary constituency polygons; should include `pc_name`, `representative`, `office`, and `party` when available
-- ward councillor data: should be joined into `wards.geojson` when a full public ward roster is available
-
-Keep private operational interpretation out of the base layer contract. Public
-jurisdiction and elected-representative attribution belongs in the default
-city intelligence toolkit.
+- Constitution/74th Amendment summary and Twelfth Schedule functions:
+  https://secforuts.mha.gov.in/74th-amendment-and-municipalities-in-india/
+- NITI Aayog, `Moving Towards Effective City Government - A Framework for
+  Million-Plus Cities`:
+  https://niti.gov.in/whats-new/moving-towards-effective-city-government-framework-million-plus-cities
+- RBI municipal finance report release:
+  https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=59093
+- Janaagraha, Annual Survey of India's City-Systems:
+  https://www.janaagraha.org/asics/
