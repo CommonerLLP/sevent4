@@ -39,27 +39,35 @@ def _copy_layers(city: CityDataset, manifest: LayerManifest, layer_out: Path) ->
         shutil.copy2(city.layers_dir / layer.file, layer_out / layer.file)
         if layer.bounds_file:
             shutil.copy2(city.layers_dir / layer.bounds_file, layer_out / layer.bounds_file)
+    for sidecar in ("jurisdiction_crosswalk.json",):
+        path = city.layers_dir / sidecar
+        if path.exists():
+            shutil.copy2(path, layer_out / sidecar)
 
 
 def _html(city: CityDataset, manifest: LayerManifest) -> str:
     groups = _groups(manifest.layers)
+    jurisdiction = _jurisdiction_context(city.layers_dir)
     ward_options = _feature_options(
         city.layers_dir / "wards.geojson",
         "Name",
-        extra_keys=("councillors", "councillor_phones", "councillor_parties", "councillor_summaries"),
     )
     ac_options = _feature_options(city.layers_dir / "acs.geojson", "ac_name") if (city.layers_dir / "acs.geojson").exists() else ""
     pc_options = _feature_options(city.layers_dir / "pcs.geojson", "pc_name") if (city.layers_dir / "pcs.geojson").exists() else ""
     ac_disabled = "" if ac_options else " disabled"
     pc_disabled = "" if pc_options else " disabled"
-    ac_label = "AC" if ac_options else "AC boundary not loaded"
-    pc_label = "PC" if pc_options else "PC boundary not loaded"
+    ac_label = "Assembly constituency" if ac_options else "Assembly constituency boundary not loaded"
+    pc_label = "Parliamentary constituency" if pc_options else "Parliamentary constituency boundary not loaded"
     return f"""<!doctype html>
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{html.escape(city.name)} City Intelligence - SevenT4</title>
+  <meta name="application-name" content="Part IXA: The Municipalities">
+  <meta name="theme-color" content="#f3f1ea">
+  <title>Part IXA: The Municipalities - {html.escape(city.state)} / {html.escape(city.name)}</title>
+  <link rel="icon" type="image/png" href="../../assets/ixa-mark.png?v=stitch-color">
+  <link rel="manifest" href="../../site.webmanifest">
   <link rel="stylesheet" href="../../assets/maplibre-gl.css">
   <style>{_css()}</style>
 </head>
@@ -68,41 +76,50 @@ def _html(city: CityDataset, manifest: LayerManifest) -> str:
     <aside class="rail">
       <div class="mast">
         <div>
-          <div class="amendment">Seventy-fourth Amendment</div>
-          <h1>{html.escape(city.name)}</h1>
+          <div class="brandrow">
+            <img class="ixamark" src="../../assets/ixa-mark.png?v=stitch-color" alt="" aria-hidden="true">
+            <div class="wordmark" aria-label="The Municipalities Accountability Atlas"><span>The Municipalities</span><b>Accountability Atlas</b></div>
+          </div>
+          <div class="jurisdictionbar" aria-label="Current jurisdiction">
+            <label><span>State</span><select id="statesel"><option value="{html.escape(city.state)}">{html.escape(city.state)}</option></select></label>
+            <label><span>City</span><select id="citysel"><option value="{html.escape(city.id)}" data-url="./index.html">{html.escape(city.name)}</option></select></label>
+          </div>
         </div>
       </div>
       <div class="scroll">
         <div class="sech">Find layers</div>
         <input id="layerSearch" class="search" type="search" placeholder="Search layers">
 
-        <div class="sech">Focus geography</div>
-        <select id="wardsel" class="fsel"><option value="">Ward</option>{ward_options}</select>
-        <select id="councillorsel" class="fsel muted" disabled><option>Councillor data not loaded</option></select>
-        <select id="acsel" class="fsel{' muted' if ac_disabled else ''}"{ac_disabled}><option value="">{ac_label}</option>{ac_options}</select>
-        <select id="pcsel" class="fsel{' muted' if pc_disabled else ''}"{pc_disabled}><option value="">{pc_label}</option>{pc_options}</select>
-        <button class="fbtn2" id="resetf" type="button">Reset view</button>
-
         <div class="sech">Layers</div>
         {_toggles(groups)}
         <div class="sech">Read</div>
-        <div style="font-size:12px;color:var(--mut);line-height:1.6">
-          Ward fill = <b>composite service gap</b>. Select a ward, AC, or PC to
-          spotlight the responsible public geography. <b>Click any feature</b>
-          for details.</div>
-      </div>
-      <div class="foot">
-        SevenT4 · GPU/WebGL · offline · public jurisdictions
+        <div class="readnote">
+          <b>The 74th Amendment</b> is the devolution claim: political and
+          financial power should move down from State governments to urban local
+          bodies. <b>Article 243W</b> is the map logic: city dysfunction becomes
+          visible when responsibility is scattered across jurisdictions,
+          representatives, departments, and state-controlled agencies.
+          <br><br>
+          Ward fill = <b>composite service gap</b>. Use the ward, Assembly
+          constituency, and Parliamentary constituency filters above the map.
+        </div>
       </div>
     </aside>
     <div class="mapwrap"><div id="map"></div>
-      <div class="tbar"><button class="tbtn" id="theme" type="button" aria-label="Toggle light or dark theme">◐ DAY/NIGHT</button></div>
+      <div class="filterbar" aria-label="Geography filters">
+        <select id="wardsel" class="fsel"><option value="">Ward</option>{ward_options}</select>
+        <select id="acsel" class="fsel{' muted' if ac_disabled else ''}"{ac_disabled}><option value="">{ac_label}</option>{ac_options}</select>
+        <select id="pcsel" class="fsel{' muted' if pc_disabled else ''}"{pc_disabled}><option value="">{pc_label}</option>{pc_options}</select>
+        <button class="fbtn2" id="resetf" type="button">Default view</button>
+        <button class="tbtn" id="theme" type="button" aria-label="Toggle light or dark theme" title="Toggle theme"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3a6.5 6.5 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></button>
+      </div>
     </div>
   </div>
   <script src="../../assets/maplibre-gl.js"></script>
   <script>
   const city = {json.dumps({"center": city.center, "bbox": city.bbox})};
   const layers = {json.dumps([_layer_json(layer, city) for layer in manifest.layers])};
+  const jurisdiction = {json.dumps(jurisdiction, ensure_ascii=False)};
   {_js()}
   </script>
 </body>
@@ -184,6 +201,48 @@ def _feature_options(path: Path, label_key: str, extra_keys: tuple[str, ...] = (
     return "".join(rows)
 
 
+def _jurisdiction_context(layers_dir: Path) -> dict[str, Any]:
+    path = layers_dir / "jurisdiction_crosswalk.json"
+    empty = {"wards": {}, "acs": {}, "pcs": {}, "records": []}
+    if not path.exists():
+        return empty
+    data = json.loads(path.read_text(encoding="utf-8"))
+    records = data.get("records", [])
+    index: dict[str, dict[str, dict[str, set[str]]]] = {"wards": {}, "acs": {}, "pcs": {}}
+    for row in records:
+        ward = str(row.get("ward_name", "")).strip()
+        ac = str(row.get("ac_name", "")).strip()
+        pc = str(row.get("pc_name", "")).strip()
+        district = str(row.get("district_name", "")).strip()
+        if not ward or not ac or not pc:
+            continue
+        _add_index(index["wards"], ward, "acs", ac)
+        _add_index(index["wards"], ward, "pcs", pc)
+        _add_index(index["wards"], ward, "districts", district)
+        _add_index(index["acs"], ac, "wards", ward)
+        _add_index(index["acs"], ac, "pcs", pc)
+        _add_index(index["acs"], ac, "districts", district)
+        _add_index(index["pcs"], pc, "wards", ward)
+        _add_index(index["pcs"], pc, "acs", ac)
+        _add_index(index["pcs"], pc, "districts", district)
+    return {
+        "records": records,
+        "wards": _freeze_index(index["wards"]),
+        "acs": _freeze_index(index["acs"]),
+        "pcs": _freeze_index(index["pcs"]),
+    }
+
+
+def _add_index(index: dict[str, dict[str, set[str]]], item: str, key: str, value: str) -> None:
+    if not value:
+        return
+    index.setdefault(item, {}).setdefault(key, set()).add(value)
+
+
+def _freeze_index(index: dict[str, dict[str, set[str]]]) -> dict[str, dict[str, list[str]]]:
+    return {item: {key: sorted(values) for key, values in data.items()} for item, data in sorted(index.items())}
+
+
 def _bbox(geom: dict[str, Any]) -> list[float]:
     xs: list[float] = []
     ys: list[float] = []
@@ -215,8 +274,10 @@ def _css() -> str:
     return """
 :root{color-scheme:dark;--bg:#0a0c10;--panel:#13161d;--panel2:#171b23;--ink:#ece9e2;--mut:#8b929f;--line:#262c38;--hair:#1b1f28;--blue:#5a86f5;--red:#f0303d;--gold:#edc233;--r:4px;--serif:Georgia,"Iowan Old Style","Times New Roman",serif;--mono:ui-monospace,Menlo,"SF Mono",Consolas,monospace;--sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 [data-theme=light]{color-scheme:light;--bg:#f3f1ea;--panel:#fff;--panel2:#f6f3ea;--ink:#16181d;--mut:#586071;--line:#d7d1c2;--hair:#e7e2d6;--blue:#22409A;--red:#c8102e;--gold:#9a7b14}
-*{box-sizing:border-box;margin:0}html,body{height:100%}body{font:400 15px/1.5 var(--sans);color:var(--ink);background:var(--bg);overflow:hidden}.app{display:grid;grid-template-columns:300px 1fr;height:100vh}.rail{background:var(--panel2);border-right:1px solid var(--line);display:flex;flex-direction:column;min-height:0}.rail .mast{display:flex;align-items:center;gap:12px;padding:16px;border-bottom:1px solid var(--line)}.rail .mast .mk{height:34px;width:auto}.rail .mast .amendment{font-family:var(--serif);font-weight:700;font-size:15px;line-height:1.05;color:var(--ink);letter-spacing:0}.rail .mast h1{font-family:var(--serif);font-size:18px;line-height:1.05;margin-top:4px;color:var(--mut);font-weight:400}.rail .scroll{overflow:auto;flex:1;padding:10px 12px}.sech{font:700 11px/1 var(--mono);letter-spacing:.14em;color:var(--mut);text-transform:uppercase;margin:14px 0 6px}.search,.fsel{width:100%;margin-bottom:7px;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);padding:9px 10px;font:600 12px var(--mono)}.search::placeholder{color:var(--mut)}.fsel{cursor:pointer}.fsel.muted{color:var(--mut);cursor:not-allowed}.fbtn2{width:100%;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);padding:8px;font:600 11px var(--mono);cursor:pointer;letter-spacing:.06em}.fbtn2:hover{border-color:var(--blue);color:var(--blue)}.tog{display:block;padding:6px 4px;border-bottom:1px solid var(--hair);cursor:pointer;font-size:13px}.tog input{vertical-align:-1px;margin-right:7px;accent-color:var(--blue)}.tog .sw{display:inline-block;width:11px;height:11px;border-radius:2px;vertical-align:0;margin-right:6px;border:1px solid rgba(255,255,255,.18)}.tog b{font-weight:600}.tog.is-hidden{display:none}.rail .foot{padding:10px 14px;border-top:1px solid var(--line);font:600 11px/1.5 var(--mono);color:var(--mut)}.mapwrap{position:relative;height:100vh}#map{height:100vh}.maplibregl-popup-content{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:6px;font:600 12px/1.5 var(--mono);padding:10px 12px;max-width:300px}.maplibregl-popup-content b{color:var(--ink)}.maplibregl-popup-tip{display:none}.maplibregl-popup-content .k{color:var(--mut)}.tbar{position:absolute;top:12px;right:12px;display:flex;gap:8px}.tbtn{background:var(--panel);border:1px solid var(--line);color:var(--ink);border-radius:var(--r);padding:8px 12px;font:600 12px/1 var(--mono);cursor:pointer}.tbtn:hover{border-color:var(--blue);color:var(--blue)}
-@media(max-width:760px){.app{grid-template-columns:1fr;grid-template-rows:auto 1fr}.rail{max-height:42vh}#map,.mapwrap{height:58vh}}
+*{box-sizing:border-box;margin:0}html,body{height:100%}body{font:400 15px/1.5 var(--sans);color:var(--ink);background:var(--bg);overflow:hidden}.app{display:grid;grid-template-columns:300px 1fr;height:100vh}.rail{background:var(--panel2);border-right:1px solid var(--line);display:flex;flex-direction:column;min-height:0}.rail .mast{background:var(--panel2);border-bottom:1px solid var(--ink);padding:13px 14px 14px}.rail .mast:before{background:var(--ink);content:"";display:block;height:1px;margin-bottom:9px}.brandmark{color:var(--ink);font-family:var(--serif);font-size:27px;font-weight:800;letter-spacing:0;line-height:1}.brandline{border-bottom:1px solid var(--line);color:var(--mut);font:700 9px/1 var(--mono);letter-spacing:.16em;margin:6px 0 10px;padding-bottom:8px;text-transform:uppercase}.jurisdictionbar{display:grid;grid-template-columns:1fr 1fr;gap:8px}.jurisdictionbar label{display:block;min-width:0}.jurisdictionbar label span{color:var(--mut);display:block;font:700 9px/1 var(--mono);letter-spacing:.14em;margin:0 0 5px;text-transform:uppercase}.jurisdictionbar select{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--ink);font:700 12px/1 var(--mono);height:34px;padding:0 8px;width:100%}.basis{color:var(--mut);font:700 9px/1.4 var(--mono);letter-spacing:.08em;margin-top:9px;text-transform:uppercase}.rail .scroll{overflow:auto;flex:1;padding:10px 12px}.sech{font:700 11px/1 var(--mono);letter-spacing:.14em;color:var(--mut);text-transform:uppercase;margin:14px 0 6px}.readnote{border-left:2px solid var(--gold);color:var(--mut);font-size:12px;line-height:1.55;padding-left:9px}.readnote b{color:var(--ink)}.search,.fsel{width:100%;margin-bottom:7px;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);padding:9px 10px;font:600 12px var(--mono)}.search::placeholder{color:var(--mut)}.fsel{cursor:pointer}.fsel.muted{color:var(--mut);cursor:not-allowed}.fbtn2{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);padding:8px 12px;font:700 11px var(--mono);cursor:pointer;letter-spacing:.06em}.fbtn2:hover,.tbtn:hover{border-color:var(--blue);color:var(--blue)}.tog{display:block;padding:6px 4px;border-bottom:1px solid var(--hair);cursor:pointer;font-size:13px}.tog input{vertical-align:-1px;margin-right:7px;accent-color:var(--blue)}.tog .sw{display:inline-block;width:11px;height:11px;border-radius:2px;vertical-align:0;margin-right:6px;border:1px solid rgba(255,255,255,.18)}.tog b{font-weight:600}.tog.is-hidden{display:none}.rail .foot{padding:10px 14px;border-top:1px solid var(--line);font:600 11px/1.5 var(--mono);color:var(--mut)}.mapwrap{position:relative;height:100vh}#map{height:100vh}.filterbar{position:absolute;z-index:2;top:12px;left:12px;right:12px;display:grid;grid-template-columns:minmax(160px,1fr) minmax(150px,1fr) minmax(150px,1fr) auto 38px;gap:8px;align-items:start}.filterbar .fsel,.filterbar .fbtn2,.filterbar .tbtn{height:38px;margin:0;box-shadow:0 2px 10px rgba(0,0,0,.16)}.filterbar .fbtn2{min-width:116px;white-space:nowrap}.tbtn{align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--ink);cursor:pointer;display:grid;justify-content:center;padding:0;width:38px}.tbtn svg{display:block;fill:none;height:17px;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.2;width:17px}.default-view-ctrl button{color:#333}.default-view-ctrl .default-view-icon{display:grid;height:100%;place-items:center;width:100%}.default-view-ctrl svg{display:block;height:18px;width:18px;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.2}.maplibregl-popup-content{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:6px;font:600 12px/1.5 var(--mono);padding:10px 12px;max-width:320px}.maplibregl-popup-content b{color:var(--ink)}.maplibregl-popup-tip{display:none}.maplibregl-popup-content .k{color:var(--mut)}
+.brandrow{align-items:center;display:flex;gap:12px;margin-bottom:16px;min-width:0}.ixamark{display:block;flex:0 0 auto;height:58px;width:58px}.wordmark{display:block;min-width:0;white-space:normal}.wordmark span{color:var(--ink);display:block;font-family:var(--serif);font-size:17px;font-weight:700;letter-spacing:0;line-height:1.02}.wordmark b{color:var(--mut);display:block;font:800 8px/1 var(--mono);letter-spacing:.12em;margin-top:5px;text-transform:uppercase}.basis{text-transform:none}
+.brandmark{font-size:21px}
+@media(max-width:980px){.filterbar{top:54px;right:12px;grid-template-columns:1fr 1fr}.filterbar .fbtn2{min-width:0}}@media(max-width:760px){.app{grid-template-columns:1fr;grid-template-rows:auto 1fr}.rail{max-height:34vh}.filterbar{top:10px;left:10px;right:10px;grid-template-columns:1fr 1fr}.filterbar .fsel,.filterbar .fbtn2{height:36px;font-size:11px;padding:8px}#map,.mapwrap{height:66vh}}
 """
 
 
@@ -224,6 +285,7 @@ def _js() -> str:
     return r"""
   const savedTheme = localStorage.getItem("sevent4-theme") || "dark";
   document.documentElement.dataset.theme = savedTheme;
+  let hoverPopup = null;
 
   const map = new maplibregl.Map({
     container: "map",
@@ -232,13 +294,13 @@ def _js() -> str:
     zoom: 9.7,
     attributionControl: false
   });
-  map.addControl(new maplibregl.NavigationControl({showCompass: false}), "top-left");
+  map.addControl(new maplibregl.NavigationControl({showCompass: false}), "bottom-right");
+  map.addControl(new DefaultViewControl(), "bottom-right");
 
   map.on("load", () => {
     layers.forEach(addLayer);
     addFocusLayers();
-    const bounds = [[city.bbox[0], city.bbox[1]], [city.bbox[2], city.bbox[3]]];
-    map.fitBounds(bounds, {padding: 28, duration: 0});
+    fitDefaultView(0);
   });
 
   document.getElementById("theme").addEventListener("click", () => {
@@ -247,6 +309,11 @@ def _js() -> str:
     localStorage.setItem("sevent4-theme", next);
     if (map.getLayer("bg")) map.setPaintProperty("bg", "background-color", themeBg(next));
     if (map.getLayer("focusmask")) map.setPaintProperty("focusmask", "fill-color", themeBg(next));
+  });
+  document.getElementById("citysel").addEventListener("change", (event) => {
+    const option = event.target.options[event.target.selectedIndex];
+    const url = option && option.dataset.url;
+    if (url && url !== "./index.html") window.location.href = url;
   });
 
   document.querySelectorAll("[data-layer]").forEach((input) => {
@@ -264,16 +331,28 @@ def _js() -> str:
     });
   });
 
-  document.getElementById("wardsel").addEventListener("change", (event) => focusWard(event.target));
-  document.getElementById("acsel").addEventListener("change", (event) => {
-    clearCouncillorSelect();
-    focusJurisdiction(event.target, "acs_hi", "ac_name", ["wardsel", "pcsel"]);
+  document.getElementById("wardsel").addEventListener("change", () => {
+    applyJurisdictionFilters();
+    updateMapFocus();
   });
-  document.getElementById("pcsel").addEventListener("change", (event) => {
-    clearCouncillorSelect();
-    focusJurisdiction(event.target, "pcs_hi", "pc_name", ["wardsel", "acsel"]);
+  document.getElementById("acsel").addEventListener("change", () => {
+    const ac = document.getElementById("acsel").value;
+    const pcsel = document.getElementById("pcsel");
+    if (ac && !pcsel.value) {
+      const pcs = (jurisdiction.acs[ac] && jurisdiction.acs[ac].pcs) || [];
+      if (pcs.length === 1) pcsel.value = pcs[0];
+    }
+    document.getElementById("wardsel").value = "";
+    applyJurisdictionFilters();
+    updateMapFocus();
+  });
+  document.getElementById("pcsel").addEventListener("change", () => {
+    document.getElementById("wardsel").value = "";
+    applyJurisdictionFilters();
+    updateMapFocus();
   });
   document.getElementById("resetf").addEventListener("click", resetFocus);
+  applyJurisdictionFilters();
 
   function addLayer(layer) {
     const visibility = layer.default ? "visible" : "none";
@@ -291,7 +370,16 @@ def _js() -> str:
     if (layer.popup.length) {
       map.on("click", layer.id, (event) => showPopup(layer, event));
       map.on("mouseenter", layer.id, () => { map.getCanvas().style.cursor = "pointer"; });
-      map.on("mouseleave", layer.id, () => { map.getCanvas().style.cursor = ""; });
+      if (layer.id === "wards") {
+        map.on("mousemove", layer.id, (event) => showHoverPopup(layer, event));
+      }
+      map.on("mouseleave", layer.id, () => {
+        map.getCanvas().style.cursor = "";
+        if (layer.id === "wards" && hoverPopup) {
+          hoverPopup.remove();
+          hoverPopup = null;
+        }
+      });
     }
   }
 
@@ -310,30 +398,64 @@ def _js() -> str:
     });
   }
 
-  function focusWard(sel) {
-    const option = sel.options[sel.selectedIndex];
-    if (!option.value) return resetFocus();
-    focusJurisdiction(sel, "wards_hi", "Name", ["acsel", "pcsel"]);
-    updateCouncillorSelect(option);
+  function applyJurisdictionFilters() {
+    const pcsel = document.getElementById("pcsel");
+    const acsel = document.getElementById("acsel");
+    const wardsel = document.getElementById("wardsel");
+    const hasCrosswalk = Object.keys(jurisdiction.acs || {}).length > 0;
+    let allowedAcs = hasCrosswalk ? makeSet(Object.keys(jurisdiction.acs)) : null;
+    let allowedWards = hasCrosswalk ? makeSet(Object.keys(jurisdiction.wards || {})) : null;
+
+    if (pcsel.value && jurisdiction.pcs[pcsel.value]) {
+      allowedAcs = intersectSets(allowedAcs, makeSet(jurisdiction.pcs[pcsel.value].acs));
+      allowedWards = intersectSets(allowedWards, makeSet(jurisdiction.pcs[pcsel.value].wards));
+    }
+    setOptionAvailability(acsel, allowedAcs);
+
+    if (acsel.value && jurisdiction.acs[acsel.value]) {
+      const acWards = makeSet(jurisdiction.acs[acsel.value].wards);
+      allowedWards = intersectSets(allowedWards, acWards);
+    }
+    setOptionAvailability(wardsel, allowedWards);
   }
 
-  function focusJurisdiction(sel, highlightLayer, property, others) {
-    const option = sel.options[sel.selectedIndex];
-    if (!option.value) return resetFocus();
-    others.forEach((id) => {
-      const other = document.getElementById(id);
-      if (other && !other.disabled) other.value = "";
+  function setOptionAvailability(sel, allowed) {
+    Array.from(sel.options).forEach((option, index) => {
+      if (index === 0) {
+        option.hidden = false;
+        option.disabled = false;
+        return;
+      }
+      const available = !allowed || allowed.has(option.value);
+      option.hidden = !available;
+      option.disabled = !available;
     });
+    if (sel.value && allowed && !allowed.has(sel.value)) sel.value = "";
+  }
+
+  function updateMapFocus() {
+    const pcOption = currentOption("pcsel");
+    const acOption = currentOption("acsel");
+    const wardOption = currentOption("wardsel");
     ["wards_hi", "acs_hi", "pcs_hi"].forEach((layerId) => {
       if (map.getLayer(layerId)) {
         const prop = layerId === "wards_hi" ? "Name" : (layerId === "acs_hi" ? "ac_name" : "pc_name");
         map.setFilter(layerId, ["==", prop, "__none__"]);
       }
     });
-    if (map.getLayer(highlightLayer)) map.setFilter(highlightLayer, ["==", property, option.value]);
-    setMask(option.dataset.g ? JSON.parse(option.dataset.g) : null);
-    if (option.dataset.b) {
-      const b = JSON.parse(option.dataset.b);
+    if (pcOption && map.getLayer("pcs_hi")) map.setFilter("pcs_hi", ["==", "pc_name", pcOption.value]);
+    if (acOption && map.getLayer("acs_hi")) map.setFilter("acs_hi", ["==", "ac_name", acOption.value]);
+    if (wardOption && map.getLayer("wards_hi")) map.setFilter("wards_hi", ["==", "Name", wardOption.value]);
+
+    const focusOption = wardOption || acOption || pcOption;
+    if (!focusOption) {
+      setMask(null);
+      fitDefaultView(500);
+      return;
+    }
+    setMask(focusOption.dataset.g ? JSON.parse(focusOption.dataset.g) : null);
+    if (focusOption.dataset.b) {
+      const b = JSON.parse(focusOption.dataset.b);
       map.fitBounds([[b[0], b[1]], [b[2], b[3]]], {padding: 42, duration: 600});
     }
   }
@@ -343,12 +465,26 @@ def _js() -> str:
       const el = document.getElementById(id);
       if (el && !el.disabled) el.value = "";
     });
-    clearCouncillorSelect();
+    setOptionAvailability(document.getElementById("wardsel"), null);
+    setOptionAvailability(document.getElementById("acsel"), null);
     if (map.getLayer("wards_hi")) map.setFilter("wards_hi", ["==", "Name", "__none__"]);
     if (map.getLayer("acs_hi")) map.setFilter("acs_hi", ["==", "ac_name", "__none__"]);
     if (map.getLayer("pcs_hi")) map.setFilter("pcs_hi", ["==", "pc_name", "__none__"]);
     setMask(null);
-    map.fitBounds([[city.bbox[0], city.bbox[1]], [city.bbox[2], city.bbox[3]]], {padding: 28, duration: 500});
+    fitDefaultView(500);
+  }
+
+  function fitDefaultView(duration) {
+    map.fitBounds([[city.bbox[0], city.bbox[1]], [city.bbox[2], city.bbox[3]]], {
+      padding: defaultViewPadding(),
+      duration
+    });
+  }
+
+  function defaultViewPadding() {
+    return window.matchMedia("(max-width: 760px)").matches
+      ? {top: 92, right: 18, bottom: 18, left: 18}
+      : {top: 68, right: 24, bottom: 24, left: 24};
   }
 
   function setMask(rings) {
@@ -361,17 +497,27 @@ def _js() -> str:
 
   function showPopup(layer, event) {
     const props = event.features[0].properties || {};
-    let title = props.Name || props.name || layer.label;
-    let rows = layer.popup.map((key) => {
-      const value = props[key] ?? "";
-      if (value === "") return "";
-      const limit = key === "councillors" ? 180 : 72;
-      return `<div><span class="k">${escapeHtml(key.replace(/_/g, " "))}:</span> ${escapeHtml(clip(String(value), limit))}</div>`;
-    }).join("");
     new maplibregl.Popup()
       .setLngLat(event.lngLat)
-      .setHTML(`<b>${escapeHtml(title)}</b>${rows}`)
+      .setHTML(popupHtml(layer, props))
       .addTo(map);
+  }
+
+  function showHoverPopup(layer, event) {
+    const props = event.features[0].properties || {};
+    if (!hoverPopup) hoverPopup = new maplibregl.Popup({closeButton: false, closeOnClick: false});
+    hoverPopup.setLngLat(event.lngLat).setHTML(popupHtml(layer, props)).addTo(map);
+  }
+
+  function popupHtml(layer, props) {
+    const title = props.Name || props.name || layer.label;
+    const rows = layer.popup.map((key) => {
+      const value = props[key] ?? "";
+      if (value === "" || key === "Name") return "";
+      const limit = key.startsWith("councillors") ? 180 : 96;
+      return `<div><span class="k">${escapeHtml(labelFor(key))}:</span> ${escapeHtml(clip(String(value), limit))}</div>`;
+    }).join("");
+    return `<b>${escapeHtml(title)}</b>${rows}`;
   }
 
   function themeBg(theme) {
@@ -382,26 +528,59 @@ def _js() -> str:
     return value.length > n ? `${value.slice(0, n - 1)}...` : value;
   }
 
-  function updateCouncillorSelect(option) {
-    const sel = document.getElementById("councillorsel");
-    const summaries = splitList(option.dataset.councillorSummaries || "");
-    if (!summaries.length) return clearCouncillorSelect();
-    const rows = summaries.map((summary) => `<option>${escapeHtml(summary)}</option>`);
-    sel.innerHTML = `<option value="">Ward councillors</option>${rows.join("")}`;
-    sel.disabled = false;
-    sel.classList.remove("muted");
+  function currentOption(id) {
+    const sel = document.getElementById(id);
+    if (!sel || !sel.value) return null;
+    return sel.options[sel.selectedIndex];
   }
 
-  function clearCouncillorSelect() {
-    const sel = document.getElementById("councillorsel");
-    sel.innerHTML = "<option>Councillor data not loaded</option>";
-    sel.disabled = true;
-    sel.classList.add("muted");
+  function makeSet(values) {
+    return new Set((values || []).filter(Boolean));
   }
 
-  function splitList(value) {
-    return value.split(";").map((item) => item.trim()).filter(Boolean);
+  function intersectSets(left, right) {
+    if (!left) return right;
+    if (!right) return left;
+    return new Set([...left].filter((value) => right.has(value)));
   }
+
+  function labelFor(key) {
+    const labels = {
+      councillor_count: "Ward councillors",
+      councillor_phones: "Councillor contacts",
+      councillor_roster_status: "Councillor roster",
+      councillors_en: "Councillors",
+      councillors_gu: "Councillors Gujarati",
+      councillor_parties: "Parties",
+      service_priority: "Service priority",
+      service_access: "Service access",
+      gtfs_stops: "Transit stops",
+      mean_lst_c: "Mean surface heat",
+      max_lst_c: "Max surface heat",
+      pc_name: "Parliamentary constituency",
+      ac_name: "Assembly constituency"
+    };
+    return labels[key] || key.replace(/_/g, " ");
+  }
+
+  function DefaultViewControl() {}
+  DefaultViewControl.prototype.onAdd = function(mapInstance) {
+    this.map = mapInstance;
+    this.container = document.createElement("div");
+    this.container.className = "maplibregl-ctrl maplibregl-ctrl-group default-view-ctrl";
+    const button = document.createElement("button");
+    button.type = "button";
+    button.title = "Default view";
+    button.setAttribute("aria-label", "Default view");
+    button.innerHTML = '<span class="default-view-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10.5V20h13v-9.5"/><path d="M9.5 20v-6h5v6"/></svg></span>';
+    button.addEventListener("click", () => fitDefaultView(400));
+    this.container.appendChild(button);
+    return this.container;
+  };
+  DefaultViewControl.prototype.onRemove = function() {
+    this.container.parentNode.removeChild(this.container);
+    this.map = undefined;
+  };
 
   function escapeHtml(value) {
     return value.replace(/[&<>"']/g, (ch) => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[ch]));

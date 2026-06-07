@@ -12,6 +12,7 @@ python3 scripts/recipes/ahmedabad/fetch_city_budget.py
 python3 scripts/recipes/ahmedabad/fetch_city_budget.py --kind balance-sheet
 python3 scripts/recipes/ahmedabad/fetch_city_representatives.py
 python3 scripts/recipes/ahmedabad/parse_city_representatives.py
+python3 scripts/recipes/ahmedabad/build_jurisdiction_crosswalk.py
 python3 scripts/recipes/ahmedabad/ocr_city_budget.py
 python3 scripts/recipes/ahmedabad/parse_city_budget.py
 python3 scripts/recipes/ahmedabad/build_gtfs_corridors.py
@@ -43,6 +44,16 @@ Current Ahmedabad public source index:
 ```text
 data/cities/ahmedabad/source/public_sources.json
 ```
+
+Current jurisdiction crosswalk:
+
+```text
+data/cities/ahmedabad/layers/jurisdiction_crosswalk.json
+```
+
+The crosswalk is the file that makes PC and AC filters behave like governance
+filters instead of independent map selections. For other cities, build the same
+District/PC/AC/Block/Ward or GP mapping before treating the console as ready.
 
 For a city without a budget fetch adapter, place PDF files in
 `data/cities/<city>/source/budget/pdfs/`, then run `ocr_city_budget.py` and

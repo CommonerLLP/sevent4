@@ -103,6 +103,7 @@ def parse_councillors(pdf: Path) -> list[dict[str, str]]:
                 "ward_name_gu": ward_name_gu,
                 "zone_gu": zone_gu,
                 "councillor_name_gu": councillor_name_gu,
+                "councillor_name_en": "",
                 "party": _party("\n".join(block)),
                 "phones": phones,
                 "source_url": DEFAULT_COUNCILLOR_URL,
@@ -223,10 +224,13 @@ def update_ward_layer(wards_path: Path, rows: list[dict[str, str]], commissioner
         councillors = by_ward[ward_no]
         props["ward_no"] = ward_no
         props["councillor_count"] = str(len(councillors))
-        props["councillors"] = "; ".join(row["councillor_name_gu"] for row in councillors if row["councillor_name_gu"])
+        props["councillors_gu"] = "; ".join(row["councillor_name_gu"] for row in councillors if row["councillor_name_gu"])
+        props["councillors_en"] = "; ".join(row["councillor_name_en"] for row in councillors if row["councillor_name_en"])
+        props["councillors"] = props["councillors_gu"]
         props["councillor_parties"] = "; ".join(row["party"] for row in councillors if row["party"])
         props["councillor_phones"] = "; ".join(row["phones"] for row in councillors if row["phones"])
         props["councillor_summaries"] = "; ".join(_councillor_summary(row) for row in councillors)
+        props["councillor_roster_status"] = "AMC Gujarati roster parsed; names need OCR/manual verification before public display"
         props["councillor_source"] = DEFAULT_COUNCILLOR_URL
         props["municipal_commissioner"] = commissioner["name"]
         props["municipal_commissioner_phone"] = commissioner["phone_office"]
@@ -237,7 +241,11 @@ def update_ward_layer(wards_path: Path, rows: list[dict[str, str]], commissioner
 
 def _councillor_summary(row: dict[str, str]) -> str:
     phones = row["phones"].replace("; ", ", ")
-    return " · ".join(part for part in (row["councillor_name_gu"], row["party"], phones) if part)
+    if row["councillor_name_en"] and row["councillor_name_gu"]:
+        name = f"{row['councillor_name_en']} ({row['councillor_name_gu']})"
+    else:
+        name = row["councillor_name_en"] or row["councillor_name_gu"]
+    return " · ".join(part for part in (name, row["party"], phones) if part)
 
 
 if __name__ == "__main__":

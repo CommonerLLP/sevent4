@@ -2,11 +2,13 @@
 
 Indian city government is built so that responsibility is hard to see.
 
-The Seventy-fourth Amendment brought municipalities into the Constitution as
-urban local self-government. The Twelfth Schedule names the work cities should be
-able to govern: planning, land use, roads, water, sanitation, public health, fire
-services, slum improvement, urban poverty, parks, public amenities, street
-lights, bus stops, and more.
+Part IXA of the Constitution is about municipalities. It was inserted by the
+Constitution (Seventy-fourth Amendment) Act, 1992, and covers Articles 243P to
+243ZG. The political point is devolution: financial and political power should
+move down from State governments to urban local bodies. Article 243W is the
+practical hinge: municipalities are meant to function as institutions of
+self-government, with planning, social justice, and Twelfth Schedule functions
+in view.
 
 But the city people actually live in is usually split across municipal
 corporations, state departments, development authorities, parastatals, police,
@@ -20,7 +22,8 @@ problem to the public geography and public office around it.
 
 It puts ward, Assembly constituency, Parliamentary constituency, transit, public
 service, land-use, heat, and civic gap layers in one city console. A resident can
-select a ward, AC, or PC and connect a road, drainage, heat, transport, library,
+select a ward, Assembly constituency, or Parliamentary constituency and connect
+a road, drainage, heat, transport, library,
 school, health, sanitation, or public-space issue to the ward councillor, MLA,
 MP, and relevant public office where the data is available.
 
@@ -136,12 +139,18 @@ It includes:
   police, universities, and colleges
 - land-use and road layers
 - ward heat and 30m surface heat layers
-- search, layer toggles, light/dark mode, and ward/AC/PC focus filters
+- search, layer toggles, light/dark mode, and ward/Assembly constituency/Parliamentary constituency focus filters
 
-The filters matter. A resident should be able to select a ward, AC, or PC and
+The filters matter. A resident should be able to select a ward, Assembly constituency, or Parliamentary constituency and
 see the city layers in relation to that public geography. As city datasets
 improve, the same pattern can attach engineers, departments, zones, contractors,
 budgets, public works, and grievance channels.
+
+The public site should also explain why the console exists. Indian cities are
+often dysfunctional because authority is split across elected local bodies,
+state governments, parastatals, development authorities, utilities, police,
+transport agencies, and contractors. SevenT4 should help residents see that
+fragmentation instead of treating a city problem as just a point on a map.
 
 ## Governance Frame
 
@@ -180,6 +189,7 @@ data/cities/ahmedabad/
     wards.geojson
     acs.geojson
     pcs.geojson
+    jurisdiction_crosswalk.json
 ```
 
 `city.yaml` tells SevenT4 where the city is and where its data lives:
@@ -206,12 +216,37 @@ Minimum useful layers:
 - `wards.geojson`: urban local body ward polygons
 - `acs.geojson`: Assembly constituency polygons
 - `pcs.geojson`: Parliamentary constituency polygons
+- `jurisdiction_crosswalk.json`: District/Parliamentary constituency/Assembly constituency/Block/Ward or GP mapping used
+  by the console filters
 - service points: schools, health facilities, libraries, toilets, transit stops,
   and other city-specific public infrastructure
 
 Ward councillor data should be joined into `wards.geojson` when a public ward
 roster is available. MLA and MP attribution should be joined into `acs.geojson`
 and `pcs.geojson` when public representative data is available.
+
+The crosswalk is not optional. The console is an Indian governance tool first
+and a map second. For every city, someone must match the relevant public
+administration and electoral geographies:
+
+- State and district
+- Parliamentary constituency
+- Assembly constituency
+- Block, where relevant
+- ULB ward for cities, or gram panchayat/local rural unit for rural work
+
+Ahmedabad ships a generated `jurisdiction_crosswalk.json` as the complete
+reference case. New city forks can start from:
+
+```text
+data/jurisdiction_crosswalk.stub.json
+```
+
+If polygons are available, generate the city crosswalk by intersecting wards or
+GPs with ACs, PCs, districts, and blocks. If polygons are not available, curate
+the table manually from official public records, keeping one row per real
+overlap or assignment. Delhi should be handled with a separate governance
+adapter when added; do not force it into a simple municipal model.
 
 ## Make A New City
 
@@ -265,6 +300,11 @@ python -m sevent4.build_city_console \
 
 ## Reading
 
+- Constitution of India, Part IXA: The Municipalities, Articles 243P-243ZG:
+  https://www.constitutionofindia.net/parts/part-ixa/
+- Constitution of India, Article 243W: powers, authority, and responsibilities
+  of municipalities:
+  https://www.constitutionofindia.net/articles/article-243w-powers-authority-and-responsibilities-of-municipalities-etc/
 - Constitution/74th Amendment summary and Twelfth Schedule functions:
   https://secforuts.mha.gov.in/74th-amendment-and-municipalities-in-india/
 - NITI Aayog, `Moving Towards Effective City Government - A Framework for
