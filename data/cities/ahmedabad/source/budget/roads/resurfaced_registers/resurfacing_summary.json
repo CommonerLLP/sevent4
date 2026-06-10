@@ -1,0 +1,85 @@
+{
+  "contractor_totals": {
+    "Nar Narayan Infrastructure Pvt Ltd": 226,
+    "M/s L.G. Chaudhary": 128,
+    "N.C.C. Infra Pvt Ltd": 118,
+    "Keystone Infrastructure Pvt Ltd": 106,
+    "Apex Protech LLP": 101,
+    "Maruti Construction": 99,
+    "Vimal Construction": 65,
+    "Maruti Infracreation Pvt Ltd": 64,
+    "Ashish Infracon Pvt Ltd": 53,
+    "(?) Construction & Infrastructure (gap-year firm, verify)": 38,
+    "Fortune Builders": 31,
+    "R.K.C. Infrabuild Pvt Ltd": 25,
+    "(?)n Prokon Pvt Ltd (verify prefix)": 25,
+    "K.E.C.L.": 15,
+    "Disha Construction": 14,
+    "(?) Infracon LLP (verify prefix)": 12,
+    "Milan Road Buildtech LLP": 12,
+    "Indravijay Construction (verify)": 11,
+    "Anavya Construction (verify)": 5,
+    "(?) Infracon variant (verify)": 4,
+    "(?) -space Pvt Ltd (verify prefix)": 4
+  },
+  "by_year_zone": {
+    "2017-18": {
+      "North": 29,
+      "South": 52,
+      "West": 88,
+      "North-West": 37,
+      "South-West": 20,
+      "Central": 5
+    },
+    "2018-19": {
+      "North": 37,
+      "South": 67,
+      "West": 92,
+      "North-West": 36,
+      "South-West": 19,
+      "Central": 12
+    },
+    "2019-20": {
+      "North-West": 82,
+      "South-West": 37,
+      "South": 56,
+      "Central": 21,
+      "North": 34
+    },
+    "2020-21": {
+      "North-West": 48,
+      "South-West": 33,
+      "South": 61,
+      "Central": 8,
+      "North": 40
+    },
+    "2022-23": {
+      "North-West": 28,
+      "North": 24,
+      "South-West": 64,
+      "South": 12,
+      "Central": 20
+    },
+    "2024-25": {
+      "West": 72,
+      "North-West": 56,
+      "East": 38,
+      "South": 37,
+      "Central": 21,
+      "North": 30
+    },
+    "2025-26": {
+      "North": 36,
+      "East": 45,
+      "South": 35,
+      "Central": 16,
+      "West": 56,
+      "North-West": 92,
+      "South-West": 56,
+      "RoadProject": 31
+    }
+  },
+  "rows_total": 1683,
+  "rows_ward_mapped": 1380,
+  "rows_contractor_mapped": 1156
+}

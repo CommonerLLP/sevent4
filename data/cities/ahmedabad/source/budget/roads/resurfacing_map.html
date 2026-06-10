@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Ahmedabad — the roads that keep getting repaved (AMC DLP registers 2017–2026)</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  :root{ --bg:#0e0f13; --panel:#171922; --ink:#e8e8ea; --mut:#9aa0ad; --line:#262a36; --hot:#e23b2e; }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+  #wrap{display:flex;height:100vh}
+  #map{flex:1;background:#0a0b0e}
+  #side{width:360px;border-left:1px solid var(--line);background:var(--panel);padding:18px 18px 28px;overflow:auto}
+  h1{font-size:17px;margin:0 0 2px;letter-spacing:-.2px}
+  .sub{color:var(--mut);font-size:12px;margin:0 0 16px}
+  .legend{display:flex;flex-direction:column;gap:5px;margin:14px 0 18px}
+  .legend .row{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--mut)}
+  .sw{width:16px;height:12px;border-radius:2px;border:1px solid #0006}
+  table{width:100%;border-collapse:collapse;margin-top:6px}
+  th,td{text-align:left;padding:5px 6px;border-bottom:1px solid var(--line);font-size:12px}
+  th{color:var(--mut);font-weight:600}
+  td.n{text-align:right;font-variant-numeric:tabular-nums}
+  .pill{display:inline-block;background:#23262f;border:1px solid var(--line);border-radius:999px;padding:1px 8px;font-size:11px;color:var(--mut)}
+  .leaflet-popup-content-wrapper{background:#1b1e28;color:var(--ink);border-radius:8px}
+  .leaflet-popup-tip{background:#1b1e28}
+  .pop h3{margin:0 0 4px;font-size:14px}
+  .pop table{margin-top:6px}
+  .foot{margin-top:18px;color:var(--mut);font-size:11px;border-top:1px solid var(--line);padding-top:12px}
+  b.hot{color:#ff7a6e}
+</style>
+</head>
+<body>
+<div id="wrap">
+  <div id="map"></div>
+  <div id="side">
+    <h1>The roads that keep getting repaved</h1>
+    <p class="sub">Ahmedabad · AMC Defect-Liability-Period road registers · 7 published years 2017-18 → 2025-26 · 1,683 resurfacing work-orders</p>
+    <p style="font-size:12.5px;color:#cfd3dc;margin:0 0 6px">Each ward is shaded by <b class="hot">recurrence</b> — how many of the 7 years it appears in AMC's resurfacing registers. Deep red = repaved in year after year after year.</p>
+    <div class="legend" id="legend"></div>
+    <div class="pill" id="modepill">showing: recurrence (years repaved)</div>
+    <table id="rank"><thead><tr><th>Ward</th><th class="n">yrs</th><th class="n">segs</th><th>usual contractor</th></tr></thead><tbody></tbody></table>
+    <div class="foot">
+      Source: AMC's own DLP road registers (ViewFile IDs 315/316/317/318/319/2424/2628). Ward join + contractor decode: sevent4 <code>parse_resurfaced_registers.py</code>. Contractor names are HITL-pending (transliterated from legacy-font Gujarati). 2021-22 &amp; 2023-24 were never published by AMC.
+    </div>
+  </div>
+</div>
+<script>
+const YEARS=["2017_18","2018_19","2019_20","2020_21","2022_23","2024_25","2025_26"];
+const map=L.map('map',{zoomControl:true}).setView([23.03,72.58],11);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+  {attribution:'&copy; OpenStreetMap &copy; CARTO',subdomains:'abcd',maxZoom:19}).addTo(map);
+
+function color(rec){ // recurrence 0..7
+  return rec>=6?'#7f0c04':rec>=5?'#b71d10':rec>=4?'#e23b2e':rec>=3?'#f36b3f':
+         rec>=2?'#f7a259':rec>=1?'#f7d08a':'#2b2f3a';
+}
+const legend=[['6–7 yrs','#7f0c04'],['5','#b71d10'],['4','#e23b2e'],['3','#f36b3f'],['2','#f7a259'],['1','#f7d08a'],['0','#2b2f3a']];
+document.getElementById('legend').innerHTML=legend.map(([l,c])=>
+  `<div class="row"><span class="sw" style="background:${c}"></span>${l} of 7 years repaved</div>`).join('');
+
+fetch('resurfacing_by_ward.geojson').then(r=>r.json()).then(gj=>{
+  const rows=[];
+  gj.features.forEach(f=>{
+    const p=f.properties; let rec=0,seg=0; const cc={};
+    YEARS.forEach(y=>{
+      const s=+p['resurf_'+y+'_segments']||0;
+      if(s>0){rec++;seg+=s;}
+      const c=p['resurf_'+y+'_top_contractor'];
+      if(c) cc[c]=(cc[c]||0)+s;
+    });
+    p._rec=rec;p._seg=seg;
+    p._top=Object.entries(cc).sort((a,b)=>b[1]-a[1])[0];
+    rows.push({name:p.Name,rec,seg,top:p._top?p._top[0]:'—'});
+  });
+  const layer=L.geoJSON(gj,{
+    style:f=>({color:'#0a0b0e',weight:1,fillColor:color(f.properties._rec),fillOpacity:.82}),
+    onEachFeature:(f,lyr)=>{
+      const p=f.properties;
+      const per=YEARS.map(y=>{const s=+p['resurf_'+y+'_segments']||0;return s?`<tr><td>${y.replace('_','-')}</td><td class="n">${s}</td><td>${p['resurf_'+y+'_top_contractor']||''}</td></tr>`:''}).join('');
+      lyr.bindPopup(`<div class="pop"><h3>${p.Name}</h3>
+        <div style="color:#9aa0ad;font-size:12px">repaved in <b style="color:#ff7a6e">${p._rec} of 7</b> years · ${p._seg} work-orders total</div>
+        <table><thead><tr><th>year</th><th class="n">segs</th><th>top contractor</th></tr></thead><tbody>${per}</tbody></table></div>`);
+      lyr.on('mouseover',()=>lyr.setStyle({weight:3,color:'#fff'}));
+      lyr.on('mouseout',()=>lyr.setStyle({weight:1,color:'#0a0b0e'}));
+    }
+  }).addTo(map);
+  map.fitBounds(layer.getBounds(),{padding:[20,20]});
+
+  // ---- OSM arterial overlay: the named big roads that recur in the registers ----
+  fetch('arterials_recurrence.geojson').then(r=>r.json()).then(aj=>{
+    const art=L.geoJSON(aj,{
+      style:f=>({color:'#27e0d8',weight:Math.min(2+f.properties.register_references/3,8),opacity:.95}),
+      onEachFeature:(f,lyr)=>{const p=f.properties;
+        lyr.bindPopup(`<div class="pop"><h3>${p.arterial}</h3>
+          <div style="color:#9aa0ad;font-size:12px">in the registers <b style="color:#27e0d8">${p.register_references}×</b> over <b>${p.years_repaved}</b> years · usual: ${(p.top_contractor||'—').replace(/ Pvt Ltd| LLP/,'')}</div>
+          <div style="color:#6b7180;font-size:11px;margin-top:3px">OSM: ${p.osm_name}</div></div>`);
+        lyr.on('mouseover',()=>lyr.setStyle({weight:9,color:'#fff'}));
+        lyr.on('mouseout',()=>lyr.setStyle({color:'#27e0d8',weight:Math.min(2+f.properties.register_references/3,8)}));
+      }
+    }).addTo(map);
+    // Official AUDA/Ahmedabad road network — ISRO/SAC VEDAS GeoServer WMS (govt, usable)
+    const vedasRoads=L.tileLayer.wms('https://vedas.sac.gov.in/geoserver/vedas_spatial/wms',{
+      layers:'vedas_spatial:ahm_roads_2013',format:'image/png',transparent:true,version:'1.1.1',
+      opacity:.55,attribution:'Roads: ISRO/SAC VEDAS (ahm_roads_2013)'});
+    const amcBoundary=L.tileLayer.wms('https://vedas.sac.gov.in/geoserver/vedas_spatial/wms',{
+      layers:'vedas_spatial:ahmedabad_amc_boundary',format:'image/png',transparent:true,version:'1.1.1',opacity:.7});
+    L.control.layers(null,{
+      'Ward recurrence (all roads)':layer,
+      'Named arterials (OSM, ~2% of rows)':art,
+      'Official road network (VEDAS/ISRO)':vedasRoads,
+      'AMC boundary (VEDAS/ISRO)':amcBoundary
+    },{collapsed:false,position:'topleft'}).addTo(map);
+  }).catch(()=>{});
+  rows.sort((a,b)=>b.rec-a.rec||b.seg-a.seg);
+  document.querySelector('#rank tbody').innerHTML=rows.slice(0,16).map(r=>
+    `<tr><td>${r.name.replace(/^\d+\s/,'')}</td><td class="n">${r.rec}</td><td class="n">${r.seg}</td><td style="font-size:11px">${(r.top||'').replace(/ Pvt Ltd| LLP/,'')}</td></tr>`).join('');
+});
+</script>
+</body>
+</html>
