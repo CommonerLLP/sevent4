@@ -7,9 +7,2224 @@
   "district"
  ],
  "thresholds": {
-  "method": "ward representative point within AC polygon (nearest fallback)"
+  "method": "ward representative point within AC/PC polygon (nearest fallback), EPSG:3857"
  },
  "excluded_acs": [],
- "source": "spatial join of city ward/AC/PC layers (AC carries PC_NAME + DIST_NAME)",
- "records": []
+ "source": "spatial join of city ward/AC/PC layers",
+ "records": [
+  {
+   "ward_name": "25 - Vinayaka Layout",
+   "ac_name": "Rajarajeshwarinagar",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "2 - Aerocity",
+   "ac_name": "Yelahanka",
+   "pc_name": "Chikkaballapur",
+   "district_name": ""
+  },
+  {
+   "ward_name": "3 - Chowdeshwari ward",
+   "ac_name": "Yelahanka",
+   "pc_name": "Chikkaballapur",
+   "district_name": ""
+  },
+  {
+   "ward_name": "15 - Ramamurthy Nagara",
+   "ac_name": "K.R. Pura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "58 - Nagashettyhalli",
+   "ac_name": "Hebbal",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "21 - Kogilu",
+   "ac_name": "Byatarayanapura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "46 - Yamalur",
+   "ac_name": "Mahadevapura",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "24 - Agaram",
+   "ac_name": "Shantinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "72 - Dasarahalli",
+   "ac_name": "Dasarahalli",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "11 - Old Baiyappanahalli",
+   "ac_name": "C.V. RamannNagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "16 - Kotthur",
+   "ac_name": "K.R. Pura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "69 - Bagalagunte",
+   "ac_name": "Dasarahalli",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "34 - Subbayanapalya",
+   "ac_name": "Sarvagnanagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "68 - Mallasandra",
+   "ac_name": "Dasarahalli",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "70 - Manjunatha Nagar",
+   "ac_name": "Dasarahalli",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "2 - Kadirenahalli",
+   "ac_name": "Padmanabanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "60 - Jalahalli",
+   "ac_name": "Rajarajeshwarinagar",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "14 - K.R Pura",
+   "ac_name": "K.R. Pura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "20 - Kengeri Kote ward",
+   "ac_name": "Yeshwanthapura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "39 - Gottigere",
+   "ac_name": "Bangalore South",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "36 - Beguru",
+   "ac_name": "Bangalore South",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "41 - V.V Puram",
+   "ac_name": "Chickpet",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "35 - Kammanahalli",
+   "ac_name": "Sarvagnanagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "7 - Byrasandra",
+   "ac_name": "Jayanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "8 - Tilak Nagara",
+   "ac_name": "Jayanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "63 - J.P PARK",
+   "ac_name": "Rajarajeshwarinagar",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "51 - Old Guddadahalli",
+   "ac_name": "Chamrajapet",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "4 - Babusab Palya",
+   "ac_name": "K.R. Pura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "4 - Banashankari Temple Ward",
+   "ac_name": "Padmanabanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "71 - Nele Maheshwaramma Temple Ward",
+   "ac_name": "Dasarahalli",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "45 - Marathahalli",
+   "ac_name": "Mahadevapura",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "45 - Konanakunte",
+   "ac_name": "Bangalore South",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "13 - Marenahalli South",
+   "ac_name": "Jayanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "44 - Harinagar",
+   "ac_name": "Bangalore South",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "2 - Horamavu",
+   "ac_name": "K.R. Pura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "50 - Dinnur",
+   "ac_name": "Hebbal",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "25 - L.B Shastri Nagar",
+   "ac_name": "K.R. Pura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "66 - Kammagondanahalli",
+   "ac_name": "Dasarahalli",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "10 - Abdul Kalam Nagar",
+   "ac_name": "Jayanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "45 - Kushal Nagar",
+   "ac_name": "Pulakeshinagar",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "11 - Krishnanagar",
+   "ac_name": "K.R. Pura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "43 - Bheereshwara Nagar",
+   "ac_name": "Bangalore South",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "3 - Yarab nagar",
+   "ac_name": "Padmanabanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "42 - RBI Layout",
+   "ac_name": "Bangalore South",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "1 - K Narayanapura",
+   "ac_name": "K.R. Pura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "39 - Hagaduru",
+   "ac_name": "Mahadevapura",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "13 - Krishnaiahnapalya",
+   "ac_name": "C.V. RamannNagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "1 - Padmanabhanagara",
+   "ac_name": "Padmanabanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "48 - Vasanthapura",
+   "ac_name": "Bangalore South",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "6 - Gowdanapalya",
+   "ac_name": "Padmanabanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "63 - Okalipuram",
+   "ac_name": "Gandhinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "5 - Kane Muneshwara Ward",
+   "ac_name": "Padmanabanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "9 - Hoysala Nagara Central",
+   "ac_name": "C.V. RamannNagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "52 - Talagattapura",
+   "ac_name": "Yeshwanthapura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "50 - Sarvabhouma Nagar",
+   "ac_name": "Bangalore South",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "25 - Govindapura",
+   "ac_name": "Sarvagnanagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "53 - Rayapuram",
+   "ac_name": "Chamrajapet",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "40 - Anjanapura",
+   "ac_name": "Bangalore South",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "59 - Vijaya Bank Layout",
+   "ac_name": "Bommanahalli",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "41 - Periyar Nagar",
+   "ac_name": "Pulakeshinagar",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "52 - Padarayanapura",
+   "ac_name": "Chamrajapet",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "46 - Yelachenahalli",
+   "ac_name": "Bangalore South",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "59 - Geddalahalli",
+   "ac_name": "Hebbal",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "51 - Subramanyapura",
+   "ac_name": "Bangalore South",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "35 - Goraguntepalya",
+   "ac_name": "Rajarajeshwarinagar",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "28 - Kottegepalya",
+   "ac_name": "Rajarajeshwarinagar",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "62 - Brundavana Nagara",
+   "ac_name": "Rajarajeshwarinagar",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "5 - Yelahanka Satellite Town",
+   "ac_name": "Yelahanka",
+   "pc_name": "Chikkaballapur",
+   "district_name": ""
+  },
+  {
+   "ward_name": "22 - Bangarappa Nagara",
+   "ac_name": "Rajarajeshwarinagar",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "49 - Uttarahalli",
+   "ac_name": "Bangalore South",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "64 - Yeshwanthpura",
+   "ac_name": "Rajarajeshwarinagar",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "37 - Yelenahalli",
+   "ac_name": "Bangalore South",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "17 - Kaggadasapura",
+   "ac_name": "C.V. RamannNagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "38 - Doddakammanahalli",
+   "ac_name": "Bangalore South",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "28 - Byrathi",
+   "ac_name": "Mahadevapura",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "41 - Kothanur",
+   "ac_name": "Bangalore South",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "19 - K.S. Nissar Ahmed Ward",
+   "ac_name": "K.R. Pura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "57 - Bhoopasandra",
+   "ac_name": "Hebbal",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "15 - Shakambarinagara",
+   "ac_name": "Jayanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "56 - Hebbal",
+   "ac_name": "Hebbal",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "52 - Vishwanatha Nagenahalli",
+   "ac_name": "Hebbal",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "4 - Sampangirama Nagar",
+   "ac_name": "Shivajinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "10 - Basavanapura",
+   "ac_name": "K.R. Pura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "35 - Vishwapriya Nagara",
+   "ac_name": "Bangalore South",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "8 - Halasuru",
+   "ac_name": "Shivajinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "33 - Naganathapura",
+   "ac_name": "Bangalore South",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "49 - Aramane Nagara",
+   "ac_name": "Malleshwaram",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "12 - Kasturi Nagar",
+   "ac_name": "C.V. RamannNagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "79 - Nagarbhavi",
+   "ac_name": "Govindarajanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "41 - Munnenkolalu",
+   "ac_name": "Mahadevapura",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "34 - Chikkathoguru",
+   "ac_name": "Bangalore South",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "6 - Doddabettahalli",
+   "ac_name": "Yelahanka",
+   "pc_name": "Chikkaballapur",
+   "district_name": ""
+  },
+  {
+   "ward_name": "55 - Ganganagar",
+   "ac_name": "Hebbal",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "17 - Vijinapura",
+   "ac_name": "K.R. Pura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "49 - Kasturbha Nagar",
+   "ac_name": "Chamrajapet",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "1 - Raja Kempegowda ward",
+   "ac_name": "Yelahanka",
+   "pc_name": "Chikkaballapur",
+   "district_name": ""
+  },
+  {
+   "ward_name": "11 - Jayanagar East",
+   "ac_name": "Jayanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "33 - Dharmaraya Swamy Temple Ward",
+   "ac_name": "Chickpet",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "38 - Kanakanapalya",
+   "ac_name": "Chickpet",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "62 - Swatantra Palya Ward",
+   "ac_name": "Gandhinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "54 - Gangenahalli",
+   "ac_name": "Hebbal",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "14 - J.P Nagar",
+   "ac_name": "Jayanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "9 - N.A.L Layout",
+   "ac_name": "Jayanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "27 - Sri Lakshmi Devi Ward",
+   "ac_name": "B.T.M Layout",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "4 - Nyayanga Badavane",
+   "ac_name": "Yelahanka",
+   "pc_name": "Chikkaballapur",
+   "district_name": ""
+  },
+  {
+   "ward_name": "65 - Abbigere",
+   "ac_name": "Dasarahalli",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "18 - Viswamanava Kuvempu Ward",
+   "ac_name": "B.T.M Layout",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "42 - Priyadarshini Ward",
+   "ac_name": "Mahadevapura",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "67 - Shettihalli",
+   "ac_name": "Dasarahalli",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "21 - Chikka Adugodi",
+   "ac_name": "B.T.M Layout",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "7 - Attur",
+   "ac_name": "Yelahanka",
+   "pc_name": "Chikkaballapur",
+   "district_name": ""
+  },
+  {
+   "ward_name": "19 - New Tavarekere",
+   "ac_name": "B.T.M Layout",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "70 - Iblur",
+   "ac_name": "Bommanahalli",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "61 - HMT Ward",
+   "ac_name": "Rajarajeshwarinagar",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "51 - Manorayanapalya",
+   "ac_name": "Hebbal",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "65 - Garvebavi Palya",
+   "ac_name": "Bommanahalli",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "32 - Kudlu",
+   "ac_name": "Anekal",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "25 - National Games Village",
+   "ac_name": "B.T.M Layout",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "16 - Amruthahalli",
+   "ac_name": "Byatarayanapura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "22 - S.G Palya",
+   "ac_name": "B.T.M Layout",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "32 - Banaswadi",
+   "ac_name": "Sarvagnanagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "36 - Someshwara Nagara",
+   "ac_name": "Chickpet",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "12 - Pattabhirama Nagara",
+   "ac_name": "Jayanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "49 - Jaya Chamarajendra Nagara",
+   "ac_name": "Hebbal",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "71 - Agara",
+   "ac_name": "Bommanahalli",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "23 - Lakkasandra",
+   "ac_name": "B.T.M Layout",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "27 - Ambedkarnagar",
+   "ac_name": "Shantinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "13 - Kodigehalli",
+   "ac_name": "Byatarayanapura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "33 - Lakshmi Devi Nagar",
+   "ac_name": "Rajarajeshwarinagar",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "37 - Jeevanahalli",
+   "ac_name": "Sarvagnanagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "31 - Kasavanahalli",
+   "ac_name": "Mahadevapura",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "39 - Kaval Byrasandra",
+   "ac_name": "Pulakeshinagar",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "17 - N.S Palya",
+   "ac_name": "B.T.M Layout",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "55 - Puttenahalli",
+   "ac_name": "Bommanahalli",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "56 - Doresanipalya",
+   "ac_name": "Bommanahalli",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "42 - Aruna Asif Ali Ward",
+   "ac_name": "Pulakeshinagar",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "53 - R.T Nagar",
+   "ac_name": "Hebbal",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "47 - Pulakeshi Nagar",
+   "ac_name": "Pulakeshinagar",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "15 - Byatarayanapura",
+   "ac_name": "Byatarayanapura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "28 - Kormangala East",
+   "ac_name": "B.T.M Layout",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "46 - Sagayapuram",
+   "ac_name": "Pulakeshinagar",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "24 - HBR Layout",
+   "ac_name": "Sarvagnanagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "48 - S.K Garden",
+   "ac_name": "Pulakeshinagar",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "14 - Rajiv Gandhi Nagar",
+   "ac_name": "Byatarayanapura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "28 - Venkateshpuram",
+   "ac_name": "Sarvagnanagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "36 - Maruthi Seva Nagara",
+   "ac_name": "Sarvagnanagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "50 - JJR Nagara",
+   "ac_name": "Chamrajapet",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "64 - Hongasandra",
+   "ac_name": "Bommanahalli",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "66 - Singasandra",
+   "ac_name": "Bommanahalli",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "67 - Bandepalya",
+   "ac_name": "Bommanahalli",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "38 - Shampura",
+   "ac_name": "Pulakeshinagar",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "22 - Nagavara",
+   "ac_name": "Sarvagnanagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "23 - Hennur",
+   "ac_name": "Sarvagnanagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "34 - D.V Gundappa Ward",
+   "ac_name": "Chickpet",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "26 - Ejipura",
+   "ac_name": "B.T.M Layout",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "44 - Doddanna Nagar",
+   "ac_name": "Pulakeshinagar",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "8 - Singapura",
+   "ac_name": "Byatarayanapura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "10 - Cox Town",
+   "ac_name": "C.V. RamannNagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "72 - HSR Layout",
+   "ac_name": "Bommanahalli",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "65 - Manjunath Nagara",
+   "ac_name": "Rajajinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "10 - Vidyaranyapura",
+   "ac_name": "Byatarayanapura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "61 - Kodi Chikkanahalli",
+   "ac_name": "Bommanahalli",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "60 - Bilekahalli",
+   "ac_name": "Bommanahalli",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "29 - Lingarajpura",
+   "ac_name": "Sarvagnanagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "33 - HRBR Layout",
+   "ac_name": "Sarvagnanagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "30 - Kacharakanahalli",
+   "ac_name": "Sarvagnanagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "30 - Vinayakanagar",
+   "ac_name": "Shantinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "66 - Sane Guruvana Halli",
+   "ac_name": "Rajajinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "53 - Jaraganahalli",
+   "ac_name": "Bommanahalli",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "24 - A Adugodi",
+   "ac_name": "B.T.M Layout",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "77 - Maruthi Mandira Ward",
+   "ac_name": "Govindarajanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "71 - Thimmenahalli",
+   "ac_name": "Govindarajanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "31 - Shanthinagar",
+   "ac_name": "Shantinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "29 - Kormangala West",
+   "ac_name": "B.T.M Layout",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "54 - Kengal Hanumanthaiah South",
+   "ac_name": "Bommanahalli",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "20 - Madiwala",
+   "ac_name": "B.T.M Layout",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "48 - Mathikere",
+   "ac_name": "Malleshwaram",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "62 - Devarachikkanahalli",
+   "ac_name": "Bommanahalli",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "34 - Peenya",
+   "ac_name": "Rajarajeshwarinagar",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "7 - Rajagopala Nagara",
+   "ac_name": "Dasarahalli",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "18 - Kempapura",
+   "ac_name": "Byatarayanapura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "93 - Avalahalli",
+   "ac_name": "Vijayanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "87 - K.P Agrahara",
+   "ac_name": "Vijayanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "43 - Varalakshmi Nagar",
+   "ac_name": "Pulakeshinagar",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "88 - Sangolli Rayanna Ward",
+   "ac_name": "Vijayanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "20 - Sampigehalli",
+   "ac_name": "Byatarayanapura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "57 - Hulimavu",
+   "ac_name": "Bommanahalli",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "12 - Thindlu",
+   "ac_name": "Byatarayanapura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "21 - Uday Nagar",
+   "ac_name": "K.R. Pura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "9 - Srigandhanagar",
+   "ac_name": "Dasarahalli",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "102 - Hanumanthanagar",
+   "ac_name": "Basavanagudi",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "19 - Thanisandra",
+   "ac_name": "Byatarayanapura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "17 - Jakkur",
+   "ac_name": "Byatarayanapura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "54 - Subedarpalya",
+   "ac_name": "Malleshwaram",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "3 - Nelagadaranahalli",
+   "ac_name": "Dasarahalli",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "9 - Kuvempunagara",
+   "ac_name": "Byatarayanapura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "47 - Chandranagara",
+   "ac_name": "Bangalore South",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "5 - Hoysala Nagara East",
+   "ac_name": "K.R. Pura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "58 - Dayanand Nagara",
+   "ac_name": "Rajajinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "11 - Doddabommasandra",
+   "ac_name": "Byatarayanapura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "8 - Anandapura",
+   "ac_name": "K.R. Pura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "72 - Kaveripura",
+   "ac_name": "Govindarajanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "58 - Arakere",
+   "ac_name": "Bommanahalli",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "47 - Bellanduru",
+   "ac_name": "Mahadevapura",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "20 - A Narayanapura",
+   "ac_name": "K.R. Pura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "27 - Vibhootipura",
+   "ac_name": "K.R. Pura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "33 - S.M Krishna Ward",
+   "ac_name": "Mahadevapura",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "29 - Chowdeshwari Nagar",
+   "ac_name": "Rajarajeshwarinagar",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "49 - Shivanasamudra Ward",
+   "ac_name": "Mahadevapura",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "18 - Dooravaninagar",
+   "ac_name": "K.R. Pura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "68 - Mangammana Palya",
+   "ac_name": "Bommanahalli",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "16 - Sarakki",
+   "ac_name": "Jayanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "29 - Hoodi",
+   "ac_name": "Mahadevapura",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "19 - Jeevan Bhimanagar",
+   "ac_name": "C.V. RamannNagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "38 - Nandini Layout",
+   "ac_name": "Mahalakshmi Layout",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "69 - Hosapalya",
+   "ac_name": "Bommanahalli",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "57 - Kuvempu Ward",
+   "ac_name": "Malleshwaram",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "23 - Sangama Ward",
+   "ac_name": "K.R. Pura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "32 - Channasandra",
+   "ac_name": "Mahadevapura",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "81 - Nayanda Halli",
+   "ac_name": "Govindarajanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "73 - Dr. Vishnuvardhan Ward",
+   "ac_name": "Govindarajanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "107 - Dharmagiri Ward",
+   "ac_name": "Padmanabanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "27 - Srigandada Kaval",
+   "ac_name": "Rajarajeshwarinagar",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "58 - Chickpete",
+   "ac_name": "Gandhinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "31 - Kadugodi",
+   "ac_name": "Mahadevapura",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "40 - Varthur",
+   "ac_name": "Mahadevapura",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "69 - Agrahara Dasarahalli",
+   "ac_name": "Govindarajanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "36 - Bharath Aikya Ward",
+   "ac_name": "Mahadevapura",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "35 - Garudachar Palya",
+   "ac_name": "Mahadevapura",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "26 - Vannarpet",
+   "ac_name": "Shantinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "86 - Vidyaranyanagara",
+   "ac_name": "Vijayanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "37 - Kundalahalli",
+   "ac_name": "Mahadevapura",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "34 - Kaveri Nagara",
+   "ac_name": "Mahadevapura",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "28 - Neelasandra",
+   "ac_name": "Shantinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "22 - Mahadevapura",
+   "ac_name": "K.R. Pura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "55 - Bhuvaneshwari Nagar",
+   "ac_name": "Gandhinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "38 - Whitefield",
+   "ac_name": "Mahadevapura",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "30 - Jakkasandra",
+   "ac_name": "B.T.M Layout",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "50 - Gunjur",
+   "ac_name": "Mahadevapura",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "13 - Rajarajeshwari Temple ward",
+   "ac_name": "K.R. Pura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "43 - Dodda Nekkundi",
+   "ac_name": "Mahadevapura",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "9 - Bhattarahalli",
+   "ac_name": "K.R. Pura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "4 - Parvathi Nagar",
+   "ac_name": "Dasarahalli",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "26 - Jagadish Nagar",
+   "ac_name": "K.R. Pura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "20 - Kodihalli",
+   "ac_name": "C.V. RamannNagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "12 - Devasandra",
+   "ac_name": "K.R. Pura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "63 - Bommanahalli",
+   "ac_name": "Bommanahalli",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "3 - Chellakere",
+   "ac_name": "K.R. Pura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "26 - Mallathahalli",
+   "ac_name": "Rajarajeshwarinagar",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "44 - Ashwath Nagar",
+   "ac_name": "Mahadevapura",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "30 - Belathur",
+   "ac_name": "Mahadevapura",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "48 - Panathur",
+   "ac_name": "Mahadevapura",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "41 - Nagapura",
+   "ac_name": "Mahalakshmi Layout",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "6 - Kalkere",
+   "ac_name": "K.R. Pura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "29 - Austin Town",
+   "ac_name": "Shantinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "7 - K Chennasandra",
+   "ac_name": "K.R. Pura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "1 - Ramaswamy Palya",
+   "ac_name": "Shivajinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "24 - Vignananagara",
+   "ac_name": "K.R. Pura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "46 - Cheluvadi Palya",
+   "ac_name": "Chamrajapet",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "43 - Devaraj Urs Ward",
+   "ac_name": "Chickpet",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "15 - Byadarahalli",
+   "ac_name": "Yeshwanthapura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "5 - Shivajinagar",
+   "ac_name": "Shivajinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "23 - Jogpalya",
+   "ac_name": "Shantinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "14 - Nagavarapalya",
+   "ac_name": "C.V. RamannNagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "60 - Prakash Nagara",
+   "ac_name": "Rajajinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "35 - Hombegowda Nagara",
+   "ac_name": "Chickpet",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "7 - K Kamaraj Ward",
+   "ac_name": "Shivajinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "40 - Ashoka Pillar",
+   "ac_name": "Chickpet",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "37 - BHEL Ward",
+   "ac_name": "Chickpet",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "45 - K.R Market",
+   "ac_name": "Chamrajapet",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "23 - Rajarajeshwari Nagara",
+   "ac_name": "Rajarajeshwarinagar",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "6 - Bharathi Nagar",
+   "ac_name": "Shivajinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "22 - Domluru",
+   "ac_name": "Shantinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "60 - Seshadripuram",
+   "ac_name": "Gandhinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "39 - Venkat Reddy Nagara",
+   "ac_name": "Chickpet",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "25 - Ashokanagar",
+   "ac_name": "Shantinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "97 - Srinivasa Nagara",
+   "ac_name": "Basavanagudi",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "70 - Dr Rajkumar Ward",
+   "ac_name": "Govindarajanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "52 - Kodandarampura",
+   "ac_name": "Malleshwaram",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "14 - Herohalli",
+   "ac_name": "Yeshwanthapura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "59 - Bandi Reddy Circle Ward",
+   "ac_name": "Rajajinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "12 - Andrahalli",
+   "ac_name": "Yeshwanthapura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "82 - Attigupe",
+   "ac_name": "Vijayanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "61 - Dattatreya Ward",
+   "ac_name": "Gandhinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "89 - Bapuji Nagara",
+   "ac_name": "Vijayanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "80 - Chandra Layout",
+   "ac_name": "Govindarajanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "95 - Swamy Vivekananda Ward",
+   "ac_name": "Basavanagudi",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "42 - Sunkenahalli",
+   "ac_name": "Chickpet",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "32 - SilverJubilee Park Ward",
+   "ac_name": "Chickpet",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "83 - Hampi Nagar",
+   "ac_name": "Vijayanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "63 - Rajajinagara",
+   "ac_name": "Rajajinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "21 - Kengeri",
+   "ac_name": "Yeshwanthapura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "5 - Rajeshwarinagar",
+   "ac_name": "Dasarahalli",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "68 - Kamakshipalya",
+   "ac_name": "Rajajinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "44 - Chamarajpet",
+   "ac_name": "Chamrajapet",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "15 - Indiranagar",
+   "ac_name": "C.V. RamannNagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "3 - Vasanth Nagar",
+   "ac_name": "Shivajinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "19 - Shivanapalya",
+   "ac_name": "Yeshwanthapura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "56 - Gayathri Nagara",
+   "ac_name": "Malleshwaram",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "92 - Muneshwara Block",
+   "ac_name": "Vijayanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "18 - G.M Palya",
+   "ac_name": "C.V. RamannNagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "18 - Kengal Hanumanthaiah West",
+   "ac_name": "Yeshwanthapura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "55 - Subramanyanagara",
+   "ac_name": "Malleshwaram",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "16 - New Thippasandra",
+   "ac_name": "C.V. RamannNagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "13 - Nada prabhu Kempegowda Nagara",
+   "ac_name": "Yeshwanthapura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "24 - Jnana Bharathi Ward",
+   "ac_name": "Rajarajeshwarinagar",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "21 - Konena Agrahara",
+   "ac_name": "C.V. RamannNagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "2 - Jayamahal",
+   "ac_name": "Shivajinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "59 - Nehru Nagar",
+   "ac_name": "Gandhinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "16 - Ullal",
+   "ac_name": "Yeshwanthapura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "64 - Shivanagara",
+   "ac_name": "Rajajinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "90 - Krishnadevaraya ward",
+   "ac_name": "Vijayanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "40 - Shakthi Nagar",
+   "ac_name": "Pulakeshinagar",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "10 - Sunkadakatte",
+   "ac_name": "Dasarahalli",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "27 - K.G.Halli",
+   "ac_name": "Sarvagnanagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "51 - Rajamahal",
+   "ac_name": "Malleshwaram",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "2 - Chokkasandra",
+   "ac_name": "Dasarahalli",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "31 - Freedom Fighter Ward",
+   "ac_name": "Rajarajeshwarinagar",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "31 - Kalyan Nagar",
+   "ac_name": "Sarvagnanagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "112 - Hosakerehalli",
+   "ac_name": "Padmanabanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "11 - Dodda Bidarakallu",
+   "ac_name": "Yeshwanthapura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "32 - Laggere",
+   "ac_name": "Rajarajeshwarinagar",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "100 - Srinagar",
+   "ac_name": "Basavanagudi",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "74 - Pattegar Palya",
+   "ac_name": "Govindarajanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "26 - Samadhana Nagar",
+   "ac_name": "Sarvagnanagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "96 - Kathriguppe",
+   "ac_name": "Basavanagudi",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "17 - Nagadevanahalli",
+   "ac_name": "Yeshwanthapura",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "99 - T.R Shamanna Nagar",
+   "ac_name": "Basavanagudi",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "103 - N.R Colony",
+   "ac_name": "Basavanagudi",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "104 - Thyagarajnagar",
+   "ac_name": "Basavanagudi",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "105 - Yediyuru",
+   "ac_name": "Padmanabanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "101 - Kempambudhi Ward",
+   "ac_name": "Basavanagudi",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "111 - Ittamadu",
+   "ac_name": "Padmanabanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "75 - Marenahalli West",
+   "ac_name": "Govindarajanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "109 - Kamakya Layout",
+   "ac_name": "Padmanabanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "110 - Chikkalasandra",
+   "ac_name": "Padmanabanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "106 - Devagiri Temple Ward",
+   "ac_name": "Padmanabanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "108 - Ganesh Mandira Ward",
+   "ac_name": "Padmanabanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "76 - Moodalapalya",
+   "ac_name": "Govindarajanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "53 - Malleshwaram",
+   "ac_name": "Malleshwaram",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "91 - Gali Anjaneya Temple Ward",
+   "ac_name": "Vijayanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "40 - Mahalakshmipuram",
+   "ac_name": "Mahalakshmi Layout",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "30 - Kempegowda Layout",
+   "ac_name": "Rajarajeshwarinagar",
+   "pc_name": "Bangalore Rural",
+   "district_name": ""
+  },
+  {
+   "ward_name": "62 - Rama Mandira",
+   "ac_name": "Rajajinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "43 - Kethamaranahalli",
+   "ac_name": "Mahalakshmi Layout",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "1 - Nagasandra",
+   "ac_name": "Dasarahalli",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "45 - Shakthi Ganapathi Nagara",
+   "ac_name": "Mahalakshmi Layout",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "78 - Anubhava Nagara",
+   "ac_name": "Govindarajanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "94 - Deepanjali Nagara",
+   "ac_name": "Vijayanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "84 - Hosahalli",
+   "ac_name": "Vijayanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "6 - Shivapura",
+   "ac_name": "Dasarahalli",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "42 - Raja Mayura Varma Ward",
+   "ac_name": "Mahalakshmi Layout",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "44 - Shankar Mutt",
+   "ac_name": "Mahalakshmi Layout",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "36 - Nalwadi Krishnaraja Wadiyar Ward",
+   "ac_name": "Mahalakshmi Layout",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "37 - Dr. Puneeth Rajkumar Ward",
+   "ac_name": "Mahalakshmi Layout",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "85 - Adi Chunchanagiri Ward",
+   "ac_name": "Vijayanagar",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "67 - Basaveshwara Nagara",
+   "ac_name": "Rajajinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "39 - Jai Maruthi Nagar",
+   "ac_name": "Mahalakshmi Layout",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "46 - Kamalanagara",
+   "ac_name": "Mahalakshmi Layout",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "47 - Vrishabhavathi Nagar",
+   "ac_name": "Mahalakshmi Layout",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "98 - Ashoka Nagara",
+   "ac_name": "Basavanagudi",
+   "pc_name": "Bangalore South",
+   "district_name": ""
+  },
+  {
+   "ward_name": "8 - Hegganahalli",
+   "ac_name": "Dasarahalli",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "50 - Sadashiva Nagara",
+   "ac_name": "Malleshwaram",
+   "pc_name": "Bangalore North",
+   "district_name": ""
+  },
+  {
+   "ward_name": "48 - Azad Nagar",
+   "ac_name": "Chamrajapet",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "56 - Gopalpura",
+   "ac_name": "Gandhinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "57 - Cottonpete",
+   "ac_name": "Gandhinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "54 - Binnypete",
+   "ac_name": "Gandhinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "47 - IPD Salappa Ward",
+   "ac_name": "Chamrajapet",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  },
+  {
+   "ward_name": "61 - Da.Ra. Bendre Ward",
+   "ac_name": "Rajajinagar",
+   "pc_name": "Bangalore Central",
+   "district_name": ""
+  }
+ ]
 }
