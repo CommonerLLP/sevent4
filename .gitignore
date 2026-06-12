@@ -8,3 +8,49 @@ dist/
 build/
 *.egg-info/
 *.log
+
+# ── Internal brain — never publish (sevent4 is a public GitHub Pages repo) ──
+# Raw internal reasoning, coordination, and agent state. The PUBLIC, polished
+# version of this thinking lives in docs/ (tracked). Keep the raw notes local.
+notes/
+memory/
+
+# Generated / per-session agent-config files (also blocked by the pre-commit hook)
+WORKING.md
+CLAUDE.md
+AGENTS.md
+GEMINI.md
+
+# ── Third-party source PDFs (theses, reports) — kept local for research, not
+#    ours to redistribute on a public repo. Reference them by their canonical URL. ──
+data/sources/
+
+# ── Statute PDFs — public-domain government works, but heavy (62MB+). Kept local;
+#    the citations + source URLs live in data/laws/**/manifest.md and INDEX.md (tracked). ──
+data/laws/**/*.pdf
+
+# ── City raw source intermediates — regenerable from recipes + the m1-storage archive.
+#    Only the built layers/ + deployed public/ + lightweight provenance (sources.json,
+#    CREDITS.md, governance/officers/representatives) are published. Raw OSM dumps, KMLs,
+#    rasters, and downloaded _raw/ payloads stay local (some exceed GitHub's size limits). ──
+data/cities/*/source/osm/
+data/cities/*/source/**/_raw/
+data/cities/*/source/**/*.kml
+data/cities/*/source/**/*.geojson
+data/cities/*/source/**/*.tif
+data/cities/*/source/**/*.gtfs*
+data/cities/*/source/gtfs/
+data/cities/*/source/**/*.py
+data/cities/*/source/**/*.sh
+data/cities/*/source/**/dumps/
+data/cities/*/source/**/*.txt
+data/cities/*/source/**/*.gz
+
+# Stray scratch dumps at repo root
+/s.json
+
+# ── Secrets — API keys, never publish ──
+.secrets/
+.env
+*.key
+secrets.env
