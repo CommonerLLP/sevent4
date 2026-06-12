@@ -1,0 +1,65 @@
+{
+  "_meta": {
+    "about": "Per-city content for the 'Whose city is it?' on-ramp game. Every number is sourced from the atlas's own data — function_control_matrix.md (functions city/state, of 18) and service_providers.json + governance.json (decided_by over the 15 core services, corporation-type = city-decided, all else = state). Editorial reveal copy is authored; the figures are not.",
+    "decided_by_rule": "Of the 15 core municipal services, count provider 'type'=='corporation' as city-decided; state_board / state_dept / private / spv as not-city-decided; 'na' (service absent) excluded from the denominator. This is the exact rule that reproduces Ahmedabad's stored decided_by (10/15 = 67%).",
+    "order": ["ahmedabad", "bengaluru"]
+  },
+
+  "ahmedabad": {
+    "name": "Ahmedabad",
+    "live": true,
+    "map": "../cities/ahmedabad/index.html",
+    "functions": { "city": 9, "state": 9, "total": 18 },
+    "services": { "city": 10, "total": 15, "pct_city": 67 },
+
+    "r1": {
+      "big": "9", "of": "/ 18",
+      "verdict": "Ahmedabad keeps more than most — and it’s still only half.",
+      "body": "It held on to its <b>water</b> and <b>fire</b> when other cities lost them. But town planning, housing, slums &amp; urban poverty, the environment — handed to <b>state bodies you never voted for</b> (AUDA draws the blueprint, GWSSB owns the bulk water). Your council sweeps the streets; the state draws the map.",
+      "source": "Source: AMC function-control matrix, 18 Twelfth-Schedule functions · Art. 243W (“may, by law, endow”)."
+    },
+    "r2": {
+      "verdict": "The state keeps it. Your city legally <em>cannot</em> tax you.",
+      "body": "Stamp duty — the tax on every property sale — goes to <b>Gujarat, not AMC</b>. Your city has <b>no constitutional power to tax</b> (Art. 243X): it lives on fees, fines, and grants handed down from above. The one levy it does collect, property tax, it <b>under-collects</b> — a quiet subsidy to whoever owns the most land.",
+      "source": "Source: Constitution Art. 243X (no municipal taxation entry); property-tax &amp; stamp-duty regime, rent-capture dossier."
+    },
+    "r3": {
+      "setup": "You elected <b>192 councillors</b>. So who actually <b>runs</b> the Ahmedabad Municipal Corporation, day to day?",
+      "choiceA": "The mayor I voted for", "choiceAsub": "The elected head of the council",
+      "choiceB": "Someone else", "choiceBsub": "Not on any ballot I saw",
+      "verdict": "A man you never voted for: <em>the Municipal Commissioner.</em>",
+      "body": "Banchhanidhi Pani — an <b>IAS officer appointed by the state</b>, not elected by you — runs AMC day to day. Your BJP council (160 of 192 seats) sets policy; the commissioner and the state hold the executive. Of your 15 core services, <b>5 aren’t city-decided</b> — electricity is private, the metro and BRTS are state SPVs, and town planning is AUDA’s. (Your police — city <i>and</i> traffic — were never AMC’s: <b>police is a State subject in every Indian city</b>, run by Gujarat.)",
+      "source": "Source: AMC governance record (commissioner B. Pani, IAS; council BJP 160/192, Apr 2026); service-decider tally 10/15 city."
+    },
+    "end": "Ahmedabad is the <b>strongest</b> city we mapped — and it still only <b>half-owns</b> its own government."
+  },
+
+  "bengaluru": {
+    "name": "Bengaluru",
+    "live": true,
+    "map": "../cities/bengaluru/index.html",
+    "functions": { "city": 7, "state": 11, "total": 18 },
+    "services": { "city": 6, "total": 14, "pct_city": 43 },
+
+    "r1": {
+      "big": "7", "of": "/ 18",
+      "verdict": "Bengaluru lost even its water and fire to the state.",
+      "body": "By the constitutional count your city runs just <b>7 of 18</b> functions — <b>water</b> went to the BWSSB, <b>planning</b> to the BDA, <b>fire</b> to the state, boards you never voted for. And since the <b>2025 GBA reorganisation</b>, even those 7 no longer sit with one elected city: they’re split across <b>five corporations</b>, under a <b>Chief-Minister-chaired apex</b> (the GBA) that holds the planning and coordination above them. The number holds at 7; the control is thinner than it looks.",
+      "source": "Source: function-control matrix, 18 Twelfth-Schedule functions (constitutional count — carve-out cities run 7/18). Post-2025 the same 7 are fragmented across 5 City Corporations under the CM-chaired GBA — Greater Bengaluru Governance Act (Karnataka Act 36 of 2025)."
+    },
+    "r2": {
+      "verdict": "The state keeps it. Your city legally <em>cannot</em> tax you.",
+      "body": "Stamp duty — the tax on every property sale — goes to <b>Karnataka, not the city</b>. No city in India has the constitutional power to tax (Art. 243X); Bengaluru lives on fees, fines, and grants handed down from above, while the land it sits on makes others rich.",
+      "source": "Source: Constitution Art. 243X (no municipal taxation entry); property-tax &amp; stamp-duty regime."
+    },
+    "r3": {
+      "setup": "The last time you elected a city council was <b>2015</b>. So who runs Bengaluru <b>now</b>?",
+      "choiceA": "A council I voted for", "choiceAsub": "Surely there’s an elected body",
+      "choiceB": "Someone else", "choiceBsub": "I haven’t voted for the city in years",
+      "verdict": "No mayor. No council. <em>An administrator the state appointed.</em>",
+      "body": "You last voted for a Bengaluru council in <b>2015</b>; that term ended in 2020 and was never renewed. Then in <b>2025 the state abolished BBMP altogether</b>, replacing it with an unelected <b>Greater Bengaluru Authority</b> and five corporations no one has voted for. The city is run by <b>M. Maheshwar Rao, an IAS administrator</b>. The state also runs your water, sewerage, power, buses and even your <b>fire brigade</b> — 8 of your 14 services aren’t city-decided. (Police, as everywhere in India, was always the state’s.)",
+      "source": "Source: Greater Bengaluru Governance Act (Karnataka Act 36 of 2025, in force 15 May 2025) abolishing BBMP; Bengaluru governance record (administrator M. Maheshwar Rao, IAS); last municipal election 2015, fresh polls pending; service-decider tally 6/14 city."
+    },
+    "end": "Ahmedabad you half-own. Bengaluru you don’t own at all — <b>you haven’t even voted for it since 2015.</b>"
+  }
+}
