@@ -1,0 +1,76 @@
+{
+  "_meta": {
+    "city": "Bengaluru",
+    "what": "Follow-the-money: land-value capture in Bengaluru. The Bengaluru case is the atlas's strongest AUDITED-FACT anchor: the CAG and the Karnataka Lokayukta have produced documented findings on BDA land/betterment-tax/denotification, so several claims are Tier-A. Denotification cases that name individuals are Tier-B reported allegations (FIRs/inquiries pending), with denials noted.",
+    "tier_legend": {"A": "documented fact (with source)", "B": "reported allegation (attributed; denial noted where available)", "C": "analysis"},
+    "authoritative_sources": "CAG compliance audit (tabled Karnataka Assembly 25 Jul 2024, year ended Mar 2022); Justice H.S. Kempanna one-man commission (Arkavathy); Karnataka Lokayukta FIRs; established press."
+  },
+  "actors": [
+    {
+      "actor": "BDA (Bangalore Development Authority)",
+      "role": "State development authority (BDA Act 1976, successor to the CITB 1945); acquires, forms and allots layouts/sites; holds Bengaluru's land outside the elected corporation",
+      "how_they_profit": "The classic recoupment machine: acquires land cheaply for layouts, but the CAG finds it systematically fails to capture the public uplift (betterment tax uncollected), leaving the value to landowners/intermediaries while BDA borrows.",
+      "mechanism": "land-value capture via development authority; betterment-tax failure",
+      "project": "Arkavathy Layout, Nadaprabhu Kempegowda Layout (NPKL) and BDA layouts generally",
+      "tier": "A",
+      "claim": "DOCUMENTED FACT (AUDITED): The CAG compliance audit (year ended Mar 2022, tabled in the Karnataka Assembly 25 Jul 2024) found BDA collected only ~Rs 3.22 crore of Rs 3,503.63 crore in leviable betterment tax up to Mar 2022 — including Rs 3,307.91 crore uncollected from Arkavathy Layout and Rs 195.72 crore from NPKL — and paid Rs 34.66 crore (2019-20) in avoidable interest on loans it could have serviced from this revenue. A separate performance audit (2007-12) recorded the Government denotifying 212.39 acres of BDA-acquired land and withdrawing acquisition over 1,355.01 acres (Jan 1995-Mar 2012).",
+      "source": "Deccan Herald 'CAG raps BDA for losing Rs 3,500 crore revenue' (25 Jul 2024); CAG compliance audit report, Karnataka, year ended Mar 2022; CAG Performance Audit 2007-12 (denotification/withdrawal acreage).",
+      "denial_if_any": "BDA has historically attributed uncollected betterment tax to litigation and procedural delays; the audit treats the non-collection itself as the finding."
+    },
+    {
+      "actor": "BDA (incentive-scheme site allotment)",
+      "role": "Allotter of sites under incentive/compensatory schemes to landowners",
+      "how_they_profit": "Irregular allotment confers sites worth more than the entitlement, an undue benefit to recipients.",
+      "mechanism": "discretionary/irregular allotment",
+      "project": "BDA incentive-scheme allotments",
+      "tier": "A",
+      "claim": "DOCUMENTED FACT (AUDITED): The CAG flagged irregularities in allotment of sites under the BDA's incentive scheme leading to undue benefits of ~Rs 10.54 crore to landowners.",
+      "source": "Deccan Herald / CAG compliance audit (year ended Mar 2022, tabled 25 Jul 2024).",
+      "denial_if_any": null
+    },
+    {
+      "actor": "Arkavathy Layout denotification (named former CMs)",
+      "role": "Sequential denotification of land already acquired for the 2,750-acre Arkavathy Layout, returning parcels to private hands",
+      "how_they_profit": "Denotification de-acquires already-notified public-purpose land back to (or for) private parties at the moment its value has been lifted by the layout itself — the sharpest capture point.",
+      "mechanism": "denotification; contractor-politician nexus",
+      "project": "Arkavathy Layout (final notification 2004 for 2,750 acres across 16 villages; remodified 2014, ~1,766 acres remaining)",
+      "tier": "B",
+      "claim": "REPORTED ALLEGATION / INQUIRY FINDING: The Justice H.S. Kempanna one-man commission examined denotifications 2004-2014 and recorded, by administration: ~78 acres 28 guntas denotified under H.D. Kumaraswamy (Feb 2006-Oct 2007); ~46 acres 35 guntas during Governor's rule (Nov 2007-May 2008); and ~72 acres 12 guntas alleged denotified under B.S. Yeddyurappa (May 2008-Jul 2011). These are commission/allegation findings, not criminal convictions.",
+      "source": "BDA 'Factsheet on Arkavathy Layout'; Justice H.S. Kempanna commission terms/findings as reported (2014).",
+      "denial_if_any": "The named leaders have denied wrongdoing, characterising denotifications as lawful corrections of erroneous/excess acquisition. No conviction recorded; the commission was an inquiry, not a court."
+    },
+    {
+      "actor": "Gangenahalli denotification (Lokayukta FIR — named former CMs)",
+      "role": "Denotification of BDA-acquired plot allegedly to benefit related private parties",
+      "how_they_profit": "A specific 1.11-acre BDA plot (Matadahalli Extension) was denotified and then sold within the family circle of an involved leader — the alleged private capture of public-acquired land.",
+      "mechanism": "denotification; alleged contractor-politician nexus",
+      "project": "1.11-acre plot, Gangenahalli, Kasaba hobli, Bengaluru North",
+      "tier": "B",
+      "claim": "REPORTED ALLEGATION: A Lokayukta FIR (registered 5 May 2015) names B.S. Yeddyurappa, H.D. Kumaraswamy and two relatives under the Prevention of Corruption Act. Per the complaint, Kumaraswamy initiated denotification (Aug 2007) and Yeddyurappa gazetted it (7 Jun 2010) over bureaucratic objections; a month later (7 Jul 2010) the land was sold by Kumaraswamy's mother-in-law to his brother-in-law. Yeddyurappa appeared before the Lokayukta and recorded his statement (Sep 2024).",
+      "source": "The News Minute; Deccan Herald; Siasat; ETV Bharat (Lokayukta land-denotification case reports, 2015-2024).",
+      "denial_if_any": "Both Yeddyurappa and Kumaraswamy deny wrongdoing and contest the FIR; the matter is under investigation/litigation, with no conviction. Denotification is defended as legally permissible correction of acquisition."
+    },
+    {
+      "actor": "BDA corner-site online auction (alleged rigging)",
+      "role": "Auctioneer of premium 'corner' sites",
+      "how_they_profit": "If auctions are manipulated, insiders capture premium sites below true value.",
+      "mechanism": "rigged auction",
+      "project": "BDA corner-site online auctions",
+      "tier": "B",
+      "claim": "REPORTED ALLEGATION: Press reported that an online auction of BDA corner sites was rigged, running into several crores; a BDA chairman (S.R. Vishwanath) was quoted that the site-allotment scam was 'just the tip of the iceberg.'",
+      "source": "Deccan Herald 'Big shocker: Online auction of BDA corner sites was rigged!'; 'Site allotment scam just a tip of iceberg: BDA chairman S R Vishwanath.'",
+      "denial_if_any": "Specific culpability unadjudicated; reported as an internal BDA concern/allegation."
+    },
+    {
+      "actor": "IT-corridor land + Namma Metro real estate (ORR / Whitefield / Electronic City)",
+      "role": "BMRCL (metro SPV), BDA and private developers along the tech corridors",
+      "how_they_profit": "Metro and ring-road connectivity revalue corridor land; PRR guidance values reportedly lowered to ease cheaper acquisition; the office economy (250+ IT/MNC firms) anchors the uplift, with REIT/PE capital as exit.",
+      "mechanism": "SPV/metro land-value capture; FSI; foreign/REIT capital",
+      "project": "Outer Ring Road / Whitefield / Electronic City IT corridor; Peripheral Ring Road; Namma Metro (Whitefield line)",
+      "tier": "C",
+      "claim": "ANALYSIS: The ORR-Whitefield-Electronic City corridor and Namma Metro extensions illustrate value-capture financing — public transit/road investment lifting adjacent land, with the metro's payoff as much in corridor real estate as in fares. Reported lowering of guidance value around the Peripheral Ring Road to enable cheaper farmer-land acquisition (farmers planned to approach the High Court) is the cheap-in end of the same spread.",
+      "source": "BW Businessworld/OpenCity (corridor history); reporting on Peripheral Ring Road guidance-value reduction and farmer litigation; service_providers.json (BMRCL as metro SPV).",
+      "denial_if_any": null
+    }
+  ]
+}

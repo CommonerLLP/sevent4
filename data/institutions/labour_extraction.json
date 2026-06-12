@@ -1,0 +1,237 @@
+{
+  "_meta": {
+    "what": "The labour-extraction evidence file: how India's urban working classes are extracted from in the BUILDING and the RUNNING of cities. Sections: construction_migrant, bocw_cess, contractor_chain, road_contracts, gig_platform, reproduction_extraction, caste_composition. Each section is an array of claim-objects: {claim, tier, figure, source, verify}. This is the labour underside of the corporate-city atlas: where docs/the-corporate-city.md shows the municipality built to take rent not give service, THIS file shows whose bodies pay for the building and the running.",
+    "thesis": "Two frames held together. HARVEY: capital's SECONDARY CIRCUIT is the built environment (real estate, infrastructure) — a sink for surplus that depends on a cheap, disposable, mobile construction proletariat; and ACCUMULATION BY DISPOSSESSION continues in the city through a SECONDARY EXTRACTION in the sphere of reproduction (workers who built the city must then BUY water, rent, sanitation back at predatory prices). AMBEDKAR: the 'division of labour' in caste society is also a 'division of labourers' (Annihilation of Caste) — graded, hereditary, unequal. The urban labour hierarchy is caste-coded top to bottom: construction (OBC/SC/Adivasi/Muslim migrant), sanitation and sewer death (Valmiki/SC), head-loading (Dalit) — graded inequality reproduced as a labour market.",
+    "tier_legend": {
+      "A": "DOCUMENTED FACT — official, audit, court, or census figures with named source.",
+      "B": "REPORTED ALLEGATION — asserted by a named source (NGO/union/journalist/petitioner), attributed not asserted as established fact.",
+      "C": "ANALYSIS — our interpretive/framing claim, not a primary datum."
+    },
+    "rigor_note": "Public repo. No fabrication. Tier-A figures carry official/audit/court/census provenance. Tier-B figures are attributed to a named reporter or organisation and never stated as settled fact. Where a figure is the strongest available but not firmly sourced to a primary document, verify:true. Cess/workforce headcounts are the most solid (Parliament answers, SC orders, ministry estimates); per-incident death tallies and the 'jamadar advance' mechanism are reported/qualitative and tiered accordingly.",
+    "status": "Authored 2026-06 from Parliament answers (MoS Labour, Dec 2022), Supreme Court judgments (NCC-CL v UoI 2011/2018), CAG audit reports (UP Contract Management in Road Works 2017; Karnataka; Kerala), Ministry of Labour & Employment estimates, e-Shram portal data, NITI Aayog gig-economy report (2022), state gig-worker statutes (Rajasthan 2023, Karnataka 2025), British Safety Council/Business Standard on construction fatalities, water-tanker reporting (Foreign Policy, water-alternatives.org), and the atlas's own contractualization_map.json + manual_scavenging_map.json for the caste/sanitation layer."
+  },
+
+  "construction_migrant": [
+    {
+      "claim": "Construction is India's second-largest employer after agriculture, and overwhelmingly informal/unskilled.",
+      "tier": "A",
+      "figure": "~5 crore (50M) construction workers per Ministry of Labour & Employment estimates (2020); industry/other estimates ~7.1 crore (71M) by 2023, projected to cross 10 crore by 2030. ~81% of the workforce is unskilled, ~19% skilled.",
+      "source": "Ministry of Labour & Employment (~5 cr, 2020), cited in Construction Week India / Disha Foundation; constructionplacements.com (71M, 2023).",
+      "verify": false
+    },
+    {
+      "claim": "A large majority of the urban construction workforce is migrant; construction is the single biggest absorber of internal migrant labour.",
+      "tier": "A",
+      "figure": "An estimated ~50-60% of the construction workforce is migrant; ~15 million migrants are estimated to work in construction.",
+      "source": "Migration/construction literature summarised in Anantam IAS, IJCRT 2025; widely cited migrant-labour estimates.",
+      "verify": true
+    },
+    {
+      "claim": "The workforce is fed by CIRCULAR (seasonal, back-and-forth) migration from a stable set of poor source states.",
+      "tier": "A",
+      "figure": "Principal sending states: Bihar, Uttar Pradesh, Odisha, Jharkhand, West Bengal, Chhattisgarh, Rajasthan. ~100 million people are estimated to be in circular migration. 10 UP districts and 6 Bihar districts account for ~25% of male out-migration. Destinations: Delhi-NCR, Maharashtra, Gujarat, Tamil Nadu, Karnataka, Kerala, Punjab.",
+      "source": "Census 2011 migration tables; Economic Survey / India Forum 'India's Migrants: Exclusion by Design'; Anantam IAS summary.",
+      "verify": false
+    },
+    {
+      "claim": "Construction is the deadliest sector in India for workers; site fatalities run to dozens per day, and most go unreported.",
+      "tier": "B",
+      "figure": "~38 fatal accidents a day in construction (British Safety Council, cited 2022-23); construction contributes ~24.2% of the ~48,000 estimated annual occupational-accident deaths in India. Karnataka alone records ~75-80 construction-site deaths/year. Reporters and safety bodies note the true toll is higher because most site deaths and delayed-injury deaths are never recorded.",
+      "source": "British Safety Council India 'Construction in India: a dangerous business' (2022); Business Standard 'Three deaths every day' (2023); Business & Human Rights Resource Centre (Karnataka).",
+      "verify": true
+    },
+    {
+      "claim": "The reserve-army dynamic: an oversupplied, mobile, undocumented workforce keeps wages low and discipline cheap — workers are interchangeable and disposable.",
+      "tier": "C",
+      "figure": "qualitative — the informality (~81% unskilled, no written contracts, circular churn) is itself the mechanism that maintains a reserve army of labour for the secondary circuit (Harvey).",
+      "source": "Analysis (Harvey, secondary circuit / industrial reserve army), grounded in the workforce-informality figures above.",
+      "verify": false
+    }
+  ],
+
+  "bocw_cess": [
+    {
+      "claim": "★ The state collects a statutory welfare cess on construction but leaves a huge share UNSPENT — the single strongest documented case in this file. As of Nov 2022 state welfare boards held tens of thousands of crore unused.",
+      "tier": "A",
+      "figure": "State BOCW Welfare Boards had collected Rs 87,478.79 crore in cess and spent Rs 49,269.20 crore as on 1 Nov 2022 — leaving Rs 38,209.59 crore UNSPENT (~44%). Stated to Parliament by the Minister of State for Labour & Employment (Rameswar Teli).",
+      "source": "MoS Labour answer to Parliament, Dec 2022, reported by ETV Bharat 'Building, other construction workers boards have Rs 38,209 cr unused'.",
+      "verify": false
+    },
+    {
+      "claim": "The unspent problem is long-standing and was documented by the CAG and the Supreme Court years earlier — the proportions barely improved.",
+      "tier": "A",
+      "figure": "As of ~Oct 2016, states had collected ~Rs 28,455 crore and spent only ~Rs 6,097 crore (~21%) — over Rs 22,000 crore unspent. By Feb 2022, ~Rs 78,521 crore collected with 54.91% unutilised.",
+      "source": "Factly 'Shortchange: construction workers' cess'; Deccan Herald 'States collected Rs 78,521 crore... 54.91% remains unutilised'.",
+      "verify": false
+    },
+    {
+      "claim": "The Supreme Court has repeatedly strictured the state over the unspent cess in National Campaign Committee for Central Legislation on Construction Labour (NCC-CL) v. Union of India.",
+      "tier": "A",
+      "figure": "In NCC-CL v UoI (WP(C) 318/2006), the Court recorded that >Rs 37,400 crore had been collected under the Cess Act but only ~Rs 9,500 crore utilised; called the facts 'startling'; directed (19 Mar 2018) a model welfare scheme, social audits by states/UTs of BOCW Act implementation, and that the cess be put to gainful use.",
+      "source": "Supreme Court, NCC-CL v Union of India, judgment 19 March 2018 (indiankanoon.org/doc/71520761); Law Times Journal case note.",
+      "verify": false
+    },
+    {
+      "claim": "Where the cess IS spent, it is sometimes DIVERTED away from workers; the unspent balance is blamed on workers' non-registration — i.e. the state under-registers the very workers it taxes for.",
+      "tier": "A",
+      "figure": "CAG found Rs 416.33 crore from MP's Construction Workers' Welfare Fund diverted to populist schemes. Maharashtra's board had Rs 11,794 cr of which 73.02% (Rs 8,612.33 cr) unspent, attributed to low worker registration. MP board unspent balance Rs 1,959.63 cr as on 31 Mar 2022.",
+      "source": "CAG Report (MP), via The Wire 'Rs 416.33 Cr... Diverted to Populist Schemes'; Karnataka BWWB analysis (Maharashtra/MP figures).",
+      "verify": false
+    },
+    {
+      "claim": "Kerala is the documented positive outlier — the one board spending the large majority of what it collects.",
+      "tier": "A",
+      "figure": "Only ~13 States/UTs had spent more than a third of cess funds; only Kerala's welfare board had spent more than 90% of cess collected.",
+      "source": "Factly 'Shortchange: construction workers' cess'.",
+      "verify": false
+    }
+  ],
+
+  "contractor_chain": [
+    {
+      "claim": "Recruitment and wage-payment run through a chain of intermediaries (contractor -> petty/sub-contractor -> jamadar/sardar/maistry), each taking a cut — the classic wage-diluting sub-contracting pyramid.",
+      "tier": "B",
+      "figure": "qualitative chain: principal employer -> labour contractor -> 'jamadar' who recruits whole families from villages; the jamadar is given money for workers' food/clothing/shelter and returns only part to the company, leaving little for the labourer. In brick kilns the equivalent 'sardar' recruits against monetary advances and transports workers to distant states.",
+      "source": "Global Annal 'Bonded labor... in Construction Industry'; Journal of Migration Affairs (Bolangir, Odisha brick-kiln sardar system).",
+      "verify": true
+    },
+    {
+      "claim": "The advance system creates debt-bondage: a wage advance at recruitment ties the worker (and family) to the contractor until repaid through labour, suppressing exit and bargaining.",
+      "tier": "B",
+      "figure": "qualitative — migrants 'recruited against monetary advances' by sardars/jamadars, repaid through bonded seasonal labour of >6 months under distress conditions; bonded labour documented as persisting in the high-growth construction industry.",
+      "source": "Journal of Migration Affairs 'Constrained Subjectivity' (Bolangir); Wikipedia 'Debt bondage in India'; Global Annal.",
+      "verify": true
+    },
+    {
+      "claim": "Most construction workers have NO written contract, which severs liability and makes minimum-wage, BOCW-registration and accident-compensation enforcement near-impossible.",
+      "tier": "C",
+      "figure": "qualitative — informality (~81% unskilled, casual, undocumented; only ~12.2% of e-Shram's registered informal workers are in construction despite being ~50M strong) is the documented backdrop; the absence of written contracts is the mechanism that pushes liability down the chain and out of reach.",
+      "source": "Analysis grounded in e-Shram sectoral data and Contract Labour (Regulation & Abolition) Act 1970 enforcement literature.",
+      "verify": true
+    },
+    {
+      "claim": "Sub-contracting dilutes the wage and dissolves the legal employer — each tier of the pyramid extracts a margin and disclaims responsibility for wages, safety and statutory dues.",
+      "tier": "C",
+      "figure": "qualitative — the same dynamic the atlas documents in municipal sanitation (contractualization_map.json): a permanent/secure tier above a precarious sub-contracted tier doing identical work for sub-half wages. In construction the pyramid is deeper and the bottom tier migrant + caste-marked.",
+      "source": "Analysis; cross-ref contractualization_map.json wage-gap evidence (Mumbai Rs 24,000 permanent vs Rs 14,500 contract).",
+      "verify": false
+    }
+  ],
+
+  "road_contracts": [
+    {
+      "claim": "CAG audits document systemic irregularities at every stage of road-works contracting — design, estimation, tendering, execution and quality control — across states.",
+      "tier": "A",
+      "figure": "CAG: basic norms for road design and cost estimation not adhered to; tendering lacked transparency and competition; contractors not meeting minimum technical requirements were qualified; 'clear indications of collusive bidding in major contracts in most districts'; 'grant of concessions and undue benefits to contractors was rampant.'",
+      "source": "CAG, 'Contract Management in Road Works', Government of Uttar Pradesh, Report No. 4 of 2017 (cag.gov.in).",
+      "verify": false
+    },
+    {
+      "claim": "Huge sums flow through road works while quality fails well before design life — the 'pothole economy' of build-fail-rebuild.",
+      "tier": "A",
+      "figure": "UP CAG audit: ~Rs 40,000 crore spent on road works 2011-2016, yet tendering/execution irregularities meant many projects needed repair well before design life. Kerala audit (2020): 85 of 92 tested road projects had no mandatory field labs and no proper job-mix formulas, yet were passed as satisfactory.",
+      "source": "CAG UP Report No. 4 of 2017; Kerala CAG audit 2020 (via BigStory 'Why India's Roads Crack').",
+      "verify": false
+    },
+    {
+      "claim": "The contractor-engineer nexus: supervising engineers skip or pre-announce inspections; private audit agencies certify substandard works to clear bills; contractors are not blacklisted despite defect-liability breaches.",
+      "tier": "B",
+      "figure": "qualitative — engineers 'skip site visits or pre-announce inspections, giving contractors time to prepare showcase samples'; private audit agencies under scrutiny for clearing substandard road works for bill payment; 'not a single contractor blacklisted for shoddy road works despite gross violations of defect liability clauses.'",
+      "source": "BigStory 'Why India's Roads Crack Weeks After Opening'; Free Press Journal (Mira-Bhayandar roads); Citizen Matters (Karnataka highway CAG audit).",
+      "verify": true
+    },
+    {
+      "claim": "The corporator-contractor link: the same political economy (re-tendering, repeat repairs, unblacklisted firms) makes potholes a recurring revenue stream rather than a failure to be fixed.",
+      "tier": "C",
+      "figure": "qualitative — read with Ghosh's corporate-city frame (docs/the-corporate-city.md): a road that must be repaired every monsoon is not a malfunction but a contract that renews. The build-fail-rebuild cycle converts a public good into a recurring rent for the contractor-engineer-corporator chain.",
+      "source": "Analysis; cross-ref docs/the-corporate-city.md.",
+      "verify": false
+    }
+  ],
+
+  "gig_platform": [
+    {
+      "claim": "Platform/gig work is the new contractor layer running the city's last-mile delivery and mobility; the workforce is large and growing fast.",
+      "tier": "A",
+      "figure": "NITI Aayog: ~77 lakh (7.7 million) gig/platform workers in 2020-21, projected to reach 2.35 crore (23.5 million) by 2029-30. Platforms include Zomato, Swiggy, Uber, Ola, Urban Company, Blinkit/Zepto.",
+      "source": "NITI Aayog, 'India's Booming Gig and Platform Economy' (2022); PRS / Vidhi summaries.",
+      "verify": false
+    },
+    {
+      "claim": "Rajasthan was the FIRST state to legislate gig-worker welfare, funded by a transaction-based cess on aggregators.",
+      "tier": "A",
+      "figure": "Rajasthan Platform-Based Gig Workers (Registration and Welfare) Act, 2023 (passed July 2023): mandatory registration of workers and aggregators, a unique worker ID portable across platforms, and a 'Platform-Based Gig Workers Welfare Cess' — a percentage of each platform transaction paid into a welfare fund.",
+      "source": "Cyril Amarchand Mangaldas 'Rajasthan passes... Act, 2023'; The Leaflet; Vidhi Legal Policy comments.",
+      "verify": false
+    },
+    {
+      "claim": "Karnataka followed with its own gig-worker welfare law setting a 1-5% per-transaction welfare fee.",
+      "tier": "A",
+      "figure": "Karnataka Platform-Based Gig Workers (Social Security and Welfare) Act (passed Aug 2025): welfare fee of 1% to 5% of each gig-worker/platform transaction, by aggregator category, into a welfare fund. Telangana published a draft bill (2025).",
+      "source": "PRS India (Karnataka Platform-Based Gig Workers Bill 2025); LabourReview 'Beyond Welfare'.",
+      "verify": false
+    },
+    {
+      "claim": "The core dispute is CLASSIFICATION: platforms treat workers as 'independent partners' not employees, denying minimum wage, hours protection, and accident liability while exercising algorithmic control.",
+      "tier": "C",
+      "figure": "qualitative — the welfare-cess statutes provide a fund but largely sidestep the employee/contractor classification question; the worker remains a 'partner' bearing fuel, vehicle, and risk costs. This is the contractor chain digitised: the algorithm is the new jamadar.",
+      "source": "Analysis; LabourReview 'Beyond Welfare in India's Gig Sector'; Vidhi comments on the Rajasthan Act.",
+      "verify": false
+    }
+  ],
+
+  "reproduction_extraction": [
+    {
+      "claim": "★ SECONDARY EXTRACTION (Harvey): the urban poor who BUILD and CLEAN the city must then BUY water back from tanker operators at predatory, per-pot prices — paying many times the municipal rate.",
+      "tier": "B",
+      "figure": "In Mumbai's informal settlements (2012), the median price for tanker water was ~Rs 135 per 1,000 litres — more than 40x the standard municipal charge paid in notified slums and more than 30x the charge paid by other residents. Non-notified slum dwellers can pay as much as Rs 1 per 5 litres — ~50x wealthier areas' rate. Many access <20 litres/person/day, often faecally contaminated.",
+      "source": "water-alternatives.org Vol 7(1) (Mumbai right-to-water study); NCBI 'The right to water in the slums of Mumbai'; Foreign Policy 'At the Mercy of the Water Mafia' (Delhi).",
+      "verify": true
+    },
+    {
+      "claim": "Tanker 'mafias' operate by siphoning the municipal network and illicit boreholes, then reselling to unauthorised settlements the state declines to pipe — predatory pricing enabled by deliberate non-service.",
+      "tier": "B",
+      "figure": "qualitative — in Delhi, an association of tanker operators sources water from illicit boreholes and by siphoning the city pipe network, selling directly to residents of informal/'unauthorised' colonies; exploitation persists because of poor governance and the settlements' non-notified status.",
+      "source": "Foreign Policy (Delhi tanker gangs); India Crime 'Water Mafia of Mumbai'; Borgen Project 'Indian Water Mafia'.",
+      "verify": true
+    },
+    {
+      "claim": "Other reproduction-sphere extractions stack on top: informal rents to slumlords, user fees, and moneylender debt — the worker is extracted from again in consumption after being extracted from in production.",
+      "tier": "C",
+      "figure": "qualitative — the same household pays a labour-chain margin (jamadar advance/debt) in production AND a water/rent/credit premium in reproduction. This is accumulation by dispossession operating through the everyday costs of urban survival.",
+      "source": "Analysis (Harvey, accumulation by dispossession / secondary circuit), grounded in the water-pricing evidence above.",
+      "verify": false
+    }
+  ],
+
+  "caste_composition": [
+    {
+      "claim": "India's informal/unorganised workforce — the labour pool that builds and runs cities — is overwhelmingly SC/ST/OBC and Muslim.",
+      "tier": "A",
+      "figure": "e-Shram portal (>7.86 crore registrations): ~40.5% OBC, ~23.7% SC, ~8.3% ST (~72.5% SC/ST/OBC), ~27.4% general. Construction is the 2nd-largest registered sector (~12.2%) after agriculture (~53.6%).",
+      "source": "e-Shram portal data, Ministry of Labour & Employment, via Toppersnotes / GKToday '70% informal workers SC, ST, OBCs'.",
+      "verify": false
+    },
+    {
+      "claim": "Sanitation/conservancy work is overwhelmingly Dalit — the floor of Ambedkar's graded division of labourers.",
+      "tier": "A",
+      "figure": "NAMASTE profiling of ~38,000 sanitation workers: 68.9% SC, 14.7% OBC, 8.3% ST (~77% Dalit, ~92% SC/ST/OBC). Manual scavengers ~97% SC (govt data); 2011 census ~95% of ~1.3M scavengers SC. Predominant jati: Valmiki/Balmiki.",
+      "source": "NAMASTE / Socio-Economic profiling via The News Minute (2024); reused from data/institutions/contractualization_map.json caste_dimension_global.",
+      "verify": false
+    },
+    {
+      "claim": "Sewer/septic-tank cleaning deaths fall almost entirely on the contract/informal Dalit layer — the sharpest expression of caste-coded extraction.",
+      "tier": "A",
+      "figure": "Official (NCSK/Min. Social Justice): 1,313 sewer/septic deaths 1993-2025; 377 in 'hazardous cleaning' 2019-2023. Independent (Safai Karmachari Andolan / Bezwada Wilson): 116 deaths in 2024, 121 in 2025 — roughly double the official count. The dead are almost never permanent mixed-caste staff; they are contract/informal Dalit men.",
+      "source": "data.gov.in / NCSK; SKA via Maktoob/Deccan Chronicle; reused from data/institutions/manual_scavenging_map.json national_deaths.",
+      "verify": false
+    },
+    {
+      "claim": "The construction migrant tier is OBC/SC/Adivasi/Muslim from the poorest source states — caste and region overlap as a single extractive geography.",
+      "tier": "C",
+      "figure": "qualitative — the source-state set (Bihar/UP/Odisha/Jharkhand/Bengal/Chhattisgarh) maps onto India's most caste-stratified, lowest-wage agrarian regions; circular migration moves caste-disadvantaged labour into the city's secondary circuit, then returns it. e-Shram's ~72.5% SC/ST/OBC share is the documented backdrop.",
+      "source": "Analysis (Ambedkar, division of labourers; Harvey, secondary circuit), grounded in e-Shram caste data and Census 2011 migration geography.",
+      "verify": true
+    }
+  ]
+}

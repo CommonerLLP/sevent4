@@ -1,0 +1,181 @@
+{
+  "_meta": {
+    "what": "When each municipal corporation was constituted, under which Act, and from which lineage. The 74th Amendment (1992) is the measuring stick: most of these bodies are FAR older than the Amendment that was supposed to finally empower them — and the powers were hollowed out (water boards, development authorities, SPVs) regardless of how venerable the corporation is.",
+    "fields": "municipality_year = first municipal body; corporation_year = constituted as a Municipal CORPORATION (the empowered, mayor-led body); corporation_act = the governing statute; lineage = presidency_capital | bombay_presidency_bpmc | princely_state | provincial_other; improvement_trust = the colonial/early land body (Ghosh's 'improvement regime'); development_authority = its modern successor that holds planning/land OUTSIDE the elected corporation.",
+    "status": "Assembled 2026-06 from the legislative record + AMC's official history + Anwesha Ghosh, 'Municipal Calcutta' (UofT PhD, 2021) and 'The Improvement Regime' (CSSH, 2025). verify:true = year/Act to be confirmed against the statute. NOT fabricated — uncertain entries are flagged, not guessed silently.",
+    "key_finding": "Three lineages. (1) PRESIDENCY CAPITALS — Madras (1688, the oldest corporation in India), Calcutta (1726 JPs → 1876/1923), Bombay (1888) — got the earliest, strongest corporations. (2) BOMBAY-PRESIDENCY cities under the BPMC Act 1949 — Ahmedabad, Pune, Surat (and Baroda/Nagpur by absorption) — inherited that strong-corporation template. (3) PRINCELY-STATE capitals — Hyderabad, Bangalore (Mysore), Jaipur, Cochin — had separate municipal genealogies. Devolution today does NOT track age: Madras is oldest yet scores 50%; the divergence comes from the POST-1960s parastatal carve-out, not the founding."
+  },
+  "ahmedabad": {
+    "municipality_year": 1885,
+    "representative_municipality_year": 1915,
+    "borough_year": 1925,
+    "corporation_year": 1950,
+    "corporation_act": "Bombay Provincial Municipal Corporations Act, 1949 (inherited by Gujarat 1960; renamed the GPMC Act)",
+    "lineage": "bombay_presidency_bpmc",
+    "improvement_trust": null,
+    "development_authority": {"name": "AUDA (Ahmedabad Urban Development Authority)", "year": 1978},
+    "proto_origin": {"name": "Town Wall Fund Committee", "year": 1831, "note": "1% cess on ghee etc. to repair the flood-damaged fort wall — the seed of municipal taxation"},
+    "first_president": {"name": "Sheth Ranchhodlal Chhotalal", "year": 1885, "type": "British-nominated"},
+    "first_elected_president": {"name": "Rao Bahadur Bhaishankar Nanabhai", "year": 1915},
+    "first_mayor": {"name": "Sheth Chinubhai Chimanlal", "year": 1950, "note": "last President and first Mayor"},
+    "notes": "AMC's own claim: 'the first people's representative council in India' — a claim about ELECTED self-government (1915), distinct from the oldest CORPORATION (Madras 1688). Town-planning tradition runs through the Bombay Town Planning Act, 1915, not a separate improvement trust.",
+    "verify": false,
+    "sources": ["AMC official history (ahmedabadcity.gov.in)", "BPMC Act 1949"]
+  },
+  "mumbai": {
+    "municipality_year": 1865,
+    "corporation_year": 1888,
+    "corporation_act": "Bombay Municipal Corporation Act, 1888 (still in force; governs MCGM)",
+    "lineage": "presidency_capital",
+    "improvement_trust": {"name": "Bombay City Improvement Trust", "year": 1898},
+    "development_authority": {"name": "MMRDA (Mumbai Metropolitan Region Development Authority)", "year": 1975},
+    "notes": "The 1888 Act is one of the strongest, most enduring municipal statutes in India — it gives BMC capacious in-house powers (water, sewerage, transport via BEST, hospitals). The Bombay Improvement Trust (1898), formed after the 1896 plague, is the prototype Ghosh analyses for the 'improvement regime'.",
+    "verify": false,
+    "sources": ["Bombay Municipal Corporation Act 1888", "Kidambi, The Making of an Indian Metropolis (2007)"]
+  },
+  "chennai": {
+    "municipality_year": 1688,
+    "corporation_year": 1688,
+    "corporation_act": "Royal Charter, 29 September 1688 (East India Company); later the Madras City Municipal Corporation Act, 1919",
+    "lineage": "presidency_capital",
+    "improvement_trust": null,
+    "development_authority": {"name": "CMDA (Chennai Metropolitan Development Authority)", "year": 1972},
+    "renamed": {"to": "Chennai", "year": 1996, "greater_corporation": 2011},
+    "notes": "THE OLDEST municipal corporation in India (Corporation of Madras, 1688) — older than every other on this list by two centuries. The central irony of the atlas: the oldest corporation is among the MOST hollowed (water → Metrowater 1978, planning → CMDA 1972, transport → MTC). Age did not protect devolution.",
+    "verify": false,
+    "sources": ["Corporation of Madras charter 1688", "Madras City Municipal Corporation Act 1919"]
+  },
+  "kolkata": {
+    "municipality_year": 1726,
+    "corporation_year": 1876,
+    "corporation_act": "1876 (Bengal Act); the foundational Calcutta Municipal Act, 1923; renamed under the Calcutta Municipal Corporation Act, 1980",
+    "lineage": "presidency_capital",
+    "improvement_trust": {"name": "Calcutta Improvement Trust", "year": 1911},
+    "development_authority": {"name": "KMDA (Kolkata Metropolitan Development Authority)", "year": 1970},
+    "renamed": {"to": "Kolkata", "year": 2001},
+    "notes": "Municipal authority from the 1726 Charter (Justices of the Peace); corporate form 1876; the 1923 Act (associated with C.R. Das) widened the franchise. This is the city of Ghosh's thesis: the municipality as 'a corporate body … like the joint stock company,' biased toward 'economically gainful projects' — the colonial regime of property and the 'landlord-entrepreneur'.",
+    "verify": false,
+    "sources": ["Ghosh, Municipal Calcutta (UofT PhD, 2021)", "Calcutta Municipal Act 1923", "Goode, Municipal Calcutta (1916)"]
+  },
+  "pune": {
+    "municipality_year": 1858,
+    "corporation_year": 1950,
+    "corporation_act": "Bombay Provincial Municipal Corporations Act, 1949 (constituted 15 February 1950)",
+    "lineage": "bombay_presidency_bpmc",
+    "improvement_trust": null,
+    "development_authority": {"name": "PMRDA (Pune Metropolitan Region Development Authority)", "year": 2015},
+    "notes": "The clean tell of the Bombay-Presidency family: PMC was incorporated under the SAME 1949 Act as Ahmedabad, weeks apart in 1950. Keeps water and sewerage in-house.",
+    "verify": false,
+    "sources": ["BPMC Act 1949"]
+  },
+  "surat": {
+    "municipality_year": 1852,
+    "corporation_year": 1966,
+    "corporation_act": "Bombay Provincial Municipal Corporations Act, 1949 (as the GPMC Act in Gujarat)",
+    "lineage": "bombay_presidency_bpmc",
+    "improvement_trust": null,
+    "development_authority": {"name": "SUDA (Surat Urban Development Authority)", "year": 1978},
+    "notes": "Same GPMC Act as Ahmedabad. SMC is India's most-cited well-run corporation — the in-house service-delivery turnaround after the 1994 plague. Not yet in the atlas's city set; included here because it proves devolution is set by the STATE's law (GPMC), not the individual city.",
+    "verify": true,
+    "sources": ["GPMC Act 1949"]
+  },
+  "vadodara": {
+    "municipality_year": 1892,
+    "corporation_year": 1950,
+    "corporation_act": "Bombay Provincial Municipal Corporations Act, 1949 (after Baroda State merged into Bombay, 1949)",
+    "lineage": "princely_state_then_bpmc",
+    "improvement_trust": null,
+    "development_authority": {"name": "VUDA (Vadodara Urban Development Authority)", "year": 1978},
+    "notes": "Baroda was a PRINCELY state (Gaekwad), NOT Bombay Presidency — but it merged into Bombay state in 1949 and so inherited the BPMC/GPMC Act anyway. A neat case of how the Bombay legal template spread by absorption. Not yet in the atlas's city set.",
+    "verify": true,
+    "sources": ["BPMC Act 1949", "Baroda State merger 1949"]
+  },
+  "bengaluru": {
+    "municipality_year": 1862,
+    "corporation_year": 1949,
+    "corporation_act": "City of Bangalore Municipal Corporation Act, 1949; BBMP (Greater Bangalore) constituted 2007",
+    "lineage": "princely_state",
+    "improvement_trust": {"name": "City Improvement Trust Board (CITB)", "year": 1945},
+    "development_authority": {"name": "BDA (Bangalore Development Authority)", "year": 1976, "note": "successor to the CITB"},
+    "notes": "Princely Mysore lineage. The CITB (1945) → BDA (1976) is a textbook improvement-trust-to-development-authority succession: land and planning sit OUTSIDE the elected BBMP. Water went to BWSSB (1964). The 2024 Greater Bengaluru Governance Act further splits BBMP itself.",
+    "verify": false,
+    "sources": ["City of Bangalore Municipal Corporation Act 1949", "BDA Act 1976"]
+  },
+  "hyderabad": {
+    "municipality_year": 1869,
+    "corporation_year": 1955,
+    "corporation_act": "Municipal Corporation of Hyderabad (MCH), 1955; GHMC constituted 2007",
+    "lineage": "princely_state",
+    "improvement_trust": {"name": "City Improvement Board (Nizam-era)", "year": 1912, "verify": true},
+    "development_authority": {"name": "HMDA (Hyderabad Metropolitan Development Authority)", "year": 2008, "note": "successor to HUDA, 1975"},
+    "notes": "Princely Hyderabad (Nizam) lineage; the city had its own municipal and improvement bodies under the Nizam before accession (1948). Water → HMWSSB (1989).",
+    "verify": true,
+    "sources": ["MCH Act 1955", "GHMC Act 2007"]
+  },
+  "visakhapatnam": {
+    "municipality_year": 1858,
+    "corporation_year": 1979,
+    "corporation_act": "Visakhapatnam Municipal Corporation, 1979; Greater Visakhapatnam (GVMC) 2005",
+    "lineage": "presidency_capital",
+    "improvement_trust": null,
+    "development_authority": {"name": "VMRDA (Visakhapatnam Metropolitan Region Dev Authority)", "year": 2017, "note": "successor to VUDA, 1978"},
+    "notes": "Madras-Presidency district (municipality 1858 is genuinely old, contemporaneous with Pune), but the CORPORATION form came late (1979). Keeps water in-house (GVMC).",
+    "verify": true,
+    "sources": ["VMC Act 1979"]
+  },
+  "kanpur": {
+    "municipality_year": 1861,
+    "corporation_year": 1959,
+    "corporation_act": "Uttar Pradesh Nagar Mahapalika Adhiniyam, 1959",
+    "lineage": "provincial_other",
+    "improvement_trust": {"name": "Kanpur Improvement Trust", "year": 1919},
+    "development_authority": {"name": "KDA (Kanpur Development Authority)", "year": 1974, "note": "under the UP Urban Planning & Development Act 1973; successor to the 1919 Improvement Trust"},
+    "notes": "United Provinces lineage. Cawnpore had an early improvement trust (1919) — an industrial-city version of the same improvement regime. Water/sewerage hived to Jal Sansthan / UP Jal Nigam.",
+    "verify": true,
+    "sources": ["UP Nagar Mahapalika Adhiniyam 1959"]
+  },
+  "jaipur": {
+    "municipality_year": 1869,
+    "corporation_year": 1994,
+    "corporation_act": "Rajasthan Municipalities Act (corporation form post-74th Amendment, 1994); split into Greater + Heritage corporations, 2019",
+    "lineage": "princely_state",
+    "improvement_trust": null,
+    "development_authority": {"name": "JDA (Jaipur Development Authority)", "year": 1982},
+    "notes": "Princely Jaipur (Kachhwaha) lineage. The CORPORATION is recent (1994) and weak: JDA (1982) and PHED hold most of the land, roads and water a corporation elsewhere would run. Among the least devolved.",
+    "verify": true,
+    "sources": ["Rajasthan Municipalities Act", "JDA Act 1982"]
+  },
+  "bhubaneswar": {
+    "municipality_year": 1979,
+    "corporation_year": 1994,
+    "corporation_act": "Orissa Municipal Corporation Act, 2003 (corporation from 1994)",
+    "lineage": "provincial_other",
+    "improvement_trust": null,
+    "development_authority": {"name": "BDA (Bhubaneswar Development Authority)", "year": 1983},
+    "notes": "India's first major POST-independence planned capital (Otto Königsberger plan, 1948). The development authority (BDA, 1983) predates the municipal corporation (1994) — the planned city was run by the planners before it was ever given an elected council. Water sits with WATCO/state.",
+    "verify": true,
+    "sources": ["Orissa Municipal Corporation Act 2003"]
+  },
+  "kochi": {
+    "municipality_year": 1925,
+    "corporation_year": 1967,
+    "corporation_act": "Corporation of Cochin, 1967 (merger of Fort Cochin, Mattancherry, Ernakulam and others under the Kerala Municipal Corporations Act)",
+    "lineage": "princely_state",
+    "improvement_trust": null,
+    "development_authority": {"name": "GCDA (Greater Cochin Development Authority)", "year": 1976},
+    "notes": "A composite lineage: Fort Cochin was Madras-Presidency, Mattancherry/Ernakulam were princely Cochin/Travancore. Unified as one corporation only in 1967. Kerala's strong municipal-law regime (ASICS-rated highest) coexists with most utilities at the state level (KWA water, KSEB power).",
+    "verify": true,
+    "sources": ["Kerala Municipality Act", "Corporation of Cochin 1967"]
+  },
+  "nagpur": {
+    "municipality_year": 1864,
+    "corporation_year": 1951,
+    "corporation_act": "City of Nagpur Corporation Act, 1948 (constituted 1951)",
+    "lineage": "provincial_other",
+    "improvement_trust": {"name": "Nagpur Improvement Trust (NIT)", "year": 1936},
+    "development_authority": {"name": "Nagpur Improvement Trust (NIT)", "year": 1936, "note": "a RARE surviving improvement TRUST — the very body type Ghosh studies, still operating as the planning authority alongside NMC"},
+    "notes": "Central Provinces & Berar lineage. Nagpur is the live museum specimen of the improvement regime: the NIT (1936) never became a 'development authority' — it is still called a Trust and still runs planning/land beside the elected NMC.",
+    "verify": false,
+    "sources": ["City of Nagpur Corporation Act 1948", "Nagpur Improvement Trust Act 1936"]
+  }
+}

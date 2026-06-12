@@ -1,0 +1,348 @@
+{
+  "_meta": {
+    "what": "The governance-fragmentation dossier for Ahmedabad: every body that took a function from the elected Ahmedabad Municipal Corporation (AMC), pre AND post 1991, with the WHAT (body + function + from whom), HOW (enabling Act / notification / concession + decided_by), and WHY (stated rationale AND real political economy). Organising axis: WHO DECIDED — almost always a higher tier (state legislature, central scheme, state-granted licence), almost never the elected city. AMC chose almost none of this.",
+    "thesis": "Ahmedabad is the atlas's high-capacity, low-democratic-control case. The elected corporation keeps an unusually deep in-house estate (water, sewerage, SWM, roads, fire, the AMTS bus) — yet the costliest, most rent-rich, most investor-facing functions (land/planning, bulk water, riverfront real-estate, metro, the smart-city zone, electricity, GIFT) were carved out into unelected boards, SPVs, and a private licensee. Every carve-out was authorised by a tier ABOVE the city: the Bombay/Gujarat legislature (GTPUDA, GWSSB, Housing Board), a central scheme (JNNURM BRTS, Smart Cities Mission), a state-granted licence (Torrent/AEC), or a state company registration (SRFDCL, GMRC, GIFTCL). This is Ghosh's improvement-trust depoliticisation and recoupment running a century on, plus Cooper's austerity-extravagance (starve the elected municipal fisc; lavish public land and capital on private investors) and JNNURM/Smart-Cities neoliberal conditionality.",
+    "decided_by_legend": {
+      "colonial": "Colonial-era statute or licence (pre-1947 Bombay Presidency / British Raj).",
+      "state": "Gujarat (or pre-1960 Bombay) State Legislature Act, executive notification, or state company registration — the dominant decider here.",
+      "centre": "Central Government scheme/mission conditionality or central Act (JNNURM, Smart Cities Mission, Electricity Act 2003, GIFT-IFSCA).",
+      "city": "A decision genuinely originated by the elected AMC itself (rare; flagged explicitly)."
+    },
+    "era_legend": {
+      "pre_1991": "Developmental-state wave — state-built parastatals for planning, bulk infrastructure, housing.",
+      "post_1991": "Neoliberal wave — SPVs, PPPs, scheme-conditional reform, land financialisation, smart-city/global-city zones."
+    },
+    "status": "Authored 2026-06-09 building on data/laws/ahmedabad/manifest.md (verified Act numbers), data/laws/INDEX.md, data/laws/_constitution/ (Art. 243W 'may, by law, endow'), service_providers.json, corporation_history.json, contractualization_map.json, privatization_map.json, docs/the-corporate-city.md, docs/gujarat-amc-devolution.md, docs/histories/ahmedabad.md. Act names/numbers for AMC/AUDA/GWSSB are verified against statute (see laws manifest). SPV incorporation years, scheme dates and concession details are from institutional record; entries with residual uncertainty carry verify:true. NO fabrication — uncertain specifics are flagged, not guessed."
+  },
+
+  "corporation": {
+    "name": "Ahmedabad Municipal Corporation (AMC) / Amdavad Municipal Corporation",
+    "act": "Gujarat Provincial Municipal Corporations Act, 1949 (originally Bombay Act No. LIX of 1949; inherited by Gujarat 1960, renamed GPMC Act)",
+    "constituted": 1950,
+    "elected": true,
+    "executive_note": "The GPMC Act vests the chief executive authority in a STATE-appointed IAS Municipal Commissioner, not the elected Mayor (ceremonial, 2.5-yr indirect term). So even the 'in-house' estate is run day-to-day by a state functionary — fragmentation begins inside the corporation itself.",
+    "retains": [
+      "water supply — production & distribution (in-house; no city-wide O&M concession)",
+      "sewerage & local drainage (STP O&M often on private contracts — see contractualisation)",
+      "solid waste management (door-to-door lift contracted; conservancy via contract/RWA labour)",
+      "roads & bridges within city limits",
+      "street lighting",
+      "storm-water drainage",
+      "parks & gardens",
+      "public health & Urban Community Health Centres",
+      "fire & emergency services",
+      "city bus — AMTS (a ring-fenced AMC undertaking)",
+      "property-tax assessment & collection",
+      "births & deaths registration"
+    ],
+    "retains_note": "~10 of the 18 Twelfth-Schedule functions sit with AMC (ASICS 2017). The retained set is the labour-intensive, low-rent half — the broom; the carved-out set is the capital-intensive, rent-rich half — land, bulk water, riverfront, transit, the smart-city zone, electricity."
+  },
+
+  "parastatals": [
+    {
+      "name": "Ahmedabad Urban Development Authority (AUDA)",
+      "type": "state_development_authority",
+      "function_taken": "Urban planning / town planning, regulation of land-use & building construction, and planning for economic & social development for the peri-urban Ahmedabad development area (~1,866 sq km) beyond core AMC limits — Twelfth-Schedule functions #1, #2, #3. Delivered through the Development Plan, Town Planning Schemes (TPS) and land pooling/reconstitution.",
+      "from_whom": "From the elected corporation's planning remit (AMC remains planning authority only within its own limits; the larger urban fringe and its land value go to AUDA).",
+      "how": {
+        "instrument": "State statute creating an appointed area development authority",
+        "act": "Gujarat Town Planning and Urban Development Act, 1976 (GTPUDA)",
+        "year": 1976,
+        "act_number": "President's Act No. 27 of 1976",
+        "constituted_year": 1978,
+        "decided_by": "state",
+        "decider_named": "Gujarat State Legislature (the Act was a President's Act during President's Rule, then a state statute); AUDA board is state-appointed, chaired typically by a senior state official/minister."
+      },
+      "why": {
+        "stated": "Coordinated, technically expert planning of the rapidly urbanising region beyond municipal limits; orderly land development via TP schemes and land pooling; infrastructure ahead of growth.",
+        "real": "The improvement-trust move, reborn as a development authority (Ghosh): lift the city's most valuable function — control of LAND and its planned-value uplift — OUT of the elected council and into a state-appointed board. AUDA is a land-and-recoupment machine: TP schemes reconstitute private plots, hand the authority a 'deduction' of serviced land it can monetise, and the planning-gain accrues to an unelected body answerable upward to the state, not to ward voters. Depoliticisation: who gets serviced land, where the city grows, whose plots are reconstituted — recast as neutral 'town planning' beyond electoral reach."
+      },
+      "era": "pre_1991",
+      "verify": false,
+      "source": "data/laws/ahmedabad/manifest.md (GTPUDA verified, Pres. Act 27/1976); AUDA about-us; docs/gujarat-amc-devolution.md; docs/the-corporate-city.md (improvement-trust → development-authority frame)."
+    },
+    {
+      "name": "Gujarat Water Supply and Sewerage Board (GWSSB)",
+      "type": "state_board",
+      "function_taken": "Bulk / regional water supply and sewerage infrastructure at State scale — the trunk side of Twelfth-Schedule #5 (water) and #6 (sanitation/SWM). Upstream of AMC's last-mile distribution.",
+      "from_whom": "From the State-scale water/sewerage development field; in Ahmedabad's case AMC retained CITY distribution, so GWSSB's carve-out is partial — it holds bulk/regional headworks and the statewide development mandate, not the city tap.",
+      "how": {
+        "instrument": "State statute creating a state water/sewerage board",
+        "act": "Gujarat Water Supply and Sewerage Board Act, 1978",
+        "year": 1978,
+        "act_number": "Gujarat Act No. 18 of 1979 (Presidential assent; first published in the Gujarat Government Gazette 6 June 1979)",
+        "decided_by": "state",
+        "decider_named": "Gujarat State Legislature. (Cite as '1978 (Act 18 of 1979)' — the 1978/1979 discrepancy is resolved in the laws manifest: enacted text bears 18 of 1979.)"
+      },
+      "why": {
+        "stated": "Technical efficiency and economies of scale in developing and regulating water supply and sewerage statewide; bulk infrastructure beyond any single ULB's capacity; public-health/sanitation rationale.",
+        "real": "Centralising the capital-intensive trunk of water at the state level keeps the most expensive, debt-financed headworks (and the contracts to build them) under a state board rather than elected councils. In Ahmedabad the city water tap stayed with AMC — a genuine devolution positive — so the GWSSB carve-out here is real but partial; the analytical point is that the STATE, not the city, decided where the line between bulk and last-mile would fall."
+      },
+      "era": "pre_1991",
+      "verify": false,
+      "source": "data/laws/ahmedabad/manifest.md (GWSSB verified, Act 18 of 1979); service_providers.json (AMC keeps city water)."
+    },
+    {
+      "name": "Gujarat Housing Board (GHB)",
+      "type": "state_board",
+      "function_taken": "Public/affordable housing construction and housing-estate development — the delivery side of housing for weaker sections and the planned provision of dwelling stock (touches Twelfth-Schedule #9 weaker sections and the housing dimension of urban development).",
+      "from_whom": "From the municipal/local provision of housing; centralised into a statewide housing board rather than a municipal housing department.",
+      "how": {
+        "instrument": "State statute creating a statewide housing board (successor framework to the Bombay Housing Board after the 1960 bifurcation; constituted as the Gujarat Housing Board)",
+        "act": "Gujarat Housing Board Act, 1961",
+        "year": 1961,
+        "act_number": "Gujarat Act (1961) — exact gazette act-number to confirm against statute",
+        "decided_by": "state",
+        "decider_named": "Gujarat State Legislature (board succeeds the Bombay Housing Board upon Gujarat's formation in 1960)."
+      },
+      "why": {
+        "stated": "Planned, large-scale provision of affordable housing; slum rehousing; an expert statewide housing agency.",
+        "real": "Housing as a state-board land-and-construction enterprise rather than a municipal entitlement — a developmental-state parastatal holding land banks and housing estates outside the elected city. Like the improvement trust, its rehousing-the-poor justification has been repeatedly subordinated in practice to land development and estate disposal; allocation and siting sit with a state board, not ward councillors."
+      },
+      "era": "pre_1991",
+      "verify": true,
+      "source": "Gujarat Housing Board (gujarathousingboard.gov.in); successor to Bombay Housing Board on 1960 bifurcation. Act-number to verify against statute."
+    },
+    {
+      "name": "Gujarat Slum Areas / urban-poverty bodies (Slum Clearance Board lineage; later Slum Networking Project & state slum-rehab framework)",
+      "type": "state_framework",
+      "function_taken": "Slum improvement & upgradation and urban poverty alleviation — Twelfth-Schedule #10 and #11.",
+      "from_whom": "From the municipal slum-improvement remit; defined and funded through state slum-area legislation and (later) centrally-conditioned schemes, with the elected council as implementing agent rather than author.",
+      "how": {
+        "instrument": "State slum-areas legislation + scheme frameworks (e.g. the Gujarat Slum Areas (Improvement, Clearance and Redevelopment) framework; the Ahmedabad 'Slum Networking Project'/Parivartan of the late 1990s as a NGO-AMC-corporate partnership; later state slum-rehabilitation/redevelopment policy)",
+        "act": "Gujarat Slum Areas (Improvement, Clearance and Redevelopment) Act framework + executive scheme policy",
+        "year": 1973,
+        "act_number": "to verify against statute; the operative later instruments are executive scheme/policy notifications",
+        "decided_by": "state",
+        "decider_named": "Gujarat State Legislature / state urban-development department (slum-rehab policy); central scheme money (VAMBAY/JNNURM-BSUP/RAY/PMAY) sets conditions."
+      },
+      "why": {
+        "stated": "Improve slum living conditions; in-situ upgradation; public-private partnership efficiency (the Slum Networking 'Parivartan' model praised as participatory).",
+        "real": "Slum policy authored above the elected city and tied to land: 'redevelopment' frameworks convert slum land into developable real estate, and centrally-conditioned schemes (BSUP under JNNURM, later PMAY) bring neoliberal conditionality — the city must follow scheme rules to get money. The poverty-alleviation function is the one most defined by higher tiers and least controlled by the council whose voters live in the settlements."
+      },
+      "era": "pre_1991",
+      "verify": true,
+      "source": "Gujarat Slum Areas Act framework; Ahmedabad Slum Networking Project/Parivartan (AMC–SAATH–Arvind Mills, late 1990s) literature; JNNURM-BSUP/PMAY scheme conditionality. Act-number and exact lineage to verify."
+    },
+    {
+      "name": "Ahmedabad Municipal Transport Service (AMTS)",
+      "type": "corporation_undertaking",
+      "function_taken": "City bus transport — part of Twelfth-Schedule #17 (public amenities incl. bus stops / transport).",
+      "from_whom": "Originally a private bus operation municipalised INTO the corporation — so AMTS is the counter-case: a function brought IN-HOUSE, not carved out. Listed here to show the contrast and because it is run as a ring-fenced undertaking (capital-supported via 'Loan to AMTS').",
+      "how": {
+        "instrument": "Municipal transport undertaking under the corporation (municipalisation of the former private bus service in 1947)",
+        "act": "Operated as an undertaking of AMC under the GPMC Act, 1949 framework",
+        "year": 1947,
+        "act_number": "n/a (municipal undertaking, not a separate parastatal statute)",
+        "decided_by": "city",
+        "decider_named": "Ahmedabad municipality/AMC itself — a rare genuinely city-originated decision (to MUNICIPALISE transport)."
+      },
+      "why": {
+        "stated": "Public city bus service as a municipal duty.",
+        "real": "The control case: where the city DID decide, it brought transport in-house and kept it (1947–present). The contrast with BRTS/metro is the whole argument — the new, costly, investor-facing transit modes routed AROUND the body that already ran the buses. AMTS's chronic deficits and 'Loan to AMTS' line also show how the retained, low-glamour service is starved while capital flows to the SPV modes (Cooper's austerity-extravagance, in miniature)."
+      },
+      "era": "pre_1991",
+      "verify": false,
+      "source": "service_providers.json (AMTS corporation undertaking); docs/histories/ahmedabad.md; AMC budget 'Loan to AMTS'."
+    },
+    {
+      "name": "Ahmedabad Janmarg Ltd (AJL) — BRTS / Janmarg",
+      "type": "spv",
+      "function_taken": "Bus Rapid Transit (Janmarg) — the new trunk public-transport mode (Twelfth-Schedule #17). Built and operated by a company, not the AMTS undertaking that already ran city buses.",
+      "from_whom": "From the AMC's own transport function — a NEW mode carved into a separate SPV rather than added to AMTS, even though AJL is a 100% AMC subsidiary.",
+      "how": {
+        "instrument": "Special-purpose vehicle — a company registered under the Companies Act (100% AMC-owned), created to receive JNNURM funding and run the BRT corridor",
+        "act": "Companies Act registration of AJL (incorporated 2008); project funded under JNNURM",
+        "year": 2008,
+        "act_number": "Companies Act registration (SPV); JNNURM scheme (central, launched 2005)",
+        "decided_by": "centre",
+        "decider_named": "Central Government via the Jawaharlal Nehru National Urban Renewal Mission (JNNURM) — scheme conditionality required a dedicated, corporatised SPV/undertaking and reform commitments to release funds; AMC formed AJL to comply."
+      },
+      "why": {
+        "stated": "World-class, dedicated BRT corridor; ring-fenced, professionally-managed transit entity able to attract JNNURM capital and run to commercial discipline; Janmarg won international awards (Sustainable Transport Award 2010).",
+        "real": "Corporatisation as JNNURM conditionality: the central mission required reform-linked, SPV-style delivery to disburse — neoliberal conditionality that moved a public-transport function into a company form, off the council's direct departmental control, even though the city owns it. The new trunk mode was built in a vehicle that bypassed AMTS (the elected body's own struggling bus undertaking), concentrating capital and prestige in the SPV while the everyday bus service was left to deficit. Depoliticisation via the corporate form."
+      },
+      "era": "post_1991",
+      "verify": false,
+      "source": "service_providers.json (AJL spv); docs/gujarat-amc-devolution.md (AJL 100% AMC SPV); ahmedabadbrts.org; JNNURM conditionality literature."
+    },
+    {
+      "name": "Gujarat Metro Rail Corporation (GMRC) Ltd — Ahmedabad Metro (formerly MEGA Co.)",
+      "type": "spv",
+      "function_taken": "Metro rail — the highest-capital urban transit mode (Twelfth-Schedule #17 transport), entirely off the municipal books.",
+      "from_whom": "From the city's urban-transport remit; never given to AMC at all — assigned at birth to a 50:50 Centre–State joint-venture company.",
+      "how": {
+        "instrument": "Special-purpose vehicle — a 50:50 Government of India : Government of Gujarat joint-venture company (originally Metro-Link Express for Gandhinagar & Ahmedabad, MEGA Co. Ltd, 2010; renamed GMRC); JICA-funded; project sanctioned under the central metro-rail policy/Metro Railways (O&M) Act framework",
+        "act": "Company (SPV) under the Companies Act; central metro-rail policy & Metro Railways (Operation and Maintenance) Act, 2002 framework; JICA loan",
+        "year": 2010,
+        "act_number": "Companies Act registration (MEGA 2010 → GMRC); central Metro Railways (O&M) Act 2002 (Act 60 of 2002) as the operating-law backdrop",
+        "decided_by": "centre",
+        "decider_named": "Government of India + Government of Gujarat jointly (50:50 SPV); central sanction, central + JICA finance — the elected AMC is NOT a shareholder and did not decide."
+      },
+      "why": {
+        "stated": "Mass rapid transit for a growing metropolis; specialist, ring-fenced engineering SPV; central + JICA concessional finance; 'world-class' city mobility.",
+        "real": "The costliest transit asset assigned to a state–centre company in which the elected city has no seat — the purest case of routing a municipal-transport function entirely around the council. Off the municipal books means off the council's budget, scrutiny, and accountability; the metro's stations and corridors also shape land value captured by the SPV/state, not the city. Delay and opportunity-cost (see ahmedabad-metro-delay doc) fall on riders who have no electoral handle on GMRC."
+      },
+      "era": "post_1991",
+      "verify": false,
+      "source": "service_providers.json (GMRC spv, 50:50, JICA); data/laws/ahmedabad/manifest.md (GMRC company, Metro Railways O&M Act 2002 backdrop); docs/ahmedabad-metro-delay-opportunity-cost.md."
+    },
+    {
+      "name": "Sabarmati Riverfront Development Corporation Ltd (SRFDCL)",
+      "type": "spv",
+      "function_taken": "Development and commercial exploitation of the Sabarmati riverfront — reclaimed riverbank land, public realm, and the real estate on it. Cuts across riverfront environment (#8), parks/public amenities (#12, #17), and the city's prime LAND.",
+      "from_whom": "From the corporation's control of the river edge and its reclaimed land — vested in a special company rather than run as a municipal public-works/parks project.",
+      "how": {
+        "instrument": "Special-purpose vehicle — a company incorporated by AMC (with AUDA) to plan, finance and execute the riverfront and monetise reclaimed land",
+        "act": "Companies Act registration of SRFDCL (incorporated 2004, as an AMC SPV)",
+        "year": 2004,
+        "act_number": "Companies Act registration (SPV)",
+        "decided_by": "state",
+        "decider_named": "AMC + AUDA / Gujarat state apparatus (the project championed at state level; SRFDCL board state/AMC-controlled). Decision and land-monetisation model set above ward level."
+      },
+      "why": {
+        "stated": "Reclaim and beautify the Sabarmati; flood control and embankment; continuous public riverfront promenade; relocate riverbed slum-dwellers; a 'world-class' civic showpiece.",
+        "real": "Recoupment in its purest modern Ahmedabad form (Ghosh): the project finances itself by SELLING the reclaimed land it created — public riverbed turned into commercially disposable real estate, with the land-sale surplus the point. The promised rehousing of evicted riverbed communities became, as Ghosh predicts of the improvement trust, the 'idle afterthought' — thousands of informal-settlement households displaced, with relocation contested and incomplete. A public-realm narrative wrapping a land-financialisation engine, run by an SPV the displaced cannot vote out."
+      },
+      "era": "post_1991",
+      "verify": false,
+      "source": "SRFDCL (sabarmatiriverfront.com), incorporated 2004 as AMC SPV with AUDA; riverfront land-sale financing & displacement literature; docs/the-corporate-city.md (recoupment frame)."
+    },
+    {
+      "name": "Ahmedabad Smart City Development Ltd (Ahmedabad Smart City SPV)",
+      "type": "spv",
+      "function_taken": "Area-based 'smart city' development and pan-city smart-infrastructure projects within designated zones — a slice of urban planning, infrastructure, and service delivery (#1–#3, #17) ring-fenced under a company.",
+      "from_whom": "From the AMC's general development/service remit, carved into a dedicated SPV as mandated by the central mission.",
+      "how": {
+        "instrument": "Special-purpose vehicle — a company under the Companies Act, mandated by the Smart Cities Mission as the implementing vehicle (board with state/central nominees; CEO typically a deputed officer)",
+        "act": "Companies Act registration of the Smart City SPV; Smart Cities Mission guidelines (central scheme, launched 25 June 2015; Ahmedabad selected in the first round, Jan 2016)",
+        "year": 2015,
+        "act_number": "Companies Act registration (SPV); Smart Cities Mission (central scheme, 2015)",
+        "decided_by": "centre",
+        "decider_named": "Government of India — the Smart Cities Mission MANDATED an SPV (with state and central nominee directors, equity from MoHUA + state/ULB) as the precondition for funds; the elected council was structurally sidelined by mission design."
+      },
+      "why": {
+        "stated": "Agile, professionally-run delivery of 'smart' urban infrastructure; attract investment and technology; a 'world-class', liveable, competitive city; reform-linked central funding.",
+        "real": "The Smart Cities Mission's SPV mandate is textbook neoliberal conditionality and depoliticisation: to receive central money, the city had to hand area-based development to a company with central/state nominee directors and a deputed CEO — formally diluting the elected council's authority over its own territory. Capital concentrates in a small 'area-based' enclave (extravagance) while the wider city's directly-funded services are not similarly resourced (austerity). Elite/commercial capture: the board and consultants, not councillors, set priorities."
+      },
+      "era": "post_1991",
+      "verify": false,
+      "source": "Smart Cities Mission guidelines (SPV mandate; launched June 2015; Ahmedabad round-1 Jan 2016); Ahmedabad Smart City SPV; critique of SPV-mission depoliticisation (Hoelscher, Bhattacharya et al.)."
+    },
+    {
+      "name": "GIFT City Company Ltd (GIFTCL) — Gujarat International Finance Tec-City",
+      "type": "spv",
+      "function_taken": "An entire planned 'global city' — finance/IFSC district with its OWN urban governance, utilities and authority — built outside any elected municipal corporation. The municipal functions of an entire new city (planning, water, power, waste, the lot) vested in a state company and an IFSC regulator, not a council.",
+      "from_whom": "From the very possibility of municipal democracy: GIFT is conceived as a special zone where civic governance is corporate/regulatory by design — the elected-corporation model is pre-empted, not merely carved out.",
+      "how": {
+        "instrument": "State-promoted company (originally a 50:50 Gujarat Urban Development Co. / IL&FS JV, later wholly Government-of-Gujarat-owned) developing a greenfield zone; special-area governance + central IFSC regulator (IFSCA)",
+        "act": "Companies Act SPV (GIFTCL, est. 2007); Special Economic Zone / IFSC framework; International Financial Services Centres Authority Act, 2019 (central) for the financial-zone regulator",
+        "year": 2007,
+        "act_number": "Companies Act registration (GIFTCL 2007); IFSCA Act, 2019 (Central Act 50 of 2019) for the IFSC regulator",
+        "decided_by": "state",
+        "decider_named": "Government of Gujarat (project conceived by the state, 2007; promoted via a state company); central IFSCA Act 2019 layers a central regulator over the finance zone. No municipal electorate involved at any point."
+      },
+      "why": {
+        "stated": "A world-class international finance and tech hub to compete with Singapore/Dubai/London; attract global capital; smart, planned, business-friendly governance unencumbered by 'messy' municipal politics.",
+        "real": "The 'unelected city' as deliberate model rather than accidental drift: an entire urban area engineered to be governed by a company and a financial regulator, with no elected council, expressly to make it frictionless for investors. This is austerity-extravagance at civic-design scale (Cooper): lavish state-assembled land, tax holidays and bespoke regulation for global finance, while ordinary Ahmedabad wards bargain for libraries; and depoliticisation taken to its logical end — a city built so there is no councillor to lobby, only a corporate authority and a regulator."
+      },
+      "era": "post_1991",
+      "verify": true,
+      "source": "GIFT City (giftgujarat.in); GIFTCL est. 2007 (GUDCo/IL&FS JV → GoG-owned); IFSCA Act 2019 (Act 50 of 2019). Exact ownership-history dates to verify."
+    },
+    {
+      "name": "Torrent Power Ltd (Ahmedabad licence area) — successor to the Ahmedabad Electricity Co. (AEC, 1915)",
+      "type": "private_licensee",
+      "function_taken": "Electricity generation and the ENTIRE distribution of power to the city of Ahmedabad. (Note: electricity distribution is NOT a Twelfth-Schedule municipal function — but it is a basic daily provisioning the citizen cannot vote on; included as the colonial-origin private carve-out of an essential service.)",
+      "from_whom": "Never the corporation's — a private licensee from inception (1915). The point is that the city's power was private from the start and remains a monopoly with no electoral recourse.",
+      "how": {
+        "instrument": "State/colonial electricity distribution LICENCE (not a statute creating a public body) — the Ahmedabad Electricity Company incorporated 1915; Torrent bought the Gujarat government's residual ~28.89% stake in 1997 (Torrent Power AEC), merged into Torrent Power Ltd 2006",
+        "act": "Colonial-era electricity licence (1915 incorporation of AEC); now operates under the Electricity Act, 2003 (Central Act 36 of 2003), regulated by GERC",
+        "year": 1915,
+        "act_number": "Electricity Act, 2003 (Central Act 36 of 2003) as the current operating law; original 1915 incorporation/licence",
+        "decided_by": "colonial",
+        "decider_named": "Colonial-era licensing (1915 AEC) — a state-granted private licence, never a municipal decision; post-2003 the central Electricity Act + GERC frame it. The CITY never chose its electricity provider and cannot un-choose it."
+      },
+      "why": {
+        "stated": "Reliable, efficient, professionally-run power supply; private utility under independent regulation; among India's better-performing discoms (low losses).",
+        "real": "A century-old private monopoly over an essential service, answerable to GERC and Torrent's shareholders — not to any electorate. You cannot vote out Torrent. The 1997 buy-out of the state's residual stake completed the privatisation of a service the public can neither run nor remove; regulatory recourse replaces democratic recourse. The structural democratic gap, not an occasional failure."
+      },
+      "era": "pre_1991",
+      "verify": false,
+      "source": "privatization_map.json (ahmedabad.electricity): AEC 1915; Torrent control 1997; merger 2006; Electricity Act 2003; GERC."
+    }
+  ],
+
+  "contractualisation": [
+    {
+      "function": "Solid-waste door-to-door collection & transport",
+      "from_whom": "AMC's own SWM department",
+      "mode": "O&M concession / ward-wise private contractors",
+      "how": {
+        "instrument": "Service contracts let by AMC ('Door/Gate to Dump', since July 2009); biomedical waste to Semb Ramky; hotel/kitchen waste to private agencies → Excel Industries composting",
+        "decided_by": "city",
+        "decider_named": "AMC administration (Commissioner-led) lets the contracts — but the contractualisation MODE is driven by national scheme/reform norms; AMC retains ownership while a private fleet does the daily lift."
+      },
+      "why": {
+        "stated": "Efficiency, fleet modernisation, coverage (~85% residential door-to-door).",
+        "real": "The 'in-house'/GREEN SWM cell is a shell: the corporation administers contracts; the daily lift is a contractor function. Operation hollowed even where the council 'runs' the service."
+      },
+      "era": "post_1991",
+      "verify": false,
+      "source": "contractualization_map.json (ahmedabad.solid_waste_collection); AMC SWM Profile."
+    },
+    {
+      "function": "Sanitation / conservancy front-line labour (sweeping, drain-cleaning, de-sludging)",
+      "from_whom": "AMC's permanent safai-kamdar cadre",
+      "mode": "contracted / RWA / 'community-body' labour layer atop a permanent cadre",
+      "how": {
+        "instrument": "~5,000 additional workers hired via RWAs / 'Sakhi Mandali' / Valmiki Association 'as per requirement', kept off the formal contract rolls; ~13,000–14,230 permanent posts (with ~1,210 vacant)",
+        "decided_by": "city",
+        "decider_named": "AMC SWM department — but the practice mirrors a nationwide contractualisation pattern. The denial ('no regular contract workers') is itself the mechanism: an outsourced layer doing identical work without contract-worker status."
+      },
+      "why": {
+        "stated": "Flexibility — labour 'as per requirement' via community bodies.",
+        "real": "Caste/labour offloading (Ambedkar's 'division of labour is also a division of labourers'): the same conservancy work split into a permanent tier (secure, pensioned) and a precarious, off-the-rolls tier — overwhelmingly Dalit/Valmiki. CLRA 'Swept Aside' (2025): Ahmedabad Valmikis funnelled into safai work after mill closures; 52% in slums, 29% in AMC quarters — caste-locked into both permanent and informal sanitation rolls. The cheapest, dirtiest core function is the most caste-coded and the least secure."
+      },
+      "era": "post_1991",
+      "verify": true,
+      "source": "contractualization_map.json (ahmedabad.sanitation_conservancy); CLRA 'Swept Aside' (2025); AMC SWM Dept figures; manual_scavenging_map.json."
+    },
+    {
+      "function": "Sewerage-treatment-plant (STP) operation & maintenance",
+      "from_whom": "AMC sewerage department",
+      "mode": "private O&M contracts (industry-standard multi-year O&M)",
+      "how": {
+        "instrument": "STP plant O&M routinely contracted to private operators (AMC-specific contract docs not surfaced)",
+        "decided_by": "city",
+        "decider_named": "AMC (mode is sector-standard; specifics not public — flagged)."
+      },
+      "why": {
+        "stated": "Specialist plant operation; O&M efficiency.",
+        "real": "Even the treatment end of the in-house sewerage estate is run by private operators on O&M contracts — another hollow cell behind a GREEN scorecard mark."
+      },
+      "era": "post_1991",
+      "verify": true,
+      "source": "contractualization_map.json (ahmedabad.sewerage_STP) — AMC-specific O&M contract details verify-pending."
+    },
+    {
+      "function": "Property-tax property-discovery / GIS survey",
+      "from_whom": "AMC revenue department (core collection retained in-house)",
+      "mode": "outsourced GIS/survey discovery of unassessed properties",
+      "how": {
+        "instrument": "GIS/survey firms commonly engaged to discover unassessed properties (sector norm; AMC-specific vendor not confirmed)",
+        "decided_by": "city",
+        "decider_named": "AMC revenue department (the commonly-outsourced slice of an otherwise in-house function)."
+      },
+      "why": {
+        "stated": "Widen the tax net; technical GIS capability.",
+        "real": "The defensible-auxiliary end of contractualisation — flagged for completeness; core assessment/collection stays in-house, so this is the least concerning of the four."
+      },
+      "era": "post_1991",
+      "verify": true,
+      "source": "contractualization_map.json (ahmedabad.property_tax_collection); World Bank 'Property Taxation in India'."
+    }
+  ],
+
+  "timeline_note": "TWO WAVES, ONE LOGIC — and the city decided almost none of it. PRE-1991 (developmental-state): the carve-outs are STATE STATUTES building parastatals — the Gujarat Housing Board (1961), the Gujarat Slum Areas framework (1973), GTPUDA/AUDA (Act 27 of 1976; AUDA 1978), the GWSSB (Act 18 of 1979). Land, bulk water and housing are lifted into appointed state boards. The lone counter-move is genuinely the city's: AMTS, municipalised in-house in 1947 — the one transport decision Ahmedabad actually made. Electricity was already private from 1915 (colonial AEC → Torrent). POST-1991 (neoliberal): the carve-outs become COMPANIES — SPVs and zones, increasingly driven by CENTRAL scheme conditionality. SRFDCL (2004, riverfront land-recoupment), AJL/Janmarg (2008, JNNURM-mandated BRT SPV), MEGA/GMRC (2010, 50:50 Centre–State metro SPV, JICA), the Ahmedabad Smart City SPV (2015, Smart Cities Mission mandate), and GIFT City (GIFTCL 2007 + IFSCA 2019) — a whole 'global city' built with no council at all. ACROSS BOTH WAVES the decider is a tier ABOVE the elected city: the Bombay/Gujarat legislature, a central mission (JNNURM, Smart Cities), a central Act (Electricity 2003, IFSCA 2019), or a state company registration. Read against Art. 243W's 'may, by law, endow', the pattern is exact: the Constitution made devolution optional, and Gujarat exercised the option to keep the rent-rich, investor-facing functions OUT of the council — while leaving AMC the broom (and even that increasingly contracted out onto a caste-coded precariat). Ahmedabad's high devolution score is real but narrow: a strong in-house estate of low-rent services, encircled by an unelected city of land, water trunk, riverfront, transit and finance that the voter cannot touch."
+}
