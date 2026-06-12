@@ -1,0 +1,39 @@
+{
+  "city": "Chennai",
+  "body": "Greater Chennai Corporation (GCC)",
+  "captured": "2026-06-09",
+  "notes": "Primary GCC budget pages at chennaicorporation.gov.in/gcc/Budget_YYYY-YYYY/ are live in-browser but return HTTP 404 to programmatic fetch (bot/JS block). OpenCity Urban Data Portal mirrors the official GCC budget PDFs with stable, directly-downloadable URLs and is used here as the working source. Each OpenCity dataset page links the full set of per-year PDFs (Budget Speech, Budget Announcement, Budget At A Glance, Department-wise Receipts/Expenditure, North/Central/South division receipts & expenditure, Elementary Education budget, Action Taken Report).",
+  "official_landing_pages": [
+    {"year": "2025-26", "url": "https://chennaicorporation.gov.in/gcc/Budget_2025-2026/", "status": "live in browser; 404 to fetcher"},
+    {"year": "2024-25", "url": "https://chennaicorporation.gov.in/gcc/Budget_2024-2025/", "status": "live in browser; 404 to fetcher"},
+    {"year": "2023-24", "url": "https://chennaicorporation.gov.in/gcc/Budget_2023-2024/", "status": "live in browser; 404 to fetcher"},
+    {"year": "citizen_guide", "url": "https://chennaicorporation.gov.in/gcc/pdf/gcc-budget-at-glance_PRINT_EN_v17.pdf", "title": "Citizen's Guide to Budget 2025-26"},
+    {"year": "climate_2025-26", "url": "https://chennaicorporation.gov.in/gcc/pdf/ClimateBudget2025-2026.pdf", "title": "GCC Climate Budget Report 2025-26"}
+  ],
+  "opencity_budget_datasets": [
+    {"year": "2026-27", "dataset_page": "https://data.opencity.in/dataset/gcc-budget-2026-27"},
+    {"year": "2025-26", "dataset_page": "https://data.opencity.in/dataset/gcc-budget-2025-26"},
+    {"year": "2024-25", "dataset_page": "https://data.opencity.in/dataset/gcc-budget-2024-25"},
+    {"year": "2023-24", "dataset_page": "https://data.opencity.in/dataset/gcc-budget-2023-24"},
+    {"year": "2022-23", "dataset_page": "https://data.opencity.in/dataset/gcc-budget-2022-23"},
+    {"year": "2021-22", "dataset_page": "https://data.opencity.in/dataset/gcc-budget-2021-22"},
+    {"year": "2020-21", "dataset_page": "https://data.opencity.in/dataset/gcc-budget-2020-21"},
+    {"year": "2019-20", "dataset_page": "https://data.opencity.in/dataset/gcc-budget-2019-20"},
+    {"year": "climate-2025-26", "dataset_page": "https://data.opencity.in/dataset/gcc-climate-budget-2025-26"}
+  ],
+  "budget_2024_25_pdfs": [
+    {"title": "Budget Speech 2024-25", "url": "https://data.opencity.in/dataset/bec4a707-a87a-4990-a935-be579af8b0f7/resource/357c363d-001b-423f-aac6-e881863f958e/download/a65aa86a-342f-48a5-a876-be7050c5bcbb.pdf"},
+    {"title": "Budget Announcement 2024-25", "url": "https://data.opencity.in/dataset/bec4a707-a87a-4990-a935-be579af8b0f7/resource/d162b188-61cb-4a59-a905-50bf4fefc6f7/download/409ee371-cfb3-442d-b33b-57f81363d583.pdf"},
+    {"title": "Budget At A Glance 2024-25", "url": "https://data.opencity.in/dataset/bec4a707-a87a-4990-a935-be579af8b0f7/resource/8ea04114-899a-4b19-b682-067d1d58da9a/download/b284579a-9c56-4a8e-a41b-bc5cb48975bc.pdf"},
+    {"title": "Department-wise Receipts", "url": "https://data.opencity.in/dataset/bec4a707-a87a-4990-a935-be579af8b0f7/resource/3d6f947e-ca4f-4229-8032-87531c286153/download/2ada359a-d10b-44a3-8f4e-41e3d40de165.pdf"},
+    {"title": "Department-wise Expenditure", "url": "https://data.opencity.in/dataset/bec4a707-a87a-4990-a935-be579af8b0f7/resource/2af994ae-7d82-41ac-bbee-de4dbe35a122/download/f027d595-d62e-4f25-8c4d-0707284e7122.pdf"},
+    {"title": "North Division (Zones 1-5) Receipts", "url": "https://data.opencity.in/dataset/bec4a707-a87a-4990-a935-be579af8b0f7/resource/3aac17d9-365e-4dd1-81e2-d09623ae9876/download/f24b1332-e373-4145-af89-0eadddb3a26a.pdf"},
+    {"title": "North Division (Zones 1-5) Expenditure", "url": "https://data.opencity.in/dataset/bec4a707-a87a-4990-a935-be579af8b0f7/resource/3a0ac7fa-84f2-4c6b-96f6-0ef9bb1bba06/download/b9503b41-dcdf-4930-9a5e-cbd29950b6ec.pdf"},
+    {"title": "Central Division (Zones 6-10) Receipts", "url": "https://data.opencity.in/dataset/bec4a707-a87a-4990-a935-be579af8b0f7/resource/c8ae0731-b3ac-490b-ae11-29a5d2af461a/download/4d8d0bf5-558e-4d79-b672-49fe8ccec1ea.pdf"},
+    {"title": "Central Division (Zones 6-10) Expenditure", "url": "https://data.opencity.in/dataset/bec4a707-a87a-4990-a935-be579af8b0f7/resource/0aa015b1-5bfc-477b-8de8-3cb482091022/download/cb223bd4-2f50-466d-93b8-7e8be04443a4.pdf"},
+    {"title": "South Division (Zones 11-15) Receipts", "url": "https://data.opencity.in/dataset/bec4a707-a87a-4990-a935-be579af8b0f7/resource/221767f6-2e8f-475d-ac15-74f6ac45de64/download/40c8149a-0421-436c-bc65-97b08776a1d3.pdf"},
+    {"title": "South Division (Zones 11-15) Expenditure", "url": "https://data.opencity.in/dataset/bec4a707-a87a-4990-a935-be579af8b0f7/resource/5e5daf25-81aa-48d8-807e-dba08100a711/download/69b9618d-1cc3-421e-8c41-34b6fe17909f.pdf"},
+    {"title": "Elementary Education Budget", "url": "https://data.opencity.in/dataset/bec4a707-a87a-4990-a935-be579af8b0f7/resource/015ab605-5166-4834-ae9b-385f954cafc3/download/b1462832-db63-4ef7-9820-7c878233eb32.pdf"},
+    {"title": "Action Taken Report 2023-24", "url": "https://data.opencity.in/dataset/bec4a707-a87a-4990-a935-be579af8b0f7/resource/3340ee04-85f5-45e8-a08a-7878cb22a2d3/download/476eed26-fd5f-436f-915c-d2fb286e1a38.pdf"}
+  ]
+}

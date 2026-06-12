@@ -1,0 +1,27 @@
+{
+  "corporation": "Greater Hyderabad Municipal Corporation (GHMC)",
+  "city": "Hyderabad",
+  "state": "Telangana",
+  "note": "Budget PDFs indexed via OpenCity mirror of GHMC documents. GHMC's own site (ghmc.gov.in/ghmcbuget.aspx) hosts current-year copies but is behind an F5 WAF that blocks automated fetch from this environment; mirror links below are the authoritative GHMC budget books re-hosted by OpenCity (organization: greater-hyderabad-municipal-corporation). FY2025-26 budget outlay reported at approx Rs 8,440 crore.",
+  "ghmc_official_index_page": "https://www.ghmc.gov.in/ghmcbuget.aspx",
+  "opencity_dataset": "https://data.opencity.in/dataset/ghmc-budget-documents",
+  "budgets": [
+    {"fiscal_year": "2025-26", "type": "Budget Estimates (BE 2025-26, RE 2024-25)", "format": "PDF", "url": "https://data.opencity.in/dataset/0e1c1567-978f-4909-8164-17fa534fd880/resource/e94af16d-6153-4c93-a24a-0f5e49712e47/download/ghmc-budget-2025-26-final-for-printing.pdf"},
+    {"fiscal_year": "2024-25", "type": "Budget Estimates", "format": "PDF", "url": "https://data.opencity.in/dataset/0e1c1567-978f-4909-8164-17fa534fd880/resource/55cb245d-6987-49b7-b630-7d13021ff41b/download/ghmc-budget-2024-25.pdf", "ghmc_direct": "https://ghmc.gov.in/Budget/GHMC%20Budget%202024-25.pdf"},
+    {"fiscal_year": "2023-24", "type": "Budget Estimates", "format": "PDF", "url": "https://data.opencity.in/dataset/0e1c1567-978f-4909-8164-17fa534fd880/resource/db984a85-a92e-486a-8255-8f11f13c8144/download/ghmc-budget-2023-24.pdf"},
+    {"fiscal_year": "2023-24", "type": "Annual Account Statement", "format": "PDF", "url": "https://data.opencity.in/dataset/0e1c1567-978f-4909-8164-17fa534fd880/resource/8ac6a5c8-a1b2-4d05-b7c4-7fc84271a394/download/annual-account-2023-24_compressed.pdf"},
+    {"fiscal_year": "2022-23", "type": "Budget Estimates", "format": "PDF", "url": "https://data.opencity.in/dataset/0e1c1567-978f-4909-8164-17fa534fd880/resource/8f77fd43-6020-4bcb-9011-a2bdbf4cb951/download/3987bc2d-f844-49e2-8020-017fe00b3ac8.pdf"},
+    {"fiscal_year": "2021-22", "type": "Budget Statement", "format": "PDF", "url": "https://data.opencity.in/dataset/0e1c1567-978f-4909-8164-17fa534fd880/resource/8dfdaf91-1845-4f85-bbb1-53a1a348929d/download/5b277189-66b5-4368-974e-b8888229907d.pdf"},
+    {"fiscal_year": "2021-22", "type": "Budget Estimates", "format": "PDF", "url": "https://data.opencity.in/dataset/0e1c1567-978f-4909-8164-17fa534fd880/resource/e232099b-eb16-4209-b0bb-71d74511b7b7/download/92782657-730e-4ac0-8f27-380610e58b3b.pdf"},
+    {"fiscal_year": "2020-21", "type": "Budget Statement", "format": "PDF", "url": "https://data.opencity.in/dataset/0e1c1567-978f-4909-8164-17fa534fd880/resource/8e092338-0ed0-4868-a2ac-e3d22397e4c1/download/2e4cd2d4-eb20-4400-8eb5-c1c23dae1130.pdf"},
+    {"fiscal_year": "2020-21", "type": "Budget Estimates", "format": "PDF", "url": "https://data.opencity.in/dataset/0e1c1567-978f-4909-8164-17fa534fd880/resource/63132bc0-4d36-4fc6-9f9c-ecf067f708fe/download/f965617c-4e5e-4947-af18-7517a6c946f3.pdf"},
+    {"fiscal_year": "2019-20", "type": "Budget Estimates", "format": "PDF", "url": "https://data.opencity.in/dataset/0e1c1567-978f-4909-8164-17fa534fd880/resource/6a879fee-7916-4370-883d-0f4d968c7f4c/download/0899291b-7a7b-4d86-9382-9317492c6a00.pdf"},
+    {"fiscal_year": "2019-20", "type": "Budget Highlights", "format": "PDF", "url": "https://data.opencity.in/dataset/0e1c1567-978f-4909-8164-17fa534fd880/resource/b8c090aa-39d4-413a-92cd-0cb5dd838914/download/2f8c462e-20e5-49f2-b5ca-75ad40dce3ae.pdf"},
+    {"fiscal_year": "2018-19", "type": "Budget Statement", "format": "PDF", "url": "https://data.opencity.in/dataset/0e1c1567-978f-4909-8164-17fa534fd880/resource/657d1c38-040f-42a3-b2f2-0e24f57afaf8/download/bdeb71c2-3c64-4bae-b17d-a821106ad867.pdf"},
+    {"fiscal_year": "2017-18", "type": "Budget Statement", "format": "PDF", "url": "https://data.opencity.in/dataset/0e1c1567-978f-4909-8164-17fa534fd880/resource/9cbe4eb4-524d-494d-9f1e-1e6123f9dc45/download/5fb8b5d9-98c5-4933-90ff-ac075b6873f9.pdf"},
+    {"fiscal_year": "2016-17", "type": "Budget Statement", "format": "PDF", "url": "https://data.opencity.in/dataset/0e1c1567-978f-4909-8164-17fa534fd880/resource/1c601b20-5303-44a1-9180-1b6fe5d271fe/download/eadda44c-2d68-4a8a-8d1f-910169d54f29.pdf"},
+    {"fiscal_year": "2015-16", "type": "Budget Highlights", "format": "PDF", "url": "https://data.opencity.in/dataset/0e1c1567-978f-4909-8164-17fa534fd880/resource/bd38e6fc-4867-4998-bd0d-42413a32bd3a/download/614544ac-d64f-4d51-8616-ef4522265f17.pdf"},
+    {"fiscal_year": "2015-16", "type": "Budget Statement", "format": "PDF", "url": "https://data.opencity.in/dataset/0e1c1567-978f-4909-8164-17fa534fd880/resource/4454bf4e-f928-4217-af5c-730d1013a1a8/download/a0a3a72e-545e-4986-9f52-27d06693761b.pdf"},
+    {"fiscal_year": "2014-15", "type": "Budget Statement", "format": "PDF", "url": "https://data.opencity.in/dataset/0e1c1567-978f-4909-8164-17fa534fd880/resource/28ce0551-9ab0-4256-997f-1a56995015c4/download/cebb5b0d-ecaf-453b-b806-800b3c569d30.pdf"}
+  ]
+}

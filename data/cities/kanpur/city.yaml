@@ -1,0 +1,10 @@
+id: kanpur
+name: Kanpur
+country: India
+state: Uttar Pradesh
+center: [80.3359, 26.4342]
+bbox: [80.1982, 26.3350, 80.4735, 26.5334]
+crs_metric: EPSG:32644
+layers_dir: data/cities/kanpur/layers
+source_dir: data/cities/kanpur/source
+outputs_dir: public/cities/kanpur
