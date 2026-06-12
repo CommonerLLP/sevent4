@@ -1,0 +1,10 @@
+id: chennai
+name: Chennai
+country: India
+state: Tamil Nadu
+center: [80.2357, 13.0436]
+bbox: [80.1402, 12.8520, 80.3312, 13.2352]
+crs_metric: EPSG:32644
+layers_dir: data/cities/chennai/layers
+source_dir: data/cities/chennai/source
+outputs_dir: public/cities/chennai

@@ -1,0 +1,69 @@
+SL.NO.,Zone,Ward,Location,Type
+1,I,9,"Pattinathar, Thiruvottiur",Gasifier 
+2,III,27,"MMGCT, Madavaram",Gasifier 
+3,IV,34,Seetharam Nagar,Regular
+4,IV,37,Vyasarpadi,Regular
+5,IV,43,Kasimedu (Hind),Regular
+6,IV,43,Kasimedu (Muslim),Regular
+7,IV,43,Kasimedu (Christian),Regular
+8,IV,34,Seetharam Nagar,Gasifier 
+9,IV,37,Vyasarpadi,Gasifier 
+10,IV,43,Kasimedu (Hindu),Gasifier 
+11,IX,110,Nungambakkam,Regular
+12,IX,120,Krishnapuram,Regular
+13,IX,110,ST.Mary’s Cemetry Mandaveli,Regular
+14,IX,125,Mylapore,Regular
+15,IX,120,Krishnampet,Gasifier 
+16,IX,125,Mylapore,Gasifier 
+17,IX,110,Nungambakkam,Electrical 
+18,V,49,Washermentpet,Regular
+19,V,49,Washermenpet,Gasifier 
+20,VI,64,Thangal Sembium,Regular
+21,VI,64,"Batti,edi (GKM colony)",Regular
+22,VI,65,Makkaram Thottam,Regular
+23,VI,65,Kolathur,Regular
+24,VI,70,Melpatti Ponnapa Mudali Street,Regular
+25,VI,64,"Thangal, Sembium",Gasifier 
+26,VI,70,MPM Street,Gasifier 
+27,VI,65,GKM Colony,Electrical 
+28,VII,85,Vanagaram Road,Gasifier 
+29,VIII,94,Villivakkam,Regular
+30,VIII,100,Arumbakkam,Regular
+31,VIII,101,Velangadu,Regular
+32,VIII,102,Kilpauk Cemetry,Regular
+33,VIII,104,Ottery,Regular
+34,VIII,94,Villivakkam,Gasifier 
+35,VIII,101,Velankadu,Gasifier 
+36,VIII,104,Ottery,Gasifier 
+37,VIII,100,Arumbakkam,Electrical 
+38,X,128,Virugambakkam,Regular
+39,X,127,Koyambedu,Regular
+40,X,132,Kodambakkam,Regular
+41,X,137,Nesapakkam,Regular
+42,X,138,Saidapet,Regular
+43,X,139,Anna Sathiya Nagar,Regular
+44,X,141,Kannamapet,Regular
+45,X,139,Saidapet,Gasifier 
+46,X,141,Kannammapet,Electrical 
+47,X,128,Virugambakkam,Electrical 
+48,XI,149,Brindavan Nagar,Gasifier 
+49,XI,151,Porur,Electrical 
+50,XII,162,Kannan Colony,Gasifier 
+51,XII,163,Balakrishna puram,Gasifier 
+52,XIII,170,Arulayanpet,Regular
+53,XIII,170,Ekkattuthangal,Regular
+54,XIII,170,Guindy Industrial Estate,Regular
+55,XIII,170,Dhanakodiraja,Regular
+56,XIII,172,Jameen Adayar,Regular
+57,XIII,172,Kottur,Regular
+58,XIII,174,Velachery,Regular
+59,XIII,176,Besant Nagar,Regular
+60,XIII,178,Velachery(Taramani Road),Regular
+61,XIII,180,Kanagam Taramani,Regular
+62,XIII,181,Thiruvanmiyur,Regular
+63,XIII,170,Arulayanpet,Gasifier 
+64,XIII,172,Kotturpuram,Gasifier 
+65,XIII,176,Besant Nagar,Gasifier 
+66,XIII,179,Velachery,Gasifier 
+67,XIII,174,Velachery-Near Gurunanak College,Electrical 
+68,XIII,180,Kaanakam Tharamani,Electrical 

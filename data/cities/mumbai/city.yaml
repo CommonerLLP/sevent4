@@ -1,0 +1,10 @@
+id: mumbai
+name: Mumbai
+country: India
+state: Maharashtra
+center: [72.8785, 19.0815]
+bbox: [72.7761, 18.8927, 72.9810, 19.2702]
+crs_metric: EPSG:32643
+layers_dir: data/cities/mumbai/layers
+source_dir: data/cities/mumbai/source
+outputs_dir: public/cities/mumbai

@@ -1,0 +1,307 @@
+{
+  "layers": [
+    {
+      "id": "wards",
+      "label": "Wards",
+      "file": "wards.geojson",
+      "kind": "fill",
+      "group": "Civic baseline",
+      "default": true,
+      "outline": true,
+      "popup": [
+        "Name",
+        "councillors",
+        "councillor_parties",
+        "councillor_phones",
+        "population_2020"
+      ],
+      "paint": {
+        "fill-color": "#1f6f8b",
+        "fill-opacity": 0.18
+      }
+    },
+    {
+      "id": "districts",
+      "label": "District boundary",
+      "file": "districts.geojson",
+      "kind": "line",
+      "group": "Civic baseline",
+      "default": true,
+      "popup": [
+        "district"
+      ],
+      "paint": {
+        "line-color": "#c9c2b3",
+        "line-width": 1.3,
+        "line-opacity": 0.55
+      }
+    },
+    {
+      "id": "pcs",
+      "label": "Parliament constituencies",
+      "file": "pcs.geojson",
+      "kind": "line",
+      "group": "Public jurisdictions",
+      "default": true,
+      "popup": [
+        "pc_name",
+        "office",
+        "representative",
+        "party"
+      ],
+      "paint": {
+        "line-color": "#d6a946",
+        "line-width": 2.0,
+        "line-opacity": 0.78
+      }
+    },
+    {
+      "id": "acs",
+      "label": "Assembly constituencies",
+      "file": "acs.geojson",
+      "kind": "line",
+      "group": "Public jurisdictions",
+      "default": true,
+      "popup": [
+        "ac_name",
+        "office",
+        "representative",
+        "party"
+      ],
+      "paint": {
+        "line-color": "#5c8af2",
+        "line-width": 1.6,
+        "line-opacity": 0.82
+      }
+    },
+    {
+      "id": "roads",
+      "label": "Roads",
+      "file": "roads.geojson",
+      "kind": "line",
+      "group": "Mobility",
+      "default": false,
+      "popup": [
+        "name"
+      ],
+      "paint": {
+        "line-color": "#58606d",
+        "line-width": 0.5,
+        "line-opacity": 0.4
+      }
+    },
+    {
+      "id": "metro_lines",
+      "label": "Metro lines",
+      "file": "metro_lines.geojson",
+      "kind": "line",
+      "group": "Transit",
+      "default": true,
+      "popup": [
+        "name"
+      ],
+      "paint": {
+        "line-color": "#dc4c4c",
+        "line-width": 2.4,
+        "line-opacity": 0.9
+      }
+    },
+    {
+      "id": "metro",
+      "label": "Metro stations",
+      "file": "metro.geojson",
+      "kind": "circle",
+      "group": "Transit",
+      "default": true,
+      "popup": [
+        "name"
+      ],
+      "paint": {
+        "circle-color": "#5c8af2",
+        "circle-radius": 3.2,
+        "circle-stroke-color": "#101318",
+        "circle-stroke-width": 0.6,
+        "circle-opacity": 0.85
+      }
+    },
+    {
+      "id": "stops",
+      "label": "Bus stops",
+      "file": "stops.geojson",
+      "kind": "circle",
+      "group": "Transit",
+      "default": false,
+      "popup": [
+        "name"
+      ],
+      "paint": {
+        "circle-color": "#9ca3ad",
+        "circle-radius": 3.2,
+        "circle-stroke-color": "#101318",
+        "circle-stroke-width": 0.6,
+        "circle-opacity": 0.85
+      }
+    },
+    {
+      "id": "health",
+      "label": "Health facilities",
+      "file": "health.geojson",
+      "kind": "circle",
+      "group": "Public services",
+      "default": false,
+      "popup": [
+        "name"
+      ],
+      "paint": {
+        "circle-color": "#49a35f",
+        "circle-radius": 3.2,
+        "circle-stroke-color": "#101318",
+        "circle-stroke-width": 0.6,
+        "circle-opacity": 0.85
+      }
+    },
+    {
+      "id": "schools",
+      "label": "Schools",
+      "file": "schools.geojson",
+      "kind": "circle",
+      "group": "Public services",
+      "default": false,
+      "popup": [
+        "name"
+      ],
+      "paint": {
+        "circle-color": "#1e9f8f",
+        "circle-radius": 3.2,
+        "circle-stroke-color": "#101318",
+        "circle-stroke-width": 0.6,
+        "circle-opacity": 0.85
+      }
+    },
+    {
+      "id": "libraries",
+      "label": "Libraries",
+      "file": "libraries.geojson",
+      "kind": "circle",
+      "group": "Public services",
+      "default": true,
+      "popup": [
+        "name"
+      ],
+      "paint": {
+        "circle-color": "#e0b84d",
+        "circle-radius": 3.2,
+        "circle-stroke-color": "#101318",
+        "circle-stroke-width": 0.6,
+        "circle-opacity": 0.85
+      }
+    },
+    {
+      "id": "toilets",
+      "label": "Public toilets",
+      "file": "toilets.geojson",
+      "kind": "circle",
+      "group": "Public services",
+      "default": false,
+      "popup": [
+        "name"
+      ],
+      "paint": {
+        "circle-color": "#46c1b4",
+        "circle-radius": 3.2,
+        "circle-stroke-color": "#101318",
+        "circle-stroke-width": 0.6,
+        "circle-opacity": 0.85
+      }
+    },
+    {
+      "id": "police",
+      "label": "Police",
+      "file": "police.geojson",
+      "kind": "circle",
+      "group": "Public services",
+      "default": false,
+      "popup": [
+        "name"
+      ],
+      "paint": {
+        "circle-color": "#4d76c7",
+        "circle-radius": 3.2,
+        "circle-stroke-color": "#101318",
+        "circle-stroke-width": 0.6,
+        "circle-opacity": 0.85
+      }
+    },
+    {
+      "id": "fire",
+      "label": "Fire & emergency",
+      "file": "fire.geojson",
+      "kind": "circle",
+      "group": "Public services",
+      "default": false,
+      "popup": [
+        "name"
+      ],
+      "paint": {
+        "circle-color": "#db4c45",
+        "circle-radius": 3.2,
+        "circle-stroke-color": "#101318",
+        "circle-stroke-width": 0.6,
+        "circle-opacity": 0.85
+      }
+    },
+    {
+      "id": "ward_heat",
+      "label": "Ward heat",
+      "file": "ward_heat.geojson",
+      "kind": "fill",
+      "group": "Climate",
+      "default": false,
+      "outline": true,
+      "popup": [
+        "Name",
+        "mean_lst_c",
+        "max_lst_c"
+      ],
+      "paint": {
+        "fill-color": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "to-number",
+            [
+              "get",
+              "mean_lst_c"
+            ],
+            35
+          ],
+          32,
+          "#2c7a55",
+          36,
+          "#d7b33f",
+          39,
+          "#d36b32",
+          42,
+          "#9f2d2d"
+        ],
+        "fill-opacity": 0.58
+      }
+    },
+    {
+      "id": "heat30m",
+      "label": "Surface heat - 30m",
+      "file": "heat30m.png",
+      "bounds_file": "heat30m_bounds.json",
+      "kind": "image",
+      "group": "Climate",
+      "default": false,
+      "popup": [],
+      "paint": {
+        "raster-opacity": 0.78,
+        "raster-resampling": "nearest"
+      }
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+id: kochi
+name: Kochi
+country: India
+state: Kerala
+center: [76.2887, 9.9716]
+bbox: [76.2374, 9.8934, 76.3400, 10.0498]
+crs_metric: EPSG:32643
+layers_dir: data/cities/kochi/layers
+source_dir: data/cities/kochi/source
+outputs_dir: public/cities/kochi

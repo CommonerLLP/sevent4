@@ -1,0 +1,74 @@
+[
+ {
+  "id": "ahmedabad",
+  "name": "Ahmedabad",
+  "state": "Gujarat",
+  "district": "Ahmedabad"
+ },
+ {
+  "id": "mumbai",
+  "name": "Mumbai",
+  "state": "Maharashtra",
+  "district": "Mumbai"
+ },
+ {
+  "id": "pune",
+  "name": "Pune",
+  "state": "Maharashtra",
+  "district": "Pune"
+ },
+ {
+  "id": "bengaluru",
+  "name": "Bengaluru",
+  "state": "Karnataka",
+  "district": "Bengaluru Urban"
+ },
+ {
+  "id": "chennai",
+  "name": "Chennai",
+  "state": "Tamil Nadu",
+  "district": "Chennai"
+ },
+ {
+  "id": "hyderabad",
+  "name": "Hyderabad",
+  "state": "Telangana",
+  "district": "Hyderabad"
+ },
+ {
+  "id": "kolkata",
+  "name": "Kolkata",
+  "state": "West Bengal",
+  "district": "Kolkata"
+ },
+ {
+  "id": "visakhapatnam",
+  "name": "Visakhapatnam",
+  "state": "Andhra Pradesh",
+  "district": "Visakhapatnam"
+ },
+ {
+  "id": "bhubaneswar",
+  "name": "Bhubaneswar",
+  "state": "Odisha",
+  "district": "Khordha"
+ },
+ {
+  "id": "kochi",
+  "name": "Kochi",
+  "state": "Kerala",
+  "district": "Ernakulam"
+ },
+ {
+  "id": "kanpur",
+  "name": "Kanpur",
+  "state": "Uttar Pradesh",
+  "district": "Kanpur Nagar"
+ },
+ {
+  "id": "jaipur",
+  "name": "Jaipur",
+  "state": "Rajasthan",
+  "district": "Jaipur"
+ }
+]

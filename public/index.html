@@ -1,13 +1,112 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Part IXA: The Municipalities</title>
-  <meta http-equiv="refresh" content="0; url=cities/ahmedabad/">
-  <link rel="canonical" href="cities/ahmedabad/">
+  <meta name="application-name" content="The Unelected City">
+  <title>The Unelected City</title>
+  <link rel="icon" type="image/png" href="assets/ixa-mark.png">
+  <style>
+    :root{color-scheme:dark;--bg:#0a0c10;--panel:#13161d;--panel2:#171b23;--ink:#ece9e2;--mut:#8b929f;--line:#262c38;--blue:#5a86f5;--red:#f0303d;--gold:#edc233;--r:6px;--serif:Georgia,"Times New Roman",serif;--mono:ui-monospace,Menlo,Consolas,monospace;--sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+    [data-theme=light]{color-scheme:light;--bg:#f3f1ea;--panel:#fff;--panel2:#f6f3ea;--ink:#16181d;--mut:#586071;--line:#d7d1c2}
+    *{box-sizing:border-box;margin:0}body{font:400 16px/1.6 var(--sans);color:var(--ink);background:var(--bg);min-height:100vh}
+    .wrap{max-width:920px;margin:0 auto;padding:56px 22px 80px}
+    .mast{font:800 9px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--mut);margin-bottom:14px}
+    h1{font:800 44px/1.05 var(--serif);letter-spacing:-.01em;margin-bottom:14px}
+    .lede{color:var(--mut);font-size:17px;max-width:64ch;margin-bottom:34px}
+    .lede b{color:var(--ink)}
+    .picker{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:10px;align-items:end;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+    .picker label{display:block}.picker span{display:block;font:700 9px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-bottom:6px}
+    .picker select,.picker button{width:100%;height:40px;background:var(--panel2);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);padding:0 10px;font:600 13px var(--mono)}
+    .picker button{background:var(--blue);color:#fff;border-color:var(--blue);cursor:pointer;font-weight:700;padding:0 18px}
+    .picker button:disabled{opacity:.4;cursor:not-allowed}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin-top:14px}
+    .card{display:block;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:13px 14px;text-decoration:none;color:var(--ink)}
+    .card:hover{border-color:var(--blue)}
+    .card b{display:block;font:700 16px/1.2 var(--serif)}
+    .card .s{font:600 10px/1.3 var(--mono);color:var(--mut);text-transform:uppercase;letter-spacing:.06em;margin-top:3px}
+    .card .flag{display:inline-block;margin-top:8px;font:700 10px/1.4 var(--mono);padding:2px 7px;border-radius:3px}
+    .flag.no{background:#241015;color:var(--red);border:1px solid var(--red)}
+    .flag.yes{color:var(--mut)}
+    .dev{margin-top:10px}.devtrack{height:5px;background:#1b1f28;border-radius:3px;overflow:hidden}.devfill{height:100%}.devnum{display:block;font:600 9px/1.4 var(--mono);color:var(--mut);margin-top:5px;text-transform:uppercase;letter-spacing:.03em}
+    .sech{font:700 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin:34px 0 4px}
+    .foot{margin-top:46px;border-top:1px solid var(--line);padding-top:18px;color:var(--mut);font-size:13px;max-width:70ch}
+  </style>
 </head>
 <body>
-  <a href="cities/ahmedabad/">Open the Atlas</a>
+  <main class="wrap">
+    <div class="mast">An accountability atlas · Part IXA · the 74th Amendment</div>
+    <h1>The Unelected City</h1>
+    <p class="lede">
+      India's cities are run less by the people you vote for than by officers the
+      state appoints — and in several of them, <b>no one has been elected at all for
+      years.</b> Pick a city to see its wards, its representatives (councillor → MLA → MP),
+      the appointed officers who actually decide, and whether its residents currently
+      have an elected municipal government.
+    </p>
+
+    <div class="picker">
+      <label><span>State</span><select id="state"><option value="">All states</option></select></label>
+      <label><span>District</span><select id="district"><option value="">All districts</option></select></label>
+      <label><span>City</span><select id="city"><option value="">Select city</option></select></label>
+      <button id="go" disabled>Open</button>
+    </div>
+
+    <div class="sech">Or jump straight in</div>
+    <div class="grid" id="grid"></div>
+
+    <div class="foot">
+      Coverage is being built out city by city; Ahmedabad is the most complete. A
+      red flag means the corporation currently has <b>no elected council</b> — run by a
+      state-appointed administrator. Data is a research reading of public records.
+      <br><br>
+      The analytical spine of this atlas — <i>the Indian municipality as a corporate machine
+      built to extract rent rather than deliver service</i> — is drawn wholeheartedly from the
+      work of the historian <b>Anwesha Ghosh</b> (<i>Municipal Calcutta: Urban Governance in a
+      Colonial City</i>, University of Toronto, 2021). The application to contemporary cities is
+      ours; the framework is hers.
+    </div>
+  </main>
+  <script>
+  const NO_COUNCIL = {bengaluru:"no council since 2020", hyderabad:"no council (2026 trifurcation)", jaipur:"administrator-run"};
+  let REG = [], SC = {};
+  const $=id=>document.getElementById(id);
+  Promise.all([
+    fetch("cities/registry.json").then(r=>r.json()),
+    fetch("cities/scorecard.json").then(r=>r.json()).catch(()=>({}))
+  ]).then(([reg,sc])=>{
+    REG = reg; SC = sc;
+    [...new Set(reg.map(c=>c.state))].sort().forEach(s=>$("state").add(new Option(s,s)));
+    renderGrid(reg); fillCities();
+  });
+  function fillDistricts(){
+    const st=$("state").value, ds=$("district"); ds.length=1;
+    [...new Set(REG.filter(c=>!st||c.state===st).map(c=>c.district))].sort().forEach(d=>ds.add(new Option(d,d)));
+    fillCities();
+  }
+  function fillCities(){
+    const st=$("state").value, di=$("district").value, cs=$("city"); cs.length=1;
+    REG.filter(c=>(!st||c.state===st)&&(!di||c.district===di)).sort((a,b)=>a.name.localeCompare(b.name))
+      .forEach(c=>cs.add(new Option(c.name,c.id)));
+    $("go").disabled = !cs.value;
+  }
+  $("state").onchange=fillDistricts;
+  $("district").onchange=fillCities;
+  $("city").onchange=()=>{$("go").disabled=!$("city").value;};
+  $("go").onclick=()=>{ if($("city").value) location.href="cities/"+$("city").value+"/index.html"; };
+  function renderGrid(reg){
+    const sorted=reg.slice().sort((a,b)=>(((SC[a.id]||{}).pct??999)-((SC[b.id]||{}).pct??999))||a.name.localeCompare(b.name));
+    $("grid").innerHTML=sorted.map(c=>{
+      const no=NO_COUNCIL[c.id];
+      const flag=no?`<span class="flag no">⚠ ${no}</span>`:`<span class="flag yes">elected council</span>`;
+      const s=SC[c.id]; let dev="";
+      if(s){
+        const col=s.pct<30?"#9f2d2d":(s.pct<50?"#d7b33f":"#2c7a55");
+        dev=`<div class="dev"><div class="devtrack"><div class="devfill" style="width:${s.pct}%;background:${col}"></div></div><span class="devnum">${s.elected}/${s.total} services run by who you elect · ${s.pct}%</span></div>`;
+      }
+      return `<a class="card" href="cities/${c.id}/index.html"><b>${c.name}</b><span class="s">${c.state}</span>${flag}${dev}</a>`;
+    }).join("");
+  }
+  </script>
 </body>
 </html>

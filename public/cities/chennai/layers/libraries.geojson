@@ -1,0 +1,3581 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2576906,
+     13.0728321
+    ]
+   },
+   "properties": {
+    "sl_no": "1",
+    "name": "Connemara Public Library, Pantheon Road, Egmore, Chennai, Tamil Nadu 600008",
+    "type": "Public Library",
+    "authority": "",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "egmore, 600008, Chennai, Tamil Nadu, India",
+    "geocode_locality": "egmore",
+    "geocode_pincode": "600008",
+    "nominatim_importance": 0.4534965645646641,
+    "nominatim_match": "Egmore, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, 600008, India",
+    "ward_no": 61,
+    "ward_name": "Ward 61 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2435512,
+     13.0193703
+    ]
+   },
+   "properties": {
+    "sl_no": "2",
+    "name": "Anna Centenary Library, Gandhi Mandapam Road, Kotturpuram, Chennai 600085",
+    "type": "Centenary Library",
+    "authority": "",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "kotturpuram, 600085, Chennai, Tamil Nadu, India",
+    "geocode_locality": "kotturpuram",
+    "geocode_pincode": "600085",
+    "nominatim_importance": 0.4491022588632987,
+    "nominatim_match": "Kotturpuram, Zone 13 Adyar, Chennai Corporation, Chennai, Tamil Nadu, 600085, India",
+    "ward_no": 172,
+    "ward_name": "Ward 172 \u00b7 ADYAR"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2534393,
+     13.0304619
+    ]
+   },
+   "properties": {
+    "sl_no": "3",
+    "name": "No.735,Annasalai Chennai -600002.",
+    "type": "District Central library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600002, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600002",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600002, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 123,
+    "ward_name": "Ward 123 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2159247,
+     13.0400731
+    ]
+   },
+   "properties": {
+    "sl_no": "4",
+    "name": "No. 35 ,11thAvenue ashok nagar Chennai - 600083",
+    "type": "Central library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "ashok nagar, 600083, Chennai, Tamil Nadu, India",
+    "geocode_locality": "ashok nagar",
+    "geocode_pincode": "600083",
+    "nominatim_importance": 0.4491022588632987,
+    "nominatim_match": "Ashok Nagar, Zone 10 Kodambakkam, Chennai Corporation, Chennai, Tamil Nadu, 600083, India",
+    "ward_no": 132,
+    "ward_name": "Ward 132 \u00b7 KODAMBAKKAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2545491,
+     13.0338602
+    ]
+   },
+   "properties": {
+    "sl_no": "5",
+    "name": "No.16, Bharathi dasan salai, alwarpet -600018",
+    "type": "Central library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "alwarpet, 600018, Chennai, Tamil Nadu, India",
+    "geocode_locality": "alwarpet",
+    "geocode_pincode": "600018",
+    "nominatim_importance": 0.4504652744324435,
+    "nominatim_match": "Alwarpet, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, 600018, India",
+    "ward_no": 123,
+    "ward_name": "Ward 123 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.23541,
+     13.0946157
+    ]
+   },
+   "properties": {
+    "sl_no": "6",
+    "name": "No. 5, United India colony ,ayanavaram Chennai -600023",
+    "type": "Central library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "ayanavaram, 600023, Chennai, Tamil Nadu, India",
+    "geocode_locality": "ayanavaram",
+    "geocode_pincode": "600023",
+    "nominatim_importance": 0.14673947127489123,
+    "nominatim_match": "Ayanavaram, Zone 8 Anna Nagar, Chennai Corporation, Chennai, Tamil Nadu, 600023, India",
+    "ward_no": 98,
+    "ward_name": "Ward 98 \u00b7 ANNANAGAR"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2251326,
+     13.0789409
+    ]
+   },
+   "properties": {
+    "sl_no": "7",
+    "name": "Bulla avenue shenoy nagar Chennai -600030.",
+    "type": "Central library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "shenoy nagar, 600030, Chennai, Tamil Nadu, India",
+    "geocode_locality": "shenoy nagar",
+    "geocode_pincode": "600030",
+    "nominatim_importance": 0.38231608517972687,
+    "nominatim_match": "Shenoy Nagar Metro, Pulla Avenue, CMWSSB Division 102, Ward 102, Zone 8 Anna Nagar, Chennai Corporation, Chennai, Tamil Nadu, 600030, India",
+    "ward_no": 102,
+    "ward_name": "Ward 102 \u00b7 ANNANAGAR"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.1871827,
+     13.0412679
+    ]
+   },
+   "properties": {
+    "sl_no": "8",
+    "name": "4 th main road Gandhi nagar adayar -600020.",
+    "type": "Central library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "gandhi nagar, 600020, Chennai, Tamil Nadu, India",
+    "geocode_locality": "gandhi nagar",
+    "geocode_pincode": "600020",
+    "nominatim_importance": 0.08007280460822458,
+    "nominatim_match": "Gandhi Nagar, Ward 152, Zone 11 Valasaravakkam, Chennai Corporation, Chennai, Tamil Nadu, 600087, India",
+    "ward_no": 152,
+    "ward_name": "Ward 152 \u00b7 VALASARAVAKKAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2300407,
+     13.1158603
+    ]
+   },
+   "properties": {
+    "sl_no": "9",
+    "name": "No. 12 Karthikeyan salai Periyar nagar agaram Chennai -600082",
+    "type": "Full time library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "agaram, 600082, Chennai, Tamil Nadu, India",
+    "geocode_locality": "agaram",
+    "geocode_pincode": "600082",
+    "nominatim_importance": 0.3035308770567123,
+    "nominatim_match": "Agaram, CMWSSB Division 66, Periyar Nagar, Ward 66, Zone 6 Thiru. Vi. Ka. Nagar, Chennai Corporation, Chennai, Tamil Nadu, 600082, India",
+    "ward_no": 66,
+    "ward_name": "Ward 66 \u00b7 THIRU-VI-KA-NAGAR"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2081378,
+     13.1125875
+    ]
+   },
+   "properties": {
+    "sl_no": "10",
+    "name": "No.2,south mada st Villivakkam Chennai - 600049.",
+    "type": "Full time library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "villivakkam, 600049, Chennai, Tamil Nadu, India",
+    "geocode_locality": "villivakkam",
+    "geocode_pincode": "600049",
+    "nominatim_importance": 0.44944568143391417,
+    "nominatim_match": "Villivakkam, Ward 65, Zone 6 Thiru. Vi. Ka. Nagar, Chennai Corporation, Chennai, Tamil Nadu, 600049, India",
+    "ward_no": 65,
+    "ward_name": "Ward 65 \u00b7 THIRU-VI-KA-NAGAR"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2750704,
+     13.0604285
+    ]
+   },
+   "properties": {
+    "sl_no": "11",
+    "name": "No. 159. Big street triplicane. Chennai -600005.",
+    "type": "Full time library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "triplicane, 600005, Chennai, Tamil Nadu, India",
+    "geocode_locality": "triplicane",
+    "geocode_pincode": "600005",
+    "nominatim_importance": 0.45451887658813234,
+    "nominatim_match": "Triplicane, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, 600005, India",
+    "ward_no": 114,
+    "ward_name": "Ward 114 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2511378,
+     13.1202396
+    ]
+   },
+   "properties": {
+    "sl_no": "12",
+    "name": "No. 13 th Central cross street. Mahakavi barathiyar nagar vyasar padi Chennai - 600039",
+    "type": "Full time library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600039, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600039",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600039, Zone 4 Tondiarpet, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 44,
+    "ward_name": "Ward 44 \u00b7 TONDIARPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2437585,
+     13.110119
+    ]
+   },
+   "properties": {
+    "sl_no": "13",
+    "name": "No. 80, Nelvayal salai, pady field road Chennai - 600011.",
+    "type": "Full time library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600011, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600011",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600011, Ward 69, Zone 6 Thiru. Vi. Ka. Nagar, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 69,
+    "ward_name": "Ward 69 \u00b7 THIRU-VI-KA-NAGAR"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2808607,
+     13.1104226
+    ]
+   },
+   "properties": {
+    "sl_no": "14",
+    "name": "No. 13 , Bashyam st, old washermentpet, Chennai -600021.",
+    "type": "Full time library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600021, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600021",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600021, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 53,
+    "ward_name": "Ward 53 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2260893,
+     12.9858914
+    ]
+   },
+   "properties": {
+    "sl_no": "15",
+    "name": "No. 153, 6thavenue Velacheri, thandeeswaran thotam. Chennai -600042",
+    "type": "Full time library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "velacheri, 600042, Chennai, Tamil Nadu, India",
+    "geocode_locality": "velacheri",
+    "geocode_pincode": "600042",
+    "nominatim_importance": 7.28046082245673e-05,
+    "nominatim_match": "Advent christian conference of india, 163, ,A A M Compound, Gandhi Road, CMWSSB Division 179, Ward 179, Zone 13 Adyar, Chennai Corporation, Chennai, Tamil Nadu, 600042, India",
+    "ward_no": 179,
+    "ward_name": "Ward 179 \u00b7 ADYAR"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2644215,
+     12.9858948
+    ]
+   },
+   "properties": {
+    "sl_no": "16",
+    "name": "Muttukadu main road. Thiruvanmiyur. Chennai - 600041",
+    "type": "Full time library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "thiruvanmiyur, 600041, Chennai, Tamil Nadu, India",
+    "geocode_locality": "thiruvanmiyur",
+    "geocode_pincode": "600041",
+    "nominatim_importance": 0.45093570615149653,
+    "nominatim_match": "Thiruvanmiyur, Zone 13 Adyar, Chennai Corporation, Chennai, Tamil Nadu, 600041, India",
+    "ward_no": 181,
+    "ward_name": "Ward 181 \u00b7 ADYAR"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.1992108,
+     13.0407235
+    ]
+   },
+   "properties": {
+    "sl_no": "17",
+    "name": "No. 394/1,G.E. Indirani K.K. nagar Chennai - 600078.",
+    "type": "Full time library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "k.k. nagar, 600078, Chennai, Tamil Nadu, India",
+    "geocode_locality": "k.k. nagar",
+    "geocode_pincode": "600078",
+    "nominatim_importance": 0.14673947127489123,
+    "nominatim_match": "K.K.Nagar, Zone 10 Kodambakkam, Chennai Corporation, Chennai, Tamil Nadu, 600078, India",
+    "ward_no": 137,
+    "ward_name": "Ward 137 \u00b7 KODAMBAKKAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2456759,
+     13.1255501
+    ]
+   },
+   "properties": {
+    "sl_no": "18",
+    "name": "No. 45 Krishnamurthy salai, erukancheri. Chennai - 600118.",
+    "type": "Full time library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600118, Chennai, Tamil Nadu, India",
+    "geocode_locality": "erukancheri",
+    "geocode_pincode": "600118",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600118, Zone 4 Tondiarpet, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 35,
+    "ward_name": "Ward 35 \u00b7 TONDIARPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.1985327,
+     13.0583406
+    ]
+   },
+   "properties": {
+    "sl_no": "19",
+    "name": "No. 18 Navanethammal st. saligramam. Chennai - 600093.",
+    "type": "Full time library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "saligramam, 600093, Chennai, Tamil Nadu, India",
+    "geocode_locality": "saligramam",
+    "geocode_pincode": "600093",
+    "nominatim_importance": 0.44923984406966866,
+    "nominatim_match": "Saligramam, Zone 10 Kodambakkam, Chennai Corporation, Chennai, Tamil Nadu, 600093, India",
+    "ward_no": 127,
+    "ward_name": "Ward 127 \u00b7 KODAMBAKKAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2164421,
+     13.0872004
+    ]
+   },
+   "properties": {
+    "sl_no": "20",
+    "name": "No.216,A.M. Block 1stMain road, anna nagar,Chennai-600102",
+    "type": "Full time library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "anna nagar, 600102, Chennai, Tamil Nadu, India",
+    "geocode_locality": "anna nagar",
+    "geocode_pincode": "600102",
+    "nominatim_importance": 0.1600728046082246,
+    "nominatim_match": "Zone 8 Anna Nagar, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 101,
+    "ward_name": "Ward 101 \u00b7 ANNANAGAR"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2576906,
+     13.0728321
+    ]
+   },
+   "properties": {
+    "sl_no": "21",
+    "name": "Thai sey nala maruthuvamanai, panthian salai. egmore. Chennai - 8",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality",
+    "geocode_query": "egmore, Chennai, Tamil Nadu, India",
+    "geocode_locality": "egmore",
+    "geocode_pincode": null,
+    "nominatim_importance": 0.4534965645646641,
+    "nominatim_match": "Egmore, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, 600008, India",
+    "ward_no": 61,
+    "ward_name": "Ward 61 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2657836,
+     13.0548193
+    ]
+   },
+   "properties": {
+    "sl_no": "22",
+    "name": "No. 160, Peters colony Chennai -600014",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600014, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600014",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600014, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 115,
+    "ward_name": "Ward 115 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.1860309,
+     12.9521755
+    ]
+   },
+   "properties": {
+    "sl_no": "23",
+    "name": "Mangalapuram,chetput. Chennai -600031.",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600031, Chennai, Tamil Nadu, India",
+    "geocode_locality": "chetput",
+    "geocode_pincode": "600031",
+    "nominatim_importance": 0.08007280460822458,
+    "nominatim_match": "Fuchs Lubricants (India) Pvt. Ltd. Regional Office (South), 42, Keelkattalai, Chennai Corporation, Pallavaram, Chengalpattu, Tamil Nadu, 600117, India",
+    "ward_no": null,
+    "ward_name": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2657836,
+     13.0548193
+    ]
+   },
+   "properties": {
+    "sl_no": "24",
+    "name": "Royapetah hospital . royapetah . Chennai - 600014",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600014, Chennai, Tamil Nadu, India",
+    "geocode_locality": "royapetah",
+    "geocode_pincode": "600014",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600014, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 115,
+    "ward_name": "Ward 115 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2669603,
+     13.0712018
+    ]
+   },
+   "properties": {
+    "sl_no": "25",
+    "name": "No. 97/30, Athithanar salai womens pudupet. Chennai -600002.",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "pudupet, 600002, Chennai, Tamil Nadu, India",
+    "geocode_locality": "pudupet",
+    "geocode_pincode": "600002",
+    "nominatim_importance": 0.08007280460822458,
+    "nominatim_match": "Pudupet, Ward 63, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, 600003, India",
+    "ward_no": 63,
+    "ward_name": "Ward 63 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2126063,
+     13.0086685
+    ]
+   },
+   "properties": {
+    "sl_no": "26",
+    "name": "No. 9 five parlong road, Maduvan karai guindy Chennai -600032.",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "guindy, 600032, Chennai, Tamil Nadu, India",
+    "geocode_locality": "guindy",
+    "geocode_pincode": "600032",
+    "nominatim_importance": 0.3922202821662208,
+    "nominatim_match": "Guindy, Anna Salai (Mount Road), CMWSSB Division 160, Ward 160, Zone 12 Alandur, Chennai Corporation, Alandur, Chennai, Tamil Nadu, 600032, India",
+    "ward_no": 160,
+    "ward_name": "Ward 160 \u00b7 ALANDUR"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2669603,
+     13.0712018
+    ]
+   },
+   "properties": {
+    "sl_no": "27",
+    "name": "No.4 Athithanar salai gents pudupet Chennai -600002.",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "pudupet, 600002, Chennai, Tamil Nadu, India",
+    "geocode_locality": "pudupet",
+    "geocode_pincode": "600002",
+    "nominatim_importance": 0.08007280460822458,
+    "nominatim_match": "Pudupet, Ward 63, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, 600003, India",
+    "ward_no": 63,
+    "ward_name": "Ward 63 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2242829,
+     13.049207
+    ]
+   },
+   "properties": {
+    "sl_no": "28",
+    "name": "No.4 Vellala st kodambakkam , Chennai - 600024",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "kodambakkam, 600024, Chennai, Tamil Nadu, India",
+    "geocode_locality": "kodambakkam",
+    "geocode_pincode": "600024",
+    "nominatim_importance": 0.46789104238897167,
+    "nominatim_match": "Zone 10 Kodambakkam, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 134,
+    "ward_name": "Ward 134 \u00b7 KODAMBAKKAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2669603,
+     13.0712018
+    ]
+   },
+   "properties": {
+    "sl_no": "29",
+    "name": "No. 5 Nagappa mudali st. goiya thoppu pudupet Chennai -600002",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "pudupet, 600002, Chennai, Tamil Nadu, India",
+    "geocode_locality": "pudupet",
+    "geocode_pincode": "600002",
+    "nominatim_importance": 0.08007280460822458,
+    "nominatim_match": "Pudupet, Ward 63, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, 600003, India",
+    "ward_no": 63,
+    "ward_name": "Ward 63 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.1393765,
+     12.9722109
+    ]
+   },
+   "properties": {
+    "sl_no": "30",
+    "name": "No. 6 th first st, A.V.M Nagar, Virutham Pakkam Chennai -600092",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600092, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600092",
+    "nominatim_importance": 5.509498741126142e-05,
+    "nominatim_match": "Union Bank of India, 1, 1st Street, Pammal, Chennai Corporation, Pallavaram, Chengalpattu, Tamil Nadu, 600043, India",
+    "ward_no": null,
+    "ward_name": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2491169,
+     13.062936
+    ]
+   },
+   "properties": {
+    "sl_no": "31",
+    "name": "No. 1 th first st, Kochinillam , police Quarters Chennai -600006",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600006, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600006",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600006, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 111,
+    "ward_name": "Ward 111 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2239536,
+     13.020817
+    ]
+   },
+   "properties": {
+    "sl_no": "32",
+    "name": "Jhones road , saidapet Chennai -600015",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "saidapet, 600015, Chennai, Tamil Nadu, India",
+    "geocode_locality": "saidapet",
+    "geocode_pincode": "600015",
+    "nominatim_importance": 0.46653313577761546,
+    "nominatim_match": "Saidapet, Zone 10 Kodambakkam, Chennai Corporation, Chennai, Tamil Nadu, 600015, India",
+    "ward_no": 142,
+    "ward_name": "Ward 142 \u00b7 KODAMBAKKAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2587324,
+     13.0710491
+    ]
+   },
+   "properties": {
+    "sl_no": "33",
+    "name": "Childrens hospital egomre Chennai -600008",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600008, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600008",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600008, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 61,
+    "ward_name": "Ward 61 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2111122,
+     13.0352392
+    ]
+   },
+   "properties": {
+    "sl_no": "34",
+    "name": "No . 7 3rdst Raghavan colony jhabarghan pettai. Chennai -600083.",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600083, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600083",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600083, Zone 10 Kodambakkam, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 132,
+    "ward_name": "Ward 132 \u00b7 KODAMBAKKAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2228506,
+     12.9801655
+    ]
+   },
+   "properties": {
+    "sl_no": "35",
+    "name": "Brindavan nagar west velachery . Chennai - 600042",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "velachery, 600042, Chennai, Tamil Nadu, India",
+    "geocode_locality": "velachery",
+    "geocode_pincode": "600042",
+    "nominatim_importance": 0.4681489810215199,
+    "nominatim_match": "Velachery, Chennai Corporation, Chennai, Tamil Nadu, 600042, India",
+    "ward_no": 179,
+    "ward_name": "Ward 179 \u00b7 ADYAR"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2111122,
+     13.0352392
+    ]
+   },
+   "properties": {
+    "sl_no": "36",
+    "name": "No. 3 3th nizhal salai ahsok nagar pudur Chennai -600083",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600083, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600083",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600083, Zone 10 Kodambakkam, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 132,
+    "ward_name": "Ward 132 \u00b7 KODAMBAKKAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2657836,
+     13.0548193
+    ]
+   },
+   "properties": {
+    "sl_no": "37",
+    "name": "NO. 10 Leynord st royapethah Chennai -600014",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600014, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600014",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600014, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 115,
+    "ward_name": "Ward 115 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2270184,
+     13.0428296
+    ]
+   },
+   "properties": {
+    "sl_no": "38",
+    "name": "No. 31 pudu st west mambalam. Chennai 600033",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "west mambalam, 600033, Chennai, Tamil Nadu, India",
+    "geocode_locality": "west mambalam",
+    "geocode_pincode": "600033",
+    "nominatim_importance": 0.14673947127489123,
+    "nominatim_match": "West Mambalam, Zone 10 Kodambakkam, Chennai Corporation, Chennai, Tamil Nadu, 600017, India",
+    "ward_no": 135,
+    "ward_name": "Ward 135 \u00b7 KODAMBAKKAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2214896,
+     13.0213608
+    ]
+   },
+   "properties": {
+    "sl_no": "39",
+    "name": "No. 11, anjaneyer koil st sydapet Chennai -600015",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600015, Chennai, Tamil Nadu, India",
+    "geocode_locality": "sydapet",
+    "geocode_pincode": "600015",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600015, Zone 10 Kodambakkam, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 142,
+    "ward_name": "Ward 142 \u00b7 KODAMBAKKAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2257796,
+     13.1162832
+    ]
+   },
+   "properties": {
+    "sl_no": "40",
+    "name": "No. 1/26, First circular street Jawar nagar Chennai - 600082",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600082, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600082",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600082, Ward 66, Zone 6 Thiru. Vi. Ka. Nagar, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 66,
+    "ward_name": "Ward 66 \u00b7 THIRU-VI-KA-NAGAR"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.1393765,
+     12.9722109
+    ]
+   },
+   "properties": {
+    "sl_no": "41",
+    "name": "No . 2/34, Gugan st, puliyur puram , Kodam bakkam. Chennai -600074",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600074, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600074",
+    "nominatim_importance": 5.509498741126142e-05,
+    "nominatim_match": "Union Bank of India, 1, 1st Street, Pammal, Chennai Corporation, Pallavaram, Chengalpattu, Tamil Nadu, 600043, India",
+    "ward_no": null,
+    "ward_name": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2239536,
+     13.020817
+    ]
+   },
+   "properties": {
+    "sl_no": "42",
+    "name": "No. E.26/ venkada puram chinnamalai,saidapet,Chennai-600015",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "saidapet, 600015, Chennai, Tamil Nadu, India",
+    "geocode_locality": "saidapet",
+    "geocode_pincode": "600015",
+    "nominatim_importance": 0.46653313577761546,
+    "nominatim_match": "Saidapet, Zone 10 Kodambakkam, Chennai Corporation, Chennai, Tamil Nadu, 600015, India",
+    "ward_no": 142,
+    "ward_name": "Ward 142 \u00b7 KODAMBAKKAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2239536,
+     13.020817
+    ]
+   },
+   "properties": {
+    "sl_no": "43",
+    "name": "No.T.62 PWD government quarters thadander nagar,saidapet,Chennai-600015",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "saidapet, 600015, Chennai, Tamil Nadu, India",
+    "geocode_locality": "saidapet",
+    "geocode_pincode": "600015",
+    "nominatim_importance": 0.46653313577761546,
+    "nominatim_match": "Saidapet, Zone 10 Kodambakkam, Chennai Corporation, Chennai, Tamil Nadu, 600015, India",
+    "ward_no": 142,
+    "ward_name": "Ward 142 \u00b7 KODAMBAKKAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.245022,
+     13.1121242
+    ]
+   },
+   "properties": {
+    "sl_no": "44",
+    "name": "No.239,paper mills road,perambur,Chennai-600011",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "perambur, 600011, Chennai, Tamil Nadu, India",
+    "geocode_locality": "perambur",
+    "geocode_pincode": "600011",
+    "nominatim_importance": 0.45998972565190827,
+    "nominatim_match": "Perambur, Ward 70, Zone 6 Thiru. Vi. Ka. Nagar, Chennai Corporation, Chennai, Tamil Nadu, 600011, India",
+    "ward_no": 70,
+    "ward_name": "Ward 70 \u00b7 THIRU-VI-KA-NAGAR"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2241123,
+     13.0511158
+    ]
+   },
+   "properties": {
+    "sl_no": "45",
+    "name": "No.282,arcot salai (ram theatre opp)Chennai-600024",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600024, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600024",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600024, Zone 10 Kodambakkam, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 134,
+    "ward_name": "Ward 134 \u00b7 KODAMBAKKAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2498455,
+     13.0443237
+    ]
+   },
+   "properties": {
+    "sl_no": "46",
+    "name": "No.66,muthaiah street vallalar teynampet,Chennai-600086",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "teynampet, 600086, Chennai, Tamil Nadu, India",
+    "geocode_locality": "teynampet",
+    "geocode_pincode": "600086",
+    "nominatim_importance": 0.44999143904345706,
+    "nominatim_match": "Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 118,
+    "ward_name": "Ward 118 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2046276,
+     13.1241127
+    ]
+   },
+   "properties": {
+    "sl_no": "47",
+    "name": "No.4,3rdcross street seeenivasan nagar kolathur,Chennai-600099",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "kolathur, 600099, Chennai, Tamil Nadu, India",
+    "geocode_locality": "kolathur",
+    "geocode_pincode": "600099",
+    "nominatim_importance": 0.44903335771633834,
+    "nominatim_match": "Kolathur, Ward 65, Zone 6 Thiru. Vi. Ka. Nagar, Chennai Corporation, Chennai, Tamil Nadu, 600099, India",
+    "ward_no": 65,
+    "ward_name": "Ward 65 \u00b7 THIRU-VI-KA-NAGAR"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2435512,
+     13.0193703
+    ]
+   },
+   "properties": {
+    "sl_no": "48",
+    "name": "H.block 15/16 kotturpuram,Chennai-600085",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "kotturpuram, 600085, Chennai, Tamil Nadu, India",
+    "geocode_locality": "kotturpuram",
+    "geocode_pincode": "600085",
+    "nominatim_importance": 0.4491022588632987,
+    "nominatim_match": "Kotturpuram, Zone 13 Adyar, Chennai Corporation, Chennai, Tamil Nadu, 600085, India",
+    "ward_no": 172,
+    "ward_name": "Ward 172 \u00b7 ADYAR"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.237192,
+     13.0982722
+    ]
+   },
+   "properties": {
+    "sl_no": "49",
+    "name": "Branch library,ESI hospital ayanpuram Chennai-600023",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600023, Chennai, Tamil Nadu, India",
+    "geocode_locality": "ayanpuram",
+    "geocode_pincode": "600023",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600023, Ward 69, Zone 6 Thiru. Vi. Ka. Nagar, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 69,
+    "ward_name": "Ward 69 \u00b7 THIRU-VI-KA-NAGAR"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2402893,
+     13.0295043
+    ]
+   },
+   "properties": {
+    "sl_no": "50",
+    "name": "No.l Durn bulls road,nandhanam,Chennai-600035",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600035, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600035",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600035, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 122,
+    "ward_name": "Ward 122 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.23541,
+     13.0946157
+    ]
+   },
+   "properties": {
+    "sl_no": "51",
+    "name": "29,Madurai pillai st,ayanavaram Chennai-600023",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "ayanavaram, 600023, Chennai, Tamil Nadu, India",
+    "geocode_locality": "ayanavaram",
+    "geocode_pincode": "600023",
+    "nominatim_importance": 0.14673947127489123,
+    "nominatim_match": "Ayanavaram, Zone 8 Anna Nagar, Chennai Corporation, Chennai, Tamil Nadu, 600023, India",
+    "ward_no": 98,
+    "ward_name": "Ward 98 \u00b7 ANNANAGAR"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2700166,
+     13.0316473
+    ]
+   },
+   "properties": {
+    "sl_no": "52",
+    "name": "saint maries salai,mylapore,Chennai-600004",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "mylapore, 600004, Chennai, Tamil Nadu, India",
+    "geocode_locality": "mylapore",
+    "geocode_pincode": "600004",
+    "nominatim_importance": 0.4972941318707617,
+    "nominatim_match": "Mylapore, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, 600004, India",
+    "ward_no": 124,
+    "ward_name": "Ward 124 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2576906,
+     13.0728321
+    ]
+   },
+   "properties": {
+    "sl_no": "53",
+    "name": "Branch library,venghupillai st,egmore,Chennai-600008",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "egmore, 600008, Chennai, Tamil Nadu, India",
+    "geocode_locality": "egmore",
+    "geocode_pincode": "600008",
+    "nominatim_importance": 0.4534965645646641,
+    "nominatim_match": "Egmore, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, 600008, India",
+    "ward_no": 61,
+    "ward_name": "Ward 61 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2700166,
+     13.0316473
+    ]
+   },
+   "properties": {
+    "sl_no": "54",
+    "name": "75/1,nochi nagar,mylapore,Chennai-600004",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "mylapore, 600004, Chennai, Tamil Nadu, India",
+    "geocode_locality": "mylapore",
+    "geocode_pincode": "600004",
+    "nominatim_importance": 0.4972941318707617,
+    "nominatim_match": "Mylapore, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, 600004, India",
+    "ward_no": 124,
+    "ward_name": "Ward 124 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2534393,
+     13.0304619
+    ]
+   },
+   "properties": {
+    "sl_no": "55",
+    "name": "Branch library,70,arunachalam st,chindadaripet,Chennai-600002",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600002, Chennai, Tamil Nadu, India",
+    "geocode_locality": "chindadaripet",
+    "geocode_pincode": "600002",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600002, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 123,
+    "ward_name": "Ward 123 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2639706,
+     13.0554718
+    ]
+   },
+   "properties": {
+    "sl_no": "56",
+    "name": "178,vm st,royapettah,Chennai-600014",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "royapettah, 600014, Chennai, Tamil Nadu, India",
+    "geocode_locality": "royapettah",
+    "geocode_pincode": "600014",
+    "nominatim_importance": 0.4521300955016488,
+    "nominatim_match": "Royapettah, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, 600014, India",
+    "ward_no": 115,
+    "ward_name": "Ward 115 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.240487,
+     13.0620626
+    ]
+   },
+   "properties": {
+    "sl_no": "57",
+    "name": "27/13,erikarai,nungambakkam 2ndcross st,chennai-600034",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "nungambakkam, 600034, Chennai, Tamil Nadu, India",
+    "geocode_locality": "nungambakkam",
+    "geocode_pincode": "600034",
+    "nominatim_importance": 0.4516681956131193,
+    "nominatim_match": "Nungambakkam, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, 600034, India",
+    "ward_no": 110,
+    "ward_name": "Ward 110 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2750704,
+     13.0604285
+    ]
+   },
+   "properties": {
+    "sl_no": "58",
+    "name": "2,Lloyds colony,triplicane,Chennai-600005",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "triplicane, 600005, Chennai, Tamil Nadu, India",
+    "geocode_locality": "triplicane",
+    "geocode_pincode": "600005",
+    "nominatim_importance": 0.45451887658813234,
+    "nominatim_match": "Triplicane, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, 600005, India",
+    "ward_no": 114,
+    "ward_name": "Ward 114 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2669603,
+     13.0712018
+    ]
+   },
+   "properties": {
+    "sl_no": "59",
+    "name": "military quarters,pudupet,Chennai-600002",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "pudupet, 600002, Chennai, Tamil Nadu, India",
+    "geocode_locality": "pudupet",
+    "geocode_pincode": "600002",
+    "nominatim_importance": 0.08007280460822458,
+    "nominatim_match": "Pudupet, Ward 63, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, 600003, India",
+    "ward_no": 63,
+    "ward_name": "Ward 63 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2750704,
+     13.0604285
+    ]
+   },
+   "properties": {
+    "sl_no": "60",
+    "name": "139,bells road(ladies)triplicane,Chennai-600005",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "triplicane, 600005, Chennai, Tamil Nadu, India",
+    "geocode_locality": "triplicane",
+    "geocode_pincode": "600005",
+    "nominatim_importance": 0.45451887658813234,
+    "nominatim_match": "Triplicane, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, 600005, India",
+    "ward_no": 114,
+    "ward_name": "Ward 114 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2379864,
+     13.0832149
+    ]
+   },
+   "properties": {
+    "sl_no": "61",
+    "name": "4 koil st,kilpauk,Chennai-600010",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "kilpauk, 600010, Chennai, Tamil Nadu, India",
+    "geocode_locality": "kilpauk",
+    "geocode_pincode": "600010",
+    "nominatim_importance": 0.45073450619556543,
+    "nominatim_match": "Kilpauk, Zone 8 Anna Nagar, Chennai Corporation, Chennai, Tamil Nadu, 600010, India",
+    "ward_no": 103,
+    "ward_name": "Ward 103 \u00b7 ANNANAGAR"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2750704,
+     13.0604285
+    ]
+   },
+   "properties": {
+    "sl_no": "62",
+    "name": "Victoria viduthi st,kasturi bhai Gandhi hospital,triplicane,Chennai-600005",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "triplicane, 600005, Chennai, Tamil Nadu, India",
+    "geocode_locality": "triplicane",
+    "geocode_pincode": "600005",
+    "nominatim_importance": 0.45451887658813234,
+    "nominatim_match": "Triplicane, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, 600005, India",
+    "ward_no": 114,
+    "ward_name": "Ward 114 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2301597,
+     13.034405
+    ]
+   },
+   "properties": {
+    "sl_no": "63",
+    "name": "no.5,dharmapuram(ramakanthapuram),t.nagar Chennai-600006",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "t.nagar, 600006, Chennai, Tamil Nadu, India",
+    "geocode_locality": "t.nagar",
+    "geocode_pincode": "600006",
+    "nominatim_importance": 0.14673947127489123,
+    "nominatim_match": "Thiyagaraya Nagar, Zone 10 Kodambakkam, Chennai Corporation, Chennai, Tamil Nadu, 600022, India",
+    "ward_no": 141,
+    "ward_name": "Ward 141 \u00b7 KODAMBAKKAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2750704,
+     13.0604285
+    ]
+   },
+   "properties": {
+    "sl_no": "64",
+    "name": "no.8 south beach road,triplicane,Chennai-600005",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "triplicane, 600005, Chennai, Tamil Nadu, India",
+    "geocode_locality": "triplicane",
+    "geocode_pincode": "600005",
+    "nominatim_importance": 0.45451887658813234,
+    "nominatim_match": "Triplicane, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, 600005, India",
+    "ward_no": 114,
+    "ward_name": "Ward 114 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2301597,
+     13.034405
+    ]
+   },
+   "properties": {
+    "sl_no": "65",
+    "name": "No. 3 Sivanyanam salai T. Nagar Chennai -600017.",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "t. nagar, 600017, Chennai, Tamil Nadu, India",
+    "geocode_locality": "t. nagar",
+    "geocode_pincode": "600017",
+    "nominatim_importance": 0.14673947127489123,
+    "nominatim_match": "Thiyagaraya Nagar, Zone 10 Kodambakkam, Chennai Corporation, Chennai, Tamil Nadu, 600022, India",
+    "ward_no": 141,
+    "ward_name": "Ward 141 \u00b7 KODAMBAKKAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2251326,
+     13.0789409
+    ]
+   },
+   "properties": {
+    "sl_no": "66",
+    "name": "No. T.P. chatiram, shenoy nagar Chennai -600030",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "shenoy nagar, 600030, Chennai, Tamil Nadu, India",
+    "geocode_locality": "shenoy nagar",
+    "geocode_pincode": "600030",
+    "nominatim_importance": 0.38231608517972687,
+    "nominatim_match": "Shenoy Nagar Metro, Pulla Avenue, CMWSSB Division 102, Ward 102, Zone 8 Anna Nagar, Chennai Corporation, Chennai, Tamil Nadu, 600030, India",
+    "ward_no": 102,
+    "ward_name": "Ward 102 \u00b7 ANNANAGAR"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2348433,
+     13.0425061
+    ]
+   },
+   "properties": {
+    "sl_no": "67",
+    "name": "No. 36/18, Sundaram pillai sandhu purasaiwakkam Chennai-600017",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600017, Chennai, Tamil Nadu, India",
+    "geocode_locality": "purasaiwakkam",
+    "geocode_pincode": "600017",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600017, Zone 10 Kodambakkam, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 136,
+    "ward_name": "Ward 136 \u00b7 KODAMBAKKAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2634419,
+     13.107125
+    ]
+   },
+   "properties": {
+    "sl_no": "68",
+    "name": "Venkatesapuram pudiya colony, kannigapuram . Chennai -600012",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "kannigapuram, 600012, Chennai, Tamil Nadu, India",
+    "geocode_locality": "kannigapuram",
+    "geocode_pincode": "600012",
+    "nominatim_importance": 0.06673947127489127,
+    "nominatim_match": "Kannigapuram, CMWSSB Division 72, Pulianthope, Ward 72, Zone 6 Thiru. Vi. Ka. Nagar, Chennai Corporation, Chennai, Tamil Nadu, 600021, India",
+    "ward_no": 72,
+    "ward_name": "Ward 72 \u00b7 THIRU-VI-KA-NAGAR"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2056506,
+     13.085292
+    ]
+   },
+   "properties": {
+    "sl_no": "70",
+    "name": "No. 753 ,N.V.N. Nagar. Annanagar Chennai -600040",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600040, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600040",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600040, Zone 8 Anna Nagar, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 99,
+    "ward_name": "Ward 99 \u00b7 ANNANAGAR"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2933782,
+     13.1262345
+    ]
+   },
+   "properties": {
+    "sl_no": "72",
+    "name": "106, vinayagapuram main rood ,M.M.D..A. colony Chennai -600106",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "vinayagapuram, 600106, Chennai, Tamil Nadu, India",
+    "geocode_locality": "vinayagapuram",
+    "geocode_pincode": "600106",
+    "nominatim_importance": 0.053406137941557914,
+    "nominatim_match": "Vinayagapuram Main Street, Ward 43, Zone 4 Tondiarpet, Chennai Corporation, Chennai, Tamil Nadu, 600081, India",
+    "ward_no": 43,
+    "ward_name": "Ward 43 \u00b7 TONDIARPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2544866,
+     13.0806778
+    ]
+   },
+   "properties": {
+    "sl_no": "73",
+    "name": "No.116 , EVR periyar high rood, Nehru poonga Chennai -600084",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600084, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600084",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600084, Zone 8 Anna Nagar, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 104,
+    "ward_name": "Ward 104 \u00b7 ANNANAGAR"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2237806,
+     13.0632308
+    ]
+   },
+   "properties": {
+    "sl_no": "74",
+    "name": "Thiruvenkat puram ,first street choolamedu, Chennai -600094",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600094, Chennai, Tamil Nadu, India",
+    "geocode_locality": "choolamedu",
+    "geocode_pincode": "600094",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600094, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 109,
+    "ward_name": "Ward 109 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2534393,
+     13.0304619
+    ]
+   },
+   "properties": {
+    "sl_no": "75",
+    "name": "No. 1 Arunachalam st koshan mandapam,chintathripet, Chennai -600002",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600002, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600002",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600002, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 123,
+    "ward_name": "Ward 123 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2134359,
+     13.0725202
+    ]
+   },
+   "properties": {
+    "sl_no": "76",
+    "name": "No. 1. C.P. sitrarasu street SBI colony arumbakkan Chennai -600106",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600106, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600106",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600106, Zone 8 Anna Nagar, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 105,
+    "ward_name": "Ward 105 \u00b7 ANNANAGAR"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2699774,
+     13.0829
+    ]
+   },
+   "properties": {
+    "sl_no": "78",
+    "name": "No. 123, moocar nallamuthu street, muthayalpetai Chennai -600001",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600001, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600001",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600001, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 58,
+    "ward_name": "Ward 58 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2948008,
+     13.1028503
+    ]
+   },
+   "properties": {
+    "sl_no": "79",
+    "name": "No. 196, pidarayiar koil street, harbour,Chennai -600001",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "harbour, 600001, Chennai, Tamil Nadu, India",
+    "geocode_locality": "harbour",
+    "geocode_pincode": "600001",
+    "nominatim_importance": 0.053406137941557914,
+    "nominatim_match": "Royapuram Harbour Bridge, CMWSSB Division 52, Ward 52, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, 600021, India",
+    "ward_no": 52,
+    "ward_name": "Ward 52 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2699774,
+     13.0829
+    ]
+   },
+   "properties": {
+    "sl_no": "80",
+    "name": "Salai vinayagar koil street Chennai -600001",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600001, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600001",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600001, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 58,
+    "ward_name": "Ward 58 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2783092,
+     13.0884967
+    ]
+   },
+   "properties": {
+    "sl_no": "81",
+    "name": "Annapillai street No. 19 , thiruvelian basin street sowcarpet Chennai -600007",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "sowcarpet, 600007, Chennai, Tamil Nadu, India",
+    "geocode_locality": "sowcarpet",
+    "geocode_pincode": "600007",
+    "nominatim_importance": 0.44923984406966866,
+    "nominatim_match": "Sowcarpet, Ward 59, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, 600079, India",
+    "ward_no": 59,
+    "ward_name": "Ward 59 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.268303,
+     13.0768927
+    ]
+   },
+   "properties": {
+    "sl_no": "82",
+    "name": "No. 246 , Thanga salai Chennai -600003",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600003, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600003",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600003, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 62,
+    "ward_name": "Ward 62 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2699774,
+     13.0829
+    ]
+   },
+   "properties": {
+    "sl_no": "83",
+    "name": "No. 6/4 Bathriyan street Chennai -600001",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600001, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600001",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600001, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 58,
+    "ward_name": "Ward 58 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2699774,
+     13.0829
+    ]
+   },
+   "properties": {
+    "sl_no": "84",
+    "name": "No. 48, Govindappan street sevenwells Chennai-600001",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600001, Chennai, Tamil Nadu, India",
+    "geocode_locality": "sevenwells",
+    "geocode_pincode": "600001",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600001, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 58,
+    "ward_name": "Ward 58 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2822426,
+     13.0920917
+    ]
+   },
+   "properties": {
+    "sl_no": "85",
+    "name": "No.l, Anumantharayan koil street edapalayam George town Chennai -600003",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "george town, 600003, Chennai, Tamil Nadu, India",
+    "geocode_locality": "george town",
+    "geocode_pincode": "600003",
+    "nominatim_importance": 0.4675801690165794,
+    "nominatim_match": "George Town, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, 600079, India",
+    "ward_no": 57,
+    "ward_name": "Ward 57 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2699774,
+     13.0829
+    ]
+   },
+   "properties": {
+    "sl_no": "86",
+    "name": "No. 233,A Angappan street Chennai -600001",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600001, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600001",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600001, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 58,
+    "ward_name": "Ward 58 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2790093,
+     13.093579
+    ]
+   },
+   "properties": {
+    "sl_no": "87",
+    "name": "No.7, padavtamman koil street kondi thoppu Chennai -600079",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600079, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600079",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600079, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 57,
+    "ward_name": "Ward 57 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2821153,
+     13.1005688
+    ]
+   },
+   "properties": {
+    "sl_no": "88",
+    "name": "Shanmugam street seven wells Chennai -600001",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "seven wells, 600001, Chennai, Tamil Nadu, India",
+    "geocode_locality": "seven wells",
+    "geocode_pincode": "600001",
+    "nominatim_importance": 0.06673947127489127,
+    "nominatim_match": "Seven Wells, CMWSSB Division 55, Ward 55, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, 600079, India",
+    "ward_no": 55,
+    "ward_name": "Ward 55 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2790093,
+     13.093579
+    ]
+   },
+   "properties": {
+    "sl_no": "89",
+    "name": "No. 17 Nambuliyar street ,kondithoppu Chennai -600079",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600079, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600079",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600079, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 57,
+    "ward_name": "Ward 57 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2790093,
+     13.093579
+    ]
+   },
+   "properties": {
+    "sl_no": "90",
+    "name": "No. 508, sivangyanam poonga , betha naiyakan street ,kondithoppu Chennai-600079",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600079, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600079",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600079, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 57,
+    "ward_name": "Ward 57 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2936125,
+     13.1042898
+    ]
+   },
+   "properties": {
+    "sl_no": "91",
+    "name": "Stanley hospital royapuram Chennai -600013",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "royapuram, 600013, Chennai, Tamil Nadu, India",
+    "geocode_locality": "royapuram",
+    "geocode_pincode": "600013",
+    "nominatim_importance": 0.4647138372859263,
+    "nominatim_match": "Royapuram, North Terminus Road, CMWSSB Division 52, Ward 52, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, 600021, India",
+    "ward_no": 52,
+    "ward_name": "Ward 52 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2598958,
+     13.0369948
+    ]
+   },
+   "properties": {
+    "sl_no": "92",
+    "name": "No.3, chokkavel street soolai Chennai -6000112",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600112, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600112",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600112, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 123,
+    "ward_name": "Ward 123 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.268303,
+     13.0768927
+    ]
+   },
+   "properties": {
+    "sl_no": "93",
+    "name": "No. 284, Mallaiya Angadi waltax road Chennai -600003",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600003, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600003",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600003, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 62,
+    "ward_name": "Ward 62 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2699774,
+     13.0829
+    ]
+   },
+   "properties": {
+    "sl_no": "95",
+    "name": "No.61/34 ,A, Dada muthuyappan street Chennai -600001",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600001, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600001",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600001, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 58,
+    "ward_name": "Ward 58 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2547909,
+     13.0939346
+    ]
+   },
+   "properties": {
+    "sl_no": "96",
+    "name": "No. 90 edward poonga chinna thambi naicken street kosapet Chennai -600012",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "kosapet, 600012, Chennai, Tamil Nadu, India",
+    "geocode_locality": "kosapet",
+    "geocode_pincode": "600012",
+    "nominatim_importance": 0.4477805781612468,
+    "nominatim_match": "Kosapet, CMWSSB Division 78, Purasawalkam, Ward 78, Zone 6 Thiru. Vi. Ka. Nagar, Chennai Corporation, Chennai, Tamil Nadu, 600084, India",
+    "ward_no": 78,
+    "ward_name": "Ward 78 \u00b7 THIRU-VI-KA-NAGAR"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.268303,
+     13.0768927
+    ]
+   },
+   "properties": {
+    "sl_no": "97",
+    "name": "No. 43, Govt hospital, poonthamalli high road Chennai -600003",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600003, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600003",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600003, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 62,
+    "ward_name": "Ward 62 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2511378,
+     13.1202396
+    ]
+   },
+   "properties": {
+    "sl_no": "98",
+    "name": "No. 9 th street Sharma nagar Chennai -600039",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600039, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600039",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600039, Zone 4 Tondiarpet, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 44,
+    "ward_name": "Ward 44 \u00b7 TONDIARPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.240487,
+     13.0620626
+    ]
+   },
+   "properties": {
+    "sl_no": "99",
+    "name": "Kumarappa street nungambakkam Chennai -600034",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "nungambakkam, 600034, Chennai, Tamil Nadu, India",
+    "geocode_locality": "nungambakkam",
+    "geocode_pincode": "600034",
+    "nominatim_importance": 0.4516681956131193,
+    "nominatim_match": "Nungambakkam, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, 600034, India",
+    "ward_no": 110,
+    "ward_name": "Ward 110 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.268303,
+     13.0768927
+    ]
+   },
+   "properties": {
+    "sl_no": "100",
+    "name": "No. 143, Vepary high road periya medu Chennai -600003",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600003, Chennai, Tamil Nadu, India",
+    "geocode_locality": "periya medu",
+    "geocode_pincode": "600003",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600003, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 62,
+    "ward_name": "Ward 62 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2657836,
+     13.0548193
+    ]
+   },
+   "properties": {
+    "sl_no": "101",
+    "name": "No.204 Jhonibatsha Street, pudupakkam Chennai -600014",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600014, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600014",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600014, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 115,
+    "ward_name": "Ward 115 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2657836,
+     13.0548193
+    ]
+   },
+   "properties": {
+    "sl_no": "102",
+    "name": "No. 74 Meerbakshi ali Street RoyapettaliaiChennai -600014",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600014, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600014",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600014, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 115,
+    "ward_name": "Ward 115 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2757514,
+     13.0594844
+    ]
+   },
+   "properties": {
+    "sl_no": "103",
+    "name": "No.10 Vallaba Agraharam, Thiruartteswaran petai Chennai -600005",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600005, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600005",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600005, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 114,
+    "ward_name": "Ward 114 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2439829,
+     13.0191143
+    ]
+   },
+   "properties": {
+    "sl_no": "104",
+    "name": "No.4 pudha theru, kollur Chennai -600085",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600085, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600085",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600085, Zone 13 Adyar, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 172,
+    "ward_name": "Ward 172 \u00b7 ADYAR"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2750704,
+     13.0604285
+    ]
+   },
+   "properties": {
+    "sl_no": "105",
+    "name": "No.130 Bharathi salai, triplicane Chennai -600005",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "triplicane, 600005, Chennai, Tamil Nadu, India",
+    "geocode_locality": "triplicane",
+    "geocode_pincode": "600005",
+    "nominatim_importance": 0.45451887658813234,
+    "nominatim_match": "Triplicane, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, 600005, India",
+    "ward_no": 114,
+    "ward_name": "Ward 114 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2409827,
+     13.0272506
+    ]
+   },
+   "properties": {
+    "sl_no": "106",
+    "name": "No. Sardhar patd salai, Gandhimandabam,AdayarChennai -600022",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "adayar, 600022, Chennai, Tamil Nadu, India",
+    "geocode_locality": "adayar",
+    "geocode_pincode": "600022",
+    "nominatim_importance": 0.053406137941557914,
+    "nominatim_match": "Adayar River road, CMWSSB Division 122, Ward 122, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, 600035, India",
+    "ward_no": 122,
+    "ward_name": "Ward 122 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2750704,
+     13.0604285
+    ]
+   },
+   "properties": {
+    "sl_no": "107",
+    "name": "No.7 Tuilikanar tuottam, rotary nager triplicane Chennai -600005",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "triplicane, 600005, Chennai, Tamil Nadu, India",
+    "geocode_locality": "triplicane",
+    "geocode_pincode": "600005",
+    "nominatim_importance": 0.45451887658813234,
+    "nominatim_match": "Triplicane, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, 600005, India",
+    "ward_no": 114,
+    "ward_name": "Ward 114 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2656681,
+     13.0382801
+    ]
+   },
+   "properties": {
+    "sl_no": "108",
+    "name": "No.4 Veukatesa agraharam, mylapox Chennai -600004",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600004, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600004",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600004, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 123,
+    "ward_name": "Ward 123 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2700166,
+     13.0316473
+    ]
+   },
+   "properties": {
+    "sl_no": "109",
+    "name": "No.37 Manduaveli, mylapore Chennai -600028",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "mylapore, 600028, Chennai, Tamil Nadu, India",
+    "geocode_locality": "mylapore",
+    "geocode_pincode": "600028",
+    "nominatim_importance": 0.4972941318707617,
+    "nominatim_match": "Mylapore, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, 600004, India",
+    "ward_no": 124,
+    "ward_name": "Ward 124 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2700166,
+     13.0316473
+    ]
+   },
+   "properties": {
+    "sl_no": "110",
+    "name": "No.150 Kadheri, mylapore Chennai -600004",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "mylapore, 600004, Chennai, Tamil Nadu, India",
+    "geocode_locality": "mylapore",
+    "geocode_pincode": "600004",
+    "nominatim_importance": 0.4972941318707617,
+    "nominatim_match": "Mylapore, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, 600004, India",
+    "ward_no": 124,
+    "ward_name": "Ward 124 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2406241,
+     13.0067847
+    ]
+   },
+   "properties": {
+    "sl_no": "111",
+    "name": "No.25,2ndAvenue, indira nager adayar Chennai -600020",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "adayar, 600020, Chennai, Tamil Nadu, India",
+    "geocode_locality": "adayar",
+    "geocode_pincode": "600020",
+    "nominatim_importance": 0.040072804608224606,
+    "nominatim_match": "Uturn to Adayar, CMWSSB Division 174, Ward 174, Zone 13 Adyar, Chennai Corporation, Chennai, Tamil Nadu, 600025, India",
+    "ward_no": 174,
+    "ward_name": "Ward 174 \u00b7 ADYAR"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2700166,
+     13.0316473
+    ]
+   },
+   "properties": {
+    "sl_no": "112",
+    "name": "Hosing board colony, pallakkumanyam, mylapore Chennai -600004",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "mylapore, 600004, Chennai, Tamil Nadu, India",
+    "geocode_locality": "mylapore",
+    "geocode_pincode": "600004",
+    "nominatim_importance": 0.4972941318707617,
+    "nominatim_match": "Mylapore, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, 600004, India",
+    "ward_no": 124,
+    "ward_name": "Ward 124 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2406241,
+     13.0067847
+    ]
+   },
+   "properties": {
+    "sl_no": "113",
+    "name": "No.2/14 Shastri nager adayar Chennai -600020",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "adayar, 600020, Chennai, Tamil Nadu, India",
+    "geocode_locality": "adayar",
+    "geocode_pincode": "600020",
+    "nominatim_importance": 0.040072804608224606,
+    "nominatim_match": "Uturn to Adayar, CMWSSB Division 174, Ward 174, Zone 13 Adyar, Chennai Corporation, Chennai, Tamil Nadu, 600025, India",
+    "ward_no": 174,
+    "ward_name": "Ward 174 \u00b7 ADYAR"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.246659,
+     12.9634652
+    ]
+   },
+   "properties": {
+    "sl_no": "114",
+    "name": "VHS Hospital T.T.T.I anjal, tharamani Chennai -600133",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "tharamani, 600133, Chennai, Tamil Nadu, India",
+    "geocode_locality": "tharamani",
+    "geocode_pincode": "600133",
+    "nominatim_importance": 0.053406137941557914,
+    "nominatim_match": "Dr MGR Main Road, CMWSSB Division 185, Ward 185, Zone 14 Perungudi, Chennai Corporation, Sholinganallur, Chennai, Tamil Nadu, 600096, India",
+    "ward_no": 185,
+    "ward_name": "Ward 185 \u00b7 PERUNGUDI"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.262111,
+     13.0254912
+    ]
+   },
+   "properties": {
+    "sl_no": "115",
+    "name": "Valleeswaram thoam,ranakrishna nager Chennai -600028",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600028, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600028",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600028, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 126,
+    "ward_name": "Ward 126 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.253937,
+     13.0244783
+    ]
+   },
+   "properties": {
+    "sl_no": "116",
+    "name": "No.33 A, 4thmain road raja annamalai puram Chennai -600028",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "raja annamalai puram, 600028, Chennai, Tamil Nadu, India",
+    "geocode_locality": "raja annamalai puram",
+    "geocode_pincode": "600028",
+    "nominatim_importance": 0.14673947127489123,
+    "nominatim_match": "Raja Annamalai Puram, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, 600028, India",
+    "ward_no": 123,
+    "ward_name": "Ward 123 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.262111,
+     13.0254912
+    ]
+   },
+   "properties": {
+    "sl_no": "117",
+    "name": "Jonagen st,santhiome, santhiome hogh road Chennai -600028",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600028, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600028",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600028, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 126,
+    "ward_name": "Ward 126 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2700166,
+     13.0316473
+    ]
+   },
+   "properties": {
+    "sl_no": "118",
+    "name": "44 A, V.P.koil st, mylapore Chennai -600004",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "mylapore, 600004, Chennai, Tamil Nadu, India",
+    "geocode_locality": "mylapore",
+    "geocode_pincode": "600004",
+    "nominatim_importance": 0.4972941318707617,
+    "nominatim_match": "Mylapore, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, 600004, India",
+    "ward_no": 124,
+    "ward_name": "Ward 124 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2808607,
+     13.1104226
+    ]
+   },
+   "properties": {
+    "sl_no": "119",
+    "name": "No.33 Balu merdali st, vannarapettai Chennai -600021",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600021, Chennai, Tamil Nadu, India",
+    "geocode_locality": "vannarapettai",
+    "geocode_pincode": "600021",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600021, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 53,
+    "ward_name": "Ward 53 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2534393,
+     13.0304619
+    ]
+   },
+   "properties": {
+    "sl_no": "120",
+    "name": "Sudanthiraparam 7/72,2ndst, Dr.Ambedkhar nager C.P.salaiChennai -600002",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600002, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600002",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600002, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 123,
+    "ward_name": "Ward 123 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2808607,
+     13.1104226
+    ]
+   },
+   "properties": {
+    "sl_no": "121",
+    "name": "No.21 Dr.Vijaya ragevala st, old vannarajrhavi Chennai -600021",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600021, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600021",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600021, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 53,
+    "ward_name": "Ward 53 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2808607,
+     13.1104226
+    ]
+   },
+   "properties": {
+    "sl_no": "124",
+    "name": "No. 42/15, Andiappan mudali st old washermenpetChennai -600021",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600021, Chennai, Tamil Nadu, India",
+    "geocode_locality": "old washermenpet",
+    "geocode_pincode": "600021",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600021, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 53,
+    "ward_name": "Ward 53 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2958012,
+     13.1364038
+    ]
+   },
+   "properties": {
+    "sl_no": "125",
+    "name": "No.106, A.Punithasaviyar st, kasimedur, royaporam Chennai -600013",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "kasimedu, 600013, Chennai, Tamil Nadu, India",
+    "geocode_locality": "kasimedu",
+    "geocode_pincode": "600013",
+    "nominatim_importance": 0.08007280460822458,
+    "nominatim_match": "kasimedu, Ward 39, Zone 4 Tondiarpet, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 39,
+    "ward_name": "Ward 39 \u00b7 TONDIARPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2808607,
+     13.1104226
+    ]
+   },
+   "properties": {
+    "sl_no": "128",
+    "name": "No. 6,4thst Seriyan nager new washermenpet Chennai -600021",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600021, Chennai, Tamil Nadu, India",
+    "geocode_locality": "new washermenpet",
+    "geocode_pincode": "600021",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600021, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 53,
+    "ward_name": "Ward 53 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2814345,
+     13.1302011
+    ]
+   },
+   "properties": {
+    "sl_no": "129",
+    "name": "No.8, Kermmalamman koil st, thandaiyarpet Chennai -600081",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600081, Chennai, Tamil Nadu, India",
+    "geocode_locality": "thandaiyarpet",
+    "geocode_pincode": "600081",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600081, Zone 4 Tondiarpet, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 38,
+    "ward_name": "Ward 38 \u00b7 TONDIARPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2808607,
+     13.1104226
+    ]
+   },
+   "properties": {
+    "sl_no": "130",
+    "name": "No.19 ,Keallarai salai old washerment Chennai -600021",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600021, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600021",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600021, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 53,
+    "ward_name": "Ward 53 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2808607,
+     13.1104226
+    ]
+   },
+   "properties": {
+    "sl_no": "131",
+    "name": "No.38 mayar baradev st, old washerment Chennai -600021",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600021, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600021",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600021, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 53,
+    "ward_name": "Ward 53 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2808607,
+     13.1104226
+    ]
+   },
+   "properties": {
+    "sl_no": "132",
+    "name": "No. old washerment Chennai -600021",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600021, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600021",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600021, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 53,
+    "ward_name": "Ward 53 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2808607,
+     13.1104226
+    ]
+   },
+   "properties": {
+    "sl_no": "133",
+    "name": "No. 64, 9thlane, Model Lone old washerment Chennai -600021",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600021, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600021",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600021, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 53,
+    "ward_name": "Ward 53 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2808607,
+     13.1104226
+    ]
+   },
+   "properties": {
+    "sl_no": "135",
+    "name": "No.2, Nainiappam naicken st, korukkeepettai Chennai -600021",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600021, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600021",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600021, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 53,
+    "ward_name": "Ward 53 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2808607,
+     13.1104226
+    ]
+   },
+   "properties": {
+    "sl_no": "136",
+    "name": "No.69 seeramgemmal st, old washermenpet Chennai -600021",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600021, Chennai, Tamil Nadu, India",
+    "geocode_locality": "old washermenpet",
+    "geocode_pincode": "600021",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600021, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 53,
+    "ward_name": "Ward 53 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2325166,
+     13.1429313
+    ]
+   },
+   "properties": {
+    "sl_no": "137",
+    "name": "No. 11 Madhavaram high road, kabilar sr sembiyam Chennai -600011",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "madhavaram, 600011, Chennai, Tamil Nadu, India",
+    "geocode_locality": "madhavaram",
+    "geocode_pincode": "600011",
+    "nominatim_importance": 0.1600728046082246,
+    "nominatim_match": "Zone 3 Madhavaram, Chennai Corporation, Mathavaram, Thiruvallur, Tamil Nadu, India",
+    "ward_no": 31,
+    "ward_name": "Ward 31 \u00b7 MADHAVARAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2621417,
+     13.0906283
+    ]
+   },
+   "properties": {
+    "sl_no": "139",
+    "name": "No .1, Ratlarst, choolaiChennai -600112",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "choolai, 600112, Chennai, Tamil Nadu, India",
+    "geocode_locality": "choolai",
+    "geocode_pincode": "600112",
+    "nominatim_importance": 0.14673947127489123,
+    "nominatim_match": "Choolai, Ward 78, Zone 6 Thiru. Vi. Ka. Nagar, Chennai Corporation, Chennai, Tamil Nadu, 600001, India",
+    "ward_no": 78,
+    "ward_name": "Ward 78 \u00b7 THIRU-VI-KA-NAGAR"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.262111,
+     13.0254912
+    ]
+   },
+   "properties": {
+    "sl_no": "140",
+    "name": "Govt. Quarless pattainappakkam Chennai -600028",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600028, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600028",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600028, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 126,
+    "ward_name": "Ward 126 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.23541,
+     13.0946157
+    ]
+   },
+   "properties": {
+    "sl_no": "141",
+    "name": "No .24 Maylappa gramani st, ayanavaram Chennai -600023",
+    "type": "Branch library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "ayanavaram, 600023, Chennai, Tamil Nadu, India",
+    "geocode_locality": "ayanavaram",
+    "geocode_pincode": "600023",
+    "nominatim_importance": 0.14673947127489123,
+    "nominatim_match": "Ayanavaram, Zone 8 Anna Nagar, Chennai Corporation, Chennai, Tamil Nadu, 600023, India",
+    "ward_no": 98,
+    "ward_name": "Ward 98 \u00b7 ANNANAGAR"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2376387,
+     13.0811536
+    ]
+   },
+   "properties": {
+    "sl_no": "144",
+    "name": "No .Kiylepakkam Chennai -600010",
+    "type": "Part Time library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600010, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600010",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600010, Zone 8 Anna Nagar, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 103,
+    "ward_name": "Ward 103 \u00b7 ANNANAGAR"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2270184,
+     13.0428296
+    ]
+   },
+   "properties": {
+    "sl_no": "145",
+    "name": "Baktharadhalam st,west mambalam Chennai -600033",
+    "type": "Part Time library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "west mambalam, 600033, Chennai, Tamil Nadu, India",
+    "geocode_locality": "west mambalam",
+    "geocode_pincode": "600033",
+    "nominatim_importance": 0.14673947127489123,
+    "nominatim_match": "West Mambalam, Zone 10 Kodambakkam, Chennai Corporation, Chennai, Tamil Nadu, 600017, India",
+    "ward_no": 135,
+    "ward_name": "Ward 135 \u00b7 KODAMBAKKAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2933782,
+     13.1262345
+    ]
+   },
+   "properties": {
+    "sl_no": "146",
+    "name": "Vinayagapuram MMDA colony Chennai -600106",
+    "type": "Part Time library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "vinayagapuram, 600106, Chennai, Tamil Nadu, India",
+    "geocode_locality": "vinayagapuram",
+    "geocode_pincode": "600106",
+    "nominatim_importance": 0.053406137941557914,
+    "nominatim_match": "Vinayagapuram Main Street, Ward 43, Zone 4 Tondiarpet, Chennai Corporation, Chennai, Tamil Nadu, 600081, India",
+    "ward_no": 43,
+    "ward_name": "Ward 43 \u00b7 TONDIARPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2790093,
+     13.093579
+    ]
+   },
+   "properties": {
+    "sl_no": "148",
+    "name": "Kondithoppu police Quarlery Chennai -600079",
+    "type": "Part Time library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600079, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600079",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600079, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 57,
+    "ward_name": "Ward 57 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2814345,
+     13.1302011
+    ]
+   },
+   "properties": {
+    "sl_no": "149",
+    "name": "Thandaiyarpet police Quarlery Chennai -600081",
+    "type": "Part Time library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600081, Chennai, Tamil Nadu, India",
+    "geocode_locality": "thandaiyarpet",
+    "geocode_pincode": "600081",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600081, Zone 4 Tondiarpet, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 38,
+    "ward_name": "Ward 38 \u00b7 TONDIARPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2790093,
+     13.093579
+    ]
+   },
+   "properties": {
+    "sl_no": "150",
+    "name": "Puliantaoppo police Quarlery Chennai -600079",
+    "type": "Part Time library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600079, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600079",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600079, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 57,
+    "ward_name": "Ward 57 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2081312,
+     13.074371
+    ]
+   },
+   "properties": {
+    "sl_no": "151",
+    "name": "Jai nager arumbakkam Chennai -6000106",
+    "type": "Part Time library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "arumbakkam, 600106, Chennai, Tamil Nadu, India",
+    "geocode_locality": "arumbakkam",
+    "geocode_pincode": "600106",
+    "nominatim_importance": 0.44889533757221894,
+    "nominatim_match": "Arumbakkam, Zone 8 Anna Nagar, Chennai Corporation, Chennai, Tamil Nadu, 600106, India",
+    "ward_no": 105,
+    "ward_name": "Ward 105 \u00b7 ANNANAGAR"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2277752,
+     13.0380662
+    ]
+   },
+   "properties": {
+    "sl_no": "152",
+    "name": "PartTime.R.l police Quarlery mambalam Chennai -600033",
+    "type": "Part Time library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "mambalam, 600033, Chennai, Tamil Nadu, India",
+    "geocode_locality": "mambalam",
+    "geocode_pincode": "600033",
+    "nominatim_importance": 0.39238421350124,
+    "nominatim_match": "Mambalam, Babu Rajendra Prasad 2nd street, CMWSSB Division 136, Ward 136, Zone 10 Kodambakkam, Chennai Corporation, Chennai, Tamil Nadu, 600033, India",
+    "ward_no": 136,
+    "ward_name": "Ward 136 \u00b7 KODAMBAKKAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2120661,
+     13.0509304
+    ]
+   },
+   "properties": {
+    "sl_no": "153",
+    "name": "Vadapalani police Quarlery Chennai -600026",
+    "type": "Part Time library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "vadapalani, 600026, Chennai, Tamil Nadu, India",
+    "geocode_locality": "vadapalani",
+    "geocode_pincode": "600026",
+    "nominatim_importance": 0.38250674189122186,
+    "nominatim_match": "Vadapalani, Vadapalani Flyover, CMWSSB Division 130, Ward 130, Zone 10 Kodambakkam, Chennai Corporation, Chennai, Tamil Nadu, 600026, India",
+    "ward_no": 130,
+    "ward_name": "Ward 130 \u00b7 KODAMBAKKAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2545238,
+     13.0365612
+    ]
+   },
+   "properties": {
+    "sl_no": "154",
+    "name": "Thenampettai police Quarlery Chennai -600018",
+    "type": "Part Time library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600018, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600018",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600018, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 123,
+    "ward_name": "Ward 123 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.253937,
+     13.0244783
+    ]
+   },
+   "properties": {
+    "sl_no": "155",
+    "name": "No.17 Board glub road,raja annamalai puram military school Chennai -600028",
+    "type": "Part Time library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "raja annamalai puram, 600028, Chennai, Tamil Nadu, India",
+    "geocode_locality": "raja annamalai puram",
+    "geocode_pincode": "600028",
+    "nominatim_importance": 0.14673947127489123,
+    "nominatim_match": "Raja Annamalai Puram, Zone 9 Teynampet, Chennai Corporation, Chennai, Tamil Nadu, 600028, India",
+    "ward_no": 123,
+    "ward_name": "Ward 123 \u00b7 TEYNAMPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2376387,
+     13.0811536
+    ]
+   },
+   "properties": {
+    "sl_no": "156",
+    "name": "Cotas garden, police Quarlery, cittalapakkam Chennai -600010",
+    "type": "Part Time library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600010, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600010",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600010, Zone 8 Anna Nagar, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 103,
+    "ward_name": "Ward 103 \u00b7 ANNANAGAR"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2087752,
+     12.9895104
+    ]
+   },
+   "properties": {
+    "sl_no": "157",
+    "name": "T.S.D. nager, arambakkam Chennai -600106",
+    "type": "Part Time library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "locality_pin",
+    "geocode_query": "arambakkam, 600106, Chennai, Tamil Nadu, India",
+    "geocode_locality": "arambakkam",
+    "geocode_pincode": "600106",
+    "nominatim_importance": 7.28046082245673e-05,
+    "nominatim_match": "PHC, Arambakkam, 12th Cross Street, CMWSSB Division 177, Ward 177, Zone 13 Adyar, Chennai Corporation, Thiruvallur, Tamil Nadu, 600042, India",
+    "ward_no": 177,
+    "ward_name": "Ward 177 \u00b7 ADYAR"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2127472,
+     13.1270277
+    ]
+   },
+   "properties": {
+    "sl_no": "158",
+    "name": "No.lO,Northi mada st, collathar Chennai -600099",
+    "type": "Part Time library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600099, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600099",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600099, Ward 64, Zone 6 Thiru. Vi. Ka. Nagar, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 64,
+    "ward_name": "Ward 64 \u00b7 THIRU-VI-KA-NAGAR"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2456759,
+     13.1255501
+    ]
+   },
+   "properties": {
+    "sl_no": "159",
+    "name": "Eercady nager, kodungaiyar Chennai -600118",
+    "type": "Part Time library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600118, Chennai, Tamil Nadu, India",
+    "geocode_locality": "kodungaiyar",
+    "geocode_pincode": "600118",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600118, Zone 4 Tondiarpet, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 35,
+    "ward_name": "Ward 35 \u00b7 TONDIARPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.268303,
+     13.0768927
+    ]
+   },
+   "properties": {
+    "sl_no": "160",
+    "name": "Part town. 9, vaidanamas road Chennai -600003",
+    "type": "Part Time library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600003, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600003",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600003, Zone 5 Royapuram, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 62,
+    "ward_name": "Ward 62 \u00b7 ROYAPURAM"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2456759,
+     13.1255501
+    ]
+   },
+   "properties": {
+    "sl_no": "161",
+    "name": "Thiru V.K.nager Chennai -600118",
+    "type": "Part Time library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600118, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600118",
+    "nominatim_importance": 0.12000999999999995,
+    "nominatim_match": "600118, Zone 4 Tondiarpet, Chennai Corporation, Chennai, Tamil Nadu, India",
+    "ward_no": 35,
+    "ward_name": "Ward 35 \u00b7 TONDIARPET"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.1393765,
+     12.9722109
+    ]
+   },
+   "properties": {
+    "sl_no": "162",
+    "name": "Passport mandala aluvalagam, saligammam Chennai -600092",
+    "type": "Part Time library",
+    "authority": "Local Library Authority, Chennai",
+    "geocode_confidence": "pincode",
+    "geocode_query": "600092, Chennai, Tamil Nadu, India",
+    "geocode_locality": null,
+    "geocode_pincode": "600092",
+    "nominatim_importance": 5.509498741126142e-05,
+    "nominatim_match": "Union Bank of India, 1, 1st Street, Pammal, Chennai Corporation, Pallavaram, Chengalpattu, Tamil Nadu, 600043, India",
+    "ward_no": null,
+    "ward_name": null
+   }
+  }
+ ]
+}
