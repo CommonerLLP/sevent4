@@ -105,8 +105,11 @@ def _html(city: CityDataset, manifest: LayerManifest) -> str:
         city.layers_dir / "wards.geojson",
         "Name",
     )
-    ac_options = _feature_options(city.layers_dir / "acs.geojson", "ac_name") if (city.layers_dir / "acs.geojson").exists() else ""
-    pc_options = _feature_options(city.layers_dir / "pcs.geojson", "pc_name") if (city.layers_dir / "pcs.geojson").exists() else ""
+    _acp, _pcp = city.layers_dir / "acs.geojson", city.layers_dir / "pcs.geojson"
+    ac_field = _pick_name_field(_acp, ("AC_NAME", "ac_name", "ASSEM_CSTNY_NAME", "Name", "name")) if _acp.exists() else None
+    pc_field = _pick_name_field(_pcp, ("PC_NAME", "pc_name", "PARLY_CSTNY_NAME", "Name", "name")) if _pcp.exists() else None
+    ac_options = _feature_options(_acp, ac_field) if ac_field else ""
+    pc_options = _feature_options(_pcp, pc_field) if pc_field else ""
     ac_disabled = "" if ac_options else " disabled"
     pc_disabled = "" if pc_options else " disabled"
     ac_label = "Assembly constituency" if ac_options else "Assembly constituency boundary not loaded"
@@ -237,13 +240,30 @@ def _legend_color(paint: dict[str, Any]) -> str:
     return "#5a86f5"
 
 
+def _pick_name_field(path: Path, candidates: tuple[str, ...]) -> str | None:
+    """First candidate property that exists AND is populated (handles KGIS layers where the
+    lowercase `ac_name`/`pc_name` are null but `AC_NAME`/`PARLY_CSTNY_NAME` carry the value)."""
+    feats = json.loads(path.read_text()).get("features", [])
+    if not feats:
+        return None
+    bad = {None, "", "None", "nan"}
+    ci: dict[str, str] = {}
+    for k in feats[0].get("properties", {}):
+        ci.setdefault(k.lower(), k)
+    for cand in candidates:
+        col = cand if cand in feats[0].get("properties", {}) else ci.get(cand.lower())
+        if col and any(f.get("properties", {}).get(col) not in bad for f in feats):
+            return col
+    return None
+
+
 def _feature_options(path: Path, label_key: str, extra_keys: tuple[str, ...] = ()) -> str:
     data = json.loads(path.read_text())
     rows = []
     for feature in sorted(data["features"], key=lambda item: str(item["properties"].get(label_key, ""))):
         props = feature["properties"]
         label = str(props.get(label_key, "")).strip()
-        if not label:
+        if not label or label in ("None", "nan"):
             continue
         bounds = json.dumps(_bbox(feature["geometry"]))
         rings = json.dumps(_rings(feature["geometry"]))
