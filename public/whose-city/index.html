@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="application-name" content="Part IXA: The Municipalities">
+<title>Whose city is it? — Part IXA: The Municipalities</title>
+<link rel="icon" type="image/png" href="../assets/ixa-mark.png?v=stitch-color">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="stylesheet" href="../assets/atlas-ui.css">
+<style>
+  body{display:flex;flex-direction:column;min-height:100dvh;overflow-x:hidden}
+  .mast{display:flex;justify-content:space-between;align-items:center;gap:14px;
+    padding:14px 18px;border-bottom:1px solid var(--line);flex:0 0 auto}
+  .stage{flex:1;display:flex;flex-direction:column;justify-content:center;
+    width:100%;max-width:580px;margin:0 auto;padding:34px 20px 40px}
+
+  .scene{animation:rise .45s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  .hide{display:none!important}
+
+  .kick{margin-bottom:18px}
+  h1.display{font-size:clamp(29px,6.6vw,44px);margin-bottom:14px}
+  .lede{font-size:17px;color:var(--mut);margin-bottom:30px;max-width:46ch}
+  .q{font-family:var(--serif);font-size:clamp(21px,4.4vw,27px);line-height:1.3;margin-bottom:26px}
+  .q b{color:var(--blue);font-weight:400}
+
+  .prog{display:flex;gap:6px;margin-bottom:22px}
+  .prog i{width:30px;height:3px;border-radius:2px;background:var(--line)}
+  .prog i.on{background:var(--blue)}
+  .prog i.done{background:var(--mut)}
+
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-top:6px}
+  .city{position:relative;text-align:left;cursor:pointer;background:var(--panel);
+    border:1px solid var(--line);border-radius:var(--r);padding:14px 15px;
+    font:600 15px var(--sans);color:var(--ink);transition:border-color .14s,background .14s}
+  .city:not(.soon):hover{border-color:var(--blue);background:var(--panel2)}
+  .city.soon{color:var(--mut);cursor:not-allowed}
+  .city.soon::after{content:"soon";position:absolute;top:13px;right:13px;
+    font:800 8px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
+
+  .choices{display:flex;flex-direction:column;gap:11px}
+  .choice{text-align:left;cursor:pointer;background:var(--panel);border:1px solid var(--line);
+    border-radius:var(--r);padding:17px 18px;font:600 16px var(--sans);color:var(--ink);
+    transition:border-color .14s,background .14s}
+  .choice:hover{border-color:var(--blue);background:var(--panel2)}
+  .choice .sub{display:block;font:400 13px var(--sans);color:var(--mut);margin-top:3px}
+
+  .sliderwrap{margin:4px 0 26px}
+  .readout{font-family:var(--serif);font-size:62px;line-height:1;color:var(--blue);text-align:center;margin-bottom:8px}
+  .readout small{font:400 18px var(--sans);color:var(--mut)}
+  input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:3px;border-radius:3px;
+    background:linear-gradient(var(--blue),var(--blue)) no-repeat,var(--line);background-size:50% 100%;outline:none}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:28px;height:28px;border-radius:50%;
+    background:var(--blue);border:4px solid var(--bg);box-shadow:0 0 0 1px var(--blue);cursor:grab}
+  input[type=range]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;background:var(--blue);border:4px solid var(--bg);cursor:grab}
+  .scale{display:flex;justify-content:space-between;font:700 10px/1 var(--mono);letter-spacing:.1em;
+    text-transform:uppercase;color:var(--mut);margin-top:9px}
+
+  .big{font-family:var(--serif);font-size:clamp(44px,12vw,72px);line-height:1;color:var(--blue);margin-bottom:6px}
+  .big .of{color:var(--mut);font-size:.42em}
+  .verdict{font-family:var(--serif);font-size:clamp(20px,4.3vw,26px);line-height:1.32;margin:10px 0 14px}
+  .verdict em{font-style:italic;color:var(--blue)}
+  p.body{font-size:16px;color:var(--mut);margin-bottom:18px}
+  p.body b{color:var(--ink);font-weight:600}
+  .readnote{margin-bottom:26px}
+
+  .nav{display:flex;gap:11px;flex-wrap:wrap;align-items:center}
+  .endcard h2{font-family:var(--serif);font-weight:400;font-size:clamp(25px,5.2vw,33px);line-height:1.2;margin-bottom:16px}
+  .endcard h2 b{color:var(--blue);font-weight:400}
+  .endcard .body{margin-bottom:26px;max-width:48ch}
+  .toll{margin-top:28px;font:700 10px/1.5 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mut)}
+  .pfoot{margin-top:26px;font:700 9px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="brandrow">
+    <img class="ixamark" src="../assets/ixa-mark.png?v=stitch-color" alt="" aria-hidden="true">
+    <div class="wordmark" aria-label="The Municipalities Accountability Atlas">
+      <span>The Municipalities</span><b>Accountability Atlas</b>
+    </div>
+  </div>
+  <nav class="sitenav" aria-label="Site">
+    <a id="skipnav" href="../cities/ahmedabad/" title="Skip the intro — go to the maps">Atlas</a>
+    <a href="../about/">About</a>
+  </nav>
+</header>
+
+<main class="stage">
+
+  <!-- TITLE -->
+  <section class="scene" id="s-title">
+    <div class="sech accent kick">A two-minute question</div>
+    <h1 class="display">You elected a city.<br><em>How much of it</em> did you actually get?</h1>
+    <p class="lede">Three guesses about the place you live. Then we show you what the records say — and where the rest of it really gets decided.</p>
+    <button class="btn" data-go="pick">Pick your city →</button>
+  </section>
+
+  <!-- CITY PICK -->
+  <section class="scene hide" id="s-pick">
+    <div class="sech accent kick">Pick your city</div>
+    <h1 class="display" style="font-size:clamp(23px,4.8vw,30px)">Where do you live?</h1>
+    <div class="grid" id="cityGrid"></div>
+    <p class="pfoot" id="pickfoot">Loading…</p>
+  </section>
+
+  <!-- ROUND 1 — slider -->
+  <section class="scene hide" id="s-r1">
+    <div class="prog"><i class="on"></i><i></i><i></i></div>
+    <div class="sech accent kick">Round 1 · The broom</div>
+    <p class="q">Your municipal corporation is meant to handle <b>18 things</b> — roads, water, schools, health, fire, planning. How many does your <b>elected council</b> actually get to decide?</p>
+    <div class="sliderwrap">
+      <div class="readout"><span id="r1val">9</span><small> / 18</small></div>
+      <input type="range" min="0" max="18" value="9" id="r1slider" aria-label="How many of 18 functions">
+      <div class="scale"><span>none</span><span>all 18</span></div>
+    </div>
+    <button class="btn" id="r1commit">Lock it in →</button>
+  </section>
+  <section class="scene reveal hide" id="s-r1r">
+    <div class="prog"><i class="done"></i><i class="on"></i><i></i></div>
+    <div class="sech kick">The record says</div>
+    <div class="big"><span id="r1-big">9</span><span class="of" id="r1-of"> / 18</span></div>
+    <div class="verdict" id="r1-verdict"></div>
+    <p class="body" id="r1-body"></p>
+    <div class="readnote"><span id="r1-source"></span> <a href="#">See the proof →</a></div>
+    <button class="btn" data-go="r2">Next question →</button>
+  </section>
+
+  <!-- ROUND 2 — choice -->
+  <section class="scene hide" id="s-r2">
+    <div class="prog"><i class="done"></i><i class="on"></i><i></i></div>
+    <div class="sech accent kick">Round 2 · The bill</div>
+    <p class="q">Every time a flat or plot changes hands in your city, a big tax is paid on the sale. Who <b>keeps</b> that money?</p>
+    <div class="choices">
+      <button class="choice" data-go="r2r">My city<span class="sub">It’s my city’s land — so it’s my city’s revenue</span></button>
+      <button class="choice" data-go="r2r">The state government<span class="sub">It collects; my city gets a share</span></button>
+    </div>
+  </section>
+  <section class="scene reveal hide" id="s-r2r">
+    <div class="prog"><i class="done"></i><i class="done"></i><i class="on"></i></div>
+    <div class="sech kick">The record says</div>
+    <div class="verdict" id="r2-verdict"></div>
+    <p class="body" id="r2-body"></p>
+    <div class="readnote"><span id="r2-source"></span> <a href="#">See the proof →</a></div>
+    <button class="btn" data-go="r3">Last question →</button>
+  </section>
+
+  <!-- ROUND 3 — choice (city-specific premise) -->
+  <section class="scene hide" id="s-r3">
+    <div class="prog"><i class="done"></i><i class="done"></i><i class="on"></i></div>
+    <div class="sech accent kick">Round 3 · Who runs it today</div>
+    <p class="q" id="r3-setup"></p>
+    <div class="choices">
+      <button class="choice" data-go="r3r"><span id="r3-cA"></span><span class="sub" id="r3-cAsub"></span></button>
+      <button class="choice" data-go="r3r"><span id="r3-cB"></span><span class="sub" id="r3-cBsub"></span></button>
+    </div>
+  </section>
+  <section class="scene reveal hide" id="s-r3r">
+    <div class="prog"><i class="done"></i><i class="done"></i><i class="done"></i></div>
+    <div class="sech kick">The record says</div>
+    <div class="verdict" id="r3-verdict"></div>
+    <p class="body" id="r3-body"></p>
+    <div class="readnote"><span id="r3-source"></span> <a href="#">See the proof →</a></div>
+    <button class="btn" data-go="end">See the whole machine →</button>
+  </section>
+
+  <!-- END -->
+  <section class="scene endcard hide" id="s-end">
+    <div class="sech accent kick">What you just learned</div>
+    <h2 id="end-text"></h2>
+    <p class="body">None of the taxing power, an unelected officer at the wheel, and half its services decided elsewhere. The maps show the whole machine — who decides, who profits, who pays, and who is made to do the dangerous work.</p>
+    <div class="nav">
+      <a class="btn" id="end-map" href="../cities/ahmedabad/index.html">Explore the map →</a>
+      <a class="btn ghost" href="../about/">Why your city isn’t yours</a>
+    </div>
+    <p class="toll">The map is where the human cost lives. We don’t turn that into a game.</p>
+  </section>
+
+</main>
+
+<script>
+(function(){
+  var scenes = ["title","pick","r1","r1r","r2","r2r","r3","r3r","end"];
+  function show(id){
+    scenes.forEach(function(s){ document.getElementById("s-"+s).classList.add("hide"); });
+    var el = document.getElementById("s-"+id);
+    el.classList.remove("hide","scene"); void el.offsetWidth; el.classList.add("scene");
+    window.scrollTo(0,0);
+  }
+  function set(id,html){ var e=document.getElementById(id); if(e) e.innerHTML=html; }
+
+  var DATA=null, current=null;
+  var ALL=["Ahmedabad","Mumbai","Bengaluru","Kolkata","Chennai","Hyderabad",
+           "Pune","Jaipur","Kanpur","Kochi","Bhubaneswar","Visakhapatnam"];
+
+  // ---- render a chosen city's data into all the round scenes ----
+  function selectCity(slug){
+    var c = DATA[slug]; if(!c) return;
+    current = c;
+    document.getElementById("skipnav").setAttribute("href", c.map);
+    document.getElementById("end-map").setAttribute("href", c.map);
+
+    // round 1
+    set("r1-big", c.r1.big); set("r1-of", c.r1.of);
+    set("r1-verdict", c.r1.verdict); set("r1-body", c.r1.body); set("r1-source", c.r1.source);
+    // round 2
+    set("r2-verdict", c.r2.verdict); set("r2-body", c.r2.body); set("r2-source", c.r2.source);
+    // round 3
+    set("r3-setup", c.r3.setup);
+    set("r3-cA", c.r3.choiceA); set("r3-cAsub", c.r3.choiceAsub);
+    set("r3-cB", c.r3.choiceB); set("r3-cBsub", c.r3.choiceBsub);
+    set("r3-verdict", c.r3.verdict); set("r3-body", c.r3.body); set("r3-source", c.r3.source);
+    // end
+    set("end-text", c.end);
+
+    // reset slider to the honest midpoint guess
+    sl.value = 9; paint();
+    show("r1");
+  }
+
+  // ---- build the picker from the data (live vs soon) ----
+  function buildGrid(){
+    var grid = document.getElementById("cityGrid");
+    grid.innerHTML = "";
+    var liveCount = 0;
+    ALL.forEach(function(name){
+      var slug = name.toLowerCase();
+      var live = DATA && DATA[slug] && DATA[slug].live;
+      if(live) liveCount++;
+      var b = document.createElement("button");
+      b.className = "city" + (live ? "" : " soon");
+      b.textContent = name;
+      if(live) b.addEventListener("click", function(){ selectCity(slug); });
+      grid.appendChild(b);
+    });
+    document.getElementById("pickfoot").textContent =
+      "Prototype — " + liveCount + " of " + ALL.length + " cities wired so far";
+  }
+
+  // ---- slider ----
+  var sl = document.getElementById("r1slider"), val = document.getElementById("r1val");
+  function paint(){ sl.style.backgroundSize=(sl.value/18*100)+"% 100%"; val.textContent=sl.value; }
+  sl.addEventListener("input", paint); paint();
+  document.getElementById("r1commit").addEventListener("click", function(){ show("r1r"); });
+
+  // ---- generic nav ----
+  document.querySelectorAll("[data-go]").forEach(function(b){
+    b.addEventListener("click", function(){ show(b.getAttribute("data-go")); });
+  });
+
+  // ---- load data, then go ----
+  fetch("./cities.json").then(function(r){ return r.json(); }).then(function(j){
+    DATA = j; buildGrid();
+  }).catch(function(){
+    document.getElementById("pickfoot").textContent = "Could not load city data — serve over http (not file://).";
+  });
+
+  show("title");
+})();
+</script>
+</body>
+</html>
