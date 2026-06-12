@@ -1,0 +1,15 @@
+{
+ "schema": "sevent4.jurisdiction_crosswalk.v1",
+ "city": "bengaluru",
+ "country": "India",
+ "levels": [
+  "state",
+  "district"
+ ],
+ "thresholds": {
+  "method": "ward representative point within AC polygon (nearest fallback)"
+ },
+ "excluded_acs": [],
+ "source": "spatial join of city ward/AC/PC layers (AC carries PC_NAME + DIST_NAME)",
+ "records": []
+}
