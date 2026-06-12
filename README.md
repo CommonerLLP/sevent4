@@ -35,6 +35,21 @@ Ahmedabad is the first working example. Fork the repo, replace the city data,
 and build the same console for Kolkata, Chennai, Bengaluru, Hyderabad, Pune,
 Mumbai, Delhi, Surat, Jaipur, Lucknow, or any other urban local body.
 
+## Project Direction
+
+The broad political frame and operating plan live in repo docs:
+
+- [Mission and Vision](docs/mission-vision.md): the Ambedkarite frame, Part IXA
+  problem, national city-region scope, Delhi NCR special rule, and theory of
+  change.
+- [Roadmap](docs/roadmap.md): operational workstreams, backlog, city expansion
+  priorities, and definitions of done.
+- [Gantt Plan](docs/gantt.md): dated sequencing for research, Ahmedabad
+  hardening, accountability UX, Delhi NCR modeling, and national atlas pilots.
+- [Urban Agglomeration Model](docs/urban-agglomeration-model.md): the doctrine
+  for explaining official city limits, lived city-regions, and Delhi NCR's
+  special legal, fiscal, political, social, and economic structure.
+
 ## Public Atlas
 
 The public municipal atlas is served as a static GitHub Pages site from the
