@@ -1,0 +1,149 @@
+{
+  "_meta": {
+    "city": "Kolkata",
+    "state": "West Bengal",
+    "what": "The governance-fragmentation dossier for Kolkata: every body that took a 12th-Schedule (or adjacent core civic) function OUT of the elected Kolkata Municipal Corporation (KMC) — pre- and post-1991 — recorded on the axis of WHO DECIDED (colonial/state/centre, never the elected city). Schema mirrors the other cities: corporation / parastatals[] / contractualisation / timeline_note. The analytical core of each entry is decided_by (city|state|centre|colonial) and the named instrument (Act + number + year / notification / concession).",
+    "thesis": "Kolkata is Anwesha Ghosh's own city, and the keystone of the whole atlas. The Calcutta Improvement Trust (CIT), founded under the Calcutta Improvement Act, 1911 (Bengal Act V of 1911) expressly 'to protect the work of improvement from the stranglehold of representative politics' (Ghosh), was REPEALED and MERGED into the Kolkata Metropolitan Development Authority (KMDA) w.e.f. 28 April 2017. The colonial improvement trust literally became the modern development authority, by statute, in living memory — Ghosh's conceptual lineage realised as a repealing Act. Every carve-out below is a re-run of the 1911 depoliticisation move: lift the rent-rich function (land, planning, water-works, transit, township real estate) out of the elected council into an unelected, state-appointed, technocratic body; leave the elected KMC the labour-intensive, low-rent broom (sweeping, drains, potholes, lighting).",
+    "decided_by_legend": {
+      "colonial": "Decided by the colonial state (Bengal Legislative Council / Governor-in-Council / imperial government) — pre-Independence.",
+      "centre": "Decided by the Union government / a central ministry or central PSU (e.g. Indian Railways).",
+      "state": "Decided by the Government of West Bengal (legislature or executive).",
+      "city": "Decided by the elected Kolkata Municipal Corporation itself."
+    },
+    "era_legend": {
+      "pre_1991": "Body/carve-out created before the 74th Amendment era (the colonial improvement-trust lineage and the 1960s-70s parastatal build-out).",
+      "post_1991": "Body/carve-out created or decisively restructured in the post-liberalisation / post-74th-Amendment period (SPVs, New Town Rajarhat, the 2017 CIT/KMWSA merger)."
+    },
+    "status": "Authored 2026-06-09 from data/laws/kolkata/manifest.md, the 74th-Amendment constitutional layer, service_providers.json, corporation_history.json, contractualization_map.json, privatization_map.json, and Anwesha Ghosh, 'Municipal Calcutta' (UofT PhD 2021) + 'The Improvement Regime' (CSSH 2025). verify:true marks entries where an act number / year is from secondary sources and not confirmed against the gazette (notably the 2017 CIT-repeal act number). NO fabrication."
+  },
+
+  "corporation": {
+    "name": "Kolkata Municipal Corporation (KMC)",
+    "type": "corporation",
+    "elected": true,
+    "act": "The Kolkata Municipal Corporation Act, 1980 = West Bengal Act LIX of 1980 (Act 59 of 1980); latest amendment WB Act XVII of 2023 (Governor's assent published Kolkata Gazette Extraordinary 27 March 2024)",
+    "lineage": "presidency_capital",
+    "history": "Municipal authority from the 1726 Charter (Justices of the Peace); the Corporation of the Town of Calcutta constituted 1876 (Bengal Act IV of 1876, introducing the elective principle); the foundational Calcutta Municipal Act, 1923 (associated with C.R. Das) widened the franchise; renamed/reconstituted under the Calcutta (now Kolkata) Municipal Corporation Act, 1980; city renamed Kolkata 2001.",
+    "retains_in_house": ["water supply (production + distribution)", "sewerage", "storm-water drainage + pumping", "solid-waste collection/transport/processing", "roads (city)", "street lighting", "parks (neighbourhood)", "public health", "vital statistics / births-deaths"],
+    "note": "KMC genuinely keeps WATER and SEWERAGE in-house — a real positive, shared only with Mumbai and Ahmedabad among the majors. The hollowing here is NOT a water-board carve-out (no KMWSSB-equivalent strips city water from KMC) but (a) the planning/land/transit estate held by KMDA and its SPVs, (b) the colonial improvement-trust lineage now folded into KMDA, and (c) the casualisation of the in-house conservancy workforce (see contractualisation).",
+    "decided_by": "colonial (1876/1923 founding) then state (1980 Act)"
+  },
+
+  "parastatals": [
+    {
+      "name": "Calcutta Improvement Trust (CIT) / later Kolkata Improvement Trust (KIT)",
+      "type": "improvement_trust",
+      "function_taken": "Urban planning, street/land acquisition, slum 'improvement' and redevelopment, betterment/recoupment financing — i.e. 12th-Schedule items 1 (urban planning), 2 (land-use & building), 10 (slum improvement) lifted out of the elected municipality.",
+      "how": "The Calcutta Improvement Act, 1911 = Bengal Act V of 1911 (notified Calcutta Gazette 20 Sept 1911; CIT operational summer 1912). Created a Board of Trustees for the Improvement of Calcutta — an EXECUTIVE body, not a deliberative one, with only 4 of 11 trustees from the municipality. instrument=Bengal Act V of 1911. decided_by=colonial (Bengal Legislative Council, in consultation with the European Bengal Chamber of Commerce).",
+      "why": "STATED: rescue 'technical' improvement and infrastructure from 'the stranglehold of representative politics' (Ghosh) — depoliticise development by handing it to appointed technocrats (engineers, surveyors, planners); also a political sop to Bengalis enraged by the 1911 transfer of the capital to Delhi. REAL: this is Ghosh's keystone case. (1) DEPOLITICISATION (Tania Li): turning the political question 'who is evicted / who gets water?' into a neutral 'technical' one, gutting the elected council — the Bengal Chamber wrote that 'the Trust is to be essentially an executive body and not a deliberative organisation.' (2) LAND FINANCIALISATION / RECOUPMENT: the CIT was 'pre-emptively founded so as to avail the benefits of the recoupment scheme' — it funded itself by selling surplus acquired-and-redeveloped land at FUTURE-speculative value ('rendering the future available in the present', Mitchell); of ~Rs 822 lakh projected spend, Rs 336 lakh was 'to be recovered by recoupment.' (3) ELITE CAPTURE: the board became the new arena for native COMMERCIAL elites once the landed gentry was rendered obsolete; roads were routed through the cheapest (poorest, bustee) land to minimise compensation; it demolished more than it built ('clearance without rehousing'). (4) COST-SHIFTING DEVOLUTION: the centre capped its liability (Rs 50 lakh) and dumped the debt on the municipality — Datta: 'the imperial authorities had been keen to foist the costs of government to the local populace in the name of devolution.'",
+      "era": "pre_1991",
+      "verify": false,
+      "source": "data/laws/kolkata/manifest.md (Bengal Act V of 1911, PRS text); Ghosh, Municipal Calcutta (UofT 2021), Ch.3 'Trusting the Experts'; notes/ghosh-thesis-close-reading.md."
+    },
+    {
+      "name": "Kolkata Metropolitan Development Authority (KMDA) — the CIT's statutory successor",
+      "type": "state_board",
+      "function_taken": "Metropolitan-scale urban PLANNING and DEVELOPMENT across the Kolkata Metropolitan Area: master/land-use planning, township/area development, water-supply & sewerage capital works, traffic & transportation, housing & slum improvement, parks/playgrounds — 12th-Schedule items 1, 2, 3, 4, 5, 6, 10, 12 at metropolitan scale; and, FROM 2017, all the former functions of the CIT/KIT and of KMWSA. KMDA is also the Technical Secretariat to the Kolkata Metropolitan Planning Committee (the Art. 243ZE metropolitan planning committee).",
+      "how": "Originally constituted 1970 (as the Calcutta Metropolitan Development Authority); statutory home is the West Bengal Town and Country (Planning and Development) Act, 1979 = West Bengal Act XIII of 1979 (assent Calcutta Gazette Extraordinary 11 June 1979). ★ The 2017 MERGER: the Kolkata Improvement Trust and the Kolkata Metropolitan Water & Sanitation Authority were placed 'under the administrative control and supervision of the KMDA w.e.f. 28.04.2017' under the Kolkata Improvement Trust and KMWSA repealing Act and amendment of the WB Town & Country (Planning & Development) Act, 2017 — cited as West Bengal Act XIV of 2017 (CIT repeal) and West Bengal Act XII of 2017 (KMWSA repeal). instrument=WB Act XIII of 1979 + WB Act XIV/XII of 2017. decided_by=state (Government of West Bengal; KMDA's board is state-appointed, chaired by the state Urban Development & Municipal Affairs minister).",
+      "why": "STATED: efficient, integrated, metropolitan-scale planning and development that no single municipal corporation in the conurbation could deliver; rationalise overlapping bodies by folding CIT and KMWSA into one development authority (2017). REAL: KMDA is the improvement trust REBORN — Ghosh's conceptual lineage made a literal statutory succession. (1) DEPOLITICISATION continued: the most consequential land/planning/transit decisions for ~14M metro residents are taken by an unelected, state-appointed technocratic board, not the elected KMC — the 1911 'executive not deliberative' design at city-region scale. (2) LAND FINANCIALISATION: KMDA inherits the recoupment logic — land assembly, township development and surplus-land monetisation are its core, the AUDA/BDA/CMDA rentier model with a Calcutta birth-certificate. (3) The 2017 merger CENTRALISES land + water-works + improvement powers in one state body, further distancing them from the elected council even as KMC keeps day-to-day water service. (4) NEOLIBERAL CONDITIONALITY: through the JNNURM/AMRUT era KMDA was the nodal agency channelling centrally-conditioned urban-mission funds and reforms — capital and conditions flowing to the parastatal, not the council.",
+      "era": "pre_1991 (origin 1970/1979) + post_1991 (2017 CIT/KMWSA merger)",
+      "verify": true,
+      "source": "data/laws/kolkata/manifest.md; UDMA history (udma.wb.gov.in) for the 28.04.2017 merger and repeal effect (VERIFIED); the 2017 act numbers XIV/XII are from secondary sources (UDMA wording + press), UNVERIFIED against the gazette; docs/the-corporate-city.md; corporation_history.json."
+    },
+    {
+      "name": "Kolkata Metropolitan Water & Sanitation Authority (KMWSA)",
+      "type": "state_board",
+      "function_taken": "Metropolitan water supply and sanitation/sewerage capital works for the Kolkata Metropolitan Area — 12th-Schedule items 5 (water) and 6 (sanitation) at metropolitan scale, held by a state authority rather than the elected ULBs.",
+      "how": "Constituted under the Calcutta (later Kolkata) Metropolitan Water & Sanitation Authority Act, 1966. REPEALED and merged into KMDA w.e.f. 28.04.2017 by the same 2017 repealing Act (cited WB Act XII of 2017). instrument=KMWSA Act 1966; repealed by WB Act XII of 2017. decided_by=state.",
+      "why": "STATED: an integrated metropolitan water-and-sanitation authority above the patchwork of municipalities; (2017) rationalisation by folding into KMDA. REAL: a classic parastatal carve-out of the two highest-value 12th-Schedule services (water, sanitation) to an unelected state board at metro scale — though, unlike Chennai/Bengaluru/Hyderabad, CORE-CITY water stayed with the elected KMC. The 2017 absorption into KMDA collapses metro water-works, improvement and planning into a single state development authority: the depoliticised-technocratic model consolidated.",
+      "era": "pre_1991 (1966) + post_1991 (2017 merger)",
+      "verify": true,
+      "source": "data/laws/kolkata/manifest.md (KMWSA Act 1966; repeal w.e.f. 28.04.2017 via UDMA); 2017 act number XII unverified against gazette."
+    },
+    {
+      "name": "West Bengal Housing Infrastructure Development Corporation (WBHIDCO) — New Town, Rajarhat",
+      "type": "spv",
+      "function_taken": "Township planning, land assembly, development and (effectively) local administration of New Town, Rajarhat — urban planning (item 1), land-use/building (item 2), and the full bundle of urban services in a greenfield satellite city built OUTSIDE any pre-existing elected corporation. The New Town area is administered by HIDCO + the New Town Kolkata Development Authority (NKDA), not an elected municipal corporation.",
+      "how": "WBHIDCO incorporated 1999 as a state-owned company; New Town built as a planned satellite township east of the city. New Town Kolkata Development Authority (NKDA) constituted under the New Town Kolkata Development Authority Act, 2007 (WB Act). instrument=company incorporation (1999) + NKDA Act 2007. decided_by=state.",
+      "why": "STATED: deliver a world-class planned satellite city (IT/ITeS hub, smart-city pilot) with single-window, professional administration free of municipal 'delay.' REAL: the post-1991 form of the recoupment machine. (1) LAND FINANCIALISATION: HIDCO assembled vast tracts of Rajarhat farmland (much of it acquired amid documented coercion and contested compensation) and monetises serviced plots — the CIT's surplus-land model at greenfield scale, the explicit financing logic of the township. (2) DEPOLITICISATION BY DESIGN: New Town's residents are governed by a state SPV (HIDCO) and a state-appointed development authority (NKDA), NOT an elected corporation — a city built and run by planners before (and instead of) being given an elected council, the purest contemporary instance of the 'unelected city.' (3) ELITE CAPTURE / NEOLIBERAL CONDITIONALITY: the township is shaped around IT-corridor and real-estate capital; New Town was a Smart-City Mission node, capital and conditions routed through the SPV.",
+      "era": "post_1991",
+      "verify": true,
+      "source": "service_providers.json (kolkata development_authority = KMDA; New Town under HIDCO/NKDA); NKDA Act 2007; general institutional record. SPV incorporation year and NKDA Act year flagged for gazette confirmation."
+    },
+    {
+      "name": "West Bengal Housing Board (WBHB)",
+      "type": "state_board",
+      "function_taken": "Public/affordable housing development and housing-estate land development across West Bengal incl. the Kolkata region — i.e. the housing/'slum improvement' function (12th-Schedule items 9, 10) handled by a state board rather than the elected corporation.",
+      "how": "Constituted under the West Bengal Housing Board Act, 1972 (WB Act). instrument=WB Housing Board Act 1972. decided_by=state.",
+      "why": "STATED: a dedicated state agency to build housing stock the municipalities could not. REAL: housing — the function the CIT was founded to deliver and then abandoned ('rehousing the poor became an idle afterthought', Ghosh) — sits with a state board, not the elected city. Continues the colonial pattern of OFFLOADING the un-remunerative service (poor people's housing) onto a separate body while the rent-rich land-development functions are pursued; in practice housing-board estates and HIDCO/KMDA townships skew toward saleable middle/upper-income stock (land financialisation) over the slum upgrading the 12th Schedule names.",
+      "era": "pre_1991",
+      "verify": true,
+      "source": "WB Housing Board Act 1972 (year to be confirmed against gazette); Ghosh on CIT abandonment of rehousing (notes/ghosh-thesis-close-reading.md)."
+    },
+    {
+      "name": "Metro Railway, Kolkata (run by INDIAN RAILWAYS)",
+      "type": "railways",
+      "function_taken": "Urban mass rapid transit — a core 12th-Schedule-adjacent public-amenity / transport function (items 4, 17) run not by the city, not even by a state SPV, but by a CENTRAL government undertaking.",
+      "how": "Kolkata's Metro (India's FIRST, opened 1984) is a zone of INDIAN RAILWAYS — Metro Railway, Kolkata — built and operated directly by the Union Railways (central PSU), uniquely among Indian metros (all others are state/JV SPVs like DMRC, BMRCL, CMRL, or PPPs). instrument=central executive (Ministry of Railways); operated as a Railway zone. decided_by=centre.",
+      "why": "STATED: the technical and financial scale of underground rail required central Railway engineering and funds; historical accident of Kolkata being the pilot. REAL: the SHARPEST illustration that the elected city is at the bottom of the decision hierarchy. The transit spine of Kolkata — its routes, fares, station-area land — is decided by the Union government in New Delhi, with zero municipal control and no state SPV either: the citizen who elects the KMC councillor has no electoral lever over the metro at all. The atlas's 'who decided?' axis at its most extreme: a daily mass-service set entirely by the CENTRE. (Transit also drives station-area land values — the financialisation thread — captured centrally/by the state, not the elected city.)",
+      "era": "pre_1991 (opened 1984; expansion lines post_1991)",
+      "verify": false,
+      "source": "service_providers.json (kolkata.metro = 'Metro Railway Kolkata', type railways, 'run by INDIAN RAILWAYS — unusual; not a state SPV')."
+    },
+    {
+      "name": "West Bengal Transport Corporation (WBTC) + private bus operators",
+      "type": "state_dept",
+      "function_taken": "City and suburban bus transport — public amenity / transport (12th-Schedule items 4, 17) run by a state corporation and a fleet of private route-permit operators, not by the elected KMC (contrast Mumbai's BEST, a corporation undertaking).",
+      "how": "WBTC is a state transport undertaking (formed 2016 by merging the older CSTC/CTC/etc. state transport bodies); city bus service is a mix of WBTC and privately-owned route-permit buses/minibuses. instrument=state corporation + Motor Vehicles route permits. decided_by=state.",
+      "why": "STATED: state-level transport corporations achieve regional scale and route coordination. REAL: unlike Mumbai's BEST (an elected-BMC undertaking), Kolkata's bus transport was never inside the elected corporation — it sits with the state plus a privatised fleet of permit-holders, so neither the route map nor the fares answer to the city's electorate. CASTE/LABOUR offloading lives here too: the private-operator fleet runs on informal, precarious driver/conductor labour outside any municipal cadre.",
+      "era": "pre_1991 (state transport lineage) + post_1991 (2016 WBTC merger)",
+      "verify": true,
+      "source": "service_providers.json (kolkata.city_bus = 'WBTC + private operators', type state_dept). WBTC 2016 merger year flagged."
+    },
+    {
+      "name": "CESC Limited (Calcutta Electric Supply) — electricity",
+      "type": "private",
+      "function_taken": "Electricity distribution to the entire KMC area (567 sq km) and parts of Howrah/Hooghly/24-Parganas — NOT a 12th-Schedule municipal function, but the original colonial-era carve-out of a basic daily service to a PRIVATE monopoly the citizen cannot vote out.",
+      "how": "Founded 1899 as the Calcutta Electric Supply Corporation — a colonial private licensee, never a state discom; now the flagship of the RP-Sanjiv Goenka Group (RPSG, formed 13 Jul 2011). instrument=colonial private licence (1899), continued under the Electricity Act 2003; regulated by WBERC. decided_by=colonial (1899 origin) → state (modern licensing/regulation).",
+      "why": "STATED: a long-standing private utility delivering reliable supply under regulatory oversight. REAL: a 125-year-old private monopoly — the oldest carve-out in the dossier — answerable only to WBERC and RPSG shareholders, not to any electorate. Included as context (electricity is outside the 12th Schedule) but it is the template for the 'unelected city' at its starkest: ~the entire KMC population depends daily on a service with NO electoral recourse. Cooper's frame: a basic public-good provisioning placed permanently beyond democratic claim, regulated piecemeal rather than governed by the people who depend on it.",
+      "era": "pre_1991 (1899 colonial origin)",
+      "verify": false,
+      "source": "privatization_map.json (kolkata.electricity = CESC, RP-Sanjiv Goenka, 1899 private origin, 567 sq km licence, ~4.7M customers, WBERC)."
+    }
+  ],
+
+  "contractualisation": {
+    "_corporation": "KMC",
+    "thesis": "Even the functions KMC genuinely keeps in-house are hollowed from within. The elected body 'runs' conservancy on the org chart, but the broom is held by a sub-minimum-wage casual drawn from the 100-days urban work programme, while half the sanctioned permanent cadre sits empty. This is Ghosh's corporate municipality plus Cooper's privatisation-as-counterrevolution, landing on Ambedkar's terrain: the casual/contract sanitation tier is overwhelmingly Dalit (Valmiki), so casualisation is a caste-justice machine — the same hazardous head-load conservancy split into a secure permanent tier and a precarious Dalit casual tier under the same municipal supervisors.",
+    "sanitation_conservancy": {
+      "mode": "contracted_labour",
+      "operator": "KMC conservancy mazdoors: ~14,000 PERMANENT posts sanctioned but only ~6,000 filled; the ~8,000-post gap is plugged by casual workers drawn from the 100-days urban work programme at ~Rs 202/day, doing heavy, hazardous head-load haulage.",
+      "evidence": "KMC keeps the permanent cadre HALF-EMPTY (~6,000 of ~14,000 posts filled) and back-fills with sub-minimum-wage day-wage casuals (~Rs 202/day). Under-filling sanctioned permanent posts and casualising the gap is contractualisation by attrition — the in-house/GREEN sanitation cell on the devolution scorecard is among the most hollow cells in the atlas.",
+      "contract_worker_share": "~8,000 of ~14,000 sanctioned conservancy posts (~57% of the establishment) run unfilled-and-casualised",
+      "decided_by": "city (KMC, by leaving permanent posts vacant) within state fiscal constraints",
+      "caste_dimension": "The casual conservancy tier is overwhelmingly Dalit/Valmiki, consistent with NAMASTE profiling nationally (~68.9% SC, ~77% Dalit among sanitation workers; ~97% SC among manual scavengers). Ambedkar: the 'division of labour' is also a 'division of labourers' — here a permanent tier (secure, pensioned, mixed-caste) and a Rs-202/day casual tier (precarious, Dalit) doing identical work.",
+      "source": "contractualization_map.json (kolkata.sanitation_conservancy); NewsClick 'WB: Safai Workers Under KMC Struggle With Dingy Quarters, Meagre Pay'; KMC SWM dept.",
+      "verify": true
+    },
+    "solid_waste_collection": {
+      "mode": "contracted_labour",
+      "operator": "KMC door-to-door via battery/auto-tipper fleet (~4,000 MT/day); collection crews mix permanent and casual; no single large private zone-concessionaire on the Chennai (Urbaser/Ramky) model has surfaced.",
+      "evidence": "Collection run by KMC with casual-heavy crews — a softer version of the privatisation seen in Chennai, but the same casualisation of the front line.",
+      "contract_worker_share": "casual-heavy",
+      "decided_by": "city",
+      "source": "contractualization_map.json (kolkata.solid_waste_collection); KMC SWM portal; Millennium Post.",
+      "verify": true
+    },
+    "water_distribution": {
+      "mode": "in_house",
+      "operator": "KMC",
+      "evidence": "Water and sewerage are run by KMC directly with no O&M concession — a genuine positive, shared only with Mumbai and Ahmedabad among the majors. The Kolkata hollowing is in the parastatal/CIT-KMDA land-planning estate and in workforce casualisation, NOT in a private/board water carve-out.",
+      "contract_worker_share": "unknown",
+      "decided_by": "city",
+      "source": "service_providers.json; contractualization_map.json.",
+      "verify": false
+    }
+  },
+
+  "timeline_note": "1726: municipal authority via the Charter (Justices of the Peace). 1876: Corporation of the Town of Calcutta (Bengal Act IV of 1876) — the elective principle. 1899: Calcutta Electric Supply (CESC) — colonial PRIVATE electricity monopoly [decided_by=colonial]. ★1911: Calcutta Improvement Act (Bengal Act V of 1911) creates the CIT — the depoliticised, executive, recoupment-financed improvement trust, Ghosh's keystone [colonial]. 1923: Calcutta Municipal Act (C.R. Das) widens the franchise. 1966: KMWSA — metro water/sanitation to a state board [state]. 1970: Calcutta Metropolitan Development Authority [state]. 1972: WB Housing Board [state]. 1979: WB Town & Country (Planning & Development) Act (WB Act XIII of 1979) — statutory home of KMDA [state]. 1980: Calcutta/Kolkata Municipal Corporation Act (WB Act 59 of 1980) [state]. 1984: Kolkata Metro opens — run by INDIAN RAILWAYS [centre]. --- 74th Amendment 1992 (assent 1993) --- 1999: WBHIDCO incorporated; New Town Rajarhat begins [state]. 2001: city renamed Kolkata. 2007: NKDA Act — New Town governed by a state development authority, not an elected corporation [state]. 2016: WBTC formed (state bus transport) [state]. ★★28 April 2017: the Kolkata Improvement Trust (the 1911 CIT) AND the KMWSA are REPEALED and MERGED into KMDA (WB Acts XIV & XII of 2017, amending the 1979 Act) — the colonial improvement trust literally becomes the modern development authority [state]. The arc: every rent-rich function (improvement/land 1911 → metro 1984 → townships 1999 → the 2017 consolidation) is decided by colonial, state or centre — never by the elected city, which keeps water in-house and the broom in casual Dalit hands."
+}

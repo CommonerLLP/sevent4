@@ -1,0 +1,154 @@
+{
+  "_meta": {
+    "what": "Comparative dossier on the USER CHARGES, DEVELOPMENT CHARGES and MAINTENANCE/MUNICIPAL FEES six cities collect from residents — for 'The Unelected City' civic-accountability atlas. The frame (Cooper): starved of devolved funds under the 74th Amendment's discretionary 'may, by law, endow' (Art. 243W), cities lean on REGRESSIVE user fees + development charges + revenue-bond collateral rather than progressive property tax. The burden falls on the resident/user, and is often billed by UNELECTED state boards (CMWSSB, BWSSB, HMWSSB) the resident never voted for.",
+    "rigor_tiers": "A = documented (tariff orders, development-authority fee schedules, budgets, regulator orders). B = reported, attributed (news, secondary). C = analysis.",
+    "authored": "2026-06, fresh run. Figures are point-in-time and rounded; treat verify:true entries as less certain. NO fabrication — where a precise figure was not found it is described qualitatively and flagged.",
+    "key_contrast": "WHO BILLS YOU FOR WATER is the sharpest democratic variable. Ahmedabad / Mumbai / Kolkata: the ELECTED corporation bills (water folded into property tax — Ahmedabad/Kolkata — or a municipal volumetric tariff — Mumbai). Chennai / Bengaluru / Hyderabad: a state WATER BOARD you did not elect bills you (CMWSSB 1978, BWSSB 1964, HMWSSB 1989) — the carve-out cities.",
+    "professional_tax_note": "Professional tax is a STATE levy under Art. 276, constitutionally capped at Rs 2,500/year/person. Levied in Maharashtra, Karnataka, West Bengal, Telangana; NOT levied in Tamil Nadu at state level (collected by Greater Chennai Corporation as a 'profession tax' on traders/employers) and Gujarat levies it (collected by AMC). It is regressive (flat cap regardless of income above threshold).",
+    "stamp_duty_note": "Stamp duty + registration is a STATE levy on property transactions — the single largest one-time extraction on a resident — and it BYPASSES the city entirely: it goes to the state exchequer, not the municipal corporation that provides the services. Registration fee is ~1% nationwide."
+  },
+  "ahmedabad": {
+    "water_sewerage_tariff": {
+      "who_charges": "AMC — the ELECTED Ahmedabad Municipal Corporation (Gujarat is a corporation-water city; no separate water board bills the resident)",
+      "structure": "No standalone volumetric domestic water bill for most residents. Water tax + conservancy (sewerage/sanitation) tax are COMPONENTS OF THE PROPERTY TAX, levied on carpet area. Property-tax base rate ~Rs 16/sq.m residential, Rs 28/sq.m non-residential, with water tax, conservancy tax, education cess and fire tax loaded on top.",
+      "recent_hike": "Property-tax/rebate structure revised periodically; advance-payment rebate raised to ~12-15%. No meaningful domestic volumetric metering.",
+      "tier": "A",
+      "democratic_point": "Resident pays the body they elected (AMC) — the favourable case."
+    },
+    "swm_user_fee": "Conservancy tax is bundled into property tax (not a separate SWM Rules 2016 user-fee line for most households). Tier B.",
+    "development_charge": {
+      "authority": "AUDA — Ahmedabad Urban Development Authority (state-appointed board; the improvement-trust successor under the Gujarat Town Planning & Urban Development Act, 1976)",
+      "basis": "Development charge on land area + construction. Historic base ~Rs 5/sq.m land + Rs 15/sq.m construction (state ceiling). AUDA moved to hike development fees by up to ~20x (toward <Rs 100/sq.m). Betterment charges levied at the Town Planning Scheme stage (upheld by Gujarat HC). This is the land-value-capture / 'recoupment' fee — billed by an UNELECTED board.",
+      "tier": "A/B"
+    },
+    "other_fees": [
+      "Advertisement/hoarding tax (AMC)",
+      "Trade/shop establishment licence fees (AMC)",
+      "Professional tax (Gujarat state, collected by AMC; capped Rs 2,500/yr)",
+      "Parking and FSI-premium charges"
+    ],
+    "stamp_duty_registration": "Gujarat: stamp duty ~4.9% (effectively ~5%) for men, ~3-4.9% with rebates; women get concessions. Registration ~1%. Goes to GUJARAT state, bypassing AMC.",
+    "source": "ahmedabadcity.gov.in (property tax); auda.org.in/impactFee; propscience/vibesofindia on AUDA fee hike; realtyapplications/99acres stamp-duty 2025-26; Gujarat TP&UD Act 1976.",
+    "verify": false
+  },
+  "mumbai": {
+    "water_sewerage_tariff": {
+      "who_charges": "MCGM / BMC — the ELECTED Brihanmumbai Municipal Corporation (water + sewerage in-house; the deepest municipal estate in the atlas)",
+      "structure": "Metered volumetric tariff. Domestic base historically ~Rs 6 per 1,000 L (per KL); reported 2025 slabs ~Rs 4.75 (0-15 KL), Rs 7.50 (15-40 KL), Rs 9.85 (40+ KL); commercial/industrial up to ~Rs 50/KL. Sewerage charge levied as a percentage of water charge. Domestic supply normed at ~150 LPCD, billed assuming ~5 persons/household.",
+      "recent_hike": "BMC policy (2012 standing-committee resolution) permits an automatic up to 8% annual hike. Proposed ~8% hike for 2025-26 amid 15% cost rise (under legal review); no hike in the prior two years.",
+      "tier": "A/B",
+      "democratic_point": "Resident pays the elected corporation — favourable case; but the hike is quasi-automatic, insulated from a fresh political vote."
+    },
+    "swm_user_fee": "SWM largely funded from general property-tax revenue; BMC has periodically floated a solid-waste user charge. No universal per-household SWM fee line. Tier B.",
+    "development_charge": {
+      "authority": "MCGM (development charge under MR&TP Act s.124) + MMRDA (metropolitan-region planning board, unelected) for regional infra; premiums under DCPR 2034",
+      "basis": "Development charge under s.124 MR&TP. The big extraction is FSI PREMIUM monetisation: 'fungible FSI' = +35% built-up on premium; premium set at ~50% of ASR/ready-reckoner land rate for FSI 1 (DCPR 2034 Reg 30A(6)). Plus staircase/lift-lobby premiums — every built-up component monetised. Premium FSI can run ~Rs 10-20 lakh per 100 sq.ft in prime areas. The purest land-value-capture machine of the six.",
+      "tier": "A/B"
+    },
+    "other_fees": [
+      "Advertisement/hoarding tax (BMC) — a major revenue line",
+      "Trade/health/shops-establishment licence fees (BMC)",
+      "Professional tax (Maharashtra; capped Rs 2,500/yr)",
+      "Parking premiums, premium on staircase/lobby FSI"
+    ],
+    "stamp_duty_registration": "Maharashtra: stamp duty ~6% + 1% metro cess + ~1% local body tax in Mumbai (effective ~6-7%; women -1%). Registration ~1% (capped ~Rs 30,000). Goes to MAHARASHTRA state, bypassing BMC.",
+    "source": "portal.mcgm.gov.in Water Charges Rules 2015; freepressjournal/oneindia on 2025-26 hike; DCPR 2034 Reg 33/30A; MHADA premium circulars; 99acres/realtyapplications stamp duty.",
+    "verify": false
+  },
+  "kolkata": {
+    "water_sewerage_tariff": {
+      "who_charges": "KMC — the ELECTED Kolkata Municipal Corporation (water + sewerage in-house)",
+      "structure": "Domestic water is effectively FREE / near-free for most independent residential houses — no separate metered domestic bill; cost folded into the quarterly property tax. A nominal domestic water fee was DISCONTINUED in 2002-03. Metered/volumetric billing applies mainly to COMMERCIAL connections and large bulk/high-rise supply. ADB-funded metering (~100,000 meters) has been proposed/piloted; universal domestic metering not implemented.",
+      "recent_hike": "Periodic proposals for a domestic 'water tax'/metering have repeatedly been floated and politically shelved. KMC publishes annual water-supply rates/charges (2025-26) mainly for bulk/commercial.",
+      "tier": "A/B",
+      "democratic_point": "The outlier — water is a near-free public good billed (if at all) by the elected corporation. The most pro-resident water regime of the six; also the least cost-recovering."
+    },
+    "swm_user_fee": "KMC publishes annual SWM rates/charges (e.g. 2024-25 schedule) — bulk-generator and commercial conservancy fees; minimal/no per-household domestic SWM fee. Tier A (schedule exists).",
+    "development_charge": {
+      "authority": "KMDA — Kolkata Metropolitan Development Authority (unelected board). ★ KMDA literally ABSORBED the Calcutta Improvement Trust (Ghosh's CIT) w.e.f. 28 April 2017 — the colonial improvement trust became the modern development authority by statute.",
+      "basis": "Development/betterment and planning fees on building sanction and land development under the WB Town & Country (Planning & Development) Act, 1979. Building-plan sanction fees via KMC. The recoupment/land-monetisation logic now sits inside KMDA.",
+      "tier": "B"
+    },
+    "other_fees": [
+      "Advertisement tax (KMC)",
+      "Trade licence fees (KMC — turnover/business-type based)",
+      "Professional tax (West Bengal; capped Rs 2,500/yr)",
+      "Parking fees"
+    ],
+    "stamp_duty_registration": "West Bengal: stamp duty ~6% (up to Rs 40 lakh) / ~7% (above), plus ~1% if value >Rs 40 lakh; women small concession. Registration ~1%. Goes to WEST BENGAL state, bypassing KMC.",
+    "source": "kmcgov.in WaterSupplyFees + Water_Supply_RatesCharges_2025_2026.pdf + SWM_Rates_Charges_2024_2025.pdf; downtoearth on shelved water tax; data/laws/INDEX.md (CIT->KMDA 2017); 99acres stamp duty.",
+    "verify": false
+  },
+  "chennai": {
+    "water_sewerage_tariff": {
+      "who_charges": "CMWSSB — Chennai Metropolitan Water Supply & Sewerage Board ('Metrowater'), a STATE STATUTORY BOARD (1978), NOT the elected Greater Chennai Corporation. ★ The resident is billed by a body they did not elect.",
+      "structure": "Mostly UNMETERED flat charge: from 1 Apr 2025, residential premises (incl. flats) ~Rs 105/month per dwelling unit, irrespective of consumption — a flat, regressive head charge. A volumetric tariff is PROPOSED with smart-metering: ~Rs 6/KL (0-10 KL), Rs 18/KL (11-15), Rs 28/KL (16-25), Rs 45/KL (>25), min ~Rs 100/month — initially for large/multi-storey premises.",
+      "recent_hike": "Tariff revised effective 1 Apr 2025 (the Rs 105 flat unit charge); smart-meter volumetric slabs announced as a forthcoming shift.",
+      "tier": "A",
+      "democratic_point": "Carve-out city: water hived out of the corporation into CMWSSB in 1978. The Rs 105 flat charge is regressive (no link to consumption or ability to pay) and billed by an unelected board."
+    },
+    "swm_user_fee": "Greater Chennai Corporation SWM Bye-Laws 2016/2019 provide for conservancy user charges on waste generators; bulk generators charged; per-household domestic fee modest and bundled. Tier A (bye-laws exist).",
+    "development_charge": {
+      "authority": "CMDA — Chennai Metropolitan Development Authority (state board, 1972, under TN Town & Country Planning Act 1971) — planning/land carved out of the corporation.",
+      "basis": "Development charges on land + building + change of land-use, PLUS premium FSI: developers pay CMDA a premium-FSI charge (per sq.m of additional FSI) where abutting road >=30 ft, remitted to government for infrastructure; betterment/statutory levies apply separately. Land-value capture by the unelected board.",
+      "tier": "A/B"
+    },
+    "other_fees": [
+      "Advertisement tax (GCC)",
+      "Profession tax (levied by Greater Chennai Corporation on traders/employers — TN has no separate state professional tax)",
+      "Trade licence fees (GCC)",
+      "Parking, premium FSI charges (CMDA)"
+    ],
+    "stamp_duty_registration": "Tamil Nadu: stamp duty ~7% + registration ~4% (effective ~11% total — among the HIGHEST in India); concessional ~3% stamp for women on properties <Rs 10 lakh. Goes to TAMIL NADU state, bypassing GCC.",
+    "source": "cmwssb.tn.gov.in/tariff + Res31 revision; dtnext on Rs 105 flat charge + smart-meter slabs; chennaicorporation.gov.in SWM bye-laws; CMDA premium FSI; 99acres/realtyapplications stamp duty.",
+    "verify": false
+  },
+  "bengaluru": {
+    "water_sewerage_tariff": {
+      "who_charges": "BWSSB — Bangalore Water Supply & Sewerage Board, a STATE BOARD (1964), NOT the (currently dissolved/unelected) BBMP/Greater Bengaluru corporation. ★ Billed by an unelected board — and as of 2025 the corporation itself is also unelected (BBMP dissolved, GBA elections pending).",
+      "structure": "Metered volumetric domestic slabs (revised Apr 2025 after ~11 years): ~Rs 15/KL (0-8 KL), Rs 40/KL (8-25), Rs 80/KL (25-50), Rs 100/KL (>50). Sanitary/sewerage charge ~25% of water charge. Plus a Cauvery-stage borewell/meter and a now-automatic 3% ANNUAL escalator from FY2026-27.",
+      "recent_hike": "Apr 2025 hike (first in ~11 years) + an automatic 3% annual increase thereafter — insulating the rise from any political vote.",
+      "tier": "A/B",
+      "democratic_point": "Carve-out city: water in BWSSB since 1964. The automatic 3% escalator is depoliticised tariff-setting; resident pays an unelected board with no elected corporation to appeal to (2025)."
+    },
+    "swm_user_fee": "★ BBMP SWM 'garbage cess' from 1 Apr 2025: monthly slab by built-up area — Rs 10 (<600 sq.ft), Rs 30 (600-1000), Rs 50 (1000-2000), Rs 150 (2000-3000), Rs 200 (3000-4000), Rs 400 (>4000); commercial up to ~Rs 1,000/month. Target ~Rs 685-750 cr/yr. A textbook regressive user fee (size-of-house proxy, levied by an unelected BBMP). Tier A.",
+    "development_charge": {
+      "authority": "BDA — Bangalore Development Authority (state board, 1976; successor to CITB 1945, the improvement-trust lineage). Major roads/layouts outside the corporation.",
+      "basis": "Betterment charges on layouts/land — BDA moved to levy ~Rs 43 to Rs 1,146 PER SQ.FT across 22 villages, targeting ~Rs 3,000 cr (partly to repay a ~USD 3.27 bn Business-Corridor loan). PLUS a proposed BETTERMENT TAX + 1% STAMP-DUTY CESS on properties near the Bengaluru Business Corridor — explicit land-value capture as loan collateral. Premium FAR charges (FAR up to ~4.0 on wide roads).",
+      "tier": "A/B"
+    },
+    "other_fees": [
+      "Advertisement tax (BBMP)",
+      "Trade licence fees (BBMP)",
+      "Professional tax (Karnataka; revised Apr 2025; capped Rs 2,500/yr)",
+      "Garbage cess (above), parking, premium FAR (BDA)"
+    ],
+    "stamp_duty_registration": "Karnataka: stamp duty 5% (>Rs 45 lakh), 3% (Rs 21-45 lakh), 2% (<Rs 20 lakh); registration ~1%. PLUS proposed 1% Business-Corridor stamp-duty cess. Goes to KARNATAKA state, bypassing BBMP.",
+    "source": "bwssb.karnataka.gov.in tariff + citizenmatters/envirowater on Apr 2025 hike + 3% escalator; theweek/JLRJS on BBMP garbage cess slabs; newsfirstprime/deccanherald on BDA betterment Rs 43-1146/sqft + Rs 3000 cr; propnewstime on corridor cess; 99acres stamp duty.",
+    "verify": false
+  },
+  "hyderabad": {
+    "water_sewerage_tariff": {
+      "who_charges": "HMWSSB — Hyderabad Metropolitan Water Supply & Sewerage Board, a STATE BOARD (1989), NOT the elected GHMC. ★ Billed by an unelected board.",
+      "structure": "Metered volumetric domestic slabs (~7 slabs): ~Rs 10/KL (0-15 KL), Rs 12/KL (16-30), Rs 22/KL (31-50), Rs 27/KL (51-100), Rs 35/KL (101-200), rising above. Sewerage cess ~35% of water charge. ★ FREE WATER scheme: up to ~20 KL/month free for eligible domestic consumers within GHMC limits (a political subsidy layered over the board tariff).",
+      "recent_hike": "Tariff structure long-standing (2011 base revised periodically); the free-up-to-20KL scheme is the live political variable, with pressure to extend it to merged civic bodies.",
+      "tier": "A/B",
+      "democratic_point": "Carve-out city: water in HMWSSB since 1989. The free-water scheme shows a state government, not the elected corporation, setting the city's most visible welfare tariff — power over water sits above the ULB."
+    },
+    "swm_user_fee": "GHMC levies conservancy/SWM user charges under SWM Rules 2016 (bulk generators; modest per-household, often bundled with property tax). Specific per-household figure not pinned. Tier B, verify.",
+    "development_charge": {
+      "authority": "HMDA — Hyderabad Metropolitan Development Authority (state board, 2008; jurisdiction ~7,257 km2). Building permissions via TS-bPASS; GHMC town-planning fee schedule.",
+      "basis": "Development charge ~Rs 60/sq.m of plot/site area (state order). Layout charge ~Rs 100/sq.m built-up (buildings) / Rs 80/sq.m site (open plots). Processing ~Rs 5/sq.m built-up. Environment/IMPACT FEE ~Rs 3/sq.ft of built-up for buildings >10,000 sq.ft (city-level impact fee for larger projects). Land-value capture by the unelected board.",
+      "tier": "A"
+    },
+    "other_fees": [
+      "Advertisement tax (GHMC)",
+      "Trade licence fees (GHMC)",
+      "Professional tax (Telangana; capped Rs 2,500/yr)",
+      "Impact/betterment fees (HMDA), parking"
+    ],
+    "stamp_duty_registration": "Telangana: stamp duty ~4% + transfer duty ~1.5% + registration ~0.5-1% (effective ~6-7.5%); broadly uniform for men/women. Goes to TELANGANA state, bypassing GHMC.",
+    "source": "hyderabadwater.gov.in revised-tariff + telanganatoday/fullhyderabad on free-water scheme; hmda.gov.in fees (ResidentialCommercialMSBS.pdf, IBP/impact-fee pages); ghmc.gov.in FEE_CHARGES; 99acres stamp duty.",
+    "verify": true
+  }
+}

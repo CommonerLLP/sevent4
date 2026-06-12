@@ -1,0 +1,65 @@
+{
+  "_meta": {
+    "city": "Hyderabad",
+    "what": "Follow-the-money: actors and mechanisms of land-value capture in Hyderabad/Cyberabad. The Hyderabad case is the atlas's clearest DOCUMENTED-FACT pole: the HMDA public-land e-auctions publish their own headline prices, so the scale of state land monetisation is Tier-A by construction. The contested, Tier-B/C end is the acquisition side (Pharma City/Future City) and the political-capital-concentration analysis.",
+    "tier_legend": {"A": "documented fact (with source)", "B": "reported allegation (attributed; denial noted where available)", "C": "analysis"},
+    "authoritative_sources": "HMDA auction records; CAG; Telangana High Court orders; established press (Siasat, Telangana Today, The South First, ETV Bharat). Auction prices are HMDA's own published figures."
+  },
+  "actors": [
+    {
+      "actor": "HMDA (Hyderabad Metropolitan Development Authority)",
+      "role": "State development authority; landbank holder and auctioneer for Cyberabad/IT-corridor periphery (HMDA Act 2008, jurisdiction ~7,257 sq km)",
+      "how_they_profit": "Monetises state-held land via e-auction at record prices; revenue funds the state's infrastructure/bond programme rather than the elected GHMC's service budget. The 'recoupment' machine in its purest modern form.",
+      "mechanism": "public-land auction; land-value capture via development authority",
+      "project": "Neopolis Layout, Kokapet, e-auction (45.33 acres, 7 plots), Aug 2023",
+      "tier": "A",
+      "claim": "DOCUMENTED FACT: The Aug 2023 Kokapet/Neopolis e-auction of 45.33 acres fetched ~Rs 3,319.6 crore total, with the top bid Rs 100.75 crore per acre (an all-time State record) against an upset price of Rs 35 crore/acre; average ~Rs 73.23 crore/acre. A later Neopolis round saw bids reported up to ~Rs 151 crore/acre.",
+      "source": "Siasat 'Kokapet land sells for record Rs 100.75 crore an acre' (Aug 2023); ETV Bharat (Rs 100 cr/acre Neopolis record); Telangana Today; The Hans India 'Neopolis auction shatters records ... Rs 151 cr per acre'. HMDA published auction results.",
+      "denial_if_any": null
+    },
+    {
+      "actor": "HMDA (Budvel/Rajendranagar auction)",
+      "role": "State auctioneer of serviced layout plots",
+      "how_they_profit": "Same mechanism, second flagship site: large revenue raised in a single sitting from public land.",
+      "mechanism": "public-land auction",
+      "project": "Budvel (Budwel) layout e-auction, Rajendranagar, ~100 acres, Aug 2023",
+      "tier": "A",
+      "claim": "DOCUMENTED FACT: HMDA's Budvel e-auction of ~100 acres (14 plots, 3.47-14.33 acres) generated Rs 3,625.73 crore; top bid ~Rs 41.25-41.75 crore per acre; average ~Rs 36.25 crore/acre.",
+      "source": "Siasat 'HMDA generates over Rs 3,625 cr in Budwel land auction'; The South First 'HMDA rakes in Rs 3,625.73 crore'; The Hans India; ETV Bharat (Aug 2023).",
+      "denial_if_any": null
+    },
+    {
+      "actor": "Rajapushpa Properties Pvt Ltd (and other top bidders)",
+      "role": "Private real-estate developer; record Kokapet bidder",
+      "how_they_profit": "Acquires prime Financial-District-adjacent land at auction to build high-FSI towers; captures the onward development uplift and the global office/REIT bid.",
+      "mechanism": "land-value capture; onward FSI development",
+      "project": "Happi Heights Neopolis, Kokapet (3.6 acres, ~Rs 362.7 crore; top per-acre bid Rs 100.75 cr)",
+      "tier": "A",
+      "claim": "DOCUMENTED FACT: Rajapushpa Properties placed the record Rs 100.75 crore/acre Kokapet bid (3.6 acres for ~Rs 362.7 crore) in the Aug 2023 HMDA auction.",
+      "source": "Siasat, ETV Bharat, Telangana Today (Aug 2023 auction reports).",
+      "denial_if_any": null
+    },
+    {
+      "actor": "TGIIC (Telangana State Industrial Infrastructure Corp) / state government",
+      "role": "Land-acquisition agency for industrial mega-projects (Pharma City, Future City)",
+      "how_they_profit": "Assembles very large land tracts under public-purpose powers at compensation farmers contest as below market, for industrial/IT monetisation — the acquisition (cheap-in) end of the value-capture spread.",
+      "mechanism": "land-value capture via development authority; mega-project land assembly",
+      "project": "Hyderabad Pharma City, Mucherla (~19,333 acres, Ranga Reddy dist.); Future City radial roads",
+      "tier": "B",
+      "claim": "REPORTED ALLEGATION: Farmers from ~20 villages allege compensation 'substantially lower than prevailing market rates' and procedural irregularities in the ~19,333-acre Pharma City acquisition (begun by TGIIC 2016); the Telangana High Court struck down 12 acquisition-related declarations and stayed others. Kurumidda farmers staged a 43-day protest against Future City/Pharma City acquisition. ANALYSIS (C): this is the coercive 'cheap-in' end of the same land-value-capture spread that the Kokapet auctions cash out at the 'expensive-out' end.",
+      "source": "The Federal 'How Telangana's Pharma City turned into a nightmare for farmers'; Telangana Today (G.O.Ms. 31 dharna; Kurumidda protest); Siasat (KTR criticism). Telangana HC orders.",
+      "denial_if_any": "Successive Telangana governments defend the projects as employment-generating public purpose; project is officially recast/rebranded (Pharma City scope revisited; 'Future City'). No criminality adjudicated; the dispute is over compensation/process, contested in court."
+    },
+    {
+      "actor": "HITEC City / Cyberabad model (state + IT capital)",
+      "role": "The template: state-assembled IT-corridor land (Gachibowli, Financial District, Madhapur)",
+      "how_they_profit": "Early cheap state land assembly in the 1990s-2000s seeded the office/REIT stock whose proximity now drives the Kokapet/Budvel auction premiums; foreign PE/REIT capital provides the exit bid.",
+      "mechanism": "land-value capture; foreign capital/REIT exit; IT-corridor real estate",
+      "project": "HITEC City / Financial District / Gachibowli IT corridor",
+      "tier": "C",
+      "claim": "ANALYSIS: The Cyberabad land model — state assembles and discounts IT-corridor land, the resulting office economy then revalues all adjacent state land — is what makes HMDA's later Kokapet/Budvel auctions fetch Rs 100+ crore/acre. The uplift is manufactured by public investment and captured at auction; global REIT/PE money underwrites the office stock that anchors it.",
+      "source": "Analytical synthesis tying HITEC City development to the documented Kokapet/Budvel auction premiums (see Tier-A entries above); privatization_map.json (L&T metro PPP).",
+      "denial_if_any": null
+    }
+  ]
+}

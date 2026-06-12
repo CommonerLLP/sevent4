@@ -1,0 +1,206 @@
+{
+  "_meta": {
+    "what": "Follow-the-money dossier for Greater Mumbai: how political / bureaucratic / corporate / foreign elites convert public land and development rights into private profit. Each row = {actor, role, how_they_profit, mechanism, project, tier, claim, source, denial_if_any}. The DOCUMENTABLE CORE is the MECHANISM (how public land/value becomes private rent); allegations of corruption/favouritism are tiered as attributed, never asserted.",
+    "thesis": "Mumbai's land machine is the purest live instance of Ghosh's 'improvement-regime / recoupment' (the public body assembles and redevelops land, then realises its FUTURE value as present cash) fused with Cooper's 'counterrevolution' (public assets and the upside on public investment are channelled to private asset-holders, presented as technocratic necessity). The state holds the land — slum land, salt-pan land, railway land, BKC, cessed plots — and the elected city (BMC) is almost never the decider. Value is created by a PUBLIC act (an FSI/TDR grant, a land transfer, a redevelopment cutoff) and captured by a PRIVATE balance sheet. Dharavi + Adani is the centrepiece because there the whole stack — slum land, government/railway/salt-pan land, a city-wide TDR engine, a free-sale market component, and an 80:20 SPV with the state — is assembled in one project for one group.",
+    "tier_legend": {
+      "A": "DOCUMENTED FACT — tender award, SPV/equity structure, FSI/TDR rule, land-use change, official/audit figure, court record. Source given.",
+      "B": "REPORTED ALLEGATION — corruption/favouritism/undervaluation/displacement. Attributed to a NAMED opposition figure, journalist, outlet, petitioner, or court filing; framed as 'alleged by …', never asserted as fact; denial included where on record.",
+      "C": "ANALYSIS — the structural mechanism / political economy (Ghosh recoupment, Cooper counterrevolution, the FSI/TDR-to-cash conversion)."
+    },
+    "hard_rule": "PUBLIC repository naming powerful people. No unproven criminality stated as fact. No fabrication. The defensible spine is the mechanism, which is documentable from GRs, tender documents, company filings and court records.",
+    "status": "Authored 2026-06 from tender/GR records, company statements, court reporting and established news (cited inline). verify:true = a figure or structure not confirmed against the primary gazette/filing in-session.",
+    "frames": [
+      "Anwesha Ghosh, 'The Improvement Regime: Public Trusts, Real Estates, and India's Urban Futurities', CSSH (2025) [Zotero V295ZMA6] — recoupment / land financialisation / future-value-as-present-cash.",
+      "Melinda Cooper, Counterrevolution (Zone, 2024) — privatisation and the routing of public-asset upside to private asset-holders as a counterrevolution against democratic claims on the economy; 'extravagance to asset-holders, austerity to everyone else'.",
+      "docs/the-corporate-city.md — Ghosh frame applied to the atlas."
+    ]
+  },
+
+  "dharavi_drp": [
+    {
+      "actor": "Adani Properties Ltd / Adani Realty (Adani Group, Gautam Adani)",
+      "role": "corporation",
+      "how_they_profit": "Holds 80% of the project SPV that builds and sells the free-sale (open-market) component and generates city-wide TDR, in return for delivering free rehab housing. The rehab is the cost; the saleable real estate and the TDR are the revenue.",
+      "mechanism": "SLUM-AS-REAL-ESTATE + RECOUPMENT. The developer rehouses eligible residents for free; in exchange it gets to build a large free-sale component for the open market AND is allowed to monetise the development potential Dharavi cannot physically absorb as Transferable Development Rights saleable elsewhere in Mumbai. Public land + a slum + a state-conferred FSI/TDR entitlement are converted into marketable square feet. Ghosh's recoupment: the future value of redeveloped land is realised as present private profit.",
+      "project": "Dharavi Redevelopment Project (DRP), 259 ha, central Mumbai",
+      "tier": "A",
+      "claim": "On 29 Nov 2022 Adani Properties Ltd was the highest bidder (Rs 5,069 crore) for the DRP, outbidding DLF (Rs 2,025 crore), for a project pegged at ~Rs 20,000 crore. The project SPV (originally Dharavi Redevelopment Project Pvt Ltd, DRPPL; rebranded Navbharat Mega Developers Pvt Ltd, NMDPL, Dec 2024) is 80% Adani / 20% Government of Maharashtra (via DRP/SRA).",
+      "source": "ICICIdirect/India Infra Hub/ProjectsToday, Nov 2022 (Rs 5,069 cr winning bid; DLF Rs 2,025 cr); BusinessToday/National Herald, 29 Dec 2024 (DRPPL -> Navbharat Mega Developers; 80:20 Adani:state); drpmumbai.maharashtra.gov.in 'About SPV'.",
+      "denial_if_any": "Project/Adani entity has repeatedly framed the deal as won by transparent global tender and as carrying an unprecedented obligation to house EVERY tenement (eligible and ineligible)."
+    },
+    {
+      "actor": "Government of Maharashtra (DRP/SRA) as 20% SPV partner and rule-maker",
+      "role": "bureaucrat",
+      "how_they_profit": "Off-loads the cost and execution of slum housing to a private balance sheet while retaining a 20% equity interest and a constituency-pleasing 'free homes' headline — without spending budget and without the elected BMC deciding.",
+      "mechanism": "DEPOLITICISED RECOUPMENT VIA SPV. The state, not the elected city, structures the deal: it sets the eligibility cutoff, the free-sale ratio and the TDR rules through Government Resolutions, hands the developer access to government/railway/salt-pan land, and takes equity. Cooper's counterrevolution in miniature — a public objective delivered by routing public assets and the development upside to a private asset-holder, presented as technocratic 'redevelopment'.",
+      "project": "Dharavi Redevelopment Project (SPV + enabling GRs)",
+      "tier": "C",
+      "claim": "ANALYSIS: the value transferred is a public creation — an FSI/TDR entitlement and access to state land — set by GR and tender terms authored by the state government, with the elected BMC essentially absent from the structuring decision.",
+      "source": "drpmumbai.maharashtra.gov.in 'About SPV' (80:20 structure); GR provisions on TDR sale across Mumbai (ANI/India Gazette, Feb 2025); data/laws/mumbai/manifest.md (BMC vs state powers).",
+      "denial_if_any": null
+    },
+    {
+      "actor": "The Dharavi TDR engine (city-wide development-rights market)",
+      "role": "corporation",
+      "how_they_profit": "Dharavi's geometry (railway lines on two sides, airport funnel, a transmission corridor) caps how much FSI can be consumed in situ, so the surplus development potential is exported as TDR sellable across Mumbai — a tradable claim on the rest of the city's skyline.",
+      "mechanism": "FSI/TDR -> CASH CONVERSION. TDR turns a planning entitlement into a transferable financial instrument. To create a captive market, the state made it MANDATORY for other Mumbai developers to absorb Dharavi TDR; it later capped the price to manage the windfall and the market reaction.",
+      "project": "Dharavi DRP — TDR generation and city-wide sale",
+      "tier": "A",
+      "claim": "The pre-2018 GR allowed sale of Dharavi-generated TDR across Mumbai. Other developers must buy a mandated share of Dharavi TDR (set at 50% at tender stage, revised to 40% post-tender). In Feb 2025 the state capped Dharavi TDR at 90% of the ready-reckoner rate to prevent abnormal price escalation. Dharavi's site constraints (rail on two sides, airport, transmission corridor) are the stated reason in-situ FSI cannot be fully consumed, justifying TDR monetisation.",
+      "source": "ANI / NewKerala / India Gazette, Feb 2025 (40% mandatory absorption; 90%-of-ready-reckoner cap; site-constraint rationale); GBLR (TDR regulation); Business India 'Dharavi Redevelopment: No Easy Goal'.",
+      "denial_if_any": "DRP clarified the TDR-generation process as transparent and rule-bound (India Gazette, Feb 2025)."
+    },
+    {
+      "actor": "Public land transferred into the project (railway, salt-pan, government land)",
+      "role": "bureaucrat",
+      "how_they_profit": "The project's land base is enlarged with public land — railway parcels inside/adjoining Dharavi, and ~256 acres of decommissioned salt-pan land (Mulund/Kanjurmarg/Bhandup) for rehousing ineligible residents — assembled by the state and centre for the SPV.",
+      "mechanism": "STATE LAND ASSEMBLY FOR A PRIVATE SPV. The most valuable input — assembled, litigation-cleared public land — is supplied by the state to the developer-led SPV. Whether the consideration captures full market value is the contested question; the MECHANISM (public land into a private-majority vehicle) is documented.",
+      "project": "Dharavi DRP — railway land + 256 acres salt-pan land",
+      "tier": "A",
+      "claim": "~256 acres of decommissioned salt-pan land at Mulund, Kanjurmarg and Bhandup were designated to rehouse ineligible Dharavikars; title to remain with the state, land moving Centre->Maharashtra (15 acres at Kanjur reserved for a Metro Line 6 car shed). Railway land transfer was a structural input from the 2018 tender onward (its delay helped sink the 2018 SecLink award).",
+      "source": "FreePressJournal / Swarajya (256-acre salt-pan designation, Mulund/Kanjur/Bhandup); ThePrint and Citizen Matters (railway land; 2018 award stalled on railway-land transfer).",
+      "denial_if_any": "DRPPL states it paid a 170% premium over the prevailing ready-reckoner rate for railway land, i.e. above (not below) reckoner value, rebutting 'free/concessional land' claims (FreePressJournal/Prokerala)."
+    },
+    {
+      "actor": "The eligibility cutoff (1 Jan 2000) and ineligible-resident relocation",
+      "role": "builder",
+      "how_they_profit": "A cutoff date sorts residents into 'eligible' (free in-situ home) and 'ineligible' (relocated outside Dharavi or rental/PMAY housing). The fewer the in-situ rehab obligations and the lower the rehab footprint, the larger the free-sale and TDR yield.",
+      "mechanism": "CUTOFF AS COST-CONTROL. Rehab is the developer's cost line; the saleable component is the revenue line. The eligibility rule and the out-of-Dharavi relocation of ineligibles shape the rehab:free-sale ratio — i.e. they shape the profit. This is the structural hinge critics contest.",
+      "project": "Dharavi DRP — eligibility & relocation policy",
+      "tier": "A",
+      "claim": "Eligibility cutoff is 1 Jan 2000 for free in-situ rehab. ~7 lakh residents on mezzanine/upper floors are reported ineligible for free in-situ rehab; those who settled 2000-2011 get subsidised housing outside Dharavi, 2011-2022 get rental housing outside Dharavi. (BMC later allowed certain post-2000 photopasses, easing some cases.)",
+      "source": "ThePrint ('7 lakh ineligible residents'); Scroll.in (resistance); Citizen Matters explainer; FreePressJournal (post-2000 photopass relief).",
+      "denial_if_any": "DRPPL: a 'unique' GR condition guarantees EVERY tenement a home — eligible within Dharavi, ineligible under PMAY outside — so no one is left unhoused (Prokerala/FreePressJournal)."
+    },
+    {
+      "actor": "Opposition (Uddhav Thackeray / Shiv Sena UBT), MP Varsha Gaikwad, Dharavi residents' groups",
+      "role": "politician",
+      "how_they_profit": "n/a — these are the named ALLEGERS, recorded so the dossier attributes the criticism rather than asserting it.",
+      "mechanism": "Political-economy critique: that the tender was tailored, the rehab entitlement too small, ineligibles displaced, and a strategic public asset handed to one group.",
+      "project": "Dharavi DRP — attributed criticism",
+      "tier": "B",
+      "claim": "ALLEGED by Uddhav Thackeray (Shiv Sena UBT): Dharavi residents should get 500 sq ft homes plus on-site business space, and redevelopment should be done BY the government; he states he did not issue the redevelopment tender as CM. ALLEGED by MP Varsha Gaikwad and others: the deal favours Adani / amounts to land allotment to Adani. NONE of this is asserted here as fact.",
+      "source": "National Herald (Uddhav Thackeray, Dharavi protest; '500 sq ft', govt should redevelop); FreePressJournal ('No Land Allotment To Adani', DRPPL response to Varsha Gaikwad).",
+      "denial_if_any": "DRPPL: allegations of 'land allotment to Adani' are 'fictional and targeted' — land is transferred to DRP/SRA (the state body), not to Adani; Adani builds and hands units to the government for allocation per survey (FreePressJournal)."
+    },
+    {
+      "actor": "SecLink Technologies Corporation (Dubai) — earlier 2018 bidder",
+      "role": "corporation",
+      "how_they_profit": "n/a here — the disappointed 2018 bidder, whose challenge is the principal documented legal contest over the re-tender.",
+      "mechanism": "TENDER-PROCESS CONTEST. SecLink alleges the 2018 process was cancelled after it was the highest bidder, and re-tendered on changed rules that benefited the eventual winner — the documentable legal record of the award dispute.",
+      "project": "Dharavi DRP — 2018 tender / 2022 re-tender dispute",
+      "tier": "B",
+      "claim": "DOCUMENTED FACT (A): SecLink was the highest bidder in the 2018 tender (~Rs 7,200 cr vs Adani ~Rs 4,529 cr); the 2018 award was cancelled (railway-land transfer problems cited) and re-tendered in Oct 2022. ALLEGED (B) by SecLink: cancellation and rule changes were improper and disadvantaged it. The Bombay High Court (Dec 2024) UPHELD the award to Adani; the Supreme Court (2025) declined to stay the project and issued notices; SecLink has also moved to arbitration.",
+      "source": "Khaleej Times / National Herald / Angel One (SecLink 2018 high bid Rs 7,200 cr, cancellation, SC challenge & arbitration); BusinessToday, 20 Dec 2024 (Bombay HC upholds award to Adani); APAC News (SC no stay, notices, 2025).",
+      "denial_if_any": "State/Adani position vindicated to date by Bombay HC (upheld award) and SC (no stay)."
+    }
+  ],
+
+  "mumbai_land_machine": [
+    {
+      "actor": "Slum Rehabilitation Authority (SRA) + private developers",
+      "role": "builder",
+      "how_they_profit": "Developer rehouses slum dwellers free and is paid in a free-sale (open-market) component and/or TDR — 'land as a resource', cross-subsidising free rehab tenements with market sales.",
+      "mechanism": "CROSS-SUBSIDY / FSI-AS-CURRENCY. The whole DRP model is the SRA model at giant scale: incentive FSI and TDR are the currency the state prints (costlessly, by regulation) to pay private developers for housing the poor — converting a public planning entitlement into private real estate.",
+      "project": "SRA scheme (GR 1995; Maharashtra Slum Areas Act 1971; DCR 33(10))",
+      "tier": "A",
+      "claim": "SRA (GR 1995, under the 1971 Slum Areas Act) lets developers build free-sale FSI / take TDR to cross-subsidise free rehab tenements — 'using land as a resource'. Critics (urban planners; Citizen Matters) document chronic under-delivery and stalled projects after 27+ years.",
+      "source": "World Bank PPP (Maharashtra slum-rehab scheme); SRA Maharashtra; Citizen Matters ('27 years on, SRA has failed to deliver'); MCHI/CREDAI.",
+      "denial_if_any": null
+    },
+    {
+      "actor": "MHADA — cessed-building (Island City) redevelopment",
+      "role": "bureaucrat",
+      "how_they_profit": "Old cessed (rent-controlled) buildings are redeveloped under incentive FSI; developers get saleable area in return for rehousing tenants — the same FSI-for-rehab bargain on the most valuable Island City land.",
+      "mechanism": "INCENTIVE FSI ON PRIME LAND. Cessed-building redevelopment (DCR 33(7) family) hands extra FSI on south-Mumbai plots whose location makes the free-sale component extraordinarily valuable — public regulation creating private upside on the city's costliest ground.",
+      "project": "MHADA cessed-building redevelopment, Island City",
+      "tier": "C",
+      "claim": "ANALYSIS: mechanism is identical to SRA/DRP — a state-conferred FSI bonus converts a rehousing obligation into saleable prime-location real estate. (Specific scheme figures not pulled in-session.)",
+      "source": "FSI norms for redevelopment across Mumbai (redevelopmentofhousingsociety.com); Desai & Diwanji (cluster/cessed redevelopment); data/laws/mumbai/manifest.md.",
+      "denial_if_any": null
+    },
+    {
+      "actor": "MMRDA — BKC land monetisation",
+      "role": "bureaucrat",
+      "how_they_profit": "MMRDA created Bandra-Kurla Complex by reclaiming/assembling land, then auctions/long-leases plots at record prices to fund metropolitan infrastructure — the purest live recoupment in Mumbai.",
+      "mechanism": "RECOUPMENT, TEXTBOOK. A public authority assembles land, builds the trunk infrastructure that creates the value, then sells the surplus plots at the inflated value to finance more infrastructure (and to repay JICA metro debt). Ghosh's improvement-trust 'recoupment' running a century on, off the elected city's books.",
+      "project": "MMRDA BKC plot auctions",
+      "tier": "A",
+      "claim": "MMRDA raised ~Rs 3,840 crore from three BKC plots (2024-25): Sumitomo's Goisu Realty took C-13 (Rs 1,360.48 cr, vs Rs 974.51 cr reserve; ~Rs 4.8 lakh/sq m built-up) and C-19; a Schloss Bangalore-led consortium took C-80. MMRDA planned a further ~Rs 9,285 crore from nine BKC plots; G-block plots leased 80 years; proceeds earmarked for MMR infrastructure / JICA repayment.",
+      "source": "Upstox (Rs 3,840 cr, three plots; Goisu/Sumitomo, Schloss Bangalore); FreePressJournal (nine plots, Rs 9,285 cr); 99acres (BKC plot bids); BW (RBI/MMRC Nariman Point plot Rs 3,472 cr — related MMRC monetisation).",
+      "denial_if_any": null
+    },
+    {
+      "actor": "The builder-politician nexus (structural)",
+      "role": "politician",
+      "how_they_profit": "n/a as a named claim — recorded as the documented STRUCTURAL channel by which FSI/TDR rule-making (a state power) and the real-estate windfalls it creates are politically intertwined.",
+      "mechanism": "DISCRETIONARY FSI/TDR AS POLITICAL CURRENCY. Because incentive FSI and TDR are conferred by state GRs and discretionary planning approvals, the rule-makers control billions in real-estate value. The atlas documents the MECHANISM (discretion over development rights = control over rent); it does NOT assert specific bribery.",
+      "project": "Mumbai FSI/TDR regime generally",
+      "tier": "C",
+      "claim": "ANALYSIS only: planners attribute Mumbai's builder-centric redevelopment outcomes to a development-rights regime controlled by state discretion. No specific corrupt act is asserted here.",
+      "source": "Citizen Matters / urban-planning commentary (builder-centric approach); data/institutions/fragmentation/mumbai.json.",
+      "denial_if_any": null
+    }
+  ],
+
+  "adani_mumbai_footprint": [
+    {
+      "actor": "Adani Energy Solutions (Adani Electricity Mumbai Ltd, AEML)",
+      "role": "corporation",
+      "how_they_profit": "Owns the suburban Mumbai electricity distribution monopoly — a regulated-return utility serving ~3 million customers / ~10-12 million people, with no electoral recourse.",
+      "mechanism": "PRIVATE MONOPOLY ON A DAILY NECESSITY. A captive consumer base under MERC tariff regulation, not the ballot — Cooper's privatised public good.",
+      "project": "Suburban Mumbai electricity distribution",
+      "tier": "A",
+      "claim": "In Aug 2018 Adani acquired Reliance Infrastructure's integrated Mumbai power business (Dahanu generation, transmission, suburban discom) for ~Rs 18,800 crore, now AEML; ~3M customers across ~400 sq km.",
+      "source": "Business Today/Business Standard, 29 Aug 2018 (Rs 18,800 cr); Adani Energy Solutions; privatization_map.json (mumbai/electricity_suburbs_adani).",
+      "denial_if_any": null
+    },
+    {
+      "actor": "Adani Airports Holdings Ltd (AAHL) — both Mumbai airports",
+      "role": "corporation",
+      "how_they_profit": "Operates CSMIA (from GVK, 2021) and the new Navi Mumbai International Airport (opened Dec 2025) — the entire air gateway of the financial capital, including its substantial real-estate/city-side development upside.",
+      "mechanism": "CONCESSION + AIRPORT-CITY REAL ESTATE. Airport privatisation bundles a regulated aeronautical monopoly with large land-development rights around the airport — infrastructure concession as a land play.",
+      "project": "CSMIA + Navi Mumbai International Airport",
+      "tier": "A",
+      "claim": "AAHL holds ~74% of MIAL (CSMIA), taken over from GVK in Feb 2021; MIAL holds ~74% of NMIAL (CIDCO 26%); NMIA inaugurated 25 Dec 2025. Both Mumbai airports now under one private group.",
+      "source": "privatization_map.json (mumbai/airport); CSMIA-Adani 'About Us'; travelradar (NMIA inauguration 25-Dec-2025).",
+      "denial_if_any": null
+    },
+    {
+      "actor": "Adani Group — the concentration (electricity + airports + Dharavi)",
+      "role": "corporation",
+      "how_they_profit": "Single group simultaneously holds the suburban grid, both airports, and the 80% stake in Dharavi — three chokepoints of Mumbai's land and infrastructure, none of them electorally accountable.",
+      "mechanism": "ACCUMULATION ACROSS THE STACK. The 'unelected city' at its most concentrated: one conglomerate accreting across power, aviation and the largest land-redevelopment project, regulated piecemeal (MERC, AERA, DRP/SRA) and answerable to no electorate.",
+      "project": "Mumbai-wide Adani footprint",
+      "tier": "C",
+      "claim": "ANALYSIS: the concentration is documented (each asset above is tier A); the inference — that one private group holds multiple urban chokepoints with no common democratic check — is the analytical point, not an allegation of wrongdoing.",
+      "source": "privatization_map.json (_adani_concentration).",
+      "denial_if_any": null
+    }
+  ],
+
+  "foreign_finance_capital": [
+    {
+      "actor": "JICA (Japan International Cooperation Agency)",
+      "role": "foreign",
+      "how_they_profit": "Lends the bulk of Mumbai Metro construction cost as ODA; the loan is partly serviced by MONETISING public land (MMRC/MMRDA plot sales), tying a foreign creditor's repayment to Mumbai land value.",
+      "mechanism": "LAND MONETISATION TO SERVICE FOREIGN DEBT. The metro is built on JICA loans; the loans are repaid partly by selling/leasing public plots (BKC; MMRC's Nariman Point/Cuffe Parade land). Public land value -> infrastructure debt service -> foreign creditor. Recoupment with a sovereign-lender beneficiary.",
+      "project": "Mumbai Metro Line 3 (and wider metro) — JICA financing",
+      "tier": "A",
+      "claim": "JICA funds Mumbai Metro (Line 3 ~JPY 354bn of ~JPY 681bn cost; metro phases I-IV total ~JPY 270bn / ~USD 1.7bn). MMRC plot sales (e.g. RBI/Nariman Point plot Rs 3,472 cr) are explicitly intended partly to repay JICA debt.",
+      "source": "JICA press (Line 3 ODA loans); railwaypro (JPY 270bn metro loans); BW Businessworld (RBI/MMRC Nariman Point plot Rs 3,472 cr, JICA repayment).",
+      "denial_if_any": null
+    },
+    {
+      "actor": "Foreign funds / REITs / sovereign-wealth & PE (Sumitomo, Blackstone, GIC, etc.)",
+      "role": "foreign",
+      "how_they_profit": "Buy the highest-value Mumbai plots and built assets at auction or via REITs — directly capturing the land value the state manufactures through reclamation, FSI and infrastructure.",
+      "mechanism": "FINANCIALISED RECOUPMENT. Public land monetisation hands the city's prime real estate to global capital; REITs/PE then securitise the rent — the financial-capital end of Ghosh's recoupment and Cooper's asset-inflation channel.",
+      "project": "BKC auctions; Mumbai commercial real estate / REITs",
+      "tier": "A",
+      "claim": "Sumitomo's Goisu Realty won BKC plots C-13/C-19 (2024-25); a Schloss Bangalore-led consortium took C-80; Blackstone, GIC, Tata, RMZ, Oberoi among bidders for Mumbai land/real-estate opportunities. Foreign/PE capital is a direct buyer of state-monetised Mumbai land.",
+      "source": "Upstox / 99acres (BKC auction winners incl. Sumitomo/Goisu, Schloss Bangalore); reporting on Blackstone/GIC/Sumitomo Mumbai real-estate interest.",
+      "denial_if_any": null
+    }
+  ]
+}

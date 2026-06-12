@@ -1,0 +1,296 @@
+{
+  "_meta": {
+    "city": "Hyderabad",
+    "state": "Telangana (Andhra Pradesh until the AP Reorganisation Act, 2014, Central Act 6 of 2014)",
+    "elected_corporation": "Greater Hyderabad Municipal Corporation (GHMC)",
+    "corporation_act": "The Greater Hyderabad Municipal Corporation Act, 1955 (Act II of 1956) — GHMC is governed by THIS Act, not the Telangana Municipalities Act, 2019",
+    "what": "The governance-fragmentation dossier for Hyderabad: every body that took a Twelfth-Schedule (or otherwise municipal) function OUT of the elected corporation. Each entry records WHAT was taken, HOW (the enabling instrument — Act/notification/concession, with decided_by = city|state|centre|colonial), WHY (stated rationale AND political-economy reading), and ERA (pre_1991 vs post_1991, relative to the 74th Amendment's 1992/1993 hinge). The analytical core is decided_by: in EVERY case the decision was taken by the STATE (or its colonial/princely predecessor) — never by the elected city.",
+    "analytical_frame": "Anwesha Ghosh's improvement-regime thesis (the development authority IS the colonial improvement trust reborn; 'improvement' as technocratic depoliticisation; the trust as a land-rent machine via 'recoupment') + Melinda Cooper (privatisation/austerity as counterrevolution against democratic claims on the economy; the austerity-extravagance pairing — austerity for the elected body, extravagance for the parastatal/PPP) + Ambedkar (contractualisation as the modern instrument of the graded division of labourers — GHMC's ~28,000 sanitation workers on contract are overwhelmingly Dalit/Valmiki).",
+    "two_signature_facts": [
+      "STATUTORY EXEMPTION: GHMC is EXPLICITLY exempted from the Telangana Municipalities Act, 2019 (Act 11 of 2019, §1(3)) — the state legislated GHMC's special status, keeping it under the bespoke 1955 Act rather than the general Part-IXA conformity law. This is depoliticisation by statute: the megacity corporation is held outside the standard municipal frame the state wrote for everyone else.",
+      "RE-MUNICIPALISATION: Hyderabad Metro Rail Phase I was the world's largest metro PPP (L&T DBFOT concession, operations from Nov 2017). In APRIL 2026 the Government of Telangana ACQUIRED Phase I from L&T (~Rs 1,461 crore, share transfer completed) — a RARE reversal of a privatised major urban asset. The metro moved private -> state, not city. decided_by stays 'state', never 'city'."
+    ],
+    "schema": "Each body entry: { body, full_name, what (function taken from the elected corporation), how { instrument, act_or_notification, year, act_number, decided_by, mechanism }, why { stated_rationale, political_economy }, era (pre_1991 | post_1991), elected (false for all carve-outs), verify }",
+    "decided_by_legend": "city = the elected municipal corporation/council decided | state = State legislature/government (Telangana or pre-2014 Andhra Pradesh, or the princely Hyderabad State) | centre = Union government/Parliament | colonial = colonial/princely-era pre-1948 authority. NB: 'state' includes the princely Nizam's government pre-1948 where it acted as the sovereign of Hyderabad State; flagged inline.",
+    "era_hinge": "pre_1991 vs post_1991 is keyed to the 74th Constitutional Amendment (passed 1992, assent 20 Apr 1993, in force 1 Jun 1993), the promise that the elected corporation would hold the 18 Twelfth-Schedule functions. 'pre_1991' = the carve-out predates that promise; 'post_1991' = the carve-out/restructuring happened AFTER the promise, i.e. against its grain.",
+    "status": "Authored 2026-06-09 from data/laws/hyderabad/manifest.md (India Code-verified Act numbers), data/laws/INDEX.md, service_providers.json, corporation_history.json, contractualization_map.json, privatization_map.json. Act numbers/years for GHMC/HMDA/HMWSSB/TS-Municipalities are India Code-verified (see laws manifest). Items flagged verify:true are less certain (princely-era bodies, HUDA founding instrument, TSRTC/TGSRTC dates, the April-2026 metro acquisition amount/exact date, HITEC City/Cyberabad enabling instruments). NO fabrication."
+  },
+
+  "bodies": [
+    {
+      "body": "GHMC (status note — not itself a carve-out, but the legislated frame)",
+      "full_name": "Greater Hyderabad Municipal Corporation",
+      "what": "The elected corporation itself — included to record the STATE's act of legislating its special status. GHMC is governed by the Greater Hyderabad Municipal Corporation Act, 1955 (Act II of 1956) and is EXPLICITLY EXEMPTED from the general Telangana Municipalities Act, 2019 (§1(3)). Greater Hyderabad was constituted in 2007 by the state merging the erstwhile Municipal Corporation of Hyderabad (MCH) with 12 surrounding municipalities/panchayats.",
+      "how": {
+        "instrument": "Special bespoke statute + explicit exemption clause",
+        "act_or_notification": "Greater Hyderabad Municipal Corporation Act, 1955; exemption at §1(3) of the Telangana Municipalities Act, 2019",
+        "year": "1955 (Act II of 1956); 2007 (GHMC merger); 2019 (exemption re-affirmed)",
+        "act_number": "Act II of 1956 (GHMC Act); Act 11 of 2019 (TS Municipalities Act, §1(3) exempts GHMC)",
+        "decided_by": "state",
+        "mechanism": "State legislature retained a separate, older corporation Act for the megacity and wrote GHMC OUT of the conformity statute it enacted for every other Telangana ULB. The 2007 amalgamation itself was a state act (government merging local bodies), not a decision of the elected councils merged."
+      },
+      "why": {
+        "stated_rationale": "A city of Hyderabad's scale needs a tailored governance regime; the 1955 Act already provides for it, so the 2019 general law need not apply.",
+        "political_economy": "Depoliticisation by statute (Ghosh): the state keeps the megacity's frame under its own discretionary control rather than the standard Part-IXA template, preserving levers (mayoral reservation, staff transfer, supersession) it can pull over the most politically valuable urban territory in Telangana. The exemption is the state legislating its own special hold on GHMC."
+      },
+      "era": "pre_1991_origin_post_1991_reaffirmed",
+      "elected": true,
+      "verify": false
+    },
+    {
+      "body": "City Improvement Board (Nizam-era)",
+      "full_name": "City Improvement Board, Hyderabad State (Nizam's government)",
+      "what": "Town planning, land acquisition and 'improvement' of the city — the original carve-out of planning/land from ordinary municipal administration, the colonial/princely improvement-trust prototype for Hyderabad.",
+      "how": {
+        "instrument": "Princely-state executive/legislative order of the Nizam's government",
+        "act_or_notification": "City Improvement Board (Nizam-era) — exact enabling regulation not re-verified",
+        "year": "1912 (approx.)",
+        "act_number": "not verified",
+        "decided_by": "colonial",
+        "mechanism": "Created by the sovereign Nizam's government of Hyderabad State (princely, pre-1948 accession) — a state/colonial-era act, never a decision of an elected city body (no elected corporation existed)."
+      },
+      "why": {
+        "stated_rationale": "Planned 'improvement' and modernisation of the city; slum clearance and road-widening after plague/flood pressures (the standard improvement-trust justification of the era).",
+        "political_economy": "This is Ghosh's improvement regime in its princely Indian form: planning and land lifted into an appointed technocratic body, 'improvement' as the idiom of land control and recoupment. It is the institutional ancestor of HUDA (1975) -> HMDA (2008). The lineage from princely improvement board to modern development authority is the local instance of Ghosh's central claim."
+      },
+      "era": "pre_1991",
+      "elected": false,
+      "verify": true
+    },
+    {
+      "body": "HUDA",
+      "full_name": "Hyderabad Urban Development Authority",
+      "what": "Metropolitan urban planning, master-plan preparation, land development and development-permission control for the Hyderabad urban region — planning/land carved out of the municipal corporation onto an appointed authority (Twelfth-Schedule entries 1-3).",
+      "how": {
+        "instrument": "State Act (Andhra Pradesh Urban Areas (Development) Act framework)",
+        "act_or_notification": "Hyderabad Urban Development Authority, constituted under AP urban-development legislation",
+        "year": "1975",
+        "act_number": "not individually re-verified (AP Urban Areas (Development) Act, 1975 lineage)",
+        "decided_by": "state",
+        "mechanism": "Constituted by the Government of Andhra Pradesh — a state decision creating an appointed metropolitan planning authority sitting above/outside the elected corporation. Direct predecessor of HMDA."
+      },
+      "why": {
+        "stated_rationale": "Coordinated planned development of the rapidly growing Hyderabad metropolitan region beyond the corporation's limits; a single regional planning authority.",
+        "political_economy": "The improvement-trust-to-development-authority succession (Ghosh): HUDA holds the region's LAND and monetises it through development schemes — the rent-rich planning function pulled out of the elected body. 'Improvement'/'planned development' depoliticises who gets land and at what price, handing it to appointed officials."
+      },
+      "era": "pre_1991",
+      "elected": false,
+      "verify": true
+    },
+    {
+      "body": "HMDA",
+      "full_name": "Hyderabad Metropolitan Development Authority",
+      "what": "Metropolitan planning and development over ~7,257 sq km: declaration of the Hyderabad Metropolitan region, master plans, land-pooling/development schemes, development-permission control (Twelfth-Schedule entries 1 urban planning, 2 land-use & building regulation, 3 economic/social development planning, at metropolitan scale). HMDA Act §8 bars HMDA from ordinarily performing the local body's obligatory/discretionary duties except for integrated development — i.e. it formally takes the PLANNING/LAND layer, leaving residual local building permission shared with GHMC.",
+      "how": {
+        "instrument": "State Act",
+        "act_or_notification": "The Hyderabad Metropolitan Development Authority Act, 2008",
+        "year": "2008",
+        "act_number": "Act 8 of 2008 (India Code-verified)",
+        "decided_by": "state",
+        "mechanism": "Enacted by the Andhra Pradesh legislature; continued/adapted for Telangana after the 2014 reorganisation (Telangana Adaptation of Laws Orders under §101 of Central Act 6 of 2014). Successor to HUDA (1975). A state statute creating an appointed authority — no elected-city decision."
+      },
+      "why": {
+        "stated_rationale": "An integrated metropolitan planning authority for the vast ~7,257 sq km region; coordinated master-planning and infrastructure beyond municipal boundaries.",
+        "political_economy": "Land financialisation: HMDA is the region's land machine — land-pooling, development schemes, and the monetisation of metropolitan land (Ghosh's 'recoupment' a century on). The highest-value Twelfth-Schedule function (planning/land, #1-2) is written into an UNELECTED board, not GHMC; the elected corporation keeps the residual broom-and-drain functions. The carve-out is affirmatively legislated, not a gap."
+      },
+      "era": "post_1991",
+      "elected": false,
+      "verify": false
+    },
+    {
+      "body": "HMWSSB",
+      "full_name": "Hyderabad Metropolitan Water Supply and Sewerage Board",
+      "what": "Water supply (domestic, industrial, commercial) and sewerage/sewage treatment for the Hyderabad metropolitan area — Twelfth-Schedule entries 5 (water) and 6 (sanitation/sewerage), the highest-value civic utility, carved entirely out of the elected corporation onto a statutory board (finance, tariffs, mains, connections, sewerage).",
+      "how": {
+        "instrument": "State Act",
+        "act_or_notification": "The Hyderabad Metropolitan Water Supply and Sewerage Act, 1989",
+        "year": "1989",
+        "act_number": "Act 15 of 1989 (India Code-verified; originally an Andhra Pradesh Act, Governor's assent 30 June 1989)",
+        "decided_by": "state",
+        "mechanism": "Enacted by the Andhra Pradesh legislature; adapted to Telangana under §101 of the AP Reorganisation Act, 2014 (Central Act 6 of 2014) via the Telangana Adaptation of Laws (No.2) Order, 2016 (G.O.Ms.No.46, Law (F) Dept., 01.06.2016). A state statute creating an appointed Board; GHMC does not run water/sewerage."
+      },
+      "why": {
+        "stated_rationale": "A dedicated, financially ring-fenced metropolitan utility for water and sewerage — professional, region-wide, capital-intensive service delivery.",
+        "political_economy": "The classic carve-out (INDEX.md's central proof): water (#5) is the rent-rich, capital-intensive function, written OUT of the elected body into a purpose-built board the year BEFORE the 74th Amendment promised devolution. Depoliticisation à la Ghosh — who gets water, who is connected, what the tariff is, become 'technical' board decisions insulated from municipal politics. Cooper's austerity-extravagance: the elected body is starved of the utility while the parastatal carries the financeable asset."
+      },
+      "era": "pre_1991",
+      "elected": false,
+      "verify": false
+    },
+    {
+      "body": "Telangana/AP Housing Board",
+      "full_name": "Telangana State Housing Corporation Ltd / (erstwhile) Andhra Pradesh State Housing Board",
+      "what": "Public housing construction and allotment, housing schemes and housing-colony land development — a function adjacent to Twelfth-Schedule entries 9-11 (weaker sections, slum improvement, urban poverty alleviation/housing), held by a state board/corporation rather than the elected city.",
+      "how": {
+        "instrument": "State Act / state corporation",
+        "act_or_notification": "Andhra Pradesh Housing Board Act lineage; reorganised post-2014 as Telangana State Housing Corporation Ltd (the '2BHK'/Double Bedroom housing programme is run by the state, not GHMC)",
+        "year": "AP Housing Board lineage (mid-20th C); Telangana successor post-2014",
+        "act_number": "not individually re-verified",
+        "decided_by": "state",
+        "mechanism": "State legislature/government created and runs the housing board/corporation; large public-housing programmes (e.g. Double Bedroom Housing) are state schemes delivered through the state corporation and district machinery, not the elected GHMC."
+      },
+      "why": {
+        "stated_rationale": "Specialised, scaled delivery of affordable/public housing across the state; mass housing schemes for the poor.",
+        "political_economy": "Housing-for-the-poor as a STATE patronage and land instrument rather than an elected-city entitlement: the politically valuable housing programme (and its land) is kept on the state's books and credited to the ruling state party, not the municipal corporation. Caste/class offloading — the weaker-sections functions (#9-11) are delivered by the state at arm's length from the elected body that nominally holds them."
+      },
+      "era": "pre_1991_origin_post_1991_telangana_successor",
+      "elected": false,
+      "verify": true
+    },
+    {
+      "body": "Telangana slum / urban-poverty bodies",
+      "full_name": "Telangana State (formerly AP) slum-clearance & urban-poverty machinery — MEPMA (Mission for Elimination of Poverty in Municipal Areas) and the slum-improvement programme apparatus",
+      "what": "Slum improvement and upgradation (Twelfth-Schedule #10) and urban poverty alleviation (#11) — delivered through a state mission/agency layer (MEPMA and slum-board/clearance lineage) rather than as an in-house GHMC function.",
+      "how": {
+        "instrument": "State mission/agency under state government, channelling centrally-sponsored schemes",
+        "act_or_notification": "MEPMA (state society/mission); slum-clearance board lineage; delivery vehicle for centrally-sponsored urban-poverty/housing schemes (SJSRY/NULM, PMAY-Urban)",
+        "year": "MEPMA lineage 2000s; AP slum-clearance apparatus older",
+        "act_number": "society/mission, not a standalone city statute",
+        "decided_by": "state",
+        "mechanism": "Created and controlled by the state government; the elected corporation is an implementation partner, not the principal. Centrally-sponsored scheme conditionality (centre) flows THROUGH the state mission, bypassing direct elected-city control."
+      },
+      "why": {
+        "stated_rationale": "Coordinated, mission-mode delivery of poverty-alleviation and slum-upgradation programmes with central scheme funds.",
+        "political_economy": "Neoliberal conditionality (Cooper): centrally-sponsored schemes (NULM, PMAY) arrive with scheme rules and parastatal delivery vehicles that route the urban-poverty functions through a STATE mission, not the elected ward councillor — depoliticising distribution and converting a Twelfth-Schedule entitlement into a discretionary, conditional, state-administered programme. Slum-clearance land is, in Ghosh's terms, prime recoupment territory."
+      },
+      "era": "post_1991",
+      "elected": false,
+      "verify": true
+    },
+    {
+      "body": "TSRTC / TGSRTC",
+      "full_name": "Telangana State Road Transport Corporation (renamed TGSRTC) — successor in Telangana to APSRTC",
+      "what": "City bus / public road transport for Hyderabad — Twelfth-Schedule #17 (public amenities incl. bus stops; the bus service itself a public-transport function) — run by a state road-transport corporation, never by the elected city. (Mumbai's BEST, by contrast, is a corporation undertaking.)",
+      "how": {
+        "instrument": "Central enabling Act, state corporation",
+        "act_or_notification": "Road Transport Corporations Act, 1950 (Central Act 64 of 1950) — under which APSRTC, then TSRTC/TGSRTC, are constituted by the state",
+        "year": "RTC Act 1950 (centre); APSRTC 1958; TSRTC 2014-15 post-bifurcation; TGSRTC rebrand 2023-24",
+        "act_number": "Central Act 64 of 1950 (enabling); state notifications constitute the corporation",
+        "decided_by": "state",
+        "mechanism": "Parliament's RTC Act, 1950 (centre) is the enabling frame; the STATE government constitutes and owns the corporation. City bus transport is a state-corporation monopoly; the elected GHMC has no transport undertaking."
+      },
+      "why": {
+        "stated_rationale": "A unified, state-wide professional road-transport corporation achieves economies of scale and network coverage across city and mofussil.",
+        "political_economy": "Transport — a high-footfall, politically visible, subsidy-and-asset-rich function — is held by the state, not the city. The elected corporation cannot shape the bus network its residents actually ride (the metro-vs-bus inversion in the corporate-city essay). Labour: RTC employees are a state workforce; the elected city carries none of the bargaining or the credit."
+      },
+      "era": "pre_1991",
+      "elected": false,
+      "verify": true
+    },
+    {
+      "body": "HMRL / Hyderabad Metro Rail (L&T PPP -> state-acquired 2026)",
+      "full_name": "Hyderabad Metro Rail Ltd (HMRL, state SPV) + L&T Metro Rail (Hyderabad) Ltd (concessionaire, Phase I) — Phase I ACQUIRED by Government of Telangana, April 2026",
+      "what": "Urban rail mass transit (Phase I, 3 corridors, 69 km; ~5 lakh riders/day) — a mass-transport function delivered first as a PRIVATE PPP, then RE-MUNICIPALISED to the STATE (not the elected city). Twelfth-Schedule-adjacent public transport, plus the metro's substantial real-estate/land component.",
+      "how": {
+        "instrument": "DBFOT PPP concession (private) -> state acquisition (share transfer)",
+        "act_or_notification": "L&T DBFOT concession agreement with HMRL (state SPV); then Government of Telangana acquisition of Phase I from L&T (~Rs 1,461 crore, share transfer completed April 2026)",
+        "year": "2010s build; commercial ops Nov 2017 (PPP); April 2026 (state acquisition / re-municipalisation)",
+        "act_number": "concession agreement + state cabinet/government decision and share-purchase (not a standalone statute)",
+        "decided_by": "state",
+        "mechanism": "ORIGINALLY: private — the world's largest metro PPP, an L&T SPV under concession with the state's HMRL. AS OF APRIL 2026: the Government of Telangana acquired Phase I from L&T, moving the asset PRIVATE -> STATE. At no point did the ELECTED city decide or own it; the rare reversal was state-to-state-of-control, not a devolution to GHMC."
+      },
+      "why": {
+        "stated_rationale": "PPP rationale: private capital and efficiency to build a megaproject the public exchequer 'could not afford' (the canonical PPP/austerity claim). 2026 acquisition rationale: restore public control, resolve the concession's financial stress, integrate the metro into state transport.",
+        "political_economy": "Cooper's austerity-extravagance in one asset: austerity ('the state can't fund it') justified handing the metro AND its station/land value to a private concessionaire; when the PPP's economics soured, the state spent ~Rs 1,461 crore to take it back — extravagance to rescue the private deal. Either way the elected city is bypassed. Ghosh: the metro is a land/real-estate machine first, transit second; control of that rent was never given to GHMC. The 2026 re-municipalisation is rare and worth flagging — but it is RE-STATE-ISATION, not democratisation: decided_by remains 'state'."
+      },
+      "era": "post_1991",
+      "elected": false,
+      "verify": true
+    },
+    {
+      "body": "HITEC City / Cyberabad (IT-corridor development bodies)",
+      "full_name": "HITEC City (Hyderabad Information Technology and Engineering Consultancy City) / Cyberabad development & the IT-corridor governance apparatus (incl. APIIC/TSIIC land assembly and the Cyberabad/Gachibowli special policing & municipal arrangements)",
+      "what": "Planning, land assembly, infrastructure and effective governance of the IT corridor (Madhapur/Gachibowli/HITEC City) — high-value urban land and development pulled into a state industrial-promotion and special-development apparatus, governed substantially OUTSIDE ordinary GHMC municipal process.",
+      "how": {
+        "instrument": "State industrial-development corporation + state policy/notifications (land, SEZ, special development)",
+        "act_or_notification": "APIIC (now TSIIC) land assembly under AP/Telangana Industrial Infrastructure Corporation framework; state IT policy; Cyberabad development as a state-driven enclave (HITEC City Ltd JV launched 1998)",
+        "year": "1998 (HITEC City) onward",
+        "act_number": "state corporation + executive policy, not a single municipal statute",
+        "decided_by": "state",
+        "mechanism": "The state assembled land and built the IT corridor through its industrial-infrastructure corporation and IT policy — a state, investor-facing project. The elected corporation did not plan, assemble the land for, or govern the enclave's making; key development levers sit with state agencies."
+      },
+      "why": {
+        "stated_rationale": "Attract global IT/ITES investment; build a world-class technology enclave to drive the state economy (the Naidu-era 'Cyberabad' vision).",
+        "political_economy": "Elite capture and land financialisation in their clearest urban form: the most valuable urban land is assembled by the STATE for capital, governed as an investor-facing enclave outside the elected city's reach — a 'technical ghetto' of premium governance. Neoliberal conditionality and place-marketing replace the elected corporation as the unit of decision; the rent-rich corridor is a state-and-capital project, the elected city left with the rest."
+      },
+      "era": "post_1991",
+      "elected": false,
+      "verify": true
+    },
+    {
+      "body": "Hyderabad Smart City SPV",
+      "full_name": "Hyderabad Smart City Ltd (Smart Cities Mission Special-Purpose Vehicle)",
+      "what": "Area-based and pan-city 'smart' urban development (infrastructure, digital systems, area redevelopment) — delivered through a centrally-mandated SPV with its own board, ring-fencing chosen urban-development functions from ordinary elected-corporation process.",
+      "how": {
+        "instrument": "Centrally-mandated SPV (company under the Companies Act) under the Smart Cities Mission",
+        "act_or_notification": "Smart Cities Mission (MoHUA, Union, 2015) — each city's SPV incorporated as a company with state/ULB shareholding and a CEO-led board",
+        "year": "2015-16 onward",
+        "act_number": "company incorporation under the Smart Cities Mission guidelines (centre) + state/ULB equity",
+        "decided_by": "centre",
+        "mechanism": "The Union mission REQUIRED an SPV structure as a funding condition; the SPV (board-and-CEO-run, with state and GHMC equity) executes 'smart city' works. The mission design deliberately routes funds and decisions through the SPV rather than the elected council — a centre-designed institutional bypass."
+      },
+      "why": {
+        "stated_rationale": "A nimble, professionally-run, ring-fenced vehicle to deliver smart-city projects with central funds, insulated from municipal 'delays'.",
+        "political_economy": "Textbook neoliberal conditionality (Cooper): central funds come tied to an SPV that lifts chosen projects OUT of the elected body — depoliticisation by mission design, decided at the CENTRE. The SPV is the improvement trust's 21st-century form: appointed, executive, not deliberative; the elected councillor is reduced to a minority stakeholder in works done in their own ward."
+      },
+      "era": "post_1991",
+      "elected": false,
+      "verify": true
+    },
+    {
+      "body": "TGSPDCL (electricity)",
+      "full_name": "Telangana State Southern Power Distribution Company Ltd",
+      "what": "Electricity distribution for the Hyderabad region — held by a STATE discom. (Context only: electricity distribution is NOT a Twelfth-Schedule municipal function, so this is not a devolution failure in the strict sense — included to complete the provisioning map. Unlike Ahmedabad/Kolkata, Hyderabad's power is STATE, not private.)",
+      "how": {
+        "instrument": "State discom under central enabling Act",
+        "act_or_notification": "Electricity Act, 2003 (Central Act 36 of 2003) frame; TGSPDCL a state-owned distribution company (ex-APSPDCL/CPDCL lineage, bifurcated 2014)",
+        "year": "Electricity Act 2003 (centre); TGSPDCL post-2014 bifurcation",
+        "act_number": "Central Act 36 of 2003 (enabling); state-owned company",
+        "decided_by": "state",
+        "mechanism": "State-owned distribution company under the central Electricity Act, 2003 frame; never a municipal function and never the elected city's."
+      },
+      "why": {
+        "stated_rationale": "Sector-standard state discom structure under national electricity-reform law.",
+        "political_economy": "Not a 12th-Schedule carve-out — included for completeness. The point is contextual: even the non-municipal utility sits at the STATE level, reinforcing that almost nothing of daily provisioning is decided by the elected city. (Hyderabad notably KEEPS power public, unlike the privatised Torrent/CESC cities.)"
+      },
+      "era": "post_1991",
+      "elected": false,
+      "verify": false
+    },
+    {
+      "body": "Contractualisation layer (GHMC sanitation — ~28,000 contract workers)",
+      "full_name": "GHMC sanitation/conservancy front line run on CONTRACT and OUTSOURCING basis (~28,000 workers)",
+      "what": "Not a body that took a function, but the HOLLOWING of a function GHMC nominally keeps. Sanitation/conservancy (Twelfth-Schedule #6) is GHMC's on the org chart — but roughly the ENTIRE ~28,000-strong front line is on CONTRACT/OUTSOURCING, not permanent municipal employment. A GHMC pay revision was applied while pointedly EXCLUDING contract staff, formalising the two-tier divide.",
+      "how": {
+        "instrument": "Outsourcing/labour contracts + administrative practice (biometric-attendance regime), NOT a statute carving out the function",
+        "act_or_notification": "GHMC executive/administrative contracting practice; pay revision explicitly excluding contract staff",
+        "year": "ongoing (current)",
+        "act_number": "n/a (administrative, not statutory)",
+        "decided_by": "state",
+        "mechanism": "Effected through GHMC's outsourcing arrangements operating within the state's frame — contract labour replaces a permanent municipal cadre doing identical work under the same supervisors. The 'in-house'/elected cell is a shell: organisationally GHMC, but on the payroll outsourced."
+      },
+      "why": {
+        "stated_rationale": "Flexibility and cost control in deploying a large sanitation workforce.",
+        "political_economy": "Ambedkar's terrain: the SAME conservancy work is split into a thin permanent tier and a vast contract tier (~28,000), the contract tier overwhelmingly Dalit/Valmiki (NAMASTE profiling: ~68.9% SC, ~77% Dalit). The contract is the modern instrument of the graded 'division of labourers' — caste/labour offloading. Cooper: privatisation-as-counterrevolution lands on the front line as sub-tier wages and no tenure; the pay revision that EXCLUDES contract staff legislates the two-tier divide. The most fully-contractualised conservancy workforce among the atlas cities."
+      },
+      "era": "post_1991",
+      "elected": false,
+      "verify": false
+    }
+  ],
+
+  "summary": {
+    "total_bodies_and_layers": 13,
+    "carve_outs_excluding_ghmc_status_and_contract_note": 11,
+    "pre_1991": ["City Improvement Board (Nizam-era)", "HUDA (1975)", "HMWSSB (1989)", "TSRTC/RTC Act 1950 lineage", "Telangana/AP Housing Board (origin)"],
+    "post_1991": ["HMDA (2008)", "Telangana slum/urban-poverty bodies (MEPMA)", "HMRL/Hyderabad Metro (PPP 2017 -> state-acquired 2026)", "HITEC City/Cyberabad (1998+)", "Hyderabad Smart City SPV (2015+)", "TGSPDCL (context)", "contractualisation layer"],
+    "decided_by_tally": {
+      "city_elected": 0,
+      "state": 11,
+      "centre": 1,
+      "colonial_princely": 1,
+      "note": "NOT ONE carve-out was decided by the elected city. State = the dominant decider (incl. the Nizam's princely state for the improvement board, counted separately as 'colonial'); centre = Smart City SPV (mission-mandated). decided_by is the analytical core: the unelected city is, precisely, the city decided elsewhere."
+    },
+    "headline": "Every function worth holding in Hyderabad was decided OUT of the elected GHMC by the STATE (or its princely predecessor) — water (HMWSSB 1989) and metropolitan land/planning (HUDA 1975 -> HMDA 2008) before the 74th Amendment even promised devolution; transport (TSRTC), housing, slum/poverty (MEPMA), the IT corridor (HITEC City/Cyberabad), the Smart City SPV and the metro after it. Two signatures make Hyderabad distinctive: the state LEGISLATED GHMC's special status by exempting it from the Telangana Municipalities Act 2019 (§1(3)), keeping the megacity under the bespoke 1955 Act; and in April 2026 the state RE-MUNICIPALISED the metro, buying Phase I back from L&T (~Rs 1,461 cr) — a rare reversal that nonetheless moved the asset private->STATE, never to the elected city. Underneath it all, the one function GHMC keeps — sanitation — is hollowed: ~28,000 contract/outsourced workers, overwhelmingly Dalit, the elected cell a shell."
+  }
+}
