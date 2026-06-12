@@ -1,0 +1,1216 @@
+{
+ "schema": "sevent4.jurisdiction_crosswalk.v1",
+ "city": "chennai",
+ "country": "India",
+ "levels": [
+  "state",
+  "district"
+ ],
+ "thresholds": {
+  "method": "ward representative point within AC polygon (nearest fallback)"
+ },
+ "excluded_acs": [],
+ "source": "spatial join of city ward/AC/PC layers (AC carries PC_NAME + DIST_NAME)",
+ "records": [
+  {
+   "ward_name": "Ward 1 · THIRUVOTTIYUR",
+   "ac_name": "Dr.Radhakrishnan Naga",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 2 · THIRUVOTTIYUR",
+   "ac_name": "Dr.Radhakrishnan Naga",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 3 · THIRUVOTTIYUR",
+   "ac_name": "Dr.Radhakrishnan Naga",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 4 · THIRUVOTTIYUR",
+   "ac_name": "Dr.Radhakrishnan Naga",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 5 · THIRUVOTTIYUR",
+   "ac_name": "Dr.Radhakrishnan Naga",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 6 · THIRUVOTTIYUR",
+   "ac_name": "Dr.Radhakrishnan Naga",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 7 · THIRUVOTTIYUR",
+   "ac_name": "Dr.Radhakrishnan Naga",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 8 · THIRUVOTTIYUR",
+   "ac_name": "Dr.Radhakrishnan Naga",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 9 · THIRUVOTTIYUR",
+   "ac_name": "Dr.Radhakrishnan Naga",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 10 · THIRUVOTTIYUR",
+   "ac_name": "Dr.Radhakrishnan Naga",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 11 · THIRUVOTTIYUR",
+   "ac_name": "Dr.Radhakrishnan Naga",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 12 · THIRUVOTTIYUR",
+   "ac_name": "Dr.Radhakrishnan Naga",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 13 · THIRUVOTTIYUR",
+   "ac_name": "Dr.Radhakrishnan Naga",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 14 · THIRUVOTTIYUR",
+   "ac_name": "Dr.Radhakrishnan Naga",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 15 · MANALI",
+   "ac_name": "Dr.Radhakrishnan Naga",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 16 · MANALI",
+   "ac_name": "Perambur",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 17 · MANALI",
+   "ac_name": "Perambur",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 18 · MANALI",
+   "ac_name": "Perambur",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 19 · MANALI",
+   "ac_name": "Perambur",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 20 · MANALI",
+   "ac_name": "Perambur",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 21 · MANALI",
+   "ac_name": "Perambur",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 22 · MADHAVARAM",
+   "ac_name": "Kolathur",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 23 · MADHAVARAM",
+   "ac_name": "Kolathur",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 24 · MADHAVARAM",
+   "ac_name": "Kolathur",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 25 · MADHAVARAM",
+   "ac_name": "Kolathur",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 26 · MADHAVARAM",
+   "ac_name": "Kolathur",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 27 · MADHAVARAM",
+   "ac_name": "Perambur",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 28 · MADHAVARAM",
+   "ac_name": "Perambur",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 29 · MADHAVARAM",
+   "ac_name": "Perambur",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 30 · MADHAVARAM",
+   "ac_name": "Perambur",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 31 · MADHAVARAM",
+   "ac_name": "Perambur",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 32 · MADHAVARAM",
+   "ac_name": "Kolathur",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 33 · MADHAVARAM",
+   "ac_name": "Kolathur",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 34 · TONDIARPET",
+   "ac_name": "Perambur",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 35 · TONDIARPET",
+   "ac_name": "Perambur",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 36 · TONDIARPET",
+   "ac_name": "Perambur",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 37 · TONDIARPET",
+   "ac_name": "Perambur",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 38 · TONDIARPET",
+   "ac_name": "Dr.Radhakrishnan Naga",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 39 · TONDIARPET",
+   "ac_name": "Dr.Radhakrishnan Naga",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 40 · TONDIARPET",
+   "ac_name": "Dr.Radhakrishnan Naga",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 41 · TONDIARPET",
+   "ac_name": "Dr.Radhakrishnan Naga",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 42 · TONDIARPET",
+   "ac_name": "Dr.Radhakrishnan Naga",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 43 · TONDIARPET",
+   "ac_name": "Dr.Radhakrishnan Naga",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 44 · TONDIARPET",
+   "ac_name": "Perambur",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 45 · TONDIARPET",
+   "ac_name": "Perambur",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 46 · TONDIARPET",
+   "ac_name": "Perambur",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 47 · TONDIARPET",
+   "ac_name": "Dr.Radhakrishnan Naga",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 48 · TONDIARPET",
+   "ac_name": "Royapuram",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 49 · ROYAPURAM",
+   "ac_name": "Royapuram",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 50 · ROYAPURAM",
+   "ac_name": "Royapuram",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 51 · ROYAPURAM",
+   "ac_name": "Royapuram",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 52 · ROYAPURAM",
+   "ac_name": "Royapuram",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 53 · ROYAPURAM",
+   "ac_name": "Royapuram",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 54 · ROYAPURAM",
+   "ac_name": "Harbour",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 55 · ROYAPURAM",
+   "ac_name": "Harbour",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 56 · ROYAPURAM",
+   "ac_name": "Harbour",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 57 · ROYAPURAM",
+   "ac_name": "Harbour",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 58 · ROYAPURAM",
+   "ac_name": "Egmore (SC)",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 59 · ROYAPURAM",
+   "ac_name": "Harbour",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 60 · ROYAPURAM",
+   "ac_name": "Harbour",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 61 · ROYAPURAM",
+   "ac_name": "Egmore (SC)",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 62 · ROYAPURAM",
+   "ac_name": "Chepauk-Thiruvalliken",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 63 · ROYAPURAM",
+   "ac_name": "Chepauk-Thiruvalliken",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 64 · THIRU-VI-KA-NAGAR",
+   "ac_name": "Kolathur",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 65 · THIRU-VI-KA-NAGAR",
+   "ac_name": "Kolathur",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 66 · THIRU-VI-KA-NAGAR",
+   "ac_name": "Kolathur",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 67 · THIRU-VI-KA-NAGAR",
+   "ac_name": "Kolathur",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 68 · THIRU-VI-KA-NAGAR",
+   "ac_name": "Kolathur",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 69 · THIRU-VI-KA-NAGAR",
+   "ac_name": "Kolathur",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 70 · THIRU-VI-KA-NAGAR",
+   "ac_name": "Thiru-Vi-Ka-Nagar(SC)",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 71 · THIRU-VI-KA-NAGAR",
+   "ac_name": "Thiru-Vi-Ka-Nagar(SC)",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 72 · THIRU-VI-KA-NAGAR",
+   "ac_name": "Thiru-Vi-Ka-Nagar(SC)",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 73 · THIRU-VI-KA-NAGAR",
+   "ac_name": "Thiru-Vi-Ka-Nagar(SC)",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 74 · THIRU-VI-KA-NAGAR",
+   "ac_name": "Thiru-Vi-Ka-Nagar(SC)",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 75 · THIRU-VI-KA-NAGAR",
+   "ac_name": "Thiru-Vi-Ka-Nagar(SC)",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 76 · THIRU-VI-KA-NAGAR",
+   "ac_name": "Thiru-Vi-Ka-Nagar(SC)",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 77 · THIRU-VI-KA-NAGAR",
+   "ac_name": "Egmore (SC)",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 78 · THIRU-VI-KA-NAGAR",
+   "ac_name": "Egmore (SC)",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 79 · AMBATTUR",
+   "ac_name": "Villivakkam",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 80 · AMBATTUR",
+   "ac_name": "Villivakkam",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 81 · AMBATTUR",
+   "ac_name": "Villivakkam",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 82 · AMBATTUR",
+   "ac_name": "Villivakkam",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 83 · AMBATTUR",
+   "ac_name": "Kolathur",
+   "pc_name": "CHENNAI NORTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 84 · AMBATTUR",
+   "ac_name": "Villivakkam",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 85 · AMBATTUR",
+   "ac_name": "Villivakkam",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 86 · AMBATTUR",
+   "ac_name": "Virugampakkam",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 87 · AMBATTUR",
+   "ac_name": "Villivakkam",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 88 · AMBATTUR",
+   "ac_name": "Villivakkam",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 89 · AMBATTUR",
+   "ac_name": "Villivakkam",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 90 · AMBATTUR",
+   "ac_name": "Villivakkam",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 91 · AMBATTUR",
+   "ac_name": "Virugampakkam",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 92 · AMBATTUR",
+   "ac_name": "Virugampakkam",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 93 · AMBATTUR",
+   "ac_name": "Virugampakkam",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 94 · ANNANAGAR",
+   "ac_name": "Villivakkam",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 95 · ANNANAGAR",
+   "ac_name": "Villivakkam",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 96 · ANNANAGAR",
+   "ac_name": "Villivakkam",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 97 · ANNANAGAR",
+   "ac_name": "Villivakkam",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 98 · ANNANAGAR",
+   "ac_name": "Villivakkam",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 99 · ANNANAGAR",
+   "ac_name": "Villivakkam",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 100 · ANNANAGAR",
+   "ac_name": "Anna Nagar",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 101 · ANNANAGAR",
+   "ac_name": "Anna Nagar",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 102 · ANNANAGAR",
+   "ac_name": "Anna Nagar",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 103 · ANNANAGAR",
+   "ac_name": "Anna Nagar",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 104 · ANNANAGAR",
+   "ac_name": "Anna Nagar",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 105 · ANNANAGAR",
+   "ac_name": "Anna Nagar",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 106 · ANNANAGAR",
+   "ac_name": "Anna Nagar",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 107 · ANNANAGAR",
+   "ac_name": "Egmore (SC)",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 108 · ANNANAGAR",
+   "ac_name": "Anna Nagar",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 109 · TEYNAMPET",
+   "ac_name": "Thousand Lights",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 110 · TEYNAMPET",
+   "ac_name": "Thousand Lights",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 111 · TEYNAMPET",
+   "ac_name": "Thousand Lights",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 112 · TEYNAMPET",
+   "ac_name": "Anna Nagar",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 113 · TEYNAMPET",
+   "ac_name": "Thousand Lights",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 114 · TEYNAMPET",
+   "ac_name": "Chepauk-Thiruvalliken",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 115 · TEYNAMPET",
+   "ac_name": "Chepauk-Thiruvalliken",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 116 · TEYNAMPET",
+   "ac_name": "Chepauk-Thiruvalliken",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 117 · TEYNAMPET",
+   "ac_name": "Thousand Lights",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 118 · TEYNAMPET",
+   "ac_name": "Thousand Lights",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 119 · TEYNAMPET",
+   "ac_name": "Chepauk-Thiruvalliken",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 120 · TEYNAMPET",
+   "ac_name": "Chepauk-Thiruvalliken",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 121 · TEYNAMPET",
+   "ac_name": "Mylapore",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 122 · TEYNAMPET",
+   "ac_name": "Mylapore",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 123 · TEYNAMPET",
+   "ac_name": "Mylapore",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 124 · TEYNAMPET",
+   "ac_name": "Mylapore",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 125 · TEYNAMPET",
+   "ac_name": "Mylapore",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 126 · TEYNAMPET",
+   "ac_name": "Mylapore",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 127 · KODAMBAKKAM",
+   "ac_name": "Virugampakkam",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 128 · KODAMBAKKAM",
+   "ac_name": "Virugampakkam",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 129 · KODAMBAKKAM",
+   "ac_name": "Virugampakkam",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 130 · KODAMBAKKAM",
+   "ac_name": "Thiyagarayanagar",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 131 · KODAMBAKKAM",
+   "ac_name": "Virugampakkam",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 132 · KODAMBAKKAM",
+   "ac_name": "Thiyagarayanagar",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 133 · KODAMBAKKAM",
+   "ac_name": "Thiyagarayanagar",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 134 · KODAMBAKKAM",
+   "ac_name": "Thiyagarayanagar",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 135 · KODAMBAKKAM",
+   "ac_name": "Thiyagarayanagar",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 136 · KODAMBAKKAM",
+   "ac_name": "Thiyagarayanagar",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 137 · KODAMBAKKAM",
+   "ac_name": "Virugampakkam",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 138 · KODAMBAKKAM",
+   "ac_name": "Virugampakkam",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 139 · KODAMBAKKAM",
+   "ac_name": "Saidapet",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 140 · KODAMBAKKAM",
+   "ac_name": "Saidapet",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 141 · KODAMBAKKAM",
+   "ac_name": "Thousand Lights",
+   "pc_name": "CHENNAI CENTRAL",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 142 · KODAMBAKKAM",
+   "ac_name": "Saidapet",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 143 · VALASARAVAKKAM",
+   "ac_name": "Virugampakkam",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 144 · VALASARAVAKKAM",
+   "ac_name": "Virugampakkam",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 145 · VALASARAVAKKAM",
+   "ac_name": "Virugampakkam",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 146 · VALASARAVAKKAM",
+   "ac_name": "Virugampakkam",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 147 · VALASARAVAKKAM",
+   "ac_name": "Virugampakkam",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 148 · VALASARAVAKKAM",
+   "ac_name": "Virugampakkam",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 149 · VALASARAVAKKAM",
+   "ac_name": "Virugampakkam",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 150 · VALASARAVAKKAM",
+   "ac_name": "Virugampakkam",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 151 · VALASARAVAKKAM",
+   "ac_name": "Virugampakkam",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 152 · VALASARAVAKKAM",
+   "ac_name": "Virugampakkam",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 153 · VALASARAVAKKAM",
+   "ac_name": "Virugampakkam",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 154 · VALASARAVAKKAM",
+   "ac_name": "Virugampakkam",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 155 · VALASARAVAKKAM",
+   "ac_name": "Virugampakkam",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 156 · ALANDUR",
+   "ac_name": "Virugampakkam",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 157 · ALANDUR",
+   "ac_name": "Virugampakkam",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 158 · ALANDUR",
+   "ac_name": "Virugampakkam",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 159 · ALANDUR",
+   "ac_name": "Velachery",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 160 · ALANDUR",
+   "ac_name": "Saidapet",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 161 · ALANDUR",
+   "ac_name": "Velachery",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 162 · ALANDUR",
+   "ac_name": "Velachery",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 163 · ALANDUR",
+   "ac_name": "Velachery",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 164 · ALANDUR",
+   "ac_name": "Velachery",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 165 · ALANDUR",
+   "ac_name": "Velachery",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 166 · ALANDUR",
+   "ac_name": "Velachery",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 167 · ALANDUR",
+   "ac_name": "Velachery",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 168 · PERUNGUDI",
+   "ac_name": "Velachery",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 169 · PERUNGUDI",
+   "ac_name": "Velachery",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 170 · ADYAR",
+   "ac_name": "Saidapet",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 171 · ADYAR",
+   "ac_name": "Saidapet",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 172 · ADYAR",
+   "ac_name": "Saidapet",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 173 · ADYAR",
+   "ac_name": "Mylapore",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 174 · ADYAR",
+   "ac_name": "Saidapet",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 175 · ADYAR",
+   "ac_name": "Velachery",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 176 · ADYAR",
+   "ac_name": "Velachery",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 177 · ADYAR",
+   "ac_name": "Velachery",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 178 · ADYAR",
+   "ac_name": "Velachery",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 179 · ADYAR",
+   "ac_name": "Velachery",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 180 · ADYAR",
+   "ac_name": "Velachery",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 181 · ADYAR",
+   "ac_name": "Velachery",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 182 · ADYAR",
+   "ac_name": "Velachery",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 183 · PERUNGUDI",
+   "ac_name": "Velachery",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 184 · PERUNGUDI",
+   "ac_name": "Velachery",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 185 · PERUNGUDI",
+   "ac_name": "Velachery",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 186 · PERUNGUDI",
+   "ac_name": "Velachery",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 187 · PERUNGUDI",
+   "ac_name": "Velachery",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 188 · PERUNGUDI",
+   "ac_name": "Velachery",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 189 · PERUNGUDI",
+   "ac_name": "Velachery",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 190 · PERUNGUDI",
+   "ac_name": "Velachery",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 191 · PERUNGUDI",
+   "ac_name": "Velachery",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 192 · SOZHINGANALLUR",
+   "ac_name": "Velachery",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 193 · SOZHINGANALLUR",
+   "ac_name": "Velachery",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 194 · SOZHINGANALLUR",
+   "ac_name": "Velachery",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 195 · SOZHINGANALLUR",
+   "ac_name": "Velachery",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 196 · SOZHINGANALLUR",
+   "ac_name": "Velachery",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 197 · SOZHINGANALLUR",
+   "ac_name": "Velachery",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 198 · SOZHINGANALLUR",
+   "ac_name": "Velachery",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 199 · SOZHINGANALLUR",
+   "ac_name": "Velachery",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  },
+  {
+   "ward_name": "Ward 200 · SOZHINGANALLUR",
+   "ac_name": "Velachery",
+   "pc_name": "CHENNAI SOUTH",
+   "district_name": "CHENNAI"
+  }
+ ]
+}

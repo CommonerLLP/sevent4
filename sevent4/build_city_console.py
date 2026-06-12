@@ -45,10 +45,62 @@ def _copy_layers(city: CityDataset, manifest: LayerManifest, layer_out: Path) ->
             shutil.copy2(path, layer_out / sidecar)
 
 
+# Cities with a full, deep build (spine + finance/heat/etc.) are SELECTABLE;
+# everything else (scaffold consoles + absent major cities) shows GREYED ("coming").
+READY_CITIES = {"ahmedabad", "bengaluru", "chennai", "kolkata"}
+ABSENT_CITIES = {
+    "Gujarat": ["Surat", "Vadodara", "Rajkot"],
+    "Karnataka": ["Mysuru", "Hubballi-Dharwad", "Mangaluru"],
+    "Tamil Nadu": ["Coimbatore", "Madurai", "Tiruchirappalli"],
+    "West Bengal": ["Howrah", "Siliguri", "Durgapur"],
+}
+ALL_STATES = [
+    "Andhra Pradesh", "Assam", "Bihar", "Chhattisgarh", "Delhi (NCT)", "Goa", "Gujarat",
+    "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh",
+    "Maharashtra", "Odisha", "Punjab", "Rajasthan", "Tamil Nadu", "Telangana",
+    "Uttar Pradesh", "Uttarakhand", "West Bengal",
+]
+
+
+def _geo_roster(city: CityDataset) -> tuple[dict, list[str]]:
+    """Build {state: {ready, cities:[{id?,name,ready}]}} from sibling city.yaml + curated absentees."""
+    root = city.layers_dir.parent.parent  # data/cities/
+    by_state: dict[str, list[dict]] = {}
+    for yml in sorted(root.glob("*/city.yaml")):
+        cid = yml.parent.name
+        try:
+            cd = CityDataset.from_yaml(str(yml))
+            st, nm = cd.state, cd.name
+        except Exception:
+            continue
+        by_state.setdefault(st, []).append({"id": cid, "name": nm, "ready": cid in READY_CITIES})
+    for st, names in ABSENT_CITIES.items():
+        have = {c["name"] for c in by_state.get(st, [])}
+        for n in names:
+            if n not in have:
+                by_state.setdefault(st, []).append({"name": n, "ready": False})
+    for cs in by_state.values():
+        cs.sort(key=lambda c: (not c["ready"], c["name"]))
+    geo = {st: {"ready": any(c["ready"] for c in cs), "cities": cs} for st, cs in by_state.items()}
+    states = sorted(set(ALL_STATES) | set(geo))
+    return geo, states
+
+
+def _state_options(city: CityDataset, geo: dict, states: list[str]) -> str:
+    opts: list[str] = []
+    for st in states:
+        ready = geo.get(st, {}).get("ready", False)
+        sel = " selected" if st == city.state else ""
+        dis = "" if ready else " disabled"
+        opts.append(f'<option value="{html.escape(st)}"{sel}{dis}>{html.escape(st)}</option>')
+    return "".join(opts)
+
+
 def _html(city: CityDataset, manifest: LayerManifest) -> str:
     groups = _groups(manifest.layers)
     jurisdiction = _jurisdiction_context(city.layers_dir)
-    governance = _governance_context(city)
+    geo, geo_states = _geo_roster(city)
+    state_options = _state_options(city, geo, geo_states)
     ward_options = _feature_options(
         city.layers_dir / "wards.geojson",
         "Name",
@@ -59,15 +111,14 @@ def _html(city: CityDataset, manifest: LayerManifest) -> str:
     pc_disabled = "" if pc_options else " disabled"
     ac_label = "Assembly constituency" if ac_options else "Assembly constituency boundary not loaded"
     pc_label = "Parliamentary constituency" if pc_options else "Parliamentary constituency boundary not loaded"
-    finance_link = '<a href="./finance/">Finance</a>' if (city.source_dir / "budget").exists() else ""
     return f"""<!doctype html>
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="application-name" content="The Unelected City">
+  <meta name="application-name" content="Part IXA: The Municipalities">
   <meta name="theme-color" content="#f3f1ea">
-  <title>The Unelected City - {html.escape(city.state)} / {html.escape(city.name)}</title>
+  <title>Part IXA: The Municipalities - {html.escape(city.state)} / {html.escape(city.name)}</title>
   <link rel="icon" type="image/png" href="../../assets/ixa-mark.png?v=stitch-color">
   <link rel="manifest" href="../../site.webmanifest">
   <link rel="stylesheet" href="../../assets/maplibre-gl.css">
@@ -80,16 +131,15 @@ def _html(city: CityDataset, manifest: LayerManifest) -> str:
         <div>
           <div class="brandrow">
             <img class="ixamark" src="../../assets/ixa-mark.png?v=stitch-color" alt="" aria-hidden="true">
-            <div class="wordmark" aria-label="The Unelected City"><span>The Unelected City</span><b>An Accountability Atlas</b></div>
+            <div class="wordmark" aria-label="The Municipalities Accountability Atlas"><span>The Municipalities</span><b>Accountability Atlas</b></div>
           </div>
           <nav class="sitenav" aria-label="Site">
             <a class="is-active" href="./">Atlas</a>
-            {finance_link}
             <a href="../../about/">About</a>
           </nav>
           <div class="jurisdictionbar" aria-label="Current jurisdiction">
-            <label><span>State</span><select id="statesel"><option value="{html.escape(city.state)}">{html.escape(city.state)}</option></select></label>
-            <label><span>City</span><select id="citysel">{_city_options(city)}</select></label>
+            <label><span>State</span><select id="statesel">{state_options}</select></label>
+            <label><span>City</span><select id="citysel"></select></label>
           </div>
         </div>
       </div>
@@ -127,7 +177,9 @@ def _html(city: CityDataset, manifest: LayerManifest) -> str:
   const city = {json.dumps({"center": city.center, "bbox": city.bbox})};
   const layers = {json.dumps([_layer_json(layer, city) for layer in manifest.layers])};
   const jurisdiction = {json.dumps(jurisdiction, ensure_ascii=False)};
-  const governance = {json.dumps(governance, ensure_ascii=False)};
+  const GEO = {json.dumps(geo, ensure_ascii=False)};
+  const CURRENT_STATE = {json.dumps(city.state)};
+  const CURRENT_CITY = {json.dumps(city.id)};
   {_js()}
   </script>
 </body>
@@ -209,27 +261,6 @@ def _feature_options(path: Path, label_key: str, extra_keys: tuple[str, ...] = (
     return "".join(rows)
 
 
-def _governance_context(city: CityDataset) -> dict[str, Any]:
-    path = city.layers_dir / "governance.json"
-    gov = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
-    gov["state"] = city.state
-    return gov
-
-
-def _city_options(city: CityDataset) -> str:
-    reg_path = city.outputs_dir.parent / "registry.json"
-    reg = json.loads(reg_path.read_text(encoding="utf-8")) if reg_path.exists() else []
-    if not any(c["id"] == city.id for c in reg):
-        reg = reg + [{"id": city.id, "name": city.name, "state": city.state}]
-    opts = []
-    for c in sorted(reg, key=lambda r: r["name"]):
-        cur = c["id"] == city.id
-        url = "./index.html" if cur else f"../{c['id']}/index.html"
-        sel = " selected" if cur else ""
-        opts.append(f'<option value="{html.escape(c["id"])}" data-url="{url}"{sel}>{html.escape(c["name"])}</option>')
-    return "".join(opts)
-
-
 def _jurisdiction_context(layers_dir: Path) -> dict[str, Any]:
     path = layers_dir / "jurisdiction_crosswalk.json"
     empty = {"wards": {}, "acs": {}, "pcs": {}, "records": []}
@@ -290,7 +321,7 @@ def _bbox(geom: dict[str, Any]) -> list[float]:
 
 def _rings(geom: dict[str, Any]) -> list[list[list[float]]]:
     def rounded(ring: list[list[float]]) -> list[list[float]]:
-        return [[round(float(pt[0]), 4), round(float(pt[1]), 4)] for pt in ring]
+        return [[round(float(x), 4), round(float(y), 4)] for x, y, *_ in ring]
 
     if geom["type"] == "Polygon":
         return [rounded(geom["coordinates"][0])]
@@ -303,8 +334,8 @@ def _css() -> str:
     return """
 :root{color-scheme:dark;--bg:#0a0c10;--panel:#13161d;--panel2:#171b23;--ink:#ece9e2;--mut:#8b929f;--line:#262c38;--hair:#1b1f28;--blue:#5a86f5;--red:#f0303d;--gold:#edc233;--r:4px;--serif:Georgia,"Iowan Old Style","Times New Roman",serif;--mono:ui-monospace,Menlo,"SF Mono",Consolas,monospace;--sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 [data-theme=light]{color-scheme:light;--bg:#f3f1ea;--panel:#fff;--panel2:#f6f3ea;--ink:#16181d;--mut:#586071;--line:#d7d1c2;--hair:#e7e2d6;--blue:#22409A;--red:#c8102e;--gold:#9a7b14}
-*{box-sizing:border-box;margin:0}html,body{height:100%}body{font:400 15px/1.5 var(--sans);color:var(--ink);background:var(--bg);overflow:hidden}.app{display:grid;grid-template-columns:300px 1fr;height:100vh}.rail{background:var(--panel2);border-right:1px solid var(--line);display:flex;flex-direction:column;min-height:0}.rail .mast{background:var(--panel2);border-bottom:1px solid var(--ink);padding:13px 14px 14px}.rail .mast:before{background:var(--ink);content:"";display:block;height:1px;margin-bottom:9px}.brandmark{color:var(--ink);font-family:var(--serif);font-size:27px;font-weight:800;letter-spacing:0;line-height:1}.brandline{border-bottom:1px solid var(--line);color:var(--mut);font:700 9px/1 var(--mono);letter-spacing:.16em;margin:6px 0 10px;padding-bottom:8px;text-transform:uppercase}.jurisdictionbar{display:grid;grid-template-columns:1fr 1fr;gap:8px}.jurisdictionbar label{display:block;min-width:0}.jurisdictionbar label span{color:var(--mut);display:block;font:700 9px/1 var(--mono);letter-spacing:.14em;margin:0 0 5px;text-transform:uppercase}.jurisdictionbar select{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--ink);font:700 12px/1 var(--mono);height:34px;padding:0 8px;width:100%}.basis{color:var(--mut);font:700 9px/1.4 var(--mono);letter-spacing:.08em;margin-top:9px;text-transform:uppercase}.rail .scroll{overflow:auto;flex:1;padding:10px 12px}.sech{font:700 11px/1 var(--mono);letter-spacing:.14em;color:var(--mut);text-transform:uppercase;margin:14px 0 6px}.readnote{border-left:2px solid var(--gold);color:var(--mut);font-size:12px;line-height:1.55;padding-left:9px}.readnote b{color:var(--ink)}.search,.fsel{width:100%;margin-bottom:7px;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);padding:9px 10px;font:600 12px var(--mono)}.search::placeholder{color:var(--mut)}.fsel{cursor:pointer}.fsel.muted{color:var(--mut);cursor:not-allowed}.fbtn2{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);padding:8px 12px;font:700 11px var(--mono);cursor:pointer;letter-spacing:.06em}.fbtn2:hover,.tbtn:hover{border-color:var(--blue);color:var(--blue)}.tog{display:block;padding:6px 4px;border-bottom:1px solid var(--hair);cursor:pointer;font-size:13px}.tog input{vertical-align:-1px;margin-right:7px;accent-color:var(--blue)}.tog .sw{display:inline-block;width:11px;height:11px;border-radius:2px;vertical-align:0;margin-right:6px;border:1px solid rgba(255,255,255,.18)}.tog b{font-weight:600}.tog.is-hidden{display:none}.rail .foot{padding:10px 14px;border-top:1px solid var(--line);font:600 11px/1.5 var(--mono);color:var(--mut)}.mapwrap{position:relative;height:100vh}#map{height:100vh}.filterbar{position:absolute;z-index:2;top:12px;left:12px;right:12px;display:grid;grid-template-columns:minmax(160px,1fr) minmax(150px,1fr) minmax(150px,1fr) auto 38px;gap:8px;align-items:start}.filterbar .fsel,.filterbar .fbtn2,.filterbar .tbtn{height:38px;margin:0;box-shadow:0 2px 10px rgba(0,0,0,.16)}.filterbar .fbtn2{min-width:116px;white-space:nowrap}.tbtn{align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--ink);cursor:pointer;display:grid;justify-content:center;padding:0;width:38px}.tbtn svg{display:block;fill:none;height:17px;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.2;width:17px}.default-view-ctrl button{color:#333}.default-view-ctrl .default-view-icon{display:grid;height:100%;place-items:center;width:100%}.default-view-ctrl svg{display:block;height:18px;width:18px;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.2}.maplibregl-popup-content{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:6px;font:600 12px/1.5 var(--mono);padding:10px 12px;max-width:320px}.maplibregl-popup-content b{color:var(--ink)}.maplibregl-popup-tip{display:none}.maplibregl-popup-content .k{color:var(--mut)}.maplibregl-popup-content{max-width:340px}.pm-title{font-size:14px}.pm-sub{color:var(--mut);font-size:11px;margin:3px 0 7px}.pm-h{font:700 9px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:10px 0 4px;border-top:1px solid var(--line);padding-top:8px}.pm-h.pm-elect{color:var(--blue)}.pm-h.pm-decide{color:var(--gold)}.pm-warn{color:var(--red);font-weight:700}.pm-ph{color:var(--ink)}.pm-note{color:var(--mut);font-size:10.5px;font-style:italic;margin-top:2px}.pm-actor{margin-top:4px}.pm-dim{color:var(--mut)}
-.brandrow{align-items:center;display:flex;gap:12px;margin-bottom:12px;min-width:0}.ixamark{display:block;flex:0 0 auto;height:58px;width:58px}.wordmark{display:block;min-width:0;white-space:normal}.wordmark span{color:var(--ink);display:block;font-family:var(--serif);font-size:17px;font-weight:700;letter-spacing:0;line-height:1.02}.wordmark b{color:var(--mut);display:block;font:800 8px/1 var(--mono);letter-spacing:.12em;margin-top:5px;text-transform:uppercase}.sitenav{display:grid;gap:7px;grid-auto-flow:column;grid-auto-columns:1fr;margin:0 0 14px}.sitenav a{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--mut);font:800 10px/1 var(--mono);letter-spacing:.12em;padding:9px 10px;text-align:center;text-decoration:none;text-transform:uppercase}.sitenav a.is-active{background:var(--ink);border-color:var(--ink);color:var(--bg)}.sitenav a:not(.is-active):hover{border-color:var(--blue);color:var(--blue)}.basis{text-transform:none}
+*{box-sizing:border-box;margin:0}html,body{height:100%}body{font:400 15px/1.5 var(--sans);color:var(--ink);background:var(--bg);overflow:hidden}.app{display:grid;grid-template-columns:300px 1fr;height:100vh}.rail{background:var(--panel2);border-right:1px solid var(--line);display:flex;flex-direction:column;min-height:0}.rail .mast{background:var(--panel2);border-bottom:1px solid var(--ink);padding:13px 14px 14px}.rail .mast:before{background:var(--ink);content:"";display:block;height:1px;margin-bottom:9px}.brandmark{color:var(--ink);font-family:var(--serif);font-size:27px;font-weight:800;letter-spacing:0;line-height:1}.brandline{border-bottom:1px solid var(--line);color:var(--mut);font:700 9px/1 var(--mono);letter-spacing:.16em;margin:6px 0 10px;padding-bottom:8px;text-transform:uppercase}.jurisdictionbar{display:grid;grid-template-columns:1fr 1fr;gap:8px}.jurisdictionbar label{display:block;min-width:0}.jurisdictionbar label span{color:var(--mut);display:block;font:700 9px/1 var(--mono);letter-spacing:.14em;margin:0 0 5px;text-transform:uppercase}.jurisdictionbar select{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--ink);font:700 12px/1 var(--mono);height:34px;padding:0 8px;width:100%}.basis{color:var(--mut);font:700 9px/1.4 var(--mono);letter-spacing:.08em;margin-top:9px;text-transform:uppercase}.rail .scroll{overflow:auto;flex:1;padding:10px 12px}.sech{font:700 11px/1 var(--mono);letter-spacing:.14em;color:var(--mut);text-transform:uppercase;margin:14px 0 6px}.readnote{border-left:2px solid var(--gold);color:var(--mut);font-size:12px;line-height:1.55;padding-left:9px}.readnote b{color:var(--ink)}.search,.fsel{width:100%;margin-bottom:7px;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);padding:9px 10px;font:600 12px var(--mono)}.search::placeholder{color:var(--mut)}.fsel{cursor:pointer}.fsel.muted{color:var(--mut);cursor:not-allowed}.fbtn2{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);padding:8px 12px;font:700 11px var(--mono);cursor:pointer;letter-spacing:.06em}.fbtn2:hover,.tbtn:hover{border-color:var(--blue);color:var(--blue)}.tog{display:block;padding:6px 4px;border-bottom:1px solid var(--hair);cursor:pointer;font-size:13px}.tog input{vertical-align:-1px;margin-right:7px;accent-color:var(--blue)}.tog .sw{display:inline-block;width:11px;height:11px;border-radius:2px;vertical-align:0;margin-right:6px;border:1px solid rgba(255,255,255,.18)}.tog b{font-weight:600}.tog.is-hidden{display:none}.rail .foot{padding:10px 14px;border-top:1px solid var(--line);font:600 11px/1.5 var(--mono);color:var(--mut)}.mapwrap{position:relative;height:100vh}#map{height:100vh}.filterbar{position:absolute;z-index:2;top:12px;left:12px;right:12px;display:grid;grid-template-columns:minmax(160px,1fr) minmax(150px,1fr) minmax(150px,1fr) auto 38px;gap:8px;align-items:start}.filterbar .fsel,.filterbar .fbtn2,.filterbar .tbtn{height:38px;margin:0;box-shadow:0 2px 10px rgba(0,0,0,.16)}.filterbar .fbtn2{min-width:116px;white-space:nowrap}.tbtn{align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--ink);cursor:pointer;display:grid;justify-content:center;padding:0;width:38px}.tbtn svg{display:block;fill:none;height:17px;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.2;width:17px}.default-view-ctrl button{color:#333}.default-view-ctrl .default-view-icon{display:grid;height:100%;place-items:center;width:100%}.default-view-ctrl svg{display:block;height:18px;width:18px;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.2}.maplibregl-popup-content{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:6px;font:600 12px/1.5 var(--mono);padding:10px 12px;max-width:320px}.maplibregl-popup-content b{color:var(--ink)}.maplibregl-popup-tip{display:none}.maplibregl-popup-content .k{color:var(--mut)}
+.brandrow{align-items:center;display:flex;gap:12px;margin-bottom:12px;min-width:0}.ixamark{display:block;flex:0 0 auto;height:58px;width:58px}.wordmark{display:block;min-width:0;white-space:normal}.wordmark span{color:var(--ink);display:block;font-family:var(--serif);font-size:17px;font-weight:700;letter-spacing:0;line-height:1.02}.wordmark b{color:var(--mut);display:block;font:800 8px/1 var(--mono);letter-spacing:.12em;margin-top:5px;text-transform:uppercase}.sitenav{display:grid;gap:7px;grid-template-columns:1fr 1fr;margin:0 0 14px}.sitenav a{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--mut);font:800 10px/1 var(--mono);letter-spacing:.12em;padding:9px 10px;text-align:center;text-decoration:none;text-transform:uppercase}.sitenav a.is-active{background:var(--ink);border-color:var(--ink);color:var(--bg)}.sitenav a:not(.is-active):hover{border-color:var(--blue);color:var(--blue)}.basis{text-transform:none}
 .brandmark{font-size:21px}
 @media(max-width:980px){.filterbar{top:54px;right:12px;grid-template-columns:1fr 1fr}.filterbar .fbtn2{min-width:0}}@media(max-width:760px){.app{grid-template-columns:1fr;grid-template-rows:auto 1fr}.rail{max-height:34vh}.filterbar{top:10px;left:10px;right:10px;grid-template-columns:1fr 1fr}.filterbar .fsel,.filterbar .fbtn2{height:36px;font-size:11px;padding:8px}#map,.mapwrap{height:66vh}}
 """
@@ -338,6 +369,27 @@ def _js() -> str:
     localStorage.setItem("sevent4-theme", next);
     if (map.getLayer("bg")) map.setPaintProperty("bg", "background-color", themeBg(next));
     if (map.getLayer("focusmask")) map.setPaintProperty("focusmask", "fill-color", themeBg(next));
+  });
+  function fillCities(state) {
+    const sel = document.getElementById("citysel");
+    sel.innerHTML = "";
+    (((GEO[state] || {}).cities) || []).forEach((c) => {
+      const o = document.createElement("option");
+      o.textContent = c.ready ? c.name : c.name + " — soon";
+      o.value = c.id || c.name;
+      if (c.ready) {
+        o.dataset.url = (c.id === CURRENT_CITY) ? "./index.html" : "../" + c.id + "/index.html";
+        if (c.id === CURRENT_CITY) o.selected = true;
+      } else {
+        o.disabled = true;
+      }
+      sel.appendChild(o);
+    });
+  }
+  fillCities(CURRENT_STATE);
+  document.getElementById("statesel").addEventListener("change", (event) => {
+    const first = (((GEO[event.target.value] || {}).cities) || []).find((c) => c.ready);
+    if (first && first.id !== CURRENT_CITY) window.location.href = "../" + first.id + "/index.html";
   });
   document.getElementById("citysel").addEventListener("change", (event) => {
     const option = event.target.options[event.target.selectedIndex];
@@ -539,7 +591,6 @@ def _js() -> str:
   }
 
   function popupHtml(layer, props) {
-    if (layer.id === "wards" || layer.id === "wards_buses") return wardPowerPopup(props);
     const title = props.Name || props.name || layer.label;
     const rows = layer.popup.map((key) => {
       const value = props[key] ?? "";
@@ -548,70 +599,6 @@ def _js() -> str:
       return `<div><span class="k">${escapeHtml(labelFor(key))}:</span> ${escapeHtml(clip(String(value), limit))}</div>`;
     }).join("");
     return `<b>${escapeHtml(title)}</b>${rows}`;
-  }
-
-  function wardPowerPopup(props) {
-    const esc = escapeHtml;
-    const gov = (typeof governance !== "undefined" && governance) ? governance : {};
-    const council = gov.council || {};
-    const state = gov.state || "the State";
-    const pop = Number(props.population_2020) || 0;
-    const dep = Number(props.deprivation);
-    const depLabel = isNaN(dep) ? "" : (dep >= 0.8 ? "high" : dep >= 0.5 ? "moderate" : "lower");
-
-    // service reality — only metrics actually present on this city's data
-    let svc = "";
-    const hasLib = props.library_desert !== undefined || props.libraries !== undefined;
-    const hasBus = props.amts_buses_day !== undefined;
-    if (hasLib || hasBus) {
-      svc += `<div class="pm-h">The service reality</div>`;
-      if (hasLib) {
-        const libs = Number(props.libraries) || 0;
-        const libDesert = String(props.library_desert).toLowerCase() === "true" || libs === 0;
-        svc += libDesert ? `<div class="pm-warn">No public library — library desert</div>` : `<div>Public libraries: ${libs}</div>`;
-      }
-      if (hasBus && pop) {
-        const per1000 = Number(props.amts_buses_day) / pop * 1000;
-        const busDesert = String(props.transit_desert).toLowerCase() === "true";
-        svc += `<div class="${busDesert ? "pm-warn" : ""}">Buses: ${per1000.toFixed(0)} per day per 1,000 residents${busDesert ? " — transit desert" : ""}</div>`;
-      }
-    }
-
-    // who you elect — or the documented absence of an elected body
-    let elect;
-    if (council.status === "administrator") {
-      elect = `<div class="pm-h pm-warn">No elected councillor</div>`;
-      elect += `<div class="pm-warn">No elected council since ${esc(String(council.since || "").slice(0,7))}.</div>`;
-      elect += `<div class="pm-note">${esc(String(council.note || "Run by a state-appointed administrator."))}</div>`;
-    } else {
-      const cn = String(props.councillors || "").trim();
-      const cp = String(props.councillor_parties || "").trim();
-      const phones = String(props.councillor_phones || "").split(/[;]/).map(s => s.trim()).filter(Boolean);
-      elect = `<div class="pm-h pm-elect">Who you elect — with no real power</div>`;
-      if (cn) {
-        elect += `<div><b>${esc(cn)}</b>${cp ? " · " + esc(cp) : ""}</div>`;
-        if (phones.length) elect += `<div class="pm-ph">tel: ${esc(phones.join(", "))}</div>`;
-      } else {
-        elect += `<div>Ward councillor (roster pending)</div>`;
-      }
-      elect += `<div class="pm-note">A councillor can raise it, not deliver it — no control over budget or staff.</div>`;
-    }
-
-    // who actually decides — the appointed tier
-    let decide = `<div class="pm-h pm-decide">Who actually decides — appointed, not elected here</div>`;
-    const mc = gov.municipal_commissioner || props.municipal_commissioner;
-    if (mc) {
-      decide += `<div><b>Municipal Commissioner</b> — ${esc(String(mc))}${gov.mc_service ? ", " + esc(String(gov.mc_service)) : ""}</div>`;
-      const cp = props.municipal_commissioner_phone, ce = props.municipal_commissioner_email;
-      if (cp || ce) decide += `<div class="pm-ph">tel: ${esc(String(cp || ""))}${ce ? " · " + esc(String(ce)) : ""}</div>`;
-      decide += `<div class="pm-note">state-appointed chief executive — controls staff and budget execution</div>`;
-    }
-    if (gov.police_commissioner) decide += `<div class="pm-actor">Police Commissioner — ${esc(String(gov.police_commissioner))}${gov.pc_service ? ", " + esc(String(gov.pc_service)) : ""}</div>`;
-    decide += `<div class="pm-actor">Standing Committee <span class="pm-dim">(ruling party)</span> — approves the budget and contracts</div>`;
-    decide += `<div class="pm-actor">${esc(state)} government — appoints the Commissioner, controls the Act and the money</div>`;
-
-    const sub = `<div class="pm-sub">${pop ? pop.toLocaleString() + " residents" : ""}${depLabel ? " · deprivation " + dep.toFixed(2) + " (" + depLabel + ")" : ""}</div>`;
-    return `<b class="pm-title">${esc(String(props.Name || ""))}</b>${sub}${svc}${elect}${decide}`;
   }
 
   function themeBg(theme) {
