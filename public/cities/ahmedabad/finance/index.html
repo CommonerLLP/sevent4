@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Part IXA: The Municipalities - Ahmedabad city finance</title>
+  <link rel="icon" type="image/png" href="../../../assets/ixa-mark.png">
+  <link rel="stylesheet" href="../../../assets/maplibre-gl.css">
+  <style>
+:root{color-scheme:dark;--bg:#0a0c10;--panel:#13161d;--panel2:#171b23;--ink:#ece9e2;--mut:#8b929f;--line:#262c38;--hair:#1b1f28;--blue:#5a86f5;--red:#f0303d;--gold:#edc233;--r:6px;--serif:Georgia,"Iowan Old Style","Times New Roman",serif;--mono:ui-monospace,Menlo,"SF Mono",Consolas,monospace;--sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+[data-theme=light]{color-scheme:light;--bg:#f3f1ea;--panel:#fff;--panel2:#f6f3ea;--ink:#16181d;--mut:#586071;--line:#d7d1c2;--hair:#e7e2d6;--blue:#22409A;--red:#c8102e;--gold:#9a7b14}
+*{box-sizing:border-box;margin:0}body{font:400 16px/1.6 var(--sans);color:var(--ink);background:var(--bg)}
+.wrap{max-width:860px;margin:0 auto;padding:32px 22px 80px}
+.crumb{font:700 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-bottom:20px}
+.crumb a{color:var(--blue);text-decoration:none}.crumb span{margin:0 6px;color:var(--line)}
+h1{font:700 30px/1.18 var(--serif);letter-spacing:-.01em;margin-bottom:12px}
+.lede{color:var(--mut);font-size:16px;max-width:62ch}.lede a{color:var(--blue)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:var(--r);padding:14px 15px}
+.card .k{font:700 10px/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+.card .v{font:700 22px/1.2 var(--serif);margin:7px 0 4px}
+.card .s{font:600 11px/1.3 var(--mono);color:var(--mut)}
+.block{margin:40px 0;border-top:1px solid var(--hair);padding-top:26px}
+h2{font:700 21px/1.25 var(--serif);margin-bottom:8px}
+.note{color:var(--mut);font-size:14.5px;max-width:64ch;margin-bottom:16px}
+.chart{width:100%;height:auto;display:block;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:8px}
+.chart .grid{stroke:var(--hair);stroke-width:1}
+.chart .ln{fill:none;stroke-width:2.2;stroke-linejoin:round;stroke-linecap:round}
+.chart .dot{stroke:var(--bg);stroke-width:.8}
+.chart .ylab{fill:var(--mut);font:600 10px var(--mono);text-anchor:end}
+.chart .xlab{fill:var(--mut);font:600 10px var(--mono);text-anchor:middle}
+.chart .unit{fill:var(--mut);font:700 9px var(--mono);text-anchor:end;letter-spacing:.06em}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:12px}
+.lg{font:600 12px var(--mono);color:var(--mut);display:flex;align-items:center;gap:6px}
+.lg .sw{width:11px;height:11px;border-radius:2px;display:inline-block}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r)}
+table.fin{border-collapse:collapse;width:100%;font:600 12.5px/1.3 var(--mono)}
+table.fin th{background:var(--panel2);color:var(--mut);text-align:left;padding:9px 11px;font-size:10px;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid var(--line)}
+table.fin td{padding:8px 11px;border-bottom:1px solid var(--hair)}
+table.fin td.num{text-align:right;font-variant-numeric:tabular-nums}
+table.fin tr:last-child td{border-bottom:none}
+.conf{font-size:10px;text-transform:uppercase;letter-spacing:.05em}
+.conf-high{color:#49a35f}.conf-medium{color:var(--gold)}.conf-unverified,.conf-low{color:var(--red)}
+.prov{margin-top:48px;border-top:1px solid var(--line);padding-top:22px;color:var(--mut);font-size:13.5px}
+.prov h3{font:700 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+.prov p{max-width:70ch;margin-bottom:10px}.prov .caveat{font-style:italic;border-left:2px solid var(--gold);padding-left:10px}
+@media(max-width:620px){.cards{grid-template-columns:1fr}h1{font-size:25px}}
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="head">
+      <nav class="crumb"><a href="../">&larr; Atlas</a> <span>/</span> <b>City finance</b></nav>
+      <h1>What Ahmedabad city budget funds</h1>
+      <p class="lede">
+        A municipal budget is a record of what the city government chooses to pay
+        for. These lines are read directly from Ahmedabad Municipal
+        Corporation budget books. The bus undertaking line is the same money that
+        runs the routes on the <a href="../">atlas map</a>.
+      </p>
+    </header>
+
+    <section class="cards">
+      <div class="card">
+        <div class="k">City bus (AMTS) allocation</div>
+        <div class="v">&#8377;42 cr &rarr; &#8377;525 cr</div>
+        <div class="s">2005&ndash;06 to 2026&ndash;27 &middot; 12.5&times;</div>
+      </div>
+      <div class="card">
+        <div class="k">Total revenue budget</div>
+        <div class="v">&#8377;875 cr &rarr; &#8377;6,900 cr</div>
+        <div class="s">2005&ndash;06 to 2025&ndash;26 &middot; 7.9&times;</div>
+      </div>
+      <div class="card">
+        <div class="k">Bus share of budget</div>
+        <div class="v">4.8% &rarr; 7.6%</div>
+        <div class="s">AMTS allocation as a share of the total</div>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>The city bus, funded over two decades</h2>
+      <p class="note">
+        The AMTS line is the corporation&rsquo;s capital support to the bus
+        undertaking (&ldquo;Loan to AMTS&rdquo;), the legible budget anchor each
+        year. The 2026&ndash;27 book reframes this as
+        &ldquo;AMTS + BRTS = 3000 EV buses (GCC model).&rdquo;
+      </p>
+      <svg viewBox="0 0 720 320" class="chart" role="img" preserveAspectRatio="xMidYMid meet"><line class="grid" x1="52" y1="286.0" x2="704" y2="286.0"/><text class="ylab" x="44.0" y="289.0">0</text><line class="grid" x1="52" y1="219.0" x2="704" y2="219.0"/><text class="ylab" x="44.0" y="222.0">250</text><line class="grid" x1="52" y1="152.0" x2="704" y2="152.0"/><text class="ylab" x="44.0" y="155.0">500</text><line class="grid" x1="52" y1="85.0" x2="704" y2="85.0"/><text class="ylab" x="44.0" y="88.0">750</text><line class="grid" x1="52" y1="18.0" x2="704" y2="18.0"/><text class="ylab" x="44.0" y="21.0">1,000</text><text class="xlab" x="52.0" y="304.0">2005</text><text class="xlab" x="269.3" y="304.0">2012</text><text class="xlab" x="486.7" y="304.0">2019</text><text class="xlab" x="704.0" y="304.0">2026</text><polyline class="ln" points="52.0,274.7 83.0,273.4 114.1,266.2 145.1,257.8 176.2,248.3 207.2,248.3 238.3,256.5 269.3,236.3 300.4,235.1 331.4,223.0 362.5,211.0 393.5,196.2 424.6,192.2 455.6,190.9 486.7,195.1 517.7,190.9 548.8,190.9 579.8,181.5 610.9,179.3 641.9,176.1 673.0,172.1 704.0,145.3" style="stroke:#5a86f5"/><circle class="dot" cx="52.0" cy="274.7" r="2.6" style="fill:#5a86f5"/><circle class="dot" cx="83.0" cy="273.4" r="2.6" style="fill:#5a86f5"/><circle class="dot" cx="114.1" cy="266.2" r="2.6" style="fill:#5a86f5"/><circle class="dot" cx="145.1" cy="257.8" r="2.6" style="fill:#5a86f5"/><circle class="dot" cx="176.2" cy="248.3" r="2.6" style="fill:#5a86f5"/><circle class="dot" cx="207.2" cy="248.3" r="2.6" style="fill:#5a86f5"/><circle class="dot" cx="238.3" cy="256.5" r="2.6" style="fill:#5a86f5"/><circle class="dot" cx="269.3" cy="236.3" r="2.6" style="fill:#5a86f5"/><circle class="dot" cx="300.4" cy="235.1" r="2.6" style="fill:#5a86f5"/><circle class="dot" cx="331.4" cy="223.0" r="2.6" style="fill:#5a86f5"/><circle class="dot" cx="362.5" cy="211.0" r="2.6" style="fill:#5a86f5"/><circle class="dot" cx="393.5" cy="196.2" r="2.6" style="fill:#5a86f5"/><circle class="dot" cx="424.6" cy="192.2" r="2.6" style="fill:#5a86f5"/><circle class="dot" cx="455.6" cy="190.9" r="2.6" style="fill:#5a86f5"/><circle class="dot" cx="486.7" cy="195.1" r="2.6" style="fill:#5a86f5"/><circle class="dot" cx="517.7" cy="190.9" r="2.6" style="fill:#5a86f5"/><circle class="dot" cx="548.8" cy="190.9" r="2.6" style="fill:#5a86f5"/><circle class="dot" cx="579.8" cy="181.5" r="2.6" style="fill:#5a86f5"/><circle class="dot" cx="610.9" cy="179.3" r="2.6" style="fill:#5a86f5"/><circle class="dot" cx="641.9" cy="176.1" r="2.6" style="fill:#5a86f5"/><circle class="dot" cx="673.0" cy="172.1" r="2.6" style="fill:#5a86f5"/><circle class="dot" cx="704.0" cy="145.3" r="2.6" style="fill:#5a86f5"/><text class="unit" x="44.0" y="14.0">₹ crore</text></svg>
+    </section>
+
+    <section class="block">
+      <h2>What the corporation tops up</h2>
+      <p class="note">
+        Recent budget books (2018&ndash;2024) make several civic lines legible:
+        the bus undertaking, BRTS/Janmarg, the school board top-up over the state
+        grant, the V.S. Hospital grant, and the M.J. Library grant. These are the
+        choices the elected corporation controls directly.
+      </p>
+      <div class="legend"><span class="lg"><span class="sw" style="background:#8f98a6"></span>City bus (AMTS)</span><span class="lg"><span class="sw" style="background:#dc4c4c"></span>BRTS / Janmarg</span><span class="lg"><span class="sw" style="background:#1e9f8f"></span>School board top-up</span><span class="lg"><span class="sw" style="background:#49a35f"></span>V.S. Hospital grant</span><span class="lg"><span class="sw" style="background:#e0b84d"></span>M.J. Library grant</span></div>
+      <svg viewBox="0 0 720 320" class="chart" role="img" preserveAspectRatio="xMidYMid meet"><line class="grid" x1="52" y1="286.0" x2="704" y2="286.0"/><text class="ylab" x="44.0" y="289.0">0</text><line class="grid" x1="52" y1="219.0" x2="704" y2="219.0"/><text class="ylab" x="44.0" y="222.0">250</text><line class="grid" x1="52" y1="152.0" x2="704" y2="152.0"/><text class="ylab" x="44.0" y="155.0">500</text><line class="grid" x1="52" y1="85.0" x2="704" y2="85.0"/><text class="ylab" x="44.0" y="88.0">750</text><line class="grid" x1="52" y1="18.0" x2="704" y2="18.0"/><text class="ylab" x="44.0" y="21.0">1,000</text><text class="xlab" x="52.0" y="304.0">2018</text><text class="xlab" x="269.3" y="304.0">2020</text><text class="xlab" x="486.7" y="304.0">2022</text><text class="xlab" x="704.0" y="304.0">2024</text><polyline class="ln" points="52.0,190.9 160.7,195.1 269.3,190.9 378.0,190.9 486.7,181.5 595.3,179.3 704.0,176.1" style="stroke:#8f98a6"/><circle class="dot" cx="52.0" cy="190.9" r="2.6" style="fill:#8f98a6"/><circle class="dot" cx="160.7" cy="195.1" r="2.6" style="fill:#8f98a6"/><circle class="dot" cx="269.3" cy="190.9" r="2.6" style="fill:#8f98a6"/><circle class="dot" cx="378.0" cy="190.9" r="2.6" style="fill:#8f98a6"/><circle class="dot" cx="486.7" cy="181.5" r="2.6" style="fill:#8f98a6"/><circle class="dot" cx="595.3" cy="179.3" r="2.6" style="fill:#8f98a6"/><circle class="dot" cx="704.0" cy="176.1" r="2.6" style="fill:#8f98a6"/><polyline class="ln" points="52.0,269.9 160.7,259.2 269.3,252.5" style="stroke:#dc4c4c"/><polyline class="ln" points="486.7,261.9 595.3,247.7" style="stroke:#dc4c4c"/><circle class="dot" cx="52.0" cy="269.9" r="2.6" style="fill:#dc4c4c"/><circle class="dot" cx="160.7" cy="259.2" r="2.6" style="fill:#dc4c4c"/><circle class="dot" cx="269.3" cy="252.5" r="2.6" style="fill:#dc4c4c"/><circle class="dot" cx="486.7" cy="261.9" r="2.6" style="fill:#dc4c4c"/><circle class="dot" cx="595.3" cy="247.7" r="2.6" style="fill:#dc4c4c"/><polyline class="ln" points="52.0,227.3 160.7,234.3 269.3,239.7" style="stroke:#1e9f8f"/><polyline class="ln" points="486.7,189.0 595.3,150.4" style="stroke:#1e9f8f"/><circle class="dot" cx="52.0" cy="227.3" r="2.6" style="fill:#1e9f8f"/><circle class="dot" cx="160.7" cy="234.3" r="2.6" style="fill:#1e9f8f"/><circle class="dot" cx="269.3" cy="239.7" r="2.6" style="fill:#1e9f8f"/><circle class="dot" cx="486.7" cy="189.0" r="2.6" style="fill:#1e9f8f"/><circle class="dot" cx="595.3" cy="150.4" r="2.6" style="fill:#1e9f8f"/><polyline class="ln" points="52.0,272.1 160.7,258.1 269.3,265.7" style="stroke:#49a35f"/><circle class="dot" cx="52.0" cy="272.1" r="2.6" style="fill:#49a35f"/><circle class="dot" cx="160.7" cy="258.1" r="2.6" style="fill:#49a35f"/><circle class="dot" cx="269.3" cy="265.7" r="2.6" style="fill:#49a35f"/><circle class="dot" cx="595.3" cy="272.8" r="2.6" style="fill:#49a35f"/><polyline class="ln" points="52.0,283.1 160.7,282.6 269.3,281.5" style="stroke:#e0b84d"/><polyline class="ln" points="486.7,281.6 595.3,281.9" style="stroke:#e0b84d"/><circle class="dot" cx="52.0" cy="283.1" r="2.6" style="fill:#e0b84d"/><circle class="dot" cx="160.7" cy="282.6" r="2.6" style="fill:#e0b84d"/><circle class="dot" cx="269.3" cy="281.5" r="2.6" style="fill:#e0b84d"/><circle class="dot" cx="486.7" cy="281.6" r="2.6" style="fill:#e0b84d"/><circle class="dot" cx="595.3" cy="281.9" r="2.6" style="fill:#e0b84d"/><text class="unit" x="44.0" y="14.0">₹ crore</text></svg>
+    </section>
+
+    <section class="block">
+      <h2>Total revenue budget</h2>
+      <svg viewBox="0 0 720 320" class="chart" role="img" preserveAspectRatio="xMidYMid meet"><line class="grid" x1="52" y1="286.0" x2="704" y2="286.0"/><text class="ylab" x="44.0" y="289.0">0</text><line class="grid" x1="52" y1="219.0" x2="704" y2="219.0"/><text class="ylab" x="44.0" y="222.0">2,500</text><line class="grid" x1="52" y1="152.0" x2="704" y2="152.0"/><text class="ylab" x="44.0" y="155.0">5,000</text><line class="grid" x1="52" y1="85.0" x2="704" y2="85.0"/><text class="ylab" x="44.0" y="88.0">7,500</text><line class="grid" x1="52" y1="18.0" x2="704" y2="18.0"/><text class="ylab" x="44.0" y="21.0">10,000</text><text class="xlab" x="52.0" y="304.0">2005</text><text class="xlab" x="215.0" y="304.0">2010</text><text class="xlab" x="410.6" y="304.0">2016</text><text class="xlab" x="704.0" y="304.0">2025</text><polyline class="ln" points="52.0,262.5 84.6,258.2 117.2,249.0 149.8,239.5 182.4,231.0 215.0,223.6 247.6,216.4 280.2,211.9 312.8,226.0 345.4,196.8 378.0,189.5 410.6,177.7 443.2,165.8 475.8,158.7 508.4,146.7" style="stroke:#edc233"/><polyline class="ln" points="671.4,158.7 704.0,101.1" style="stroke:#edc233"/><circle class="dot" cx="52.0" cy="262.5" r="2.6" style="fill:#edc233"/><circle class="dot" cx="84.6" cy="258.2" r="2.6" style="fill:#edc233"/><circle class="dot" cx="117.2" cy="249.0" r="2.6" style="fill:#edc233"/><circle class="dot" cx="149.8" cy="239.5" r="2.6" style="fill:#edc233"/><circle class="dot" cx="182.4" cy="231.0" r="2.6" style="fill:#edc233"/><circle class="dot" cx="215.0" cy="223.6" r="2.6" style="fill:#edc233"/><circle class="dot" cx="247.6" cy="216.4" r="2.6" style="fill:#edc233"/><circle class="dot" cx="280.2" cy="211.9" r="2.6" style="fill:#edc233"/><circle class="dot" cx="312.8" cy="226.0" r="2.6" style="fill:#edc233"/><circle class="dot" cx="345.4" cy="196.8" r="2.6" style="fill:#edc233"/><circle class="dot" cx="378.0" cy="189.5" r="2.6" style="fill:#edc233"/><circle class="dot" cx="410.6" cy="177.7" r="2.6" style="fill:#edc233"/><circle class="dot" cx="443.2" cy="165.8" r="2.6" style="fill:#edc233"/><circle class="dot" cx="475.8" cy="158.7" r="2.6" style="fill:#edc233"/><circle class="dot" cx="508.4" cy="146.7" r="2.6" style="fill:#edc233"/><circle class="dot" cx="671.4" cy="158.7" r="2.6" style="fill:#edc233"/><circle class="dot" cx="704.0" cy="101.1" r="2.6" style="fill:#edc233"/><text class="unit" x="44.0" y="14.0">₹ crore</text></svg>
+    </section>
+
+    <section class="block">
+      <h2>Every figure, with its source</h2>
+      <p class="note">
+        Each row is read from a specific page of a specific budget book, with a
+        confidence rating. Where a figure could not be cleanly isolated from the
+        scanned table, it is left blank rather than guessed.
+      </p>
+      <div class="tablewrap"><table class="fin"><thead><tr><th>Year</th><th>AMTS (bus)</th><th>M.J. Library</th><th>Property tax</th><th>Total budget</th><th>Conf.</th><th>Pg.</th></tr></thead><tbody><tr><td>2005-06</td><td class='num'>42.00</td><td class='num'>2.83</td><td class='num'>153.03</td><td class='num'>875.28</td><td class='conf conf-high'>high</td><td class='num'>165</td></tr><tr><td>2006-07</td><td class='num'>47.00</td><td class='num'>3.37</td><td class='num'>186.57</td><td class='num'>1,036.61</td><td class='conf conf-high'>high</td><td class='num'>167</td></tr><tr><td>2007-08</td><td class='num'>73.89</td><td class='num'>4.14</td><td class='num'>&mdash;</td><td class='num'>1,378.74</td><td class='conf conf-high'>high</td><td class='num'>183</td></tr><tr><td>2008-09</td><td class='num'>105.08</td><td class='num'>4.64</td><td class='num'>&mdash;</td><td class='num'>1,734.95</td><td class='conf conf-high'>high</td><td class='num'>202</td></tr><tr><td>2009-10</td><td class='num'>140.73</td><td class='num'>4.67</td><td class='num'>408.50</td><td class='num'>2,053.31</td><td class='conf conf-high'>high</td><td class='num'>193</td></tr><tr><td>2010-11</td><td class='num'>140.84</td><td class='num'>5.93</td><td class='num'>436.88</td><td class='num'>2,327.07</td><td class='conf conf-high'>high</td><td class='num'>210</td></tr><tr><td>2011-12</td><td class='num'>110.00</td><td class='num'>3.50</td><td class='num'>465.00</td><td class='num'>2,597.24</td><td class='conf conf-medium'>medium</td><td class='num'>220</td></tr><tr><td>2012-13</td><td class='num'>185.44</td><td class='num'>6.86</td><td class='num'>451.49</td><td class='num'>2,764.55</td><td class='conf conf-medium'>medium</td><td class='num'>239</td></tr><tr><td>2013-14</td><td class='num'>190.00</td><td class='num'>4.00</td><td class='num'>312.16</td><td class='num'>2,239.68</td><td class='conf conf-high'>high</td><td class='num'>284</td></tr><tr><td>2014-15</td><td class='num'>235.00</td><td class='num'>4.80</td><td class='num'>&mdash;</td><td class='num'>3,330.00</td><td class='conf conf-high'>high</td><td class='num'>337</td></tr><tr><td>2015-16</td><td class='num'>280.00</td><td class='num'>4.90</td><td class='num'>482.16</td><td class='num'>3,600.00</td><td class='conf conf-high'>high</td><td class='num'>333</td></tr><tr><td>2016-17</td><td class='num'>335.00</td><td class='num'>5.20</td><td class='num'>542.66</td><td class='num'>4,040.00</td><td class='conf conf-high'>high</td><td class='num'>286</td></tr><tr><td>2017-18</td><td class='num'>350.00</td><td class='num'>5.40</td><td class='num'>575.00</td><td class='num'>4,484.00</td><td class='conf conf-high'>high</td><td class='num'>300</td></tr><tr><td>2018-19</td><td class='num'>355.00</td><td class='num'>7.00</td><td class='num'>635.60</td><td class='num'>4,750.00</td><td class='conf conf-high'>high</td><td class='num'>309</td></tr><tr><td>2019-20</td><td class='num'>339.00</td><td class='num'>9.50</td><td class='num'>580.61</td><td class='num'>5,196.93</td><td class='conf conf-high'>high</td><td class='num'>306</td></tr><tr><td>2021-22</td><td class='num'>355.00</td><td class='num'>9.50</td><td class='num'>&mdash;</td><td class='num'>&mdash;</td><td class='conf conf-high'>high</td><td class='num'>272</td></tr><tr><td>2024-25</td><td class='num'>410.00</td><td class='num'>11.00</td><td class='num'>736.47</td><td class='num'>4,748.49</td><td class='conf conf-high'>high</td><td class='num'>291</td></tr><tr><td>2025-26</td><td class='num'>425.00</td><td class='num'>12.00</td><td class='num'>810.23</td><td class='num'>6,900.00</td><td class='conf conf-high'>high</td><td class='num'>325</td></tr><tr><td>2026-27</td><td class='num'>525.00</td><td class='num'>12.00</td><td class='num'>&mdash;</td><td class='num'>&mdash;</td><td class='conf conf-medium'>medium</td><td class='num'>299</td></tr></tbody></table></div>
+    </section>
+
+    <footer class="prov">
+      <h3>Sources &amp; method</h3>
+      <p>
+        Figures are extracted from Ahmedabad Municipal Corporation
+        budget books (English editions). Amounts are normalised to rupees crore;
+        1 crore = 100 lakh. Budget books carry several columns &mdash; prior-year
+        actual, current-year revised estimate, and budget-year estimate &mdash;
+        and each headline figure prefers the self-labelled narrative allocation.
+        Figures are human-verified from the source PDFs and carry per-row
+        confidence; they are a research reading of public documents, not an
+        official account. Treat low-confidence and blank cells with caution.
+      </p>
+      <p class="caveat">AMTS &#x27;Loan to AMTS&#x27; is a capital LOAN/grant-support line from the corporation fund to the transport undertaking; it is NOT the AMTS operating deficit. The AMTS operating deficit anchor (~Rs.200 cr/yr per the Drive FY23-24 summary) is a separate operational figure not isolated as a single line in these capital blocks.</p>
+    </footer>
+  </main>
+</body>
+</html>

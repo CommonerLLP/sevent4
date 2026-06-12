@@ -1,0 +1,79 @@
+{
+  "_meta": {
+    "title": "AMTS Income & Expenditure split — parsed from AMTS annual budget books",
+    "built": "2026-06-11",
+    "builder": "twenty27/sevent4 data agent (AMTS budget-book figures via press + AMC audited B/S)",
+    "scope": "AMTS = Ahmedabad Municipal Transport Service, a direct AMC undertaking (municipalised 1947). This file isolates the AMTS undertaking's OWN income vs expenditure (the operating split), which the AMC budget book does NOT carry — the AMC book shows only the single 'Loan to AMTS' support line (see amc_civic_lines.json). Companion: AJL/BRTS is a separate SPV (MCA CIN U60231GJ2007SGC052023).",
+    "units": "amount_cr = Rupees crore. Figures are AMTS budget-estimate (BE) unless noted.",
+    "tiers": "[NEWS] = press report of the AMTS budget; [AUDITED] = AMC audited balance sheet; [DERIVED] = arithmetic from reported components. The fuel/diesel-CNG/GCC line-item split is NOT in press summaries — pull the AMTS budget book PDF for it (HITL).",
+    "caveats": "Self-reported BE figures from the implementer; treat as direction + magnitude, not audited actuals. Farebox-from-tickets is derived (income_total minus named subsidies) where not separately reported."
+  },
+  "amts_income_expenditure": [
+    {
+      "year": "2024-25",
+      "amc_loan_to_amts_cr": 410.0,
+      "amc_loan_basis": "AMC extended a loan of Rs 410 cr to AMTS in 2024-25",
+      "total_budget_cr": 641.5,
+      "tier": "[NEWS]",
+      "source": "Gujarat Samachar (AMTS 2025-26 draft-budget report)"
+    },
+    {
+      "year": "2025-26",
+      "total_budget_cr_draft": 682.0,
+      "total_budget_cr_approved": 705.0,
+      "income_total_cr": 238.0,
+      "income_components_cr": {
+        "cm_urban_bus_transportation_scheme": 130.0,
+        "cm_scheme_basis": "max subsidy Rs 18 per km",
+        "auda_contribution": 15.0,
+        "farebox_plus_ads_derived": 93.0
+      },
+      "expenditure_components_cr": {
+        "salary_pension_establishment": 348.0
+      },
+      "amc_loan_to_amts_cr": 437.0,
+      "accumulated_debt_cr": 4620.77,
+      "fleet_total": 1272,
+      "fleet_additions": "445 new AC buses (incl 100 AC-CNG) + 4 electric double-deckers; new terminals Saraspur + Meghani Nagar",
+      "fare_concessions": "50% widows; 85% off female students (post Class-10); free passes orphan students (post Class-10); BRTS+Metro ticket integration",
+      "tier": "[NEWS]",
+      "source": "Gujarat Samachar (Rs 682 cr draft; debt Rs 4620.77 cr); Knocksense (Rs 705 cr approved; concessions; fleet)"
+    },
+    {
+      "year": "2026-27",
+      "total_budget_cr": 991.0,
+      "revenue_budget_cr": 958.0,
+      "capital_budget_cr": 33.0,
+      "income_total_cr": 358.0,
+      "income_components_cr": {
+        "amc_municipal_support": 100.0,
+        "anticipated_loan": 600.0
+      },
+      "expenditure_components_cr": {
+        "salary_pension": 347.0
+      },
+      "accumulated_debt_cr": 5092.0,
+      "fleet_target": 1600,
+      "fleet_operational_regular_days": 1492,
+      "ebus_order": "225 electric (9-metre) buses work order; 25 delivered",
+      "electrification_target": "ALL AMTS buses electric AND air-conditioned by 2030 (AMTS's OWN stated target)",
+      "tier": "[NEWS]",
+      "source": "DeshGujarat 2026-01-29 (Rs 991 cr budget; fully-electric-AC-by-2030); Gujarat Samachar (debt Rs 5,092 cr)"
+    }
+  ],
+  "audited_cumulative_cross_check": {
+    "as_on": "2026-03-31_isnot — figures as on 31.03.2024",
+    "amts_cumulative_amc_subsidy_loans_cr": 4322.90,
+    "amts_audit_note": "AMTS is not generating revenue surplus from its operations; no impairment provision (effectively permanent subsidy)",
+    "ajl_brts_capex_loan_cr": 979.84,
+    "ajl_brts_operating_gap_loan_cr": 797.82,
+    "tier": "[AUDITED]",
+    "source": "AMC Finance Dept Audited Balance Sheet as on 31-03-2024 (filed with NSE; copy in twenty27 data/external/ahmedabad-transit/AMC-audited-balance-sheet-2023-24.pdf)"
+  },
+  "readings": [
+    "Income (~Rs 238 cr 2025-26 / Rs 358 cr 2026-27) is dwarfed by salary+pension alone (~Rs 347-348 cr) — staff/pension is the single biggest cost, and even that exceeds total income. The undertaking cannot run on its own receipts.",
+    "AMTS survives on AMC deficit-loans (Rs 410 -> 437 -> 600 cr) it is never expected to repay (audited: no impairment provision). Accumulated debt Rs 4,620 -> 5,092 cr.",
+    "The farebox proper (~Rs 78-93 cr) is a small slice; the fare is a barrier, not a funding source — the case for free fares.",
+    "AMTS's OWN 2026-27 budget commits to a fully electric + AC fleet by 2030 — the Mevani plank is the city's own stated target, done on time, at frozen/zero fares, and route-transparent."
+  ]
+}
