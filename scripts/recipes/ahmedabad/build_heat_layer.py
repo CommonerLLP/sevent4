@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+import time
 from pathlib import Path
 
 import numpy as np
@@ -46,17 +47,37 @@ def main() -> None:
         "https://planetarycomputer.microsoft.com/api/stac/v1",
         modifier=planetary_computer.sign_inplace,
     )
-    search = catalog.search(
-        collections=["landsat-c2-l2"],
-        bbox=args.bbox,
-        datetime=args.datetime,
-        query={"eo:cloud_cover": {"lt": args.cloud_cover}, "platform": {"in": ["landsat-8", "landsat-9"]}},
-    )
-    items = [
-        item for item in search.items()
-        if item.datetime.month in (4, 5, 6) and item.properties.get("view:sun_elevation", 1) > 0
-    ]
-    items.sort(key=lambda item: item.datetime)
+    # The Planetary Computer STAC API can time out on wide multi-year windows
+    # because pagination over the whole range is slow. We instead issue one
+    # search per summer window (Apr 1 - Jun 30) for each year in the requested
+    # range; these narrow windows page quickly. Items are deduped by id.
+    start_year = int(args.datetime[:4])
+    end_year = int(args.datetime.split("/")[-1][:4])
+    found: dict[str, object] = {}
+    for year in range(start_year, end_year + 1):
+        window = f"{year}-04-01/{year}-06-30"
+        for attempt in range(3):
+            try:
+                search = catalog.search(
+                    collections=["landsat-c2-l2"],
+                    bbox=args.bbox,
+                    datetime=window,
+                    query={"eo:cloud_cover": {"lt": args.cloud_cover}},
+                )
+                for item in search.items():
+                    if (
+                        item.datetime.month in (4, 5, 6)
+                        and item.properties.get("view:sun_elevation", 1) > 0
+                        and item.properties.get("platform") in ("landsat-8", "landsat-9")
+                    ):
+                        found[item.id] = item
+                break
+            except Exception as exc:  # noqa: BLE001
+                print(f"search retry {window} attempt {attempt+1}: {exc}", file=sys.stderr)
+                time.sleep(5)
+        else:
+            print(f"search FAILED for window {window}", file=sys.stderr)
+    items = sorted(found.values(), key=lambda item: item.datetime)
     if not items:
         sys.exit("No summer daytime Landsat scenes found for the requested city/window.")
 

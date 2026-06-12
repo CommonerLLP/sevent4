@@ -1,0 +1,112 @@
+{
+  "mumbai": {
+    "status": "OK",
+    "scenes": 41,
+    "scene_min_c": 29.81,
+    "scene_max_c": 52.83,
+    "ward_mean_lst_min": 32.8,
+    "ward_mean_lst_max": 47.6,
+    "wards_with_lst": 62,
+    "wards": 227,
+    "manifest": "mumbai: manifest patched with ward_heat + heat30m"
+  },
+  "bengaluru": {
+    "status": "OK",
+    "scenes": 5,
+    "scene_min_c": 28.94,
+    "scene_max_c": 56.85,
+    "ward_mean_lst_min": 38.4,
+    "ward_mean_lst_max": 44.8,
+    "wards_with_lst": 243,
+    "wards": 243,
+    "manifest": "bengaluru: manifest patched with ward_heat + heat30m"
+  },
+  "hyderabad": {
+    "status": "OK",
+    "scenes": 19,
+    "scene_min_c": 29.72,
+    "scene_max_c": 54.17,
+    "ward_mean_lst_min": 36.9,
+    "ward_mean_lst_max": 45.0,
+    "wards_with_lst": 155,
+    "wards": 155,
+    "manifest": "hyderabad: manifest patched with ward_heat + heat30m"
+  },
+  "kolkata": {
+    "status": "OK",
+    "scenes": 14,
+    "scene_min_c": 30.34,
+    "scene_max_c": 52.21,
+    "ward_mean_lst_min": 37.0,
+    "ward_mean_lst_max": 46.1,
+    "wards_with_lst": 141,
+    "wards": 141,
+    "manifest": "kolkata: manifest patched with ward_heat + heat30m"
+  },
+  "visakhapatnam": {
+    "status": "OK",
+    "scenes": 25,
+    "scene_min_c": 27.82,
+    "scene_max_c": 53.25,
+    "ward_mean_lst_min": 38.7,
+    "ward_mean_lst_max": 45.0,
+    "wards_with_lst": 47,
+    "wards": 98,
+    "manifest": "visakhapatnam: manifest patched with ward_heat + heat30m"
+  },
+  "bhubaneswar": {
+    "status": "OK",
+    "scenes": 10,
+    "scene_min_c": 32.05,
+    "scene_max_c": 55.62,
+    "ward_mean_lst_min": 39.9,
+    "ward_mean_lst_max": 45.7,
+    "wards_with_lst": 67,
+    "wards": 67,
+    "manifest": "bhubaneswar: manifest patched with ward_heat + heat30m"
+  },
+  "kochi": {
+    "status": "OK",
+    "scenes": 7,
+    "scene_min_c": 30.9,
+    "scene_max_c": 68.36,
+    "ward_mean_lst_min": 35.7,
+    "ward_mean_lst_max": 47.4,
+    "wards_with_lst": 74,
+    "wards": 77,
+    "manifest": "kochi: manifest patched with ward_heat + heat30m"
+  },
+  "pune": {
+    "status": "OK",
+    "scenes": 12,
+    "scene_min_c": 28.81,
+    "scene_max_c": 58.81,
+    "ward_mean_lst_min": 41.2,
+    "ward_mean_lst_max": 49.5,
+    "wards_with_lst": 76,
+    "wards": 76,
+    "manifest": "pune: manifest patched with ward_heat + heat30m"
+  },
+  "kanpur": {
+    "status": "OK",
+    "scenes": 23,
+    "scene_min_c": 31.92,
+    "scene_max_c": 53.98,
+    "ward_mean_lst_min": 42.1,
+    "ward_mean_lst_max": 47.2,
+    "wards_with_lst": 58,
+    "wards": 58,
+    "manifest": "kanpur: manifest patched with ward_heat + heat30m"
+  },
+  "jaipur": {
+    "status": "OK",
+    "scenes": 49,
+    "scene_min_c": 30.75,
+    "scene_max_c": 56.01,
+    "ward_mean_lst_min": 44.2,
+    "ward_mean_lst_max": 50.3,
+    "wards_with_lst": 150,
+    "wards": 150,
+    "manifest": "jaipur: manifest patched with ward_heat + heat30m"
+  }
+}
