@@ -1,0 +1,46 @@
+[
+  {
+    "layer": "wards",
+    "file": "wards.geojson",
+    "features": 369,
+    "publisher_org": "Greater Bengaluru Authority (GBA)",
+    "opencity_dataset": "https://data.opencity.in/dataset/gba-wards-delimitation-2025",
+    "resource_url": "https://data.opencity.in/dataset/863209cb-4ced-4f51-b5c5-156939c50922/resource/9013d656-8051-4e2d-9648-46efd0d86d3d/download/gba-369-wards-december-2025.kml",
+    "format_source": "KML",
+    "processor": "sevent4 (scripts/recipes/bengaluru/acquire_boundaries.py)",
+    "retrieved": "2026-06-11"
+  },
+  {
+    "layer": "wards_bbmp198",
+    "file": "wards_bbmp198.geojson",
+    "features": 225,
+    "publisher_org": "Bruhat Bengaluru Mahanagara Palike (BBMP)",
+    "opencity_dataset": "https://data.opencity.in/dataset/bbmp-wards-delimitation-2023",
+    "resource_url": "https://data.opencity.in/dataset/7b492849-a5cb-439b-89e9-e03522055e6a/resource/7857d752-dda4-4e5e-b9e6-53146372f86b/download/b272c5b2-3e66-4b0f-a59f-35ec7b4caa1e.kml",
+    "format_source": "KML",
+    "processor": "sevent4 (scripts/recipes/bengaluru/acquire_boundaries.py)",
+    "retrieved": "2026-06-11"
+  },
+  {
+    "layer": "acs",
+    "file": "acs.geojson",
+    "features": 28,
+    "publisher_org": "Karnataka State Election Commission / ECI",
+    "opencity_dataset": "https://data.opencity.in/dataset/karnataka-and-bengaluru-assembly-constituency-maps",
+    "resource_url": "https://data.opencity.in/dataset/f80a1ff2-a1f2-442a-aff0-f332acd14ae6/resource/c1c04138-0eeb-4e5f-b1ef-6932dbcd23c0/download/28add4af-0ee5-4f13-9c64-0e5b3927c321.kml",
+    "format_source": "KML",
+    "processor": "sevent4 (scripts/recipes/bengaluru/acquire_boundaries.py)",
+    "retrieved": "2026-06-11"
+  },
+  {
+    "layer": "pcs",
+    "file": "pcs.geojson",
+    "features": 5,
+    "publisher_org": "Election Commission of India (ECI)",
+    "opencity_dataset": "https://data.opencity.in/dataset/karnataka-and-bengaluru-parliamentary-constituency-maps",
+    "resource_url": "https://data.opencity.in/dataset/f4eea943-d4ef-484a-a636-8de9ca0b7497/resource/4ae8e478-8cbc-45ca-be75-e7e32938d11a/download/fb4523e8-985d-4f0a-815e-025504c3b9a9.kml",
+    "format_source": "KML",
+    "processor": "sevent4 (scripts/recipes/bengaluru/acquire_boundaries.py)",
+    "retrieved": "2026-06-11"
+  }
+]

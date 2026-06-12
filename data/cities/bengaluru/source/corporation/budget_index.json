@@ -1,0 +1,32 @@
+{
+  "city": "Bengaluru",
+  "corporation": "BBMP / Greater Bengaluru Authority (GBA)",
+  "source": "https://site.bbmp.gov.in/budget.html",
+  "note": "BBMP (now under GBA) publishes budget documents at site.bbmp.gov.in. The site's TLS certificate is expired; URLs work over HTTPS when certificate validation is bypassed (curl -k). PDFs verified to resolve (HTTP 200). Spaces in filenames must be URL-encoded as %20. No elected council has passed a budget since the 2015 council's term ended in 2020; recent budgets are administrator-approved.",
+  "retrieved": "2026-06-09",
+  "base_url": "https://site.bbmp.gov.in/documents/",
+  "budgets": [
+    {"year": "2023-24", "title": "Budget 2023-24", "url": "https://site.bbmp.gov.in/documents/BUDGET%202023-24.pdf", "verified_http": 200, "bytes": 2513971},
+    {"year": "2021-22", "title": "Budget 2021-22", "url": "https://site.bbmp.gov.in/documents/BUDGET%202021-22.pdf", "verified_http": 200, "bytes": 2778510},
+    {"year": "2020-21", "title": "Budget 2020-21", "url": "https://site.bbmp.gov.in/documents/BUDGET%202020-21.pdf"},
+    {"year": "2019-20", "title": "Budget 2019-20", "url": "https://site.bbmp.gov.in/documents/BUDGET%202019-20.pdf"},
+    {"year": "2018-19", "title": "Budget 2018-19", "url": "https://site.bbmp.gov.in/documents/BUDGET%202018-19.pdf"},
+    {"year": "2017-18", "title": "Budget 2017-18", "url": "https://site.bbmp.gov.in/documents/BUDGET%202017-18.pdf"},
+    {"year": "2016-17", "title": "Approved Budget 2016-17", "url": "https://site.bbmp.gov.in/documents/Approved%20Busget%202016-17.pdf"},
+    {"year": "2016-17", "title": "Budget Speech 28-03-2016", "url": "https://site.bbmp.gov.in/documents/Budget%20Speech%2028-03-2016.pdf"},
+    {"year": "2016-17", "title": "BBMP Budget 2016 Full Book", "url": "https://site.bbmp.gov.in/documents/BBMP%20Budget%202016%20Full%20book.pdf"},
+    {"year": "2015-16", "title": "Financial Position 2015-16", "url": "https://site.bbmp.gov.in/documents/Financial%20Position_2015-16.pdf"},
+    {"year": "2015-16", "title": "Abstract 2015-16", "url": "https://site.bbmp.gov.in/documents/Abstract_2015-16.pdf"},
+    {"year": "2015-16", "title": "Receipts 2015-16", "url": "https://site.bbmp.gov.in/documents/Receipts_2015-16.pdf"},
+    {"year": "2015-16", "title": "Payments 2015-16", "url": "https://site.bbmp.gov.in/documents/Payments_2015-16.pdf"},
+    {"year": "2014-15", "title": "Final Budget Speech (Kan-Eng) 2014-15", "url": "https://site.bbmp.gov.in/documents/Final%20Budget%20Speech%20Kan-Eng%202014-15%20dt%2015-2-2014%20%207.30pm.pdf"},
+    {"year": "2013-14", "title": "Budget 2013-2014", "url": "https://site.bbmp.gov.in/documents/2013-2014Budget.pdf"},
+    {"year": "2009-10", "title": "English Budget Speech 2009-10", "url": "https://site.bbmp.gov.in/documents/ENGLISHBUDGETSPEECH09-10.pdf"},
+    {"year": "2009-10", "title": "Kannada Budget Speech 2009-10", "url": "https://site.bbmp.gov.in/documents/KANNADABUDGETSPEECH09-10.pdf"}
+  ],
+  "missing_or_gaps": [
+    "No standalone 2022-23 PDF listed on the index page (page lists 2023-24 then jumps to 2021-22).",
+    "FY2024-25 / FY2025-26 (GBA-era / 5-corporation) budgets not present on this legacy BBMP page as of retrieval.",
+    "2015-16 and earlier budgets are split into multiple component PDFs (coverpage, abstract, receipts, payments) rather than a single book."
+  ]
+}
