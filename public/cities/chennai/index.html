@@ -266,15 +266,27 @@
     const pcOption = currentOption("pcsel");
     const acOption = currentOption("acsel");
     const wardOption = currentOption("wardsel");
-    ["wards_hi", "acs_hi", "pcs_hi"].forEach((layerId) => {
-      if (map.getLayer(layerId)) {
-        const prop = layerId === "wards_hi" ? "Name" : (layerId === "acs_hi" ? "ac_name" : "pc_name");
-        map.setFilter(layerId, ["==", prop, "__none__"]);
-      }
-    });
-    if (pcOption && map.getLayer("pcs_hi")) map.setFilter("pcs_hi", ["==", "pc_name", pcOption.value]);
-    if (acOption && map.getLayer("acs_hi")) map.setFilter("acs_hi", ["==", "ac_name", acOption.value]);
-    if (wardOption && map.getLayer("wards_hi")) map.setFilter("wards_hi", ["==", "Name", wardOption.value]);
+    if (map.getLayer("wards_hi")) map.setFilter("wards_hi", ["==", "Name", "__none__"]);
+    if (map.getLayer("acs_hi")) map.setFilter("acs_hi", ["==", "ac_name", "__none__"]);
+    if (map.getLayer("pcs_hi")) map.setFilter("pcs_hi", ["==", "pc_name", "__none__"]);
+
+    // highlight the selected jurisdiction AND every AC / ward nested inside it
+    let acSet = [], wardSet = [];
+    const pcVal = pcOption ? pcOption.value : null;
+    if (wardOption) {
+      wardSet = [wardOption.value];
+      acSet = acOption ? [acOption.value] : [];
+    } else if (acOption) {
+      acSet = [acOption.value];
+      wardSet = ((jurisdiction.acs[acOption.value] || {}).wards) || [];
+    } else if (pcOption) {
+      const info = jurisdiction.pcs[pcOption.value] || {};
+      acSet = info.acs || [];
+      wardSet = info.wards || [];
+    }
+    if (pcVal && map.getLayer("pcs_hi")) map.setFilter("pcs_hi", ["==", "pc_name", pcVal]);
+    if (acSet.length && map.getLayer("acs_hi")) map.setFilter("acs_hi", ["in", "ac_name"].concat(acSet));
+    if (wardSet.length && map.getLayer("wards_hi")) map.setFilter("wards_hi", ["in", "Name"].concat(wardSet));
 
     const focusOption = wardOption || acOption || pcOption;
     if (!focusOption) {

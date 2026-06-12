@@ -34,9 +34,47 @@ def build_console(city: CityDataset, manifest: LayerManifest, out: Path) -> None
     out.write_text(_html(city, manifest), encoding="utf-8")
 
 
+# Canonical name field every console assumes -> candidate source fields. KGIS layers
+# (Bengaluru) leave the canonical lowercase field null and carry the value in AC_NAME /
+# PARLY_CSTNY_NAME / ward_name; canonicalising once here fixes dropdowns, map filters,
+# highlights AND popups together instead of patching each.
+_CANON = {
+    "wards.geojson": ("Name", ("ward_name", "Name", "name", "ward_no", "WARD_NO")),
+    "acs.geojson": ("ac_name", ("AC_NAME", "ac_name", "ASSEM_CSTNY_NAME", "Name", "name")),
+    "pcs.geojson": ("pc_name", ("PC_NAME", "pc_name", "PARLY_CSTNY_NAME", "Name", "name")),
+}
+
+
+def _ok(v) -> bool:
+    return str(v if v is not None else "").strip() not in ("", "None", "nan")
+
+
+def _canonicalise(path: Path) -> None:
+    """Ensure the canonical name field on a copied ward/AC/PC layer is populated."""
+    if path.name not in _CANON:
+        return
+    canon, cands = _CANON[path.name]
+    data = json.loads(path.read_text())
+    feats = data.get("features", [])
+    if not feats:
+        return
+    src = next((c for c in cands if any(_ok(f["properties"].get(c)) for f in feats)), None)
+    if not src:
+        return
+    changed = False
+    for f in feats:
+        p = f["properties"]
+        if not _ok(p.get(canon)) and _ok(p.get(src)):
+            p[canon] = p[src]
+            changed = True
+    if changed:
+        path.write_text(json.dumps(data))
+
+
 def _copy_layers(city: CityDataset, manifest: LayerManifest, layer_out: Path) -> None:
     for layer in manifest.layers:
         shutil.copy2(city.layers_dir / layer.file, layer_out / layer.file)
+        _canonicalise(layer_out / layer.file)
         if layer.bounds_file:
             shutil.copy2(city.layers_dir / layer.bounds_file, layer_out / layer.bounds_file)
     for sidecar in ("jurisdiction_crosswalk.json",):
@@ -538,15 +576,27 @@ def _js() -> str:
     const pcOption = currentOption("pcsel");
     const acOption = currentOption("acsel");
     const wardOption = currentOption("wardsel");
-    ["wards_hi", "acs_hi", "pcs_hi"].forEach((layerId) => {
-      if (map.getLayer(layerId)) {
-        const prop = layerId === "wards_hi" ? "Name" : (layerId === "acs_hi" ? "ac_name" : "pc_name");
-        map.setFilter(layerId, ["==", prop, "__none__"]);
-      }
-    });
-    if (pcOption && map.getLayer("pcs_hi")) map.setFilter("pcs_hi", ["==", "pc_name", pcOption.value]);
-    if (acOption && map.getLayer("acs_hi")) map.setFilter("acs_hi", ["==", "ac_name", acOption.value]);
-    if (wardOption && map.getLayer("wards_hi")) map.setFilter("wards_hi", ["==", "Name", wardOption.value]);
+    if (map.getLayer("wards_hi")) map.setFilter("wards_hi", ["==", "Name", "__none__"]);
+    if (map.getLayer("acs_hi")) map.setFilter("acs_hi", ["==", "ac_name", "__none__"]);
+    if (map.getLayer("pcs_hi")) map.setFilter("pcs_hi", ["==", "pc_name", "__none__"]);
+
+    // highlight the selected jurisdiction AND every AC / ward nested inside it
+    let acSet = [], wardSet = [];
+    const pcVal = pcOption ? pcOption.value : null;
+    if (wardOption) {
+      wardSet = [wardOption.value];
+      acSet = acOption ? [acOption.value] : [];
+    } else if (acOption) {
+      acSet = [acOption.value];
+      wardSet = ((jurisdiction.acs[acOption.value] || {}).wards) || [];
+    } else if (pcOption) {
+      const info = jurisdiction.pcs[pcOption.value] || {};
+      acSet = info.acs || [];
+      wardSet = info.wards || [];
+    }
+    if (pcVal && map.getLayer("pcs_hi")) map.setFilter("pcs_hi", ["==", "pc_name", pcVal]);
+    if (acSet.length && map.getLayer("acs_hi")) map.setFilter("acs_hi", ["in", "ac_name"].concat(acSet));
+    if (wardSet.length && map.getLayer("wards_hi")) map.setFilter("wards_hi", ["in", "Name"].concat(wardSet));
 
     const focusOption = wardOption || acOption || pcOption;
     if (!focusOption) {
