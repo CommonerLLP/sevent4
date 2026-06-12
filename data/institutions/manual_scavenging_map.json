@@ -1,0 +1,129 @@
+{
+  "_meta": {
+    "what": "The manual-scavenging / mechanisation map: per city -> who has genuinely moved sewer & septic-tank cleaning to ROBOTIC/MECHANISED methods, versus who still sends (overwhelmingly Dalit) workers into sewers manually, where they die. Per city -> {mechanisation_status, robotic_operator, deaths_recent {official, independent, years}, caste_profile, who_operates, legal_violations_note, source, verify}. This is the moral core of the atlas and the sharpest expression of the contractualisation map: the deaths fall on the contract/informal layer that contracting strips of safety. Read with contractualization_map.json (sanitation = the most hollowed GREEN cell) and the Ambedkarite frame in docs/.",
+    "thesis": "Two truths held at once. FIRST: manual cleaning of sewers and septic tanks is illegal (Prohibition of Employment as Manual Scavengers and their Rehabilitation Act, 2013 bans hazardous manual cleaning without protective gear), yet it continues and kills, because the government performs a DEFINITIONAL DODGE — declaring 'manual scavenging eradicated' (no dry-latrine scavengers) while sewer/septic 'hazardous cleaning' deaths go on. In June 2025 the Minister of State for Social Justice told Parliament 'No death has been reported due to Manual Scavenging' even as the government's OWN data records 377 sewer/septic deaths 2019-2023 and the NCSK records 1,313 since 1993 (Outlook; groundXero). SECOND, the Ambedkarite test: mechanisation (the Bandicoot robot, mechanised desludging fleets) is the right direction ONLY IF it ends the CASTE-ASSIGNMENT of the work. If the Bandicoot is operated by the same Valmiki worker now rebadged 'robot operator' on the same precarious contract, caste persists in a new shell. The real test is permanent, dignified, non-caste-marked municipal jobs — not a machine handed to a hereditary caste of cleaners.",
+    "legal_frame": {
+      "act_1993": "Employment of Manual Scavengers and Construction of Dry Latrines (Prohibition) Act, 1993 (Act 46 of 1993) — the FIRST law to criminalise EMPLOYING a manual scavenger and constructing/maintaining a dry latrine (imprisonment up to 1 year + fine). Weak by design: enacted under Article 252 (applied only in states that passed an adopting resolution, plus UTs), defined narrowly via 'dry latrines' (so it missed sewer/septic-tank cleaning), and produced effectively ZERO convictions. Superseded by the 2013 Act. (Before 1993 the practice was addressed only obliquely — Article 17's abolition of untouchability, 1950, and welfare/conversion schemes — no penal prohibition.)",
+      "act_2013": "Prohibition of Employment as Manual Scavengers and their Rehabilitation Act, 2013 — replaced the 1993 Act; nationwide (no state-adoption needed); BROADENED the prohibition to include hazardous manual cleaning of sewers/septic tanks WITHOUT protective gear & safety devices; strengthened penalties; mandates rehabilitation.",
+      "ska_v_uoi_2014": "Safai Karamchari Andolan v. Union of India (2014) 11 SCC 224 — Supreme Court fixed Rs 10 lakh compensation per sewer death (since 1993) and duties of identification & rehabilitation.",
+      "balram_singh_2023": "Dr Balram Singh v. Union of India (2023 INSC 950, 20 Oct 2023) — SC RAISED compensation to Rs 30 lakh for death; Rs 10-20 lakh for disability (permanent vs other); mandated mechanisation of sewer cleaning (only exception: where mechanical equipment physically cannot be used, e.g. a non-operational sewer); 14 directions on eradication, rehabilitation, a portal. SC clarified (2025) Rs 30 lakh applies to pre-judgment deaths too if unpaid (LiveLaw).",
+      "sc_metro_order_2025": "29 Jan 2025: SC division bench ordered an end to manual scavenging / manual sewer cleaning in 6 metropolitan cities — Delhi, Mumbai, Chennai, Kolkata, Bengaluru, Hyderabad — directing affidavits on compliance (Verdictum; CJP). Five of these are OUR cities; Ahmedabad was not named, Delhi was.",
+      "namaste_2023": "NAMASTE (National Action for Mechanised Sanitation Ecosystem), launched 2023, replaced the SRMS. Implemented by NSKFDC, FY2023-24 to FY2025-26, ~Rs 349.73 cr. Aims: profile sewer/septic-tank workers (SSWs), supply PPE, capital subsidy for mechanised desludging, link to ERSUs. By Aug 2025: 84,902 SSWs profiled, 45,871 PPE kits delivered, 354 safety-device kits to Emergency Response Sanitation Units (PIB)."
+    },
+    "definitional_dodge": "Government says 'manual scavenging' (manual handling of human excreta / dry-latrine cleaning) = eradicated, therefore 'no manual-scavenging deaths.' Independent orgs count SEWER & SEPTIC-TANK cleaning deaths — legally 'hazardous cleaning,' practically the same caste men in the same gas-filled pits. The category gap is the cover. Be precise: OFFICIAL = Min. of Social Justice / NCSK (data.gov.in, Parliament answers); INDEPENDENT = Safai Karmachari Andolan (Bezwada Wilson) / Dalit-rights orgs / news. SKA's counts run ~2x the official figure.",
+    "national_deaths": {
+      "official_ncsk": "1,313 sewer/septic deaths 1993-2025 (to 30 Jun 2025); 377 in 'hazardous cleaning' 2019-2023; ~453 since 2014; NCSK records 54-55 in 2024 and ~46 in 2025 (govt) (data.gov.in; Outlook; groundXero).",
+      "independent_ska": "SKA (Bezwada Wilson) counts 116 deaths in 2024 and 121 in 2025 — roughly double the official figure; 41 deaths in the first ~80 days of 2026. SKA: 'many cases are overlooked or not properly recorded.' Historically SKA has cited 300+/yr at peak (Maktoob; Countercurrents; Deccan Chronicle).",
+      "verify": false
+    },
+    "caste_global": "NAMASTE profiling of ~38,000-84,902 sanitation workers: ~68.9% SC, 14.7% OBC, 8.3% ST (~77% Dalit, ~92% SC/ST/OBC). Government data: manual scavengers ~97% SC; 2011 census ~95% of ~1.3M scavengers SC. Predominant jati: Valmiki/Balmiki (and regional equivalents — Mehtar, Chakkiliyar/Arunthathiyar in TN, Madiga/Mala in Telangana, Hela in the north). The dead are almost never permanent, mixed-caste municipal staff; they are contract/informal Dalit men (reuse contractualization_map.json caste_dimension_global).",
+    "status": "Authored 2026-06 from data.gov.in/NCSK, PIB/NAMASTE, SC judgments (Balram Singh 2023; SKA v UoI 2014; 29-Jan-2025 metro order via Verdictum/CJP), Genrobotics deployment reporting (Construction World, Machine Maker, DQIndia, Bilkul, Manufacturing Today), SKA/Bezwada Wilson via Maktoob/Deccan Chronicle/Countercurrents, Scroll, The News Minute, Citizen Matters, Outlook, groundXero. Mechanisation deployment facts are well-reported (vendor + civic-body confirmed). Per-city death SPLITS are the weakest cell — NCSK publishes state-wise, not always city-wise, and SKA's city granularity is uneven; city death figures flagged verify:true where not firmly state/city-attributed. NO fabrication."
+  },
+
+  "kerala": {
+    "_role": "LEAD CASE / comparator (Bandicoot's origin state)",
+    "_corporation": "Local bodies; sewerage largely Kerala Water Authority (KWA), a state board",
+    "mechanisation_status": "robotic_deployed",
+    "robotic_operator": "Kerala Water Authority (KWA) — first state in India to use robotic scavengers (Bandicoot, by Kerala-origin Genrobotics). Began Thiruvananthapuram 2018; extended to Guruvayur Sewerage Project (Thrissur) and Kochi. KWA frames the goal as a 'manhole-free' / man-less sewer-cleaning state. Bandicoot's 'Tron unit' enters the manhole; one operator does ~3x the manual rate.",
+    "deaths_recent": {"official": "low but NOT zero — Kerala still records occasional septic-tank deaths (private/contractor jobs, not KWA manholes)", "independent": "SKA records sporadic deaths, fewer than the high-burden states", "years": "ongoing; far below the northern/southern high-burden states"},
+    "caste_profile": "SC (Pulaya, Paraya and other Dalit communities); Kerala's better SC indicators do not exempt sanitation labour from caste-coding.",
+    "who_operates": "water_board",
+    "legal_violations_note": "The genuine lead on mechanisation per Balram Singh's mandate. CAVEAT (the Ambedkarite test): documents needed on whether Bandicoot operators are NEW permanent technical staff or the SAME caste of cleaners rebadged on contract. Deaths persist mainly in PRIVATE septic-tank/apartment-STP cleaning beyond KWA's robotic manholes.",
+    "source": "KWA 'Bandicoot — Robotising Sewerage Manhole Cleaning' (kwa.kerala.gov.in); Business Standard 'Kerala becomes first state to use robotic scavengers' (2023); Onmanorama; Genrobotics.",
+    "verify": true
+  },
+
+  "ahmedabad": {
+    "_corporation": "AMC; sewerage AMC; Gujarat = 'Year of Urban Development 2025'",
+    "mechanisation_status": "robotic_deployed",
+    "robotic_operator": "AMC / Gujarat Urban Development — Bandicoot deployed. Gujarat built on 6 earlier Bandicoot robots with a 2024 expansion: 4 robots in AHMEDABAD, 3 in Surat, 2 in Gandhinagar; 9 additional units announced Oct 2024; moving to 'Bandicoot Mobility+' across cities in 2025. Deployment is REAL but PARTIAL — a handful of robots against a vast manhole stock; manual entry persists alongside.",
+    "deaths_recent": {"official": "Gujarat is among the higher-burden states in NCSK data; AMC-specific official count not separately published", "independent": "SKA/Dalit-rights groups record continuing Gujarat septic-tank deaths (incl. contractor/private jobs)", "years": "2023-2025 ongoing", "verify": true},
+    "caste_profile": "Overwhelmingly Valmiki. CLRA 'Swept Aside' (2025): Ahmedabad Valmikis funnelled into safai kamdar work after textile-mill closures — 52% in slums, 29% in AMC quarters — caste-locked into both permanent and informal sanitation rolls.",
+    "who_operates": "corporation",
+    "legal_violations_note": "Real robotic deployment but at pilot-plus scale, not city-wide coverage; deaths continue in private/contractor septic-tank cleaning the robots don't reach. Not named in the 29-Jan-2025 SC six-metro order (an Ahmedabad gap, not an exemption from the 2013 Act).",
+    "source": "Bilkul Online 'Gujarat... 9 Additional Bandicoot Robots' (Oct 2024); Manufacturing Today 'Bandicoot robot joins Gujarat's urban sanitation drive'; CLRA 'Swept Aside' (2025); contractualization_map.json (ahmedabad).",
+    "verify": true
+  },
+
+  "mumbai": {
+    "_corporation": "MCGM (BMC); water & sewerage in-house to BMC",
+    "mechanisation_status": "pilot_only",
+    "robotic_operator": "BMC — Bandicoot pilots: 2 robots Sep 2024-Mar 2025 (Project 1), 2 robots Jun 2025-present (Project 2). A 2-robot pilot against ~one of India's largest sewer networks = pilot scale, not coverage. BMC also runs mechanised jetting/desludging.",
+    "deaths_recent": {"official": "Maharashtra is a higher-burden state in NCSK data; Mumbai-specific official count not separately published", "independent": "SKA records continuing Maharashtra/Mumbai-region sewer & septic deaths, concentrated on contract/private jobs", "years": "2023-2025 ongoing", "verify": true},
+    "caste_profile": "Predominantly SC (Valmiki and Maharashtra Dalit communities); the dead are contract/informal, not BMC's ~28,000 permanent safai kamgar.",
+    "who_operates": "corporation",
+    "legal_violations_note": "Named in the 29-Jan-2025 SC six-metro order to STOP manual sewer cleaning. Pilot-scale robots leave most manholes manual; deaths fall on the contract layer and private septic-tank jobs (see contractualization_map.json mumbai: ~7,000 counted contract + ~9,000 uncounted dattak-vasti workers).",
+    "source": "Genrobotics BMC case study (genrobotics.com); Verdictum / CJP (SC 29-Jan-2025 order); contractualization_map.json (mumbai).",
+    "verify": true
+  },
+
+  "chennai": {
+    "_corporation": "GCC; water & sewerage = CMWSSB (state board), NOT GCC",
+    "mechanisation_status": "robotic_deployed",
+    "robotic_operator": "CMWSSB (Chennai Metrowater) — Bandicoot Mobility+ deployed from April 2024; by April 2025 (one year) the fleet had cleaned 5,000+ manholes and stormwater drains. Among the more substantive city deployments after Kerala — a water-board, not a corporation, operating the robots.",
+    "deaths_recent": {"official": "Tamil Nadu historically among the top states for sewer deaths (TN, UP, Delhi ~40% of fatalities in earlier data)", "independent": "SKA/TN Dalit-rights orgs (Arunthathiyar focus) record continuing deaths, esp. private septic-tank and contractor jobs", "years": "2023-2025 ongoing", "verify": true},
+    "caste_profile": "Predominantly Arunthathiyar (SC) and other Dalit communities; in TN the sanitation workforce and the dead are overwhelmingly Arunthathiyar/Chakkiliyar.",
+    "who_operates": "water_board",
+    "legal_violations_note": "Named in the 29-Jan-2025 SC six-metro order. Genuine robotic deployment by CMWSSB, BUT GCC's surface conservancy is being PRIVATISED (Urbaser-Sumeet + Ramky, 10/15 zones — contractualization_map.json) and septic-tank/private-job deaths continue. Mechanisation of board manholes ≠ end of manual entry city-wide.",
+    "source": "Construction World 'Bandicoot Robots Revolutionise Sewer Cleaning in Chennai'; Machine Maker / DQIndia 'One year of robotic sanitation in Chennai' (2025); Verdictum (SC order); contractualization_map.json (chennai).",
+    "verify": true
+  },
+
+  "bengaluru": {
+    "_corporation": "BBMP (SWM via BSWML); water & sewerage = BWSSB (state board)",
+    "mechanisation_status": "pilot_only",
+    "robotic_operator": "BWSSB — 'Smart Cleaning' project: BWSSB announced/began HIRING robotic manhole-cleaning services to end manual intervention and handle monsoon overflows (Deccan Herald). Status is adopt/announce + early deployment, not city-wide coverage. Apartment/standalone STPs remain a large manual-scavenging vector OUTSIDE BWSSB's robotic manholes.",
+    "deaths_recent": {"official": "Karnataka records sewer/septic deaths in NCSK data", "independent": "documented deaths: a BWSSB worker given jetting/sucking machines WITHOUT safety gear was injured and died (Dec 2022); Manu (25) died cleaning a septic tank at a Hongasandra international school — both illustrate the apartment-STP and no-PPE vectors", "years": "2022-2025 ongoing", "verify": true},
+    "caste_profile": "Predominantly SC (Madiga and other Dalit communities); the dead are contract/private-job workers, not BBMP's regularised pourakarmikas.",
+    "who_operates": "water_board",
+    "legal_violations_note": "Named in the 29-Jan-2025 SC six-metro order. Citizen Matters: apartment STPs are a structural cause of CONTINUING manual scavenging in Bengaluru that robots-for-public-manholes do not touch; a complaint was filed against BWSSB over manual scavenging. Robotic adoption is early-stage; manual entry persists where the board's robots don't reach.",
+    "source": "Deccan Herald 'BWSSB to use robotic technology to clean manholes'; Citizen Matters 'How STPs are causing manual scavenging to continue in Bengaluru'; Asianet Newsable (complaint vs BWSSB); Verdictum (SC order).",
+    "verify": true
+  },
+
+  "hyderabad": {
+    "_corporation": "GHMC; water & sewerage = HMWSSB (state board)",
+    "mechanisation_status": "mechanised_desludging",
+    "robotic_operator": "HMWSSB — mini-sewer-jetting / mini-desludging TRUCK programme launched 2017 (after a Telangana HC suo-motu notice + civil-society/DICCI pressure), often cited as an early mechanisation model: small jetting machines that reach narrow lanes so workers needn't enter. This is MECHANISED DESLUDGING (jetting/suction fleet), not robotic-arm (Bandicoot) cleaning. Scroll's 2021 follow-up: machines reduced entry but 'sickness and degradation endure' — the SAME workers, still caste-marked, now operating machines on precarious terms.",
+    "deaths_recent": {"official": "Telangana records sewer/septic deaths; SKA: ~36 deaths since 2000 across erstwhile Andhra/Telangana (older cumulative figure)", "independent": "SKA records continuing deaths, esp. private septic-tank jobs the truck fleet doesn't cover", "years": "ongoing", "verify": true},
+    "caste_profile": "Predominantly Madiga/Mala (SC); the GHMC sanitation front line is ~28,000 contract/outsourced and overwhelmingly Dalit (contractualization_map.json hyderabad).",
+    "who_operates": "water_board",
+    "legal_violations_note": "Named in the 29-Jan-2025 SC six-metro order. Hyderabad is the cautionary Ambedkarite case: mechanised desludging is REAL and early, yet Scroll documents that mechanisation WITHOUT ending caste-assignment left the same Dalit men sick, degraded and precarious — machines given to a hereditary cleaning caste, not new dignified jobs.",
+    "source": "The News Minute 'How Hyderabad is getting rid of manual scavenging with its mini sewer jetting machines'; Scroll 'Three years after Hyderabad got machines... sickness and degradation endure' (2021); Verdictum (SC order); contractualization_map.json (hyderabad).",
+    "verify": true
+  },
+
+  "kolkata": {
+    "_corporation": "KMC; water & sewerage in-house to KMC",
+    "mechanisation_status": "pilot_only",
+    "robotic_operator": "No firmly documented city-wide Bandicoot/robotic deployment surfaced for KMC; West Bengal/Kolkata mechanisation lags the southern lead. KMC sewer & drain cleaning remains heavily MANUAL with casual labour. (verify: a confirmed KMC robotic-cleaning programme not located.)",
+    "deaths_recent": {"official": "West Bengal records sewer/septic deaths in NCSK data", "independent": "SKA records continuing deaths in the Kolkata region", "years": "ongoing", "verify": true},
+    "caste_profile": "Predominantly SC (Hela/Valmiki and other Dalit communities); KMC's conservancy cadre is half-empty (~6,000 of ~14,000 sanctioned), back-filled with Rs 202/day casuals doing hazardous head-load and drain work (contractualization_map.json kolkata).",
+    "who_operates": "corporation",
+    "legal_violations_note": "Named in the 29-Jan-2025 SC six-metro order. Among the LEAST mechanised of our metros: a half-empty permanent cadre plus sub-minimum-wage casual labour doing manual drain/sewer work is the structure most exposed to hazardous-cleaning deaths.",
+    "source": "Verdictum / CJP (SC 29-Jan-2025 order); contractualization_map.json (kolkata); NewsClick 'WB: Safai Workers Under KMC...'.",
+    "verify": true
+  },
+
+  "delhi": {
+    "_role": "Comparator (worst-burden metro)",
+    "_corporation": "MCD; water & sewerage = Delhi Jal Board (DJB)",
+    "mechanisation_status": "pilot_only",
+    "robotic_operator": "DJB has procured mechanised sewer-cleaning machines and 'sewer-cleaning vehicles'/anti-machine-hole units over the years, but coverage is partial and CONTRACTOR-routed; Delhi still records the MOST manual-scavenging/sewer deaths in the country. Mechanisation announced repeatedly; deaths continue.",
+    "deaths_recent": {"official": "7 sewer deaths reported in Delhi in 2024 (official)", "independent": "Delhi ranks WORST in the country for manual-scavenger deaths in 2025; victims' families largely UNCOMPENSATED. 2024 incidents: Hare Krishna Prasad (32) & Sagar (20) died in a Rohini septic tank with no safety gear; 2 died (a 3rd collapsed rescuing) in a Sarojini Nagar sewer, 8 Oct 2024", "years": "2024-2025", "verify": false},
+    "caste_profile": "Predominantly Valmiki (SC); the dead in Delhi are overwhelmingly contract workers hired by sub-contractors / private parties, not permanent DJB staff.",
+    "who_operates": "contractor",
+    "legal_violations_note": "Named in the 29-Jan-2025 SC six-metro order — the city the order most pointedly targets. The CONTRACTOR layer is where Delhi's deaths concentrate: private sub-contractors send men into sewers/septic tanks without PPE or ERSU backup, in direct breach of the 2013 Act and Balram Singh. Compensation (Rs 30 lakh) routinely delayed or unpaid.",
+    "source": "The Patriot 'Delhi records most deaths from manual scavenging in 2025' and 'A year after sewer deaths, families... still wait for compensation'; The Tribune (SC questions deaths); Verdictum / CJP (SC order).",
+    "verify": false
+  },
+
+  "_cross_city_pattern": {
+    "genuinely_mechanised": "KERALA (KWA) is the unambiguous lead — robotic (Bandicoot) sewer-manhole cleaning at state scale, framed as 'manhole-free.' CHENNAI (CMWSSB, Bandicoot Mobility+, 5,000+ manholes in year one) is the strongest of OUR six. HYDERABAD (HMWSSB) has real but EARLIER-GENERATION mechanised desludging (jetting trucks, since 2017), not robotic arms. AHMEDABAD has real Bandicoot units (4 in the city) but at pilot-plus scale. MUMBAI (2-robot pilot) and BENGALURU (early robotic hiring + unaddressed apartment-STP vector) are PILOT-ONLY. KOLKATA and DELHI are the LEAST mechanised in practice — Delhi despite procurement, because the work is contractor-routed and uncovered.",
+    "still_kills": "ALL of them still record sewer/septic deaths — mechanisation of public manholes does NOT cover private septic tanks, apartment STPs, and contractor jobs, which is where the dying continues. DELHI is the worst-burden metro (most deaths 2024-2025). The robot cleans the corporation's manhole; the Dalit contract worker still dies in the private tank next door.",
+    "death_toll_official_vs_independent": "OFFICIAL (NCSK/Min. Social Justice): 1,313 sewer/septic deaths 1993-2025; 377 in 2019-2023; 54-55 in 2024; ~46 in 2025 — alongside the Parliament claim 'No death... due to Manual Scavenging' (June 2025). INDEPENDENT (SKA/Bezwada Wilson): 116 in 2024, 121 in 2025, 41 in the first ~80 days of 2026 — roughly DOUBLE the official count. The gap is the definitional dodge: 'manual scavenging' declared eradicated while 'hazardous cleaning' deaths are counted separately or not at all.",
+    "caste": "Overwhelmingly SC, predominantly Valmiki (and regional Dalit jatis: Arunthathiyar in TN, Madiga/Mala in Telangana, Hela in Bengal/north). NAMASTE profiling: ~68.9% SC / ~77% Dalit / ~92% SC/ST/OBC; manual scavengers ~97% SC. The dead are almost never permanent mixed-caste municipal staff — they are contract/informal Dalit men.",
+    "operator_layer_where_deaths_concentrate": "Deaths concentrate on the CONTRACTOR and PRIVATE/INFORMAL layer, not the in-house permanent cadre. Delhi (contractor-routed) is the clearest case. Even where a WATER BOARD (CMWSSB, HMWSSB, BWSSB, KWA) runs robots on public manholes, the deaths migrate to private septic tanks and apartment STPs cleaned by sub-contracted Dalit workers without PPE. The robot protects the corporation's liability more reliably than it protects the worker's life — unless the work is de-caste-marked and made permanent.",
+    "ambedkar_test": "Mechanisation liberates ONLY if it ends the caste-ASSIGNMENT of the work. Hyderabad (Scroll) is the warning: machines given to the same hereditary cleaning caste left 'sickness and degradation' intact. The real test, per Balram Singh and Ambedkar both, is permanent, dignified, non-caste-marked municipal jobs — the Bandicoot operated by a public technician, not a Valmiki worker rebadged 'robot operator' on the same contract."
+  }
+}

@@ -1,0 +1,395 @@
+{
+  "_meta": {
+    "city": "Bengaluru (Bangalore)",
+    "state": "Karnataka",
+    "elected_corporation": "BBMP (Bruhat Bengaluru Mahanagara Palike) — DISSOLVED 2025; replaced by 5 City Corporations under a Greater Bengaluru Authority; fresh corporation elections PENDING (city de facto unelected as of 2026-06).",
+    "what": "The governance-fragmentation dossier for Bengaluru: EVERY body that took a 12th-Schedule (Art. 243W) function away from the elected city corporation, pre- and post-1991, recorded on the axis of WHO DECIDED. Each entry: WHAT function was taken; HOW (enabling Act name+number+year / notification, decided_by, instrument); WHY (stated rationale AND political-economy reading); ERA (pre_1991 | post_1991).",
+    "thesis": "Bengaluru is the cleanest improvement-trust-to-development-authority lineage outside Calcutta — the CITB (City Improvement Trust Board, 1945) became the BDA (Bangalore Development Authority, 1976) by statute, lifting land and planning permanently out of the elected city and into an appointed land-monetising authority (Ghosh's 'recoupment'). And in 2025 the STATE re-engineered the city's very structure OVER the elected body: the Greater Bengaluru Governance Act, 2024 (Karnataka Act 36 of 2025) DISSOLVED the single BBMP into five City Corporations under a state-chaired Greater Bengaluru Authority, with elections deferred. In both the founding carve-out and the 2025 split, the decider is the STATE, never the elected city. That is the spine of this file: decided_by is the analytical core, and for Bengaluru it is overwhelmingly `state`.",
+    "decided_by_legend": {
+      "colonial": "decided by the colonial / princely-state executive before 1947 (Mysore Durbar, British Resident).",
+      "centre": "decided by the Union government / Parliament.",
+      "state": "decided by the Government of Karnataka / State Legislature (the dominant mode here).",
+      "city": "decided by the elected municipal corporation itself (vanishingly rare — included to show its near-total absence)."
+    },
+    "era_rule": "pre_1991 vs post_1991 boundary tracks the project convention (74th Amendment era / liberalisation). The founding date of the body, not later amendments, sets its era.",
+    "ghosh_frame": "Anwesha Ghosh, 'Municipal Calcutta' (UofT PhD 2021) & 'The Improvement Regime' (CSSH 2025): the improvement trust depoliticises urban development by lifting 'technical' land/planning out of elected municipal politics and into an appointed executive body that finances itself by selling acquired-and-redeveloped land ('recoupment'). The development authority is the improvement trust reborn. Bengaluru CITB(1945)->BDA(1976) is the textbook case.",
+    "cooper_frame": "Melinda Cooper, 'Counterrevolution' (2024): the carve-out/SPV/parastatal is an austerity-and-extravagance device — fiscal discipline imposed on the elected body's service functions (the broom) while off-budget, capital-rich, debt-and-land-backed vehicles (metro SPV, smart-city SPV, development authority) are lavishly resourced outside democratic control. The 2025 GBA recentralises coordination in a CM-chaired state apex — depoliticisation as statecraft.",
+    "sources_master": [
+      "data/laws/bengaluru/manifest.md (verified Act numbers: GBG Act = Karnataka Act 36 of 2025; BBMP Act = 53 of 2020; KMC Act = 14 of 1977; BDA Act = 12 of 1976; BWSSB Act = Mysore Act 36 of 1964; KTCP Act = 11 of 1963)",
+      "data/laws/INDEX.md; data/laws/_constitution/manifest.md (74th Amendment, Art. 243W 'may, by law, endow')",
+      "data/institutions/corporation_history.json (bengaluru: CITB 1945 -> BDA 1976 lineage)",
+      "data/institutions/service_providers.json (bengaluru scorecard)",
+      "data/institutions/contractualization_map.json (bengaluru pourakarmika regularisation + ~10,000 contract sweepers + ~9,000 truck crew)",
+      "docs/the-corporate-city.md (Ghosh improvement-regime frame)"
+    ],
+    "status": "Authored 2026-06-09. Act numbers/years verified against data/laws/bengaluru/manifest.md (itself India Code / Karnataka DPAL / PRS verified). Bengaluru is in active legal flux post-2025 reorganisation; election status and final corporation boundaries flagged verify:true / unverified. CITB constitution year (1945) and metro/SPV incorporation dates flagged where reliant on secondary sources. NO fabrication; uncertain entries carry verify:true and a note."
+  },
+
+  "bodies": [
+    {
+      "id": "citb_1945",
+      "name": "City Improvement Trust Board (CITB), Bangalore",
+      "what": "Urban planning, land acquisition, layout/extension development and 'city improvement' — function #1 (urban/town planning) and #2 (land-use & building regulation) of the 12th Schedule — lifted out of the elected city municipality into an appointed improvement trust.",
+      "how": {
+        "instrument": "City of Bangalore Improvement Act, 1945 (Mysore) — constituting the City Improvement Trust Board.",
+        "act_name": "City of Bangalore Improvement Act, 1945",
+        "act_year": 1945,
+        "act_number": "Mysore Act (number to be confirmed against the Mysore statute book)",
+        "notification": null,
+        "decided_by": "colonial",
+        "decider_detail": "Princely State of Mysore (Mysore Durbar / Dewan's administration) under British paramountcy — NOT the elected Bangalore municipality.",
+        "instrument_named": true
+      },
+      "why": {
+        "stated": "To plan and 'improve' a fast-growing Bangalore — lay out new extensions, widen roads, regulate building, decongest the City and Cantonment — as a coordinated technical project beyond the capacity/remit of the ordinary municipality.",
+        "political_economy": "The archetypal Ghosh improvement-trust move, a generation after Bombay (1898) and Calcutta (1911): depoliticise land and planning by handing them to an appointed executive board that finances itself through land — acquiring at low cost, developing, and selling/allotting layouts ('recoupment'). The trust is, in Ghosh's phrase, 'an executive body and not a deliberative organisation': improvement becomes the idiom, land-value capture the purpose. In Bangalore this seeded the city's enduring pattern of state-controlled layout development (Jayanagar, etc.) as the engine of urban land allocation, outside any elected council. Caste/labour dimension: the trust decides whose neighbourhoods are 'improved' and who is displaced, selectively activating progress by 'how much the municipality got to gain.'",
+        "depoliticisation": true,
+        "land_financialisation": true,
+        "elite_capture": true
+      },
+      "era": "pre_1991",
+      "successor": "bda_1976",
+      "verify": true,
+      "verify_note": "Founding year 1945 is well-established (corporation_history.json; standard BDA institutional history). The precise Mysore Act number for the 1945 Improvement Act is not in the verified data/laws set (which carries BDA Act 12 of 1976, its successor) — flagged for gazette confirmation.",
+      "sources": ["corporation_history.json (bengaluru.improvement_trust: CITB 1945)", "docs/the-corporate-city.md", "BDA institutional history (CITB predecessor)"]
+    },
+    {
+      "id": "bda_1976",
+      "name": "Bangalore Development Authority (BDA)",
+      "what": "Planned development of the Bangalore Metropolitan Area — urban planning (#1), regulation of land-use & buildings (#2), land acquisition, layout formation, development schemes, and major-road/arterial works — held permanently OUTSIDE the elected corporation. The BDA is the statutory successor to the CITB.",
+      "how": {
+        "instrument": "Bangalore Development Authority Act, 1976.",
+        "act_name": "Bangalore Development Authority Act, 1976",
+        "act_year": 1976,
+        "act_number": "Karnataka Act No. 12 of 1976 (in force 20 Dec 1975)",
+        "notification": null,
+        "decided_by": "state",
+        "decider_detail": "Government of Karnataka / State Legislature — the State dissolved the CITB and re-founded it as the BDA. The elected Bangalore corporation had no decisional role.",
+        "instrument_named": true,
+        "operates_within": "Karnataka Town and Country Planning Act, 1961 (Karnataka Act 11 of 1963) — master-plan / Revised Master Plan framework."
+      },
+      "why": {
+        "stated": "To provide for the planned, coordinated development of the rapidly expanding Bangalore Metropolitan Area beyond the municipal limits — succeeding the CITB with wider powers over land acquisition, layouts and development schemes.",
+        "political_economy": "★ THE textbook improvement-trust-to-development-authority succession outside Calcutta (Ghosh). The 1976 Act does not abolish the improvement regime — it ENLARGES it: the colonial trust's land-monetising logic is carried, by statute, into the modern parastatal. BDA became the city's dominant land machine — acquiring farmland on the periphery, forming and allotting layouts, and capturing the resulting land-value uplift — the purest contemporary instance of Ghosh's 'recoupment' (selling acquired-and-redeveloped land at a 'future' value). Land/planning, the rent-rich half of the 12th Schedule, sits with an appointed board; the elected corporation keeps the labour-intensive, low-rent half (sweeping, drains, lights). Cooper reading: a debt-and-land-backed authority resourced outside the elected body's budget and democratic control — extravagance for land, austerity for service. Elite capture is structural: BDA allotments and acquisition decisions are a recurring site of political patronage and litigation.",
+        "depoliticisation": true,
+        "land_financialisation": true,
+        "elite_capture": true,
+        "ghosh_textbook_case": true
+      },
+      "era": "post_1991_body_no",
+      "era_resolved": "pre_1991",
+      "predecessor": "citb_1945",
+      "verify": false,
+      "sources": ["data/laws/bengaluru/manifest.md (BDA Act = Karnataka Act 12 of 1976)", "data/laws/INDEX.md", "corporation_history.json", "docs/the-corporate-city.md"]
+    },
+    {
+      "id": "bwssb_1964",
+      "name": "Bangalore Water Supply and Sewerage Board (BWSSB)",
+      "what": "Water supply (#5) AND sewerage/sewage disposal (part of #6) for the Bangalore Metropolitan Area — the single most valuable utility function — carved out of the city corporation into a standalone state board.",
+      "how": {
+        "instrument": "Bangalore Water Supply and Sewerage Act, 1964.",
+        "act_name": "Bangalore Water Supply and Sewerage Act, 1964",
+        "act_year": 1964,
+        "act_number": "Karnataka (Mysore) Act No. 36 of 1964 (President's assent 27 Aug 1964)",
+        "notification": null,
+        "decided_by": "state",
+        "decider_detail": "Government of Mysore/Karnataka — created an appointed board to run water and sewerage, removing them from the elected corporation's control.",
+        "instrument_named": true
+      },
+      "why": {
+        "stated": "To provide for, develop and regulate water supply, sewerage and sewage disposal in the Bangalore Metropolitan Area through a dedicated technical board capable of large capital works (the Cauvery water schemes) beyond the municipality's reach.",
+        "political_economy": "The 'carve-out' move (Ghosh's depoliticisation, repeated): the high-value, capital-intensive, revenue-bearing utility is written OUT of the elected body into a purpose-built appointed board, justified as rescuing 'technical' water engineering from municipal politics. Water is the costliest, most patronage-laden and most tariff-sensitive municipal function; locating it in an unelected board insulates tariff-setting, capital procurement (Cauvery pipelines, JICA-funded works) and service-geography decisions (which colonies get connected; which settlements do not) from electoral accountability. The board carries its own debt and donor conditionality off the corporation's books — Cooper's off-budget, lavishly-capitalised vehicle beside an austere elected council. Service-geography is the equity fault line: piped supply tracks planned/elite layouts, with informal settlements left to tankers.",
+        "depoliticisation": true,
+        "land_financialisation": false,
+        "neoliberal_conditionality": true
+      },
+      "era": "pre_1991",
+      "verify": false,
+      "sources": ["data/laws/bengaluru/manifest.md (BWSSB Act = Karnataka/Mysore Act 36 of 1964)", "data/laws/INDEX.md", "service_providers.json (water/sewerage = BWSSB, state_board)"]
+    },
+    {
+      "id": "ktcp_1961",
+      "name": "Karnataka Town and Country Planning Act framework (Planning Authorities)",
+      "what": "Statutory town planning — master plans / Outline Development Plans / Revised Master Plan, zoning, regulation of land-use and change of land use (#1, #2) — vested in state-constituted Planning Authorities (the BDA acts as the planning authority for Bangalore), not the elected corporation.",
+      "how": {
+        "instrument": "Karnataka Town and Country Planning Act, 1961.",
+        "act_name": "Karnataka Town and Country Planning Act, 1961",
+        "act_year": 1961,
+        "act_number": "Karnataka Act No. 11 of 1963 (President's Act)",
+        "notification": null,
+        "decided_by": "state",
+        "decider_detail": "Government of Karnataka — the master-plan/zoning power is a state-appointed Planning Authority function (exercised for Bangalore via the BDA), not a power of the elected council.",
+        "instrument_named": true
+      },
+      "why": {
+        "stated": "To provide a uniform statutory framework for town and country planning across Karnataka — master plans, zoning, development control — administered by designated Planning Authorities.",
+        "political_economy": "The legal scaffolding that makes the BDA carve-out durable: the master-plan and change-of-land-use power — the single most lucrative discretionary lever in urban land (a stroke of the pen converts agricultural land to residential/commercial and multiplies its value) — is a STATE Planning-Authority function, not the elected city's. Change-of-land-use under this Act is a recurring site of land-value capture and elite/developer capture. It depoliticises zoning by routing it through appointed authorities answerable to the state, not the ward.",
+        "depoliticisation": true,
+        "land_financialisation": true,
+        "elite_capture": true
+      },
+      "era": "pre_1991",
+      "verify": false,
+      "sources": ["data/laws/bengaluru/manifest.md (KTCP Act = Karnataka Act 11 of 1963)", "data/laws/INDEX.md"]
+    },
+    {
+      "id": "bmrda",
+      "name": "Bangalore Metropolitan Region Development Authority (BMRDA)",
+      "what": "Regional-scale metropolitan planning and coordinated development for the wider Bangalore Metropolitan Region (well beyond corporation limits) — supra-municipal urban planning (#1, #3) held by an appointed regional authority.",
+      "how": {
+        "instrument": "Bangalore Metropolitan Region Development Authority Act, 1985 (Karnataka).",
+        "act_name": "Bangalore Metropolitan Region Development Authority Act, 1985",
+        "act_year": 1985,
+        "act_number": "Karnataka Act (number to be confirmed against the statute)",
+        "notification": null,
+        "decided_by": "state",
+        "decider_detail": "Government of Karnataka — a regional development authority above and outside the elected corporation.",
+        "instrument_named": true
+      },
+      "why": {
+        "stated": "To plan, coordinate and supervise the orderly development of the Bangalore Metropolitan Region as a whole, across the multiple local bodies in the region.",
+        "political_economy": "Scales the carve-out up to the regional level: metropolitan planning — which the 74th Amendment envisaged for an elected Metropolitan Planning Committee (Art. 243ZE) — is instead held by a state-appointed regional authority. The MPC that the Constitution mandates is effectively displaced by an appointed body, so the region's growth-and-land agenda is set by the state, not by the elected representatives of the area. New growth corridors and special development areas around Bangalore become state-directed land/investment plays.",
+        "depoliticisation": true,
+        "land_financialisation": true,
+        "displaces_mpc_243ZE": true
+      },
+      "era": "pre_1991",
+      "verify": true,
+      "verify_note": "BMRDA founding commonly dated 1985 (BMRDA Act 1985); exact Karnataka Act number not in the verified data/laws set — flagged for confirmation.",
+      "sources": ["data/laws/bengaluru/manifest.md (BMRDA noted as regional-scale planning)", "service_providers.json"]
+    },
+    {
+      "id": "khb",
+      "name": "Karnataka Housing Board (KHB)",
+      "what": "Public housing development — construction and allotment of housing layouts/colonies — a function bearing on housing, land and slum/poverty (touching #2, #10, #11) held by a state board, not the elected corporation.",
+      "how": {
+        "instrument": "Karnataka Housing Board Act, 1962 (successor framework to the Mysore Housing Board).",
+        "act_name": "Karnataka Housing Board Act, 1962",
+        "act_year": 1962,
+        "act_number": "Karnataka Act (number to be confirmed)",
+        "notification": null,
+        "decided_by": "state",
+        "decider_detail": "Government of Karnataka — a statewide appointed housing board operating within Bangalore alongside the corporation.",
+        "instrument_named": true
+      },
+      "why": {
+        "stated": "To address housing shortages by developing and allotting housing colonies and layouts across Karnataka, including in Bangalore.",
+        "political_economy": "Another land-and-allotment parastatal: housing — and the layout development that comes with it — is a state board function, adding a second appointed land developer (beside the BDA) operating in the city. Allotment of board housing is patronage-prone; the 'housing for the people' idiom coexists with land-value capture and middle-class layout production, while genuine slum/EWS need is comparatively under-served.",
+        "depoliticisation": true,
+        "land_financialisation": true,
+        "elite_capture": true
+      },
+      "era": "pre_1991",
+      "verify": true,
+      "verify_note": "KHB year (1962) and Act number to be confirmed against the Karnataka statute book.",
+      "sources": ["Karnataka Housing Board (institutional history)", "service_providers.json (development_authority/land cluster)"]
+    },
+    {
+      "id": "kslcdb",
+      "name": "Karnataka Slum Development Board (Karnataka Slum Clearance / Development Board)",
+      "what": "Slum improvement and upgradation (#10) and a slice of urban poverty alleviation (#11) — slum clearance/redevelopment — vested in a dedicated state slum board rather than the elected corporation.",
+      "how": {
+        "instrument": "Karnataka Slum Areas (Improvement and Clearance) Act, 1973 — constituting the Slum Clearance/Development Board.",
+        "act_name": "Karnataka Slum Areas (Improvement and Clearance) Act, 1973",
+        "act_year": 1973,
+        "act_number": "Karnataka Act (number to be confirmed)",
+        "notification": null,
+        "decided_by": "state",
+        "decider_detail": "Government of Karnataka — slum policy and slum land are held by a state board.",
+        "instrument_named": true
+      },
+      "why": {
+        "stated": "To declare, improve, clear and redevelop slum areas and rehabilitate slum dwellers through a specialised state board.",
+        "political_economy": "Caste/labour offloading and land control fused: slum 'improvement/clearance' is removed from the elected ward to a state board, so decisions about which settlements are notified, cleared, redeveloped or evicted — decisions that fall overwhelmingly on Dalit, Muslim and migrant labouring populations — are made outside electoral accountability. 'Clearance' on valuable inner-city land doubles as a land-recovery mechanism (the slum board sits at the intersection of welfare idiom and land-value capture). The body meant to protect the urban poor (12th-Schedule #10/#11) is appointed, not elected by them.",
+        "depoliticisation": true,
+        "caste_labour_offloading": true,
+        "land_financialisation": true
+      },
+      "era": "pre_1991",
+      "verify": true,
+      "verify_note": "Karnataka Slum Areas (Improvement & Clearance) Act commonly dated 1973/1974 and the Board's exact current name (Slum Clearance Board / Slum Development Board) has varied; year and Act number to be confirmed.",
+      "sources": ["Karnataka Slum Areas (Improvement and Clearance) Act 1973", "Twelfth Schedule #10/#11 (data/laws/_constitution/manifest.md)"]
+    },
+    {
+      "id": "bmtc",
+      "name": "Bangalore Metropolitan Transport Corporation (BMTC)",
+      "what": "City public bus transport — public amenities incl. bus stops / city transit (#17) — run by a state-owned transport corporation, not the elected city.",
+      "how": {
+        "instrument": "Constituted under the Road Transport Corporations Act, 1950 (Central) by Government of Karnataka notification; BMTC carved out of KSRTC in 1997.",
+        "act_name": "Road Transport Corporations Act, 1950 (Central enabling Act); BMTC bifurcated from KSRTC by Karnataka Government order, 1997",
+        "act_year": 1997,
+        "act_number": "RTC Act 1950 (Central Act 64 of 1950); BMTC formation by Karnataka G.O. (1997)",
+        "notification": "Karnataka Government order bifurcating BMTC from KSRTC, 1997",
+        "decided_by": "state",
+        "decider_detail": "Government of Karnataka, under the Central RTC Act 1950 framework — a state-owned corporation; the elected city has no control over routes, fares or fleet.",
+        "instrument_named": true
+      },
+      "why": {
+        "stated": "To run efficient, dedicated city bus services for Bangalore through a specialised transport corporation separated from the inter-city KSRTC.",
+        "political_economy": "City transit — a core 12th-Schedule public amenity — is a STATE corporation, so route planning, fares and the integration of transit with land-use are decided by the state, not the elected city or its (absent) Metropolitan Planning Committee. The fare-box-vs-subsidy politics of bus transport (which the urban working class depends on) is held at state level; meanwhile capital and political attention flow to the metro SPV. The bus the working majority actually rides is run far from the ward it serves.",
+        "depoliticisation": true,
+        "land_financialisation": false
+      },
+      "era": "post_1991",
+      "verify": true,
+      "verify_note": "BMTC bifurcation from KSRTC dated 1997 (widely reported); exact G.O. reference not in the verified data/laws set.",
+      "sources": ["Road Transport Corporations Act 1950 (Central)", "service_providers.json (city_bus = BMTC, state_dept)"]
+    },
+    {
+      "id": "bmrcl_2006",
+      "name": "Bangalore Metro Rail Corporation Ltd (BMRCL) / Namma Metro",
+      "what": "Urban rail mass transit (a capital-rich public amenity / transit, touching #17) — built and operated by a special-purpose vehicle (SPV) company, entirely outside the elected corporation.",
+      "how": {
+        "instrument": "Incorporated as a Government company under the Companies Act, 1956 — a joint SPV of the Government of India and the Government of Karnataka.",
+        "act_name": "Companies Act, 1956 (incorporation of BMRCL as a Govt company); metro operations under the Metro Railways (Operation & Maintenance) Act, 2002 / Delhi Metro Railway (O&M) Act framework",
+        "act_year": 2006,
+        "act_number": "Govt company under Companies Act 1956 (incorporated 2006); 50:50 GoI–GoK SPV",
+        "notification": null,
+        "decided_by": "state",
+        "decider_detail": "Joint decision of the CENTRE and the STATE (50:50 SPV) — the elected city had no role. Recorded as `state` for the city-vs-not axis (a centre+state joint SPV, never the city).",
+        "instrument_named": true
+      },
+      "why": {
+        "stated": "To plan, build, finance and operate a metro rail system for Bangalore through a dedicated, ring-fenced corporate vehicle capable of raising debt (JICA/multilateral loans) and executing a mega-project.",
+        "political_economy": "The SPV is the modern improvement-trust/recoupment device in its purest financial form (Ghosh + Cooper): a ring-fenced company, off the elected body's balance sheet, that raises sovereign-backed and multilateral debt and captures land value along its corridors (TOD, station-area real estate, property development). It concentrates the city's biggest capital flows and its most valuable transit-linked land in an appointed, centre-and-state-owned company — extravagance for the rail-and-real-estate project beside austerity for the bus and the broom. Conditionality (JICA terms) and elite/developer capture of corridor land are structural. Democratic control: nil — the city votes for no one on the BMRCL board.",
+        "depoliticisation": true,
+        "land_financialisation": true,
+        "neoliberal_conditionality": true,
+        "spv_recoupment": true
+      },
+      "era": "post_1991",
+      "verify": true,
+      "verify_note": "BMRCL incorporated 2006 (widely reported; first line opened 2011). 50:50 GoI–GoK ownership well established; exact incorporation G.O./CIN not in the verified data/laws set.",
+      "sources": ["service_providers.json (metro = BMRCL/Namma Metro, type spv)", "BMRCL institutional record"]
+    },
+    {
+      "id": "smart_city_ltd",
+      "name": "Bengaluru Smart City Ltd (BSCL)",
+      "what": "Area-based 'smart city' redevelopment and infrastructure (roads, public realm, IT-enabled services within designated zones) — a slice of multiple corporation functions (roads #4, amenities #12/#17, planning #1) executed by a Mission SPV outside the elected corporation.",
+      "how": {
+        "instrument": "Incorporated as a Special Purpose Vehicle (Government company under the Companies Act, 2013) under the Union Smart Cities Mission (launched 2015).",
+        "act_name": "Companies Act, 2013 (SPV under the Smart Cities Mission, MoHUA)",
+        "act_year": 2017,
+        "act_number": "Govt SPV company under Companies Act 2013; Smart Cities Mission (Centre, 2015)",
+        "notification": "MoHUA Smart Cities Mission guidelines mandating an SPV to implement",
+        "decided_by": "centre",
+        "decider_detail": "Union Government (MoHUA Smart Cities Mission) MANDATED the SPV model as a condition of central funding; the Karnataka government and BBMP were minority stakeholders within a centrally-designed vehicle. The elected corporation was structurally subordinated to the SPV for the mission area.",
+        "instrument_named": true
+      },
+      "why": {
+        "stated": "To implement the Smart Cities Mission's area-based development and pan-city solutions for Bengaluru through a dedicated, professionally-run SPV with its own board and CEO.",
+        "political_economy": "★ Neoliberal conditionality made structural: the CENTRE required a corporatised SPV — with a CEO, an appointed board, and private/parastatal participation — as the price of mission funds, explicitly bypassing the elected corporation for the mission area. The Smart Cities SPV is widely critiqued (Hoysala/civil-society and academic literature) as a parallel, unelected, company-form government layered over the city: depoliticisation by corporate form, with central money as the lever. It carves a premium enclave (the 'area-based' zone) for concentrated investment while the rest of the city is left to the austere corporation — Cooper's austerity-and-extravagance at neighbourhood scale.",
+        "depoliticisation": true,
+        "neoliberal_conditionality": true,
+        "elite_capture": true,
+        "spv_recoupment": false
+      },
+      "era": "post_1991",
+      "verify": true,
+      "verify_note": "Bengaluru Smart City Ltd SPV incorporated c.2017 under the 2015 Smart Cities Mission; exact incorporation date/CIN not in the verified data/laws set.",
+      "sources": ["Smart Cities Mission guidelines (MoHUA, 2015)", "Bengaluru Smart City Ltd (SPV record)"]
+    },
+    {
+      "id": "bescom",
+      "name": "Bangalore Electricity Supply Company (BESCOM)",
+      "what": "Electricity distribution and supply — a state DISCOM function (not a 12th-Schedule item, but a core urban utility the elected city does not control). Included to complete the fragmentation map of who runs the city's networks.",
+      "how": {
+        "instrument": "Unbundled from the Karnataka State Electricity Board (KSEB/KPTCL) and incorporated as a distribution company under the Electricity Act, 2003 reforms (BESCOM operational 2002).",
+        "act_name": "Electricity Act, 2003 (Central) and Karnataka electricity-reform restructuring",
+        "act_year": 2002,
+        "act_number": "Central Electricity Act 2003 framework; BESCOM incorporated under Companies Act, operational 1 June 2002",
+        "notification": null,
+        "decided_by": "state",
+        "decider_detail": "Government of Karnataka (under Central electricity-reform law) — a state-owned distribution company; electricity is not a municipal function in India and was never with the elected city.",
+        "instrument_named": true
+      },
+      "why": {
+        "stated": "To restructure power distribution into a commercially-run state DISCOM under national electricity reforms aimed at reducing losses and improving service.",
+        "political_economy": "Electricity was never devolved to municipalities (unlike many countries), so the city's power network sits with a state DISCOM under centrally-driven reform/unbundling — the broader neoliberal restructuring of utilities (Cooper). Recorded here to show that even the most basic network the city runs on is state, not municipal — completing the picture that the elected corporation controls almost none of the city's infrastructure capital.",
+        "depoliticisation": true,
+        "neoliberal_conditionality": true
+      },
+      "era": "post_1991",
+      "verify": true,
+      "verify_note": "BESCOM operational from 2002 under Karnataka electricity reforms; Central Electricity Act 2003 is the national frame. Not a 12th-Schedule function — included for completeness.",
+      "sources": ["Electricity Act 2003", "service_providers.json (electricity = BESCOM, state_dept)"]
+    },
+    {
+      "id": "gba_2025",
+      "name": "Greater Bengaluru Authority (GBA) + five City Corporations",
+      "what": "★ THE STRUCTURE ITSELF. The State dissolved the single elected BBMP and re-engineered the city into FIVE City Corporations (North, South, East, West, Central) under a three-tier governance system topped by a Greater Bengaluru Authority (GBA) — a CM-chaired apex coordinator over the corporations and the civic agencies (BWSSB, BDA, BESCOM, BMTC, traffic police). The State did not take a single function; it took the CITY — its very municipal form — over the head of the elected body, with fresh corporation elections deferred.",
+      "how": {
+        "instrument": "The Greater Bengaluru Governance Act, 2024.",
+        "act_name": "The Greater Bengaluru Governance Act, 2024",
+        "act_year": 2024,
+        "act_number": "Karnataka Act No. 36 of 2025 (Bill 2024; passed Legislative Assembly 10 Mar 2025; Governor's assent; gazetted 24 Apr 2025; in force 15 May 2025)",
+        "notification": "Government notifications winding up BBMP and constituting the GBA + 5 City Corporations (GBA notified 26 Aug 2025; corporations reported functioning ~02 Sep 2025); already amended by the Greater Bengaluru Governance (Amendment) Bill 2025 and a Second Amendment Bill 2025",
+        "decided_by": "state",
+        "decider_detail": "Government of Karnataka / State Legislature — the GBA is chaired by the Chief Minister with ~75 members. The State re-founded the city's municipal structure. The elected BBMP council (already long-superseded by an administrator) had no decisional role; the new corporations' COUNCILS DO NOT YET EXIST — elections PENDING.",
+        "instrument_named": true
+      },
+      "why": {
+        "stated": "To provide 'better governance' of a metropolis too large for one corporation: split BBMP into smaller, more manageable City Corporations for closer service delivery, with a Greater Bengaluru Authority to coordinate planning and the civic agencies across the metropolitan area (a three-tier GBA / City Corporation / Ward Committee model).",
+        "political_economy": "★ The apex move of the whole atlas for Bengaluru: depoliticisation à la Ghosh scaled to the level of the city's constitution. By DISSOLVING the single BBMP and interposing a CM-chaired Greater Bengaluru Authority above five corporations, the State (a) removes, for an extended interregnum, ANY elected city government — Bengaluru is run by administrators while elections are deferred, exactly the 'continuance without elections' that Art. 243U was meant to forbid; (b) recentralises metropolitan coordination in a state apex that sits ABOVE the corporations and absorbs the coordinating role the Constitution assigned to an elected Metropolitan Planning Committee (Art. 243ZE); (c) fragments the city's political voice into five units, diluting the single citywide mandate (and the single Mayor) that could contest the state. Critics read it as the state capturing the capital city's governance ahead of/instead of elections — the structural counterrevolution (Cooper): re-engineer the institution so the elected body can never again hold the rent-rich functions, and defer the vote indefinitely. Whatever the merits of decentralisation, the DECIDER is the State, the elected city is absent, and the timing (deferring polls) is the tell.",
+        "depoliticisation": true,
+        "recentralisation": true,
+        "displaces_mpc_243ZE": true,
+        "elections_deferred": true,
+        "state_capture_of_city": true
+      },
+      "era": "post_1991",
+      "verify": true,
+      "verify_note": "Act number (Karnataka Act 36 of 2025), gazette (24 Apr 2025) and commencement (15 May 2025) VERIFIED against data/laws/bengaluru/manifest.md. UNVERIFIED / in flux: final number and boundaries of the City Corporations (up to 7 permitted; 5 currently), exact ward counts, staff/asset transfer from BBMP, and — critically — ELECTION STATUS: fresh corporation elections were PENDING as of compilation; treat any 'elected council' claim as unverified until a Karnataka State Election Commission notification confirms polls held.",
+      "sources": ["data/laws/bengaluru/manifest.md (GBG Act = Karnataka Act 36 of 2025; full current-status section)", "data/laws/INDEX.md (BBMP DISSOLVED 2025; elections PENDING)"]
+    },
+    {
+      "id": "contractualisation_layer",
+      "name": "Contractualisation of the corporation's OWN core service (pourakarmikas / SWM)",
+      "what": "Not a separate body — the HOLLOWING of the elected corporation's last in-house core function (sanitation/conservancy & SWM, #6). The corporation 'runs' sanitation on the org chart, but a large share of the front line is contract/outsourced labour and SWM operation flows through contractors and a BBMP company (BSWML). The decision to contractualise is the corporation's/state's, executed administratively — fragmentation INSIDE the elected body.",
+      "how": {
+        "instrument": "Administrative contracting / labour-contractor (middleman) system under BBMP, later partly reversed; SWM routed through BSWML (Bengaluru Solid Waste Management Ltd, a BBMP company) and private collection/transport/processing contracts.",
+        "act_name": "No single Act — executive contracting decisions; pourakarmika regularisation by Karnataka G.O. (Feb-2018 shift from labour-contractor to Direct-Benefit/direct payment; regularisation of ~12,650 from ~2024-25)",
+        "act_year": 2018,
+        "act_number": "Karnataka Government orders (DBT shift 2018; regularisation orders 2024-25)",
+        "notification": "Karnataka G.O. abolishing the labour-contractor system for pourakarmikas (2018); regularisation appointment letters (2025)",
+        "decided_by": "state",
+        "decider_detail": "Government of Karnataka / BBMP — both the original contractualisation and its partial reversal were state/corporation executive decisions. The workforce won regularisation through years of organising and litigation, NOT as policy.",
+        "instrument_named": true
+      },
+      "why": {
+        "stated": "Cost control and 'flexibility' — outsourcing sweeping and SWM operation to contractors and contract labour rather than expanding the permanent municipal cadre; SWM corporatised into BSWML for 'professional' management.",
+        "political_economy": "Caste/labour offloading in its rawest form (Ambedkar via the contractualization_map): the SAME conservancy work is split into a permanent tier and a contract tier; the contract tier is overwhelmingly Dalit/Valmiki and was paid as little as Rs 2,000–5,000/month through a labour-contractor middleman. Bengaluru is the partial COUNTER-story — sustained pourakarmika organising forced regularisation of ~12,650 and abolition of the middleman system (wages to ~Rs 41,000) — but ~10,000 sweepers + ~9,000 garbage-truck crew remain contract. The win shows the default (contract) and the cost of reversing it. SWM operation remains contractor-laden (the chronic 'garbage crisis'), so even the corporation's flagship in-house function is a contract-administering shell — Ghosh's corporate municipality + Cooper's privatisation-as-counterrevolution landing on Ambedkar's terrain.",
+        "depoliticisation": false,
+        "caste_labour_offloading": true,
+        "privatisation": true
+      },
+      "era": "post_1991",
+      "verify": false,
+      "sources": ["data/institutions/contractualization_map.json (bengaluru: ~12,650 regularised; ~10,000 sweepers + ~9,000 truck crew still contract; BSWML; DBT shift Feb 2018)", "service_providers.json (solid_waste = BBMP/BSWML)"]
+    }
+  ],
+
+  "summary": {
+    "body_count": 13,
+    "twelfth_schedule_bodies": 11,
+    "non_12th_schedule_included": ["bescom (electricity)", "contractualisation_layer (internal hollowing, not a separate body)"],
+    "era_split": {
+      "pre_1991": ["citb_1945", "bda_1976", "bwssb_1964", "ktcp_1961", "bmrda", "khb", "kslcdb"],
+      "post_1991": ["bmtc", "bmrcl_2006", "smart_city_ltd", "bescom", "gba_2025", "contractualisation_layer"],
+      "pre_1991_count": 7,
+      "post_1991_count": 6
+    },
+    "decided_by_tally": {
+      "city": 0,
+      "colonial": 1,
+      "state": 10,
+      "centre": 1,
+      "centre_plus_state_recorded_as_state": 1
+    },
+    "headline": "Across thirteen bodies and instruments that stripped functions from — or, in 2025, abolished — Bengaluru's elected corporation, the elected CITY decided exactly ZERO. Ten were the State of Karnataka's doing, one the colonial Mysore state's (the CITB, 1945), one the Centre's (the Smart City SPV), and one a centre+state metro SPV. The spine is two state acts a half-century apart: the CITB(1945)->BDA(1976) succession that lifted land and planning permanently out of the elected body, and the Greater Bengaluru Governance Act 2024 (Karnataka Act 36 of 2025) that DISSOLVED the BBMP into five corporations under a CM-chaired Greater Bengaluru Authority — with elections still PENDING. The state did not just take Bengaluru's functions; in 2025 it took the city's elected form itself.",
+    "specials": {
+      "citb_to_bda": "citb_1945 -> bda_1976: the clearest improvement-trust-to-development-authority lineage outside Calcutta.",
+      "gba_2025_split": "gba_2025: the State re-engineered the city's structure over the elected body; corporation elections PENDING (unverified)."
+    }
+  }
+}
