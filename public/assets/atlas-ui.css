@@ -1,0 +1,61 @@
+/* ============================================================================
+   atlas-ui.css — shared design system for The Municipalities · Accountability Atlas
+   ----------------------------------------------------------------------------
+   The canonical design tokens + non-map primitives (brand chrome, section
+   labels, editorial notes, buttons, nav). The map console (build_city_console.py)
+   currently inlines its own copy of :root — these tokens MIRROR that block and
+   must be kept in sync. Follow-up: have the builder @import this file so there
+   is a single source of truth.
+   ========================================================================== */
+
+:root{
+  color-scheme:dark;
+  --bg:#0a0c10; --panel:#13161d; --panel2:#171b23;
+  --ink:#ece9e2; --mut:#8b929f; --line:#262c38; --hair:#1b1f28;
+  --blue:#5a86f5; --red:#f0303d; --gold:#edc233;
+  --r:4px;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --mono:ui-monospace,Menlo,"SF Mono",Consolas,monospace;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font:400 15px/1.5 var(--sans);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
+
+/* ---- brand chrome (mirrors the console rail masthead) ---- */
+.brandrow{align-items:center;display:flex;gap:12px;min-width:0}
+.ixamark{display:block;flex:0 0 auto;height:46px;width:46px}
+.wordmark{display:block;min-width:0;white-space:normal}
+.wordmark span{color:var(--ink);display:block;font-family:var(--serif);font-size:17px;font-weight:700;line-height:1.02}
+.wordmark b{color:var(--mut);display:block;font:800 8px/1 var(--mono);letter-spacing:.12em;margin-top:5px;text-transform:uppercase}
+
+/* ---- site nav (Atlas | About …) ---- */
+.sitenav{display:flex;gap:7px}
+.sitenav a{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--mut);
+  font:800 10px/1 var(--mono);letter-spacing:.12em;padding:9px 10px;text-decoration:none;text-transform:uppercase}
+.sitenav a.is-active{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.sitenav a:not(.is-active):hover{border-color:var(--blue);color:var(--blue)}
+
+/* ---- section label / kicker ---- */
+.sech{font:700 11px/1 var(--mono);letter-spacing:.14em;color:var(--mut);text-transform:uppercase}
+.sech.accent{color:var(--blue)}
+
+/* ---- editorial "read note" (gold rule) ---- */
+.readnote{border-left:2px solid var(--gold);color:var(--mut);font-size:12px;line-height:1.55;padding-left:9px}
+.readnote b{color:var(--ink)}
+.readnote a{color:var(--mut)}
+
+/* ---- buttons ---- */
+.btn{display:inline-flex;align-items:center;gap:9px;cursor:pointer;
+  background:var(--blue);color:#0a0c10;border:1px solid var(--blue);border-radius:var(--r);
+  font:800 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:14px 20px;
+  text-decoration:none;transition:filter .12s,transform .1s}
+.btn:hover{filter:brightness(1.08)}
+.btn:active{transform:translateY(1px)}
+.btn.ghost{background:var(--panel);color:var(--ink);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--blue);color:var(--blue);filter:none}
+
+/* ---- display headline (serif provocations) ---- */
+.display{font-family:var(--serif);font-weight:400;letter-spacing:-.01em;line-height:1.14}
+.display em{font-style:italic;color:var(--blue)}
