@@ -1,0 +1,1 @@
+{"aqi": 42, "dominant": "pm25", "station": "Shanghai (\u4e0a\u6d77)", "geo": [31.2047372, 121.4489017], "time": "2026-06-09 20:00:00", "iaqi": {"co": 5.5, "h": 53, "no2": 12.4, "o3": 36.6, "p": 1009, "pm10": 15, "pm25": 42, "so2": 4.1, "t": 23, "w": 2.5}, "source": "WAQI/aqicn.org (nearest station to city centre)"}
