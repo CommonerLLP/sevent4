@@ -101,10 +101,10 @@ def _html(city: CityDataset, manifest: LayerManifest) -> str:
     jurisdiction = _jurisdiction_context(city.layers_dir)
     geo, geo_states = _geo_roster(city)
     state_options = _state_options(city, geo, geo_states)
-    ward_options = _feature_options(
-        city.layers_dir / "wards.geojson",
-        "Name",
-    )
+    _wp = city.layers_dir / "wards.geojson"
+    # same candidate order as the crosswalk recipe so dropdown labels match the crosswalk keys
+    ward_field = _pick_name_field(_wp, ("ward_name", "Name", "name", "ward_no", "WARD_NO")) or "Name"
+    ward_options = _feature_options(_wp, ward_field)
     _acp, _pcp = city.layers_dir / "acs.geojson", city.layers_dir / "pcs.geojson"
     ac_field = _pick_name_field(_acp, ("AC_NAME", "ac_name", "ASSEM_CSTNY_NAME", "Name", "name")) if _acp.exists() else None
     pc_field = _pick_name_field(_pcp, ("PC_NAME", "pc_name", "PARLY_CSTNY_NAME", "Name", "name")) if _pcp.exists() else None
