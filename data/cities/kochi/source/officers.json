@@ -1,0 +1,52 @@
+[
+  {
+    "role": "Municipal Commissioner",
+    "name": "P. S. Shibu",
+    "service": "Kerala state cadre (Corporation Secretary)",
+    "cadre_batch": "",
+    "organisation": "Kochi (Cochin) Municipal Corporation - Secretary",
+    "as_of": "2026-06",
+    "source": "https://kochicorporation.lsgkerala.gov.in/en/who-who/308",
+    "note": "In Kerala the Corporation Secretary (state cadre, not IAS) is the executive head, not a 'Municipal Commissioner'. Mayor: Adv. Minimol V.K."
+  },
+  {
+    "role": "Commissioner of Police",
+    "name": "Hari Sankar",
+    "service": "IPS",
+    "cadre_batch": "Kerala",
+    "organisation": "Kochi City Police",
+    "as_of": "2025-12-31",
+    "source": "https://www.onmanorama.com/news/kerala/2025/12/31/kerala-ips-officers-promotion-ig-dig-rank.html",
+    "note": "Transferred as DIG & Commissioner of Police, Kochi City in 31 Dec 2025 reshuffle; was DIG Thrissur Range. Predecessor: Kaliraj Mahesh Kumar."
+  },
+  {
+    "role": "District Magistrate / Collector",
+    "name": "G. Priyanka",
+    "service": "IAS",
+    "cadre_batch": "Kerala 2017",
+    "organisation": "Ernakulam District (Kochi)",
+    "as_of": "2025-08-07",
+    "source": "https://ernakulam.nic.in/en/district_collector/",
+    "note": "Took charge as Ernakulam Collector Aug 2025, replacing NSK Umesh; previously Palakkad Collector."
+  },
+  {
+    "role": "Development Authority Chief",
+    "name": "Shary M. V.",
+    "service": "Kerala state cadre (GCDA Secretary)",
+    "cadre_batch": "",
+    "organisation": "Greater Cochin Development Authority (GCDA)",
+    "as_of": "2026-06",
+    "source": "https://www.gcda.kerala.gov.in/",
+    "note": "GCDA Secretary (executive). Chairman is a political appointee: K. Chandran Pillai."
+  },
+  {
+    "role": "Metro Rail MD",
+    "name": "Loknath Behera",
+    "service": "IPS (retd., Kerala)",
+    "cadre_batch": "Kerala 1985 (former DGP)",
+    "organisation": "Kochi Metro Rail Limited (KMRL)",
+    "as_of": "2025-01",
+    "source": "https://kochimetro.org/about-us/",
+    "note": "Managing Director KMRL; former Kerala DGP appointed MD on contract."
+  }
+]

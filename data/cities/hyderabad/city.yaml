@@ -1,0 +1,10 @@
+id: hyderabad
+name: Hyderabad
+country: India
+state: Telangana
+center: [78.4303, 17.4259]
+bbox: [78.2390, 17.2907, 78.6217, 17.5610]
+crs_metric: EPSG:32644
+layers_dir: data/cities/hyderabad/layers
+source_dir: data/cities/hyderabad/source
+outputs_dir: public/cities/hyderabad
