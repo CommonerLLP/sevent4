@@ -1,0 +1,11 @@
+{
+ "layer": "zone_finance",
+ "publisher": "Greater Chennai Corporation",
+ "portal": "data.opencity.in",
+ "dataset": "Great Chennai Corporation Finances",
+ "dataset_url": "https://data.opencity.in/dataset/great-chennai-corporation-finances",
+ "vintage": "2012-16 (latest GCC accounts on OpenCity; not current)",
+ "grain": "zone (15) \u2014 GCC publishes finance by zone, not ward",
+ "processing": "sevent4: dissolve 200 wards -> 15 zones; join 2013-14 capex actuals; GoTN-grant share",
+ "citation": "Greater Chennai Corporation -> data.opencity.in -> sevent4 (processed)"
+}
