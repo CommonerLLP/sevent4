@@ -1,0 +1,84 @@
+{
+  "city": "Bengaluru",
+  "source_portal": "OpenCity Urban Data Portal (data.opencity.in, CKAN)",
+  "retrieved": "2026-06-09",
+  "note": "Bengaluru has unusually strong open civic data. Facility lists below are sourced from OpenCity, which republishes BBMP and Government of Karnataka data. Files marked downloaded are saved in this directory.",
+  "datasets": [
+    {
+      "category": "libraries",
+      "name": "List of Public Libraries in Bengaluru Urban District",
+      "format": "CSV",
+      "downloaded_file": "libraries_bengaluru_urban.csv",
+      "rows": 50,
+      "publisher": "Government of Karnataka (Dept. of Public Libraries)",
+      "dataset_url": "https://data.opencity.in/dataset/libraries-in-karnataka",
+      "download_url": "https://data.opencity.in/dataset/000e3a33-a0fd-41a2-9f55-78171c99a44f/resource/fc22ad04-5c2b-4bf3-ae09-f462529a3361/download/ddf6ea7d-eea3-44bb-972e-0e5fa911b55c.csv"
+    },
+    {
+      "category": "libraries",
+      "name": "Districtwise Profile of Libraries in Karnataka",
+      "format": "CSV",
+      "downloaded_file": "libraries_karnataka_districtwise.csv",
+      "publisher": "Government of Karnataka",
+      "download_url": "https://data.opencity.in/dataset/000e3a33-a0fd-41a2-9f55-78171c99a44f/resource/704b90c5-7a6d-47bd-a547-7fb2f4c635b6/download/94553daf-6a09-4ae8-8247-e3bbcc51acf3.csv"
+    },
+    {
+      "category": "health",
+      "name": "BBMP Urban Public Health Centres (UPHC) Map",
+      "format": "KML",
+      "downloaded_file": "bbmp_uphc_health_centres.kml",
+      "placemarks": 139,
+      "publisher": "Bruhat Bengaluru Mahanagara Palike (BBMP)",
+      "dataset_url": "https://data.opencity.in/dataset/bengaluru-urban-public-health-centres",
+      "download_url": "https://data.opencity.in/dataset/b7a0a3ea-36b4-4706-9f63-b139097e089e/resource/6a3d171d-dd83-490d-95c3-81f748b2d292/download/698cc8fd-ff4f-48cb-88ac-4bf0478c6338.kml"
+    },
+    {
+      "category": "health",
+      "name": "Bengaluru Namma Clinic Locations",
+      "format": "KML",
+      "not_downloaded": true,
+      "publisher": "BBMP",
+      "download_url": "https://data.opencity.in/dataset/b7a0a3ea-36b4-4706-9f63-b139097e089e/resource/ad2b1a08-6e2b-48af-9f75-22d6ca285cec/download/0f367c90-3ed2-4f85-aec4-e86dc1dc72fa.kml"
+    },
+    {
+      "category": "health",
+      "name": "BBMP UCHC Referral Hospitals",
+      "format": "KML",
+      "not_downloaded": true,
+      "publisher": "BBMP",
+      "download_url": "https://data.opencity.in/dataset/b7a0a3ea-36b4-4706-9f63-b139097e089e/resource/8db365cf-ab88-47f0-914c-558e4bdab904/download/0fd71f1a-36ae-4439-9a24-b5744f9e48c9.kml"
+    },
+    {
+      "category": "schools",
+      "name": "BBMP: List of Primary Schools",
+      "format": "PDF",
+      "downloaded_file": "bbmp_primary_schools.pdf",
+      "publisher": "BBMP",
+      "dataset_url": "https://data.opencity.in/dataset/bbmp-schools-and-colleges",
+      "download_url": "https://data.opencity.in/dataset/67651983-127a-4aab-b9d7-a6e41fe017c0/resource/33befe69-c1fd-48f2-b186-2d3b3b04cfc2/download/d2cb1637-ddd5-437d-88ff-759344495cf9.pdf"
+    },
+    {
+      "category": "schools",
+      "name": "BBMP: List of High Schools",
+      "format": "PDF",
+      "not_downloaded": true,
+      "publisher": "BBMP",
+      "download_url": "https://data.opencity.in/dataset/67651983-127a-4aab-b9d7-a6e41fe017c0/resource/75c28008-7853-4d5d-9f09-03e92c5e2bf3/download/1388fe28-e3dc-44ce-975a-8a2fb31d687e.pdf"
+    },
+    {
+      "category": "wards",
+      "name": "BBMP Ward Information (198 wards, with zone/division/constituency mapping)",
+      "format": "CSV",
+      "downloaded_file": "bbmp_ward_information.csv",
+      "rows": 198,
+      "publisher": "BBMP",
+      "dataset_url": "https://data.opencity.in/dataset/bbmp-ward-information",
+      "download_url": "https://data.opencity.in/dataset/87b978d1-352e-4b90-aa2c-9991e55d3425/resource/01d485da-6509-4555-ab4c-036720ad0c51/download/3648198e-a595-4c6b-b76e-2ec180fc9f14.csv"
+    }
+  ],
+  "notes_on_gaps": [
+    "Schools lists are published as PDFs, not structured CSV.",
+    "Most facility geodata is KML (point maps) rather than tabular attribute tables.",
+    "Ward data reflects the pre-GBA 198-ward BBMP; new 369-ward GBA delimitation geodata not yet republished on OpenCity at retrieval."
+  ]
+}
