@@ -170,7 +170,64 @@ git add scripts/recipes/delhi/extract_dpl_library.py tests/test_delhi_dpl_locati
 git commit -m "Extract Delhi library locations"
 ```
 
-### Task 3: Ahmedabad Adapter
+### Task 3: Delhi Atlas Source Inventory
+
+**Files:**
+- Create: `scripts/recipes/delhi/build_atlas_source_inventory.py`
+- Test: `tests/test_delhi_atlas_source_inventory.py`
+- Output: `data/cities/delhi/source/opencity/delhi_opencity_inventory.csv`
+- Output: `data/cities/delhi/source/opencity/delhi_opencity_atlas_shortlist.csv`
+- Output: `data/cities/delhi/source/opencity/delhi_opencity_manifest.json`
+
+- [ ] **Step 1: Write inventory tests**
+
+```python
+from scripts.recipes.delhi.build_atlas_source_inventory import classify_dataset, delhi_candidate
+
+
+def test_delhi_candidate_matches_group_and_title():
+    assert delhi_candidate({"groups": ["delhi"], "title": "Municipal Corporation Budget"})
+    assert delhi_candidate({"groups": [], "title": "Delhi Road Crashes Data"})
+    assert not delhi_candidate({"groups": ["bengaluru"], "title": "Bengaluru Budget"})
+
+
+def test_classify_dataset_marks_budget_as_pays():
+    dataset = {
+        "title": "Municipal Corporation of Delhi Budget 2025-26",
+        "tags": [],
+        "notes": "",
+        "organization": "government-of-delhi",
+        "name": "municipal-corporation-of-delhi-budget-2025-26",
+    }
+    assert "pays" in classify_dataset(dataset)
+```
+
+- [ ] **Step 2: Run test to verify it fails**
+
+Run: `python3 -m unittest tests.test_delhi_atlas_source_inventory`
+
+Expected: fails because the inventory script does not exist.
+
+- [ ] **Step 3: Implement inventory builder**
+
+Read `data/sources/opencity/_catalogue/opencity_catalogue.json`, select Delhi datasets by group/name/title, classify them with the same atlas axes used by `scope_opencity_for_atlas.py`, and write CSV/JSON outputs preserving publisher, OpenCity URL, resource URL, format, modified date, axis labels, and shortlist flag.
+
+- [ ] **Step 4: Run inventory builder**
+
+Run: `python3 scripts/recipes/delhi/build_atlas_source_inventory.py`
+
+Expected: writes Delhi OpenCity inventory, shortlist, and manifest under `data/cities/delhi/source/opencity`.
+
+- [ ] **Step 5: Commit**
+
+Run:
+
+```bash
+git add scripts/recipes/delhi/build_atlas_source_inventory.py tests/test_delhi_atlas_source_inventory.py data/cities/delhi/source/opencity
+git commit -m "Inventory Delhi OpenCity atlas sources"
+```
+
+### Task 4: Ahmedabad Adapter
 
 **Files:**
 - Create: `scripts/recipes/ahmedabad/build_library_access.py`
@@ -213,7 +270,7 @@ git add scripts/recipes/ahmedabad/build_library_access.py tests/test_ahmedabad_l
 git commit -m "Add Ahmedabad library access adapter"
 ```
 
-### Task 4: Toronto Adapter And Pairwise Comparator
+### Task 5: Toronto Adapter And Pairwise Comparator
 
 **Files:**
 - Create: `scripts/recipes/toronto/build_library_access.py`
@@ -256,7 +313,7 @@ git add scripts/recipes/toronto/build_library_access.py scripts/recipes/comparat
 git commit -m "Add library access comparators"
 ```
 
-### Task 5: Verification And Report Hook
+### Task 6: Verification And Report Hook
 
 **Files:**
 - Create: `docs/library-accessibility-comparison.qmd`
@@ -308,6 +365,7 @@ git commit -m "Render library accessibility comparison report"
 ## Self-Review
 
 - Spec coverage: The plan covers shared engine, canonical city outputs, Delhi address/geocoding policy, Ahmedabad proof, pairwise comparators, and report hooks.
+- Delhi atlas coverage: The plan includes an OpenCity-backed Delhi source inventory before the city accessibility adapters.
 - Scope: The first build uses deterministic walk/proxy access. Full OpenTripPlanner routing remains a later Tier A implementation once feeds are locally available.
 - Placeholder scan: No unresolved placeholder markers are present.
 - Type consistency: Metric names use `p50_minutes_to_nearest_library`, matching the design spec.

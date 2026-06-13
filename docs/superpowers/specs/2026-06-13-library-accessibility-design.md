@@ -41,6 +41,29 @@ Current city status:
 - Ahmedabad: use the existing MJ/AMC library location table and existing transit stop/line JSON already in SevenT4.
 - Delhi: use existing DPL annual operations data plus DPL-published branch, zone, and mobile-service location pages. DPL-published addresses are the source of record. The work is to parse those pages into a canonical geotagged table, validate embedded Google Maps or short-link coordinates where available, geocode address-only fixed branches and mobile points, and keep fixed branches separate from mobile service points and deposit stations. DMRC and DTC/cluster bus data may require a mixed GTFS and OSM route fallback.
 
+## Delhi Atlas Source Sweep
+
+The Delhi work must also populate broader municipality-atlas inputs, not only the library accessibility inputs. The first sweep source is the existing OpenCity CKAN catalogue under `data/sources/opencity/_catalogue`, followed by direct Delhi institutional sources where OpenCity is incomplete.
+
+The Delhi sweep should produce:
+
+- `data/cities/delhi/source/opencity/delhi_opencity_inventory.csv`
+- `data/cities/delhi/source/opencity/delhi_opencity_atlas_shortlist.csv`
+- `data/cities/delhi/source/opencity/delhi_opencity_manifest.json`
+
+The inventory must preserve source dataset title, URL, organization, groups, tags, resource URLs, formats, modified dates, and the atlas axis labels already used by `scripts/recipes/scope_opencity_for_atlas.py`: `decides`, `profits`, `pays`, `labours`, `function`, and `base`.
+
+High-priority Delhi atlas categories include:
+
+- municipal and parastatal budgets: MCD, NDMC, Delhi government, DDA where available
+- boundaries and representative cuts: ward, assembly, parliamentary, village, zone
+- demographics: population estimates, births/deaths, statistical handbooks
+- mobility: DMRC, DTC/cluster bus, vehicle registrations, crash and safety datasets
+- land/planning: master plans, building bye-laws, land-use and village maps
+- services and environment: water, sewerage, solid waste, health, schools, air quality, parks, libraries
+
+OpenCity records are discovery inputs. Downloaded/promoted datasets must still carry their original publisher and URL, OpenCity URL when applicable, local path, checksum, license or rights text when available, and a confidence note.
+
 ## Architecture
 
 Shared engine:
@@ -52,6 +75,7 @@ City adapters:
 - `scripts/recipes/toronto/build_library_access.py`
 - `scripts/recipes/delhi/build_library_access.py`
 - `scripts/recipes/ahmedabad/build_library_access.py`
+- `scripts/recipes/delhi/build_atlas_source_inventory.py`
 
 Comparator builder:
 
@@ -183,11 +207,12 @@ Minimum checks:
 ## Implementation Order
 
 1. Build the shared access engine and tests.
-2. Normalize Ahmedabad as the local proof of concept.
-3. Normalize Toronto TPL branch locations and TTC transit inputs.
-4. Normalize Delhi DPL locations and DMRC/DTC inputs.
-5. Build pairwise comparator outputs.
-6. Render the combined Quarto report.
+2. Build the Delhi atlas source inventory from OpenCity and direct-source manifests.
+3. Normalize Ahmedabad as the local proof of concept.
+4. Normalize Toronto TPL branch locations and TTC transit inputs.
+5. Normalize Delhi DPL locations and DMRC/DTC inputs.
+6. Build pairwise comparator outputs.
+7. Render the combined Quarto report.
 
 ## Sources To Track
 
