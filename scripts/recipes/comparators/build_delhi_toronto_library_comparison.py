@@ -9,9 +9,11 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[3]
 OUT_DIR = REPO / "data" / "comparators" / "delhi_toronto"
 DPL_ANNUAL = REPO / "data" / "cities" / "delhi" / "source" / "libraries" / "dpl_annual_metrics.csv"
+DPL_ONLINE_SERIES = REPO / "data" / "cities" / "delhi" / "source" / "libraries" / "dpl_online_annual_time_series.csv"
 DPL_LONG = REPO / "data" / "cities" / "delhi" / "source" / "libraries" / "dpl_metrics_long.csv"
 DELHI_POP = REPO / "data" / "cities" / "delhi" / "source" / "demographics" / "delhi_population_denominators.csv"
 TPL_HEADLINE = REPO / "data" / "comparators" / "toronto" / "source" / "libraries" / "tpl_headline_finance_metrics.csv"
+TPL_OPEN_DATA = REPO / "data" / "comparators" / "toronto" / "source" / "libraries" / "tpl_open_data_annual_metrics.csv"
 TORONTO_POP = REPO / "data" / "comparators" / "toronto" / "source" / "demographics" / "toronto_population_denominators.csv"
 PPP = REPO / "data" / "reference" / "economics" / "worldbank_ppp_conversion_factors.csv"
 
@@ -174,6 +176,40 @@ def main() -> None:
         ],
     )
 
+    annual_rows = annual_usage_comparison_rows(
+        dpl_rows=read_csv(DPL_ONLINE_SERIES),
+        tpl_open_rows=read_csv(TPL_OPEN_DATA),
+        tpl=tpl,
+        delhi_population=delhi_population,
+        toronto_population=toronto_population,
+    )
+    write_csv(
+        OUT_DIR / "annual_usage_comparison.csv",
+        annual_rows,
+        [
+            "dpl_fiscal_year",
+            "comparison_year",
+            "tpl_source_basis",
+            "dpl_total_members",
+            "dpl_total_issues",
+            "dpl_reading_room_attendance",
+            "dpl_collection_total",
+            "dpl_books_added_to_stock",
+            "tpl_circulation_or_borrowings",
+            "tpl_branch_visits",
+            "tpl_card_registrations",
+            "dpl_issues_per_1m",
+            "tpl_borrowings_per_1m",
+            "tpl_to_dpl_borrowing_ratio_per_1m",
+            "dpl_reading_attendance_per_1m",
+            "tpl_branch_visits_per_1m",
+            "tpl_to_dpl_visit_ratio_per_1m",
+            "dpl_members_per_1m",
+            "tpl_card_registrations_per_1m",
+            "notes",
+        ],
+    )
+
     summary = build_summary(
         dpl_annual=dpl_annual,
         dpl=dpl,
@@ -188,6 +224,7 @@ def main() -> None:
     (OUT_DIR / "library_comparison_summary.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
     print(f"wrote {OUT_DIR / 'library_comparison_metrics.csv'} ({len(comparison_rows)} rows)")
     print(f"wrote {OUT_DIR / 'delhi_ncr_sensitivity.csv'} ({len(sensitivity_rows)} rows)")
+    print(f"wrote {OUT_DIR / 'annual_usage_comparison.csv'} ({len(annual_rows)} rows)")
     print(f"wrote {OUT_DIR / 'library_comparison_summary.json'}")
 
 
@@ -300,6 +337,70 @@ def ncr_sensitivity_rows(
     return rows
 
 
+def annual_usage_comparison_rows(
+    *,
+    dpl_rows: list[dict[str, str]],
+    tpl_open_rows: list[dict[str, str]],
+    tpl: dict[str, str],
+    delhi_population: int,
+    toronto_population: int,
+) -> list[dict[str, str]]:
+    tpl_by_year = {int(row["year"]): row for row in tpl_open_rows}
+    rows = []
+    for dpl in dpl_rows:
+        comparison_year = int(dpl["fiscal_end_year"])
+        tpl_row = tpl_by_year.get(comparison_year)
+        basis = "tpl_open_data"
+        tpl_circulation = tpl_branch_visits = tpl_cards = None
+        notes = "DPL fiscal year is compared to the TPL calendar year matching the fiscal end year."
+        if tpl_row:
+            tpl_circulation = optional_number(tpl_row["circulation"])
+            tpl_branch_visits = optional_number(tpl_row["branch_visits"])
+            tpl_cards = optional_number(tpl_row["card_registrations"])
+        elif comparison_year == 2024:
+            basis = "tpl_2024_headline"
+            tpl_circulation = optional_number(tpl["borrowings"])
+            tpl_branch_visits = optional_number(tpl["branch_visits"])
+            tpl_cards = optional_number(tpl["card_registrations"])
+            notes = "DPL 2023-24 is compared to TPL 2024 headline public metrics."
+        else:
+            basis = "no_tpl_source"
+            notes = "No TPL annual open-data row is available for this comparison year."
+
+        dpl_issues = optional_number(dpl["total_issues"])
+        dpl_attendance = optional_number(dpl["reading_room_attendance"])
+        dpl_members = optional_number(dpl["total_members"])
+        dpl_issues_per_1m = per_1m(dpl_issues, delhi_population)
+        tpl_borrowings_per_1m = per_1m(tpl_circulation, toronto_population)
+        dpl_attendance_per_1m = per_1m(dpl_attendance, delhi_population)
+        tpl_visits_per_1m = per_1m(tpl_branch_visits, toronto_population)
+        rows.append(
+            {
+                "dpl_fiscal_year": dpl["year"],
+                "comparison_year": str(comparison_year),
+                "tpl_source_basis": basis,
+                "dpl_total_members": dpl["total_members"],
+                "dpl_total_issues": dpl["total_issues"],
+                "dpl_reading_room_attendance": dpl["reading_room_attendance"],
+                "dpl_collection_total": dpl["collection_total"],
+                "dpl_books_added_to_stock": dpl["books_added_to_stock"],
+                "tpl_circulation_or_borrowings": fmt(tpl_circulation),
+                "tpl_branch_visits": fmt(tpl_branch_visits),
+                "tpl_card_registrations": fmt(tpl_cards),
+                "dpl_issues_per_1m": fmt(dpl_issues_per_1m),
+                "tpl_borrowings_per_1m": fmt(tpl_borrowings_per_1m),
+                "tpl_to_dpl_borrowing_ratio_per_1m": fmt(safe_div(tpl_borrowings_per_1m, dpl_issues_per_1m)),
+                "dpl_reading_attendance_per_1m": fmt(dpl_attendance_per_1m),
+                "tpl_branch_visits_per_1m": fmt(tpl_visits_per_1m),
+                "tpl_to_dpl_visit_ratio_per_1m": fmt(safe_div(tpl_visits_per_1m, dpl_attendance_per_1m)),
+                "dpl_members_per_1m": fmt(per_1m(dpl_members, delhi_population)),
+                "tpl_card_registrations_per_1m": fmt(per_1m(tpl_cards, toronto_population)),
+                "notes": notes,
+            }
+        )
+    return rows
+
+
 def metric_map(rows: list[dict[str, str]]) -> dict[str, str]:
     return {row["metric_name"]: row["value"] for row in rows}
 
@@ -333,6 +434,10 @@ def write_csv(path: Path, rows: list[dict[str, str]], fieldnames: list[str]) -> 
 
 def number(value: str) -> float:
     return float(value)
+
+
+def optional_number(value: str) -> float | None:
+    return float(value) if value else None
 
 
 def per_1m(value: float | None, population: int) -> float | None:
