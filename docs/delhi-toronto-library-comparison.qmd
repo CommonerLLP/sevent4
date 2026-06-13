@@ -1,0 +1,194 @@
+---
+title: "Delhi Public Library vs Toronto Public Library"
+subtitle: "IFLA-aligned comparator report using an NCT service-area baseline"
+date: "13 June 2026"
+format:
+  typst:
+    toc: true
+    number-sections: false
+    papersize: a4
+    margin:
+      x: 18mm
+      y: 18mm
+  html:
+    toc: true
+    theme: cosmo
+    embed-resources: true
+---
+
+> **Core finding.** On IFLA's standard public-library metric frame, Delhi Public
+> Library is not merely smaller than Toronto Public Library. It is operating at
+> a different order of public reach. Using the NCT service-area denominator of
+> 19.0 million residents, DPL records about **14,461 annual book issues per
+> million residents**. TPL records about **9.33 million borrowings per million
+> residents**. That is a **645x per-capita use gap**.
+
+## Denominator
+
+The primary denominator is **NCT of Delhi**, not the full National Capital
+Region. DPL is treated as a Delhi service-area institution; comparing it to the
+full NCR would charge it for a wider regional population it does not formally
+cover. NCR is still useful as a latent-demand sensitivity, because readers and
+workers cross the NCT boundary, but it is not the headline denominator.
+
+The old 2011-only denominator is not used for the main comparison. SevenT4 now
+uses the `theright2read` population correction source: `STATE_POP_MN["Delhi"] =
+19`, which cites the MoHFW Technical Group population projections for 2011-2036.
+The exact annual Delhi row should still be promoted when the source PDF is
+reachable; the MoHFW server timed out during this session.
+
+| Area | Population used | Role |
+|---|---:|---|
+| NCT of Delhi | 19,000,000 | Primary DPL service-area denominator |
+| City of Toronto | 3,000,000 | Primary TPL service-area denominator |
+| NCR sensitivity | 27,000,000-32,000,000 | Latent-demand sensitivity only |
+
+## IFLA Frame
+
+This report uses the IFLA Library Map of the World metric frame: service points,
+registered users, physical visits, physical loans, eBook loans, audio-book
+loans, downloads, staff, volunteers, and libraries with internet access. The
+comparison below uses only fields that are currently captured from source
+reports. Missing IFLA fields are listed as data gaps rather than inferred.
+
+| IFLA-aligned metric | DPL, NCT baseline | TPL, city baseline | Reading |
+|---|---:|---:|---|
+| Conservative service points per 1M | 2.1 | 34.0 | TPL has 16.2x the service-point density. |
+| Inclusive DPL touchpoints per 1M | 8.6 | 34.0 | Even counting DPL mobile stops and reading centres, TPL is 4.0x denser. |
+| Registered users per 1M | 5,818 | Not published in current TPL source | DPL has about one registered member per 172 NCT residents. |
+| New card registrations per 1M | Not comparable | 78,423 | TPL reports new registrations, not total registered users. |
+| Physical loans / borrowings per 1M | 14,461 | 9,333,333 | TPL is 645x higher per resident. |
+| Physical visits proxy per 1M | 17,646 | 4,466,667 | DPL reports reading-room attendance, not all visits; TPL is 253x higher. |
+| Collection items per 1M | 80,396 | 3,500,000 | TPL has 43.5x the collection density. |
+| Annual additions per 1M | 164 | Not captured | DPL collection refresh is only 0.20%. |
+
+The most important warning is not simply that DPL has fewer outlets. It is that
+use is extremely low relative to both population and collection stock. DPL
+records **0.18 annual issues per collection item**. TPL records about **2.67
+borrowings per collection item**. That is a 14.8x stock-turnover gap.
+
+## Finance
+
+PPP conversion uses the World Bank `PA.NUS.PPP` indicator: India 2024 at
+20.4219876045922 INR per international dollar, and Canada 2025 at 1.147294 CAD
+per international dollar.
+
+| Finance metric | DPL | TPL |
+|---|---:|---:|
+| Operating expenditure, PPP | $16.11m intl. | $258.05m intl. |
+| Operating spend per resident, PPP | $0.85 | $86.02 |
+| Spend per loan / borrowing, PPP | $58.63 | $9.22 |
+| Materials expenditure, PPP | $0.086m intl. | $20.12m intl. |
+| Materials spend per resident, PPP | $0.0045 | $6.71 |
+| Materials share of expenditure | 0.53% | 7.80% |
+
+The finance interpretation is straightforward:
+
+- TPL operates at 16.0x DPL's PPP expenditure scale.
+- TPL spends 101.5x more per resident.
+- DPL's low captured use makes spend per loan high despite low total funding.
+- TPL's materials spending is over 230x DPL's PPP materials line and 1,481x
+  higher per resident.
+- DPL is not renewing or circulating stock at TPL-like intensity.
+
+DPL's 2023-24 inflow is almost entirely grant-funded: grant receipts are
+97.99% of grant plus other income, while other income is 2.01%. That is not a
+problem by itself; public libraries are public goods. The problem is that the
+public subsidy is not translating into visible public use.
+
+DPL also ended 2023-24 with **INR 4.78 crore** in closing unspent balance. That
+is **14.5% of annual expenditure** and **27.2x the annual books and reading
+materials expense**. In a network with 49.6% staff vacancy and a 0.20% collection
+refresh rate, the unspent balance is operationally important.
+
+## DPL Timeline
+
+| Year | Members | Issues | Reading-room attendance | Collection | Books added |
+|---|---:|---:|---:|---:|---:|
+| 2009-10 | 64,883 | 1,039,977 | 316,657 | Not parsed | 77,872 |
+| 2010-11 | 73,467 | 1,169,734 | 244,499 | Not parsed | 33,868 |
+| 2018-19 | 187,138 | 814,858 | 365,854 | 1,694,950 | 27,958 |
+| 2019-20 | 189,235 | 477,008 | 353,246 | 1,596,125 | 13,310 |
+| 2021-22 | 156,867 | 196,889 | 132,411 | 1,605,443 | 2,697 |
+| 2023-24 | 110,534 | 274,751 | 335,270 | 1,527,531 | 3,108 |
+
+The trend is severe. Membership falls from 189,235 in 2019-20 to 110,534 in
+2023-24, a 41.6% decline. Annual issues fall from 1.17 million in 2010-11 to
+274,751 in 2023-24, a 76.5% decline. Books added fall from 77,872 in 2009-10 to
+3,108 in 2023-24, a 96.0% decline.
+
+Reading-room attendance is the one partial recovery signal: 2023-24 attendance
+is back near the 2017-18 to 2019-20 range. But reading-room recovery does not
+offset the collapse in issue activity and stock renewal.
+
+## NCR Sensitivity
+
+If the full NCR population range of 27-32 million is used as a shadow catchment,
+the DPL position worsens. This is not the primary comparison, but it matters for
+latent reading demand.
+
+| Catchment sensitivity | Population | Service points per 1M | Issues per 1M | Reading-room attendance per 1M | PPP spend per resident |
+|---|---:|---:|---:|---:|---:|
+| NCR low | 27,000,000 | 1.48 | 10,176 | 12,417 | $0.60 |
+| NCR high | 32,000,000 | 1.25 | 8,586 | 10,477 | $0.50 |
+
+The NCT denominator is therefore the conservative baseline. It does not make
+DPL look worse; it makes the comparison administratively fair.
+
+## Data Gaps
+
+DPL reporting now covers many core operational fields, but several IFLA metrics
+are still missing or incomplete:
+
+- all physical visits, not only reading-room attendance;
+- eBook loans;
+- audio-book loans;
+- downloads;
+- libraries with internet access;
+- full-time staff in IFLA-compatible form;
+- volunteers;
+- digital sessions, public computers, Wi-Fi sessions, and programme attendance.
+
+TPL's current public pages expose richer digital, programme, and branch-visit
+data, but do not expose total registered users in the same way DPL reports
+membership. The report therefore compares TPL new card registrations separately
+and does not pretend they are equivalent to DPL registered-member stock.
+
+## Working Conclusions
+
+1. DPL should be compared on NCT, not NCR, for the main service-area baseline.
+2. Even on the conservative NCT denominator, DPL's service density, borrowing,
+   collection density, materials spending, and collection renewal are far below
+   Toronto's.
+3. DPL's current problem is both under-resourcing and low conversion of existing
+   stock into public use.
+4. Grant dependence is normal for a public library. The red flag is that 98%
+   grant-funded operations produce extremely low per-capita use and very low
+   materials renewal.
+5. The next Delhi extraction should prioritize full DPL annual reports, branch
+   locations, service hours, digital services, programmes, and staff deployment
+   by branch so the IFLA frame can be completed.
+
+## Source Base
+
+- Delhi Public Library annual reports page:
+  <https://dpl.gov.in/index.php/annual-reports>
+- Delhi Public Library Annual Report 2023-24:
+  <https://drive.google.com/file/d/1d6K6glvU5osL5ck9tR_2LLuoHFQUeh0e/view?usp=sharing>
+- Toronto Public Library, About the Library:
+  <https://tpl.ca/about-the-library/>
+- Toronto Public Library, Library Finance:
+  <https://tpl.ca/about-the-library/library-finance/>
+- Toronto Public Library, Open Data:
+  <https://tpl.ca/about-the-library/open-data/>
+- IFLA Library Map of the World, Data Lab:
+  <https://librarymap.ifla.org/datalab>
+- IFLA Library Map of the World, About Library Data:
+  <https://librarymap.ifla.org/about-library-data>
+- IFLA-UNESCO Public Library Manifesto 2022:
+  <https://www.ifla.org/publications/ifla-unesco-public-library-manifesto-2022/>
+- World Bank PPP conversion factor, GDP, `PA.NUS.PPP`:
+  <https://api.worldbank.org/v2/country/IND;CAN/indicator/PA.NUS.PPP?format=json&per_page=100>
+- Local SevenT4 derived tables:
+  `data/comparators/delhi_toronto/library_comparison_metrics.csv`,
+  `data/comparators/delhi_toronto/library_comparison_summary.json`

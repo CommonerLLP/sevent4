@@ -1,0 +1,11 @@
+metric_id,metric_label,unit,delhi_value,toronto_value,delhi_per_1m,toronto_per_1m,toronto_to_delhi_ratio_per_1m,notes
+service_points_conservative,"IFLA service points, conservative",count,40.00,102.0,2.105,34.00,16.15,DPL fixed library units plus mobile library buses; excludes mobile stops and book-reading centres.
+service_points_inclusive,"IFLA service points, inclusive DPL touchpoints",count,163.0,102.0,8.579,34.00,3.963,"DPL fixed units, mobile buses, mobile service points, and book-reading centres."
+registered_users,Registered users,count,110534.0,,5817.6,,,"TPL current public page reports new card registrations and surveyed use, not total registered users."
+new_card_registrations,New card registrations,count,,235270.0,,78423.3,,Not directly comparable to DPL registered-member stock.
+physical_loans_or_borrowings,Physical loans / borrowings,count,274751.0,28000000.0,14460.6,9333333.3,645.4,"DPL book issues compared with TPL total material borrowings; classification differs, but the gap is too large to be explained by scope alone."
+physical_visits_proxy,Physical visits proxy,count,335270.0,13400000.0,17645.8,4466666.7,253.1,"DPL reports reading-room attendance, not all branch visits; this likely understates DPL visits."
+collection_items,Collection items,count,1527531.0,10500000.0,80396.4,3500000.0,43.53,TPL stores the public 'more than 10.5 million' value as a lower-bound 10.5m.
+annual_additions,Annual collection additions,count,3108.0,,163.6,,,TPL additions not captured in current source table.
+operating_expenditure_ppp,"Operating expenditure, PPP",international_dollars,16109434.6,258048238.7,847865.0,86016079.6,101.5,Converted with World Bank PA.NUS.PPP; DPL 2023-24 INR and TPL 2026 CAD.
+materials_expenditure_ppp,"Library materials expenditure, PPP",international_dollars,86025.8,20119414.0,4527.7,6706471.3,1481.2,DPL books and reading material expense compared with TPL library materials budget.
