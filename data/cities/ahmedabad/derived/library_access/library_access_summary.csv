@@ -1,0 +1,2 @@
+city,source_path,library_locations,fixed_library_locations,mobile_service_points,coordinate_verified_locations,coordinate_pending_locations,coordinate_coverage_pct,coordinate_coverage_status,routing_tier,access_status,confidence,notes
+ahmedabad,data/cities/ahmedabad/source/libraries/ahmedabad_library_locations.csv,83,83,0,83,0,100.0,complete,not_computed,population_origins_required,high,Location coverage summary only; population-weighted access waits for population origin grid.
