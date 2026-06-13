@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import html
 import re
 from pathlib import Path
 
@@ -27,6 +28,20 @@ def main() -> None:
         for row in manifest
         if row.get("url") and row.get("local_path")
     }
+    location_rows = extract_dpl_locations(args.source_dir / "html", source_by_stem)
+    write_csv(
+        args.out_dir / "dpl_library_locations.csv",
+        location_rows,
+        DPL_LOCATION_FIELDS,
+    )
+    geocode_dir = REPO / "data" / "cities" / "delhi" / "source" / "geocoding"
+    geocode_dir.mkdir(parents=True, exist_ok=True)
+    cache_rows = geocode_cache_rows(location_rows)
+    write_csv(
+        geocode_dir / "geocode_cache.csv",
+        cache_rows,
+        GEOCODE_CACHE_FIELDS,
+    )
     annual_rows = extract_annual_rows(args.source_dir / "text", source_by_stem)
     write_csv(
         args.out_dir / "dpl_annual_metrics.csv",
@@ -129,6 +144,8 @@ def main() -> None:
     print(f"wrote {args.out_dir / 'dpl_ten_year_time_series.csv'} ({len(ten_year_rows)} rows)")
     print(f"wrote {args.out_dir / 'dpl_online_annual_time_series.csv'} ({len(online_rows)} rows)")
     print(f"wrote {args.out_dir / 'dpl_metrics_long.csv'} ({len(long_rows)} rows)")
+    print(f"wrote {args.out_dir / 'dpl_library_locations.csv'} ({len(location_rows)} rows)")
+    print(f"wrote {geocode_dir / 'geocode_cache.csv'} ({len(cache_rows)} rows)")
 
 
 def read_tsv(path: Path) -> list[dict[str, str]]:
@@ -162,6 +179,319 @@ def write_manifest(source_dir: Path, out_dir: Path, manifest: list[dict[str, str
         rows,
         ["kind", "text", "url", "local_path", "status", "bytes", "sha256", "valid_pdf", "repo_storage", "notes"],
     )
+
+
+DPL_LOCATION_FIELDS = [
+    "source_record_id",
+    "source_file",
+    "source_url",
+    "library_id",
+    "name",
+    "normalized_name",
+    "location_type",
+    "zone",
+    "address",
+    "latitude",
+    "longitude",
+    "coordinate_source",
+    "map_url",
+    "geocode_status",
+    "confidence",
+    "notes",
+]
+
+GEOCODE_CACHE_FIELDS = [
+    "source_record_id",
+    "source_file",
+    "library_id",
+    "name",
+    "address",
+    "geocode_provider",
+    "geocode_query",
+    "geocode_result_label",
+    "latitude",
+    "longitude",
+    "confidence",
+    "review_status",
+    "notes",
+]
+
+
+def extract_dpl_locations(html_dir: Path, source_by_stem: dict[str, str] | None = None) -> list[dict[str, str]]:
+    source_by_stem = source_by_stem or {}
+    rows: list[dict[str, str]] = []
+    for path in sorted(html_dir.glob("operations__*_zone.html")):
+        html_text = path.read_text(encoding="utf-8", errors="ignore")
+        rows.extend(parse_dpl_zone_locations(path, html_text, source_by_stem.get(path.stem, "")))
+
+    mobile_path = html_dir / "operations__schedule_and_points_of_mobile_van.html"
+    rows.extend(parse_dpl_mobile_points(mobile_path, source_by_stem.get(mobile_path.stem, "")))
+
+    for index, row in enumerate(rows, start=1):
+        row["source_record_id"] = f"dpl_location_{index:04d}"
+        row["library_id"] = stable_location_id(row["name"], index)
+    return rows
+
+
+def parse_dpl_zone_locations(path: Path, page_html: str, source_url: str = "") -> list[dict[str, str]]:
+    zone = path.stem.removeprefix("operations__").removesuffix("_zone").replace("_", " ")
+    page_title = page_library_title(page_html) or f"{zone.title()} Library"
+    page_coordinates = first_embed_coordinates(page_html)
+    current_name = ""
+    current_raw_name = ""
+    rows: list[dict[str, str]] = []
+
+    for cells in table_rows(page_html):
+        if len(cells) == 1:
+            raw_header = cells[0]["text"]
+            header = clean_location_name(raw_header)
+            if header and "opening hours" not in header.lower() and "branches and" not in header.lower():
+                current_name = header
+                current_raw_name = raw_header
+            continue
+        if len(cells) < 2 or "address" not in cells[0]["text"].lower():
+            continue
+
+        raw_name = current_name or page_title
+        name = clean_location_name(raw_name)
+        address = clean_address(cells[1]["text"])
+        if not address:
+            continue
+        map_url = next((link for link in cells[1]["links"] if "map" in link.lower() or "goo.gl" in link.lower()), "")
+        coordinates, coordinate_source = coordinates_from_url(map_url)
+        if not coordinates and not rows and page_coordinates:
+            coordinates = page_coordinates
+            coordinate_source = "google_maps_embed"
+        latitude, longitude = coordinates if coordinates else ("", "")
+
+        rows.append(
+            location_row(
+                source_file=path.name,
+                source_url=source_url,
+                name=name,
+                location_type=location_type(current_raw_name or raw_name),
+                zone=zone,
+                address=address,
+                latitude=latitude,
+                longitude=longitude,
+                coordinate_source=coordinate_source,
+                map_url=map_url,
+                notes="DPL-published fixed location parsed from zone page.",
+            )
+        )
+    return rows
+
+
+def parse_dpl_mobile_points(path: Path, source_url: str = "") -> list[dict[str, str]]:
+    if not path.exists():
+        return []
+    page_html = path.read_text(encoding="utf-8", errors="ignore")
+    rows: list[dict[str, str]] = []
+    seen: set[str] = set()
+    for raw in re.findall(r"<(?:p|td)\b[^>]*>(.*?)</(?:p|td)>", page_html, re.I | re.S):
+        address = clean_address(html_text(raw))
+        if not mobile_address_candidate(address):
+            continue
+        key = normalize_name(address)
+        if key in seen:
+            continue
+        seen.add(key)
+        rows.append(
+            location_row(
+                source_file=path.name,
+                source_url=source_url,
+                name=f"Mobile Service Point {len(rows) + 1:03d}",
+                location_type="mobile_service_point",
+                zone="mobile",
+                address=address,
+                latitude="",
+                longitude="",
+                coordinate_source="",
+                map_url="",
+                notes="DPL-published mobile service point address; coordinate requires geocoding.",
+            )
+        )
+    return rows
+
+
+def location_row(
+    *,
+    source_file: str,
+    source_url: str,
+    name: str,
+    location_type: str,
+    zone: str,
+    address: str,
+    latitude: str,
+    longitude: str,
+    coordinate_source: str,
+    map_url: str,
+    notes: str,
+) -> dict[str, str]:
+    return {
+        "source_record_id": "",
+        "source_file": source_file,
+        "source_url": source_url,
+        "library_id": "",
+        "name": name,
+        "normalized_name": normalize_name(name),
+        "location_type": location_type,
+        "zone": zone,
+        "address": address,
+        "latitude": latitude,
+        "longitude": longitude,
+        "coordinate_source": coordinate_source,
+        "map_url": map_url,
+        "geocode_status": "verified_coordinates" if latitude and longitude else "needs_geocode",
+        "confidence": "high" if latitude and longitude else "medium",
+        "notes": notes,
+    }
+
+
+def geocode_cache_rows(location_rows: list[dict[str, str]]) -> list[dict[str, str]]:
+    rows: list[dict[str, str]] = []
+    for row in location_rows:
+        if row["latitude"] and row["longitude"]:
+            continue
+        rows.append(
+            {
+                "source_record_id": row["source_record_id"],
+                "source_file": row["source_file"],
+                "library_id": row["library_id"],
+                "name": row["name"],
+                "address": row["address"],
+                "geocode_provider": "",
+                "geocode_query": geocode_query(row["address"]),
+                "geocode_result_label": "",
+                "latitude": "",
+                "longitude": "",
+                "confidence": "",
+                "review_status": "needs_geocode",
+                "notes": "Address is DPL-published; coordinates are pending reproducible geocoding/review.",
+            }
+        )
+    return rows
+
+
+def table_rows(page_html: str) -> list[list[dict[str, object]]]:
+    parsed_rows: list[list[dict[str, object]]] = []
+    for raw_row in re.findall(r"<tr\b[^>]*>(.*?)</tr>", page_html, re.I | re.S):
+        cells = []
+        for raw_cell in re.findall(r"<td\b[^>]*>(.*?)</td>", raw_row, re.I | re.S):
+            cells.append(
+                {
+                    "text": html_text(raw_cell),
+                    "links": re.findall(r"""href=["']([^"']+)["']""", raw_cell, re.I),
+                }
+            )
+        if cells:
+            parsed_rows.append(cells)
+    return parsed_rows
+
+
+def page_library_title(page_html: str) -> str:
+    matches = re.findall(r"<strong\b[^>]*>([^<]*Library[^<]*)</strong>", page_html, re.I)
+    for match in matches:
+        text = clean_location_name(html_text(match))
+        if text and "Delhi Public Library" not in text:
+            return text
+    return ""
+
+
+def first_embed_coordinates(page_html: str) -> tuple[str, str] | None:
+    for src in re.findall(r"""<iframe\b[^>]*\bsrc=["']([^"']+)["']""", page_html, re.I):
+        coordinates, _ = coordinates_from_url(html.unescape(src))
+        if coordinates:
+            return coordinates
+    return None
+
+
+def coordinates_from_url(url: str) -> tuple[tuple[str, str] | None, str]:
+    if not url:
+        return None, ""
+    decoded = html.unescape(url)
+    embed = re.search(r"!2d(-?\d+(?:\.\d+)?)!3d(-?\d+(?:\.\d+)?)", decoded)
+    if embed:
+        return (embed.group(2), embed.group(1)), "google_maps_embed"
+    place = re.search(r"@(-?\d+(?:\.\d+)?),(-?\d+(?:\.\d+)?)", decoded)
+    if place:
+        return (place.group(1), place.group(2)), "google_maps_url"
+    query = re.search(r"[?&]q=(-?\d+(?:\.\d+)?),(-?\d+(?:\.\d+)?)", decoded)
+    if query:
+        return (query.group(1), query.group(2)), "google_maps_query"
+    return None, ""
+
+
+def html_text(raw: str) -> str:
+    raw = re.sub(r"<script\b.*?</script>", " ", raw, flags=re.I | re.S)
+    raw = re.sub(r"<style\b.*?</style>", " ", raw, flags=re.I | re.S)
+    raw = re.sub(r"<br\s*/?>", " ", raw, flags=re.I)
+    raw = re.sub(r"<[^>]+>", " ", raw)
+    return " ".join(html.unescape(raw).split())
+
+
+def clean_location_name(value: str) -> str:
+    value = html_text(value)
+    value = re.sub(r"\s*\((?:Zonal|Sub-Branch|Branch|Community|R\.?\s*C\.?|Resettlement).*?\)", "", value, flags=re.I)
+    value = re.sub(r"\s+", " ", value).strip(" -")
+    return value
+
+
+def clean_address(value: str) -> str:
+    value = html_text(value)
+    value = re.sub(r"\bClick for location\b", "", value, flags=re.I)
+    value = re.sub(r"\s+", " ", value).strip(" ,;-")
+    return value
+
+
+def location_type(raw_name: str) -> str:
+    lower = raw_name.lower()
+    if "zonal" in lower or "zone library" in lower:
+        return "zonal_library"
+    if "sub-branch" in lower or "sub branch" in lower:
+        return "sub_branch_library"
+    if "resettlement" in lower:
+        return "resettlement_colony_library"
+    if "community" in lower:
+        return "community_library"
+    if "branch" in lower:
+        return "branch_library"
+    return "fixed_library"
+
+
+def mobile_address_candidate(value: str) -> bool:
+    lower = value.lower()
+    if len(value) < 20 or len(value) > 220:
+        return False
+    if "delhi" not in lower and "new delhi" not in lower:
+        return False
+    rejected = [
+        "delhi public library home",
+        "search library catalogue",
+        "schedule and points",
+        "mobile library service",
+        "minister",
+        "copyright",
+        "facebook",
+        "national library",
+        "central reference library",
+    ]
+    return not any(term in lower for term in rejected)
+
+
+def geocode_query(address: str) -> str:
+    if re.search(r"\b(delhi|new delhi)\b", address, re.I):
+        return f"{address}, India"
+    return f"{address}, Delhi, India"
+
+
+def normalize_name(name: str) -> str:
+    return re.sub(r"[^a-z0-9]+", " ", name.lower()).strip()
+
+
+def stable_location_id(name: str, index: int) -> str:
+    normalized = normalize_name(name).replace(" ", "_")
+    return f"dpl_{normalized or 'location'}_{index:04d}"
 
 
 def extract_annual_rows(text_dir: Path, source_by_stem: dict[str, str]) -> list[dict[str, str]]:
