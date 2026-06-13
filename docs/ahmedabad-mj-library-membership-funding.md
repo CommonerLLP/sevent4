@@ -25,7 +25,11 @@ Against the SevenT4 Ahmedabad ward population total of 7,078,533, the 2025-26
 membership count is only 0.379 percent of the city, or roughly one registered
 member per 264 residents.
 
-Source data: `data/cities/ahmedabad/source/libraries/mj_library_membership.csv`.
+Source data:
+
+- `data/cities/ahmedabad/source/libraries/mj_library_annual_stats.csv`;
+- `data/cities/ahmedabad/source/libraries/mj_library_membership.csv`;
+- `data/cities/ahmedabad/source/libraries/mj_library_network.json`.
 
 ## Funding split
 
@@ -47,7 +51,8 @@ In 2024-25, M.J. Library reports:
 - AMC grant: Rs 18.1195 crore, or 96.68 percent;
 - library income: Rs 0.6220 crore, or 3.32 percent.
 
-Source data: `data/cities/ahmedabad/source/libraries/mj_library_finance.csv`.
+The curated finance split now covers 2021-22 through 2025-26. Source data:
+`data/cities/ahmedabad/source/libraries/mj_library_finance.csv`.
 
 ## What user fees are doing
 
@@ -64,7 +69,7 @@ Even under a generous fee estimate for 2025-26:
 - Gyanvihar members at the maximum annual reading-room charge: 755 x Rs 1,000 =
   about Rs 7.6 lakh.
 
-That is about Rs 17.3 lakh, or roughly 0.08 percent of the Rs 22.7675 crore
+That is about Rs 17.3 lakh, or roughly 0.76 percent of the Rs 22.7675 crore
 budget. It is only about one-fifth of the disclosed Rs 84.2 lakh library-income
 line. User fees are therefore not meaningful cost recovery. Their practical role
 is rationing/gatekeeping access to borrowing and reading-room privileges inside a
@@ -94,6 +99,17 @@ actual operating and capital structure remains almost entirely grant-funded.
 
 - M.J. Library official RTI/proactive disclosure PDFs listed on
   `https://www.mjlibrary.in/assets/frontend/en-lang/content.js`.
+- Full M.J. Library site-content capture:
+  `data/cities/ahmedabad/source/libraries/mj_library_site_content.json`.
+- Official M.J. Library PDF-link index:
+  `data/cities/ahmedabad/source/libraries/mj_library_pdf_index.csv`.
+- Full text exports for all 11 proactive disclosures, 2015-16 through 2025-26:
+  `data/cities/ahmedabad/source/libraries/disclosures_text/`.
+- Disclosure text manifest with page counts and PDF hashes:
+  `data/cities/ahmedabad/source/libraries/mj_library_disclosure_text_index.csv`.
+- Ahmedabad library-location inventory combining AMC library GeoJSON and the
+  civic-service library scrape:
+  `data/cities/ahmedabad/source/libraries/ahmedabad_library_locations.csv`.
 - 2025-26 disclosure:
   `https://www.mjlibrary.in/assets/img/pdf/mj_discloser_rti_2025-26.pdf`.
 - 2024-25 disclosure:
