@@ -22,6 +22,9 @@ class LayerSpec:
     paint: dict[str, Any]
     outline: bool = False
     bounds_file: str | None = None
+    year_field: str | None = None
+    year_values: tuple[int, ...] = ()
+    default_year: int | None = None
 
     @property
     def is_interactive(self) -> bool:
@@ -73,4 +76,7 @@ def _layer_spec(item: dict[str, Any]) -> LayerSpec:
         paint=dict(item.get("paint", {})),
         outline=bool(item.get("outline", False)),
         bounds_file=str(item["bounds_file"]) if item.get("bounds_file") else None,
+        year_field=str(item["year_field"]) if item.get("year_field") else None,
+        year_values=tuple(int(v) for v in item.get("year_values", [])),
+        default_year=int(item["default_year"]) if item.get("default_year") is not None else None,
     )
