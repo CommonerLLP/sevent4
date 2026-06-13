@@ -55,6 +55,57 @@ def main() -> None:
             "notes",
         ],
     )
+    population = primary_delhi_population()
+    ten_year_rows = ten_year_time_series(annual_rows, population)
+    online_rows = online_annual_time_series(annual_rows, population)
+    write_csv(
+        args.out_dir / "dpl_ten_year_time_series.csv",
+        ten_year_rows,
+        [
+            "year",
+            "fiscal_start_year",
+            "fiscal_end_year",
+            "observation_status",
+            "source_url",
+            "total_members",
+            "total_issues",
+            "reading_room_attendance",
+            "collection_total",
+            "books_added_to_stock",
+            "total_expenditure_rs",
+            "population_denominator",
+            "members_per_1m",
+            "issues_per_1m",
+            "reading_room_attendance_per_1m",
+            "collection_refresh_pct",
+            "issues_per_collection_item",
+            "notes",
+        ],
+    )
+    write_csv(
+        args.out_dir / "dpl_online_annual_time_series.csv",
+        online_rows,
+        [
+            "year",
+            "fiscal_start_year",
+            "fiscal_end_year",
+            "observation_status",
+            "source_url",
+            "total_members",
+            "total_issues",
+            "reading_room_attendance",
+            "collection_total",
+            "books_added_to_stock",
+            "total_expenditure_rs",
+            "population_denominator",
+            "members_per_1m",
+            "issues_per_1m",
+            "reading_room_attendance_per_1m",
+            "collection_refresh_pct",
+            "issues_per_collection_item",
+            "notes",
+        ],
+    )
     latest = one_year(annual_rows, "2023-24")
     long_rows = latest_long_metrics(latest)
     write_csv(
@@ -75,6 +126,8 @@ def main() -> None:
     )
     print(f"wrote {args.out_dir / 'dpl_fetch_manifest.csv'} ({len(manifest)} rows)")
     print(f"wrote {args.out_dir / 'dpl_annual_metrics.csv'} ({len(annual_rows)} rows)")
+    print(f"wrote {args.out_dir / 'dpl_ten_year_time_series.csv'} ({len(ten_year_rows)} rows)")
+    print(f"wrote {args.out_dir / 'dpl_online_annual_time_series.csv'} ({len(online_rows)} rows)")
     print(f"wrote {args.out_dir / 'dpl_metrics_long.csv'} ({len(long_rows)} rows)")
 
 
@@ -122,7 +175,7 @@ def extract_annual_rows(text_dir: Path, source_by_stem: dict[str, str]) -> list[
             continue
         table = membership_table(text)
         summary = membership_summary(text)
-        attendance = first_number_after(text, r"Attendance of readers in Reading Rooms\s*:?\s*-?\s*")
+        attendance = reading_room_attendance(text)
         collection = collection_total(text)
         books_added = first_number_after(text, r"Books added to Stock\s*:?\s*")
         finance = finance_total_row(text)
@@ -165,6 +218,10 @@ def extract_annual_rows(text_dir: Path, source_by_stem: dict[str, str]) -> list[
                 str(value or "") for value in summary
             ]
             row["notes"] = "Membership and issue metrics parsed from summary line; no unit total table found."
+        if issue_subtotals_do_not_reconcile(row):
+            row["adult_issues"] = ""
+            row["child_issues"] = ""
+            row["notes"] += " Adult/child issue subtotals do not reconcile with reported total issues; total issues retained."
         if finance:
             (
                 row["opening_unspent_rs"],
@@ -206,8 +263,20 @@ def membership_table(text: str) -> tuple[int, int, int, int, int, int] | None:
         chunk,
     )
     if not matches:
+        for line in chunk.splitlines():
+            if not re.match(r"(?i)^\W*total\b", line.strip()):
+                continue
+            numbers = [parse_int(value) for value in re.findall(r"\d[\d,]*", line)]
+            if len(numbers) < 6:
+                continue
+            values = numbers[:6]
+            if values[0] + values[1] == values[2]:
+                return tuple(values)  # type: ignore[return-value]
         return None
-    return tuple(parse_int(value) for value in matches[-1])  # type: ignore[return-value]
+    values = tuple(parse_int(value) for value in matches[-1])
+    if values[0] + values[1] == values[2]:
+        return values  # type: ignore[return-value]
+    return None
 
 
 def membership_summary(text: str) -> tuple[int | None, int | None, int | None, int | None] | None:
@@ -216,7 +285,7 @@ def membership_summary(text: str) -> tuple[int | None, int | None, int | None, i
         text,
         re.I,
     )
-    issued = re.search(r"No\. of Books issued[^\n:]*:\s*([0-9, ]+)", text, re.I)
+    issued = re.search(r"No\. of Books issued[^\n]*?[:>]\s*([0-9, ]+)", text, re.I)
     if not member:
         return None
     return (
@@ -229,7 +298,32 @@ def membership_summary(text: str) -> tuple[int | None, int | None, int | None, i
 
 def collection_total(text: str) -> int | None:
     match = re.search(r"book collection(?: \(Net Book Stock\))?.{0,220}?was\s+([0-9,]+)", text, re.I | re.S)
-    return parse_int(match.group(1)) if match else None
+    if match:
+        return parse_collection_number(match.group(1))
+    match = re.search(r"Net Book Stock\s+\D*([0-9][0-9,\s]+)", text, re.I)
+    if match:
+        return parse_collection_number(match.group(1))
+    lower = text.lower()
+    start = lower.find("analysis of net book stock")
+    if start != -1:
+        chunk = text[start : start + 5000]
+        for line in chunk.splitlines():
+            if "total" not in line.lower():
+                continue
+            candidates = [parse_collection_number(value) for value in re.findall(r"\d[\d,]*", line)]
+            candidates = [value for value in candidates if value > 100_000]
+            if candidates:
+                return candidates[-1]
+    return None
+
+
+def parse_collection_number(value: str) -> int:
+    tokens = re.findall(r"\d[\d,]*", value)
+    token = max(tokens, key=len) if tokens else value
+    parsed = parse_int(token)
+    if 10_000_000 <= parsed < 30_000_000 and parsed % 10 == 0:
+        return parsed // 10
+    return parsed
 
 
 def finance_total_row(text: str) -> tuple[int, int, int, int, int, int, int] | None:
@@ -253,10 +347,24 @@ def first_number_after(text: str, prefix_pattern: str) -> int | None:
     return parse_int(match.group(1)) if match else None
 
 
+def reading_room_attendance(text: str) -> int | None:
+    attendance = first_number_after(text, r"Attendance of readers in Reading Rooms\s*:?\s*-?\s*")
+    if attendance and attendance >= 10_000:
+        return attendance
+    match = re.search(r"During the year under report\s+([0-9,]+)\s+persons availed this facility", text, re.I)
+    return parse_int(match.group(1)) if match else attendance
+
+
 def parse_int(value: str) -> int:
     value = re.sub(r"\.\d+\b", "", value)
     digits = re.sub(r"[^0-9]", "", value)
     return int(digits) if digits else 0
+
+
+def issue_subtotals_do_not_reconcile(row: dict[str, str]) -> bool:
+    if not row["adult_issues"] or not row["child_issues"] or not row["total_issues"]:
+        return False
+    return int(row["adult_issues"]) + int(row["child_issues"]) != int(row["total_issues"])
 
 
 def one_year(rows: list[dict[str, str]], year: str) -> dict[str, str]:
@@ -264,6 +372,111 @@ def one_year(rows: list[dict[str, str]], year: str) -> dict[str, str]:
         if row["year"] == year:
             return row
     raise KeyError(year)
+
+
+def ten_year_time_series(annual_rows: list[dict[str, str]], population: int) -> list[dict[str, str]]:
+    return bounded_time_series(annual_rows, population, 2014, 2023)
+
+
+def online_annual_time_series(annual_rows: list[dict[str, str]], population: int) -> list[dict[str, str]]:
+    return bounded_time_series(annual_rows, population, 2009, 2023)
+
+
+def bounded_time_series(
+    annual_rows: list[dict[str, str]],
+    population: int,
+    first_start_year: int,
+    last_start_year: int,
+) -> list[dict[str, str]]:
+    by_year = {row["year"]: row for row in annual_rows}
+    rows: list[dict[str, str]] = []
+    for start_year in range(first_start_year, last_start_year + 1):
+        year = f"{start_year}-{str(start_year + 1)[-2:]}"
+        source = by_year.get(year)
+        if not source:
+            rows.append(
+                {
+                    "year": year,
+                    "fiscal_start_year": str(start_year),
+                    "fiscal_end_year": str(start_year + 1),
+                    "observation_status": "missing_source_not_extracted",
+                    "source_url": "",
+                    "total_members": "",
+                    "total_issues": "",
+                    "reading_room_attendance": "",
+                    "collection_total": "",
+                    "books_added_to_stock": "",
+                    "total_expenditure_rs": "",
+                    "population_denominator": str(population),
+                    "members_per_1m": "",
+                    "issues_per_1m": "",
+                    "reading_room_attendance_per_1m": "",
+                    "collection_refresh_pct": "",
+                    "issues_per_collection_item": "",
+                    "notes": "No parsed annual-report row in the targeted DPL source package.",
+                }
+            )
+            continue
+        total_members = optional_int(source["total_members"])
+        total_issues = optional_int(source["total_issues"])
+        attendance = optional_int(source["reading_room_attendance"])
+        collection = optional_int(source["collection_total"])
+        additions = optional_int(source["books_added_to_stock"])
+        rows.append(
+            {
+                "year": year,
+                "fiscal_start_year": str(start_year),
+                "fiscal_end_year": str(start_year + 1),
+                "observation_status": "observed",
+                "source_url": source["source_url"],
+                "total_members": source["total_members"],
+                "total_issues": source["total_issues"],
+                "reading_room_attendance": source["reading_room_attendance"],
+                "collection_total": source["collection_total"],
+                "books_added_to_stock": source["books_added_to_stock"],
+                "total_expenditure_rs": source["total_expenditure_rs"],
+                "population_denominator": str(population),
+                "members_per_1m": ratio_per_1m(total_members, population),
+                "issues_per_1m": ratio_per_1m(total_issues, population),
+                "reading_room_attendance_per_1m": ratio_per_1m(attendance, population),
+                "collection_refresh_pct": pct(additions, collection),
+                "issues_per_collection_item": ratio(total_issues, collection),
+                "notes": source["notes"],
+            }
+        )
+    return rows
+
+
+def primary_delhi_population() -> int:
+    path = REPO / "data" / "cities" / "delhi" / "source" / "demographics" / "delhi_population_denominators.csv"
+    if not path.exists():
+        return 19_000_000
+    with path.open(newline="", encoding="utf-8") as handle:
+        for row in csv.DictReader(handle):
+            if row["role"] == "primary_service_area_denominator":
+                return int(row["population"])
+    return 19_000_000
+
+
+def optional_int(value: str) -> int | None:
+    return int(value) if value else None
+
+
+def ratio_per_1m(value: int | None, population: int) -> str:
+    if value is None:
+        return ""
+    return f"{value / population * 1_000_000:.1f}"
+
+
+def pct(numerator: int | None, denominator: int | None) -> str:
+    value = ratio(numerator, denominator)
+    return "" if value == "" else f"{float(value) * 100:.3f}"
+
+
+def ratio(numerator: int | None, denominator: int | None) -> str:
+    if numerator is None or denominator in (None, 0):
+        return ""
+    return f"{numerator / denominator:.6f}"
 
 
 def latest_long_metrics(latest: dict[str, str]) -> list[dict[str, str]]:

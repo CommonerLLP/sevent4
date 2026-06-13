@@ -103,23 +103,70 @@ refresh rate, the unspent balance is operationally important.
 
 ## DPL Timeline
 
-| Year | Members | Issues | Reading-room attendance | Collection | Books added |
-|---|---:|---:|---:|---:|---:|
-| 2009-10 | 64,883 | 1,039,977 | 316,657 | Not parsed | 77,872 |
-| 2010-11 | 73,467 | 1,169,734 | 244,499 | Not parsed | 33,868 |
-| 2018-19 | 187,138 | 814,858 | 365,854 | 1,694,950 | 27,958 |
-| 2019-20 | 189,235 | 477,008 | 353,246 | 1,596,125 | 13,310 |
-| 2021-22 | 156,867 | 196,889 | 132,411 | 1,605,443 | 2,697 |
-| 2023-24 | 110,534 | 274,751 | 335,270 | 1,527,531 | 3,108 |
+The DPL extraction now emits the full online annual-report panel from 2009-10
+through 2023-24. The online DPL source package contains annual reports for every
+year in that span; 2012-13, 2016-17, and 2020-21 required OCR recovery because
+the original `pdftotext` output was image-only or mostly blank.
 
-The trend is severe. Membership falls from 189,235 in 2019-20 to 110,534 in
-2023-24, a 41.6% decline. Annual issues fall from 1.17 million in 2010-11 to
-274,751 in 2023-24, a 76.5% decline. Books added fall from 77,872 in 2009-10 to
-3,108 in 2023-24, a 96.0% decline.
+| Year | Members | Issues | Issues per 1M | Attendance | Collection | Additions | Refresh |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| 2009-10 | 64,883 | 1,039,977 | 54,736 | 316,657 | 1,552,000 | 77,872 | 5.02% |
+| 2010-11 | 73,467 | 1,169,734 | 61,565 | 244,499 | 1,608,813 | 33,868 | 2.10% |
+| 2011-12 | 76,548 | 1,133,154 | 59,640 | 477,107 | 1,640,909 | 39,860 | 2.43% |
+| 2012-13 | 80,448 | 1,138,767 | 59,935 | 398,029 | 1,681,426 | 40,517 | 2.41% |
+| 2013-14 | 107,276 | 1,081,767 | 56,935 | 397,718 | 1,694,695 | 23,565 | 1.39% |
+| 2014-15 | 126,091 | 845,044 | 44,476 | 384,049 | 1,668,258 | 59,570 | 3.57% |
+| 2015-16 | 139,835 | 757,439 | 39,865 | 314,089 | 1,717,727 | 37,014 | 2.16% |
+| 2016-17 | 159,200 | 700,412 | 36,864 | 293,883 | 1,706,326 | 38,256 | 2.24% |
+| 2017-18 | 175,422 | 730,706 | 38,458 | 330,888 | 1,735,868 | 21,545 | 1.24% |
+| 2018-19 | 187,138 | 814,858 | 42,887 | 365,854 | 1,694,950 | 27,958 | 1.65% |
+| 2019-20 | 189,235 | 477,008 | 25,106 | 353,246 | 1,596,125 | 13,310 | 0.83% |
+| 2020-21 | 165,854 | 112,946 | 5,945 | 25,855 | 1,602,290 | 2,504 | 0.16% |
+| 2021-22 | 156,867 | 196,889 | 10,363 | 132,411 | 1,605,443 | 2,697 | 0.17% |
+| 2022-23 | 148,094 | 258,180 | 13,588 | 328,728 | 1,536,905 | 9,947 | 0.65% |
+| 2023-24 | 110,534 | 274,751 | 14,461 | 335,270 | 1,527,531 | 3,108 | 0.20% |
+
+The full online-run trend is severe. From 2009-10 to 2023-24, annual issues fall
+from 1,039,977 to 274,751, a 73.6% decline. Books added fall from 77,872 to
+3,108, a 96.0% decline. Collection stock is roughly flat, moving from 1.55m to
+1.53m items, so the collapse is not explained by a shrinking collection.
+
+The peak-to-latest trend is sharper on active reach. Membership peaks at 189,235
+in 2019-20 and falls to 110,534 in 2023-24, a 41.6% decline. Issues peak at
+1.17m in 2010-11 and fall to 274,751 in 2023-24, a 76.5% decline.
 
 Reading-room attendance is the one partial recovery signal: 2023-24 attendance
 is back near the 2017-18 to 2019-20 range. But reading-room recovery does not
 offset the collapse in issue activity and stock renewal.
+
+## Annual Toronto Comparison
+
+For the annual comparison, DPL fiscal years are aligned to the TPL calendar year
+matching the DPL fiscal end year. TPL open data covers 2012-2023; DPL 2023-24 is
+compared to TPL's 2024 headline public metrics.
+
+| DPL year | TPL year | DPL issues per 1M | TPL borrowings per 1M | TPL/DPL ratio | DPL attendance per 1M | TPL branch visits per 1M | TPL/DPL visit ratio |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| 2009-10 | 2010 | 54,736 | Not available | Not available | 16,666 | Not available | Not available |
+| 2010-11 | 2011 | 61,565 | Not available | Not available | 12,868 | Not available | Not available |
+| 2011-12 | 2012 | 59,640 | 10,677,345 | 179.0x | 25,111 | 6,290,871 | 250.5x |
+| 2012-13 | 2013 | 59,935 | 10,715,007 | 178.8x | 20,949 | 6,161,798 | 294.1x |
+| 2013-14 | 2014 | 56,935 | 10,678,265 | 187.6x | 20,933 | 6,111,977 | 292.0x |
+| 2014-15 | 2015 | 44,476 | 10,835,321 | 243.6x | 20,213 | 6,051,026 | 299.4x |
+| 2015-16 | 2016 | 39,865 | 10,636,859 | 266.8x | 16,531 | 6,077,456 | 367.6x |
+| 2016-17 | 2017 | 36,864 | 10,032,963 | 272.2x | 15,468 | 5,790,011 | 374.3x |
+| 2017-18 | 2018 | 38,458 | 10,185,190 | 264.8x | 17,415 | 5,859,124 | 336.4x |
+| 2018-19 | 2019 | 42,887 | 10,220,678 | 238.3x | 19,256 | 5,749,587 | 298.6x |
+| 2019-20 | 2020 | 25,106 | 7,000,305 | 278.8x | 18,592 | 1,852,584 | 99.6x |
+| 2020-21 | 2021 | 5,945 | 8,076,365 | 1,358.6x | 1,361 | 1,343,163 | 987.0x |
+| 2021-22 | 2022 | 10,363 | 8,866,311 | 855.6x | 6,969 | 3,188,829 | 457.6x |
+| 2022-23 | 2023 | 13,588 | 8,330,966 | 613.1x | 17,302 | 4,169,274 | 241.0x |
+| 2023-24 | 2024 | 14,461 | 9,333,333 | 645.4x | 17,646 | 4,466,667 | 253.1x |
+
+This comparison shows that the gap is not a one-year artefact. Before COVID,
+TPL already records roughly 179x-278x DPL's per-capita borrowing. After the DPL
+collapse in 2020-21, the ratio remains above 600x in the latest two comparable
+years.
 
 ## NCR Sensitivity
 
@@ -190,5 +237,8 @@ and does not pretend they are equivalent to DPL registered-member stock.
 - World Bank PPP conversion factor, GDP, `PA.NUS.PPP`:
   <https://api.worldbank.org/v2/country/IND;CAN/indicator/PA.NUS.PPP?format=json&per_page=100>
 - Local SevenT4 derived tables:
+  `data/cities/delhi/source/libraries/dpl_online_annual_time_series.csv`,
+  `data/cities/delhi/source/libraries/dpl_ten_year_time_series.csv`,
+  `data/comparators/delhi_toronto/annual_usage_comparison.csv`,
   `data/comparators/delhi_toronto/library_comparison_metrics.csv`,
   `data/comparators/delhi_toronto/library_comparison_summary.json`
