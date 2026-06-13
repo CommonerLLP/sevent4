@@ -33,12 +33,13 @@ Each city adapter writes or validates the same canonical source tables:
 - `data/cities/<city>/source/transit/transit_stops.json`
 - `data/cities/<city>/source/demographics/population_origins.geojson`
 - `data/cities/<city>/source/boundaries/service_area.geojson`
+- `data/cities/<city>/source/geocoding/geocode_cache.csv`, when official source records publish addresses without coordinates
 
 Current city status:
 
 - Toronto: use Toronto Open Data TPL branch geodata and TTC transit feeds where available. The TPL branch dataset includes current branch location, size, and feature records and was listed as last updated 2026-05-13.
 - Ahmedabad: use the existing MJ/AMC library location table and existing transit stop/line JSON already in SevenT4.
-- Delhi: use existing DPL annual operations data plus DPL-published branch, zone, and mobile-service location pages. The work is to parse these pages into a canonical geotagged table, validate embedded Google Maps or short-link coordinates where available, geocode address-only mobile points, and keep fixed branches separate from mobile service points and deposit stations. DMRC and DTC/cluster bus data may require a mixed GTFS and OSM route fallback.
+- Delhi: use existing DPL annual operations data plus DPL-published branch, zone, and mobile-service location pages. DPL-published addresses are the source of record. The work is to parse those pages into a canonical geotagged table, validate embedded Google Maps or short-link coordinates where available, geocode address-only fixed branches and mobile points, and keep fixed branches separate from mobile service points and deposit stations. DMRC and DTC/cluster bus data may require a mixed GTFS and OSM route fallback.
 
 ## Architecture
 
@@ -57,6 +58,19 @@ Comparator builder:
 - `scripts/recipes/comparators/build_library_access_comparison.py`
 
 The shared engine owns validation, nearest-library calculations, confidence labels, threshold metrics, and output schemas. City adapters only fetch or normalize city-specific inputs. Reports consume generated CSV/JSON outputs and do not encode city-specific business logic.
+
+## Geocoding Policy
+
+DPL and similar public institutions may publish addresses without machine-readable latitude and longitude. The pipeline should treat the published address as authoritative and the coordinate as a derived field.
+
+Geocoding must be reproducible:
+
+- Keep the original address text unchanged in `library_locations.csv`.
+- Write all derived coordinates to a checked cache such as `data/cities/delhi/source/geocoding/geocode_cache.csv`.
+- Include `geocode_provider`, `geocode_query`, `geocode_result_label`, `latitude`, `longitude`, `confidence`, and `review_status`.
+- Prefer institution-published embedded map coordinates or short-link coordinates before third-party geocoding.
+- Mark manually reviewed coordinates as `review_status=verified`.
+- Do not route against unreviewed low-confidence geocodes except in explicitly labeled exploratory outputs.
 
 ## Routing Tiers
 
