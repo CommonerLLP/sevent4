@@ -1,0 +1,418 @@
+{
+ "schema": "sevent4.jurisdiction_crosswalk.v1",
+ "city": "bhubaneswar",
+ "country": "India",
+ "levels": [
+  "state",
+  "district"
+ ],
+ "thresholds": {
+  "method": "ward representative point within AC/PC polygon (nearest fallback), EPSG:3857"
+ },
+ "excluded_acs": [],
+ "source": "spatial join of city ward/AC/PC layers",
+ "records": [
+  {
+   "ward_name": "Ward W9",
+   "ac_name": "EKAMRA-BHUBANESHWAR",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W25",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W51",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W56",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W6",
+   "ac_name": "EKAMRA-BHUBANESHWAR",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W7",
+   "ac_name": "EKAMRA-BHUBANESHWAR",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W13",
+   "ac_name": "EKAMRA-BHUBANESHWAR",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W27",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W12",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W11",
+   "ac_name": "EKAMRA-BHUBANESHWAR",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W17",
+   "ac_name": "EKAMRA-BHUBANESHWAR",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W26",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W21",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W24",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W16",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W30",
+   "ac_name": "EKAMRA-BHUBANESHWAR",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W34",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W29",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W35",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W40",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W28",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W36",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W46",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W37",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W38",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W39",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W63",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W50",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W19",
+   "ac_name": "EKAMRA-BHUBANESHWAR",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W31",
+   "ac_name": "EKAMRA-BHUBANESHWAR",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W33",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W42",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W43",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W45",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W54",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W20",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W55",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W41",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W47",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W48",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W52",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W53",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W4",
+   "ac_name": "BHUBANESWAR(UTTAR)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W5",
+   "ac_name": "BHUBANESWAR(UTTAR)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W10",
+   "ac_name": "EKAMRA-BHUBANESHWAR",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W3",
+   "ac_name": "EKAMRA-BHUBANESHWAR",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W2",
+   "ac_name": "EKAMRA-BHUBANESHWAR",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W1",
+   "ac_name": "EKAMRA-BHUBANESHWAR",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W15",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W22",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W23",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W49",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W66",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W62",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W58",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W59",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W57",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W44",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W32",
+   "ac_name": "EKAMRA-BHUBANESHWAR",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W18",
+   "ac_name": "EKAMRA-BHUBANESHWAR",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W14",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W8",
+   "ac_name": "EKAMRA-BHUBANESHWAR",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W60",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W61",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W67",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W65",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  },
+  {
+   "ward_name": "Ward W64",
+   "ac_name": "BHUBANESWAR(MADHYA)",
+   "pc_name": "Bhubaneswar",
+   "district_name": "KHORDHA  *"
+  }
+ ]
+}

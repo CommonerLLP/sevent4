@@ -1,0 +1,916 @@
+{
+ "schema": "sevent4.jurisdiction_crosswalk.v1",
+ "city": "jaipur",
+ "country": "India",
+ "levels": [
+  "state",
+  "district"
+ ],
+ "thresholds": {
+  "method": "ward representative point within AC/PC polygon (nearest fallback), EPSG:3857"
+ },
+ "excluded_acs": [],
+ "source": "spatial join of city ward/AC/PC layers",
+ "records": [
+  {
+   "ward_name": "Ward 119",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 55",
+   "ac_name": "Sanganer",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 49",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 64",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 67",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 70",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 76",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 84",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 87",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 93",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 91",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 102",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 105",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 118",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 110",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 125",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 129",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 131",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 134",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 137",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 140",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 146",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 138",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 139",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 150",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 8",
+   "ac_name": "Vidhyadhar Nagar",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 14",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 11",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 27",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 25",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 19",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 35",
+   "ac_name": "Sanganer",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 42",
+   "ac_name": "Sanganer",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 2",
+   "ac_name": "Amber",
+   "pc_name": "Jaipur Rural",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 1",
+   "ac_name": "Amber",
+   "pc_name": "Jaipur Rural",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 3",
+   "ac_name": "Amber",
+   "pc_name": "Jaipur Rural",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 5",
+   "ac_name": "Vidhyadhar Nagar",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 9",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur Rural",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 13",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 15",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 12",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur Rural",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 44",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur Rural",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 43",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur Rural",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 45",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur Rural",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 46",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur Rural",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 47",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur Rural",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 6",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur Rural",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 4",
+   "ac_name": "Amber",
+   "pc_name": "Jaipur Rural",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 7",
+   "ac_name": "Vidhyadhar Nagar",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 48",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur Rural",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 51",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur Rural",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 23",
+   "ac_name": "Vidhyadhar Nagar",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 22",
+   "ac_name": "Vidhyadhar Nagar",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 24",
+   "ac_name": "Civil Lines",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 10",
+   "ac_name": "Vidhyadhar Nagar",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 17",
+   "ac_name": "Vidhyadhar Nagar",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 16",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 18",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 20",
+   "ac_name": "Vidhyadhar Nagar",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 31",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 21",
+   "ac_name": "Vidhyadhar Nagar",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 26",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 32",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 28",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 30",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 33",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 29",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 36",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 39",
+   "ac_name": "Sanganer",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 41",
+   "ac_name": "Sanganer",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 40",
+   "ac_name": "Sanganer",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 37",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 34",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 38",
+   "ac_name": "Sanganer",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 50",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur Rural",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 53",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur Rural",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 56",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur Rural",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 59",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 60",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur Rural",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 63",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 62",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur Rural",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 61",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur Rural",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 58",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur Rural",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 57",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur Rural",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 52",
+   "ac_name": "Sanganer",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 54",
+   "ac_name": "Jhotwara",
+   "pc_name": "Jaipur Rural",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 65",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 66",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 83",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 71",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 68",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 74",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 69",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 72",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 73",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 82",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 75",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 85",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 128",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 90",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 81",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 79",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 78",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 77",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 80",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 86",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 89",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 99",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 98",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 96",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 94",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 97",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 92",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 88",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 95",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 103",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 100",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 101",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 115",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 143",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 136",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 145",
+   "ac_name": "Sanganer",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 141",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 142",
+   "ac_name": "Sanganer",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 148",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 147",
+   "ac_name": "Sanganer",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 135",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 133",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 130",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 127",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 126",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 132",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 149",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 124",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 122",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 123",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 114",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 121",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 120",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 117",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 113",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 109",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 108",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 106",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 107",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 112",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 116",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 104",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 111",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  },
+  {
+   "ward_name": "Ward 144",
+   "ac_name": "Bagru (SC)",
+   "pc_name": "Jaipur",
+   "district_name": "JAIPUR"
+  }
+ ]
+}
