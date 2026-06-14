@@ -65,3 +65,8 @@ docs/ahmedabad-road-contractors-method.md
 data/cities/*/source/budget/roads/
 scripts/recipes/ahmedabad/parse_resurfaced_registers.py
 scripts/recipes/ahmedabad/match_register_to_osm_arterials.py
+
+# ── docs/ + data/ are LOCAL-ONLY (kept on disk, off the public repo). The live site
+#    is deployed from public/ alone (.github/workflows/pages.yml: path: public). ──
+docs/
+data/
