@@ -1,0 +1,23 @@
+year,metric_group,metric_name,value,unit,source_url,confidence,notes
+2024,network,branches,100,count,https://tpl.ca/about-the-library/open-data/,high,PhysicalBranch=1 rows in TPL branch general information open data.
+2024,network,bookmobiles,2,count,https://tpl.ca/about-the-library/,high,TPL About page reports two bookmobiles.
+2024,network,collection_items,10500000,count,https://tpl.ca/about-the-library/,medium,TPL About page reports more than 10.5 million items; stored as 10.5m lower-bound value.
+2024,network,branch_square_feet,1995053,square_feet,https://tpl.ca/about-the-library/open-data/,high,Sum of SquareFootage in TPL branch general information open data.
+2024,usage,total_visits_branch_and_online,45000000,count,https://tpl.ca/about-the-library/,medium,TPL About page reports nearly 45 million visits; stored as 45m rounded value.
+2024,usage,branch_visits,13400000,count,https://tpl.ca/about-the-library/,medium,TPL About page reports 13.4 million branch visits.
+2024,usage,online_visits,31500000,count,https://tpl.ca/about-the-library/,medium,TPL About page reports 31.5 million visits to online platforms.
+2024,usage,borrowings,28000000,count,https://tpl.ca/about-the-library/,medium,TPL About page reports materials borrowed 28 million times.
+2024,usage,card_registrations,235270,count,https://tpl.ca/about-the-library/,high,"TPL About page reports 235,270 people registered for a library card."
+2024,technology,wireless_sessions,6000000,count,https://tpl.ca/about-the-library/,medium,TPL About page reports nearly six million wireless sessions.
+2024,technology,public_computer_workstation_hours,1200000,hours,https://tpl.ca/about-the-library/,medium,TPL About page reports more than 1.2 million workstation session hours.
+2024,programs,in_person_programs,38000,count,https://tpl.ca/about-the-library/,medium,"TPL About page reports over 38,000 in-person programs."
+2024,programs,in_person_program_attendance,750000,count,https://tpl.ca/about-the-library/,medium,"TPL About page reports more than 750,000 in-person program participants."
+2026,finance,gross_expenditure,296057196,CAD,https://tpl.ca/about-the-library/library-finance/,high,TPL 2026 operating budget reports gross expenditure.
+2026,finance,staffing_salaries_benefits,217954794,CAD,https://tpl.ca/about-the-library/library-finance/,high,TPL 2026 gross expenditure split.
+2026,finance,library_materials,23082883,CAD,https://tpl.ca/about-the-library/library-finance/,high,TPL 2026 gross expenditure split.
+2026,finance,operations_administration,55019519,CAD,https://tpl.ca/about-the-library/library-finance/,high,TPL 2026 gross expenditure split.
+2026,finance,city_funding_property_taxes,274378001,CAD,https://tpl.ca/about-the-library/library-finance/,high,TPL 2026 revenue split.
+2026,finance,revenues_fines_fees,4298350,CAD,https://tpl.ca/about-the-library/library-finance/,high,TPL 2026 revenue split.
+2026,finance,other_sources,17380845,CAD,https://tpl.ca/about-the-library/library-finance/,high,TPL 2026 revenue split.
+2026,capital,capital_budget_total,72776219,CAD,https://tpl.ca/about-the-library/library-finance/,high,TPL 2026 capital budget funding sources.
+2026,capital,capital_debt,51087186,CAD,https://tpl.ca/about-the-library/library-finance/,high,TPL 2026 capital budget funding sources.

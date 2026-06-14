@@ -21,6 +21,107 @@
       }
     },
     {
+      "id": "ward_workorders",
+      "label": "BBMP works spend by ward (2013-22)",
+      "file": "ward_workorders.geojson",
+      "kind": "fill",
+      "group": "Who pays",
+      "default": false,
+      "outline": true,
+      "popup": [
+        "Ward",
+        "works_spend_cr",
+        "work_count",
+        "top_contractor",
+        "top_budget_head",
+        "flagged_works",
+        "note_74a"
+      ],
+      "paint": {
+        "fill-color": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "to-number",
+            [
+              "get",
+              "works_spend_cr"
+            ],
+            0
+          ],
+          0,
+          "#1f6f8b",
+          30,
+          "#6b7f64",
+          70,
+          "#d9a94f",
+          120,
+          "#c84646"
+        ],
+        "fill-opacity": 0.6
+      }
+    },
+    {
+      "id": "ward_workorders_yearly",
+      "label": "BBMP works spend by ward, by year",
+      "file": "ward_workorders_yearly.geojson",
+      "kind": "fill",
+      "group": "Who pays",
+      "default": false,
+      "outline": true,
+      "year_field": "year",
+      "year_values": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "default_year": 2022,
+      "popup": [
+        "Ward",
+        "year",
+        "works_spend_cr",
+        "work_count",
+        "top_contractor",
+        "top_budget_head",
+        "flagged_works",
+        "note_74a"
+      ],
+      "paint": {
+        "fill-color": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "to-number",
+            [
+              "get",
+              "works_spend_cr"
+            ],
+            0
+          ],
+          0,
+          "#1f6f8b",
+          5,
+          "#6b7f64",
+          15,
+          "#d9a94f",
+          30,
+          "#c84646"
+        ],
+        "fill-opacity": 0.6
+      }
+    },
+    {
       "id": "ward_analysis",
       "label": "Four-axis ward analysis (caste·spend·heat·rep)",
       "file": "ward_analysis.geojson",
@@ -65,49 +166,6 @@
           "#7a1f1f"
         ],
         "fill-opacity": 0.62
-      }
-    },
-    {
-      "id": "ward_workorders",
-      "label": "BBMP works spend by ward (2013-22)",
-      "file": "ward_workorders.geojson",
-      "kind": "fill",
-      "group": "Who pays",
-      "default": false,
-      "outline": true,
-      "popup": [
-        "Ward",
-        "works_spend_cr",
-        "work_count",
-        "top_contractor",
-        "top_budget_head",
-        "flagged_works",
-        "note_74a"
-      ],
-      "paint": {
-        "fill-color": [
-          "interpolate",
-          [
-            "linear"
-          ],
-          [
-            "to-number",
-            [
-              "get",
-              "works_spend_cr"
-            ],
-            0
-          ],
-          0,
-          "#1f6f8b",
-          30,
-          "#6b7f64",
-          70,
-          "#d9a94f",
-          120,
-          "#c84646"
-        ],
-        "fill-opacity": 0.6
       }
     },
     {

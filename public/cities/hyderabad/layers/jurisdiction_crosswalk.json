@@ -1,0 +1,946 @@
+{
+ "schema": "sevent4.jurisdiction_crosswalk.v1",
+ "city": "hyderabad",
+ "country": "India",
+ "levels": [
+  "state",
+  "district"
+ ],
+ "thresholds": {
+  "method": "ward representative point within AC/PC polygon (nearest fallback), EPSG:3857"
+ },
+ "excluded_acs": [],
+ "source": "spatial join of city ward/AC/PC layers",
+ "records": [
+  {
+   "ward_name": "Ward 127-RANGAREDDY NAGAR · KUKATPALLY ZONE",
+   "ac_name": "Quthbullapur",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 119-OLD BOWENPALLY · KUKATPALLY ZONE",
+   "ac_name": "Malkajgiri",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 145-SEETHAPHALMANDI · SECUNDERABAD ZONE",
+   "ac_name": "Secunderabad",
+   "pc_name": "Secunderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 146-BOUDHA NAGAR · SECUNDERABAD ZONE",
+   "ac_name": "Musheerabad",
+   "pc_name": "Secunderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 147-BANSILALPET · SECUNDERABAD ZONE",
+   "ac_name": "Secunderabad",
+   "pc_name": "Secunderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 144-METTUGUDA · SECUNDERABAD ZONE",
+   "ac_name": "Secunderabad",
+   "pc_name": "Secunderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 148-RAMGOPALPET · SECUNDERABAD ZONE",
+   "ac_name": "Musheerabad",
+   "pc_name": "Malkajgiri",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 150-MONDA  MARKET · SECUNDERABAD ZONE",
+   "ac_name": "Secunderabad Cantt. (SC",
+   "pc_name": "Malkajgiri",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 136-NEREDMET · SECUNDERABAD ZONE",
+   "ac_name": "Malkajgiri",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 141-GOUTHAM NAGAR · SECUNDERABAD ZONE",
+   "ac_name": "Malkajgiri",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 140-MALKAJGIRI · SECUNDERABAD ZONE",
+   "ac_name": "Malkajgiri",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 139-EAST ANAND BAGH · SECUNDERABAD ZONE",
+   "ac_name": "Uppal",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 142-ADDAGUTTA · SECUNDERABAD ZONE",
+   "ac_name": "Secunderabad",
+   "pc_name": "Malkajgiri",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 137-VINAYAK NAGAR · SECUNDERABAD ZONE",
+   "ac_name": "Malkajgiri",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 134-ALWAL · KUKATPALLY ZONE",
+   "ac_name": "Malkajgiri",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 132-JEEDIMETLA · KUKATPALLY ZONE",
+   "ac_name": "Malkajgiri",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward CONTONMENT AREA · CANTONMENT AREA",
+   "ac_name": "Malkajgiri",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 120-BALA NAGAR · KUKATPALLY ZONE",
+   "ac_name": "Quthbullapur",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 130-SUBHASH NAGAR · KUKATPALLY ZONE",
+   "ac_name": "Malkajgiri",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 131-QUTHBULLAPUR · KUKATPALLY ZONE",
+   "ac_name": "Quthbullapur",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 121-KUKATPALLY · KUKATPALLY ZONE",
+   "ac_name": "Kukatpalle",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 125-GAJULARAMARAM · KUKATPALLY ZONE",
+   "ac_name": "Quthbullapur",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 124-ALLYWN COLONY · KUKATPALLY ZONE",
+   "ac_name": "Quthbullapur",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 114-K.P.H.B.COLONY · KUKATPALLY ZONE",
+   "ac_name": "Kukatpalle",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 116-ALLAPUR · KUKATPALLY ZONE",
+   "ac_name": "Kukatpalle",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 115-BALAJI NAGAR · KUKATPALLY ZONE",
+   "ac_name": "Kukatpalle",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 117-MOOSAPET · KUKATPALLY ZONE",
+   "ac_name": "Kukatpalle",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 105-GACHIBOWLI · SERILINGAMPALLY ZONE",
+   "ac_name": "Serilingampally",
+   "pc_name": "Chevella",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 110-CHANDANAGAR · SERILINGAMPALLY ZONE",
+   "ac_name": "Serilingampally",
+   "pc_name": "Chevella",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 111-BHARATHI NAGAR · SERILINGAMPALLY ZONE",
+   "ac_name": "Serilingampally",
+   "pc_name": "Chevella",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 106-SERILINGAMPALLY · SERILINGAMPALLY ZONE",
+   "ac_name": "Serilingampally",
+   "pc_name": "Chevella",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 104-KONDAPUR · SERILINGAMPALLY ZONE",
+   "ac_name": "Kukatpalle",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 109-HAFEEZPET · SERILINGAMPALLY ZONE",
+   "ac_name": "Serilingampally",
+   "pc_name": "Chevella",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 118-FATEH NAGAR · KUKATPALLY ZONE",
+   "ac_name": "Kukatpalle",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 143-TARNAKA · SECUNDERABAD ZONE",
+   "ac_name": "Amberpet",
+   "pc_name": "Secunderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 8-HABSIGUDA · L.B.NAGAR ZONE",
+   "ac_name": "Uppal",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 40-RIYASATNAGAR · CHARMINAR ZONE",
+   "ac_name": "Yakutpura",
+   "pc_name": "Hyderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 36-LALITHABAGH · CHARMINAR ZONE",
+   "ac_name": "Yakutpura",
+   "pc_name": "Hyderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 34-TALABCHANCHALAM · CHARMINAR ZONE",
+   "ac_name": "Yakutpura",
+   "pc_name": "Hyderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 22-CHAITHANYAPURI · L.B.NAGAR ZONE",
+   "ac_name": "Uppal",
+   "pc_name": "Hyderabad",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 37-KURMAGUDA · CHARMINAR ZONE",
+   "ac_name": "Charminar",
+   "pc_name": "Hyderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 31-REIN BAZAR · CHARMINAR ZONE",
+   "ac_name": "Charminar",
+   "pc_name": "Hyderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 29-CHAWANI · CHARMINAR ZONE",
+   "ac_name": "Malakpet",
+   "pc_name": "Hyderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 38-I.S.SADAN · CHARMINAR ZONE",
+   "ac_name": "Charminar",
+   "pc_name": "Hyderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 18-LINGOJIGUDA · L.B.NAGAR ZONE",
+   "ac_name": "Lal Bahadur Nagar",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 16-HASTHINAPURAM · L.B.NAGAR ZONE",
+   "ac_name": "Lal Bahadur Nagar",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 20-R.K.PURAM · L.B.NAGAR ZONE",
+   "ac_name": "Lal Bahadur Nagar",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 19-SAROORNAGAR · L.B.NAGAR ZONE",
+   "ac_name": "Uppal",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 14-B.N.REDDY NAGAR · L.B.NAGAR ZONE",
+   "ac_name": "Lal Bahadur Nagar",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 12-MANSOORABAD · L.B.NAGAR ZONE",
+   "ac_name": "Lal Bahadur Nagar",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 21-KOTHAPET · L.B.NAGAR ZONE",
+   "ac_name": "Lal Bahadur Nagar",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 11-NAGOLE · L.B.NAGAR ZONE",
+   "ac_name": "Lal Bahadur Nagar",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 10-UPPAL · L.B.NAGAR ZONE",
+   "ac_name": "Uppal",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward GRAMPANCHAYAT PEERZADI GUDA · GRAMPANCHAYAT PEERZADIGUDA",
+   "ac_name": "Uppal",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward KALAVANCHA GRAM PANCHAYATH · KALAVANCHA GRAMPANCHAYATH",
+   "ac_name": "Lal Bahadur Nagar",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 13-HAYATHNAGAR · L.B.NAGAR ZONE",
+   "ac_name": "Lal Bahadur Nagar",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 15-VANASTHALIPURAM · L.B.NAGAR ZONE",
+   "ac_name": "Lal Bahadur Nagar",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 26-OLD MALAKPET · CHARMINAR ZONE",
+   "ac_name": "Malakpet",
+   "pc_name": "Secunderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 17-CHAMPAPET · L.B.NAGAR ZONE",
+   "ac_name": "Lal Bahadur Nagar",
+   "pc_name": "Hyderabad",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 39-SANTOSH NAGAR · CHARMINAR ZONE",
+   "ac_name": "Charminar",
+   "pc_name": "Hyderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 66-LUNGER HOUSE · KHAIRATHABAD ZONE",
+   "ac_name": "Karwan",
+   "pc_name": "Chevella",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 112-RAMACHANDRAPURAM · SERILINGAMPALLY ZONE",
+   "ac_name": "Serilingampally",
+   "pc_name": "Chevella",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 128-CHINTAL · KUKATPALLY ZONE",
+   "ac_name": "Quthbullapur",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 126-JAGADGIRI GUTTA · KUKATPALLY ZONE",
+   "ac_name": "Quthbullapur",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 129-SURARAM · KUKATPALLY ZONE",
+   "ac_name": "Quthbullapur",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 133-MACHABOLARUM · KUKATPALLY ZONE",
+   "ac_name": "Malkajgiri",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 138-MOULA-ALI · SECUNDERABAD ZONE",
+   "ac_name": "Uppal",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 107-MADHAPUR · SERILINGAMPALLY ZONE",
+   "ac_name": "Kukatpalle",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward OU · OU",
+   "ac_name": "Amberpet",
+   "pc_name": "Secunderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 149-BEGUMPET · SECUNDERABAD ZONE",
+   "ac_name": "Kukatpalle",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 135-VENKATAPURAM · KUKATPALLY ZONE",
+   "ac_name": "Secunderabad Cantt. (SC",
+   "pc_name": "Malkajgiri",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 123-HYDER NAGAR · KUKATPALLY ZONE",
+   "ac_name": "Quthbullapur",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 122-VIVEKANANDA NAGAR COLONY · KUKATPALLY ZONE",
+   "ac_name": "Kukatpalle",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 113-PATANCHERUVU · SERILINGAMPALLY ZONE",
+   "ac_name": "Serilingampally",
+   "pc_name": "Chevella",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 108-MIYAPUR · SERILINGAMPALLY ZONE",
+   "ac_name": "Serilingampally",
+   "pc_name": "Chevella",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 41-KANCHANBAGH · CHARMINAR ZONE",
+   "ac_name": "Chandrayangutta",
+   "pc_name": "Hyderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 7-CHILUKA NAGAR · L.B.NAGAR ZONE",
+   "ac_name": "Uppal",
+   "pc_name": "Secunderabad",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 9-RAMANTHAPUR · L.B.NAGAR ZONE",
+   "ac_name": "Uppal",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 25-MOOSARAMBAGH · CHARMINAR ZONE",
+   "ac_name": "Malakpet",
+   "pc_name": "Hyderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward BANDLA GUDA · BANDLAGUDA",
+   "ac_name": "Serilingampally",
+   "pc_name": "Chevella",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 28-AZAMPURA · CHARMINAR ZONE",
+   "ac_name": "Charminar",
+   "pc_name": "Secunderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 56-KISHAN BAGH · CHARMINAR ZONE",
+   "ac_name": "Bahadurpura",
+   "pc_name": "Chevella",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 52-PURANAPOOL · CHARMINAR ZONE",
+   "ac_name": "Goshamahal",
+   "pc_name": "Hyderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 59-MAILARDEVPALLY · CHARMINAR ZONE",
+   "ac_name": "Rajendranagar",
+   "pc_name": "Chevella",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 46-FALAKNUMA · CHARMINAR ZONE",
+   "ac_name": "Bahadurpura",
+   "pc_name": "Hyderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 61-ATTAPUR · CHARMINAR ZONE",
+   "ac_name": "Rajendranagar",
+   "pc_name": "Chevella",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 60-RAJENDRANAGAR · CHARMINAR ZONE",
+   "ac_name": "Rajendranagar",
+   "pc_name": "Chevella",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 49-GANSIBAZAR · CHARMINAR ZONE",
+   "ac_name": "Goshamahal",
+   "pc_name": "Hyderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 33-MOGHALPURA · CHARMINAR ZONE",
+   "ac_name": "Yakutpura",
+   "pc_name": "Hyderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 47-NAWABSAHEBKUNTA · CHARMINAR ZONE",
+   "ac_name": "Bahadurpura",
+   "pc_name": "Chevella",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 58-SHASTRIPURAM · CHARMINAR ZONE",
+   "ac_name": "Rajendranagar",
+   "pc_name": "Chevella",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 54-JAHANUMA · CHARMINAR ZONE",
+   "ac_name": "Bahadurpura",
+   "pc_name": "Hyderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 48-SHALIBANDA · CHARMINAR ZONE",
+   "ac_name": "Goshamahal",
+   "pc_name": "Hyderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 53-DOODBOWLI · CHARMINAR ZONE",
+   "ac_name": "Bahadurpura",
+   "pc_name": "Hyderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 55-RAMNASTPURA · CHARMINAR ZONE",
+   "ac_name": "Rajendranagar",
+   "pc_name": "Chevella",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 43-CHANDRAYANGUTTA · CHARMINAR ZONE",
+   "ac_name": "Chandrayangutta",
+   "pc_name": "Hyderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 44-UPPUGUDA · CHARMINAR ZONE",
+   "ac_name": "Yakutpura",
+   "pc_name": "Hyderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 35-GOWLIPURA · CHARMINAR ZONE",
+   "ac_name": "Yakutpura",
+   "pc_name": "Hyderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 30-DABEERPURA · CHARMINAR ZONE",
+   "ac_name": "Charminar",
+   "pc_name": "Hyderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 32-PATHER GATTI · CHARMINAR ZONE",
+   "ac_name": "Goshamahal",
+   "pc_name": "Hyderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 23-GADDIANNARAM · L.B.NAGAR ZONE",
+   "ac_name": "Uppal",
+   "pc_name": "Hyderabad",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 24-SAIDABAD · CHARMINAR ZONE",
+   "ac_name": "Malakpet",
+   "pc_name": "Hyderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 27-AKBERBAGH · CHARMINAR ZONE",
+   "ac_name": "Malakpet",
+   "pc_name": "Hyderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 45-JANGAMMET · CHARMINAR ZONE",
+   "ac_name": "Yakutpura",
+   "pc_name": "Hyderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 42-BARKAS · CHARMINAR ZONE",
+   "ac_name": "Chandrayangutta",
+   "pc_name": "Hyderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 57-SULEMAN NAGAR · CHARMINAR ZONE",
+   "ac_name": "Rajendranagar",
+   "pc_name": "Chevella",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 74-AHMED NAGAR · KHAIRATHABAD ZONE",
+   "ac_name": "Jubilee Hills",
+   "pc_name": "Secunderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 92-VENKATESHWARA COLONY · KHAIRATHABAD ZONE",
+   "ac_name": "Sanathnagar",
+   "pc_name": "Secunderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 89-GANDHINAGAR · SECUNDERABAD ZONE",
+   "ac_name": "Musheerabad",
+   "pc_name": "Secunderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 75-RED HILLS · KHAIRATHABAD ZONE",
+   "ac_name": "Nampally",
+   "pc_name": "Secunderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 79-HIMAYATNAGAR · SECUNDERABAD ZONE",
+   "ac_name": "Khairatabad",
+   "pc_name": "Secunderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 88-BHOLAKPUR · SECUNDERABAD ZONE",
+   "ac_name": "Musheerabad",
+   "pc_name": "Secunderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 86-MUSHEERABAD · SECUNDERABAD ZONE",
+   "ac_name": "Musheerabad",
+   "pc_name": "Secunderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 85-ADIKMET · SECUNDERABAD ZONE",
+   "ac_name": "Musheerabad",
+   "pc_name": "Secunderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 87-RAMNAGAR · SECUNDERABAD ZONE",
+   "ac_name": "Musheerabad",
+   "pc_name": "Secunderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 90-KAVADIGUDA · SECUNDERABAD ZONE",
+   "ac_name": "Musheerabad",
+   "pc_name": "Secunderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 93-BANJARA HILLS · KHAIRATHABAD ZONE",
+   "ac_name": "Jubilee Hills",
+   "pc_name": "Secunderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 91-KHAIRTABAD · KHAIRATHABAD ZONE",
+   "ac_name": "Musheerabad",
+   "pc_name": "Secunderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 103-BORABANDA · SERILINGAMPALLY ZONE",
+   "ac_name": "Kukatpalle",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 97-SOMAJIGUDA · KHAIRATHABAD ZONE",
+   "ac_name": "Jubilee Hills",
+   "pc_name": "Secunderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 98-AMEERPET · KHAIRATHABAD ZONE",
+   "ac_name": "Kukatpalle",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 101-ERRAGADDA · SERILINGAMPALLY ZONE",
+   "ac_name": "Kukatpalle",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 100-SANATH NAGAR · KHAIRATHABAD ZONE",
+   "ac_name": "Kukatpalle",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 99-VENGALRAO NAGAR · SERILINGAMPALLY ZONE",
+   "ac_name": "Kukatpalle",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 102-RAHAMATH NAGAR · SERILINGAMPALLY ZONE",
+   "ac_name": "Kukatpalle",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 6-NACHARAM · L.B.NAGAR ZONE",
+   "ac_name": "Uppal",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 84-BAGH AMBERPET · SECUNDERABAD ZONE",
+   "ac_name": "Amberpet",
+   "pc_name": "Secunderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 81-NALLAKUNTA · SECUNDERABAD ZONE",
+   "ac_name": "Musheerabad",
+   "pc_name": "Secunderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 80-KACHIGUDA(Barkathpura) · SECUNDERABAD ZONE",
+   "ac_name": "Khairatabad",
+   "pc_name": "Secunderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 82-GOLNAKA · SECUNDERABAD ZONE",
+   "ac_name": "Amberpet",
+   "pc_name": "Secunderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 83-AMBERPET · SECUNDERABAD ZONE",
+   "ac_name": "Amberpet",
+   "pc_name": "Secunderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 51-GOSHA MAHAL · KHAIRATHABAD ZONE",
+   "ac_name": "Goshamahal",
+   "pc_name": "Hyderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 68-TOLICHOWKI · KHAIRATHABAD ZONE",
+   "ac_name": "Karwan",
+   "pc_name": "Hyderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 67-GOLCONDA · KHAIRATHABAD ZONE",
+   "ac_name": "Karwan",
+   "pc_name": "Hyderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 77-JAMBAGH(Nampally) · KHAIRATHABAD ZONE",
+   "ac_name": "Khairatabad",
+   "pc_name": "Secunderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 63-MANGALHAT · KHAIRATHABAD ZONE",
+   "ac_name": "Goshamahal",
+   "pc_name": "Hyderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 71-GUDIMALKAPUR · KHAIRATHABAD ZONE",
+   "ac_name": "Karwan",
+   "pc_name": "Hyderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 70-MEHDIPATNAM · KHAIRATHABAD ZONE",
+   "ac_name": "Nampally",
+   "pc_name": "Secunderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 76-MALLEPALLY · KHAIRATHABAD ZONE",
+   "ac_name": "Nampally",
+   "pc_name": "Secunderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 62-ZIAGUDA · KHAIRATHABAD ZONE",
+   "ac_name": "Bahadurpura",
+   "pc_name": "Hyderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 72-ASIF NAGAR · KHAIRATHABAD ZONE",
+   "ac_name": "Nampally",
+   "pc_name": "Secunderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 73-VIJAYANAGAR COLONY · KHAIRATHABAD ZONE",
+   "ac_name": "Nampally",
+   "pc_name": "Secunderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 5-MALLAPUR · L.B.NAGAR ZONE",
+   "ac_name": "Uppal",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 3-CHERLAPALLY · L.B.NAGAR ZONE",
+   "ac_name": "Medchal",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 96-YOUSUFGUDA · SERILINGAMPALLY ZONE",
+   "ac_name": "Sanathnagar",
+   "pc_name": "Malkajgiri",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 95-JUBILEE HILLS · KHAIRATHABAD ZONE",
+   "ac_name": "Sanathnagar",
+   "pc_name": "Secunderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 50-BEGUM BAZAR · KHAIRATHABAD ZONE",
+   "ac_name": "Goshamahal",
+   "pc_name": "Hyderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 78-GUNFOUNDRY(Abids) · KHAIRATHABAD ZONE",
+   "ac_name": "Khairatabad",
+   "pc_name": "Secunderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 65-KARWAN · KHAIRATHABAD ZONE",
+   "ac_name": "Karwan",
+   "pc_name": "Hyderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 2-DR.A.S.RAO NAGAR · L.B.NAGAR ZONE",
+   "ac_name": "Malkajgiri",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 4-MEERPET H.B.COLONY · L.B.NAGAR ZONE",
+   "ac_name": "Uppal",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 1-KAPRA · L.B.NAGAR ZONE",
+   "ac_name": "Malkajgiri",
+   "pc_name": "Malkajgiri",
+   "district_name": "RANGAREDDI"
+  },
+  {
+   "ward_name": "Ward 94-SHAIKPET · KHAIRATHABAD ZONE",
+   "ac_name": "Sanathnagar",
+   "pc_name": "Secunderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 64-DATTATHREYA NAGAR · KHAIRATHABAD ZONE",
+   "ac_name": "Bahadurpura",
+   "pc_name": "Hyderabad",
+   "district_name": "HYDERABAD"
+  },
+  {
+   "ward_name": "Ward 69-NANALNAGAR · KHAIRATHABAD ZONE",
+   "ac_name": "Nampally",
+   "pc_name": "Secunderabad",
+   "district_name": "HYDERABAD"
+  }
+ ]
+}

@@ -21,7 +21,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from urllib.request import urlopen, Request
 
-ROOT = Path(__file__).resolve().parents[3]
+ROOT = Path(__file__).resolve.parents[3]
 CATALOGUE = ROOT / "data" / "sources" / "opencity" / "_catalogue" / "opencity_catalogue.json"
 ARCHIVE = Path(os.environ.get("OPENCITY_ARCHIVE", str(ROOT / "data" / "sources" / "opencity")))
 EXT = ARCHIVE / "bengaluru" / "raw"
@@ -42,7 +42,7 @@ KEEP = {"CSV", "XLSX", "XLS", "JSON", "GEOJSON"}
 
 
 def safe(name: str, fallback: str) -> str:
-    s = re.sub(r"[^A-Za-z0-9._-]+", "_", (name or "").strip())[:90].strip("_")
+    s = re.sub(r"[^A-Za-z0-9._-]+", "_", (name or "").strip)[:90].strip("_")
     return s or fallback
 
 
@@ -51,7 +51,7 @@ def fetch(url: str, dest: Path) -> int:
     for attempt in range(3):
         try:
             with urlopen(req, timeout=120) as r:
-                data = r.read()
+                data = r.read
             dest.write_bytes(data)
             return len(data)
         except Exception:
@@ -60,8 +60,8 @@ def fetch(url: str, dest: Path) -> int:
     return 0
 
 
-def main() -> None:
-    if not ARCHIVE.exists():
+def main -> None:
+    if not ARCHIVE.exists:
         sys.exit(f"archive root {ARCHIVE} not present — mount it or set OPENCITY_ARCHIVE")
     cat = json.load(open(CATALOGUE))
     by = {d["name"]: d for d in cat["datasets"]}
@@ -79,7 +79,7 @@ def main() -> None:
         for i, r in enumerate(d["resources"]):
             if r["format"] not in KEEP:
                 continue
-            fname = safe(r.get("name") or "", f"res_{i}") + "." + r["format"].lower()
+            fname = safe(r.get("name") or "", f"res_{i}") + "." + r["format"].lower
             dest = ddir / fname
             jobs.append((slug, dest, r["url"]))
             manifest.append({
@@ -99,7 +99,7 @@ def main() -> None:
         for fut in as_completed(futs):
             slug, dest = futs[fut]
             try:
-                fut.result()
+                fut.result
                 done += 1
                 if done % 25 == 0:
                     print(f"    {done}/{len(jobs)}", file=sys.stderr)
@@ -114,4 +114,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    main

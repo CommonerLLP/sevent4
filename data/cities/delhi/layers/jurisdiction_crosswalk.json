@@ -1,0 +1,1750 @@
+{
+ "schema": "sevent4.jurisdiction_crosswalk.v1",
+ "city": "delhi",
+ "country": "India",
+ "levels": [
+  "state",
+  "district"
+ ],
+ "thresholds": {
+  "method": "ward representative point within AC/PC polygon (nearest fallback), EPSG:3857"
+ },
+ "excluded_acs": [],
+ "source": "spatial join of city ward/AC/PC layers",
+ "records": [
+  {
+   "ward_name": "Delhi Cantt Charge 1",
+   "ac_name": "Delhi Cantt",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Delhi Cantt Charge 2",
+   "ac_name": "Delhi Cantt",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Delhi Cantt Charge 4",
+   "ac_name": "Delhi Cantt",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Delhi Cantt Charge 5",
+   "ac_name": "Delhi Cantt",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Delhi Cantt Charge 6",
+   "ac_name": "Delhi Cantt",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Delhi Cantt Charge 7",
+   "ac_name": "Delhi Cantt",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Delhi Cantt Charge 8",
+   "ac_name": "Delhi Cantt",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Delhi Cantt Charge 3",
+   "ac_name": "Delhi Cantt",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ndmc Charge 1",
+   "ac_name": "New Delhi",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ndmc Charge 2",
+   "ac_name": "New Delhi",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ndmc Charge 3",
+   "ac_name": "New Delhi",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ndmc Charge 4",
+   "ac_name": "New Delhi",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ndmc Charge 5",
+   "ac_name": "New Delhi",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ndmc Charge 7",
+   "ac_name": "New Delhi",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ndmc Charge 8",
+   "ac_name": "New Delhi",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ndmc Charge 9",
+   "ac_name": "Delhi Cantt",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ndmc Charge 6",
+   "ac_name": "New Delhi",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Chandni Chowk",
+   "ac_name": "Chandni Chowk",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Minto Road",
+   "ac_name": "Matia Mahal",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Kucha Pandit",
+   "ac_name": "Ballimaran",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Bazar Sitaram",
+   "ac_name": "Chandni Chowk",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Idgah Road",
+   "ac_name": "Ballimaran",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Khyala",
+   "ac_name": "Rajouri Garden",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Janak Puri North",
+   "ac_name": "Hari Nagar",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Mukherjee Nagar",
+   "ac_name": "Timarpur",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Janak Puri West",
+   "ac_name": "Janakpuri",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Janak Puri South",
+   "ac_name": "Janakpuri",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Milap Nagar",
+   "ac_name": "Matiala",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Sita Puri",
+   "ac_name": "Uttam Nagar",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Chhawla",
+   "ac_name": "Matiala",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Nangli Sakravati",
+   "ac_name": "Matiala",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Kakraula",
+   "ac_name": "Matiala",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Khera",
+   "ac_name": "Najafgarh",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Dilshad Garden",
+   "ac_name": "Seemapuri (SC)",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "New Seema Puri",
+   "ac_name": "Seemapuri (SC)",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Nand Nagri",
+   "ac_name": "Rohtas Nagar",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Sunder Nagari",
+   "ac_name": "Seemapuri (SC)",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Durga Puri",
+   "ac_name": "Rohtas Nagar",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ashok Nagar",
+   "ac_name": "Rohtas Nagar",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ram Nagar",
+   "ac_name": "Rohtas Nagar",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Welcome Colony",
+   "ac_name": "Babarpur",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Chauhan Banger",
+   "ac_name": "Seelam Pur",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Zaffrabad",
+   "ac_name": "Seelam Pur",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Maujpur",
+   "ac_name": "Babarpur",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ghonda",
+   "ac_name": "Ghonda",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Yamuna Vihar",
+   "ac_name": "Karawal Nagar",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Subhash Mohalla",
+   "ac_name": "Babarpur",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Kardam Puri",
+   "ac_name": "Babarpur",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Janta Colony",
+   "ac_name": "Babarpur",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Babar Pur",
+   "ac_name": "Babarpur",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Jiwanpur",
+   "ac_name": "Mustafabad",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Gokalpur",
+   "ac_name": "Gokalpur (SC)",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Saboli",
+   "ac_name": "Gokalpur (SC)",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Harsh Vihar",
+   "ac_name": "Gokalpur (SC)",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Shiv Vihar",
+   "ac_name": "Karawal Nagar",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Karawal Nagar East",
+   "ac_name": "Karawal Nagar",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Mustafabad",
+   "ac_name": "Mustafabad",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Khajoori Khas",
+   "ac_name": "Karawal Nagar",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Karawal Nagar West",
+   "ac_name": "Karawal Nagar",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Sonia Vihar",
+   "ac_name": "Karawal Nagar",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Nizamuddin",
+   "ac_name": "Jangpura",
+   "pc_name": "East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Bhogal",
+   "ac_name": "Jangpura",
+   "pc_name": "East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Kasturba Nagar",
+   "ac_name": "Kasturba Nagar",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Amar Colony",
+   "ac_name": "Kasturba Nagar",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Malviya Nagar",
+   "ac_name": "Malviya Nagar",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Hauz Rani",
+   "ac_name": "Malviya Nagar",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Andrewsganj",
+   "ac_name": "Kasturba Nagar",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Vasant Vihar",
+   "ac_name": "R.K. Puram",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Munirka",
+   "ac_name": "R.K. Puram",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Nanak Pura",
+   "ac_name": "R.K. Puram",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Vasantkunj",
+   "ac_name": "Mehrauli",
+   "pc_name": "South Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Dakshinpuri Ext.",
+   "ac_name": "Greater Kailash",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Khanpur",
+   "ac_name": "Ambedkar Nagar(SC)",
+   "pc_name": "South Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ambedkar Nagar",
+   "ac_name": "Deoli (SC)",
+   "pc_name": "South Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Madangir",
+   "ac_name": "Deoli (SC)",
+   "pc_name": "South Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Pushp Vihar",
+   "ac_name": "Ambedkar Nagar(SC)",
+   "pc_name": "South Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Tughlakabad Extn",
+   "ac_name": "Greater Kailash",
+   "pc_name": "South Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Sangam Vihar Central",
+   "ac_name": "Sangam Vihar",
+   "pc_name": "South Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Sangam Vihar East",
+   "ac_name": "Sangam Vihar",
+   "pc_name": "South Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Chirag Delhi",
+   "ac_name": "Greater Kailash",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Chitranjan Park",
+   "ac_name": "Greater Kailash",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Shapur Jat",
+   "ac_name": "Greater Kailash",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Greater Kailash-I",
+   "ac_name": "Greater Kailash",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Sri Niwaspuri",
+   "ac_name": "Kalkaji",
+   "pc_name": "South Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "East Of Kailash",
+   "ac_name": "Kalkaji",
+   "pc_name": "South Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Govind Puri",
+   "ac_name": "Kalkaji",
+   "pc_name": "South Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Kalkaji",
+   "ac_name": "Kalkaji",
+   "pc_name": "South Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Tughlakabad",
+   "ac_name": "Tughlakabad",
+   "pc_name": "South Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Pul Pehlad",
+   "ac_name": "Tughlakabad",
+   "pc_name": "South Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Tekhand",
+   "ac_name": "Badarpur",
+   "pc_name": "South Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Harkesh Nagar",
+   "ac_name": "Kalkaji",
+   "pc_name": "South Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Jaitpur",
+   "ac_name": "Badarpur",
+   "pc_name": "South Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Meetheypur",
+   "ac_name": "Badarpur",
+   "pc_name": "South Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Badar Pur",
+   "ac_name": "Badarpur",
+   "pc_name": "South Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Molarband",
+   "ac_name": "Badarpur",
+   "pc_name": "South Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Okhla",
+   "ac_name": "Okhla",
+   "pc_name": "East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Turkman Gate",
+   "ac_name": "Chandni Chowk",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ballimaran",
+   "ac_name": "Ballimaran",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ram Nagar",
+   "ac_name": "Ballimaran",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Qasabpura",
+   "ac_name": "Ballimaran",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Pahar Ganj",
+   "ac_name": "Karol Bagh (SC)",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Sadh Nagar",
+   "ac_name": "Palam",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Pusa",
+   "ac_name": "Rajinder Nagar",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Inder Puri",
+   "ac_name": "Rajinder Nagar",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Naraina",
+   "ac_name": "Rajinder Nagar",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Deoli",
+   "ac_name": "Ambedkar Nagar(SC)",
+   "pc_name": "South Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Chhatarpur",
+   "ac_name": "Chhatarpur",
+   "pc_name": "South Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Aya Nagar",
+   "ac_name": "Chhatarpur",
+   "pc_name": "South Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Bhati",
+   "ac_name": "Chhatarpur",
+   "pc_name": "South Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Madanpur Khadar",
+   "ac_name": "Okhla",
+   "pc_name": "East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Sarita Vihar",
+   "ac_name": "Okhla",
+   "pc_name": "East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ghondli",
+   "ac_name": "Krishna Nagar",
+   "pc_name": "East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Anarkali",
+   "ac_name": "Krishna Nagar",
+   "pc_name": "East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Gandhi Nagar",
+   "ac_name": "Gandhi Nagar",
+   "pc_name": "East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Azad Nagar",
+   "ac_name": "Gandhi Nagar",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Raghubar Pura",
+   "ac_name": "Gandhi Nagar",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Shahdara",
+   "ac_name": "Rohtas Nagar",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Jhilmil",
+   "ac_name": "Shahdara",
+   "pc_name": "East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Vivek Vihar",
+   "ac_name": "Shahdara",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Dilshad Colony",
+   "ac_name": "Shahdara",
+   "pc_name": "East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Punjabi Bagh",
+   "ac_name": "Madipur (SC)",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "New Ranjit Nagar",
+   "ac_name": "Patel Nagar (SC)",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Kirti Nagar",
+   "ac_name": "Moti Nagar",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Mansarower Garden",
+   "ac_name": "Hari Nagar",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Hastsal",
+   "ac_name": "Vikaspuri",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Sangam Park",
+   "ac_name": "Model Town",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Model Town",
+   "ac_name": "Model Town",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Kamla Nagar",
+   "ac_name": "Model Town",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Inder Lok Colony",
+   "ac_name": "Sadar Bazar",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Kishan Ganj",
+   "ac_name": "Sadar Bazar",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Deputy Ganj",
+   "ac_name": "Sadar Bazar",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Kashmere Gate",
+   "ac_name": "Chandni Chowk",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Majnu Ka Tila",
+   "ac_name": "Chandni Chowk",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Jama Masjid",
+   "ac_name": "Chandni Chowk",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Tilak Nagar",
+   "ac_name": "Tilak Nagar",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Major Bhupindar Singh Nagar",
+   "ac_name": "Tilak Nagar",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Vikaspuri East",
+   "ac_name": "Tilak Nagar",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Mohan Garden",
+   "ac_name": "Vikaspuri",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Nawada",
+   "ac_name": "Uttam Nagar",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Uttam Nagar",
+   "ac_name": "Matiala",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Bindapur",
+   "ac_name": "Uttam Nagar",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Dabri",
+   "ac_name": "Dwarka",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Matiala",
+   "ac_name": "Matiala",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Roshanpura",
+   "ac_name": "Najafgarh",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Mayur Vihar Phase-I",
+   "ac_name": "Trilokpuri (SC)",
+   "pc_name": "East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Rohini",
+   "ac_name": "Rithala",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Dallopura",
+   "ac_name": "Trilokpuri (SC)",
+   "pc_name": "East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Trilok Puri",
+   "ac_name": "Trilokpuri (SC)",
+   "pc_name": "East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "New Ashok Nagar",
+   "ac_name": "Trilokpuri (SC)",
+   "pc_name": "East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Kalyan Puri",
+   "ac_name": "Patparganj",
+   "pc_name": "East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Khichripur",
+   "ac_name": "Kondli (SC)",
+   "pc_name": "East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Kondli",
+   "ac_name": "Kondli (SC)",
+   "pc_name": "East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Gharoli",
+   "ac_name": "Kondli (SC)",
+   "pc_name": "East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Vinod Nagar",
+   "ac_name": "Laxmi Nagar",
+   "pc_name": "East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ashok Vihar",
+   "ac_name": "Wazirpur",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Wajirpur",
+   "ac_name": "Wazirpur",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Sawan Park",
+   "ac_name": "Model Town",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Nimri Colony",
+   "ac_name": "Wazirpur",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Shakur Pur",
+   "ac_name": "Wazirpur",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Kohat Enclave",
+   "ac_name": "Tri Nagar",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Rampura",
+   "ac_name": "Tri Nagar",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Tri Nagar",
+   "ac_name": "Wazirpur",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Saraswati Vihar",
+   "ac_name": "Shakur Basti",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Rani Bagh",
+   "ac_name": "Tri Nagar",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Paschim Vihar North",
+   "ac_name": "Shakur Basti",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Paschim Vihar South",
+   "ac_name": "Shakur Basti",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Shalimar Bagh South",
+   "ac_name": "Model Town",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Shalimar Bagh North",
+   "ac_name": "Adarsh Nagar",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Pitampur North",
+   "ac_name": "Shalimar Bagh",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Pitampura South",
+   "ac_name": "Shalimar Bagh",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Naharpur",
+   "ac_name": "Rohini",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Rohini East",
+   "ac_name": "Shalimar Bagh",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Rohini Central",
+   "ac_name": "Rohini",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Mangolpuri  West",
+   "ac_name": "Mangol Puri (SC)",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Mangolpuri  East",
+   "ac_name": "Mangol Puri (SC)",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Rohini South",
+   "ac_name": "Rohini",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Quammruddin Nagar",
+   "ac_name": "Mundka",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Nangloi East",
+   "ac_name": "Nangloi Jat",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Peragharhi",
+   "ac_name": "Nangloi Jat",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Guru Harkishan Nagar",
+   "ac_name": "Nangloi Jat",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Sultanpuri  South",
+   "ac_name": "Sultan Pur Majra(SC)",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Sultanpuri  East",
+   "ac_name": "Sultan Pur Majra(SC)",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Kirari Suleman Nagar",
+   "ac_name": "Kirari",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Karala",
+   "ac_name": "Mundka",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Begumpur",
+   "ac_name": "Mundka",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Pooth Kalan",
+   "ac_name": "Bawana (SC)",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Vijay Vihar",
+   "ac_name": "Mangol Puri (SC)",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Geeta Colony",
+   "ac_name": "Krishna Nagar",
+   "pc_name": "East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Krishna  Nagar",
+   "ac_name": "Gandhi Nagar",
+   "pc_name": "East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Preet Vihar",
+   "ac_name": "Krishna Nagar",
+   "pc_name": "East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "I.P Extention",
+   "ac_name": "Vishwas Nagar",
+   "pc_name": "East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Anand Vihar",
+   "ac_name": "Vishwas Nagar",
+   "pc_name": "East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Shakarpur",
+   "ac_name": "Laxmi Nagar",
+   "pc_name": "East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Laxmi Nagar",
+   "ac_name": "Laxmi Nagar",
+   "pc_name": "East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Rithala",
+   "ac_name": "Rohini",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Mayur Vihar Phase Ii",
+   "ac_name": "Patparganj",
+   "pc_name": "East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Mandawali",
+   "ac_name": "Patparganj",
+   "pc_name": "East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Karam Pura",
+   "ac_name": "Moti Nagar",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Mahavir Enclave",
+   "ac_name": "Palam",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Sagarpur",
+   "ac_name": "Dwarka",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Sagarpur West",
+   "ac_name": "Dwarka",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Mundaka",
+   "ac_name": "Mundka",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "East Patel Nagar",
+   "ac_name": "Patel Nagar (SC)",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "West Patel Nagar",
+   "ac_name": "Moti Nagar",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Dev Nagar",
+   "ac_name": "Karol Bagh (SC)",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Karol Bagh",
+   "ac_name": "Karol Bagh (SC)",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Model Basti",
+   "ac_name": "Karol Bagh (SC)",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Rana Pratap Bagh",
+   "ac_name": "Model Town",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Bakhtawar Pur",
+   "ac_name": "Nerela",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Alipur",
+   "ac_name": "Nerela",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Sahibabad Daulat Pur",
+   "ac_name": "Bawana (SC)",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Bankner",
+   "ac_name": "Nerela",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Malkaganj",
+   "ac_name": "Timarpur",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Jharoda",
+   "ac_name": "Burari",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Mukund Pur",
+   "ac_name": "Burari",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Bawana",
+   "ac_name": "Bawana (SC)",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Bhalswa",
+   "ac_name": "Badli",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Samaypur Badli",
+   "ac_name": "Badli",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Jahangirpuri-I",
+   "ac_name": "Adarsh Nagar",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Sarai Pipal Thala",
+   "ac_name": "Adarsh Nagar",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Mahipalpur",
+   "ac_name": "Mehrauli",
+   "pc_name": "South Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Kapashera",
+   "ac_name": "Bijwasan",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Bijwasan",
+   "ac_name": "Bijwasan",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Adarash  Nagar",
+   "ac_name": "Adarsh Nagar",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Dhir Pur",
+   "ac_name": "Adarsh Nagar",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "G.T.B. Nagar",
+   "ac_name": "Timarpur",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Timar Pur",
+   "ac_name": "Timarpur",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Raja Garden",
+   "ac_name": "Madipur (SC)",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Raghubir Nagar",
+   "ac_name": "Rajouri Garden",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Rajouri Garden",
+   "ac_name": "Rajouri Garden",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Nangal Raya",
+   "ac_name": "Hari Nagar",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Hari Nagar",
+   "ac_name": "Hari Nagar",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Subhash Nagar",
+   "ac_name": "Hari Nagar",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Madhu Vihar",
+   "ac_name": "Uttam Nagar",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Budh Vihar",
+   "ac_name": "Rithala",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Nangloi Jat West",
+   "ac_name": "Mundka",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Nithari",
+   "ac_name": "Kirari",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Sultanpur Majra",
+   "ac_name": "Sultan Pur Majra(SC)",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Rohini North",
+   "ac_name": "Rohini",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Libas Pur",
+   "ac_name": "Badli",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Braham Puri",
+   "ac_name": "Ghonda",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Dichaon Kalan",
+   "ac_name": "Najafgarh",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Moti Nagar",
+   "ac_name": "Moti Nagar",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Mangolpuri",
+   "ac_name": "Mangol Puri (SC)",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Lajpat Nagar",
+   "ac_name": "Jangpura",
+   "pc_name": "East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Palam",
+   "ac_name": "Palam",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Kishangarh",
+   "ac_name": "Mehrauli",
+   "pc_name": "South Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Vishwash Nagar",
+   "ac_name": "Vishwas Nagar",
+   "pc_name": "East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Madipur",
+   "ac_name": "Madipur (SC)",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Rajender Nagar",
+   "ac_name": "Rajinder Nagar",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "R. K. Puram",
+   "ac_name": "R.K. Puram",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Safdarjang Enclave",
+   "ac_name": "Malviya Nagar",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Hauz Khas",
+   "ac_name": "Malviya Nagar",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Kotla Mubarakpur",
+   "ac_name": "Kasturba Nagar",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Manglapuri",
+   "ac_name": "Dwarka",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Mangol Puri  North",
+   "ac_name": "Mangol Puri (SC)",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Tagore Garden",
+   "ac_name": "Rajouri Garden",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ladosarai",
+   "ac_name": "Mehrauli",
+   "pc_name": "South Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Narela",
+   "ac_name": "Nerela",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Bhalaswa Jahagir Pur",
+   "ac_name": "Burari",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Burari",
+   "ac_name": "Burari",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Patparganj",
+   "ac_name": "Patparganj",
+   "pc_name": "East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Pandav Nagar",
+   "ac_name": "Laxmi Nagar",
+   "pc_name": "East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Kishan Kunj",
+   "ac_name": "Laxmi Nagar",
+   "pc_name": "East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Dharampura",
+   "ac_name": "Seelam Pur",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "New Usmanpur",
+   "ac_name": "Seelam Pur",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Bhajanpura",
+   "ac_name": "Ghonda",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Nehru Vihar",
+   "ac_name": "Karawal Nagar",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Said Ul Ajaib",
+   "ac_name": "Deoli (SC)",
+   "pc_name": "South Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Sangam Vihar",
+   "ac_name": "Deoli (SC)",
+   "pc_name": "South Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Mehrauli",
+   "ac_name": "Mehrauli",
+   "pc_name": "South Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Sangam Vihar West",
+   "ac_name": "Sangam Vihar",
+   "pc_name": "South Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Tigri",
+   "ac_name": "Ambedkar Nagar(SC)",
+   "pc_name": "South Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Zakir Nagar",
+   "ac_name": "Trilokpuri (SC)",
+   "pc_name": "East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Najafgarh",
+   "ac_name": "Najafgarh",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Jahangir Puri -Ii",
+   "ac_name": "Burari",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Kunwar Singh Nagar",
+   "ac_name": "Vikaspuri",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Vikas Nagar",
+   "ac_name": "Vikaspuri",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Vikas Puri",
+   "ac_name": "Vikaspuri",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Mahavir Nagar",
+   "ac_name": "Tilak Nagar",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Daryaganj",
+   "ac_name": "Jangpura",
+   "pc_name": "East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Baljit Nagar",
+   "ac_name": "Patel Nagar (SC)",
+   "pc_name": "New Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Nilothi",
+   "ac_name": "Mundka",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Pratap Vihar",
+   "ac_name": "Kirari",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Prem Nagar",
+   "ac_name": "Kirari",
+   "pc_name": "North West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Shastri Nagar",
+   "ac_name": "Sadar Bazar",
+   "pc_name": "Chandni Chowk",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Vishnu Garden",
+   "ac_name": "Rajouri Garden",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Tukhmir Pur",
+   "ac_name": "Karawal Nagar",
+   "pc_name": "North East Delhi",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Raj Nagar",
+   "ac_name": "Bijwasan",
+   "pc_name": "West Delhi",
+   "district_name": ""
+  }
+ ]
+}

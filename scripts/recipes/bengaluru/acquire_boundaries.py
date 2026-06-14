@@ -23,7 +23,7 @@ from urllib.request import urlopen, Request
 
 import geopandas as gpd
 
-ROOT = Path(__file__).resolve().parents[3]
+ROOT = Path(__file__).resolve.parents[3]
 OUT = ROOT / "data" / "cities" / "bengaluru" / "source" / "boundaries"
 RAW = OUT / "_raw"
 UA = {"User-Agent": "sevent4-atlas/1.0 (74th-amendment atlas)"}
@@ -64,16 +64,16 @@ SPINE = {
 def fetch(url: str, dest: Path) -> int:
     req = Request(url, headers=UA)
     with urlopen(req, timeout=120) as r:
-        data = r.read()
+        data = r.read
     dest.write_bytes(data)
     return len(data)
 
 
-def main() -> None:
+def main -> None:
     RAW.mkdir(parents=True, exist_ok=True)
     provenance = []
 
-    for lid, spec in SPINE.items():
+    for lid, spec in SPINE.items:
         kml = RAW / f"{lid}.kml"
         n = fetch(spec["resource"], kml)
         gdf = gpd.read_file(kml)
@@ -120,4 +120,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    main

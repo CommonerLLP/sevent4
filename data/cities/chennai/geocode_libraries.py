@@ -54,16 +54,16 @@ def clean_pin(addr):
     if not m:
         return None
     p = "600" + m.group(1)
-    return p if p.isdigit() and len(p) == 6 else None
+    return p if p.isdigit and len(p) == 6 else None
 
 def find_locality(addr):
-    a = addr.lower()
+    a = addr.lower
     hits = [loc for loc in LOCALITIES if loc in a]
     if not hits:
         return None
     return max(hits, key=len)  # longest match = most specific
 
-def load_cache():
+def load_cache:
     if os.path.exists(CACHE):
         return json.load(open(CACHE))
     return {}
@@ -142,14 +142,14 @@ def assign_ward(lon, lat, wards):
             return f["properties"]["ward_no"], f["properties"].get("Name")
     return None, None
 
-def main():
-    cache = load_cache()
+def main:
+    cache = load_cache
     wards = json.load(open(WARDS))
     rows = list(csv.DictReader(open(SRC)))
     features = []
     stats = {"total": 0, "geocoded": 0, "failed": 0, "by_tier": {}, "fail_rows": []}
     for row in rows:
-        name = (row.get("Library Name") or "").strip()
+        name = (row.get("Library Name") or "").strip
         if not name:
             continue
         stats["total"] += 1
@@ -168,8 +168,8 @@ def main():
             "properties": {
                 "sl_no": sl,
                 "name": name,
-                "type": (row.get("Type") or "").strip(),
-                "authority": (row.get("Authority") or "").strip(),
+                "type": (row.get("Type") or "").strip,
+                "authority": (row.get("Authority") or "").strip,
                 "geocode_confidence": r["confidence"],
                 "geocode_query": r["query"],
                 "geocode_locality": r["locality"],
@@ -192,8 +192,8 @@ def main():
             out_of_bounds += 1
         else:
             per_ward[w] = per_ward.get(w, 0) + 1
-    zero = sorted([w for w, c in per_ward.items() if c == 0])
-    nonzero = {w: c for w, c in per_ward.items() if c > 0}
+    zero = sorted([w for w, c in per_ward.items if c == 0])
+    nonzero = {w: c for w, c in per_ward.items if c > 0}
 
     print("=== GEOCODING ===")
     print("total rows:", stats["total"])
@@ -202,7 +202,7 @@ def main():
     print("by tier:", stats["by_tier"])
     print("success rate: %.1f%%" % (100 * stats["geocoded"] / stats["total"]))
     print("\n=== WARD ASSIGNMENT ===")
-    print("libraries placed in a ward:", sum(nonzero.values()))
+    print("libraries placed in a ward:", sum(nonzero.values))
     print("libraries outside all ward polygons:", out_of_bounds)
     print("wards WITH >=1 library:", len(nonzero))
     print("ZERO-library wards (of 200):", len(zero))
@@ -211,9 +211,9 @@ def main():
     for fr in stats["fail_rows"]:
         print("  ", fr)
 
-    json.dump({"per_ward": per_ward, "zero_wards": zero, "stats": {k: v for k, v in stats.items() if k != "fail_rows"},
+    json.dump({"per_ward": per_ward, "zero_wards": zero, "stats": {k: v for k, v in stats.items if k != "fail_rows"},
                "fail_rows": stats["fail_rows"], "out_of_bounds": out_of_bounds},
               open(os.path.join(ROOT, "library_ward_stats.json"), "w"), indent=1)
 
 if __name__ == "__main__":
-    main()
+    main

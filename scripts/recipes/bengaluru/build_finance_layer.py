@@ -18,6 +18,7 @@ import json
 import os
 import re
 from collections import Counter, defaultdict
+from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -60,6 +61,87 @@ def read_rows(path: str):
     yield from rd
 
 
+def order_year(row: dict) -> int | None:
+    """Return the BBMP work-order year, preferring Order Date over fallback dates."""
+    for key in ("Order Date", "Start Date"):
+        value = str(row.get(key) or "").strip()
+        if not value:
+            continue
+        for fmt in ("%d-%b-%Y", "%d-%b-%y", "%d-%B-%Y", "%d-%B-%y", "%d/%m/%Y", "%d/%m/%y"):
+            try:
+                return datetime.strptime(value.title(), fmt).year
+            except ValueError:
+                pass
+    return None
+
+
+def _empty_ward(fnum: str, fname: str) -> dict:
+    return {
+        "ward_num": fnum,
+        "ward_name": f"{int(fnum):03d} {fname}" if fnum.isdigit() else fname,
+        "total_nett": 0,
+        "count": 0,
+        "contractors": Counter(),
+        "heads": Counter(),
+        "works": [],
+    }
+
+
+def _add_workorder(w: dict, row: dict) -> None:
+    nett = num(row.get("Nett"))
+    w["total_nett"] += nett
+    w["count"] += 1
+    ct = (row.get("Contractor") or "").strip()
+    if ct:
+        w["contractors"][ct] += nett
+    head = (row.get("Budget Head") or "").strip()
+    if head:
+        w["heads"][head[:70]] += nett
+    name = (row.get("Name of Work") or "").strip()
+    if name and nett > 0:
+        w["works"].append((nett, name, ct, head[:40]))
+
+
+def _finalise(w: dict, year: int | None = None) -> dict:
+    works = sorted(w["works"], reverse=True)[:8]
+    out = {
+        "ward_num": w["ward_num"],
+        "ward_name": w["ward_name"],
+        "total_nett_cr": round(w["total_nett"] / 1e7, 2),
+        "work_count": w["count"],
+        "top_contractors": [{"name": c, "cr": round(v / 1e7, 2)}
+                            for c, v in w["contractors"].most_common(3)],
+        "top_budget_heads": [{"head": h, "cr": round(v / 1e7, 2)}
+                             for h, v in w["heads"].most_common(3)],
+        "flagged_works": [{"name": n, "contractor": c, "head": h, "lakh": round(v / 1e5)}
+                          for v, n, c, h in works],
+    }
+    if year is not None:
+        out["year"] = year
+    return out
+
+
+def build_yearly_table(raw_dir: Path = RAW, min_year: int = 2013, max_year: int = 2022) -> list[dict]:
+    wards: dict[tuple[str, int], dict] = {}
+    for f in sorted(glob.glob(str(raw_dir / "*.csv"))):
+        fnum, fname = ward_from_filename(f)
+        base_key = fnum or re.sub(r"[^a-z]", "", fname.lower())
+        if not base_key:
+            continue
+        for row in read_rows(f):
+            year = order_year(row)
+            if year is None:
+                continue
+            if year < min_year or year > max_year:
+                continue
+            key = (base_key, year)
+            w = wards.setdefault(key, _empty_ward(fnum, fname))
+            _add_workorder(w, row)
+    table = [_finalise(w, year) for (_, year), w in wards.items()]
+    table.sort(key=lambda x: (x["year"], -x["total_nett_cr"]))
+    return table
+
+
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     files = sorted(glob.glob(str(RAW / "*.csv")))
@@ -70,43 +152,18 @@ def main() -> None:
         key = fnum or re.sub(r"[^a-z]", "", fname.lower())
         if not key:
             continue
-        w = wards.setdefault(key, {
-            "ward_num": fnum, "ward_name": f"{int(fnum):03d} {fname}" if fnum.isdigit() else fname,
-            "total_nett": 0, "count": 0,
-            "contractors": Counter(), "heads": Counter(), "works": [],
-        })
+        w = wards.setdefault(key, _empty_ward(fnum, fname))
         for row in read_rows(f):
-                nett = num(row.get("Nett"))
-                w["total_nett"] += nett
-                w["count"] += 1
-                ct = (row.get("Contractor") or "").strip()
-                if ct:
-                    w["contractors"][ct] += nett
-                head = (row.get("Budget Head") or "").strip()
-                if head:
-                    w["heads"][head[:70]] += nett
-                name = (row.get("Name of Work") or "").strip()
-                if name and nett > 0:
-                    w["works"].append((nett, name, ct, head[:40]))
+            _add_workorder(w, row)
 
     # finalise: keep top works/contractors/heads, drop the Counters
     table = []
     for key, w in wards.items():
-        works = sorted(w["works"], reverse=True)[:8]
-        table.append({
-            "ward_num": w["ward_num"],
-            "ward_name": w["ward_name"],
-            "total_nett_cr": round(w["total_nett"] / 1e7, 2),
-            "work_count": w["count"],
-            "top_contractors": [{"name": c, "cr": round(v / 1e7, 2)}
-                                for c, v in w["contractors"].most_common(3)],
-            "top_budget_heads": [{"head": h, "cr": round(v / 1e7, 2)}
-                                 for h, v in w["heads"].most_common(3)],
-            "flagged_works": [{"name": n, "contractor": c, "head": h, "lakh": round(v / 1e5)}
-                              for v, n, c, h in works],
-        })
+        table.append(_finalise(w))
     table.sort(key=lambda x: -x["total_nett_cr"])
     (OUT / "ward_workorders.json").write_text(json.dumps(table, indent=2, ensure_ascii=False))
+    yearly = build_yearly_table(RAW)
+    (OUT / "ward_workorders_yearly.json").write_text(json.dumps(yearly, indent=2, ensure_ascii=False))
 
     # join report against the BBMP-2023 boundary (vintage check)
     bnd = CITY / "source" / "boundaries" / "wards_bbmp198.geojson"
@@ -123,6 +180,7 @@ def main() -> None:
     print(f"wards in ledger: {len(table)}  | total Nett: Rs {tot:,.0f} cr | works: {sum(w['work_count'] for w in table):,}")
     print(f"BBMP-2023 boundary names: {len(bkeys)} | name-matched to ledger wards: {matched}/{len(table)}")
     print(f"wrote {OUT/'ward_workorders.json'}")
+    print(f"wrote {OUT/'ward_workorders_yearly.json'}")
     print("\nTop 5 wards by spend:")
     for w in table[:5]:
         print(f"  {w['ward_name'][:24]:26} Rs {w['total_nett_cr']:7,.1f} cr  {w['work_count']:4} works  "

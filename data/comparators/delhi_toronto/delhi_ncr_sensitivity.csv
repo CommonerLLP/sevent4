@@ -1,0 +1,3 @@
+area,population,role,service_points_conservative_per_1m,annual_issues_per_1m,reading_room_attendance_per_1m,ppp_spend_per_resident,notes
+National Capital Region,27000000,sensitivity_low,1.481,10176.0,12417.4,0.596646,Shadow-catchment sensitivity only; DPL service jurisdiction is treated as NCT for the primary comparator.
+National Capital Region,32000000,sensitivity_high,1.250,8586.0,10477.2,0.503420,Shadow-catchment sensitivity only; DPL service jurisdiction is treated as NCT for the primary comparator.

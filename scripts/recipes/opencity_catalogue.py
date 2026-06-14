@@ -76,9 +76,9 @@ def to_int(v) -> int | None:
 
 def build(pkgs: list[dict]) -> dict:
     datasets = []
-    fmt_counter: Counter[str] = Counter()
-    group_counter: Counter[str] = Counter()
-    org_counter: Counter[str] = Counter()
+    fmt_counter: Counter[str] = Counter
+    group_counter: Counter[str] = Counter
+    org_counter: Counter[str] = Counter
     bytes_by_group: defaultdict[str, int] = defaultdict(int)
     total_resources = 0
     total_known_bytes = 0
@@ -89,7 +89,7 @@ def build(pkgs: list[dict]) -> dict:
         resources = []
         for r in p.get("resources", []):
             size = to_int(r.get("size"))
-            fmt = (r.get("format") or "").strip().upper() or "UNKNOWN"
+            fmt = (r.get("format") or "").strip.upper or "UNKNOWN"
             fmt_counter[fmt] += 1
             total_resources += 1
             if size:
@@ -128,10 +128,10 @@ def build(pkgs: list[dict]) -> dict:
         "dataset_count": len(datasets),
         "resource_count": total_resources,
         "known_bytes": total_known_bytes,
-        "formats": dict(fmt_counter.most_common()),
-        "datasets_per_group": dict(group_counter.most_common()),
-        "datasets_per_org": dict(org_counter.most_common()),
-        "known_bytes_per_group": {k: v for k, v in sorted(bytes_by_group.items(), key=lambda x: -x[1])},
+        "formats": dict(fmt_counter.most_common),
+        "datasets_per_group": dict(group_counter.most_common),
+        "datasets_per_org": dict(org_counter.most_common),
+        "known_bytes_per_group": {k: v for k, v in sorted(bytes_by_group.items, key=lambda x: -x[1])},
         "datasets": datasets,
     }
 
@@ -156,19 +156,19 @@ def write_markdown(cat: dict, path: str) -> None:
     L.append("\n## Datasets per group (city)\n")
     L.append("| group | datasets | known size |")
     L.append("|---|--:|--:|")
-    for g, n in cat["datasets_per_group"].items():
+    for g, n in cat["datasets_per_group"].items:
         L.append(f"| {g} | {n} | {human_bytes(cat['known_bytes_per_group'].get(g))} |")
 
     L.append("\n## Datasets per organization (publisher)\n")
     L.append("| org | datasets |")
     L.append("|---|--:|")
-    for o, n in cat["datasets_per_org"].items():
+    for o, n in cat["datasets_per_org"].items:
         L.append(f"| {o} | {n} |")
 
     L.append("\n## Resource formats\n")
     L.append("| format | count |")
     L.append("|---|--:|")
-    for f, n in cat["formats"].items():
+    for f, n in cat["formats"].items:
         L.append(f"| {f} | {n} |")
 
     L.append("\n## Datasets (grouped by org)\n")
@@ -187,11 +187,11 @@ def write_markdown(cat: dict, path: str) -> None:
         fh.write("\n".join(L) + "\n")
 
 
-def main() -> None:
-    ap = argparse.ArgumentParser()
+def main -> None:
+    ap = argparse.ArgumentParser
     ap.add_argument("--out", required=True, help="output directory for catalogue files")
     ap.add_argument("--page-size", type=int, default=200)
-    args = ap.parse_args()
+    args = ap.parse_args
 
     os.makedirs(args.out, exist_ok=True)
     pkgs = fetch_all_packages(page_size=args.page_size)
@@ -210,4 +210,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    main
