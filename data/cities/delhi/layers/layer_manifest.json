@@ -306,8 +306,8 @@
       }
     },
     {
-      "id": "dpl",
-      "label": "DPL libraries (fixed network)",
+      "id": "libraries",
+      "label": "Libraries",
       "file": "dpl_libraries.geojson",
       "kind": "circle",
       "group": "Public services",
@@ -319,11 +319,11 @@
         "geocode_confidence"
       ],
       "paint": {
-        "circle-color": "#11304a",
-        "circle-radius": 4.5,
-        "circle-stroke-color": "#ffffff",
-        "circle-stroke-width": 1.0,
-        "circle-opacity": 0.9
+        "circle-color": "#e0b84d",
+        "circle-radius": 3.2,
+        "circle-stroke-color": "#101318",
+        "circle-stroke-width": 0.6,
+        "circle-opacity": 0.85
       }
     }
   ]
