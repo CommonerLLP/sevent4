@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Comb all AMC budget books (2005-06 -> 2026-27) for road-spend evidence.
 
-Reads the budget PDFs from the twenty27 checkout (read-only; see
-notes/HANDOFF.md - twenty27 is the Ahmedabad source corpus for sevent4).
+Reads budget PDFs from local-only source archives. Set AMC_PDF_DIRS to one or
+more colon-separated directories when the PDFs are stored outside this repo.
 
 Outputs into data/cities/ahmedabad/source/budget/roads/:
   code_rows_raw.csv   - every code-table line matching the road vocabulary,
@@ -26,43 +26,55 @@ from pathlib import Path
 
 from pypdf import PdfReader
 
-# twenty27 is the sibling source repo (see notes/HANDOFF.md). Resolve it
-# relative to this repo root; override with SEVENT4_TWENTY27 if checked out
-# elsewhere.
-TWENTY27 = Path(
-    os.environ.get("SEVENT4_TWENTY27")
-    or Path(__file__).resolve().parents[4] / "twenty27"
-)
-OUT = Path(__file__).resolve().parents[3] / "data/cities/ahmedabad/source/budget/roads"
+ROOT = Path(__file__).resolve().parents[3]
+OUT = ROOT / "data/cities/ahmedabad/source/budget/roads"
+PDF_DIRS = [
+    ROOT / "data/cities/ahmedabad/source/budget/amc_pdfs",
+    ROOT / "data/sources/budget/amc_pdfs",
+    ROOT / "data/raw/budget",
+]
+PDF_DIRS += [
+    Path(d).expanduser()
+    for d in os.environ.get("AMC_PDF_DIRS", "").split(os.pathsep)
+    if d.strip()
+]
+
+
+def budget_pdf(name):
+    for directory in PDF_DIRS:
+        candidate = directory / name
+        if candidate.exists():
+            return candidate
+    return PDF_DIRS[0] / name
 
 # year -> canonical PDF (duplicates in the corpus resolved to one file each)
 BOOKS = {
-    "2005-06": TWENTY27 / "data/processed/budget/amc_pdfs/AMCbudget_2005-06.pdf",
-    "2006-07": TWENTY27 / "data/processed/budget/amc_pdfs/AMCbudget_2006-07.pdf",
-    "2007-08": TWENTY27 / "data/processed/budget/amc_pdfs/AMCbudget_2007-08.pdf",
-    "2008-09": TWENTY27 / "data/processed/budget/amc_pdfs/AMCbudget_2008-09.pdf",
-    "2009-10": TWENTY27 / "data/processed/budget/amc_pdfs/AMCbudget_2009-10.pdf",
-    "2010-11": TWENTY27 / "data/processed/budget/amc_pdfs/AMCbudget_2010-11.pdf",
-    "2011-12": TWENTY27 / "data/processed/budget/amc_pdfs/AMCbudget_2011-12.pdf",
-    "2012-13": TWENTY27 / "data/processed/budget/amc_pdfs/AMCbudget_2012-13.pdf",
-    "2013-14": TWENTY27 / "data/processed/budget/amc_pdfs/AMCbudget_2013-14.pdf",
-    "2014-15": TWENTY27 / "data/processed/budget/amc_pdfs/AMCbudget_2014-15.pdf",
-    "2015-16": TWENTY27 / "data/processed/budget/amc_pdfs/AMCbudget_2015-16.pdf",
-    "2016-17": TWENTY27 / "data/processed/budget/amc_pdfs/AMCbudget_2016-17.pdf",
-    "2017-18": TWENTY27 / "data/processed/budget/amc_pdfs/AMCbudget_2017-18.pdf",
-    "2018-19": TWENTY27 / "data/processed/budget/amc_pdfs/AMCbudget_2018-19.pdf",
-    "2019-20": TWENTY27 / "data/processed/budget/amc_pdfs/AMCbudget_2019-20.pdf",
+    "2005-06": budget_pdf("AMCbudget_2005-06.pdf"),
+    "2006-07": budget_pdf("AMCbudget_2006-07.pdf"),
+    "2007-08": budget_pdf("AMCbudget_2007-08.pdf"),
+    "2008-09": budget_pdf("AMCbudget_2008-09.pdf"),
+    "2009-10": budget_pdf("AMCbudget_2009-10.pdf"),
+    "2010-11": budget_pdf("AMCbudget_2010-11.pdf"),
+    "2011-12": budget_pdf("AMCbudget_2011-12.pdf"),
+    "2012-13": budget_pdf("AMCbudget_2012-13.pdf"),
+    "2013-14": budget_pdf("AMCbudget_2013-14.pdf"),
+    "2014-15": budget_pdf("AMCbudget_2014-15.pdf"),
+    "2015-16": budget_pdf("AMCbudget_2015-16.pdf"),
+    "2016-17": budget_pdf("AMCbudget_2016-17.pdf"),
+    "2017-18": budget_pdf("AMCbudget_2017-18.pdf"),
+    "2018-19": budget_pdf("AMCbudget_2018-19.pdf"),
+    "2019-20": budget_pdf("AMCbudget_2019-20.pdf"),
     # NOTE: amc_budget_2021-22.pdf is byte-identical (md5 e9608bef...) to
     # Budget_2020_21_English.pdf - the corpus holds NO genuine 2021-22 book.
-    "2024-25": TWENTY27 / "data/processed/budget/amc_pdfs/AMCbudget_2024-25.pdf",
-    "2025-26": TWENTY27 / "data/processed/budget/amc_pdfs/AMCbudget_2025-26.pdf",
-    "2026-27": TWENTY27 / "data/processed/budget/amc_pdfs/AMCbudget_2026-27.pdf",
+    "2024-25": budget_pdf("AMCbudget_2024-25.pdf"),
+    "2025-26": budget_pdf("AMCbudget_2025-26.pdf"),
+    "2026-27": budget_pdf("AMCbudget_2026-27.pdf"),
     # English editions (narrative + clean code tables)
-    "2018-19-EN": TWENTY27 / "data/raw/budget/Budget_2018_19_English.pdf",
-    "2019-20-EN": TWENTY27 / "data/raw/budget/Budget_2019_20_English.pdf",
-    "2020-21-EN": TWENTY27 / "data/raw/budget/Budget_2020_21_English.pdf",
-    "2022-23-EN": TWENTY27 / "data/raw/budget/Budget_2022_23_English.pdf",
-    "2023-24-EN": TWENTY27 / "data/raw/budget/Budget_2023_24_English.pdf",
+    "2018-19-EN": budget_pdf("Budget_2018_19_English.pdf"),
+    "2019-20-EN": budget_pdf("Budget_2019_20_English.pdf"),
+    "2020-21-EN": budget_pdf("Budget_2020_21_English.pdf"),
+    "2022-23-EN": budget_pdf("Budget_2022_23_English.pdf"),
+    "2023-24-EN": budget_pdf("Budget_2023_24_English.pdf"),
 }
 
 # Road-money account-code vocabulary (learned from the 2023-24 English code

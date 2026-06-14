@@ -27,9 +27,13 @@ DB   = ROOT / "data/cities/ahmedabad/db"
 SCHEMA = Path(__file__).parent / "schema.sql"
 DB.mkdir(parents=True, exist_ok=True)
 
-# PDF search dirs: repo-relative first; extra dirs via env (colon-separated).
-# e.g.  AMC_PDF_DIRS="$HOME/Downloads:/path/to/archive"  python build_budget_db.py
-PDF_DIRS = [ROOT.parent / "twenty27/data/processed/budget/amc_pdfs"]
+# PDF search dirs: local-only source archive first; extra dirs via env
+# (colon-separated). Example:
+#   AMC_PDF_DIRS="$HOME/Downloads:/path/to/archive" python build_budget_db.py
+PDF_DIRS = [
+    ROOT / "data/cities/ahmedabad/source/budget/amc_pdfs",
+    ROOT / "data/sources/budget/amc_pdfs",
+]
 PDF_DIRS += [Path(d).expanduser() for d in os.environ.get("AMC_PDF_DIRS","").split(os.pathsep) if d.strip()]
 
 # ---- survey of the 22-year archive (from the extractability audit) -------------
