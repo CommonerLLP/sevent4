@@ -57,3 +57,11 @@ secrets.env
 
 # Local Claude Code config / PM tooling — never on the public repo
 .claude/
+
+# ── SENSITIVE: AMC road-contractor investigation — NEVER on the public repo.
+#    Names contractors + alleged links; local-only research. ──
+docs/the-road-money.md
+docs/ahmedabad-road-contractors-method.md
+data/cities/*/source/budget/roads/
+scripts/recipes/ahmedabad/parse_resurfaced_registers.py
+scripts/recipes/ahmedabad/match_register_to_osm_arterials.py
