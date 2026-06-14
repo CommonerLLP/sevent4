@@ -73,7 +73,7 @@ unspent against a Rs 36.4 crore grant; in 2021-22 it returned Rs 1.58 crore to t
 Ministry. In purchasing-power terms its library-materials spend per resident is a
 tiny fraction of a functioning system's. Where Ahmedabad's municipal network spends
 on establishment rather than books, Delhi's central library does not spend at all. And
-the network barely reaches: mapping its located fixed branches, only about 15 percent
+the network barely reaches: with all 35 fixed branches now located, only about 20 percent
 of Delhi's wards lie within a 15-minute walk of one, and half the branches sit off the
 Metro grid that could carry people to them.
 
@@ -171,15 +171,15 @@ appendix.
 
 The spatial layers are now built, with their limits stated up front. Of DPL's 111
 published locations, 35 are fixed service points (fixed, zonal, sub-branch, and
-community libraries); 22 of these are now located — 5 on DPL-published/verified
-coordinates and 17 by approximate address geocoding — and 13 could not be resolved.
-Delhi's Metro network is joined from OpenStreetMap (246 stations, the line geometry),
-and ward boundaries are the pre-2022 set (the 2022 unified-MCD 250-ward delimitation
-is not openly available as geometry). This is enough to compute ward walk-access and
-transit-siting for the fixed network, which we do below; the maps should be read as
-indicative of sparsity, not as a survey, and mobile service points are excluded
-because they are not fixed access. Bus (DTC/cluster) layers and the 13 unresolved
-locations remain the next step.
+community libraries), and all 35 are now located — 20 at verified or rooftop precision
+(DPL-published coordinates and Google rooftop matches) and 15 at approximate
+address-level precision. Delhi's Metro network is joined from OpenStreetMap (246
+stations and the line geometry), and ward boundaries are the pre-2022 set (the 2022
+unified-MCD 250-ward delimitation is not openly available as geometry). This is enough
+to compute ward walk-access and transit-siting for the fixed network, which we do
+below; the maps should be read as indicative of sparsity, not as a survey, and mobile
+service points are excluded because they are not fixed access. Full DTC/cluster-bus
+route geometry remains the next step.
 
 ## Delhi I — who uses it, and the decade of collapse
 
@@ -240,29 +240,29 @@ travel-time disadvantage is measured. Even on the most inclusive count of DPL
 touchpoints (about 163, including mobile service points and book-reading centres) the
 system is thin relative to the population it nominally serves.
 
-Density understates the problem, because the few fixed branches are not spread to
-where people live. Mapping the 22 located fixed branches against Delhi's wards
-(Figure 3), only **42 of 290 wards — about 15 percent — fall within a 1.2 km
-(roughly 15-minute) walk of a fixed DPL branch**, and the median ward sits **2.66 km**
-from its nearest one. The branches cluster in the old core (New Delhi, West, Central,
-North districts hold most of them) while whole peripheral districts have one located
-fixed branch or none. For most of Delhi, the nearest public library is not walkable.
+Density understates the problem, because the fixed branches are not spread to where
+people live. Mapping all 35 fixed branches against Delhi's wards (Figure 3), only
+**59 of 290 wards — about 20 percent — fall within a 1.2 km (roughly 15-minute) walk
+of a fixed DPL branch**, and the median ward sits **2.13 km** from its nearest one. The
+branches cluster in the old core (New Delhi, Central, North, and West districts hold
+two-thirds of them) while the outer districts — South West, North East, East — have one
+or two each. For most of Delhi, the nearest public library is not walkable.
 
-![Distance from each Delhi ward to its nearest located fixed DPL branch. Only about 15 percent of wards lie within a 1.2 km walk; the periphery is largely unserved. Coordinates: 5 verified, 17 approximate; mobile service points excluded.](figures/figD3_dpl_walk_access.png){#fig-walk width=100%}
+![Distance from each Delhi ward to its nearest fixed DPL branch. Only about 20 percent of wards lie within a 1.2 km walk; the periphery is largely unserved. Coordinates: 20 verified/rooftop, 15 approximate; mobile service points excluded.](figures/figD3_dpl_walk_access.png){#fig-walk width=100%}
 
 Nor does transit rescue the reach. Joining the branches to Delhi's Metro — one of the
-densest rapid-transit networks in the country — only **11 of the 22 fixed branches sit
-within 800 m of a Metro station, and just 3 within 400 m** (Figure 4). Half the fixed
+densest rapid-transit networks in the country — only **17 of the 35 fixed branches sit
+within 800 m of a Metro station, and just 9 within 400 m** (Figure 4). Half the fixed
 network is off the rapid-transit grid that already carries the students, women, and
 low-income riders a public library is meant to serve. Siting service on the corridors
 where Delhi already moves is the most direct way to extend reach without building a
 single new branch.
 
-![Located fixed DPL branches against the Delhi Metro network (OpenStreetMap: 246 stations and the line geometry). Branches more than 800 m from a station are marked in red. Half the fixed network is off the Metro grid.](figures/figD4_dpl_transit_siting.png){#fig-transit width=100%}
+![Fixed DPL branches against the Delhi Metro network (OpenStreetMap: 246 stations and the line geometry). Branches more than 800 m from a station are marked in red. Half the fixed network is off the Metro grid.](figures/figD4_dpl_transit_siting.png){#fig-transit width=100%}
 
-The maps are indicative, not survey-grade: 17 of the 22 coordinates are approximate,
-13 fixed locations could not be geocoded, and the ward layer is the pre-2022 set. But
-the pattern is robust to that noise — a sparse network, concentrated in the core, only
+The maps are indicative, not survey-grade: 15 of the 35 coordinates are approximate
+(address-level rather than rooftop) and the ward layer is the pre-2022 set. But the
+pattern is robust to that noise — a sparse network, concentrated in the core, only
 loosely tied to the transit that could carry people to it.
 
 ## Toronto, briefly: a background yardstick
@@ -299,7 +299,7 @@ is procurement, hours, staffing, and new stock, not more allocation. The unspent
 balance is, in effect, a measure of the service not delivered.
 
 Third, build for reach. DPL is sparse — about two service points per million against a
-functioning system's thirty-plus — and the mapped branches reach only about 15 percent
+functioning system's thirty-plus — and the mapped branches reach only about 20 percent
 of wards within a walk and sit half off the Metro. The immediate, low-cost step is to
 place new service on Delhi's Metro and bus corridors, which already carry the residents
 DPL is meant to serve, rather than leaving the network bunched in the old core.
@@ -314,16 +314,16 @@ precondition for fixing any of it.
 DPL disclosure still lacks several IFLA-style fields: physical visits (as distinct
 from reading-room attendance), e-book and digital use, full-time staff, internet
 access points, and branch-level hours and capacity. The two highest-value extensions
-are: completing the spatial picture — geocoding the 13 unresolved fixed locations and
-the mobile service points, replacing the 17 approximate coordinates with verified
-ones, and adding the DTC/cluster-bus layer to the Metro already joined; and extending
-the disclosed finance series back before 2021-22 to date the onset of under-spending.
+are: completing the spatial picture — geocoding the mobile service points, upgrading
+the 15 approximate fixed coordinates to rooftop precision, and adding DTC/cluster-bus
+route geometry to the Metro, RRTS, and suburban rail already joined; and extending the
+disclosed finance series back before 2021-22 to date the onset of under-spending.
 
 ## Conclusion
 
 The Delhi Public Library fails the tests a city library should pass. It is sparse —
 about two service points per million residents — and what little exists is bunched in
-the old core: only about 15 percent of wards are within a short walk of a fixed
+the old core: only about 20 percent of wards are within a short walk of a fixed
 branch, and half the network sits off the Metro. Its public use has collapsed: issues
 down about 77 percent over a decade, new
 stock down to a trickle, membership falling since 2019-20. And its money does not

@@ -325,6 +325,54 @@
         "circle-stroke-width": 0.6,
         "circle-opacity": 0.85
       }
+    },
+    {
+      "id": "rrts",
+      "label": "RRTS (Namo Bharat)",
+      "file": "rrts.geojson",
+      "kind": "line",
+      "group": "Transit",
+      "default": true,
+      "popup": [
+        "name"
+      ],
+      "paint": {
+        "line-color": "#9b59b6",
+        "line-width": 2.8,
+        "line-opacity": 0.9
+      }
+    },
+    {
+      "id": "rail",
+      "label": "Railway (suburban)",
+      "file": "rail.geojson",
+      "kind": "line",
+      "group": "Transit",
+      "default": false,
+      "popup": [
+        "name"
+      ],
+      "paint": {
+        "line-color": "#8a8f98",
+        "line-width": 1.1,
+        "line-opacity": 0.9
+      }
+    },
+    {
+      "id": "roads",
+      "label": "Major roads",
+      "file": "roads.geojson",
+      "kind": "line",
+      "group": "Mobility",
+      "default": false,
+      "popup": [
+        "name"
+      ],
+      "paint": {
+        "line-color": "#58606d",
+        "line-width": 0.6,
+        "line-opacity": 0.85
+      }
     }
   ]
 }

@@ -52,6 +52,9 @@ def load_dpl() -> gpd.GeoDataFrame:
 
 def main() -> None:
     dpl = load_dpl()
+    hi = int(dpl["geocode_confidence"].isin(["verified", "google_verified"]).sum())
+    approx = len(dpl) - hi
+    conf_note = f"Coordinates: {hi} verified/rooftop, {approx} approximate. Mobile service points excluded."
     districts = gpd.read_file(LAYERS / "districts.geojson").to_crs(4326)
     wards = gpd.read_file(LAYERS / "wards.geojson").to_crs(4326)
     metro = gpd.read_file(LAYERS / "metro.geojson").to_crs(4326)
@@ -98,8 +101,7 @@ def main() -> None:
     dpl.plot(ax=ax, color="#11304a", markersize=22, marker="o", edgecolor="white", linewidth=0.6, zorder=5)
     ax.set_title("Delhi: how far is the nearest fixed public library?", color=INK, fontsize=12, loc="left")
     ax.annotate(f"{within_1200} of {n_wards} wards lie within a 1.2 km (≈15-min) walk of one of the "
-                f"{len(dpl)} located fixed DPL branches.\nCoordinates: 5 verified, 17 approximate. "
-                "Mobile service points excluded.",
+                f"{len(dpl)} located fixed DPL branches.\n{conf_note}",
                 xy=(0.0, -0.06), xycoords="axes fraction", fontsize=7.6, color=MUTED, va="top")
     ax.axis("off")
     fig.tight_layout()
@@ -126,7 +128,8 @@ def main() -> None:
     plt.close(fig)
 
     stats = {
-        "located_fixed_dpl": len(dpl), "verified": int(dpl["verified"].sum()),
+        "located_fixed_dpl": len(dpl), "high_confidence": hi, "approximate": approx,
+        "source_verified": int(dpl["verified"].sum()),
         "wards_total": n_wards, "wards_within_1200m": within_1200,
         "wards_within_1200m_pct": round(100 * within_1200 / n_wards, 1),
         "median_ward_km_to_dpl": round(float(wards_m["dpl_km"].median()), 2),
