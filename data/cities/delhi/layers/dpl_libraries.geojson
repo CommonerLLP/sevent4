@@ -1,0 +1,29 @@
+{
+"type": "FeatureCollection",
+"name": "dpl_libraries",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "name": "DPL Head Quarter", "location_type": "fixed_library", "zone": "central", "geocode_confidence": "verified", "Name": "DPL Head Quarter" }, "geometry": { "type": "Point", "coordinates": [ 77.229180829205006, 28.659943775695407 ] } },
+{ "type": "Feature", "properties": { "name": "Shahdara", "location_type": "zonal_library", "zone": "east", "geocode_confidence": "verified", "Name": "Shahdara" }, "geometry": { "type": "Point", "coordinates": [ 77.290982949993278, 28.668826657359801 ] } },
+{ "type": "Feature", "properties": { "name": "Vigyan Vihar", "location_type": "sub_branch_library", "zone": "east", "geocode_confidence": "nominatim_approx", "Name": "Vigyan Vihar" }, "geometry": { "type": "Point", "coordinates": [ 77.3126204, 28.6605415 ] } },
+{ "type": "Feature", "properties": { "name": "Kalyan Puri", "location_type": "fixed_library", "zone": "east", "geocode_confidence": "nominatim_approx", "Name": "Kalyan Puri" }, "geometry": { "type": "Point", "coordinates": [ 77.317636, 28.6159271 ] } },
+{ "type": "Feature", "properties": { "name": "Seelam Pur", "location_type": "fixed_library", "zone": "east", "geocode_confidence": "nominatim_approx", "Name": "Seelam Pur" }, "geometry": { "type": "Point", "coordinates": [ 77.2596444, 28.706005 ] } },
+{ "type": "Feature", "properties": { "name": "Ashok Vihar", "location_type": "sub_branch_library", "zone": "north", "geocode_confidence": "verified", "Name": "Ashok Vihar" }, "geometry": { "type": "Point", "coordinates": [ 77.178064685540122, 28.69847194805336 ] } },
+{ "type": "Feature", "properties": { "name": "New Rohtak Road", "location_type": "sub_branch_library", "zone": "north", "geocode_confidence": "nominatim_approx", "Name": "New Rohtak Road" }, "geometry": { "type": "Point", "coordinates": [ 77.1964696, 28.6565599 ] } },
+{ "type": "Feature", "properties": { "name": "Katewara", "location_type": "sub_branch_library", "zone": "north", "geocode_confidence": "nominatim_approx", "Name": "Katewara" }, "geometry": { "type": "Point", "coordinates": [ 76.9790313, 28.8017596 ] } },
+{ "type": "Feature", "properties": { "name": "Bawana", "location_type": "sub_branch_library", "zone": "north", "geocode_confidence": "nominatim_approx", "Name": "Bawana" }, "geometry": { "type": "Point", "coordinates": [ 77.0328847, 28.79966 ] } },
+{ "type": "Feature", "properties": { "name": "Narela", "location_type": "sub_branch_library", "zone": "north", "geocode_confidence": "nominatim_approx", "Name": "Narela" }, "geometry": { "type": "Point", "coordinates": [ 77.0856631, 28.8464766 ] } },
+{ "type": "Feature", "properties": { "name": "Aruna Nagar", "location_type": "fixed_library", "zone": "north", "geocode_confidence": "nominatim_approx", "Name": "Aruna Nagar" }, "geometry": { "type": "Point", "coordinates": [ 77.2259061, 28.6979093 ] } },
+{ "type": "Feature", "properties": { "name": "Sangam Park", "location_type": "fixed_library", "zone": "north", "geocode_confidence": "nominatim_approx", "Name": "Sangam Park" }, "geometry": { "type": "Point", "coordinates": [ 77.2443646, 28.5106563 ] } },
+{ "type": "Feature", "properties": { "name": "Shakur Pur", "location_type": "fixed_library", "zone": "north", "geocode_confidence": "nominatim_approx", "Name": "Shakur Pur" }, "geometry": { "type": "Point", "coordinates": [ 77.1460945, 28.6901201 ] } },
+{ "type": "Feature", "properties": { "name": "Jwala Puri", "location_type": "fixed_library", "zone": "north", "geocode_confidence": "nominatim_approx", "Name": "Jwala Puri" }, "geometry": { "type": "Point", "coordinates": [ 77.078186, 28.67748 ] } },
+{ "type": "Feature", "properties": { "name": "Sarojini Nagar", "location_type": "zonal_library", "zone": "south", "geocode_confidence": "verified", "Name": "Sarojini Nagar" }, "geometry": { "type": "Point", "coordinates": [ 77.193935557716202, 28.57541837075426 ] } },
+{ "type": "Feature", "properties": { "name": "Lodhi Colony", "location_type": "community_library", "zone": "south", "geocode_confidence": "nominatim_approx", "Name": "Lodhi Colony" }, "geometry": { "type": "Point", "coordinates": [ 77.2268576, 28.586203 ] } },
+{ "type": "Feature", "properties": { "name": "Patel Nagar", "location_type": "zonal_library", "zone": "west", "geocode_confidence": "verified", "Name": "Patel Nagar" }, "geometry": { "type": "Point", "coordinates": [ 77.1726977, 28.6446592 ] } },
+{ "type": "Feature", "properties": { "name": "Janak Puri", "location_type": "sub_branch_library", "zone": "west", "geocode_confidence": "nominatim_approx", "Name": "Janak Puri" }, "geometry": { "type": "Point", "coordinates": [ 77.089447, 28.6280473 ] } },
+{ "type": "Feature", "properties": { "name": "Peshwa Road", "location_type": "sub_branch_library", "zone": "west", "geocode_confidence": "nominatim_approx", "Name": "Peshwa Road" }, "geometry": { "type": "Point", "coordinates": [ 77.2035054, 28.63488 ] } },
+{ "type": "Feature", "properties": { "name": "DIZ. Area", "location_type": "sub_branch_library", "zone": "west", "geocode_confidence": "nominatim_approx", "Name": "DIZ. Area" }, "geometry": { "type": "Point", "coordinates": [ 77.2013841, 28.6334103 ] } },
+{ "type": "Feature", "properties": { "name": "Kasturba Gandhi Marg", "location_type": "sub_branch_library", "zone": "west", "geocode_confidence": "nominatim_approx", "Name": "Kasturba Gandhi Marg" }, "geometry": { "type": "Point", "coordinates": [ 77.2243324, 28.6246041 ] } },
+{ "type": "Feature", "properties": { "name": "Tihar Jail", "location_type": "sub_branch_library", "zone": "west", "geocode_confidence": "nominatim_approx", "Name": "Tihar Jail" }, "geometry": { "type": "Point", "coordinates": [ 77.1004591, 28.6179417 ] } }
+]
+}

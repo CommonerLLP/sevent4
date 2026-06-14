@@ -322,6 +322,27 @@
         "raster-opacity": 0.78,
         "raster-resampling": "nearest"
       }
+    },
+    {
+      "id": "dpl",
+      "label": "DPL libraries (fixed network)",
+      "file": "dpl_libraries.geojson",
+      "kind": "circle",
+      "group": "Public services",
+      "default": true,
+      "popup": [
+        "Name",
+        "location_type",
+        "zone",
+        "geocode_confidence"
+      ],
+      "paint": {
+        "circle-color": "#11304a",
+        "circle-radius": 4.5,
+        "circle-stroke-color": "#ffffff",
+        "circle-stroke-width": 1.0,
+        "circle-opacity": 0.9
+      }
     }
   ]
 }

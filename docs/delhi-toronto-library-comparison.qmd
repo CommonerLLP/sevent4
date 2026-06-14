@@ -72,7 +72,10 @@ by its central grant but does not spend it. In 2023-24 it carried Rs 4.78 crore
 unspent against a Rs 36.4 crore grant; in 2021-22 it returned Rs 1.58 crore to the
 Ministry. In purchasing-power terms its library-materials spend per resident is a
 tiny fraction of a functioning system's. Where Ahmedabad's municipal network spends
-on establishment rather than books, Delhi's central library does not spend at all.
+on establishment rather than books, Delhi's central library does not spend at all. And
+the network barely reaches: mapping its located fixed branches, only about 15 percent
+of Delhi's wards lie within a 15-minute walk of one, and half the branches sit off the
+Metro grid that could carry people to them.
 
 ## The case: why a city library must be reachable
 
@@ -166,11 +169,17 @@ disclose it. All figures are produced from these source tables by
 `scripts/make_delhi_library_paper_figures.py`; the full source inventory is in the
 appendix.
 
-One limitation is structural and stated up front: of DPL's 111 published locations,
-only five are geocoded so far, and Delhi's transit layers (DMRC Metro, DTC and cluster
-buses) are not yet joined. We can report service-point *density* now, but the
-ward-level walk-access and transit-siting maps built for Ahmedabad are not yet
-computable for Delhi and are flagged as the next step.
+The spatial layers are now built, with their limits stated up front. Of DPL's 111
+published locations, 35 are fixed service points (fixed, zonal, sub-branch, and
+community libraries); 22 of these are now located — 5 on DPL-published/verified
+coordinates and 17 by approximate address geocoding — and 13 could not be resolved.
+Delhi's Metro network is joined from OpenStreetMap (246 stations, the line geometry),
+and ward boundaries are the pre-2022 set (the 2022 unified-MCD 250-ward delimitation
+is not openly available as geometry). This is enough to compute ward walk-access and
+transit-siting for the fixed network, which we do below; the maps should be read as
+indicative of sparsity, not as a survey, and mobile service points are excluded
+because they are not fixed access. Bus (DTC/cluster) layers and the 13 unresolved
+locations remain the next step.
 
 ## Delhi I — who uses it, and the decade of collapse
 
@@ -224,17 +233,37 @@ reaching the shelves, and it is not reaching the public.
 
 ## Delhi III — is it dense and reachable enough?
 
-The full reach question — walk time and transit access by ward — cannot yet be
-answered for Delhi: only five of 111 published DPL locations are geocoded, and the
-Metro and bus layers are not yet joined. What can be said now is about density. On a
-conservative count DPL operates about 40 service points (fixed libraries plus mobile
-buses) for 19 million residents — roughly 2.1 per million, against Toronto's 34 per
-million, a sixteen-fold difference before any travel-time disadvantage is measured.
-Even on the most inclusive count of DPL touchpoints (about 163, including mobile
-service points and book-reading centres) the system is thin relative to the population
-it nominally serves. The next step is to geocode the full location list and join
-Delhi's Metro and bus networks, reproducing for Delhi the ward walk-access and
-transit-siting maps already built for Ahmedabad.
+Start with density. On a conservative count DPL operates about 40 service points
+(fixed libraries plus mobile buses) for 19 million residents — roughly 2.1 per
+million, against Toronto's 34 per million, a sixteen-fold difference before any
+travel-time disadvantage is measured. Even on the most inclusive count of DPL
+touchpoints (about 163, including mobile service points and book-reading centres) the
+system is thin relative to the population it nominally serves.
+
+Density understates the problem, because the few fixed branches are not spread to
+where people live. Mapping the 22 located fixed branches against Delhi's wards
+(Figure 3), only **42 of 290 wards — about 15 percent — fall within a 1.2 km
+(roughly 15-minute) walk of a fixed DPL branch**, and the median ward sits **2.66 km**
+from its nearest one. The branches cluster in the old core (New Delhi, West, Central,
+North districts hold most of them) while whole peripheral districts have one located
+fixed branch or none. For most of Delhi, the nearest public library is not walkable.
+
+![Distance from each Delhi ward to its nearest located fixed DPL branch. Only about 15 percent of wards lie within a 1.2 km walk; the periphery is largely unserved. Coordinates: 5 verified, 17 approximate; mobile service points excluded.](figures/figD3_dpl_walk_access.png){#fig-walk width=100%}
+
+Nor does transit rescue the reach. Joining the branches to Delhi's Metro — one of the
+densest rapid-transit networks in the country — only **11 of the 22 fixed branches sit
+within 800 m of a Metro station, and just 3 within 400 m** (Figure 4). Half the fixed
+network is off the rapid-transit grid that already carries the students, women, and
+low-income riders a public library is meant to serve. Siting service on the corridors
+where Delhi already moves is the most direct way to extend reach without building a
+single new branch.
+
+![Located fixed DPL branches against the Delhi Metro network (OpenStreetMap: 246 stations and the line geometry). Branches more than 800 m from a station are marked in red. Half the fixed network is off the Metro grid.](figures/figD4_dpl_transit_siting.png){#fig-transit width=100%}
+
+The maps are indicative, not survey-grade: 17 of the 22 coordinates are approximate,
+13 fixed locations could not be geocoded, and the ward layer is the pre-2022 set. But
+the pattern is robust to that noise — a sparse network, concentrated in the core, only
+loosely tied to the transit that could carry people to it.
 
 ## Toronto, briefly: a background yardstick
 
@@ -270,9 +299,10 @@ is procurement, hours, staffing, and new stock, not more allocation. The unspent
 balance is, in effect, a measure of the service not delivered.
 
 Third, build for reach. DPL is sparse — about two service points per million against a
-functioning system's thirty-plus — and its locations are not yet even mapped. The
-immediate, low-cost step is to geocode the full network and place service on Delhi's
-Metro and bus corridors, which already carry the residents DPL is meant to serve.
+functioning system's thirty-plus — and the mapped branches reach only about 15 percent
+of wards within a walk and sit half off the Metro. The immediate, low-cost step is to
+place new service on Delhi's Metro and bus corridors, which already carry the residents
+DPL is meant to serve, rather than leaving the network bunched in the old core.
 
 Fourth, name the governance. DPL is a central Government-of-India body sitting inside
 Delhi's fragmented NCT/MCD/NDMC arrangement; accountability for its decline is diffuse
@@ -284,15 +314,18 @@ precondition for fixing any of it.
 DPL disclosure still lacks several IFLA-style fields: physical visits (as distinct
 from reading-room attendance), e-book and digital use, full-time staff, internet
 access points, and branch-level hours and capacity. The two highest-value extensions
-are: geocoding all 111 locations and joining the DMRC Metro and DTC/cluster-bus layers
-to build the ward walk-access and transit-siting maps; and extending the disclosed
-finance series back before 2021-22 to date the onset of under-spending.
+are: completing the spatial picture — geocoding the 13 unresolved fixed locations and
+the mobile service points, replacing the 17 approximate coordinates with verified
+ones, and adding the DTC/cluster-bus layer to the Metro already joined; and extending
+the disclosed finance series back before 2021-22 to date the onset of under-spending.
 
 ## Conclusion
 
 The Delhi Public Library fails the tests a city library should pass. It is sparse —
-about two service points per million residents — and its network is not yet even
-mapped. Its public use has collapsed: issues down about 77 percent over a decade, new
+about two service points per million residents — and what little exists is bunched in
+the old core: only about 15 percent of wards are within a short walk of a fixed
+branch, and half the network sits off the Metro. Its public use has collapsed: issues
+down about 77 percent over a decade, new
 stock down to a trickle, membership falling since 2019-20. And its money does not
 move: a central grant carried unspent and returned to the Ministry while the shelves
 go unrenewed. Toronto, used only as a yardstick, borrows on the order of 690 times
