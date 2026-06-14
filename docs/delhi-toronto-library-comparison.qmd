@@ -262,7 +262,7 @@ mode, while the faster Metro that could widen their catchment largely misses the
 Siting new service on the Metro corridors where Delhi already moves is the most direct
 way to extend reach without building a single new branch.
 
-![Fixed DPL branches against the Delhi Metro network (OpenStreetMap: 246 stations and the line geometry). Branches more than 800 m from a station are marked in red. Half the fixed network is off the Metro grid.](figures/figD4_dpl_transit_siting.png){#fig-transit width=100%}
+![Fixed DPL branches against Delhi's full transit network — Metro lines and stations (OpenStreetMap) over the DTC/cluster bus-stop web (Open Transit Data GTFS, 10,559 stops). Green = within 800 m of a Metro station; amber = bus-served only (within 400 m of a bus stop but off the Metro); red = beyond 400 m of any transit. Half the network is off the rapid-transit grid, but the bus reaches almost all of it.](figures/figD4_dpl_transit_siting.png){#fig-transit width=100%}
 
 Two caveats bound these maps. First, the library points are now firm — all 35 fixed
 branches are placed at verified or rooftop precision, 28 of them from DPL's own

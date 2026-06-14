@@ -23,6 +23,7 @@ from __future__ import annotations
 import json
 import math
 import pathlib
+import textwrap
 
 import geopandas as gpd
 import matplotlib as mpl
@@ -115,16 +116,15 @@ def main() -> None:
 
     # ---- bus (GTFS) proximity — uses the 10k+ DTC/cluster stops if present ----
     bus_stats = {}
+    dpl["bus_m"] = float("inf")
     bus_f = LAYERS / "bus_stops.geojson"
     if bus_f.exists():
         bus_m = gpd.read_file(bus_f).to_crs(M)
-        bnear = dpl_m.geometry.apply(lambda p: bus_m.distance(p).min())
-        bus_stats = {"dpl_within_400m_bus": int((bnear <= 400).sum()),
-                     "dpl_within_200m_bus": int((bnear <= 200).sum()),
+        dpl["bus_m"] = dpl_m.geometry.apply(lambda p: bus_m.distance(p).min()).values
+        bus_stats = {"dpl_within_400m_bus": int((dpl["bus_m"] <= 400).sum()),
+                     "dpl_within_200m_bus": int((dpl["bus_m"] <= 200).sum()),
                      "bus_stops_total": len(bus_m)}
-    # any-transit reach: within 400m of a metro station OR a bus stop
-    any_transit_400 = int(((dpl["metro_m"] <= 400) |
-                           (bnear.values <= 400 if bus_stats else False)).sum())
+    any_transit_400 = int(((dpl["metro_m"] <= 400) | (dpl["bus_m"] <= 400)).sum())
 
     # ---- figD3: ward walk-access choropleth ----
     fig, ax = plt.subplots(figsize=(7.4, 7.0))
@@ -133,29 +133,52 @@ def main() -> None:
                             legend_kwds={"label": "Distance to nearest fixed DPL (km)", "shrink": 0.6})
     districts.boundary.plot(ax=ax, color=INK, linewidth=0.6)
     dpl.plot(ax=ax, color="#11304a", markersize=22, marker="o", edgecolor="white", linewidth=0.6, zorder=5)
+    # the lopsided network: library mean-centre (star) vs city centroid (plus), with
+    # the skew line — visualises the ~7 km ENE pull into the old core.
+    compass = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"][round(bearing / 45) % 8]
+    centres = gpd.GeoSeries([Point(cx, cy), nct_c], crs=M).to_crs(4326)
+    libc, cityc = centres.iloc[0], centres.iloc[1]
+    ax.plot([cityc.x, libc.x], [cityc.y, libc.y], color="#11304a", lw=1.1, ls=(0, (4, 3)), zorder=6)
+    ax.scatter([cityc.x], [cityc.y], s=90, marker="P", color=MUTED, edgecolor="white", linewidth=0.8, zorder=7)
+    ax.scatter([libc.x], [libc.y], s=150, marker="*", color="#edc233", edgecolor="#1a1a1a", linewidth=0.7, zorder=8)
     ax.set_title("Delhi: how far is the nearest fixed public library?", color=INK, fontsize=12, loc="left")
-    ax.annotate(f"{within_1200} of {n_wards} wards lie within a 1.2 km (≈15-min) walk of one of the "
-                f"{len(dpl)} located fixed DPL branches.\n{conf_note}",
-                xy=(0.0, -0.06), xycoords="axes fraction", fontsize=7.6, color=MUTED, va="top")
+    ax.annotate(textwrap.fill(
+                    f"{within_1200} of {n_wards} wards lie within a 1.2 km (≈15-min) walk of one of the "
+                    f"{len(dpl)} located fixed DPL branches — barely {area_cov_1200:.0f}% of the city's land. "
+                    f"The network's mean centre (★) sits ~{centroid_offset_km:.0f} km {compass} of the city "
+                    f"centre (✚), pulled into the old core.", 64) + f"\n{textwrap.fill(conf_note, 64)}",
+                xy=(0.0, -0.07), xycoords="axes fraction", fontsize=7.4, color=MUTED, va="top")
     ax.axis("off")
     fig.tight_layout()
     fig.savefig(FIG / "figD3_dpl_walk_access.png", bbox_inches="tight")
     plt.close(fig)
 
-    # ---- figD4: DPL vs Metro network ----
+    # ---- figD4: DPL vs the WHOLE transit network (Metro rapid-transit + DTC bus) ----
     fig, ax = plt.subplots(figsize=(7.4, 7.0))
     districts.boundary.plot(ax=ax, color=RULE, linewidth=0.8)
-    metro_lines.to_crs(4326).plot(ax=ax, color="#c9603a", linewidth=0.7, alpha=0.7, zorder=2)
-    metro.plot(ax=ax, color=MUTED, markersize=4, alpha=0.5, zorder=3)
-    near = dpl[dpl["metro_m"] <= 800]
-    far = dpl[dpl["metro_m"] > 800]
-    far.plot(ax=ax, color=ALERT, markersize=34, marker="o", edgecolor="white", linewidth=0.6, zorder=5, label=">800 m from Metro")
-    near.plot(ax=ax, color=GREEN, markersize=34, marker="o", edgecolor="white", linewidth=0.6, zorder=6, label="≤800 m from Metro")
-    ax.legend(loc="lower left", fontsize=8, frameon=False)
-    ax.set_title("Delhi: are the libraries on the Metro network?", color=INK, fontsize=12, loc="left")
-    ax.annotate(f"{within800} of {len(dpl)} fixed DPL branches are within 800 m of a Metro station "
-                f"({within400} within 400 m). Metro: {len(metro)} stations, {len(metro_lines)} OSM track segments.",
-                xy=(0.0, -0.06), xycoords="axes fraction", fontsize=7.6, color=MUTED, va="top")
+    # faint bus-stop density shows the DTC/cluster web the libraries mostly sit within
+    if bus_f.exists():
+        gpd.read_file(bus_f).to_crs(4326).plot(ax=ax, color="#b9a779", markersize=0.5, alpha=0.22, zorder=1)
+    metro_lines.to_crs(4326).plot(ax=ax, color="#c9603a", linewidth=0.9, alpha=0.8, zorder=2)
+    metro.plot(ax=ax, color=MUTED, markersize=4, alpha=0.55, zorder=3)
+    metro_ok = dpl[dpl["metro_m"] <= 800]
+    bus_only = dpl[(dpl["metro_m"] > 800) & (dpl["bus_m"] <= 400)]
+    isolated = dpl[(dpl["metro_m"] > 800) & (dpl["bus_m"] > 400)]
+    metro_ok.plot(ax=ax, color=GREEN, markersize=36, marker="o", edgecolor="white", linewidth=0.6, zorder=6, label=f"≤800 m from Metro ({len(metro_ok)})")
+    bus_only.plot(ax=ax, color="#e0a93a", markersize=36, marker="o", edgecolor="white", linewidth=0.6, zorder=6, label=f"Bus only — ≤400 m bus, no Metro ({len(bus_only)})")
+    isolated.plot(ax=ax, color=ALERT, markersize=36, marker="o", edgecolor="white", linewidth=0.6, zorder=7, label=f">400 m from any transit ({len(isolated)})")
+    b = districts.total_bounds  # clamp to Delhi — the GTFS bus net spills into the NCR
+    ax.set_xlim(b[0] - 0.02, b[2] + 0.02)
+    ax.set_ylim(b[1] - 0.02, b[3] + 0.02)
+    ax.legend(loc="lower left", fontsize=7.6, frameon=False)
+    ax.set_title("Delhi: are the libraries on the transit network?", color=INK, fontsize=12, loc="left")
+    ax.annotate(textwrap.fill(
+                    f"Only {within800} of {len(dpl)} branches are within 800 m of a Metro station "
+                    f"({within400} within 400 m) — half are off the rapid-transit grid. But "
+                    f"{bus_stats.get('dpl_within_400m_bus', 0)} of {len(dpl)} sit within 400 m of a bus stop "
+                    f"(of {bus_stats.get('bus_stops_total', 0):,} DTC/cluster stops): the bus reaches them, "
+                    f"the faster Metro doesn't.", 64),
+                xy=(0.0, -0.07), xycoords="axes fraction", fontsize=7.4, color=MUTED, va="top")
     ax.axis("off")
     fig.tight_layout()
     fig.savefig(FIG / "figD4_dpl_transit_siting.png", bbox_inches="tight")
