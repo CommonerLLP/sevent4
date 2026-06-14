@@ -28,7 +28,9 @@ BBOX = (28.4043, 76.8388, 28.8835, 77.3475)  # S,W,N,E (NCT)
 POINT_QUERIES = {
     "metro":     ('node["station"="subway"];node["railway"="station"]["station"="subway"];', "name", "#5c8af2"),
     "stops":     ('node["highway"="bus_stop"];', "name", "#9ca3ad"),
-    "libraries": ('node["amenity"="library"];way["amenity"="library"];', "name", "#e0b84d"),
+    # NOTE: no generic OSM `libraries` layer for Delhi — the authoritative DPL fixed
+    # network (build_library_spatial.py -> dpl_libraries.geojson) supersedes OSM's
+    # partial amenity=library set, which only duplicated it confusingly.
     "health":    ('node["amenity"~"hospital|clinic"];way["amenity"~"hospital|clinic"];', "name", "#49a35f"),
     "schools":   ('node["amenity"="school"];way["amenity"="school"];', "name", "#1e9f8f"),
     "police":    ('node["amenity"="police"];way["amenity"="police"];', "name", "#4d76c7"),
@@ -39,7 +41,7 @@ LINE_QUERIES = {
     "metro_lines": ('way["railway"="subway"];', "name", "#dc4c4c"),
 }
 LABELS = {
-    "metro": "Metro stations", "stops": "Bus stops", "libraries": "Libraries",
+    "metro": "Metro stations", "stops": "Bus stops",
     "health": "Health facilities", "schools": "Schools", "police": "Police",
     "fire": "Fire & emergency", "toilets": "Public toilets", "metro_lines": "Metro lines",
 }
