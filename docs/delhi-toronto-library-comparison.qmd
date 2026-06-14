@@ -1,244 +1,326 @@
 ---
-title: "Delhi Public Library vs Toronto Public Library"
-subtitle: "IFLA-aligned comparator report using an NCT service-area baseline"
-date: "13 June 2026"
+title: "Delhi's Public Library"
+subtitle: "Collapsing use, an under-spent grant, and the gap between provision and a public"
+author: "Right 2 Read Campaign"
+date: "14 June 2026"
+bibliography: library-comparator-references.bib
+link-citations: true
 format:
-  typst:
-    toc: true
-    number-sections: false
+  pdf:
+    pdf-engine: lualatex
+    documentclass: scrartcl
+    classoption:
+      - DIV=12
+      - numbers=noendperiod
     papersize: a4
-    margin:
-      x: 18mm
-      y: 18mm
+    fontsize: 10.5pt
+    toc: true
+    toc-depth: 2
+    number-sections: false
+    colorlinks: true
+    linkcolor: AtlasBlue
+    urlcolor: AtlasBlue
+    geometry:
+      - top=18mm
+      - bottom=20mm
+      - left=18mm
+      - right=18mm
+    include-in-header:
+      text: |
+        \usepackage{booktabs}
+        \usepackage{array}
+        \usepackage{longtable}
+        \usepackage{xcolor}
+        \definecolor{AtlasBlue}{HTML}{1B4E6B}
+        \definecolor{AtlasInk}{HTML}{172126}
+        \definecolor{AtlasMuted}{HTML}{66737A}
+        \definecolor{AtlasRule}{HTML}{D6DEE2}
+        \addtokomafont{title}{\color{AtlasInk}\bfseries}
+        \addtokomafont{subtitle}{\color{AtlasMuted}}
+        \addtokomafont{section}{\color{AtlasBlue}}
+        \addtokomafont{subsection}{\color{AtlasInk}}
+        \setkomafont{pageheadfoot}{\small\color{AtlasMuted}}
+        \KOMAoptions{parskip=half}
+        \setlength{\parindent}{0pt}
+        \renewcommand{\arraystretch}{1.16}
+        \setlength{\tabcolsep}{4pt}
   html:
     toc: true
+    toc-depth: 2
     theme: cosmo
+    number-sections: false
     embed-resources: true
 ---
 
-> **Core finding.** On IFLA's standard public-library metric frame, Delhi Public
-> Library is not merely smaller than Toronto Public Library. It is operating at
-> a different order of public reach. Using the NCT service-area denominator of
-> 19.0 million residents, DPL records about **14,461 annual book issues per
-> million residents**. TPL records about **9.33 million borrowings per million
-> residents**. That is a **645x per-capita use gap**.
+## Abstract
 
-## Denominator
+A public library is only public if people can reach it and use it. This paper asks
+whether the Delhi Public Library (DPL) — founded in 1951 as a Government of India /
+UNESCO pilot public library, and still run as a central, Ministry-of-Culture
+autonomous body — meets that standard, against three tests a city library should
+pass: is it dense and reachable enough; do people use it; and is it funded, and does
+it spend, to deliver the service. We answer with DPL's own annual reports across
+fifteen years. The Toronto Public Library appears only as a background yardstick.
 
-The primary denominator is **NCT of Delhi**, not the full National Capital
-Region. DPL is treated as a Delhi service-area institution; comparing it to the
-full NCR would charge it for a wider regional population it does not formally
-cover. NCR is still useful as a latent-demand sensitivity, because readers and
-workers cross the NCT boundary, but it is not the headline denominator.
+The findings are stark. Public use has not merely stagnated, it has collapsed:
+annual book issues fell about 77 percent, from a peak of 1,169,734 in 2010-11 to
+274,751 in 2023-24, and the inflow of new stock all but stopped — books added to the
+collection fell from roughly 78,000 a year to about 3,100. Membership grew through
+the 2010s to a 2019-20 peak of 189,235 and has since fallen to 110,534. The fiscal
+picture is the opposite of starvation and just as damaging: DPL is generously funded
+by its central grant but does not spend it. In 2023-24 it carried Rs 4.78 crore
+unspent against a Rs 36.4 crore grant; in 2021-22 it returned Rs 1.58 crore to the
+Ministry. In purchasing-power terms its library-materials spend per resident is a
+tiny fraction of a functioning system's. Where Ahmedabad's municipal network spends
+on establishment rather than books, Delhi's central library does not spend at all.
 
-The old 2011-only denominator is not used for the main comparison. SevenT4 now
-uses the `theright2read` population correction source: `STATE_POP_MN["Delhi"] =
-19`, which cites the MoHFW Technical Group population projections for 2011-2036.
-The exact annual Delhi row should still be promoted when the source PDF is
-reachable; the MoHFW server timed out during this session.
+## The case: why a city library must be reachable
 
-| Area | Population used | Role |
-|---|---:|---|
-| NCT of Delhi | 19,000,000 | Primary DPL service-area denominator |
-| City of Toronto | 3,000,000 | Primary TPL service-area denominator |
-| NCR sensitivity | 27,000,000-32,000,000 | Latent-demand sensitivity only |
+Before measuring Delhi, we should say plainly what a public library is for, and why
+its reach matters. Three claims set the standard the rest of the paper tests.
 
-## IFLA Frame
+**A public library is civic infrastructure, not a book warehouse.** Its purpose is
+use. Ranganathan's laws are blunt about it: books are for use, every reader should
+find their book and every book its reader, and the reader's time should be saved
+[@ranganathan1931]; the IFLA-UNESCO manifesto frames the public library as a local
+institution for education, information, and democratic life [@iflaManifesto2022] —
+the very mandate under which DPL itself was created as a UNESCO pilot in 1951.
+Contemporary scholarship reads the library as social and intellectual infrastructure,
+a low-threshold public place to be provisioned and judged like other urban systems
+[@mattern2014; @klinenberg2018]. In India the institution has been named a bedrock of
+democratic and anti-caste life [@liangGupta2024] and just as routinely left to decay
+by the governments that own it [@chitralekha2014; @pyati2009]. For a campaign for the
+right to read, the library is the public's standing claim on knowledge; whether
+people can reach and use it is the whole question.
 
-This report uses the IFLA Library Map of the World metric frame: service points,
-registered users, physical visits, physical loans, eBook loans, audio-book
-loans, downloads, staff, volunteers, and libraries with internet access. The
-comparison below uses only fields that are currently captured from source
-reports. Missing IFLA fields are listed as data gaps rather than inferred.
+**A library is public only if it is reachable.** Most users of an Indian city library
+do not arrive by car; they walk or take a bus, and the residents who depend most on a
+nearby branch — children, students, women, older and poorer people — are exactly
+those least able to travel far. Use falls with distance: the spatial-access
+literature treats proximity, travel time, and distance decay as central, not
+incidental [@penchansky1981; @luoWang2003]. Cities now plan deliberately for
+short-walk access to everyday public facilities — the "15-minute city" and, since
+2016, China's "15-minute community life circle," which set pedestrian-distance
+coverage of daily public facilities, libraries among them, as a measured governance
+target [@yangQian2024; @maEtal2023]. Where walking ends, buses and the metro must
+extend the reach, and the IFLA service guidelines are explicit that service points
+belong where people already converge, tiered outward so everyone is reached
+[@iflaServiceGuidelines2010]; a nearby stop is not yet access, since the first- and
+last-mile is where journeys break down, especially for women [@roy2024].
 
-| IFLA-aligned metric | DPL, NCT baseline | TPL, city baseline | Reading |
-|---|---:|---:|---|
-| Conservative service points per 1M | 2.1 | 34.0 | TPL has 16.2x the service-point density. |
-| Inclusive DPL touchpoints per 1M | 8.6 | 34.0 | Even counting DPL mobile stops and reading centres, TPL is 4.0x denser. |
-| Registered users per 1M | 5,818 | Not published in current TPL source | DPL has about one registered member per 172 NCT residents. |
-| New card registrations per 1M | Not comparable | 78,423 | TPL reports new registrations, not total registered users. |
-| Physical loans / borrowings per 1M | 14,461 | 9,333,333 | TPL is 645x higher per resident. |
-| Physical visits proxy per 1M | 17,646 | 4,466,667 | DPL reports reading-room attendance, not all visits; TPL is 253x higher. |
-| Collection items per 1M | 80,396 | 3,500,000 | TPL has 43.5x the collection density. |
-| Annual additions per 1M | 164 | Not captured | DPL collection refresh is only 0.20%. |
+This is not a parochial or a Northern standard. Reachable, well-served neighbourhoods
+are what the major quantitative livability frameworks measure and reward — the
+Economist Intelligence Unit's liveability ranking, the Mercer quality-of-living
+index, the Social Progress Index, and the wider field of more than 150
+city-benchmarking efforts [@wolfmayr2024; @kitchin2015] — and the cities that
+consistently top them (Vienna, Vancouver, Melbourne, Geneva) are those with dense,
+walkable, transit-served public provision. The same coverage logic is now codified
+across the Global South, most explicitly in China's life circle [@yangQian2024;
+@maEtal2023], and runs through Southern urban practice more broadly, where reliable
+access to shared services is the test of a functioning city [@bhan2019;
+@routledgeGlobalSouth2017]. We borrow the coverage logic, not the league tables:
+rankings can be naive and politically loaded, treating the city as a scoreboard
+rather than a public [@kitchin2015]. Indian researchers have documented the same
+deficits at home — transport policy that omits equity [@verma2021], streets captured
+by the private automobile [@gopakumar2020], shrinking and unequal public open space
+[@nagendra2023], and a long contest over India's "open space" and "public place"
+[@chakrabarty1991]. The public library is one more public amenity inside this pattern.
 
-The most important warning is not simply that DPL has fewer outlets. It is that
-use is extremely low relative to both population and collection stock. DPL
-records **0.18 annual issues per collection item**. TPL records about **2.67
-borrowings per collection item**. That is a 14.8x stock-turnover gap.
+Together these set the tests for Delhi: is the system dense and reachable enough; do
+people use it; and is it funded — and spent — to deliver. The measurement that follows
+serves those questions, not the reverse.
 
-## Finance
+## Measurement frame
 
-PPP conversion uses the World Bank `PA.NUS.PPP` indicator: India 2024 at
-20.4219876045922 INR per international dollar, and Canada 2025 at 1.147294 CAD
-per international dollar.
+We use the IFLA Library Map of the World grammar, built on ISO 2789 definitions:
+service points, registered users, visits, loans, staff, internet access, and
+collections, all comparable per population [@iflaLibraryMapData; @iso2789]. ISO 11620
+adds the performance question — not how much a library owns, but how well its
+resources convert into use [@iso11620]. A branch count alone can make a weak system
+look healthy; "access," likewise, can be merely nominal [@mickiewicz2016]. Access is
+not distance: a defensible accessibility model needs demand origins, supply capacity,
+travel time, catchments, and distance decay, not nearest-facility distance alone
+[@guagliardo2004; @luoWang2003; @luoQi2009; @nisar2018]. Five rules carry into the
+analysis: normalize by population; separate service points from effective capacity;
+treat public funding as an input, not a result; read user fees as a possible barrier
+even when fiscally minor; and keep spatial access as a proxy until travel-time routing
+is built.
 
-| Finance metric | DPL | TPL |
-|---|---:|---:|
-| Operating expenditure, PPP | $16.11m intl. | $258.05m intl. |
-| Operating spend per resident, PPP | $0.85 | $86.02 |
-| Spend per loan / borrowing, PPP | $58.63 | $9.22 |
-| Materials expenditure, PPP | $0.086m intl. | $20.12m intl. |
-| Materials spend per resident, PPP | $0.0045 | $6.71 |
-| Materials share of expenditure | 0.53% | 7.80% |
+## Data and methods
 
-The finance interpretation is straightforward:
+The unit of analysis is the Delhi Public Library system, a central
+Ministry-of-Culture autonomous body, not a municipal network. We read it against a
+single external benchmark — the Toronto Public Library — used only as a yardstick for
+what a functioning municipal system discloses and reaches.
 
-- TPL operates at 16.0x DPL's PPP expenditure scale.
-- TPL spends 101.5x more per resident.
-- DPL's low captured use makes spend per loan high despite low total funding.
-- TPL's materials spending is over 230x DPL's PPP materials line and 1,481x
-  higher per resident.
-- DPL is not renewing or circulating stock at TPL-like intensity.
+For Delhi we use DPL's own annual reports, 2009-10 to 2023-24, for membership, issues
+(circulation), reading-room attendance, collection, additions, and — from 2021-22,
+when the lines are disclosed — finance [@dplAnnualReports]. We normalize by the
+National Capital Territory population, taken as 19.0 million (2020 projection; the
+2011 Census figure of 16.79 million is retained only for audit), and report a National
+Capital Region shadow catchment (27-32 million) as a sensitivity, not the primary
+denominator, because DPL's service jurisdiction is the NCT. For Toronto we use the
+city's open data and 2024 published facts against a 2.79 million-resident base.
+Finance is compared in purchasing-power-parity international dollars where both sides
+disclose it. All figures are produced from these source tables by
+`scripts/make_delhi_library_paper_figures.py`; the full source inventory is in the
+appendix.
 
-DPL's 2023-24 inflow is almost entirely grant-funded: grant receipts are
-97.99% of grant plus other income, while other income is 2.01%. That is not a
-problem by itself; public libraries are public goods. The problem is that the
-public subsidy is not translating into visible public use.
+One limitation is structural and stated up front: of DPL's 111 published locations,
+only five are geocoded so far, and Delhi's transit layers (DMRC Metro, DTC and cluster
+buses) are not yet joined. We can report service-point *density* now, but the
+ward-level walk-access and transit-siting maps built for Ahmedabad are not yet
+computable for Delhi and are flagged as the next step.
 
-DPL also ended 2023-24 with **INR 4.78 crore** in closing unspent balance. That
-is **14.5% of annual expenditure** and **27.2x the annual books and reading
-materials expense**. In a network with 49.6% staff vacancy and a 0.20% collection
-refresh rate, the unspent balance is operationally important.
+## Delhi I — who uses it, and the decade of collapse
 
-## DPL Timeline
+DPL's own reports show public use collapsing across fifteen years (Figure 1).
 
-The DPL extraction now emits the full online annual-report panel from 2009-10
-through 2023-24. The online DPL source package contains annual reports for every
-year in that span; 2012-13, 2016-17, and 2020-21 required OCR recovery because
-the original `pdftotext` output was image-only or mostly blank.
+![Annual issues (circulation) and registered members, Delhi Public Library, 2009-10 to 2023-24. Issues peak in 2010-11 and fall about 77 percent; membership peaks in 2019-20, then declines.](figures/figD1_dpl_decline.png){#fig-decline width=100%}
 
-| Year | Members | Issues | Issues per 1M | Attendance | Collection | Additions | Refresh |
-|---|---:|---:|---:|---:|---:|---:|---:|
-| 2009-10 | 64,883 | 1,039,977 | 54,736 | 316,657 | 1,552,000 | 77,872 | 5.02% |
-| 2010-11 | 73,467 | 1,169,734 | 61,565 | 244,499 | 1,608,813 | 33,868 | 2.10% |
-| 2011-12 | 76,548 | 1,133,154 | 59,640 | 477,107 | 1,640,909 | 39,860 | 2.43% |
-| 2012-13 | 80,448 | 1,138,767 | 59,935 | 398,029 | 1,681,426 | 40,517 | 2.41% |
-| 2013-14 | 107,276 | 1,081,767 | 56,935 | 397,718 | 1,694,695 | 23,565 | 1.39% |
-| 2014-15 | 126,091 | 845,044 | 44,476 | 384,049 | 1,668,258 | 59,570 | 3.57% |
-| 2015-16 | 139,835 | 757,439 | 39,865 | 314,089 | 1,717,727 | 37,014 | 2.16% |
-| 2016-17 | 159,200 | 700,412 | 36,864 | 293,883 | 1,706,326 | 38,256 | 2.24% |
-| 2017-18 | 175,422 | 730,706 | 38,458 | 330,888 | 1,735,868 | 21,545 | 1.24% |
-| 2018-19 | 187,138 | 814,858 | 42,887 | 365,854 | 1,694,950 | 27,958 | 1.65% |
-| 2019-20 | 189,235 | 477,008 | 25,106 | 353,246 | 1,596,125 | 13,310 | 0.83% |
-| 2020-21 | 165,854 | 112,946 | 5,945 | 25,855 | 1,602,290 | 2,504 | 0.16% |
-| 2021-22 | 156,867 | 196,889 | 10,363 | 132,411 | 1,605,443 | 2,697 | 0.17% |
-| 2022-23 | 148,094 | 258,180 | 13,588 | 328,728 | 1,536,905 | 9,947 | 0.65% |
-| 2023-24 | 110,534 | 274,751 | 14,461 | 335,270 | 1,527,531 | 3,108 | 0.20% |
+The underlying values:
 
-The full online-run trend is severe. From 2009-10 to 2023-24, annual issues fall
-from 1,039,977 to 274,751, a 73.6% decline. Books added fall from 77,872 to
-3,108, a 96.0% decline. Collection stock is roughly flat, moving from 1.55m to
-1.53m items, so the collapse is not explained by a shrinking collection.
+| Year | Issues (circulation) | Members | Books added | Collection |
+|---|---:|---:|---:|---:|
+| 2009-10 | 1,039,977 | 64,883 | 77,872 | 1,552,000 |
+| 2010-11 | **1,169,734** | 73,467 | 33,868 | 1,608,813 |
+| 2013-14 | 1,081,767 | 107,276 | 23,565 | 1,694,695 |
+| 2016-17 | 700,412 | 159,200 | 38,256 | 1,706,326 |
+| 2018-19 | 814,858 | 187,138 | 27,958 | 1,694,950 |
+| 2019-20 | 477,008 | **189,235** | 13,310 | 1,596,125 |
+| 2020-21 | 112,946 | 165,854 | 2,504 | 1,602,290 |
+| 2022-23 | 258,180 | 148,094 | 9,947 | 1,536,905 |
+| 2023-24 | 274,751 | 110,534 | 3,108 | 1,527,531 |
 
-The peak-to-latest trend is sharper on active reach. Membership peaks at 189,235
-in 2019-20 and falls to 110,534 in 2023-24, a 41.6% decline. Issues peak at
-1.17m in 2010-11 and fall to 274,751 in 2023-24, a 76.5% decline.
+Three movements run through the record. First, circulation collapsed: issues peaked
+at 1,169,734 in 2010-11, were already sliding through the mid-2010s, and stand at
+274,751 in 2023-24 — a fall of about 77 percent, with the post-2019 crash never
+recovering. At 19 million residents that is roughly 0.014 issues per resident a year.
+Second, the collection stopped being renewed: books added fell from 77,872 in 2009-10
+to about 3,100 in 2023-24, and the total collection has shrunk slightly since 2018-19.
+A library that adds almost no new books gives the public little reason to return.
+Third, membership tells a softer but consistent story: it grew through the 2010s to
+189,235 in 2019-20, then fell by more than 40 percent to 110,534 — about 0.58 percent
+of NCT residents. Growing the roll while circulation fell means the members it had
+were already using it less; shedding the roll since means it is losing even nominal
+reach.
 
-Reading-room attendance is the one partial recovery signal: 2023-24 attendance
-is back near the 2017-18 to 2019-20 range. But reading-room recovery does not
-offset the collapse in issue activity and stock renewal.
+## Delhi II — funded, but not spent
 
-## Annual Toronto Comparison
+Delhi's fiscal pathology is the mirror image of underfunding. DPL is a centrally
+funded institution that does not spend what it is given (Figure 2).
 
-For the annual comparison, DPL fiscal years are aligned to the TPL calendar year
-matching the DPL fiscal end year. TPL open data covers 2012-2023; DPL 2023-24 is
-compared to TPL's 2024 headline public metrics.
+![Grant received, total expenditure, and closing unspent balance, Delhi Public Library, 2021-22 to 2023-24. DPL carries large unspent balances and returns grant to the Ministry.](figures/figD2_dpl_finance.png){#fig-finance width=100%}
 
-| DPL year | TPL year | DPL issues per 1M | TPL borrowings per 1M | TPL/DPL ratio | DPL attendance per 1M | TPL branch visits per 1M | TPL/DPL visit ratio |
-|---|---:|---:|---:|---:|---:|---:|---:|
-| 2009-10 | 2010 | 54,736 | Not available | Not available | 16,666 | Not available | Not available |
-| 2010-11 | 2011 | 61,565 | Not available | Not available | 12,868 | Not available | Not available |
-| 2011-12 | 2012 | 59,640 | 10,677,345 | 179.0x | 25,111 | 6,290,871 | 250.5x |
-| 2012-13 | 2013 | 59,935 | 10,715,007 | 178.8x | 20,949 | 6,161,798 | 294.1x |
-| 2013-14 | 2014 | 56,935 | 10,678,265 | 187.6x | 20,933 | 6,111,977 | 292.0x |
-| 2014-15 | 2015 | 44,476 | 10,835,321 | 243.6x | 20,213 | 6,051,026 | 299.4x |
-| 2015-16 | 2016 | 39,865 | 10,636,859 | 266.8x | 16,531 | 6,077,456 | 367.6x |
-| 2016-17 | 2017 | 36,864 | 10,032,963 | 272.2x | 15,468 | 5,790,011 | 374.3x |
-| 2017-18 | 2018 | 38,458 | 10,185,190 | 264.8x | 17,415 | 5,859,124 | 336.4x |
-| 2018-19 | 2019 | 42,887 | 10,220,678 | 238.3x | 19,256 | 5,749,587 | 298.6x |
-| 2019-20 | 2020 | 25,106 | 7,000,305 | 278.8x | 18,592 | 1,852,584 | 99.6x |
-| 2020-21 | 2021 | 5,945 | 8,076,365 | 1,358.6x | 1,361 | 1,343,163 | 987.0x |
-| 2021-22 | 2022 | 10,363 | 8,866,311 | 855.6x | 6,969 | 3,188,829 | 457.6x |
-| 2022-23 | 2023 | 13,588 | 8,330,966 | 613.1x | 17,302 | 4,169,274 | 241.0x |
-| 2023-24 | 2024 | 14,461 | 9,333,333 | 645.4x | 17,646 | 4,466,667 | 253.1x |
+In 2023-24 DPL received a grant of about Rs 36.4 crore, spent about Rs 32.9 crore, and
+carried Rs 4.78 crore — roughly an eighth of the grant — unspent into the next year.
+In 2021-22 it returned Rs 1.58 crore of public money to the Ministry as unspent. This
+is not a system rationing scarce funds; it is a system that cannot, or does not,
+convert its budget into service. The materials line makes the point sharply: in
+purchasing-power-parity terms, DPL's library-materials spend per resident is on the
+order of a thousandth of Toronto's — consistent with adding three thousand books a
+year to serve a city of nineteen million. Money is reaching the institution. It is not
+reaching the shelves, and it is not reaching the public.
 
-This comparison shows that the gap is not a one-year artefact. Before COVID,
-TPL already records roughly 179x-278x DPL's per-capita borrowing. After the DPL
-collapse in 2020-21, the ratio remains above 600x in the latest two comparable
-years.
+## Delhi III — is it dense and reachable enough?
 
-## NCR Sensitivity
+The full reach question — walk time and transit access by ward — cannot yet be
+answered for Delhi: only five of 111 published DPL locations are geocoded, and the
+Metro and bus layers are not yet joined. What can be said now is about density. On a
+conservative count DPL operates about 40 service points (fixed libraries plus mobile
+buses) for 19 million residents — roughly 2.1 per million, against Toronto's 34 per
+million, a sixteen-fold difference before any travel-time disadvantage is measured.
+Even on the most inclusive count of DPL touchpoints (about 163, including mobile
+service points and book-reading centres) the system is thin relative to the population
+it nominally serves. The next step is to geocode the full location list and join
+Delhi's Metro and bus networks, reproducing for Delhi the ward walk-access and
+transit-siting maps already built for Ahmedabad.
 
-If the full NCR population range of 27-32 million is used as a shadow catchment,
-the DPL position worsens. This is not the primary comparison, but it matters for
-latent reading demand.
+## Toronto, briefly: a background yardstick
 
-| Catchment sensitivity | Population | Service points per 1M | Issues per 1M | Reading-room attendance per 1M | PPP spend per resident |
-|---|---:|---:|---:|---:|---:|
-| NCR low | 27,000,000 | 1.48 | 10,176 | 12,417 | $0.60 |
-| NCR high | 32,000,000 | 1.25 | 8,586 | 10,477 | $0.50 |
+Toronto is not the subject of this paper; it is a reference for what a functioning
+municipal library discloses and reaches. On shared, population-normalized indicators:
 
-The NCT denominator is therefore the conservative baseline. It does not make
-DPL look worse; it makes the comparison administratively fair.
+| Indicator | Delhi (DPL) | Toronto | Toronto/Delhi | Comparability |
+|---|---:|---:|---:|---|
+| Service points per million residents | 2.1 | 34.0 | 16.2x | Medium |
+| Collection items per 1,000 residents | 80.4 | 3,500 | 43.5x | Medium |
+| Registered members, share of residents | 0.58% | not normalized |  | Partial |
+| Issues / borrowings per resident | 0.014 | 10.0 | ~690x | Medium |
+| Reading-room / branch visits per resident | 0.018 | 4.8 | ~250x | Partial |
+| Library-materials spend per resident (PPP) | very low | high | ~1,480x | Medium |
 
-## Data Gaps
+Toronto is denser, deeper, and far more used. The borrowing gap is roughly 690 times
+per resident — and, as with Ahmedabad, it dwarfs any plausible spending gap, because
+Delhi's problem is not a shortage of grant but a failure to spend it. The
+reading-room and visit rows are kept as partial: DPL reports reading-room attendance,
+not all branch visits, so its visit figure is understated. One row is reported without
+a clean ratio because DPL's registered-member stock and Toronto's new-card
+registrations are different objects.
 
-DPL reporting now covers many core operational fields, but several IFLA metrics
-are still missing or incomplete:
+## What Delhi should do
 
-- all physical visits, not only reading-room attendance;
-- eBook loans;
-- audio-book loans;
-- downloads;
-- libraries with internet access;
-- full-time staff in IFLA-compatible form;
-- volunteers;
-- digital sessions, public computers, Wi-Fi sessions, and programme attendance.
+First, treat DPL as a public-use system, not a custodial collection. The metrics that
+matter — issues, active members, books added — are all disclosed and all falling; a
+credible target is stated against them, not against the existence of branches.
 
-TPL's current public pages expose richer digital, programme, and branch-visit
-data, but do not expose total registered users in the same way DPL reports
-membership. The report therefore compares TPL new card registrations separately
-and does not pretend they are equivalent to DPL registered-member stock.
+Second, spend the grant on the service. A library that returns money to the Ministry
+and adds three thousand books a year is failing a budget problem in reverse: the fix
+is procurement, hours, staffing, and new stock, not more allocation. The unspent
+balance is, in effect, a measure of the service not delivered.
 
-## Working Conclusions
+Third, build for reach. DPL is sparse — about two service points per million against a
+functioning system's thirty-plus — and its locations are not yet even mapped. The
+immediate, low-cost step is to geocode the full network and place service on Delhi's
+Metro and bus corridors, which already carry the residents DPL is meant to serve.
 
-1. DPL should be compared on NCT, not NCR, for the main service-area baseline.
-2. Even on the conservative NCT denominator, DPL's service density, borrowing,
-   collection density, materials spending, and collection renewal are far below
-   Toronto's.
-3. DPL's current problem is both under-resourcing and low conversion of existing
-   stock into public use.
-4. Grant dependence is normal for a public library. The red flag is that 98%
-   grant-funded operations produce extremely low per-capita use and very low
-   materials renewal.
-5. The next Delhi extraction should prioritize full DPL annual reports, branch
-   locations, service hours, digital services, programmes, and staff deployment
-   by branch so the IFLA frame can be completed.
+Fourth, name the governance. DPL is a central Government-of-India body sitting inside
+Delhi's fragmented NCT/MCD/NDMC arrangement; accountability for its decline is diffuse
+by design. Saying who is responsible for use, renewal, and spending is the
+precondition for fixing any of it.
 
-## Source Base
+## Data gaps and next work
 
-- Delhi Public Library annual reports page:
-  <https://dpl.gov.in/index.php/annual-reports>
-- Delhi Public Library Annual Report 2023-24:
-  <https://drive.google.com/file/d/1d6K6glvU5osL5ck9tR_2LLuoHFQUeh0e/view?usp=sharing>
-- Toronto Public Library, About the Library:
-  <https://tpl.ca/about-the-library/>
-- Toronto Public Library, Library Finance:
-  <https://tpl.ca/about-the-library/library-finance/>
-- Toronto Public Library, Open Data:
-  <https://tpl.ca/about-the-library/open-data/>
-- IFLA Library Map of the World, Data Lab:
-  <https://librarymap.ifla.org/datalab>
-- IFLA Library Map of the World, About Library Data:
-  <https://librarymap.ifla.org/about-library-data>
-- IFLA-UNESCO Public Library Manifesto 2022:
-  <https://www.ifla.org/publications/ifla-unesco-public-library-manifesto-2022/>
-- World Bank PPP conversion factor, GDP, `PA.NUS.PPP`:
-  <https://api.worldbank.org/v2/country/IND;CAN/indicator/PA.NUS.PPP?format=json&per_page=100>
-- Local SevenT4 derived tables:
-  `data/cities/delhi/source/libraries/dpl_online_annual_time_series.csv`,
-  `data/cities/delhi/source/libraries/dpl_ten_year_time_series.csv`,
-  `data/comparators/delhi_toronto/annual_usage_comparison.csv`,
-  `data/comparators/delhi_toronto/library_comparison_metrics.csv`,
-  `data/comparators/delhi_toronto/library_comparison_summary.json`
+DPL disclosure still lacks several IFLA-style fields: physical visits (as distinct
+from reading-room attendance), e-book and digital use, full-time staff, internet
+access points, and branch-level hours and capacity. The two highest-value extensions
+are: geocoding all 111 locations and joining the DMRC Metro and DTC/cluster-bus layers
+to build the ward walk-access and transit-siting maps; and extending the disclosed
+finance series back before 2021-22 to date the onset of under-spending.
+
+## Conclusion
+
+The Delhi Public Library fails the tests a city library should pass. It is sparse —
+about two service points per million residents — and its network is not yet even
+mapped. Its public use has collapsed: issues down about 77 percent over a decade, new
+stock down to a trickle, membership falling since 2019-20. And its money does not
+move: a central grant carried unspent and returned to the Ministry while the shelves
+go unrenewed. Toronto, used only as a yardstick, borrows on the order of 690 times
+more per resident — a gap that has nothing to do with Delhi lacking funds. The
+practical target is not a grander central library but a reachable, well-stocked,
+fully-spent public system, sited where Delhi's residents already are and measured
+every year on the use it actually delivers.
+
+## Sources and reproducibility
+
+**Delhi.** Membership, issues, reading-room attendance, collection, additions, and
+finance are from the Delhi Public Library's annual reports, 2009-10 to 2023-24
+[@dplAnnualReports]. Location counts are from DPL's published zone listings; NCT and
+NCR population denominators are from Census 2011 and MoHFW Technical Group projections.
+
+**Toronto (background yardstick).** Branch, collection, borrowing, visit, and
+registration figures are from Toronto Open Data and Toronto Public Library's 2024
+published facts [@torontoOpenDataBranchInfo; @tplAbout2026]; finance from the 2026
+budget [@tplFinance2026].
+
+**Standards.** Indicators follow the IFLA Library Map of the World grammar and ISO
+2789 / ISO 11620 definitions [@iflaLibraryMapData; @iso2789; @iso11620]; the normative
+and siting frame draws on the IFLA-UNESCO Public Library Manifesto (2022) and Service
+Guidelines (2010) [@iflaManifesto2022; @iflaServiceGuidelines2010].
+
+The IFLA frame is used as an indicator grammar, not a claim that every field has a
+single universal target: matched indicators are separated from partial ones, and where
+a system does not disclose a metric the absence is kept as a data gap rather than
+inferred. Finance is compared in PPP international dollars (World Bank conversion). All
+charts are reproducible from the source tables by the figure script in the project
+repository.
