@@ -54,3 +54,6 @@ data/cities/*/source/**/*.gz
 .env
 *.key
 secrets.env
+
+# Local Claude Code config / PM tooling — never on the public repo
+.claude/
