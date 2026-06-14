@@ -39,14 +39,20 @@ POINT_QUERIES = {
 }
 LINE_QUERIES = {
     "metro_lines": ('way["railway"="subway"];', "name", "#dc4c4c"),
+    "rrts":        ('way["railway"="rail"]["usage"="main"]["name"~"Namo|RRTS|Rapid",i];'
+                    'relation["route"="train"]["name"~"Namo|RRTS|Rapid",i];', "name", "#9b59b6"),
+    "rail":        ('way["railway"="rail"]["usage"="main"];', "name", "#8a8f98"),
+    "roads":       ('way["highway"~"^(motorway|trunk|primary)$"];', "name", "#58606d"),
 }
 LABELS = {
     "metro": "Metro stations", "stops": "Bus stops",
     "health": "Health facilities", "schools": "Schools", "police": "Police",
     "fire": "Fire & emergency", "toilets": "Public toilets", "metro_lines": "Metro lines",
+    "rrts": "RRTS (Namo Bharat)", "rail": "Railway (suburban)", "roads": "Major roads",
 }
-GROUPS = {"metro": "Transit", "metro_lines": "Transit", "stops": "Transit"}
-DEFAULTS = {"metro", "metro_lines", "libraries"}
+GROUPS = {"metro": "Transit", "metro_lines": "Transit", "stops": "Transit",
+          "rrts": "Transit", "rail": "Transit", "roads": "Mobility"}
+DEFAULTS = {"metro", "metro_lines", "rrts"}
 
 
 def overpass(body: str) -> dict:
@@ -107,13 +113,17 @@ def register(entries: list[dict]) -> None:
 
 def main() -> None:
     entries, counts = [], {}
+    width = {"roads": 0.6, "rail": 1.1, "rrts": 2.8, "metro_lines": 2.2}
     for lid, (body, field, color) in LINE_QUERIES.items():
         fc = lines(overpass(body), field)
         (LAYERS / f"{lid}.geojson").write_text(json.dumps(fc), encoding="utf-8")
         counts[lid] = len(fc["features"])
+        if not fc["features"]:
+            continue  # don't register an empty layer (e.g. RRTS may be unmapped in OSM)
         entries.append({"id": lid, "label": LABELS[lid], "file": f"{lid}.geojson", "kind": "line",
                         "group": GROUPS.get(lid, "Mobility"), "default": lid in DEFAULTS, "popup": ["name"],
-                        "paint": {"line-color": color, "line-width": 2.4, "line-opacity": 0.9}})
+                        "paint": {"line-color": color, "line-width": width.get(lid, 1.6),
+                                  "line-opacity": 0.85 if lid == "roads" else 0.9}})
     for lid, (body, field, color) in POINT_QUERIES.items():
         fc = points(overpass(body), field)
         (LAYERS / f"{lid}.geojson").write_text(json.dumps(fc), encoding="utf-8")
