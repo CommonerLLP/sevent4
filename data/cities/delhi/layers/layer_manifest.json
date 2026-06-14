@@ -373,6 +373,124 @@
         "line-width": 0.6,
         "line-opacity": 0.85
       }
+    },
+    {
+      "id": "bus_routes",
+      "label": "Bus routes (DTC + cluster)",
+      "file": "bus_routes.geojson",
+      "kind": "line",
+      "group": "Transit",
+      "default": false,
+      "popup": [
+        "route_long_name",
+        "route_short_name",
+        "agency_id",
+        "n_stops"
+      ],
+      "paint": {
+        "line-color": "#e07a3c",
+        "line-width": 0.7,
+        "line-opacity": 0.55
+      }
+    },
+    {
+      "id": "ward_aqi",
+      "label": "Ward air quality (winter AQI)",
+      "file": "ward_aqi.geojson",
+      "kind": "fill",
+      "group": "Environment",
+      "default": false,
+      "outline": true,
+      "popup": [
+        "Name",
+        "aqi_winter",
+        "aqi_annual",
+        "pm25_winter"
+      ],
+      "paint": {
+        "fill-color": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "to-number",
+            [
+              "get",
+              "aqi_winter"
+            ],
+            300
+          ],
+          250,
+          "#f6d97a",
+          280,
+          "#e8a14b",
+          310,
+          "#d36b32",
+          340,
+          "#9f2d2d"
+        ],
+        "fill-opacity": 0.58
+      }
+    },
+    {
+      "id": "air_quality",
+      "label": "Air quality monitoring stations",
+      "file": "air_quality.geojson",
+      "kind": "circle",
+      "group": "Environment",
+      "default": false,
+      "popup": [
+        "station",
+        "agency",
+        "aqi_winter_mean",
+        "aqi_annual_mean",
+        "pm25_winter_mean",
+        "pm25_annual_mean"
+      ],
+      "paint": {
+        "circle-color": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "to-number",
+            [
+              "get",
+              "aqi_winter_mean"
+            ],
+            300
+          ],
+          250,
+          "#f6d97a",
+          300,
+          "#d36b32",
+          350,
+          "#9f2d2d"
+        ],
+        "circle-radius": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "to-number",
+            [
+              "get",
+              "aqi_winter_mean"
+            ],
+            300
+          ],
+          200,
+          4.0,
+          350,
+          9.0
+        ],
+        "circle-stroke-color": "#3a1010",
+        "circle-stroke-width": 0.6,
+        "circle-opacity": 0.9
+      }
     }
   ]
 }

@@ -1,0 +1,40 @@
+station,latitude,longitude,agency,source
+Alipur,28.7993,77.1555,DPCC,cpcb_caaqms
+Anand Vihar,28.6464,77.3150,DPCC,cpcb_caaqms
+Ashok Vihar,28.6883,77.1715,DPCC,cpcb_caaqms
+Aya Nagar,28.4686,77.1388,IMD,cpcb_caaqms
+Bawana,28.8113,77.0469,DPCC,cpcb_caaqms
+Burari Crossing,28.7301,77.2036,IMD,cpcb_caaqms
+CRRI Mathura Road,28.5646,77.2741,IMD,cpcb_caaqms
+DTU,28.7492,77.1175,CPCB,cpcb_caaqms
+Dr. Karni Singh Shooting Range,28.4785,77.2396,DPCC,cpcb_caaqms
+Dwarka-Sector 8,28.5646,77.0556,DPCC,cpcb_caaqms
+IGI Airport (T3),28.5562,77.1000,IMD,cpcb_caaqms
+IHBAS,28.6826,77.3168,CPCB,cpcb_caaqms
+ITO,28.6288,77.2425,CPCB,cpcb_caaqms
+Jahangirpuri,28.7340,77.1804,DPCC,cpcb_caaqms
+Jawaharlal Nehru Stadium,28.5828,77.2341,DPCC,cpcb_caaqms
+Lodhi Road,28.5931,77.2279,IITM,cpcb_caaqms
+Lodhi Road IMD,28.5902,77.2248,IMD,cpcb_caaqms
+Major Dhyan Chand National Stadium,28.6135,77.2368,DPCC,cpcb_caaqms
+Mandir Marg,28.6289,77.2006,DPCC,cpcb_caaqms
+Mundka,28.6764,77.0316,DPCC,cpcb_caaqms
+NSIT Dwarka,28.6084,77.0364,CPCB,cpcb_caaqms
+Najafgarh,28.6091,76.9796,DPCC,cpcb_caaqms
+Narela,28.8377,77.0931,DPCC,cpcb_caaqms
+Nehru Nagar,28.5634,77.2486,DPCC,cpcb_caaqms
+North Campus,28.6885,77.2092,IMD,cpcb_caaqms
+Okhla Phase-2,28.5352,77.2790,DPCC,cpcb_caaqms
+Patparganj,28.6290,77.2903,DPCC,cpcb_caaqms
+Punjabi Bagh,28.6758,77.1304,DPCC,cpcb_caaqms
+Pusa,28.6399,77.1804,DPCC,cpcb_caaqms
+R K Puram,28.5626,77.1740,DPCC,cpcb_caaqms
+Rohini,28.7360,77.1096,DPCC,cpcb_caaqms
+Shadipur,28.6462,77.1572,CPCB,cpcb_caaqms
+Sirifort,28.5537,77.2094,CPCB,cpcb_caaqms
+Sonia Vihar,28.7303,77.2471,DPCC,cpcb_caaqms
+Sri Aurobindo Marg,28.5396,77.1945,DPCC,cpcb_caaqms
+Vivek Vihar,28.6766,77.3044,DPCC,cpcb_caaqms
+Wazirpur,28.7044,77.1725,DPCC,cpcb_caaqms
+Chandni Chowk,28.6505,77.2303,IITM,cpcb_caaqms
+Pusa IMD,28.6397,77.1463,IMD,cpcb_caaqms

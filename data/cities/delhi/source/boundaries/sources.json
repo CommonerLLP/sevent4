@@ -1,0 +1,23 @@
+{
+  "acs": {
+    "url": "https://raw.githubusercontent.com/datameet/maps/master/assembly-constituencies/India_AC.shp",
+    "label": "Delhi Assembly Constituencies (70)",
+    "publisher": "Election Commission of India delimitation, via DataMeet datameet/maps",
+    "vintage": "current (2008 delimitation order, in force)",
+    "license": "DataMeet community data"
+  },
+  "pcs": {
+    "url": "https://raw.githubusercontent.com/datameet/maps/master/parliamentary-constituencies/india_pc_2019_simplified.geojson",
+    "label": "Delhi Parliamentary Constituencies (7)",
+    "publisher": "Election Commission of India 2019, via DataMeet datameet/maps",
+    "vintage": "current",
+    "license": "DataMeet community data"
+  },
+  "wards": {
+    "url": "https://raw.githubusercontent.com/datameet/Municipal_Spatial_Data/master/Delhi/Delhi_Wards.geojson",
+    "label": "Delhi municipal wards (INTERIM, pre-2022)",
+    "publisher": "DataMeet datameet/Municipal_Spatial_Data (scraped from ArcGIS Online)",
+    "vintage": "PRE-2022 (~290 features incl. NDMC + Cantonment charges); predates the 2022 unified-MCD 250-ward delimitation",
+    "license": "CC BY-SA 2.5 IN"
+  }
+}
