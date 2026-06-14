@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import dataclasses
 import html
 import json
 import shutil
@@ -85,7 +86,21 @@ def _copy_layers(city: CityDataset, manifest: LayerManifest, layer_out: Path) ->
 
 # Cities with a full, deep build (spine + finance/heat/etc.) are SELECTABLE;
 # everything else (scaffold consoles + absent major cities) shows GREYED ("coming").
-READY_CITIES = {"ahmedabad", "bengaluru", "chennai", "kolkata"}
+READY_CITIES = {
+    "ahmedabad",
+    "bengaluru",
+    "bhubaneswar",
+    "chennai",
+    "delhi",
+    "hyderabad",
+    "jaipur",
+    "kanpur",
+    "kochi",
+    "kolkata",
+    "mumbai",
+    "pune",
+    "visakhapatnam",
+}
 ABSENT_CITIES = {
     "Gujarat": ["Surat", "Vadodara", "Rajkot"],
     "Karnataka": ["Mysuru", "Hubballi-Dharwad", "Mangaluru"],
@@ -135,7 +150,8 @@ def _state_options(city: CityDataset, geo: dict, states: list[str]) -> str:
 
 
 def _html(city: CityDataset, manifest: LayerManifest) -> str:
-    groups = _groups(manifest.layers)
+    canon = _canon_layers(manifest.layers)
+    groups = _groups(canon)
     jurisdiction = _jurisdiction_context(city.layers_dir)
     geo, geo_states = _geo_roster(city)
     state_options = _state_options(city, geo, geo_states)
@@ -146,8 +162,9 @@ def _html(city: CityDataset, manifest: LayerManifest) -> str:
     _acp, _pcp = city.layers_dir / "acs.geojson", city.layers_dir / "pcs.geojson"
     ac_field = _pick_name_field(_acp, ("AC_NAME", "ac_name", "ASSEM_CSTNY_NAME", "Name", "name")) if _acp.exists() else None
     pc_field = _pick_name_field(_pcp, ("PC_NAME", "pc_name", "PARLY_CSTNY_NAME", "Name", "name")) if _pcp.exists() else None
+    pc_allowed = set(jurisdiction["pcs"]) if jurisdiction["pcs"] else None
     ac_options = _feature_options(_acp, ac_field) if ac_field else ""
-    pc_options = _feature_options(_pcp, pc_field) if pc_field else ""
+    pc_options = _feature_options(_pcp, pc_field, allowed=pc_allowed) if pc_field else ""
     ac_disabled = "" if ac_options else " disabled"
     pc_disabled = "" if pc_options else " disabled"
     ac_label = "Assembly constituency" if ac_options else "Assembly constituency boundary not loaded"
@@ -216,7 +233,7 @@ def _html(city: CityDataset, manifest: LayerManifest) -> str:
   <script src="../../assets/maplibre-gl.js"></script>
   <script>
   const city = {json.dumps({"center": city.center, "bbox": city.bbox})};
-  const layers = {json.dumps([_layer_json(layer, city) for layer in manifest.layers])};
+  const layers = {json.dumps([_layer_json(layer, city) for layer in canon])};
   const jurisdiction = {json.dumps(jurisdiction, ensure_ascii=False)};
   const GEO = {json.dumps(geo, ensure_ascii=False)};
   const CURRENT_STATE = {json.dumps(city.state)};
@@ -243,7 +260,78 @@ def _layer_json(layer: LayerSpec, city: CityDataset) -> dict[str, Any]:
     if layer.kind == "image" and layer.bounds_file:
         bounds = json.loads((city.layers_dir / layer.bounds_file).read_text())
         item["coordinates"] = bounds["corners"]
+    if layer.year_field:
+        item["yearField"] = layer.year_field
+        item["yearValues"] = list(layer.year_values)
+        item["defaultYear"] = layer.default_year or (layer.year_values[-1] if layer.year_values else None)
     return item
+
+
+# Canonical layer panel: one fixed order + label + group + flat colour for every
+# shared layer, so the left rail reads identically across all cities. Where a layer's
+# paint is data-driven (a MapLibre expression — e.g. ward_heat, service-access wards),
+# the colour is left untouched; only a single flat colour key is overridden.
+# colour=None means "order/label/group only, keep the layer's own colour".
+_CANON: tuple[tuple[str, str, str, str | None], ...] = (
+    ("wards", "Wards", "Civic baseline", "#1f6f8b"),
+    ("districts", "Districts", "Civic baseline", "#c9c2b3"),
+    ("villages", "Revenue villages", "Civic baseline", "#8a6f4e"),
+    ("landuse", "Land use", "Civic baseline", None),
+    ("acs", "Assembly constituencies", "Public jurisdictions", "#5c8af2"),
+    ("pcs", "Parliament constituencies", "Public jurisdictions", "#d6a946"),
+    ("roads", "Major roads", "Mobility", "#58606d"),
+    ("metro_lines", "Metro lines", "Transit", "#dc4c4c"),
+    ("metro", "Metro stations", "Transit", "#dc4c4c"),
+    ("rrts", "RRTS (Namo Bharat)", "Transit", "#9b59b6"),
+    ("rail", "Suburban rail", "Transit", "#8a8f98"),
+    ("suburban_rail", "Suburban rail", "Transit", "#8a8f98"),
+    ("corr_amts", "AMTS corridors", "Transit", None),
+    ("corr_brts", "BRTS corridors", "Transit", None),
+    ("bus_routes", "Bus routes", "Transit", "#e0913a"),
+    ("stops", "Bus stops", "Transit", "#9ca3ad"),
+    ("libraries", "Libraries", "Public services", "#e0b84d"),
+    ("schools", "Schools", "Public services", "#1e9f8f"),
+    ("health", "Health facilities", "Public services", "#49a35f"),
+    ("universities", "Universities", "Public services", None),
+    ("police", "Police", "Public services", "#4d76c7"),
+    ("fire", "Fire & emergency", "Public services", "#db4c45"),
+    ("toilets", "Public toilets", "Public services", "#46c1b4"),
+    ("river", "River", "Environment", None),
+    ("water", "Water bodies", "Environment", "#3aa0d6"),
+    ("ward_heat", "Ward heat", "Climate", None),
+    ("heat30m", "Surface heat (30 m)", "Climate", None),
+    ("air_quality", "Air quality (stations)", "Climate", None),
+    ("ward_aqi", "Ward air quality", "Climate", None),
+    ("ward_workorders", "Ward work-orders", "Finance", None),
+    ("ward_workorders_yearly", "Ward work-orders (yearly)", "Finance", None),
+    ("ward_analysis", "Ward analysis", "Finance", None),
+    ("zone_finance", "Zone finance", "Finance", None),
+    ("wards_buses", "Ward bus access", "Civic baseline", None),
+)
+_CANON_ORDER = {cid: i for i, (cid, *_rest) in enumerate(_CANON)}
+_CANON_META = {cid: (label, group, color) for cid, label, group, color in _CANON}
+
+
+def _canon_layers(layers: tuple[LayerSpec, ...]) -> list[LayerSpec]:
+    """Reorder + relabel + recolour layers into the canonical panel (stable for
+    unknown ids, which sort to the end keeping their original order)."""
+    big = len(_CANON)
+    ordered = sorted(
+        enumerate(layers), key=lambda iv: (_CANON_ORDER.get(iv[1].id, big), iv[0])
+    )
+    out: list[LayerSpec] = []
+    for _, layer in ordered:
+        meta = _CANON_META.get(layer.id)
+        if meta:
+            label, group, color = meta
+            paint = dict(layer.paint)
+            if color:
+                for key in ("fill-color", "line-color", "circle-color"):
+                    if key in paint and not isinstance(paint[key], list):  # keep expressions
+                        paint[key] = color
+            layer = dataclasses.replace(layer, label=label, group=group, paint=paint)
+        out.append(layer)
+    return out
 
 
 def _groups(layers: tuple[LayerSpec, ...]) -> dict[str, list[LayerSpec]]:
@@ -260,14 +348,31 @@ def _toggles(groups: dict[str, list[LayerSpec]]) -> str:
             checked = " checked" if layer.default else ""
             color = _legend_color(layer.paint)
             search = f"{group} {layer.label}".lower()
+            year_select = _year_select(layer)
             chunks.append(
                 f"<label class='tog' data-search='{html.escape(search)}'>"
                 f"<input type='checkbox' data-layer='{html.escape(layer.id)}'{checked}>"
                 f"<span class='sw' style='background:{html.escape(color)}'></span>"
                 f"<b>{html.escape(layer.label)}</b>"
+                f"{year_select}"
                 "</label>"
             )
     return "\n".join(chunks)
+
+
+def _year_select(layer: LayerSpec) -> str:
+    if not layer.year_values:
+        return ""
+    default = layer.default_year or layer.year_values[-1]
+    opts = []
+    for year in layer.year_values:
+        selected = " selected" if year == default else ""
+        opts.append(f"<option value='{year}'{selected}>{year}</option>")
+    return (
+        f"<select class='yearctl' data-year-layer='{html.escape(layer.id)}' "
+        f"aria-label='Year for {html.escape(layer.label, quote=True)}'>"
+        f"{''.join(opts)}</select>"
+    )
 
 
 def _legend_color(paint: dict[str, Any]) -> str:
@@ -295,13 +400,20 @@ def _pick_name_field(path: Path, candidates: tuple[str, ...]) -> str | None:
     return None
 
 
-def _feature_options(path: Path, label_key: str, extra_keys: tuple[str, ...] = ()) -> str:
+def _feature_options(
+    path: Path,
+    label_key: str,
+    extra_keys: tuple[str, ...] = (),
+    allowed: set[str] | None = None,
+) -> str:
     data = json.loads(path.read_text())
     rows = []
     for feature in sorted(data["features"], key=lambda item: str(item["properties"].get(label_key, ""))):
         props = feature["properties"]
         label = str(props.get(label_key, "")).strip()
         if not label or label in ("None", "nan"):
+            continue
+        if allowed is not None and label not in allowed:
             continue
         bounds = json.dumps(_bbox(feature["geometry"]))
         rings = json.dumps(_rings(feature["geometry"]))
@@ -392,7 +504,7 @@ def _css() -> str:
     return """
 :root{color-scheme:dark;--bg:#0a0c10;--panel:#13161d;--panel2:#171b23;--ink:#ece9e2;--mut:#8b929f;--line:#262c38;--hair:#1b1f28;--blue:#5a86f5;--red:#f0303d;--gold:#edc233;--r:4px;--serif:Georgia,"Iowan Old Style","Times New Roman",serif;--mono:ui-monospace,Menlo,"SF Mono",Consolas,monospace;--sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 [data-theme=light]{color-scheme:light;--bg:#f3f1ea;--panel:#fff;--panel2:#f6f3ea;--ink:#16181d;--mut:#586071;--line:#d7d1c2;--hair:#e7e2d6;--blue:#22409A;--red:#c8102e;--gold:#9a7b14}
-*{box-sizing:border-box;margin:0}html,body{height:100%}body{font:400 15px/1.5 var(--sans);color:var(--ink);background:var(--bg);overflow:hidden}.app{display:grid;grid-template-columns:300px 1fr;height:100vh}.rail{background:var(--panel2);border-right:1px solid var(--line);display:flex;flex-direction:column;min-height:0}.rail .mast{background:var(--panel2);border-bottom:1px solid var(--ink);padding:13px 14px 14px}.rail .mast:before{background:var(--ink);content:"";display:block;height:1px;margin-bottom:9px}.brandmark{color:var(--ink);font-family:var(--serif);font-size:27px;font-weight:800;letter-spacing:0;line-height:1}.brandline{border-bottom:1px solid var(--line);color:var(--mut);font:700 9px/1 var(--mono);letter-spacing:.16em;margin:6px 0 10px;padding-bottom:8px;text-transform:uppercase}.jurisdictionbar{display:grid;grid-template-columns:1fr 1fr;gap:8px}.jurisdictionbar label{display:block;min-width:0}.jurisdictionbar label span{color:var(--mut);display:block;font:700 9px/1 var(--mono);letter-spacing:.14em;margin:0 0 5px;text-transform:uppercase}.jurisdictionbar select{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--ink);font:700 12px/1 var(--mono);height:34px;padding:0 8px;width:100%}.basis{color:var(--mut);font:700 9px/1.4 var(--mono);letter-spacing:.08em;margin-top:9px;text-transform:uppercase}.rail .scroll{overflow:auto;flex:1;padding:10px 12px}.sech{font:700 11px/1 var(--mono);letter-spacing:.14em;color:var(--mut);text-transform:uppercase;margin:14px 0 6px}.readnote{border-left:2px solid var(--gold);color:var(--mut);font-size:12px;line-height:1.55;padding-left:9px}.readnote b{color:var(--ink)}.search,.fsel{width:100%;margin-bottom:7px;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);padding:9px 10px;font:600 12px var(--mono)}.search::placeholder{color:var(--mut)}.fsel{cursor:pointer}.fsel.muted{color:var(--mut);cursor:not-allowed}.fbtn2{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);padding:8px 12px;font:700 11px var(--mono);cursor:pointer;letter-spacing:.06em}.fbtn2:hover,.tbtn:hover{border-color:var(--blue);color:var(--blue)}.tog{display:block;padding:6px 4px;border-bottom:1px solid var(--hair);cursor:pointer;font-size:13px}.tog input{vertical-align:-1px;margin-right:7px;accent-color:var(--blue)}.tog .sw{display:inline-block;width:11px;height:11px;border-radius:2px;vertical-align:0;margin-right:6px;border:1px solid rgba(255,255,255,.18)}.tog b{font-weight:600}.tog.is-hidden{display:none}.rail .foot{padding:10px 14px;border-top:1px solid var(--line);font:600 11px/1.5 var(--mono);color:var(--mut)}.mapwrap{position:relative;height:100vh}#map{height:100vh}.filterbar{position:absolute;z-index:2;top:12px;left:12px;right:12px;display:grid;grid-template-columns:minmax(160px,1fr) minmax(150px,1fr) minmax(150px,1fr) auto 38px;gap:8px;align-items:start}.filterbar .fsel,.filterbar .fbtn2,.filterbar .tbtn{height:38px;margin:0;box-shadow:0 2px 10px rgba(0,0,0,.16)}.filterbar .fbtn2{min-width:116px;white-space:nowrap}.tbtn{align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--ink);cursor:pointer;display:grid;justify-content:center;padding:0;width:38px}.tbtn svg{display:block;fill:none;height:17px;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.2;width:17px}.default-view-ctrl button{color:#333}.default-view-ctrl .default-view-icon{display:grid;height:100%;place-items:center;width:100%}.default-view-ctrl svg{display:block;height:18px;width:18px;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.2}.maplibregl-popup-content{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:6px;font:600 12px/1.5 var(--mono);padding:10px 12px;max-width:320px}.maplibregl-popup-content b{color:var(--ink)}.maplibregl-popup-tip{display:none}.maplibregl-popup-content .k{color:var(--mut)}
+*{box-sizing:border-box;margin:0}html,body{height:100%}body{font:400 15px/1.5 var(--sans);color:var(--ink);background:var(--bg);overflow:hidden}.app{display:grid;grid-template-columns:300px 1fr;height:100vh}.rail{background:var(--panel2);border-right:1px solid var(--line);display:flex;flex-direction:column;min-height:0}.rail .mast{background:var(--panel2);border-bottom:1px solid var(--ink);padding:13px 14px 14px}.rail .mast:before{background:var(--ink);content:"";display:block;height:1px;margin-bottom:9px}.brandmark{color:var(--ink);font-family:var(--serif);font-size:27px;font-weight:800;letter-spacing:0;line-height:1}.brandline{border-bottom:1px solid var(--line);color:var(--mut);font:700 9px/1 var(--mono);letter-spacing:.16em;margin:6px 0 10px;padding-bottom:8px;text-transform:uppercase}.jurisdictionbar{display:grid;grid-template-columns:1fr 1fr;gap:8px}.jurisdictionbar label{display:block;min-width:0}.jurisdictionbar label span{color:var(--mut);display:block;font:700 9px/1 var(--mono);letter-spacing:.14em;margin:0 0 5px;text-transform:uppercase}.jurisdictionbar select{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--ink);font:700 12px/1 var(--mono);height:34px;padding:0 8px;width:100%}.basis{color:var(--mut);font:700 9px/1.4 var(--mono);letter-spacing:.08em;margin-top:9px;text-transform:uppercase}.rail .scroll{overflow:auto;flex:1;padding:10px 12px}.sech{font:700 11px/1 var(--mono);letter-spacing:.14em;color:var(--mut);text-transform:uppercase;margin:14px 0 6px}.readnote{border-left:2px solid var(--gold);color:var(--mut);font-size:12px;line-height:1.55;padding-left:9px}.readnote b{color:var(--ink)}.search,.fsel{width:100%;margin-bottom:7px;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);padding:9px 10px;font:600 12px var(--mono)}.search::placeholder{color:var(--mut)}.fsel{cursor:pointer}.fsel.muted{color:var(--mut);cursor:not-allowed}.fbtn2{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);padding:8px 12px;font:700 11px var(--mono);cursor:pointer;letter-spacing:.06em}.fbtn2:hover,.tbtn:hover{border-color:var(--blue);color:var(--blue)}.tog{display:block;padding:6px 4px;border-bottom:1px solid var(--hair);cursor:pointer;font-size:13px}.tog input{vertical-align:-1px;margin-right:7px;accent-color:var(--blue)}.tog .sw{display:inline-block;width:11px;height:11px;border-radius:2px;vertical-align:0;margin-right:6px;border:1px solid rgba(255,255,255,.18)}.tog b{font-weight:600}.tog.is-hidden{display:none}.yearctl{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--ink);display:block;font:700 11px var(--mono);height:28px;margin:6px 0 2px 25px;padding:0 7px;width:92px}.rail .foot{padding:10px 14px;border-top:1px solid var(--line);font:600 11px/1.5 var(--mono);color:var(--mut)}.mapwrap{position:relative;height:100vh}#map{height:100vh}.filterbar{position:absolute;z-index:2;top:12px;left:12px;right:12px;display:grid;grid-template-columns:minmax(160px,1fr) minmax(150px,1fr) minmax(150px,1fr) auto 38px;gap:8px;align-items:start}.filterbar .fsel,.filterbar .fbtn2,.filterbar .tbtn{height:38px;margin:0;box-shadow:0 2px 10px rgba(0,0,0,.16)}.filterbar .fbtn2{min-width:116px;white-space:nowrap}.tbtn{align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--ink);cursor:pointer;display:grid;justify-content:center;padding:0;width:38px}.tbtn svg{display:block;fill:none;height:17px;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.2;width:17px}.default-view-ctrl button{color:#333}.default-view-ctrl .default-view-icon{display:grid;height:100%;place-items:center;width:100%}.default-view-ctrl svg{display:block;height:18px;width:18px;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.2}.maplibregl-popup-content{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:6px;font:600 12px/1.5 var(--mono);padding:10px 12px;max-width:320px}.maplibregl-popup-content b{color:var(--ink)}.maplibregl-popup-tip{display:none}.maplibregl-popup-content .k{color:var(--mut)}.hovpop .maplibregl-popup-content{padding:6px 9px;border-left-color:var(--gold);max-width:240px}.hovt .hk{display:block;color:var(--mut);font:700 8px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;margin-bottom:3px}.hovt .hmore{display:block;color:var(--gold);font:700 9px/1 var(--mono);margin-top:3px}.pgrp{margin-bottom:9px}.pgrp:last-child{margin-bottom:0}.pgl{display:block;color:var(--mut);font:700 8px/1 var(--mono);letter-spacing:.13em;text-transform:uppercase;border-bottom:1px solid var(--hair);padding-bottom:3px;margin-bottom:5px}.pf{margin-bottom:6px}.pf:last-child{margin-bottom:0}.pf b{display:block}.pmore{color:var(--gold);font:700 10px var(--mono)}
 .brandrow{align-items:center;display:flex;gap:12px;margin-bottom:12px;min-width:0}.ixamark{display:block;flex:0 0 auto;height:58px;width:58px}.wordmark{display:block;min-width:0;white-space:normal}.wordmark span{color:var(--ink);display:block;font-family:var(--serif);font-size:17px;font-weight:700;letter-spacing:0;line-height:1.02}.wordmark b{color:var(--mut);display:block;font:800 8px/1 var(--mono);letter-spacing:.12em;margin-top:5px;text-transform:uppercase}.sitenav{display:grid;gap:7px;grid-template-columns:1fr 1fr;margin:0 0 14px}.sitenav a{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--mut);font:800 10px/1 var(--mono);letter-spacing:.12em;padding:9px 10px;text-align:center;text-decoration:none;text-transform:uppercase}.sitenav a.is-active{background:var(--ink);border-color:var(--ink);color:var(--bg)}.sitenav a:not(.is-active):hover{border-color:var(--blue);color:var(--blue)}.basis{text-transform:none}
 .brandmark{font-size:21px}
 @media(max-width:980px){.filterbar{top:54px;right:12px;grid-template-columns:1fr 1fr}.filterbar .fbtn2{min-width:0}}@media(max-width:760px){.app{grid-template-columns:1fr;grid-template-rows:auto 1fr}.rail{max-height:34vh}.filterbar{top:10px;left:10px;right:10px;grid-template-columns:1fr 1fr}.filterbar .fsel,.filterbar .fbtn2{height:36px;font-size:11px;padding:8px}#map,.mapwrap{height:66vh}}
@@ -405,6 +517,25 @@ def _js() -> str:
   document.documentElement.dataset.theme = savedTheme;
   let hoverPopup = null;
 
+  function DefaultViewControl() {}
+  DefaultViewControl.prototype.onAdd = function(mapInstance) {
+    this.map = mapInstance;
+    this.container = document.createElement("div");
+    this.container.className = "maplibregl-ctrl maplibregl-ctrl-group default-view-ctrl";
+    const button = document.createElement("button");
+    button.type = "button";
+    button.title = "Default view";
+    button.setAttribute("aria-label", "Default view");
+    button.innerHTML = '<span class="default-view-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10.5V20h13v-9.5"/><path d="M9.5 20v-6h5v6"/></svg></span>';
+    button.addEventListener("click", () => fitDefaultView(400));
+    this.container.appendChild(button);
+    return this.container;
+  };
+  DefaultViewControl.prototype.onRemove = function() {
+    this.container.parentNode.removeChild(this.container);
+    this.map = undefined;
+  };
+
   const map = new maplibregl.Map({
     container: "map",
     style: {version: 8, sources: {}, layers: [{id: "bg", type: "background", paint: {"background-color": themeBg(savedTheme)}}]},
@@ -412,12 +543,14 @@ def _js() -> str:
     zoom: 9.7,
     attributionControl: false
   });
+  window.__sevent4Map = map;
   map.addControl(new maplibregl.NavigationControl({showCompass: false}), "bottom-right");
   map.addControl(new DefaultViewControl(), "bottom-right");
 
   map.on("load", () => {
     layers.forEach(addLayer);
     addFocusLayers();
+    wireInteractions();
     fitDefaultView(0);
   });
 
@@ -427,6 +560,10 @@ def _js() -> str:
     localStorage.setItem("sevent4-theme", next);
     if (map.getLayer("bg")) map.setPaintProperty("bg", "background-color", themeBg(next));
     if (map.getLayer("focusmask")) map.setPaintProperty("focusmask", "fill-color", themeBg(next));
+    layers.forEach((layer) => {
+      const outlineId = `${layer.id}_ln`;
+      if (map.getLayer(outlineId)) map.setPaintProperty(outlineId, "line-color", themeInk(next));
+    });
   });
   function fillCities(state) {
     const sel = document.getElementById("citysel");
@@ -457,6 +594,9 @@ def _js() -> str:
 
   document.querySelectorAll("[data-layer]").forEach((input) => {
     input.addEventListener("change", () => setLayerVisibility(input.dataset.layer, input.checked));
+  });
+  document.querySelectorAll("[data-year-layer]").forEach((select) => {
+    select.addEventListener("change", () => setLayerYear(select.dataset.yearLayer, select.value));
   });
 
   document.getElementById("layerSearch").addEventListener("input", (event) => {
@@ -504,22 +644,48 @@ def _js() -> str:
     map.addSource(layer.id, {type: "geojson", data: `layers/${layer.file}`});
     map.addLayer({id: layer.id, type: layer.kind, source: layer.id, layout: {visibility}, paint: layer.paint});
     if (layer.outline && layer.kind === "fill") {
-      map.addLayer({id: `${layer.id}_ln`, type: "line", source: layer.id, layout: {visibility}, paint: {"line-color": "var(--ink)", "line-opacity": 0.28, "line-width": 0.7}});
+      map.addLayer({id: `${layer.id}_ln`, type: "line", source: layer.id, layout: {visibility}, paint: {"line-color": themeInk(document.documentElement.dataset.theme), "line-opacity": 0.28, "line-width": 0.7}});
     }
-    if (layer.popup.length) {
-      map.on("click", layer.id, (event) => showPopup(layer, event));
-      map.on("mouseenter", layer.id, () => { map.getCanvas().style.cursor = "pointer"; });
-      if (layer.id === "wards") {
-        map.on("mousemove", layer.id, (event) => showHoverPopup(layer, event));
-      }
-      map.on("mouseleave", layer.id, () => {
+    if (layer.yearField) setLayerYear(layer.id, layer.defaultYear || layer.yearValues[layer.yearValues.length - 1]);
+    // interaction is wired once, map-wide (wireInteractions) — not per layer — so
+    // overlapping features across layers resolve into one consolidated popup.
+  }
+
+  const LMETA = {};
+  layers.forEach((l) => { LMETA[l.id] = l; });
+
+  function interactiveLayerIds() {
+    return layers
+      .filter((l) => l.popup && l.popup.length && l.kind !== "image")
+      .map((l) => l.id)
+      .filter((id) => map.getLayer(id) && map.getLayoutProperty(id, "visibility") !== "none");
+  }
+
+  let clickPopup = null;
+
+  function wireInteractions() {
+    // HOVER → brief tooltip for the topmost feature under the cursor (any layer)
+    map.on("mousemove", (event) => {
+      const ids = interactiveLayerIds();
+      const feats = ids.length ? map.queryRenderedFeatures(event.point, {layers: ids}) : [];
+      if (!feats.length) {
         map.getCanvas().style.cursor = "";
-        if (layer.id === "wards" && hoverPopup) {
-          hoverPopup.remove();
-          hoverPopup = null;
-        }
-      });
-    }
+        if (hoverPopup) { hoverPopup.remove(); hoverPopup = null; }
+        return;
+      }
+      map.getCanvas().style.cursor = "pointer";
+      if (!hoverPopup) hoverPopup = new maplibregl.Popup({closeButton: false, closeOnClick: false, className: "hovpop", offset: 10});
+      hoverPopup.setLngLat(event.lngLat).setHTML(briefHtml(feats)).addTo(map);
+    });
+    // CLICK → consolidated detail for EVERY feature under the cursor, grouped by layer
+    map.on("click", (event) => {
+      const ids = interactiveLayerIds();
+      const feats = ids.length ? map.queryRenderedFeatures(event.point, {layers: ids}) : [];
+      if (!feats.length) return;
+      if (hoverPopup) { hoverPopup.remove(); hoverPopup = null; }
+      if (clickPopup) clickPopup.remove();
+      clickPopup = new maplibregl.Popup({maxWidth: "340px"}).setLngLat(event.lngLat).setHTML(detailHtml(feats)).addTo(map);
+    });
   }
 
   function addFocusLayers() {
@@ -534,6 +700,15 @@ def _js() -> str:
     const visibility = on ? "visible" : "none";
     [id, `${id}_ln`].forEach((layerId) => {
       if (map.getLayer(layerId)) map.setLayoutProperty(layerId, "visibility", visibility);
+    });
+  }
+
+  function setLayerYear(id, year) {
+    const layer = layers.find((item) => item.id === id);
+    if (!layer || !layer.yearField || !year) return;
+    const filter = ["==", layer.yearField, Number(year)];
+    [id, `${id}_ln`].forEach((layerId) => {
+      if (map.getLayer(layerId)) map.setFilter(layerId, filter);
     });
   }
 
@@ -646,33 +821,62 @@ def _js() -> str:
       : {type: "FeatureCollection", features: []});
   }
 
-  function showPopup(layer, event) {
-    const props = event.features[0].properties || {};
-    new maplibregl.Popup()
-      .setLngLat(event.lngLat)
-      .setHTML(popupHtml(layer, props))
-      .addTo(map);
+  function featureTitle(meta, props) {
+    return props.Name || props.name || (meta ? meta.label : "");
   }
 
-  function showHoverPopup(layer, event) {
-    const props = event.features[0].properties || {};
-    if (!hoverPopup) hoverPopup = new maplibregl.Popup({closeButton: false, closeOnClick: false});
-    hoverPopup.setLngLat(event.lngLat).setHTML(popupHtml(layer, props)).addTo(map);
+  // HOVER: one compact line — the layer it belongs to + the feature name, plus a
+  // count when several features sit under the cursor.
+  function briefHtml(feats) {
+    const f = feats[0];
+    const meta = LMETA[f.layer.id] || {label: f.layer.id};
+    const extra = feats.length > 1 ? `<span class="hmore">+${feats.length - 1} more here</span>` : "";
+    return `<div class="hovt"><span class="hk">${escapeHtml(meta.label)}</span>` +
+           `<b>${escapeHtml(clip(String(featureTitle(meta, f.properties || {})), 60))}</b>${extra}</div>`;
   }
 
-  function popupHtml(layer, props) {
-    const title = props.Name || props.name || layer.label;
-    const rows = layer.popup.map((key) => {
+  // CLICK: every feature under the cursor, grouped by layer (in panel order),
+  // de-duplicated, with the full field detail. One popup, not a stack.
+  function detailHtml(feats) {
+    const byLayer = {};
+    feats.forEach((f) => { (byLayer[f.layer.id] = byLayer[f.layer.id] || []).push(f); });
+    const order = layers.map((l) => l.id).filter((id) => byLayer[id]);
+    let html = "", shown = 0;
+    const CAP = 10;
+    for (const id of order) {
+      const meta = LMETA[id];
+      let section = "", seen = {};
+      for (const f of byLayer[id]) {
+        const props = f.properties || {};
+        const title = String(featureTitle(meta, props));
+        if (seen[title]) continue;
+        seen[title] = 1;
+        if (shown >= CAP) { section += `<div class="pmore">…and more</div>`; break; }
+        shown += 1;
+        section += featureDetail(meta, props, title);
+      }
+      if (section) html += `<div class="pgrp"><span class="pgl">${escapeHtml(meta.label)}</span>${section}</div>`;
+      if (shown >= CAP) break;
+    }
+    return html;
+  }
+
+  function featureDetail(meta, props, title) {
+    const rows = (meta.popup || []).map((key) => {
       const value = props[key] ?? "";
       if (value === "" || key === "Name") return "";
       const limit = key.startsWith("councillors") ? 180 : 96;
       return `<div><span class="k">${escapeHtml(labelFor(key))}:</span> ${escapeHtml(clip(String(value), limit))}</div>`;
     }).join("");
-    return `<b>${escapeHtml(title)}</b>${rows}`;
+    return `<div class="pf"><b>${escapeHtml(title)}</b>${rows}</div>`;
   }
 
   function themeBg(theme) {
     return theme === "dark" ? "#0a0c10" : "#f3f1ea";
+  }
+
+  function themeInk(theme) {
+    return theme === "dark" ? "#f4efe5" : "#16181d";
   }
 
   function clip(value, n) {
@@ -713,25 +917,6 @@ def _js() -> str:
     };
     return labels[key] || key.replace(/_/g, " ");
   }
-
-  function DefaultViewControl() {}
-  DefaultViewControl.prototype.onAdd = function(mapInstance) {
-    this.map = mapInstance;
-    this.container = document.createElement("div");
-    this.container.className = "maplibregl-ctrl maplibregl-ctrl-group default-view-ctrl";
-    const button = document.createElement("button");
-    button.type = "button";
-    button.title = "Default view";
-    button.setAttribute("aria-label", "Default view");
-    button.innerHTML = '<span class="default-view-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10.5V20h13v-9.5"/><path d="M9.5 20v-6h5v6"/></svg></span>';
-    button.addEventListener("click", () => fitDefaultView(400));
-    this.container.appendChild(button);
-    return this.container;
-  };
-  DefaultViewControl.prototype.onRemove = function() {
-    this.container.parentNode.removeChild(this.container);
-    this.map = undefined;
-  };
 
   function escapeHtml(value) {
     return value.replace(/[&<>"']/g, (ch) => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[ch]));
