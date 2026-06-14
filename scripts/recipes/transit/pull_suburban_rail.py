@@ -26,7 +26,7 @@ from pathlib import Path
 from urllib.request import Request, urlopen
 from urllib.parse import urlencode
 
-ROOT = Path(__file__).resolve().parents[3]
+ROOT = Path(__file__).resolve.parents[3]
 ENDPOINTS = ["https://overpass-api.de/api/interpreter", "https://overpass.kumi.systems/api/interpreter"]
 UA = {"User-Agent": "sevent4-atlas/1.0 (74th-amendment atlas)"}
 
@@ -44,11 +44,11 @@ def overpass(query: str) -> dict:
     last = None
     for ep in ENDPOINTS:
         try:
-            data = urlencode({"data": query}).encode()
+            data = urlencode({"data": query}).encode
             with urlopen(Request(ep, data=data, headers=UA), timeout=300) as r:
-                j = json.loads(r.read())
+                j = json.loads(r.read)
             rk = j.get("remark", "")
-            if "error" in rk.lower() or "timed out" in rk.lower():
+            if "error" in rk.lower or "timed out" in rk.lower:
                 last = rk; print(f"  [overpass remark] {rk[:120]}", file=sys.stderr); time.sleep(3); continue
             return j
         except Exception as e:
@@ -105,7 +105,7 @@ def build(city: str):
                 ways[el["id"]] = el
         time.sleep(1)
     line_feats = []
-    for el in ways.values():
+    for el in ways.values:
         t = el.get("tags", {})
         line_feats.append({
             "type": "Feature",
@@ -139,7 +139,7 @@ def build(city: str):
         "properties": {"name": (el.get("tags") or {}).get("name", "Station"),
                        "operator": (el.get("tags") or {}).get("operator") or "Indian Railways",
                        "source": "OpenStreetMap"},
-    } for el in snodes.values()]
+    } for el in snodes.values]
     (out / "suburban_rail_stations.geojson").write_text(
         json.dumps({"type": "FeatureCollection", "features": st_feats}))
 
