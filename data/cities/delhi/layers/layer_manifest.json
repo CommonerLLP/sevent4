@@ -163,24 +163,6 @@
       }
     },
     {
-      "id": "libraries",
-      "label": "Libraries",
-      "file": "libraries.geojson",
-      "kind": "circle",
-      "group": "Public services",
-      "default": true,
-      "popup": [
-        "name"
-      ],
-      "paint": {
-        "circle-color": "#e0b84d",
-        "circle-radius": 3.2,
-        "circle-stroke-color": "#101318",
-        "circle-stroke-width": 0.6,
-        "circle-opacity": 0.85
-      }
-    },
-    {
       "id": "health",
       "label": "Health facilities",
       "file": "health.geojson",

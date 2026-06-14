@@ -17,6 +17,18 @@ from pathlib import Path
 
 import geopandas as gpd
 import pandas as pd
+from shapely import make_valid
+from shapely.geometry import MultiPolygon, Polygon
+
+
+def _polygonal(geom):
+    """make_valid + keep only polygonal parts (drop stray lines from repair)."""
+    v = make_valid(geom)
+    if v.geom_type == "GeometryCollection":
+        parts = [g for g in v.geoms if isinstance(g, (Polygon, MultiPolygon))]
+        polys = [q for p in parts for q in (p.geoms if p.geom_type == "MultiPolygon" else [p])]
+        v = MultiPolygon(polys) if polys else v
+    return v
 
 ROOT = Path(__file__).resolve().parents[3]
 RAW = ROOT / "data/cities/delhi/source/opencity/_raw"
@@ -24,10 +36,12 @@ LAYERS = ROOT / "data/cities/delhi/layers"
 
 
 def _simplify(g: gpd.GeoDataFrame, tol_m: float = 25.0) -> gpd.GeoDataFrame:
-    # simplify in metric CRS to shrink GeoJSON for a Pages-committed layer
+    # simplify in metric CRS to shrink GeoJSON, then buffer(0) to repair any
+    # self-intersections the simplifier introduces (they render as spikes in MapLibre)
     g = g.copy()
-    g["geometry"] = g.to_crs(32643).geometry.simplify(tol_m, preserve_topology=True)
-    return g.set_geometry(g["geometry"]).set_crs(32643, allow_override=True).to_crs(4326)
+    geom = g.to_crs(32643).geometry.simplify(tol_m, preserve_topology=True).buffer(0)
+    g = g.set_geometry(geom).set_crs(32643, allow_override=True).to_crs(4326)
+    return g
 
 
 def build_villages() -> gpd.GeoDataFrame:
@@ -66,7 +80,9 @@ def register(manifest_path: Path, entries: list[dict]) -> None:
 def main() -> None:
     villages = build_villages()
     districts = villages.dissolve(by="district", as_index=False)[["district", "geometry"]]
-    districts["geometry"] = districts.to_crs(32643).geometry.simplify(40.0, preserve_topology=True).to_crs(4326)
+    dgeom = districts.to_crs(32643).geometry.simplify(40.0, preserve_topology=True).buffer(0)
+    districts = districts.set_geometry(dgeom).set_crs(32643, allow_override=True).to_crs(4326)
+    districts["geometry"] = districts.geometry.apply(_polygonal)  # repair self-intersections
     water = build_water()
 
     villages.to_file(LAYERS / "villages.geojson", driver="GeoJSON")

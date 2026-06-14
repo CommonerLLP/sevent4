@@ -1,0 +1,21 @@
+{
+  "located_fixed_dpl": 22,
+  "verified": 5,
+  "wards_total": 290,
+  "wards_within_1200m": 42,
+  "wards_within_1200m_pct": 14.5,
+  "median_ward_km_to_dpl": 2.66,
+  "dpl_within_800m_metro": 11,
+  "dpl_within_400m_metro": 3,
+  "per_district": {
+    "New Delhi": 4,
+    "West": 4,
+    "Central": 3,
+    "North": 3,
+    "North West": 2,
+    "Shahadra": 2,
+    "South East": 2,
+    "East": 1,
+    "North East": 1
+  }
+}
