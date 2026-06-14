@@ -90,6 +90,7 @@ READY_CITIES = {
     "bengaluru",
     "bhubaneswar",
     "chennai",
+    "delhi",
     "hyderabad",
     "jaipur",
     "kanpur",

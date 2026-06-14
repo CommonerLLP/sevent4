@@ -1,0 +1,62 @@
+{
+  "layers": [
+    {
+      "id": "wards",
+      "label": "Wards",
+      "file": "wards.geojson",
+      "kind": "fill",
+      "group": "Civic baseline",
+      "default": true,
+      "outline": true,
+      "popup": [
+        "Name",
+        "councillors",
+        "councillor_parties",
+        "councillor_phones",
+        "population_2020"
+      ],
+      "paint": {
+        "fill-color": "#1f6f8b",
+        "fill-opacity": 0.18
+      }
+    },
+    {
+      "id": "pcs",
+      "label": "Parliament constituencies",
+      "file": "pcs.geojson",
+      "kind": "line",
+      "group": "Public jurisdictions",
+      "default": true,
+      "popup": [
+        "pc_name",
+        "office",
+        "representative",
+        "party"
+      ],
+      "paint": {
+        "line-color": "#d6a946",
+        "line-width": 2.0,
+        "line-opacity": 0.78
+      }
+    },
+    {
+      "id": "acs",
+      "label": "Assembly constituencies",
+      "file": "acs.geojson",
+      "kind": "line",
+      "group": "Public jurisdictions",
+      "default": true,
+      "popup": [
+        "ac_name",
+        "office",
+        "representative",
+        "party"
+      ],
+      "paint": {
+        "line-color": "#5c8af2",
+        "line-width": 1.6,
+        "line-opacity": 0.82
+      }
+    }
+  ]
+}
