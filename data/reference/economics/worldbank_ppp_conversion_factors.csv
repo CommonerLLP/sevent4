@@ -1,3 +1,0 @@
-country,year,indicator,value,unit,source_url,notes
-India,2024,PA.NUS.PPP,20.4219876045922,local_currency_per_international_dollar,https://api.worldbank.org/v2/country/IND;CAN/indicator/PA.NUS.PPP?format=json&per_page=100,"Latest non-null India value available in the World Bank API fetch used for this report."
-Canada,2025,PA.NUS.PPP,1.147294,local_currency_per_international_dollar,https://api.worldbank.org/v2/country/IND;CAN/indicator/PA.NUS.PPP?format=json&per_page=100,"Latest non-null Canada value available in the World Bank API fetch used for this report."

@@ -1,2 +1,0 @@
-city,source_path,library_locations,fixed_library_locations,mobile_service_points,coordinate_verified_locations,coordinate_pending_locations,coordinate_coverage_pct,coordinate_coverage_status,routing_tier,access_status,confidence,notes
-delhi,data/cities/delhi/source/libraries/dpl_library_locations.csv,111,35,76,5,106,4.5,partial,not_computed,geocoding_required,medium,DPL-published addresses parsed; access routing waits for geocoding and population origin grid.

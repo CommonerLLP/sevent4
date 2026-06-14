@@ -1,4 +1,0 @@
-pair,comparison_status,city_a,city_b,city_a_library_locations,city_b_library_locations,city_a_access_status,city_b_access_status,notes
-ahmedabad_delhi,available,ahmedabad,delhi,83,111,population_origins_required,geocoding_required,Location coverage comparison only; population-weighted travel-time comparison is not ready.
-ahmedabad_toronto,missing_city_summary,ahmedabad,toronto,83,,population_origins_required,,Missing library access summary for: toronto.
-delhi_toronto,missing_city_summary,delhi,toronto,111,,geocoding_required,,Missing library access summary for: toronto.

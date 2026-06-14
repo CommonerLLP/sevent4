@@ -1,5 +1,0 @@
-area,year,population,role,source_name,source_url,confidence,notes
-NCT of Delhi,2011,16787941,audit_only,Census 2011,https://censusindia.gov.in/,high,"Official Census 2011 NCT population. Kept for audit only; not used as the current DPL denominator."
-NCT of Delhi,2020,19000000,primary_service_area_denominator,theright2read TG 2020 rounded state population,/Users/aakash/Developer/CommonerLLP/theright2read/spend/spend_data.py,medium,"theright2read stores STATE_POP_MN['Delhi'] = 19, citing MoHFW Technical Group Population Projections 2011-2036. Used as conservative projected NCT denominator for DPL 2023-24 until the exact annual Delhi TG row is promoted."
-National Capital Region,2024,27000000,sensitivity_low,user-cited NCR/UNESCO range,,low,"Not used for primary comparison. Lower-bound shadow-catchment sensitivity for NCR-scale latent demand."
-National Capital Region,2024,32000000,sensitivity_high,user-cited NCR/UNESCO range,,low,"Not used for primary comparison. Upper-bound shadow-catchment sensitivity for NCR-scale latent demand."

@@ -1,1 +1,0 @@
-{"type": "FeatureCollection", "crs": {"type": "name", "properties": {"name": "urn:ogc:def:crs:OGC:1.3:CRS84"}}, "features": [{"type": "Feature", "properties": {"osm_id": 2652376945, "osm_type": "node", "amenity": "library", "name": "Book Club"}, "geometry": {"type": "Point", "coordinates": [80.2292902, 26.5047557]}}]}
