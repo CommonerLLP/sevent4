@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import os
 import pathlib
+import re
 import time
 
 import pandas as pd
@@ -43,6 +44,22 @@ def clean(addr: str, name: str) -> str:
     if "india" not in a.lower():
         a += ", India"
     return a
+
+
+def resolve_maps_url(url: str):
+    """Resolve a DPL-published goo.gl/maps shortlink to its place-pin coordinates.
+    Prefers the !3d<lat>!4d<lon> place pin over the @lat,lng viewport centre."""
+    try:
+        r = requests.get(url, allow_redirects=True, timeout=20, headers={"User-Agent": "Mozilla/5.0"})
+        u = r.url
+        m = (re.search(r"!3d(-?\d+\.\d+)!4d(-?\d+\.\d+)", u)
+             or re.search(r"@(-?\d+\.\d+),(-?\d+\.\d+)", u)
+             or re.search(r"[?&]q=(-?\d+\.\d+),(-?\d+\.\d+)", u))
+        if m:
+            return float(m.group(1)), float(m.group(2)), u
+    except Exception as e:
+        print("  maps-url err", e)
+    return None, None, None
 
 
 def geocode_google(q: str):
@@ -81,16 +98,24 @@ def geocode(q: str):
 def main():
     df = pd.read_csv(SRC)
     rows = []
-    fixed = df[df["location_type"].isin(FIXED)].copy()
-    print(f"{len(fixed)} fixed-network locations; {fixed['latitude'].notna().sum()} already have coords; "
-          f"google={'ON' if GKEY else 'off'}")
-    for _, r in fixed.iterrows():
+    print(f"{len(df)} total DPL locations ({df['location_type'].isin(FIXED).sum()} fixed, "
+          f"{(~df['location_type'].isin(FIXED)).sum()} mobile); "
+          f"{df['map_url'].notna().sum()} have a DPL map link; google={'ON' if GKEY else 'off'}")
+    for _, r in df.iterrows():
         lat, lon, conf, prov, label = r.get("latitude"), r.get("longitude"), None, None, None
-        if pd.notna(lat) and pd.notna(lon):
+        lat = None if pd.isna(lat) else lat   # empty cells read as NaN, not None
+        lon = None if pd.isna(lon) else lon
+        is_fixed = r["location_type"] in FIXED
+        if lat is not None and lon is not None:
             conf, prov = "verified", str(r.get("coordinate_source") or "source")
-        else:
+        elif pd.notna(r.get("map_url")):  # DPL-published map pin — authoritative
+            lat, lon, label = resolve_maps_url(str(r["map_url"]))
+            if lat is not None:
+                conf, prov = "dpl_maps_pin", "dpl_google_maps"
+            time.sleep(0.2)
+        if lat is None:  # geocode by address
             q = clean(r.get("address"), r.get("name"))
-            if GKEY:  # accurate path
+            if GKEY:
                 lat, lon, label, prec = geocode_google(q)
                 if lat is None:
                     lat, lon, label, prec = geocode_google(f"{r['name']}, Delhi, India")
@@ -101,17 +126,14 @@ def main():
             if lat is None:  # Nominatim fallback
                 lat, lon, label = geocode(q)
                 time.sleep(1.1)
-                if lat is None:
-                    lat, lon, label = geocode(f"{r['name']}, Delhi, India")
-                    time.sleep(1.1)
                 if lat is not None:
                     conf, prov = "nominatim_approx", "nominatim"
-            if lat is None:
-                conf, prov = "failed", None
-            print(f"  {r['name'][:40]:40s} -> {conf}")
+        if lat is None:
+            conf, prov = "failed", None
+        print(f"  [{'FIX' if is_fixed else 'mob'}] {str(r['name'])[:38]:38s} -> {conf}")
         rows.append({
             "library_id": r["library_id"], "name": r["name"],
-            "location_type": r["location_type"], "zone": r.get("zone"),
+            "location_type": r["location_type"], "is_fixed": is_fixed, "zone": r.get("zone"),
             "latitude": lat, "longitude": lon, "geocode_confidence": conf,
             "geocode_provider": prov, "geocode_label": label, "address": r.get("address"),
         })
