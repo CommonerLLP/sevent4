@@ -140,13 +140,15 @@ def main() -> None:
 def _register_dpl_layer() -> None:
     mp = LAYERS / "layer_manifest.json"
     m = json.loads(mp.read_text())
-    entry = {"id": "dpl", "label": "DPL libraries (fixed network)", "file": "dpl_libraries.geojson",
+    # the authoritative DPL fixed network IS Delhi's libraries layer — present it
+    # like every other city: id "libraries", label "Libraries", standard yellow circle.
+    entry = {"id": "libraries", "label": "Libraries", "file": "dpl_libraries.geojson",
              "kind": "circle", "group": "Public services", "default": True,
              "popup": ["Name", "location_type", "zone", "geocode_confidence"],
-             "paint": {"circle-color": "#11304a", "circle-radius": 4.5, "circle-stroke-color": "#ffffff",
-                       "circle-stroke-width": 1.0, "circle-opacity": 0.9}}
+             "paint": {"circle-color": "#e0b84d", "circle-radius": 3.2, "circle-stroke-color": "#101318",
+                       "circle-stroke-width": 0.6, "circle-opacity": 0.85}}
     ids = {l["id"] for l in m["layers"]}
-    m["layers"] = [entry if l["id"] == "dpl" else l for l in m["layers"]] if "dpl" in ids \
+    m["layers"] = [entry if l["id"] == "libraries" else l for l in m["layers"]] if "libraries" in ids \
         else m["layers"] + [entry]
     mp.write_text(json.dumps(m, ensure_ascii=False, indent=2), encoding="utf-8")
 
