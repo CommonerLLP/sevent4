@@ -55,6 +55,9 @@ CITY_META = {
     "jaipur": {"name": "Jaipur", "state": "Rajasthan", "district": "Jaipur",
         "council": {"status": "administrator", "since": "2025-04",
             "note": "Administrator-run — the Heritage & Greater corporations' terms expired and the state is merging them; elections delayed on the Rajasthan OBC-report question."}},
+    "delhi": {"name": "Delhi", "state": "Delhi (NCT)", "district": "Delhi",
+        "council": {"status": "elected", "since": "2022-12",
+            "note": "Elected MCD council since Dec 2022 — the trifurcated North/South/East corporations were re-unified into a single 250-ward Municipal Corporation of Delhi. AAP won the 2022 poll (~134/250); the mayoralty passed to the BJP (Mayor Raja Iqbal Singh, Apr 2025) after the BJP's Feb 2025 NCT assembly win. NCT special case: the MCD is only one of three civic bodies — the New Delhi Municipal Council (NDMC) and the Delhi Cantonment Board run their own areas, and most city functions sit with the GNCTD / Lieutenant-Governor, not the municipality."}},
 }
 
 # source OSM filename -> (layer id, display label, geometry kind, group, default)
