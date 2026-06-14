@@ -171,15 +171,15 @@ appendix.
 
 The spatial layers are now built, with their limits stated up front. Of DPL's 111
 published locations, 35 are fixed service points (fixed, zonal, sub-branch, and
-community libraries), and all 35 are now located — 20 at verified or rooftop precision
-(DPL-published coordinates and Google rooftop matches) and 15 at approximate
-address-level precision. Delhi's Metro network is joined from OpenStreetMap (246
-stations and the line geometry), and ward boundaries are the pre-2022 set (the 2022
-unified-MCD 250-ward delimitation is not openly available as geometry). This is enough
-to compute ward walk-access and transit-siting for the fixed network, which we do
-below; the maps should be read as indicative of sparsity, not as a survey, and mobile
-service points are excluded because they are not fixed access. Full DTC/cluster-bus
-route geometry remains the next step.
+community libraries), and all 35 are now located at verified or rooftop precision — 28
+of them from DPL's own published map links, the rest from rooftop geocoding. Delhi's
+Metro is joined from OpenStreetMap (246 stations and the line geometry) and the
+DTC/cluster bus network from the Open Transit Data GTFS feed (10,559 stops; 2,400-plus
+routes); ward boundaries are the pre-2022 set (the 2022 unified-MCD 250-ward
+delimitation is not openly available as geometry). This is enough to compute ward
+walk-access and transit-siting for the fixed network, which we do below; the maps
+should be read as indicative of sparsity, not a survey, and mobile service points are
+excluded because they are not fixed access.
 
 ## Delhi I — who uses it, and the decade of collapse
 
@@ -242,28 +242,41 @@ system is thin relative to the population it nominally serves.
 
 Density understates the problem, because the fixed branches are not spread to where
 people live. Mapping all 35 fixed branches against Delhi's wards (Figure 3), only
-**59 of 290 wards — about 20 percent — fall within a 1.2 km (roughly 15-minute) walk
-of a fixed DPL branch**, and the median ward sits **2.13 km** from its nearest one. The
-branches cluster in the old core (New Delhi, Central, North, and West districts hold
-two-thirds of them) while the outer districts — South West, North East, East — have one
-or two each. For most of Delhi, the nearest public library is not walkable.
+**57 of 290 wards — about 20 percent — fall within a 1.2 km (roughly 15-minute) walk
+of a fixed DPL branch**, and the median ward sits **2.53 km** from its nearest one; put
+spatially, barely **9 percent of the city's land area** lies within that walk. The
+network is also lopsided: its mean centre sits about **7 km east-northeast of Delhi's
+geographic centre**, pulled into the old core (New Delhi, North, Central, and Shahdara
+districts hold most branches) while outer districts — South West, East, North East —
+have one each. For most of Delhi, the nearest public library is not walkable.
 
-![Distance from each Delhi ward to its nearest fixed DPL branch. Only about 20 percent of wards lie within a 1.2 km walk; the periphery is largely unserved. Coordinates: 20 verified/rooftop, 15 approximate; mobile service points excluded.](figures/figD3_dpl_walk_access.png){#fig-walk width=100%}
+![Distance from each Delhi ward to its nearest fixed DPL branch. Only about 20 percent of wards lie within a 1.2 km walk and barely 9 percent of the city's land area; the periphery is largely unserved. Coordinates: all 35 verified/rooftop (28 from DPL's own published map links); mobile service points excluded.](figures/figD3_dpl_walk_access.png){#fig-walk width=100%}
 
-Nor does transit rescue the reach. Joining the branches to Delhi's Metro — one of the
-densest rapid-transit networks in the country — only **17 of the 35 fixed branches sit
-within 800 m of a Metro station, and just 9 within 400 m** (Figure 4). Half the fixed
-network is off the rapid-transit grid that already carries the students, women, and
-low-income riders a public library is meant to serve. Siting service on the corridors
-where Delhi already moves is the most direct way to extend reach without building a
-single new branch.
+Transit only partly rescues the reach, and unevenly by mode. Against Delhi's Metro —
+one of the densest rapid-transit networks in the country — only **16 of the 35 fixed
+branches sit within 800 m of a Metro station, and just 7 within 400 m** (Figure 4):
+half the network is off the *rapid*-transit grid. The DTC and cluster bus network does
+markedly better — **27 of the 35 branches are within 400 m of a bus stop** (of 10,559
+stops citywide) — so most branches are reachable by bus, the slower and more crowded
+mode, while the faster Metro that could widen their catchment largely misses them.
+Siting new service on the Metro corridors where Delhi already moves is the most direct
+way to extend reach without building a single new branch.
 
 ![Fixed DPL branches against the Delhi Metro network (OpenStreetMap: 246 stations and the line geometry). Branches more than 800 m from a station are marked in red. Half the fixed network is off the Metro grid.](figures/figD4_dpl_transit_siting.png){#fig-transit width=100%}
 
-The maps are indicative, not survey-grade: 15 of the 35 coordinates are approximate
-(address-level rather than rooftop) and the ward layer is the pre-2022 set. But the
-pattern is robust to that noise — a sparse network, concentrated in the core, only
-loosely tied to the transit that could carry people to it.
+Two caveats bound these maps. First, the library points are now firm — all 35 fixed
+branches are placed at verified or rooftop precision, 28 of them from DPL's own
+published map links — so the residual uncertainty is the ward layer (the pre-2022 set),
+not the branch locations. Second, and more important, the 1.2 km walk is a deliberately
+strict floor. Many Delhi residents do not reach a branch on foot: they take an
+auto-rickshaw, an app-cab (Ola/Uber), a two-wheeler, a cycle-rickshaw, or a bicycle,
+and this pedestrian measure counts none of those modes — so it understates who *could*
+in principle reach a library, and the Metro cut (Figure 4) captures only one slice of
+that wider, motorised catchment. The walk standard is kept all the same because it is
+the right test for the readers a public library most exists to serve — children,
+students, older people, and the carless poor, for whom the short walk is the only free
+mode. The pattern is robust to both caveats: a sparse network, concentrated in the
+core, only loosely tied to the networks that move the rest of the city.
 
 ## Toronto, briefly: a background yardstick
 
@@ -314,10 +327,10 @@ precondition for fixing any of it.
 DPL disclosure still lacks several IFLA-style fields: physical visits (as distinct
 from reading-room attendance), e-book and digital use, full-time staff, internet
 access points, and branch-level hours and capacity. The two highest-value extensions
-are: completing the spatial picture — geocoding the mobile service points, upgrading
-the 15 approximate fixed coordinates to rooftop precision, and adding DTC/cluster-bus
-route geometry to the Metro, RRTS, and suburban rail already joined; and extending the
-disclosed finance series back before 2021-22 to date the onset of under-spending.
+are: extending the disclosed finance series back before 2021-22 to date the onset of
+under-spending; and adding the per-branch physical detail DPL does not publish in one
+place — reading-room capacity, opening hours, staff, and internet access — which a
+short RTI or site survey could supply to turn the reach maps into a service audit.
 
 ## Conclusion
 

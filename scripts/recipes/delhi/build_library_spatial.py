@@ -21,6 +21,7 @@ Run: .venv/bin/python scripts/recipes/delhi/build_library_spatial.py
 """
 from __future__ import annotations
 import json
+import math
 import pathlib
 
 import geopandas as gpd
@@ -44,7 +45,10 @@ mpl.rcParams.update({"font.family": "Helvetica", "font.size": 10.5,
 def load_dpl() -> gpd.GeoDataFrame:
     df = pd.read_csv(GEO)
     df = df[df["latitude"].notna() & df["longitude"].notna()].copy()
-    df["verified"] = df["geocode_confidence"].eq("verified")
+    if "is_fixed" in df.columns:            # analyse the fixed network only
+        df = df[df["is_fixed"]].copy()
+    df["verified"] = df["geocode_confidence"].isin(
+        ["verified", "google_verified", "dpl_maps_pin"])
     g = gpd.GeoDataFrame(df, geometry=[Point(xy) for xy in zip(df["longitude"], df["latitude"])],
                          crs="EPSG:4326")
     return g
@@ -52,9 +56,11 @@ def load_dpl() -> gpd.GeoDataFrame:
 
 def main() -> None:
     dpl = load_dpl()
-    hi = int(dpl["geocode_confidence"].isin(["verified", "google_verified"]).sum())
+    hi = int(dpl["geocode_confidence"].isin(["verified", "google_verified", "dpl_maps_pin"]).sum())
     approx = len(dpl) - hi
-    conf_note = f"Coordinates: {hi} verified/rooftop, {approx} approximate. Mobile service points excluded."
+    pins = int(dpl["geocode_confidence"].eq("dpl_maps_pin").sum())
+    conf_note = (f"Coordinates: {hi} verified/rooftop ({pins} from DPL's own map links), "
+                 f"{approx} approximate. Mobile service points excluded.")
     districts = gpd.read_file(LAYERS / "districts.geojson").to_crs(4326)
     wards = gpd.read_file(LAYERS / "wards.geojson").to_crs(4326)
     metro = gpd.read_file(LAYERS / "metro.geojson").to_crs(4326)
@@ -91,6 +97,34 @@ def main() -> None:
     dpl4326 = dpl.to_crs(4326)
     joined = gpd.sjoin(dpl4326, districts[["district", "geometry"]], how="left", predicate="within")
     per_district = joined.groupby("district").size().sort_values(ascending=False)
+
+    # ---- multi-radius reach + city-area coverage ----
+    reach = {f"wards_within_{int(r*1000)}m": int((wards_m["dpl_km"] <= r).sum())
+             for r in (0.8, 1.2, 2.0, 3.0)}
+    nct_poly = wards_m.union_all()
+    area_cov_1200 = round(100 * dpl_m.geometry.buffer(1200).union_all()
+                          .intersection(nct_poly).area / nct_poly.area, 1)
+
+    # ---- centroid / dispersion (how core-clustered is the network?) ----
+    cx, cy = float(dpl_m.geometry.x.mean()), float(dpl_m.geometry.y.mean())
+    nct_c = nct_poly.centroid
+    centroid_offset_km = round(math.hypot(cx - nct_c.x, cy - nct_c.y) / 1000.0, 2)
+    bearing = round((math.degrees(math.atan2(cx - nct_c.x, cy - nct_c.y)) + 360) % 360)
+    std_dist_km = round(math.sqrt((((dpl_m.geometry.x - cx) ** 2 +
+                                    (dpl_m.geometry.y - cy) ** 2).mean())) / 1000.0, 2)
+
+    # ---- bus (GTFS) proximity — uses the 10k+ DTC/cluster stops if present ----
+    bus_stats = {}
+    bus_f = LAYERS / "bus_stops.geojson"
+    if bus_f.exists():
+        bus_m = gpd.read_file(bus_f).to_crs(M)
+        bnear = dpl_m.geometry.apply(lambda p: bus_m.distance(p).min())
+        bus_stats = {"dpl_within_400m_bus": int((bnear <= 400).sum()),
+                     "dpl_within_200m_bus": int((bnear <= 200).sum()),
+                     "bus_stops_total": len(bus_m)}
+    # any-transit reach: within 400m of a metro station OR a bus stop
+    any_transit_400 = int(((dpl["metro_m"] <= 400) |
+                           (bnear.values <= 400 if bus_stats else False)).sum())
 
     # ---- figD3: ward walk-access choropleth ----
     fig, ax = plt.subplots(figsize=(7.4, 7.0))
@@ -133,7 +167,11 @@ def main() -> None:
         "wards_total": n_wards, "wards_within_1200m": within_1200,
         "wards_within_1200m_pct": round(100 * within_1200 / n_wards, 1),
         "median_ward_km_to_dpl": round(float(wards_m["dpl_km"].median()), 2),
+        "reach_by_radius": reach, "city_area_pct_within_1200m": area_cov_1200,
+        "centroid_offset_from_city_km": centroid_offset_km, "centroid_bearing_deg": bearing,
+        "network_std_distance_km": std_dist_km,
         "dpl_within_800m_metro": within800, "dpl_within_400m_metro": within400,
+        "dpl_within_400m_any_transit": any_transit_400, **bus_stats,
         "per_district": per_district.to_dict(),
     }
     print(json.dumps(stats, indent=2))
