@@ -38,6 +38,7 @@ transfers, accounts, and audit decide whether devolution is real or only
 statutory. See [Finance Commissions and Municipal Devolution](research/finance-commission-local-bodies.md),
 [RBI Municipal Finance Reports](research/rbi-municipal-finances.md), and
 [State Finance Commission Histories](research/state-finance-commission-histories.md).
+The follow-on synthesis is [Fiscal Devolution Versus Political Devolution](research/decentralization-fiscal-vs-political.md).
 
 Ahmedabad is the first working example. Fork the repo, replace the city data,
 and build the same console for Kolkata, Chennai, Bengaluru, Hyderabad, Pune,
