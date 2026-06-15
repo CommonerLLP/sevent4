@@ -2,7 +2,7 @@
   "source": {
     "cover_text": "REPORT ON\nMUNICIPAL FINANCES\n\n\n\n\n  RESERVE BANK OF INDIA\n        November 2024\n In India   \u2013    \u20b9 300    (Over the Counter)\n           \u2013    \u20b9 350    (Inclusive of Postal Charges)\nAbroad     \u2013    US$ 16 (Inclusive of Air Mail Courier Charges)\n\n\n\n\n\u00a9 Reserve Bank of India 2024\nAll rights reserved. Reproduction is permitted provided an acknowledgement of the source is made.\n\n\n\n\nPublished by Dr.",
     "parser": "scripts/research/parse_rbi_municipal_finances.py",
-    "path": "/Volumes/m1-storage/fiddlewiddle/twenty27/data-raw/budget/RBI_Report_on_Municipal_Finances.pdf",
+    "path": "data/reference/RBI_Report_on_Municipal_Finances.pdf",
     "sha256": "ac021f301bce38e65eaed2328f028d61d15112e2abeb22e6414d92efc1c351db"
   },
   "tables": {

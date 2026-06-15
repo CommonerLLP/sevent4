@@ -13,8 +13,8 @@ Commission grants, accounts, and expenditure.
 
 | Report round | Local source status | Use in this repo |
 |---|---|---|
-| RBI 2024, `Report on Municipal Finances`, November 2024 | Verified local PDF. Two copies found with the same SHA-256: `ac021f301bce38e65eaed2328f028d61d15112e2abeb22e6414d92efc1c351db`. Primary copy parsed from `/Volumes/m1-storage/fiddlewiddle/twenty27/data-raw/budget/RBI_Report_on_Municipal_Finances.pdf`. | Parsed into `research/rbi_municipal_finances_2024_extract.json` by `scripts/research/parse_rbi_municipal_finances.py`. |
-| RBI 2022, maiden `Report on Municipal Finances`, November 2022 | A local 2022 PDF was not found on `/Volumes/m1-storage` or `/Volumes/m1-backup` by filename/content search. RBI's official press release and publication page were found. The full PDF URL is published, but direct `rbidocs` asset requests returned anti-automation HTML in this environment. | Parsed from official RBI `PublicationsView.aspx` HTML pages into `research/rbi_municipal_finances_2022_extract.json` by `scripts/research/parse_rbi_municipal_finances_2022.py`. |
+| RBI 2024, `Report on Municipal Finances`, November 2024 | Verified local PDF. Two copies found with the same SHA-256: `ac021f301bce38e65eaed2328f028d61d15112e2abeb22e6414d92efc1c351db`. Primary copy parsed from `data/reference/RBI_Report_on_Municipal_Finances.pdf`. | Parsed into `research/rbi_municipal_finances_2024_extract.json` by `scripts/research/parse_rbi_municipal_finances.py`. |
+| RBI 2022, maiden `Report on Municipal Finances`, November 2022 | A local 2022 PDF was not found on local storage drives by filename/content search. RBI's official press release and publication page were found. The full PDF URL is published, but direct `rbidocs` asset requests returned anti-automation HTML in this environment. | Parsed from official RBI `PublicationsView.aspx` HTML pages into `research/rbi_municipal_finances_2022_extract.json` by `scripts/research/parse_rbi_municipal_finances_2022.py`. |
 
 ## Deterministic Parse Contract
 
