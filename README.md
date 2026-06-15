@@ -58,6 +58,11 @@ The broad political frame and operating plan live in repo docs:
 - [Urban Agglomeration Model](docs/urban-agglomeration-model.md): the doctrine
   for explaining official city limits, lived city-regions, and Delhi NCR's
   special legal, fiscal, political, social, and economic structure.
+- [Source Policy and City Readiness](docsx/source-policy-and-readiness.md): the
+  rules for OSM, Google Maps, official sources, and graded city readiness.
+- [Ready-City Geo Layer Queue](docsx/ready-city-geo-layer-queue.md): the next
+  geodata acquisition targets for Ahmedabad, Bengaluru, Chennai, Delhi, and
+  Kolkata.
 
 ## Public Atlas
 
