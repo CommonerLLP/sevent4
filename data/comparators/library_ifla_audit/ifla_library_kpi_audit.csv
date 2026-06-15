@@ -1,0 +1,21 @@
+city,library_system,metric_name,ifla_label,status,value,year,source_path,notes,request_priority
+ahmedabad,Sheth M.J. Library / Ahmedabad municipal library network,service_points,Libraries (Service Points),available,83,current_extract,data/cities/ahmedabad/source/libraries/ahmedabad_library_locations.csv,AMC/M.J. location inventory has 83 geocoded library rows.,
+ahmedabad,Sheth M.J. Library / Ahmedabad municipal library network,libraries_with_internet_access,Libraries with Internet Access,partial,1+,current_site_capture,data/cities/ahmedabad/source/libraries/mj_library_site_content.json,M.J. site says Wi-Fi is available at M.J. Library; branch-wise internet availability is not disclosed.,ask_librarian
+ahmedabad,Sheth M.J. Library / Ahmedabad municipal library network,full_time_staff,Full-Time Staff,missing,,,,No network-level FTE/full-time staff count found in the curated public extract.,rti_or_request
+ahmedabad,Sheth M.J. Library / Ahmedabad municipal library network,volunteers,Volunteers,missing,,,,No volunteer count found in the curated public extract.,low
+ahmedabad,Sheth M.J. Library / Ahmedabad municipal library network,registered_users,Registered Users,available,26834,2025-26,data/cities/ahmedabad/source/libraries/mj_library_annual_stats.csv,"Registered member roll, including annual, lifetime, and Gyanvihar members.",
+ahmedabad,Sheth M.J. Library / Ahmedabad municipal library network,physical_visits,Physical Visits,missing,,,,Gate/physical visit count is not in the curated M.J. disclosure table.,rti_or_request
+ahmedabad,Sheth M.J. Library / Ahmedabad municipal library network,physical_loans,Physical Loans,available,96491,2025-26,data/cities/ahmedabad/source/libraries/mj_library_annual_stats.csv,M.J. annual circulation/issue count.,
+ahmedabad,Sheth M.J. Library / Ahmedabad municipal library network,ebook_loans,eBook Loans,missing,,,,Digital/e-book loan count is not in the curated public extract.,ask_librarian
+ahmedabad,Sheth M.J. Library / Ahmedabad municipal library network,audio_book_loans,Audio Book Loans,missing,,,,Audio/talking-book loan count is not in the curated public extract.,ask_librarian
+ahmedabad,Sheth M.J. Library / Ahmedabad municipal library network,downloads,Downloads,missing,,,,Digital download count is not in the curated public extract.,ask_librarian
+delhi,Delhi Public Library,service_points,Libraries (Service Points),partial,111,current_extract,data/cities/delhi/derived/library_access/dpl_service_hierarchy_summary.csv,111 DPL-published/geocoded locations are in the working hierarchy; DPL annual report also reports a broader 163-touchpoint inclusive count.,
+delhi,Delhi Public Library,libraries_with_internet_access,Libraries with Internet Access,missing,,,,No branch-wise internet-access count found in the curated DPL extract.,rti_or_request
+delhi,Delhi Public Library,full_time_staff,Full-Time Staff,partial,138,2023-24,data/cities/delhi/source/libraries/dpl_metrics_long.csv,"DPL reports filled posts, but not a clean IFLA full-time/FTE field in the current extract.",clarify_with_dpl
+delhi,Delhi Public Library,volunteers,Volunteers,missing,,,,No volunteer count found in the curated DPL extract.,low
+delhi,Delhi Public Library,registered_users,Registered Users,available,110534,2023-24,data/cities/delhi/source/libraries/dpl_metrics_long.csv,DPL registered members from annual report.,
+delhi,Delhi Public Library,physical_visits,Physical Visits,partial,335270,2023-24,data/cities/delhi/source/libraries/dpl_metrics_long.csv,"DPL reports reading-room attendance, not total branch visits.",clarify_with_dpl
+delhi,Delhi Public Library,physical_loans,Physical Loans,available,274751,2023-24,data/cities/delhi/source/libraries/dpl_metrics_long.csv,DPL annual book issues.,
+delhi,Delhi Public Library,ebook_loans,eBook Loans,missing,,,,No e-book loan count found in the curated DPL extract.,rti_or_request
+delhi,Delhi Public Library,audio_book_loans,Audio Book Loans,missing,,,,No audio-book loan count found in the curated DPL extract.,rti_or_request
+delhi,Delhi Public Library,downloads,Downloads,missing,,,,No digital-download count found in the curated DPL extract.,rti_or_request
