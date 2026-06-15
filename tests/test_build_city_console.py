@@ -54,7 +54,7 @@ class FeatureOptionsTest(unittest.TestCase):
             for path in Path("data/cities").glob("*/layers/jurisdiction_crosswalk.json")
         }
 
-        self.assertLessEqual(crosswalk_cities, READY_CITIES)
+        self.assertLessEqual(READY_CITIES, crosswalk_cities)
 
     def test_layer_json_carries_year_control_metadata(self) -> None:
         city = CityDataset(

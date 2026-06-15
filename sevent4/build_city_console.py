@@ -89,17 +89,9 @@ def _copy_layers(city: CityDataset, manifest: LayerManifest, layer_out: Path) ->
 READY_CITIES = {
     "ahmedabad",
     "bengaluru",
-    "bhubaneswar",
     "chennai",
     "delhi",
-    "hyderabad",
-    "jaipur",
-    "kanpur",
-    "kochi",
     "kolkata",
-    "mumbai",
-    "pune",
-    "visakhapatnam",
 }
 ABSENT_CITIES = {
     "Gujarat": ["Surat", "Vadodara", "Rajkot"],
