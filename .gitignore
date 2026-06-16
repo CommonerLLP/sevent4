@@ -49,6 +49,9 @@ data/cities/*/source/**/*.gz
 
 # Stray scratch dumps at repo root
 /s.json
+/public-libraries-*.html
+/public-libraries-*.pdf
+/mcd_map_full_zone_image_cd_*.pdf
 
 # ── Secrets — API keys, never publish ──
 .secrets/
