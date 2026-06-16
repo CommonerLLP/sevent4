@@ -44,6 +44,51 @@
    }
   ]
  },
+ "delhi": {
+  "name": "Delhi",
+  "elected": 5,
+  "n": 13,
+  "pct": 38,
+  "decided": {
+   "city": 5,
+   "state": 5,
+   "centre": 4,
+   "total": 14,
+   "pct_city": 36
+  },
+  "taken": [
+   {
+    "service": "Water supply",
+    "provider": "Delhi Jal Board",
+    "by": "the territorial govt"
+   },
+   {
+    "service": "City bus",
+    "provider": "DTC / DIMTS",
+    "by": "the territorial govt"
+   },
+   {
+    "service": "Metro",
+    "provider": "DMRC",
+    "by": "a centre-state SPV"
+   },
+   {
+    "service": "Urban planning / land",
+    "provider": "DDA",
+    "by": "the central govt"
+   },
+   {
+    "service": "Police",
+    "provider": "Delhi Police",
+    "by": "the central govt"
+   },
+   {
+    "service": "Fire services",
+    "provider": "Delhi Fire Services",
+    "by": "the territorial govt"
+   }
+  ]
+ },
  "bengaluru": {
   "name": "Bengaluru",
   "elected": 6,
@@ -406,36 +451,6 @@
     "service": "Fire services",
     "provider": "AP Fire Services",
     "by": "the state govt"
-   }
-  ]
- },
- "nagpur": {
-  "name": "Nagpur",
-  "elected": 9,
-  "n": 12,
-  "pct": 75,
-  "decided": {
-   "city": 9,
-   "state": 5,
-   "centre": 0,
-   "total": 14,
-   "pct_city": 64
-  },
-  "taken": [
-   {
-    "service": "Water supply",
-    "provider": "Orange City Water (OCW) — PPP with NMC",
-    "by": "a private firm"
-   },
-   {
-    "service": "Metro",
-    "provider": "Maha Metro (Nagpur Metro)",
-    "by": "a state SPV"
-   },
-   {
-    "service": "Urban planning / land",
-    "provider": "NIT (Nagpur Improvement Trust)",
-    "by": "a state board"
    }
   ]
  },

@@ -30,6 +30,12 @@
   "district": "Chennai"
  },
  {
+  "id": "delhi",
+  "name": "Delhi",
+  "state": "Delhi (NCT)",
+  "district": "Delhi"
+ },
+ {
   "id": "hyderabad",
   "name": "Hyderabad",
   "state": "Telangana",
