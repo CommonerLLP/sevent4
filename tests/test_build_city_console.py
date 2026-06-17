@@ -3,7 +3,14 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from sevent4.build_city_console import READY_CITIES, _feature_options, _js, _layer_json, _toggles
+from sevent4.build_city_console import (
+    CITY_READINESS,
+    READY_CITIES,
+    _feature_options,
+    _js,
+    _layer_json,
+    _toggles,
+)
 from sevent4.city_dataset import CityDataset
 from sevent4.layer_manifest import LayerSpec
 
@@ -54,7 +61,27 @@ class FeatureOptionsTest(unittest.TestCase):
             for path in Path("data/cities").glob("*/layers/jurisdiction_crosswalk.json")
         }
 
-        self.assertLessEqual(crosswalk_cities, READY_CITIES)
+        self.assertLessEqual(READY_CITIES, crosswalk_cities)
+
+    def test_ready_cities_are_the_approved_selectable_set(self) -> None:
+        self.assertEqual(
+            READY_CITIES,
+            {"ahmedabad", "bengaluru", "chennai", "delhi", "kolkata"},
+        )
+
+    def test_finance_grades_use_standard_keywords(self) -> None:
+        standard_grades = {"strong", "partial", "research_only", "missing", "special_case_partial"}
+
+        self.assertLessEqual(
+            {grades["finance_grade"] for grades in CITY_READINESS.values()},
+            standard_grades,
+        )
+        for grades in CITY_READINESS.values():
+            self.assertNotIn("ahmedabad", grades["finance_grade"])
+
+        self.assertEqual(CITY_READINESS["ahmedabad"]["finance_grade"], "strong")
+        self.assertEqual(CITY_READINESS["delhi"]["finance_grade"], "special_case_partial")
+        self.assertEqual(CITY_READINESS["kolkata"]["finance_grade"], "research_only")
 
     def test_layer_json_carries_year_control_metadata(self) -> None:
         city = CityDataset(

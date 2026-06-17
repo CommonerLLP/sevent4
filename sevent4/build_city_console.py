@@ -84,23 +84,46 @@ def _copy_layers(city: CityDataset, manifest: LayerManifest, layer_out: Path) ->
             shutil.copy2(path, layer_out / sidecar)
 
 
-# Cities with a full, deep build (spine + finance/heat/etc.) are SELECTABLE;
-# everything else (scaffold consoles + absent major cities) shows GREYED ("coming").
-READY_CITIES = {
-    "ahmedabad",
-    "bengaluru",
-    "bhubaneswar",
-    "chennai",
-    "delhi",
-    "hyderabad",
-    "jaipur",
-    "kanpur",
-    "kochi",
-    "kolkata",
-    "mumbai",
-    "pune",
-    "visakhapatnam",
+# City readiness is graded because "selectable console" is not the same as
+# strong finance, walkability, governance, or source confidence.
+CITY_READINESS = {
+    "ahmedabad": {
+        "console_grade": "full",
+        "finance_grade": "strong",
+        "walkability_grade": "routable",
+        "governance_grade": "strong",
+        "source_confidence": "mixed_official",
+    },
+    "bengaluru": {
+        "console_grade": "full",
+        "finance_grade": "partial",
+        "walkability_grade": "approximate",
+        "governance_grade": "partial",
+        "source_confidence": "mixed_official",
+    },
+    "chennai": {
+        "console_grade": "full",
+        "finance_grade": "partial",
+        "walkability_grade": "approximate",
+        "governance_grade": "partial",
+        "source_confidence": "mixed_official",
+    },
+    "delhi": {
+        "console_grade": "full",
+        "finance_grade": "special_case_partial",
+        "walkability_grade": "approximate",
+        "governance_grade": "special_case",
+        "source_confidence": "mixed_official",
+    },
+    "kolkata": {
+        "console_grade": "full",
+        "finance_grade": "research_only",
+        "walkability_grade": "approximate",
+        "governance_grade": "partial",
+        "source_confidence": "mixed_official",
+    },
 }
+READY_CITIES = {cid for cid, grades in CITY_READINESS.items() if grades["console_grade"] == "full"}
 ABSENT_CITIES = {
     "Gujarat": ["Surat", "Vadodara", "Rajkot"],
     "Karnataka": ["Mysuru", "Hubballi-Dharwad", "Mangaluru"],
@@ -126,7 +149,13 @@ def _geo_roster(city: CityDataset) -> tuple[dict, list[str]]:
             st, nm = cd.state, cd.name
         except Exception:
             continue
-        by_state.setdefault(st, []).append({"id": cid, "name": nm, "ready": cid in READY_CITIES})
+        readiness = CITY_READINESS.get(cid, {})
+        by_state.setdefault(st, []).append({
+            "id": cid,
+            "name": nm,
+            "ready": cid in READY_CITIES,
+            "readiness": readiness,
+        })
     for st, names in ABSENT_CITIES.items():
         have = {c["name"] for c in by_state.get(st, [])}
         for n in names:
@@ -290,6 +319,7 @@ _CANON: tuple[tuple[str, str, str, str | None], ...] = (
     ("bus_routes", "Bus routes", "Transit", "#e0913a"),
     ("stops", "Bus stops", "Transit", "#9ca3ad"),
     ("libraries", "Libraries", "Public services", "#e0b84d"),
+    ("ward_library_exclusion", "Library exclusion", "Public services", None),
     ("schools", "Schools", "Public services", "#1e9f8f"),
     ("health", "Health facilities", "Public services", "#49a35f"),
     ("universities", "Universities", "Public services", None),
@@ -909,6 +939,9 @@ def _js() -> str:
       councillor_parties: "Parties",
       service_priority: "Service priority",
       service_access: "Service access",
+      exclusion_index: "Library exclusion index",
+      nearest_library_km: "Nearest library (km)",
+      double_locked: "Double-locked ward",
       gtfs_stops: "Transit stops",
       mean_lst_c: "Mean surface heat",
       max_lst_c: "Max surface heat",

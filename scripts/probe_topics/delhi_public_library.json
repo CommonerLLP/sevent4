@@ -1,0 +1,34 @@
+{
+  "name": "delhi_public_library",
+  "description": "Focused parliamentary oversight profile for Delhi Public Library: governance, Delhi Library Board, staffing/vacancies, modernization, mobile services, grants, and Ministry of Culture oversight.",
+  "search_groups": {
+    "dpl_exact": [
+      "Delhi Public Library",
+      "Delhi Library Board"
+    ],
+    "dpl_capacity": [
+      "Delhi Public Library staff",
+      "Delhi Public Library vacancies",
+      "Delhi Public Library recruitment",
+      "Delhi Public Library posts"
+    ],
+    "dpl_service": [
+      "Delhi Public Library mobile library",
+      "Delhi Public Library modernization",
+      "Delhi Public Library branches",
+      "Delhi Public Library digital"
+    ],
+    "dpl_funding_oversight": [
+      "Delhi Public Library grant",
+      "Delhi Public Library Ministry of Culture",
+      "Delhi Public Library Raja Rammohun Roy Library Foundation",
+      "Delhi Public Library National Mission on Libraries"
+    ]
+  },
+  "lok_sabha_ministries": [
+    "CULTURE"
+  ],
+  "rajya_sabha_ministry_likes": [
+    "CULTURE"
+  ]
+}

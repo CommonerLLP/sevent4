@@ -1,0 +1,496 @@
+{
+  "source": {
+    "asset_note": "The official full PDF URL is recorded, but the deterministic extraction here uses official RBI PublicationsView HTML pages because direct rbidocs asset requests returned anti-automation HTML in this environment.",
+    "coverage_municipal_corporations": 201,
+    "official_urls": {
+      "appendix_i_delhi_html": "https://www.rbi.org.in/scripts/PublicationsView.aspx?id=21380",
+      "chapter_ii_html": "https://www.rbi.org.in/scripts/PublicationsView.aspx?id=21361",
+      "full_pdf": "https://rbidocs.rbi.org.in/rdocs/Publications/PDFs/RMF101120223A34C4F7023A4A9E99CB7F7FEF6881D0.PDF",
+      "press_release": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=54673",
+      "publication_page": "https://www.rbi.org.in/scripts/AnnualPublications.aspx?fromdate=11%2F09%2F2022&head=Report+on+Municipal+Finances&todate=11%2F11%2F2022"
+    },
+    "parser": "scripts/research/parse_rbi_municipal_finances_2022.py",
+    "release_date": "2022-11-10",
+    "report": "RBI Report on Municipal Finances",
+    "source_files": {
+      "appendix_revenue_delhi_html": {
+        "path": "/private/tmp/RBI_2022_appendix_revenue_delhi_view.html",
+        "sha256": "a385a9e70af8688c257cc8eb20fe5bb49ab98160aa98270d9504be0e14a2af7e"
+      },
+      "chapter2_html": {
+        "path": "/private/tmp/RBI_2022_ch2_publications_view.html",
+        "sha256": "b6e1dbd19cfe9bd049756ef19b38722445949b9d529412e00f80ec1538cadbf0"
+      },
+      "publication_page_html": {
+        "path": "/private/tmp/RBI_Report_on_Municipal_Finances_2022_publication_page.html",
+        "sha256": "cc9a214ca593ef556d38ea8fcda22b4a11c9f511b67fdd2307b7df7e5e7c378d"
+      }
+    },
+    "theme": "Alternative Sources of Financing for Municipal Corporations"
+  },
+  "tables": {
+    "appendix_i_revenue_receipts_delhi_all_states_uts": {
+      "All States/UTs": {
+        "assigned_revenues_compensation": {
+          "inr_crore": {
+            "2017-18_accounts": 16124.337,
+            "2018-19_be": 21615.26,
+            "2018-19_re": 22884.462,
+            "2019-20_be": 23413.068
+          },
+          "inr_lakh": {
+            "2017-18_accounts": 1612433.7,
+            "2018-19_be": 2161526.0,
+            "2018-19_re": 2288446.2,
+            "2019-20_be": 2341306.8
+          }
+        },
+        "central_transfers": {
+          "inr_crore": {
+            "2017-18_accounts": 3578.619,
+            "2018-19_be": 6235.854,
+            "2018-19_re": 5345.689,
+            "2019-20_be": 5237.816
+          },
+          "inr_lakh": {
+            "2017-18_accounts": 357861.9,
+            "2018-19_be": 623585.4,
+            "2018-19_re": 534568.9,
+            "2019-20_be": 523781.6
+          }
+        },
+        "fc_transfers": {
+          "inr_crore": {
+            "2017-18_accounts": 2284.519,
+            "2018-19_be": 2974.05,
+            "2018-19_re": 2940.985,
+            "2019-20_be": 3252.814
+          },
+          "inr_lakh": {
+            "2017-18_accounts": 228451.9,
+            "2018-19_be": 297405.0,
+            "2018-19_re": 294098.5,
+            "2019-20_be": 325281.4
+          }
+        },
+        "fees_user_charges": {
+          "inr_crore": {
+            "2017-18_accounts": 17518.153,
+            "2018-19_be": 21457.605,
+            "2018-19_re": 18874.518,
+            "2019-20_be": 22703.483
+          },
+          "inr_lakh": {
+            "2017-18_accounts": 1751815.3,
+            "2018-19_be": 2145760.5,
+            "2018-19_re": 1887451.8,
+            "2019-20_be": 2270348.3
+          }
+        },
+        "own_non_tax_revenue": {
+          "inr_crore": {
+            "2017-18_accounts": 29864.902,
+            "2018-19_be": 37772.075,
+            "2018-19_re": 34819.565,
+            "2019-20_be": 44802.142
+          },
+          "inr_lakh": {
+            "2017-18_accounts": 2986490.2,
+            "2018-19_be": 3777207.5,
+            "2018-19_re": 3481956.5,
+            "2019-20_be": 4480214.2
+          }
+        },
+        "own_revenue": {
+          "inr_crore": {
+            "2017-18_accounts": 63743.267,
+            "2018-19_be": 80880.83,
+            "2018-19_re": 73128.66,
+            "2019-20_be": 90559.359
+          },
+          "inr_lakh": {
+            "2017-18_accounts": 6374326.7,
+            "2018-19_be": 8088083.0,
+            "2018-19_re": 7312866.0,
+            "2019-20_be": 9055935.9
+          }
+        },
+        "own_tax_revenue": {
+          "inr_crore": {
+            "2017-18_accounts": 33573.745,
+            "2018-19_be": 42063.77,
+            "2018-19_re": 37817.984,
+            "2019-20_be": 43867.989
+          },
+          "inr_lakh": {
+            "2017-18_accounts": 3357374.5,
+            "2018-19_be": 4206377.0,
+            "2018-19_re": 3781798.4,
+            "2019-20_be": 4386798.9
+          }
+        },
+        "property_tax": {
+          "inr_crore": {
+            "2017-18_accounts": 13875.256,
+            "2018-19_be": 22149.885,
+            "2018-19_re": 18582.588,
+            "2019-20_be": 21994.693
+          },
+          "inr_lakh": {
+            "2017-18_accounts": 1387525.6,
+            "2018-19_be": 2214988.5,
+            "2018-19_re": 1858258.8,
+            "2019-20_be": 2199469.3
+          }
+        },
+        "revenue_receipts": {
+          "inr_crore": {
+            "2017-18_accounts": 98884.31,
+            "2018-19_be": 130704.148,
+            "2018-19_re": 120850.305,
+            "2019-20_be": 141517.019
+          },
+          "inr_lakh": {
+            "2017-18_accounts": 9888431.0,
+            "2018-19_be": 13070414.8,
+            "2018-19_re": 12085030.5,
+            "2019-20_be": 14151701.9
+          }
+        },
+        "sfc_grants": {
+          "inr_crore": {
+            "2017-18_accounts": 6875.237,
+            "2018-19_be": 10636.317,
+            "2018-19_re": 9336.113,
+            "2019-20_be": 10326.307
+          },
+          "inr_lakh": {
+            "2017-18_accounts": 687523.7,
+            "2018-19_be": 1063631.7,
+            "2018-19_re": 933611.3,
+            "2019-20_be": 1032630.7
+          }
+        },
+        "state_grant_in_aid_transfers": {
+          "inr_crore": {
+            "2017-18_accounts": 5163.853,
+            "2018-19_be": 5654.517,
+            "2018-19_re": 5357.046,
+            "2019-20_be": 6794.452
+          },
+          "inr_lakh": {
+            "2017-18_accounts": 516385.3,
+            "2018-19_be": 565451.7,
+            "2018-19_re": 535704.6,
+            "2019-20_be": 679445.2
+          }
+        },
+        "state_transfers": {
+          "inr_crore": {
+            "2017-18_accounts": 30820.526,
+            "2018-19_be": 42814.526,
+            "2018-19_re": 41920.165,
+            "2019-20_be": 45304.887
+          },
+          "inr_lakh": {
+            "2017-18_accounts": 3082052.6,
+            "2018-19_be": 4281452.6,
+            "2018-19_re": 4192016.5,
+            "2019-20_be": 4530488.7
+          }
+        },
+        "transfers": {
+          "inr_crore": {
+            "2017-18_accounts": 34417.435,
+            "2018-19_be": 49069.442,
+            "2018-19_re": 47275.68,
+            "2019-20_be": 50577.785
+          },
+          "inr_lakh": {
+            "2017-18_accounts": 3441743.5,
+            "2018-19_be": 4906944.2,
+            "2018-19_re": 4727568.0,
+            "2019-20_be": 5057778.5
+          }
+        }
+      },
+      "Delhi": {
+        "assigned_revenues_compensation": {
+          "inr_crore": {
+            "2017-18_accounts": 838.918,
+            "2018-19_be": 1001.0,
+            "2018-19_re": 2644.833,
+            "2019-20_be": 1020.0
+          },
+          "inr_lakh": {
+            "2017-18_accounts": 83891.8,
+            "2018-19_be": 100100.0,
+            "2018-19_re": 264483.3,
+            "2019-20_be": 102000.0
+          }
+        },
+        "central_transfers": {
+          "inr_crore": {
+            "2017-18_accounts": null,
+            "2018-19_be": null,
+            "2018-19_re": null,
+            "2019-20_be": null
+          },
+          "inr_lakh": {
+            "2017-18_accounts": null,
+            "2018-19_be": null,
+            "2018-19_re": null,
+            "2019-20_be": null
+          }
+        },
+        "fc_transfers": {
+          "inr_crore": {
+            "2017-18_accounts": null,
+            "2018-19_be": null,
+            "2018-19_re": null,
+            "2019-20_be": null
+          },
+          "inr_lakh": {
+            "2017-18_accounts": null,
+            "2018-19_be": null,
+            "2018-19_re": null,
+            "2019-20_be": null
+          }
+        },
+        "fees_user_charges": {
+          "inr_crore": {
+            "2017-18_accounts": 1490.369,
+            "2018-19_be": 1673.622,
+            "2018-19_re": 1704.256,
+            "2019-20_be": 1915.737
+          },
+          "inr_lakh": {
+            "2017-18_accounts": 149036.9,
+            "2018-19_be": 167362.2,
+            "2018-19_re": 170425.6,
+            "2019-20_be": 191573.7
+          }
+        },
+        "own_non_tax_revenue": {
+          "inr_crore": {
+            "2017-18_accounts": 5257.174,
+            "2018-19_be": 6387.317,
+            "2018-19_re": 6797.98,
+            "2019-20_be": 9253.668
+          },
+          "inr_lakh": {
+            "2017-18_accounts": 525717.4,
+            "2018-19_be": 638731.7,
+            "2018-19_re": 679798.0,
+            "2019-20_be": 925366.8
+          }
+        },
+        "own_revenue": {
+          "inr_crore": {
+            "2017-18_accounts": 9513.588,
+            "2018-19_be": 12777.387,
+            "2018-19_re": 11953.203,
+            "2019-20_be": 14641.558
+          },
+          "inr_lakh": {
+            "2017-18_accounts": 951358.8,
+            "2018-19_be": 1277738.7,
+            "2018-19_re": 1195320.3,
+            "2019-20_be": 1464155.8
+          }
+        },
+        "own_tax_revenue": {
+          "inr_crore": {
+            "2017-18_accounts": 4256.414,
+            "2018-19_be": 6388.77,
+            "2018-19_re": 5140.224,
+            "2019-20_be": 5383.89
+          },
+          "inr_lakh": {
+            "2017-18_accounts": 425641.4,
+            "2018-19_be": 638877.0,
+            "2018-19_re": 514022.4,
+            "2019-20_be": 538389.0
+          }
+        },
+        "property_tax": {
+          "inr_crore": {
+            "2017-18_accounts": 2165.234,
+            "2018-19_be": 4291.0,
+            "2018-19_re": 2822.0,
+            "2019-20_be": 2940.0
+          },
+          "inr_lakh": {
+            "2017-18_accounts": 216523.4,
+            "2018-19_be": 429100.0,
+            "2018-19_re": 282200.0,
+            "2019-20_be": 294000.0
+          }
+        },
+        "revenue_receipts": {
+          "inr_crore": {
+            "2017-18_accounts": 14050.742,
+            "2018-19_be": 19811.833,
+            "2018-19_re": 19591.086,
+            "2019-20_be": 21801.725
+          },
+          "inr_lakh": {
+            "2017-18_accounts": 1405074.2,
+            "2018-19_be": 1981183.3,
+            "2018-19_re": 1959108.6,
+            "2019-20_be": 2180172.5
+          }
+        },
+        "sfc_grants": {
+          "inr_crore": {
+            "2017-18_accounts": 1962.383,
+            "2018-19_be": 4632.3,
+            "2018-19_re": 3628.9,
+            "2019-20_be": 3982.0
+          },
+          "inr_lakh": {
+            "2017-18_accounts": 196238.3,
+            "2018-19_be": 463230.0,
+            "2018-19_re": 362890.0,
+            "2019-20_be": 398200.0
+          }
+        },
+        "state_grant_in_aid_transfers": {
+          "inr_crore": {
+            "2017-18_accounts": 1625.464,
+            "2018-19_be": 1194.647,
+            "2018-19_re": 1161.15,
+            "2019-20_be": 1934.167
+          },
+          "inr_lakh": {
+            "2017-18_accounts": 162546.4,
+            "2018-19_be": 119464.7,
+            "2018-19_re": 116115.0,
+            "2019-20_be": 193416.7
+          }
+        },
+        "state_transfers": {
+          "inr_crore": {
+            "2017-18_accounts": 4537.154,
+            "2018-19_be": 7034.447,
+            "2018-19_re": 7637.883,
+            "2019-20_be": 7160.167
+          },
+          "inr_lakh": {
+            "2017-18_accounts": 453715.4,
+            "2018-19_be": 703444.7,
+            "2018-19_re": 763788.3,
+            "2019-20_be": 716016.7
+          }
+        },
+        "transfers": {
+          "inr_crore": {
+            "2017-18_accounts": 4537.154,
+            "2018-19_be": 7034.447,
+            "2018-19_re": 7637.883,
+            "2019-20_be": 7160.167
+          },
+          "inr_lakh": {
+            "2017-18_accounts": 453715.4,
+            "2018-19_be": 703444.7,
+            "2018-19_re": 763788.3,
+            "2019-20_be": 716016.7
+          }
+        }
+      },
+      "derived_unit": "INR crore",
+      "source_unit": "INR lakh"
+    },
+    "ii_1_revenue_receipts_percent_gdp": {
+      "own_non_tax_revenue": {
+        "2017-18_accounts": 0.18,
+        "2018-19_re": 0.19,
+        "2019-20_be": 0.23
+      },
+      "own_tax_revenue": {
+        "2017-18_accounts": 0.21,
+        "2018-19_re": 0.21,
+        "2019-20_be": 0.22
+      },
+      "property_tax": {
+        "2017-18_accounts": 0.09,
+        "2018-19_re": 0.1,
+        "2019-20_be": 0.11
+      },
+      "revenue_receipts": {
+        "2017-18_accounts": 0.61,
+        "2018-19_re": 0.67,
+        "2019-20_be": 0.72
+      },
+      "transfers": {
+        "2017-18_accounts": 0.21,
+        "2018-19_re": 0.26,
+        "2019-20_be": 0.26
+      }
+    },
+    "ii_2_non_tax_revenue_percent_gdp": {
+      "fees_user_charges": {
+        "2017-18_accounts": 0.11,
+        "2018-19_re": 0.1,
+        "2019-20_be": 0.12
+      },
+      "income_from_investment": {
+        "2017-18_accounts": 0.03,
+        "2018-19_re": 0.03,
+        "2019-20_be": 0.03
+      },
+      "other_income": {
+        "2017-18_accounts": 0.03,
+        "2018-19_re": 0.03,
+        "2019-20_be": 0.04
+      },
+      "own_non_tax_revenue": {
+        "2017-18_accounts": 0.18,
+        "2018-19_re": 0.19,
+        "2019-20_be": 0.23
+      },
+      "rental_income_from_municipal_properties": {
+        "2017-18_accounts": 0.01,
+        "2018-19_re": 0.02,
+        "2019-20_be": 0.03
+      },
+      "sale_hire_charges": {
+        "2017-18_accounts": 0.0,
+        "2018-19_re": 0.0,
+        "2019-20_be": 0.01
+      }
+    },
+    "ii_3_key_ratios_percent": {
+      "central_transfer_to_total_revenue": {
+        "2017-18_accounts": 3.6,
+        "2018-19_re": 4.4,
+        "2019-20_be": 3.7
+      },
+      "combined_transfer_to_total_revenue": {
+        "2017-18_accounts": 34.8,
+        "2018-19_re": 39.1,
+        "2019-20_be": 35.7
+      },
+      "own_revenue_to_total_revenue": {
+        "2017-18_accounts": 64.5,
+        "2018-19_re": 60.5,
+        "2019-20_be": 64.0
+      },
+      "own_tax_revenue_to_total_revenue": {
+        "2017-18_accounts": 34.0,
+        "2018-19_re": 31.3,
+        "2019-20_be": 31.0
+      },
+      "property_tax_to_total_revenue": {
+        "2017-18_accounts": 14.0,
+        "2018-19_re": 15.4,
+        "2019-20_be": 15.5
+      },
+      "state_transfer_to_total_revenue": {
+        "2017-18_accounts": 31.2,
+        "2018-19_re": 34.7,
+        "2019-20_be": 32.0
+      }
+    }
+  }
+}

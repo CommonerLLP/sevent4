@@ -31,6 +31,15 @@ This is not a smart-city dashboard and it does not decide legal liability. It
 makes the first accountability question easier to ask: whose jurisdiction is
 this, and why is this power not with the urban local body?
 
+Finance is part of that jurisdiction question. Finance Commission, State
+Finance Commission, and RBI municipal-finance records show whether Part IXA has
+material force: grants, own-source revenue, property tax, user charges, State
+transfers, accounts, and audit decide whether devolution is real or only
+statutory. See [Finance Commissions and Municipal Devolution](research/finance-commission-local-bodies.md),
+[RBI Municipal Finance Reports](research/rbi-municipal-finances.md), and
+[State Finance Commission Histories](research/state-finance-commission-histories.md).
+The follow-on synthesis is [Fiscal Devolution Versus Political Devolution](research/decentralization-fiscal-vs-political.md).
+
 Ahmedabad is the first working example. Fork the repo, replace the city data,
 and build the same console for Kolkata, Chennai, Bengaluru, Hyderabad, Pune,
 Mumbai, Delhi, Surat, Jaipur, Lucknow, or any other urban local body.
@@ -49,6 +58,11 @@ The broad political frame and operating plan live in repo docs:
 - [Urban Agglomeration Model](docs/urban-agglomeration-model.md): the doctrine
   for explaining official city limits, lived city-regions, and Delhi NCR's
   special legal, fiscal, political, social, and economic structure.
+- [Source Policy and City Readiness](docsx/source-policy-and-readiness.md): the
+  rules for OSM, Google Maps, official sources, and graded city readiness.
+- [Ready-City Geo Layer Queue](docsx/ready-city-geo-layer-queue.md): the next
+  geodata acquisition targets for Ahmedabad, Bengaluru, Chennai, Delhi, and
+  Kolkata.
 
 ## Public Atlas
 
