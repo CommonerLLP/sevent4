@@ -65,6 +65,10 @@
 <label class='tog' data-search='environment river'><input type='checkbox' data-layer='river' checked><span class='sw' style='background:#5aa9d6'></span><b>River</b></label>
 <label class='tog' data-search='climate ward heat'><input type='checkbox' data-layer='ward_heat'><span class='sw' style='background:#5a86f5'></span><b>Ward heat</b></label>
 <label class='tog' data-search='climate surface heat (30 m)'><input type='checkbox' data-layer='heat30m'><span class='sw' style='background:#5a86f5'></span><b>Surface heat (30 m)</b></label>
+        <div id="airbox" style="display:none">
+          <div class="sech">Who answers for the air?</div>
+          <div class="readnote"><span id="airpanel"></span></div>
+        </div>
         <div class="sech">Read</div>
         <div class="readnote">
           <b>The 74th Amendment</b> is the devolution claim: political and
@@ -508,6 +512,22 @@
   function escapeHtml(value) {
     return value.replace(/[&<>"']/g, (ch) => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[ch]));
   }
+
+  
+  (function(){
+    var box=document.getElementById('airbox'), host=document.getElementById('airpanel');
+    if(!box||!host) return;
+    fetch('../../why/air/boards.json').then(function(r){return r.json();}).then(function(d){
+      var b=(d.boards||[]).find(function(x){return x.city===CURRENT_CITY;});
+      if(!b) return;
+      if(b.status!=='live'){
+        host.innerHTML='<b>'+b.board+'</b> regulates this city\'s air, but its staffing is <b>not yet on record</b> \u2014 the RTI that fills it is yours. <a href="../../why/air/index.html">Who answers? &rarr;</a>';
+      } else {
+        host.innerHTML='<b>'+b.board+'</b> must act on every reading on this map \u2014 and <b style="color:var(--red)">'+b.vacancy_pct+'% of its posts are vacant</b> ('+b.vacant+' of '+b.sanctioned+'). <a href="../../why/air/index.html">Who answers for the air? &rarr;</a>';
+      }
+      box.style.display='';
+    }).catch(function(){});
+  })();
 
   </script>
 </body>

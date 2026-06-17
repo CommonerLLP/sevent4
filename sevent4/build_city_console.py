@@ -236,6 +236,10 @@ def _html(city: CityDataset, manifest: LayerManifest) -> str:
 
         <div class="sech">Layers</div>
         {_toggles(groups)}
+        <div id="airbox" style="display:none">
+          <div class="sech">Who answers for the air?</div>
+          <div class="readnote"><span id="airpanel"></span></div>
+        </div>
         <div class="sech">Read</div>
         <div class="readnote">
           <b>The 74th Amendment</b> is the devolution claim: political and
@@ -268,9 +272,32 @@ def _html(city: CityDataset, manifest: LayerManifest) -> str:
   const CURRENT_STATE = {json.dumps(city.state)};
   const CURRENT_CITY = {json.dumps(city.id)};
   {_js()}
+  {_air_panel_js()}
   </script>
 </body>
 </html>
+"""
+
+
+def _air_panel_js() -> str:
+    """Sidebar 'Who answers for the air?' card — pairs this city's pollution
+    burden (the air_quality layer on the map) with its regulator's vacancy rate,
+    read from the published WHY/air roster. Hidden for cities not yet in it."""
+    return """
+  (function(){
+    var box=document.getElementById('airbox'), host=document.getElementById('airpanel');
+    if(!box||!host) return;
+    fetch('../../why/air/boards.json').then(function(r){return r.json();}).then(function(d){
+      var b=(d.boards||[]).find(function(x){return x.city===CURRENT_CITY;});
+      if(!b) return;
+      if(b.status!=='live'){
+        host.innerHTML='<b>'+b.board+'</b> regulates this city\\'s air, but its staffing is <b>not yet on record</b> \\u2014 the RTI that fills it is yours. <a href="../../why/air/index.html">Who answers? &rarr;</a>';
+      } else {
+        host.innerHTML='<b>'+b.board+'</b> must act on every reading on this map \\u2014 and <b style="color:var(--red)">'+b.vacancy_pct+'% of its posts are vacant</b> ('+b.vacant+' of '+b.sanctioned+'). <a href="../../why/air/index.html">Who answers for the air? &rarr;</a>';
+      }
+      box.style.display='';
+    }).catch(function(){});
+  })();
 """
 
 
