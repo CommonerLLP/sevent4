@@ -21,6 +21,33 @@ This note separates three things that were previously collapsed into one
 | Satellite / remote sensing | modelled evidence | yes | Useful for heat, built-up, water, and access modelling; must carry resolution, date, and method. |
 | Field survey / RTI / manual audit | yes, if documented | yes | Record collector, date, method, and uncertainty. |
 
+## Environmental Governance Rule
+
+Air-quality concentration data is not enough by itself. Any pollution layer used
+for a SevenT4 city must separate three evidence tracks:
+
+- pollution burden: station, pollutant, AQI, exposure, seasonality, and method;
+- regulatory capacity: CPCB, State Pollution Control Board, Pollution Control
+  Committee, municipal, or special-authority responsibility for the place;
+- enforcement capacity: board budgets, sanctioned posts, filled posts,
+  vacancies, laboratories, inspections, consent actions, notices, prosecutions,
+  and court/special-authority orders where available.
+
+AirAtlas may be used as a credited convenience source for normalized historical
+city AQI/pollutant/weather data for the five selectable cities only:
+Ahmedabad, Bengaluru, Chennai, Delhi, and Kolkata. The integration is data-only:
+do not copy AirAtlas UI, UX, React components, map design, or dashboard layout.
+Credit Sarvesh Tewari as the AirAtlas developer and preserve the AirAtlas code
+and data licences in every derived manifest.
+
+Official pollution-control-board sources remain first-class sources of record:
+CPCB, the relevant State Pollution Control Board or Pollution Control Committee,
+state environment departments, data.gov.in, court/tribunal records, and official
+annual reports. CPR's pollution-control-board research may be used as a
+secondary research base and interpretive cross-check, especially for vacancy and
+institutional-capacity claims, but it does not replace city/state-specific
+official vacancy, budget, and staffing records when those can be obtained.
+
 ## OSM Rule
 
 OpenStreetMap is open data under ODbL. It can be copied, adapted, and used with

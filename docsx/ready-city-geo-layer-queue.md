@@ -33,6 +33,35 @@ current selectable cities:
 | Delhi | NCT special model, wards/AC/PC, GTFS bus, OSM metro/rail/roads, heat, AQ, libraries | MCD 2022 ward geometry, MCD/NDMC/DCB finance, DDA/land, MCD zones, walkability quality, full DPL/transit service access. |
 | Kolkata | Ward/AC/PC, suburban rail, metro, heat, services | KMC budget/account parsing, KMC drainage, KMDA/KMWSA/KMRC authority layers, air/water, official bus/route data. |
 
+## Pollution And Regulator-Capacity Sources
+
+For the five selectable cities, the environmental build should pair pollution
+burden with regulator capacity. AirAtlas is a data-only convenience pull for
+historical daily AQI/pollutant/weather data and must credit Sarvesh Tewari. It
+does not replace official pollution-control-board evidence and does not bring in
+AirAtlas UI/UX.
+
+Primary pollution/control-board source targets:
+
+- Ahmedabad: Gujarat Pollution Control Board, CPCB, AMC/State environment
+  materials, and GPCB staffing/vacancy/budget records where available.
+- Bengaluru: Karnataka State Pollution Control Board, CPCB, BBMP/State
+  environment materials, and KSPCB staffing/vacancy/budget records.
+- Chennai: Tamil Nadu Pollution Control Board, CPCB, GCC/State environment
+  materials, and TNPCB staffing/vacancy/budget records.
+- Delhi: Delhi Pollution Control Committee, CPCB, GNCTD environment material,
+  CAQM/court records where relevant, and DPCC staffing/vacancy/budget records.
+- Kolkata: West Bengal Pollution Control Board, CPCB, KMC/State environment
+  materials, and WBPCB staffing/vacancy/budget records.
+
+Secondary research base:
+
+- CPR pollution-control-board research for institutional-capacity framing,
+  vacancy baselines, and cross-state comparison.
+- Use CPR as corroboration or interpretation, not as a substitute for current
+  official vacancy, budget, inspection, laboratory, consent, notice, or
+  prosecution records when city/state-specific records can be acquired.
+
 ## Ahmedabad
 
 Immediate targets:
