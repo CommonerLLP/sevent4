@@ -7,11 +7,13 @@
 <title>How much was actually devolved? — Part IXA: The Municipalities</title>
 <link rel="icon" type="image/png" href="../assets/ixa-mark.png?v=stitch-color">
 <link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#0a0c10" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f3f1ea" media="(prefers-color-scheme: light)">
+<script>(function(){try{var t=localStorage.getItem('atlas-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <link rel="stylesheet" href="../assets/atlas-ui.css">
+<link rel="stylesheet" href="../assets/masthead.css">
 <style>
   body{display:flex;flex-direction:column;min-height:100dvh}
-  .mast{display:flex;justify-content:space-between;align-items:center;gap:14px;
-    padding:14px 18px;border-bottom:1px solid var(--line);flex:0 0 auto}
   .wrap{flex:1;width:100%;max-width:1040px;margin:0 auto;padding:40px 20px 64px}
   .kick{font:800 9px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--mut);margin-bottom:14px}
   h1{font:800 clamp(30px,6vw,46px)/1.04 var(--serif);letter-spacing:-.01em;margin-bottom:16px}
@@ -58,18 +60,7 @@
 </head>
 <body>
 
-<header class="mast">
-  <div class="brandrow">
-    <img class="ixamark" src="../assets/ixa-mark.png?v=stitch-color" alt="" aria-hidden="true">
-    <div class="wordmark" aria-label="The Municipalities Accountability Atlas">
-      <span>The Municipalities</span><b>Accountability Atlas</b>
-    </div>
-  </div>
-  <nav class="sitenav" aria-label="Site">
-    <a href="../cities/ahmedabad/" title="Go to the maps">Atlas</a>
-    <a href="../about/">About</a>
-  </nav>
-</header>
+<header data-masthead="bar"></header>
 
 <main class="wrap">
   <div class="kick">Part IXA · the 73rd &amp; 74th Amendments</div>
@@ -100,7 +91,7 @@
   <div class="tbl">
   <table>
     <thead><tr>
-      <th>State<br>(atlas cities)</th>
+      <th>Atlas city<br>(&amp; its state government)</th>
       <th>73rd → panchayats<br>Devolution Index 2024</th>
       <th>74th → city<br>functions of 18 · ASICS'17</th>
       <th>Elected mayor &amp; council</th>
@@ -108,84 +99,84 @@
     </tr></thead>
     <tbody>
       <tr>
-        <td class="st">Karnataka<small>Bengaluru</small></td>
+        <td class="st">Bengaluru<small>Karnataka</small></td>
         <td><span class="di hi">72.23 <small>#1</small></span><div class="bar"><i class="hib" style="width:100%"></i></div></td>
         <td><span class="fns">7<small>/18</small></span> · 3.0 <small>(#23, last)</small><span class="flag red">no council since 2020</span></td>
         <td class="cell"><b>None — administrator-run since 2020.</b> 1-yr mayoral term even when seated.</td>
         <td class="cell">No · no MPC</td>
       </tr>
       <tr>
-        <td class="st">Kerala<small>Kochi</small></td>
+        <td class="st">Kochi<small>Kerala</small></td>
         <td><span class="di hi">70.59 <small>#2</small></span><div class="bar"><i class="hib" style="width:98%"></i></div></td>
         <td><span class="fns">—</span> most-devolved regime <small>(city unranked)</small></td>
         <td class="cell">indirect · 5 yr</td>
         <td class="cell"><b>Yes · DPC genuinely functional</b> — the only state where it is.</td>
       </tr>
       <tr>
-        <td class="st">Tamil Nadu<small>Chennai</small></td>
+        <td class="st">Chennai<small>Tamil Nadu</small></td>
         <td><span class="di hi">68.38 <small>#3</small></span><div class="bar"><i class="hib" style="width:95%"></i></div><div class="cell">tops <b>Functions</b></div></td>
         <td><span class="fns">7<small>/18</small></span> · 3.3 <small>(#19)</small></td>
         <td class="cell">indirect · 5 yr</td>
         <td class="cell">Yes · MPC + ward cttees</td>
       </tr>
       <tr>
-        <td class="st">Maharashtra<small>Mumbai · Pune · Nagpur</small></td>
+        <td class="st">Mumbai · Pune · Nagpur<small>Maharashtra</small></td>
         <td><span class="di hi">61.44 <small>#4</small></span><div class="bar"><i class="hib" style="width:85%"></i></div></td>
         <td><span class="fns">9<small>/18</small></span> · Pune 5.1 <small>(#1)</small></td>
         <td class="cell">indirect · 2.5 yr</td>
         <td class="cell">No · weak; MMRDA crowds out the ULB</td>
       </tr>
       <tr>
-        <td class="st">Uttar Pradesh<small>Kanpur</small></td>
+        <td class="st">Kanpur<small>Uttar Pradesh</small></td>
         <td><span class="di hi">60.07 <small>#5</small></span><div class="bar"><i class="hib" style="width:83%"></i></div></td>
         <td><span class="fns">≈</span> · 3.9 <small>(#12)</small></td>
         <td class="cell"><b>direct</b> · 5 yr — funds/staff withheld in practice</td>
         <td class="cell">No · rules notified</td>
       </tr>
       <tr>
-        <td class="st">Gujarat<small>Ahmedabad · Surat</small></td>
+        <td class="st">Ahmedabad · Surat<small>Gujarat</small></td>
         <td><span class="di mid">58.26 <small>#6</small></span><div class="bar"><i class="midb" style="width:81%"></i></div><div class="cell">tops <b>Functionaries</b></div></td>
         <td><span class="fns">10<small>/18</small></span> · 4.4 <small>(#7)</small><span class="flag grn">elected council intact</span></td>
         <td class="cell">indirect · 2.5 yr · <b>~50% own revenue</b> (strong)</td>
         <td class="cell">No (3 SFCs of 6 due) · ward cttees exist</td>
       </tr>
       <tr>
-        <td class="st">Rajasthan<small>Jaipur</small></td>
+        <td class="st">Jaipur<small>Rajasthan</small></td>
         <td><span class="di mid">56.67</span><div class="bar"><i class="midb" style="width:78%"></i></div></td>
         <td><span class="fns">≈</span> · 3.4 <small>(#18)</small></td>
         <td class="cell">indirect · 5 yr · fragmented (split 2019)</td>
         <td class="cell">Yes · no MPC</td>
       </tr>
       <tr>
-        <td class="st">West Bengal<small>Kolkata</small></td>
+        <td class="st">Kolkata<small>West Bengal</small></td>
         <td><span class="di mid">56.52</span><div class="bar"><i class="midb" style="width:78%"></i></div></td>
         <td><span class="fns">8<small>/18</small></span> · 4.6 <small>(#2)</small></td>
         <td class="cell">indirect · 5 yr · mayor-in-council (strong representation)</td>
         <td class="cell">No</td>
       </tr>
       <tr>
-        <td class="st">Telangana<small>Hyderabad</small></td>
+        <td class="st">Hyderabad<small>Telangana</small></td>
         <td><span class="di mid">55.10</span><div class="bar"><i class="midb" style="width:76%"></i></div><div class="cell">tops <b>Capacity</b></div></td>
         <td><span class="fns">7<small>/18</small></span> · 4.3 <small>(#8)</small></td>
         <td class="cell">indirect · 5 yr · HMDA dominates planning</td>
         <td class="cell">No</td>
       </tr>
       <tr>
-        <td class="st">Andhra Pradesh<small>Visakhapatnam</small></td>
+        <td class="st">Visakhapatnam<small>Andhra Pradesh</small></td>
         <td><span class="di mid">54.43</span><div class="bar"><i class="midb" style="width:75%"></i></div></td>
         <td><span class="fns">≈</span> · 3.4 <small>(#17)</small></td>
         <td class="cell">indirect · 5 yr</td>
         <td class="cell">No · <b>no functional ward committees</b></td>
       </tr>
       <tr>
-        <td class="st">Odisha<small>Bhubaneswar</small></td>
+        <td class="st">Bhubaneswar<small>Odisha</small></td>
         <td><span class="di mid">50.03</span><div class="bar"><i class="midb" style="width:69%"></i></div><div class="cell">high <b>Functions</b></div></td>
         <td><span class="fns">≈</span> · 4.6 <small>(#4)</small></td>
         <td class="cell"><b>direct</b> · 5 yr (rare)</td>
         <td class="cell">No · balanced</td>
       </tr>
       <tr>
-        <td class="st">Delhi<small>Delhi (NCT)</small></td>
+        <td class="st">Delhi<small>NCT · special case</small></td>
         <td><span class="di lo">N/A</span><div class="cell">no rural panchayats (urban UT)</div></td>
         <td class="cell"><b>land + police = Union.</b> MCD elected but hemmed by the LG / Centre.</td>
         <td class="cell">special case</td>
@@ -261,5 +252,7 @@
   </p>
   <a class="back" href="../">← Back to the atlas</a>
 </main>
+<script src="../assets/masthead.js"></script>
+<script src="../assets/theme.js" defer></script>
 </body>
 </html>

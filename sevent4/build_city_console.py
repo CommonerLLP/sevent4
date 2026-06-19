@@ -230,26 +230,19 @@ def _html(city: CityDataset, manifest: LayerManifest, out_dir: Path | None = Non
   <link rel="manifest" href="../../site.webmanifest">
   <link rel="stylesheet" href="../../assets/maplibre-gl.css">
   <link rel="stylesheet" href="../../assets/theme.css">
+  <link rel="stylesheet" href="../../assets/masthead.css">
   <style>{_css()}</style>
   <script src="../../assets/theme.js" defer></script>
+  <script src="../../assets/masthead.js"></script>
 </head>
 <body>
   <div class="app">
     <aside class="rail">
-      <div class="mast">
-        <div>
-          <div class="brandrow">
-            <img class="ixamark" src="../../assets/ixa-mark.png?v=stitch-color" alt="" aria-hidden="true">
-            <div class="wordmark" aria-label="The Municipalities Accountability Atlas"><span>The Municipalities</span><b>Accountability Atlas</b></div>
-          </div>
-          <nav class="sitenav" aria-label="Site">
-            <a class="is-active" href="./">Atlas</a>
-            <a href="../../about/">About</a>
-          </nav>
-          <div class="jurisdictionbar" aria-label="Current jurisdiction">
-            <label><span>State</span><select id="statesel">{state_options}</select></label>
-            <label><span>City</span><select id="citysel"></select></label>
-          </div>
+      <header data-masthead="rail"></header>
+      <div class="railjur">
+        <div class="jurisdictionbar" aria-label="Current jurisdiction">
+          <label><span>State</span><select id="statesel">{state_options}</select></label>
+          <label><span>City</span><select id="citysel"></select></label>
         </div>
       </div>
       <div class="scroll">
