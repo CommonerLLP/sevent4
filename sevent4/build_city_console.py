@@ -122,6 +122,17 @@ CITY_READINESS = {
         "governance_grade": "partial",
         "source_confidence": "mixed_official",
     },
+    "kanpur": {
+        # Ward vector is PARTIAL: DataMeet 2018 has 56 of 110 wards (54 missing). Per-ward
+        # population (WorldPop) + heat (Landsat) are valid; the layer is NOT a complete city
+        # map and the population sum is NOT the city total. Kept non-"full" deliberately.
+        "console_grade": "skeleton",
+        "wards_grade": "partial_56_of_110",
+        "finance_grade": "missing",
+        "walkability_grade": "indicative_osm",
+        "governance_grade": "partial",
+        "source_confidence": "partial_vector_2018",
+    },
 }
 READY_CITIES = {cid for cid, grades in CITY_READINESS.items() if grades["console_grade"] == "full"}
 ABSENT_CITIES = {
