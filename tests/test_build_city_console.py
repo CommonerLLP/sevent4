@@ -226,7 +226,7 @@ class FeatureOptionsTest(unittest.TestCase):
     def test_generated_script_keeps_maplibre_qa_hooks_valid(self) -> None:
         script = _js()
 
-        self.assertIn("window.__sevent4Map = map;", script)
+        self.assertIn("window.__atlasMap = map;", script)
         self.assertLess(
             script.index("DefaultViewControl.prototype.onAdd"),
             script.index("map.addControl(new DefaultViewControl()"),
