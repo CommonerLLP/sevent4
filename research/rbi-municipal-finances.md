@@ -4,7 +4,7 @@ Status: deterministic extraction and working analysis.
 
 This note separates RBI municipal-finance evidence from the Finance Commission
 note. The FC record explains the constitutional grant/devolution chain. The RBI
-reports give the empirical municipal-finance series that SevenT4 should use to
+reports give the empirical municipal-finance series that The Unelected City should use to
 test whether city governments have fiscal life: own-source revenue, property
 tax, user charges, State transfers, Finance Commission grants, State Finance
 Commission grants, accounts, and expenditure.
@@ -57,7 +57,7 @@ Parsed 2022 tables:
 | Chapter II, Table II.3 | `ii_3_key_ratios_percent` | Own revenue, tax, property tax, State transfer, central transfer, and combined transfer ratios. |
 | Appendix I, Delhi/All States table | `appendix_i_revenue_receipts_delhi_all_states_uts` | Delhi and all-State/UT revenue receipt components in INR lakh and derived INR crore. |
 
-The parsers currently cover the tables that directly affect SevenT4's
+The parsers currently cover the tables that directly affect The Unelected City's
 municipal-devolution model. They can be extended table by table if expenditure,
 borrowings, bonds, or appendix-level MC rows become first-class data.
 
@@ -169,7 +169,7 @@ control point.
 Second, do not collapse Union Budget FC grants to ULBs into MC-reported FC
 grants. The Union Budget memo line and the MC-reported line are different
 measurement surfaces. In 2022-23, the Union Budget line reports Rs. 17,779
-crore, while MCs report Rs. 7,067 crore. SevenT4 should store both with source,
+crore, while MCs report Rs. 7,067 crore. The Unelected City should store both with source,
 denominator, report round, and coverage notes.
 
 The SFC line is also politically important. In 2022-23, MCs report Rs. 8,605
@@ -244,7 +244,7 @@ special fiscal object. The MCD/GNCTD budget series must therefore separate:
 - accounting effects caused by Delhi's NCT status and the unified/restructured
   MCD history.
 
-## SevenT4 Data Model Implications
+## The Unelected City Data Model Implications
 
 Add or preserve these fields wherever city finance data is modeled:
 
@@ -282,6 +282,6 @@ finance dataset:
 4. Reconcile the MCD series with the RBI 2024 Delhi rows above before any public
    claim is made.
 
-Only after that reconciliation should SevenT4 say whether Delhi's large
+Only after that reconciliation should The Unelected City say whether Delhi's large
 municipal-revenue ratio is own-source strength, State/NCT transfer structure,
 accounting classification, or a mix.

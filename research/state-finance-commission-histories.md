@@ -3,7 +3,7 @@
 Status: integrated research memo from parallel agent pass; source confidence
 varies by State. Research pass date: 2026-06-15.
 
-SevenT4 treats State Finance Commissions (SFCs) as first-class evidence for
+The Unelected City treats State Finance Commissions (SFCs) as first-class evidence for
 whether Part IX and Part IX-A devolution has fiscal content. For municipalities,
 the constitutional hinge is Article 243Y, read with Article 243X and State
 municipal law. For the Union Finance Commission side, Article 280 asks the Union
