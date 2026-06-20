@@ -161,8 +161,10 @@ def coordinate_provenance_group(confidence: str, provider: str) -> str:
     combined = f"{confidence} {provider}".lower()
     if not combined.strip():
         return "missing"
-    if "dpl_maps_pin" in combined or "google_maps_embed" in combined or "google_maps_url" in combined:
+    if "dpl_maps_pin" in combined:
         return "source_or_dpl_map"
+    # google_maps_embed / google_maps_url coordinates are Google-derived: the source
+    # policy forbids storing them in a public open dataset, so they are NOT public-usable.
     if "google" in combined:
         return "google_geocode"
     if "nominatim" in combined or "manual" in combined or "osm" in combined:

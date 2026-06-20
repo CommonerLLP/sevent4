@@ -187,7 +187,7 @@ def write_markdown(cat: dict, path: str) -> None:
         fh.write("\n".join(L) + "\n")
 
 
-def main -> None:
+def main() -> None:
     ap = argparse.ArgumentParser
     ap.add_argument("--out", required=True, help="output directory for catalogue files")
     ap.add_argument("--page-size", type=int, default=200)
