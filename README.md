@@ -1,4 +1,6 @@
-# SevenT4
+# The Unelected City
+
+_Repo id: `sevent4`. Public atlas: https://commonerllp.github.io/sevent4/_
 
 Indian city government is built so that responsibility is hard to see.
 
@@ -17,8 +19,8 @@ and MPs. When a road breaks, a ward has no library, a bus route fails, a heat
 pocket grows, a street floods again, or a public toilet disappears,
 responsibility gets scattered until nobody is answerable.
 
-SevenT4 does one small thing: it helps internet-literate residents map a city
-problem to the public geography and public office around it.
+The Unelected City does one small thing: it helps internet-literate residents map
+a city problem to the public geography and public office around it.
 
 It puts ward, Assembly constituency, Parliamentary constituency, transit, public
 service, land-use, heat, and civic gap layers in one city console. A resident can
@@ -40,29 +42,35 @@ statutory. See [Finance Commissions and Municipal Devolution](research/finance-c
 [State Finance Commission Histories](research/state-finance-commission-histories.md).
 The follow-on synthesis is [Fiscal Devolution Versus Political Devolution](research/decentralization-fiscal-vs-political.md).
 
-Ahmedabad is the first working example. Fork the repo, replace the city data,
-and build the same console for Kolkata, Chennai, Bengaluru, Hyderabad, Pune,
-Mumbai, Delhi, Surat, Jaipur, Lucknow, or any other urban local body.
+Ahmedabad is the deepest seed (22 layers, a 22-year city budget, and derived
+service-access metrics). Twelve more cities ship consoles: Bengaluru, Bhubaneswar,
+Chennai, Delhi, Hyderabad, Jaipur, Kanpur, Kochi, Kolkata, Mumbai, Pune, and
+Visakhapatnam. Fork the repo, replace the city data, and build the same console
+for any other urban local body.
 
 ## Project Direction
 
-The broad political frame and operating plan live in repo docs:
+The political frame now lives in the public reading layer of the atlas — the maps
+are the evidence, this layer is the argument:
 
-- [Mission and Vision](docs/mission-vision.md): the Ambedkarite frame, Part IXA
-  problem, national city-region scope, Delhi NCR special rule, and theory of
-  change.
-- [Roadmap](docs/roadmap.md): operational workstreams, backlog, city expansion
-  priorities, and definitions of done.
-- [Gantt Plan](docs/gantt.md): dated sequencing for research, Ahmedabad
-  hardening, accountability UX, Delhi NCR modeling, and national atlas pilots.
-- [Urban Agglomeration Model](docs/urban-agglomeration-model.md): the doctrine
-  for explaining official city limits, lived city-regions, and Delhi NCR's
-  special legal, fiscal, political, social, and economic structure.
+- **Why** (`/why/`): the explanatory layer — why an ordinary city problem maps to
+  an office no one elected to fix it. Chapter 01 is "the air."
+- **Findings** (`/findings/`): a data → synthesis → case arc — the 73rd/74th
+  devolution scoreboard, "Where is power safe?" (the Ambedkar scale-of-capture
+  reading), and "Should a city be its own state?" (the Bombay city-state case).
+- **Devolution** (`/devolution/`): the per-state 73rd/74th-Amendment scoreboard.
+- **About** (`/about/`): Part IXA, the Twelfth Schedule, and the Ambedkarite frame.
+
+Supporting research and operating policy are tracked in-repo:
+
 - [Source Policy and City Readiness](docsx/source-policy-and-readiness.md): the
   rules for OSM, Google Maps, official sources, and graded city readiness.
 - [Ready-City Geo Layer Queue](docsx/ready-city-geo-layer-queue.md): the next
-  geodata acquisition targets for Ahmedabad, Bengaluru, Chennai, Delhi, and
-  Kolkata.
+  geodata acquisition targets.
+- [Finance Commissions and Municipal Devolution](research/finance-commission-local-bodies.md),
+  [RBI Municipal Finance Reports](research/rbi-municipal-finances.md),
+  [State Finance Commission Histories](research/state-finance-commission-histories.md),
+  and the synthesis [Fiscal Devolution Versus Political Devolution](research/decentralization-fiscal-vs-political.md).
 
 ## Public Atlas
 
@@ -75,10 +83,13 @@ https://commonerllp.github.io/sevent4/
 
 The published bundle exposes:
 
-- `/about/`
-- `/cities/ahmedabad/`
-- `/cities/ahmedabad/layers/*.geojson`
-- `/assets/*`
+- `/` — the home "municipal ledger": pick a city, see the city/state/centre split
+  and the services taken from the elected council
+- `/why/`, `/findings/`, `/devolution/`, `/about/`, `/whose-city/` — the reading layer
+- `/cities/<city>/` — 13 city consoles (ahmedabad, bengaluru, bhubaneswar, chennai,
+  delhi, hyderabad, jaipur, kanpur, kochi, kolkata, mumbai, pune, visakhapatnam)
+- `/cities/<city>/layers/*.geojson` — processed map layers
+- `/assets/*` — shared theme, masthead, and vendored MapLibre files
 
 There is no backend service. The atlas HTML, map assets, and processed city
 layers are static files.
@@ -134,7 +145,7 @@ PORT=8080 scripts/start.sh
 
 ## Data Recipes
 
-SevenT4 ships processed Ahmedabad layers so the console can run immediately.
+The atlas ships processed Ahmedabad layers so the console can run immediately.
 The public recipes under `scripts/recipes/ahmedabad/` document how to rebuild
 key pieces of that seed from public sources.
 
@@ -197,13 +208,13 @@ budgets, public works, and grievance channels.
 The public site should also explain why the console exists. Indian cities are
 often dysfunctional because authority is split across elected local bodies,
 state governments, parastatals, development authorities, utilities, police,
-transport agencies, and contractors. SevenT4 should help residents see that
+transport agencies, and contractors. The atlas should help residents see that
 fragmentation instead of treating a city problem as just a point on a map.
 
 ## Governance Frame
 
-SevenT4 starts from a narrow claim: public data should help residents attribute
-ordinary civic problems to public jurisdiction.
+The Unelected City starts from a narrow claim: public data should help residents
+attribute ordinary civic problems to public jurisdiction.
 
 The project avoids the usual smart-city habit of making data look apolitical.
 Indian urban governance is political because powers, functions, funds, land, and
@@ -240,7 +251,7 @@ data/cities/ahmedabad/
     jurisdiction_crosswalk.json
 ```
 
-`city.yaml` tells SevenT4 where the city is and where its data lives:
+`city.yaml` tells the console builder where the city is and where its data lives:
 
 ```yaml
 id: ahmedabad

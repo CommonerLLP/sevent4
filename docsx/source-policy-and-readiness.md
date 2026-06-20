@@ -1,6 +1,6 @@
 # Source Policy And City Readiness
 
-Status: binding working policy for SevenT4.
+Status: binding working policy for The Unelected City.
 
 This note separates three things that were previously collapsed into one
 "ready" label:
@@ -15,16 +15,16 @@ This note separates three things that were previously collapsed into one
 | Source class | Use for findings? | Use for context? | Rule |
 |---|---:|---:|---|
 | Official municipal, State, Union, court, CAG, RBI, FC, SFC, census, GTFS, or statutory source | yes | yes | Preferred source of record. Preserve URL/path, retrieval date, and parser. |
-| OpenCity mirror of official/public records | yes, if publisher and resource are recorded | yes | Cite publisher -> OpenCity -> SevenT4 processed. Check licence/resource type before reuse. |
+| OpenCity mirror of official/public records | yes, if publisher and resource are recorded | yes | Cite publisher -> OpenCity -> The Unelected City processed. Check licence/resource type before reuse. |
 | OpenStreetMap | limited | yes | Use as open fallback geometry/context. Do not treat missing OSM features as proof of missing real-world services. |
-| Google Maps / Google Places / Google Geocoding | no, for stored analytical layers | limited manual verification | Do not scrape, bulk download, cache, or derive SevenT4 datasets from Google Maps content. Store durable `place_id` only where permitted. |
+| Google Maps / Google Places / Google Geocoding | no, for stored analytical layers | limited manual verification | Do not scrape, bulk download, cache, or derive The Unelected City datasets from Google Maps content. Store durable `place_id` only where permitted. |
 | Satellite / remote sensing | modelled evidence | yes | Useful for heat, built-up, water, and access modelling; must carry resolution, date, and method. |
 | Field survey / RTI / manual audit | yes, if documented | yes | Record collector, date, method, and uncertainty. |
 
 ## Environmental Governance Rule
 
 Air-quality concentration data is not enough by itself. Any pollution layer used
-for a SevenT4 city must separate three evidence tracks:
+for a The Unelected City city must separate three evidence tracks:
 
 - pollution burden: station, pollutant, AQI, exposure, seasonality, and method;
 - regulatory capacity: CPCB, State Pollution Control Board, Pollution Control
@@ -53,7 +53,7 @@ official vacancy, budget, and staffing records when those can be obtained.
 OpenStreetMap is open data under ODbL. It can be copied, adapted, and used with
 attribution and share-alike obligations. That makes it useful for a public atlas.
 
-But OSM completeness is not uniform. For SevenT4, OSM can support:
+But OSM completeness is not uniform. For The Unelected City, OSM can support:
 
 - road, rail, metro, and rough routing context;
 - first-pass public-service point context;
@@ -72,9 +72,9 @@ Source: https://www.openstreetmap.org/copyright
 ## Google Maps Rule
 
 Google Maps may be useful for visual/manual verification, but it is not an open
-dataset for SevenT4.
+dataset for The Unelected City.
 
-SevenT4 should not use Google Maps content to create stored analytical layers,
+The Unelected City should not use Google Maps content to create stored analytical layers,
 bulk geocode city assets, scrape POIs, trace roads/buildings/sidewalks, build
 tree or service inventories, or publish derived walkability datasets. The
 noncommercial character of a project does not remove those restrictions.
@@ -87,7 +87,7 @@ Permitted narrow uses:
 - display Google content only under Google Maps Platform rules and attribution,
   if a future UI intentionally uses Google Maps.
 
-Do not mix Google-derived content into OSM or official SevenT4 layers.
+Do not mix Google-derived content into OSM or official The Unelected City layers.
 
 Sources:
 

@@ -1,6 +1,6 @@
 # Fiscal Devolution Versus Political Devolution
 
-Status: synthesis note for SevenT4.
+Status: synthesis note for The Unelected City.
 
 The working conclusion from the RBI municipal-finance reports, the State
 Finance Commission histories, and the Finance Commission commentary on urban
@@ -57,7 +57,7 @@ than a complete description of institutional reality.
 
 ## Repo-Level Interpretation
 
-For SevenT4, the data model should not treat "local government exists" as the
+For The Unelected City, the data model should not treat "local government exists" as the
 same thing as "local government has power."
 
 Use three separate flags:

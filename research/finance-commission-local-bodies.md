@@ -1,6 +1,6 @@
 # Finance Commissions And Municipal Devolution
 
-Status: working analysis for SevenT4.
+Status: working analysis for The Unelected City.
 
 This note pulls the Finance Commission (FC) material on local bodies into this
 repo's understanding of Part IX-A. It is based on report material found on the
@@ -56,7 +56,7 @@ the municipal constitutional frame, but the FC record asks whether that frame is
 backed by grants, State transfers, assigned revenues, own-source revenue,
 property tax, user charges, accounts, audit, and service-level data.
 
-For SevenT4, this means the finance layer is not an appendix. It is one of the
+For The Unelected City, this means the finance layer is not an appendix. It is one of the
 ways jurisdiction becomes visible.
 
 ## Constitutional Mechanism
@@ -225,7 +225,7 @@ rests with State governments. Parliament answers echo this: urban development
 and local self-government remain State subjects, and Article 243X fiscal powers
 are exercised through State law.
 
-This is the key political reading for SevenT4. When a ULB is weak, the cause is
+This is the key political reading for The Unelected City. When a ULB is weak, the cause is
 often not only municipal failure. It is State control over functions, fiscal
 assignments, staffing, grants, and audits.
 
@@ -300,12 +300,12 @@ are genuinely MCD own revenue, which are assigned or compensated by higher
 government, which are tied grants, and which are accounting effects of Delhi's
 special NCT structure.
 
-## What This Changes In SevenT4
+## What This Changes In The Unelected City
 
 The city note should no longer stop at "which Act governs this ULB?" It should
 ask how the FC/SFC fiscal chain sees the city.
 
-For each city, SevenT4 should maintain:
+For each city, The Unelected City should maintain:
 
 | Field | Why it matters |
 |---|---|
@@ -350,7 +350,7 @@ romantic local democracy. It is grants, own-source revenue, property tax,
 accounts, audit, SFCs, State transfers, tied components, performance
 conditionality, and service benchmarks.
 
-For SevenT4, that is useful because it gives a hard test for every city:
+For The Unelected City, that is useful because it gives a hard test for every city:
 
 ```text
 Can the ULB act, or is it only where responsibility is dumped after the State,
