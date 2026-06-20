@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="application-name" content="Part IXA: The Municipalities">
+<title>Why did Ambedkar trust the city? — The Unelected City</title>
+<link rel="icon" type="image/png" href="../../assets/ixa-mark.png?v=stitch-color">
+<link rel="manifest" href="../../site.webmanifest">
+<meta name="theme-color" content="#0a0c10" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f3f1ea" media="(prefers-color-scheme: light)">
+<script>(function(){try{var t=localStorage.getItem('atlas-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<link rel="stylesheet" href="../../assets/atlas-ui.css">
+<link rel="stylesheet" href="../../assets/masthead.css">
+<style>
+  body{display:flex;flex-direction:column;min-height:100dvh}
+  .wrap{flex:1;width:100%;max-width:980px;margin:0 auto;padding:40px 20px 72px}
+  .narrow{max-width:680px}
+  .crumb{font:800 9px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-bottom:14px}
+  .crumb a{color:var(--mut);text-decoration:none}.crumb a:hover{color:var(--blue)}
+  h1{font:800 clamp(34px,7vw,60px)/1.02 var(--serif);letter-spacing:-.015em;margin-bottom:18px;max-width:15ch}
+  .lede{font-size:18px;line-height:1.6;color:var(--mut);max-width:62ch}
+  .lede b{color:var(--ink)}
+
+  /* ---- did caste reach you here? (the lived scale) ---- */
+  .scalewrap{margin:46px 0 8px}
+  .askline{font:800 11px/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink);
+    text-align:center;margin-bottom:6px}
+  .axis{display:flex;justify-content:space-between;font:800 8px/1 var(--mono);letter-spacing:.12em;
+    text-transform:uppercase;color:var(--mut);max-width:600px;margin:0 auto 18px;padding:0 4px}
+  .scale{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .tier{border:1px solid var(--line);border-top:3px solid var(--tc,var(--mut));border-radius:9px;
+    background:var(--panel);padding:15px 15px 17px;display:flex;flex-direction:column;
+    opacity:0;transform:translateY(12px);transition:opacity .5s ease,transform .5s ease}
+  .tier.in{opacity:1;transform:none}
+  .tier .rung{font:800 9px/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+  .tier .nm{font:800 21px/1.05 var(--serif);color:var(--ink);margin:5px 0 12px}
+  .caplabel{font:700 8px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-bottom:5px}
+  .meter{display:flex;gap:3px;margin-bottom:12px}
+  .meter i{flex:1;height:7px;border-radius:2px;background:var(--hair)}
+  .meter i.on{background:var(--tc,var(--mut))}
+  .reach{display:flex;flex-direction:column;gap:5px;margin-bottom:12px}
+  .reach div{display:flex;align-items:center;gap:7px;font:700 11px/1.2 var(--mono);color:var(--mut)}
+  .reach .mk{width:16px;height:16px;border-radius:50%;display:grid;place-items:center;
+    font:800 10px/1 var(--mono);flex:0 0 auto}
+  .mk.y{background:var(--act-bg);color:#4fb286;border:1px solid #2c7a55}
+  .mk.n{background:var(--danger-bg);color:var(--red);border:1px solid var(--red)}
+  .mk.p{background:var(--tag-bg);color:var(--gold);border:1px solid var(--gold)}
+  .tier .verdict{font:600 13px/1.5 var(--sans);color:var(--ink);margin-bottom:10px}
+  .tier .q{font:500 13px/1.45 var(--serif);color:var(--mut);font-style:italic;
+    border-left:2px solid var(--tc,var(--mut));padding-left:10px;margin-top:auto}
+  .scalecap{max-width:62ch;margin:20px auto 0;font-size:14px;line-height:1.65;color:var(--mut);text-align:center}
+  .scalecap b{color:var(--ink)}
+
+  /* ---- prose ---- */
+  h2{font:800 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mut);
+    margin:42px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+  p{font-size:15.5px;line-height:1.7;color:var(--ink);margin:0 0 16px}
+  p .mut{color:var(--mut)}
+  blockquote{margin:18px 0;padding:4px 0 4px 18px;border-left:3px solid var(--gold);
+    font:500 18px/1.5 var(--serif);color:var(--ink)}
+  blockquote cite{display:block;margin-top:9px;font:700 11px/1.3 var(--mono);color:var(--mut);font-style:normal;letter-spacing:.03em}
+  .pose{border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:8px;
+    background:var(--panel);padding:18px 20px;margin:26px auto 0}
+  .pose b{color:var(--ink)}.pose p:last-child{margin-bottom:0}
+  .note{margin-top:38px;font-size:12.5px;line-height:1.65;color:var(--mut);border-top:1px solid var(--line);padding-top:16px}
+  .note b{color:var(--ink)} .note a{color:var(--blue)}
+  .back{display:inline-block;margin-top:26px;font:800 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--blue);text-decoration:none}
+  .back:hover{color:var(--gold)}
+
+  @media (max-width:640px){ .scale{grid-template-columns:1fr} }
+  @media (prefers-reduced-motion:reduce){ .tier{opacity:1;transform:none;transition:none} }
+</style>
+</head>
+<body>
+<header data-masthead="bar"></header>
+<main class="wrap">
+  <div class="crumb narrow"><a href="../">Findings</a> · Ambedkar on the city</div>
+  <h1>Why did Ambedkar trust the city?</h1>
+  <p class="lede narrow">This atlas leans toward the city — the scale where, it keeps arguing, caste
+    loosens and the law can be impartial. But why take a Dalit thinker's word that the city is safer?
+    <b>Because he did not reason it. He lived it.</b> The same man — a Columbia graduate, an officer of
+    a princely state — was a different person at different scales, and the variable was always one
+    question: <b>could caste still reach him here?</b></p>
+
+  <div class="scalewrap">
+    <div class="askline">The test his own life ran · could caste reach him here?</div>
+    <div class="axis"><span>◄ caste reaches totally</span><span>caste cannot reach ►</span></div>
+    <div class="scale">
+
+      <div class="tier" style="--tc:var(--red)">
+        <span class="rung">1917 · Baroda</span>
+        <span class="nm">The small town</span>
+        <span class="caplabel">Caste's reach</span>
+        <div class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+        <div class="reach">
+          <div><span class="mk n">✕</span> rank shields you</div>
+          <div><span class="mk n">✕</span> a degree shields you</div>
+        </div>
+        <div class="verdict">Home from Columbia, appointed by the Maharaja — and unable to rent a room in the town. Status bought him nothing where everyone knew his caste.</div>
+        <div class="q">"Where was he, a Mahar, to stay?"</div>
+      </div>
+
+      <div class="tier" style="--tc:var(--gold)">
+        <span class="rung">1920s–40s · Bombay</span>
+        <span class="nm">The metropolis</span>
+        <span class="caplabel">Caste's reach</span>
+        <div class="meter"><i class="on"></i><i class="on"></i><i></i><i></i></div>
+        <div class="reach">
+          <div><span class="mk p">~</span> anonymity shields you</div>
+          <div><span class="mk y">✓</span> you can organise</div>
+        </div>
+        <div class="verdict">Big enough that no one caste owns all of it. Here he could publish, build schools and parties, hold a public meeting — the base of a movement, not a prison.</div>
+        <div class="q">a city you can act in, not only be marked in</div>
+      </div>
+
+      <div class="tier" style="--tc:var(--blue)">
+        <span class="rung">1913–17 · New York · London</span>
+        <span class="nm">The foreign city</span>
+        <span class="caplabel">Caste's reach</span>
+        <div class="meter"><i class="on"></i><i></i><i></i><i></i></div>
+        <div class="reach">
+          <div><span class="mk y">✓</span> you are simply a person</div>
+          <div><span class="mk y">✓</span> ideas, not birth, place you</div>
+        </div>
+        <div class="verdict">Columbia, and Dewey's classroom. For the first time the marker was gone — he was a student among students, judged by argument. The experience he spent a life trying to reproduce at home.</div>
+        <div class="q">"democracy is primarily a mode of associated living"</div>
+      </div>
+
+    </div>
+    <p class="scalecap">One man, three scales, one life. The bigger and more anonymous the place,
+      <b>the less of him caste could hold</b>. Not because the city was just — but because it was too
+      large for any one group to own. <b>Anonymity, not justice, was the shield.</b> That is the lived
+      root of the abstract test in <a href="../ambedkar-devolution/" style="color:var(--blue)">the sister
+      finding</a>: not <i>is power local?</i> but <i>can the people at the bottom be captured here?</i></p>
+  </div>
+
+  <div class="narrow">
+    <h2>The bottom: where rank meant nothing</h2>
+    <p>In 1917 Ambedkar came back from Columbia and the London School of Economics to take up a post with
+      the Gaekwad of Baroda — a Maharaja who had funded his studies. He arrived an officer of the state and
+      could not find a roof. No caste-Hindu house would take a Mahar; he talked his way into a Parsi inn
+      under an assumed name. It held ten days.</p>
+    <blockquote>"Where was he, a Mahar, to stay? He persuaded a Parsi innkeeper to board and lodge him…
+      after ten days a number of Parsis armed with lathis called on him."
+      <cite>B.R. Ambedkar, <i>Waiting for a Visa</i>, in <i>Writings and Speeches</i> (Moon ed.)</cite></blockquote>
+    <p>Given till evening to go, he sat in a public garden and left the town. He gathered the same pattern
+      from others and set it beside his own in <i>Waiting for a Visa</i> — among them a Mahar appointed a
+      Talati at Borsad, made to take drinking water from a rusty pot a peon doled out, going thirsty on the
+      days the peon slipped away. <span class="mut">(That clerk's account is one Ambedkar collected, not
+      his own Baroda episode.)</span> The lesson he drew was not about cruelty. It was about <b>scale</b>:
+      in a place small enough that everyone knew who you were, a foreign degree, a salary and the Maharaja's seal
+      were worth nothing. The caste order reached all the way to the top of your achievements and switched
+      them off.</p>
+
+    <h2>The top: where he was first a person</h2>
+    <p>Set that against New York, four years earlier. At Columbia he sat in John Dewey's lectures — a
+      debt he never stopped naming. <span class="mut">As one of the first scholars of the connection put
+      it, "unless we understand something of John Dewey… it would be impossible to understand Dr.
+      Ambedkar" (Kadam, in Stroud 2023).</span> What the metropolis gave him was not only Dewey's
+      philosophy but the plain experience of being unmarked — a student among students, placed by his
+      arguments and not his birth. He carried Dewey's definition of democracy home almost verbatim:</p>
+    <blockquote>"Democracy is not merely a form of Government. It is primarily a mode of associated living,
+      of conjoint communicated experience."
+      <cite>B.R. Ambedkar, paraphrasing Dewey, <i>Annihilation of Caste</i> (1936)</cite></blockquote>
+    <p>Associated living is exactly what the village forbids and the great city, at its best, allows:
+      strangers mixing on terms not fixed in advance by birth. The city was attractive to him for a
+      structural reason, not a sentimental one — it was the one scale large enough to dilute the group's
+      grip on the individual.</p>
+
+    <h2>But the city was never innocent</h2>
+    <p>This is where the honesty has to come in, because the atlas's own maps forbid the easy version.
+      The city loosened caste; it did not abolish it. Bombay had its segregated chawls and its separate
+      wells; the metropolis sorted by community even as it freed the individual to move. Ambedkar trusted
+      the city as the <i>safer</i> scale, never the just one — and he warned, repeatedly, that a strong
+      local power could itself become the instrument of exclusion rather than the escape from it.</p>
+    <p>That warning is live on this very atlas. Ahmedabad — one of India's better-funded, more
+      devolved corporations — is also the city that administers the
+      <span class="mut">Disturbed Areas Act</span>, formalising the line between Hindu and Muslim
+      neighbourhoods, while Juhapura goes short on water and schools. A city given more power used that
+      power to <em>sort</em> its people. <span class="mut">(<a href="../ambedkar-devolution/">the devolution
+      finding</a>.)</span> The scale that freed Ambedkar can be re-engineered to do the opposite.</p>
+
+    <div class="pose">
+      <p><b>So the question this finding poses is not "did Ambedkar love cities."</b> It is sharper, and it
+        points at us. He escaped capture by moving <em>up</em> the scale — village to town to metropolis to
+        the foreign city — until he was anonymous enough to be free. The shield was bigness; the threat was
+        anyone who could see all of you at once.</p>
+      <p>And today's city is being quietly rebuilt to see all of you again — sorted by religion through the
+        Disturbed Areas Act, by ownership through the bodies that lock out renters and migrants, by a core
+        the residents <a href="../new-delhi-unelected/">cannot even elect</a>. <b>If anonymity was what made
+        the city safe, what happens when the city is re-made to know exactly who you are?</b></p>
+    </div>
+
+    <p class="note">
+      <b>Sources.</b> Primary, all from the project's reading library: B.R. Ambedkar, <i>Waiting for a
+      Visa</i> and <i>Annihilation of Caste</i> (1936), in <i>Dr. Babasaheb Ambedkar: Writings and
+      Speeches</i> (Vasant Moon, ed.). <i>Waiting for a Visa</i> is a compilation: the Baroda Parsi-inn
+      episode is Ambedkar's <em>own</em> experience; the Borsad Talati water-pot account is one of the
+      others' testimonies he gathered alongside it — attributed as such above. On Dewey: Scott R. Stroud,
+      <i>The Evolution of Pragmatism in India: Ambedkar, Dewey, and the Rhetoric of Reconstruction</i>
+      (2023), quoting K.N. Kadam. The quotations are from the record; the reading of his life as a moving
+      test of caste-by-scale — and its application to this atlas's cities — is ours. The caste-reach
+      ratings render that argument visually; they are not a measurement.
+    </p>
+    <a class="back" href="../">← Back to Findings</a>
+  </div>
+</main>
+<script src="../../assets/masthead.js"></script>
+<script src="../../assets/theme.js" defer></script>
+<script>
+(function(){
+  var io;
+  try{
+    io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {threshold:.2});
+    document.querySelectorAll('.tier').forEach(function(t,i){ t.style.transitionDelay=(i*90)+'ms'; io.observe(t); });
+  }catch(e){
+    document.querySelectorAll('.tier').forEach(function(t){ t.classList.add('in'); });
+  }
+})();
+</script>
+</body>
+</html>
