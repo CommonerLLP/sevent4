@@ -44,14 +44,17 @@
 
     <section>
       <div class="sech kick rise">2 · Who holds it</div>
-      <h2 class="display rise">Two hollow boards — and the people behind them</h2>
+      <h2 class="display rise">Hollow boards — and the people behind them</h2>
 
       <div class="duo" id="roster" aria-busy="true"></div>
       <div class="barkey rise"><span><i style="background:var(--viz-filled)"></i>Filled</span><span><i style="background:var(--red)"></i>Vacant</span></div>
-      <p class="body rise" style="margin-top:14px;font-size:14px;max-width:64ch">Ranked worst-empty
-        first, built from each city's published capacity record. As we acquire a city it appears
-        here automatically — nobody edits this page. The two pending below are where <em>your</em>
-        RTI does the work.</p>
+      <p class="body rise" style="margin-top:14px;font-size:14px;max-width:64ch">Each board at its
+        <b>latest primary count</b>, worst-empty first — built from each city's published capacity
+        record, with the year shown on every card. The boards report at different dates, so read this
+        as a worst-first snapshot, not a single-year league: Delhi's figure is its 2021 RTI (its own
+        2025 parliamentary row is lower, ~44% — the board has been filling posts under court pressure),
+        while Gujarat, Karnataka and Tamil Nadu are the 2025 parliamentary annexure. As we acquire a
+        city it appears here automatically — nobody edits this page.</p>
 
       <div class="subh rise">It feels faceless. <em>It isn't.</em></div>
       <p class="body rise">Between you and your air sits a short chain of people. You don't pick the
@@ -224,7 +227,7 @@
         return `<a class="dcell in" href="${b.console}">
           <div class="city">${b.name} · ${b.board}${rank}</div>
           <div class="dstat" data-count="${b.vacancy_pct}">0<span class="u">% empty</span></div>
-          <div class="dsub">${b.vacant} of ${b.sanctioned} posts vacant · ${tier}</div>
+          <div class="dsub">${b.vacant} of ${b.sanctioned} posts vacant${b.year?' · '+b.year:''} · ${tier}</div>
           <div class="stack"><div class="seg filled" data-w="${fp}">${filled}</div><div class="seg vacant" data-w="${vp}">${b.vacant}</div></div>
         </a>`;
       }).join('');

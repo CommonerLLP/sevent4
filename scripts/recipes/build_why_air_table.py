@@ -61,6 +61,11 @@ def build():
             tier = "primary" if conf == "high" else "reported"
             status = "live"
 
+        # the year the vacancy figure is FROM — boards report at different dates,
+        # so the league table must show each board's vintage rather than imply one year
+        year_src = pct_fact or sanc or vac or {}
+        year = str(year_src.get("year", "") or "")[:4]
+
         boards.append({
             "city": city,
             "name": DISPLAY.get(city, city.title()),
@@ -68,6 +73,7 @@ def build():
             "sanctioned": sanctioned,
             "vacant": vacant,
             "vacancy_pct": pct,
+            "year": year,
             "status": status,
             "tier": tier,
             "featured": city in FEATURED,
