@@ -1,6 +1,7 @@
 # The Unelected City
 
-_Repo id: `sevent4`. Public atlas: https://commonerllp.github.io/sevent4/_
+_Repo id: `sevent4`. This repository is **private**; the atlas is a static bundle
+in `public/`, served locally — there is no live public site._
 
 Indian city government is built so that responsibility is hard to see.
 
@@ -72,16 +73,14 @@ Supporting research and operating policy are tracked in-repo:
   [State Finance Commission Histories](research/state-finance-commission-histories.md),
   and the synthesis [Fiscal Devolution Versus Political Devolution](research/decentralization-fiscal-vs-political.md).
 
-## Public Atlas
+## The Atlas Bundle
 
-The public municipal atlas is served as a static GitHub Pages site from the
-checked-in `public/` directory:
+The atlas is a static bundle in the checked-in `public/` directory.
 
-```text
-https://commonerllp.github.io/sevent4/
-```
-
-The published bundle exposes:
+The repository is currently **private** and GitHub Pages auto-deploy is disabled
+(`.github/workflows/pages.yml` is dormant), so there is no live public URL. Serve
+the bundle locally (see "Start Ahmedabad" below), or — if the repo is later made
+public — enable Pages to publish the same `public/` directory. The bundle exposes:
 
 - `/` — the home "municipal ledger": pick a city, see the city/state/centre split
   and the services taken from the elected council
