@@ -1,4 +1,139 @@
 {
+ "ahmedabad": {
+  "name": "Ahmedabad",
+  "elected": 10,
+  "n": 13,
+  "pct": 77,
+  "decided": {
+   "city": 10,
+   "state": 5,
+   "centre": 0,
+   "total": 15,
+   "pct_city": 67
+  },
+  "taken": [
+   {
+    "service": "BRT",
+    "provider": "Ahmedabad Janmarg Ltd (AJL)",
+    "by": "a state SPV"
+   },
+   {
+    "service": "Metro",
+    "provider": "GMRC (Gujarat Metro Rail Corp)",
+    "by": "a state SPV"
+   },
+   {
+    "service": "Urban planning / land",
+    "provider": "AUDA",
+    "by": "a state board"
+   }
+  ]
+ },
+ "mumbai": {
+  "name": "Mumbai",
+  "elected": 10,
+  "n": 12,
+  "pct": 83,
+  "decided": {
+   "city": 10,
+   "state": 4,
+   "centre": 0,
+   "total": 14,
+   "pct_city": 71
+  },
+  "taken": [
+   {
+    "service": "Metro",
+    "provider": "MMRC + MMRDA (Maha Metro lines)",
+    "by": "a state SPV"
+   },
+   {
+    "service": "Urban planning / land",
+    "provider": "MMRDA",
+    "by": "a state board"
+   }
+  ]
+ },
+ "pune": {
+  "name": "Pune",
+  "elected": 9,
+  "n": 13,
+  "pct": 69,
+  "decided": {
+   "city": 9,
+   "state": 6,
+   "centre": 0,
+   "total": 15,
+   "pct_city": 60
+  },
+  "taken": [
+   {
+    "service": "City bus",
+    "provider": "PMPML",
+    "by": "a state SPV"
+   },
+   {
+    "service": "BRT",
+    "provider": "Rainbow BRTS (PMPML)",
+    "by": "a state SPV"
+   },
+   {
+    "service": "Metro",
+    "provider": "Maha Metro + PMRDA",
+    "by": "a state SPV"
+   },
+   {
+    "service": "Urban planning / land",
+    "provider": "PMRDA",
+    "by": "a state board"
+   }
+  ]
+ },
+ "bengaluru": {
+  "name": "Bengaluru",
+  "elected": 6,
+  "n": 12,
+  "pct": 50,
+  "decided": {
+   "city": 6,
+   "state": 8,
+   "centre": 0,
+   "total": 14,
+   "pct_city": 43
+  },
+  "taken": [
+   {
+    "service": "Water supply",
+    "provider": "BWSSB",
+    "by": "a state board"
+   },
+   {
+    "service": "Sewerage / sanitation",
+    "provider": "BWSSB",
+    "by": "a state board"
+   },
+   {
+    "service": "City bus",
+    "provider": "BMTC",
+    "by": "the state govt"
+   },
+   {
+    "service": "Metro",
+    "provider": "BMRCL (Namma Metro)",
+    "by": "a state SPV"
+   },
+   {
+    "service": "Urban planning / land",
+    "provider": "BDA",
+    "by": "a state board"
+   },
+   {
+    "service": "Fire services",
+    "provider": "Karnataka Fire & Emergency Services",
+    "by": "the state govt"
+   }
+  ]
+ },
  "chennai": {
   "name": "Chennai",
   "elected": 6,
@@ -89,51 +224,6 @@
    }
   ]
  },
- "bengaluru": {
-  "name": "Bengaluru",
-  "elected": 6,
-  "n": 12,
-  "pct": 50,
-  "decided": {
-   "city": 6,
-   "state": 8,
-   "centre": 0,
-   "total": 14,
-   "pct_city": 43
-  },
-  "taken": [
-   {
-    "service": "Water supply",
-    "provider": "BWSSB",
-    "by": "a state board"
-   },
-   {
-    "service": "Sewerage / sanitation",
-    "provider": "BWSSB",
-    "by": "a state board"
-   },
-   {
-    "service": "City bus",
-    "provider": "BMTC",
-    "by": "the state govt"
-   },
-   {
-    "service": "Metro",
-    "provider": "BMRCL (Namma Metro)",
-    "by": "a state SPV"
-   },
-   {
-    "service": "Urban planning / land",
-    "provider": "BDA",
-    "by": "a state board"
-   },
-   {
-    "service": "Fire services",
-    "provider": "Karnataka Fire & Emergency Services",
-    "by": "the state govt"
-   }
-  ]
- },
  "hyderabad": {
   "name": "Hyderabad",
   "elected": 6,
@@ -175,6 +265,111 @@
    {
     "service": "Fire services",
     "provider": "Telangana Fire Services",
+    "by": "the state govt"
+   }
+  ]
+ },
+ "kolkata": {
+  "name": "Kolkata",
+  "elected": 8,
+  "n": 12,
+  "pct": 67,
+  "decided": {
+   "city": 8,
+   "state": 5,
+   "centre": 1,
+   "total": 14,
+   "pct_city": 57
+  },
+  "taken": [
+   {
+    "service": "City bus",
+    "provider": "WBTC + private operators",
+    "by": "the state govt"
+   },
+   {
+    "service": "Metro",
+    "provider": "Metro Railway Kolkata",
+    "by": "Indian Railways"
+   },
+   {
+    "service": "Urban planning / land",
+    "provider": "KMDA",
+    "by": "a state board"
+   },
+   {
+    "service": "Fire services",
+    "provider": "WB Fire & Emergency Services",
+    "by": "the state govt"
+   }
+  ]
+ },
+ "visakhapatnam": {
+  "name": "Visakhapatnam",
+  "elected": 8,
+  "n": 11,
+  "pct": 73,
+  "decided": {
+   "city": 8,
+   "state": 5,
+   "centre": 0,
+   "total": 13,
+   "pct_city": 62
+  },
+  "taken": [
+   {
+    "service": "City bus",
+    "provider": "APSRTC",
+    "by": "the state govt"
+   },
+   {
+    "service": "Urban planning / land",
+    "provider": "VMRDA",
+    "by": "a state board"
+   },
+   {
+    "service": "Fire services",
+    "provider": "AP Fire Services",
+    "by": "the state govt"
+   }
+  ]
+ },
+ "bhubaneswar": {
+  "name": "Bhubaneswar",
+  "elected": 6,
+  "n": 11,
+  "pct": 55,
+  "decided": {
+   "city": 6,
+   "state": 7,
+   "centre": 0,
+   "total": 13,
+   "pct_city": 46
+  },
+  "taken": [
+   {
+    "service": "Water supply",
+    "provider": "WATCO / PHEO (Odisha)",
+    "by": "a state board"
+   },
+   {
+    "service": "Sewerage / sanitation",
+    "provider": "WATCO / OWSSB",
+    "by": "a state board"
+   },
+   {
+    "service": "City bus",
+    "provider": "Mo Bus (CRUT - Capital Region Urban Transport)",
+    "by": "a state SPV"
+   },
+   {
+    "service": "Urban planning / land",
+    "provider": "BDA (Bhubaneswar Development Authority)",
+    "by": "a state board"
+   },
+   {
+    "service": "Fire services",
+    "provider": "Odisha Fire Service",
     "by": "the state govt"
    }
   ]
@@ -269,42 +464,47 @@
    }
   ]
  },
- "bhubaneswar": {
-  "name": "Bhubaneswar",
+ "lucknow": {
+  "name": "Lucknow",
   "elected": 6,
-  "n": 11,
-  "pct": 55,
+  "n": 12,
+  "pct": 50,
   "decided": {
    "city": 6,
-   "state": 7,
+   "state": 8,
    "centre": 0,
-   "total": 13,
-   "pct_city": 46
+   "total": 14,
+   "pct_city": 43
   },
   "taken": [
    {
     "service": "Water supply",
-    "provider": "WATCO / PHEO (Odisha)",
+    "provider": "Jal Sansthan / UP Jal Nigam",
     "by": "a state board"
    },
    {
     "service": "Sewerage / sanitation",
-    "provider": "WATCO / OWSSB",
+    "provider": "UP Jal Nigam",
     "by": "a state board"
    },
    {
     "service": "City bus",
-    "provider": "Mo Bus (CRUT - Capital Region Urban Transport)",
+    "provider": "Lucknow City Transport Services Ltd (LCTSL)",
+    "by": "a state SPV"
+   },
+   {
+    "service": "Metro",
+    "provider": "UPMRC (UP Metro Rail Corp)",
     "by": "a state SPV"
    },
    {
     "service": "Urban planning / land",
-    "provider": "BDA (Bhubaneswar Development Authority)",
+    "provider": "LDA (Lucknow Development Authority)",
     "by": "a state board"
    },
    {
     "service": "Fire services",
-    "provider": "Odisha Fire Service",
+    "provider": "UP Fire Service",
     "by": "the state govt"
    }
   ]
@@ -350,161 +550,6 @@
    {
     "service": "Urban planning / land",
     "provider": "JDA (Jaipur Development Authority)",
-    "by": "a state board"
-   }
-  ]
- },
- "kolkata": {
-  "name": "Kolkata",
-  "elected": 8,
-  "n": 12,
-  "pct": 67,
-  "decided": {
-   "city": 8,
-   "state": 5,
-   "centre": 1,
-   "total": 14,
-   "pct_city": 57
-  },
-  "taken": [
-   {
-    "service": "City bus",
-    "provider": "WBTC + private operators",
-    "by": "the state govt"
-   },
-   {
-    "service": "Metro",
-    "provider": "Metro Railway Kolkata",
-    "by": "Indian Railways"
-   },
-   {
-    "service": "Urban planning / land",
-    "provider": "KMDA",
-    "by": "a state board"
-   },
-   {
-    "service": "Fire services",
-    "provider": "WB Fire & Emergency Services",
-    "by": "the state govt"
-   }
-  ]
- },
- "pune": {
-  "name": "Pune",
-  "elected": 9,
-  "n": 13,
-  "pct": 69,
-  "decided": {
-   "city": 9,
-   "state": 6,
-   "centre": 0,
-   "total": 15,
-   "pct_city": 60
-  },
-  "taken": [
-   {
-    "service": "City bus",
-    "provider": "PMPML",
-    "by": "a state SPV"
-   },
-   {
-    "service": "BRT",
-    "provider": "Rainbow BRTS (PMPML)",
-    "by": "a state SPV"
-   },
-   {
-    "service": "Metro",
-    "provider": "Maha Metro + PMRDA",
-    "by": "a state SPV"
-   },
-   {
-    "service": "Urban planning / land",
-    "provider": "PMRDA",
-    "by": "a state board"
-   }
-  ]
- },
- "visakhapatnam": {
-  "name": "Visakhapatnam",
-  "elected": 8,
-  "n": 11,
-  "pct": 73,
-  "decided": {
-   "city": 8,
-   "state": 5,
-   "centre": 0,
-   "total": 13,
-   "pct_city": 62
-  },
-  "taken": [
-   {
-    "service": "City bus",
-    "provider": "APSRTC",
-    "by": "the state govt"
-   },
-   {
-    "service": "Urban planning / land",
-    "provider": "VMRDA",
-    "by": "a state board"
-   },
-   {
-    "service": "Fire services",
-    "provider": "AP Fire Services",
-    "by": "the state govt"
-   }
-  ]
- },
- "ahmedabad": {
-  "name": "Ahmedabad",
-  "elected": 10,
-  "n": 13,
-  "pct": 77,
-  "decided": {
-   "city": 10,
-   "state": 5,
-   "centre": 0,
-   "total": 15,
-   "pct_city": 67
-  },
-  "taken": [
-   {
-    "service": "BRT",
-    "provider": "Ahmedabad Janmarg Ltd (AJL)",
-    "by": "a state SPV"
-   },
-   {
-    "service": "Metro",
-    "provider": "GMRC (Gujarat Metro Rail Corp)",
-    "by": "a state SPV"
-   },
-   {
-    "service": "Urban planning / land",
-    "provider": "AUDA",
-    "by": "a state board"
-   }
-  ]
- },
- "mumbai": {
-  "name": "Mumbai",
-  "elected": 10,
-  "n": 12,
-  "pct": 83,
-  "decided": {
-   "city": 10,
-   "state": 4,
-   "centre": 0,
-   "total": 14,
-   "pct_city": 71
-  },
-  "taken": [
-   {
-    "service": "Metro",
-    "provider": "MMRC + MMRDA (Maha Metro lines)",
-    "by": "a state SPV"
-   },
-   {
-    "service": "Urban planning / land",
-    "provider": "MMRDA",
     "by": "a state board"
    }
   ]

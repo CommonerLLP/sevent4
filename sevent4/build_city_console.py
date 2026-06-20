@@ -125,7 +125,7 @@ CITY_READINESS = {
     "kanpur": {
         # Ward vector is PARTIAL: DataMeet 2018 has 56 of 110 wards (54 missing). Per-ward
         # population (WorldPop) + heat (Landsat) are valid; the layer is NOT a complete city
-        # map and the population sum is NOT the city total. Kept non-"full" deliberately.
+        # map and the population sum is NOT the city total. Selectable but flagged skeleton.
         "console_grade": "skeleton",
         "wards_grade": "partial_56_of_110",
         "finance_grade": "missing",
@@ -133,8 +133,32 @@ CITY_READINESS = {
         "governance_grade": "partial",
         "source_confidence": "partial_vector_2018",
     },
+    "lucknow": {
+        "console_grade": "full",
+        "wards_grade": "complete_110",
+        "finance_grade": "missing",
+        "walkability_grade": "indicative_osm",
+        "governance_grade": "partial",
+        "source_confidence": "datameet_osm_2011",
+    },
 }
-READY_CITIES = {cid for cid, grades in CITY_READINESS.items() if grades["console_grade"] == "full"}
+# The cut-complete cities — full open ward layer + ACs/PCs/OSM + a built jurisdiction
+# crosswalk, but no finance/strong-provenance yet. Graded here so they are SELECTABLE
+# (a navigable console) while staying honest about the gaps.
+for _cid in ("mumbai", "pune", "hyderabad", "jaipur", "kochi", "bhubaneswar", "visakhapatnam"):
+    CITY_READINESS.setdefault(_cid, {
+        "console_grade": "full",
+        "finance_grade": "missing",
+        "walkability_grade": "indicative_osm",
+        "governance_grade": "partial",
+        "source_confidence": "datameet_osm_2011",
+    })
+
+# Selectable set, derived from a TRACKED in-repo constant (NOT a scan of the gitignored
+# data/ tree, which is empty on a clean checkout). Every onboarded console graded in
+# CITY_READINESS is selectable — including the deliberately "skeleton" Kanpur; the grades
+# above carry the quality signal separately.
+READY_CITIES = set(CITY_READINESS)
 ABSENT_CITIES = {
     "Gujarat": ["Surat", "Vadodara", "Rajkot"],
     "Karnataka": ["Mysuru", "Hubballi-Dharwad", "Mangaluru"],
@@ -251,16 +275,6 @@ def _html(city: CityDataset, manifest: LayerManifest, out_dir: Path | None = Non
 
         <div class="sech">Layers</div>
         {_toggles(groups)}
-        <div id="govbox">
-          <div class="sech">Who governs this?</div>
-          <div class="govcard" id="govcard">
-            <p class="govhint">Turn a layer on to see who actually controls it &mdash; and whether the vote you cast for this city reaches them.</p>
-          </div>
-        </div>
-        <div id="airbox" style="display:none">
-          <div class="sech">Who answers for the air?</div>
-          <div class="readnote"><span id="airpanel"></span></div>
-        </div>
         <div class="sech">Read</div>
         <div class="readnote">
           <b>The 74th Amendment</b> is the devolution claim: political and
@@ -281,6 +295,18 @@ def _html(city: CityDataset, manifest: LayerManifest, out_dir: Path | None = Non
         <select id="pcsel" class="fsel{' muted' if pc_disabled else ''}"{pc_disabled}><option value="">{pc_label}</option>{pc_options}</select>
         <button class="fbtn2" id="resetf" type="button">Default view</button>
         <button class="tbtn" id="theme" type="button" aria-label="Toggle light or dark theme" title="Toggle theme"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3a6.5 6.5 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></button>
+      </div>
+      <div class="govpanel" id="govpanel" aria-label="Who governs the selected layer">
+        <div id="govbox">
+          <div class="sech">Who governs this?</div>
+          <div class="govcard" id="govcard">
+            <p class="govhint">Turn a layer on to see who actually controls it &mdash; and whether the vote you cast for this city reaches them.</p>
+          </div>
+        </div>
+        <div id="airbox" style="display:none">
+          <div class="sech">Who answers for the air?</div>
+          <div class="readnote"><span id="airpanel"></span></div>
+        </div>
       </div>
     </div>
   </div>
@@ -653,6 +679,10 @@ _CITY_BODIES: dict[str, dict[str, str]] = {
     "kanpur": dict(corp="the Kanpur Municipal Corporation (Kanpur Nagar Nigam)",
         transit="Kanpur City Transport Services Ltd",
         police="the Kanpur Police Commissionerate"),
+    "lucknow": dict(corp="the Lucknow Municipal Corporation (Lucknow Nagar Nigam)",
+        water="Jal Sansthan / UP Jal Nigam", planning="the LDA (Lucknow Development Authority)",
+        transit="Lucknow City Transport Services Ltd", metro="the UP Metro Rail Corp (Lucknow Metro)",
+        police="the Lucknow Police Commissionerate", pcb="the UP Pollution Control Board"),
 }
 
 # Where a city breaks the national pattern, override the control verdict.
@@ -861,8 +891,8 @@ def _css() -> str:
 *{box-sizing:border-box;margin:0}html,body{height:100%}body{font:400 15px/1.5 var(--sans);color:var(--ink);background:var(--bg);overflow:hidden}.app{display:grid;grid-template-columns:300px 1fr;height:100vh}.rail{background:var(--panel2);border-right:1px solid var(--line);display:flex;flex-direction:column;min-height:0}.rail .mast{background:var(--panel2);border-bottom:1px solid var(--ink);padding:13px 14px 14px}.rail .mast:before{background:var(--ink);content:"";display:block;height:1px;margin-bottom:9px}.brandmark{color:var(--ink);font-family:var(--serif);font-size:27px;font-weight:800;letter-spacing:0;line-height:1}.brandline{border-bottom:1px solid var(--line);color:var(--mut);font:700 9px/1 var(--mono);letter-spacing:.16em;margin:6px 0 10px;padding-bottom:8px;text-transform:uppercase}.jurisdictionbar{display:grid;grid-template-columns:1fr 1fr;gap:8px}.jurisdictionbar label{display:block;min-width:0}.jurisdictionbar label span{color:var(--mut);display:block;font:700 9px/1 var(--mono);letter-spacing:.14em;margin:0 0 5px;text-transform:uppercase}.jurisdictionbar select{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--ink);font:700 12px/1 var(--mono);height:34px;padding:0 8px;width:100%}.basis{color:var(--mut);font:700 9px/1.4 var(--mono);letter-spacing:.08em;margin-top:9px;text-transform:uppercase}.rail .scroll{overflow:auto;flex:1;padding:10px 12px}.sech{font:700 11px/1 var(--mono);letter-spacing:.14em;color:var(--mut);text-transform:uppercase;margin:14px 0 6px}.readnote{border-left:2px solid var(--gold);color:var(--mut);font-size:12px;line-height:1.55;padding-left:9px}.readnote b{color:var(--ink)}.search,.fsel{width:100%;margin-bottom:7px;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);padding:9px 10px;font:600 12px var(--mono)}.search::placeholder{color:var(--mut)}.fsel{cursor:pointer}.fsel.muted{color:var(--mut);cursor:not-allowed}.fbtn2{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);padding:8px 12px;font:700 11px var(--mono);cursor:pointer;letter-spacing:.06em}.fbtn2:hover,.tbtn:hover{border-color:var(--blue);color:var(--blue)}.tog{display:block;padding:6px 4px;border-bottom:1px solid var(--hair);cursor:pointer;font-size:13px}.tog input{vertical-align:-1px;margin-right:7px;accent-color:var(--blue)}.tog .sw{display:inline-block;vertical-align:0;margin-right:6px;background:var(--swc,#5a86f5)}.tog .sw-fill{width:11px;height:11px;border-radius:2px;border:1px solid rgba(255,255,255,.18)}.tog .sw-dot{width:10px;height:10px;border-radius:50%;border:1px solid rgba(255,255,255,.25)}.tog .sw-line{width:14px;height:3px;border-radius:2px;vertical-align:3px}.tog .sw-img{width:11px;height:11px;border-radius:2px;border:1px solid rgba(255,255,255,.18)}.tog .sw-grad{background:linear-gradient(90deg,#2c7a55,#d7b33f,#9f2d2d)}.tog b{font-weight:600}.tog.is-hidden{display:none}.layerGroup{margin:1px 0 3px}.lgh{align-items:center;background:none;border:0;color:var(--mut);cursor:pointer;display:flex;font:700 10px/1 var(--mono);gap:6px;letter-spacing:.13em;padding:7px 2px;text-transform:uppercase;width:100%}.lgh:hover{color:var(--ink)}.lgname{flex:1;text-align:left}.lgc{color:var(--mut);font:700 9px/1 var(--mono)}.lgcaret{border-bottom:3px solid transparent;border-left:4px solid currentColor;border-top:3px solid transparent;height:0;transform:rotate(90deg);transition:transform .12s;width:0}.layerGroup.collapsed .lgcaret{transform:rotate(0)}.layerGroup.collapsed .lgb{display:none}.lgb{padding-left:2px}.yearctl{align-items:center;display:flex;gap:4px;margin:6px 0 2px 25px}.ybtn{background:var(--panel);border:1px solid var(--line);border-radius:3px;color:var(--ink);cursor:pointer;font:700 9px var(--mono);height:20px;min-width:20px;padding:0 4px}.ybtn:hover,.ybtn.is-playing{border-color:var(--blue);color:var(--blue)}.ylbl{color:var(--ink);font:700 11px var(--mono);min-width:34px;text-align:center}.rail .foot{padding:10px 14px;border-top:1px solid var(--line);font:600 11px/1.5 var(--mono);color:var(--mut)}.mapwrap{position:relative;height:100vh}#map{height:100vh}.filterbar{position:absolute;z-index:2;top:12px;left:12px;right:12px;display:grid;grid-template-columns:minmax(160px,1fr) minmax(150px,1fr) minmax(150px,1fr) auto 38px;gap:8px;align-items:start}.filterbar .fsel,.filterbar .fbtn2,.filterbar .tbtn{height:38px;margin:0;box-shadow:0 2px 10px rgba(0,0,0,.16)}.filterbar .fbtn2{min-width:116px;white-space:nowrap}.tbtn{align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--ink);cursor:pointer;display:grid;justify-content:center;padding:0;width:38px}.tbtn svg{display:block;fill:none;height:17px;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.2;width:17px}.default-view-ctrl button{color:#333}.default-view-ctrl .default-view-icon{display:grid;height:100%;place-items:center;width:100%}.default-view-ctrl svg{display:block;height:18px;width:18px;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.2}.maplibregl-popup-content{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:6px;font:600 12px/1.5 var(--mono);padding:10px 12px;max-width:320px}.maplibregl-popup-content b{color:var(--ink)}.maplibregl-popup-tip{display:none}.maplibregl-popup-content .k{color:var(--mut)}.hovpop .maplibregl-popup-content{padding:6px 9px;border-left-color:var(--gold);max-width:240px}.hovt .hk{display:block;color:var(--mut);font:700 8px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;margin-bottom:3px}.hovt .hmore{display:block;color:var(--gold);font:700 9px/1 var(--mono);margin-top:3px}.pgrp{margin-bottom:9px}.pgrp:last-child{margin-bottom:0}.pgl{display:block;color:var(--mut);font:700 8px/1 var(--mono);letter-spacing:.13em;text-transform:uppercase;border-bottom:1px solid var(--hair);padding-bottom:3px;margin-bottom:5px}.pf{margin-bottom:6px}.pf:last-child{margin-bottom:0}.pf b{display:block}.pmore{color:var(--gold);font:700 10px var(--mono)}
 .brandrow{align-items:center;display:flex;gap:12px;margin-bottom:12px;min-width:0}.ixamark{display:block;flex:0 0 auto;height:58px;width:58px}.wordmark{display:block;min-width:0;white-space:normal}.wordmark span{color:var(--ink);display:block;font-family:var(--serif);font-size:17px;font-weight:700;letter-spacing:0;line-height:1.02}.wordmark b{color:var(--mut);display:block;font:800 8px/1 var(--mono);letter-spacing:.12em;margin-top:5px;text-transform:uppercase}.sitenav{display:grid;gap:7px;grid-template-columns:1fr 1fr;margin:0 0 14px}.sitenav a{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--mut);font:800 10px/1 var(--mono);letter-spacing:.12em;padding:9px 10px;text-align:center;text-decoration:none;text-transform:uppercase}.sitenav a.is-active{background:var(--ink);border-color:var(--ink);color:var(--bg)}.sitenav a:not(.is-active):hover{border-color:var(--blue);color:var(--blue)}.basis{text-transform:none}
 .brandmark{font-size:21px}
-#govbox{margin-top:4px}.govcard{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:6px;padding:9px 11px}.govhint{color:var(--mut);font-size:12px;line-height:1.5}.govlayer{display:block;color:var(--mut);font:700 8px/1 var(--mono);letter-spacing:.13em;text-transform:uppercase;margin-bottom:6px}.govchip{display:inline-block;color:#fff;font:700 8px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:3px 6px;border-radius:3px;margin-bottom:7px}.gc-city{background:#2c7a55}.gc-para{background:var(--red)}.gc-state{background:#b07d18}.gc-union{background:var(--blue)}.gc-split{background:#7a6a1e}.gc-grace{background:#a9601f}.gc-ref{background:var(--mut)}.govbody{color:var(--mut);font-size:12px;line-height:1.55}.govbody b{color:var(--ink)}.govverdict{display:block;margin-top:7px;color:var(--ink);font:700 11px/1.4 var(--mono)}.govmore{display:inline-block;margin-top:8px;color:var(--gold);font:700 11px/1 var(--mono);text-decoration:none}.govmore:hover{color:var(--blue)}
-@media(max-width:980px){.filterbar{top:54px;right:12px;grid-template-columns:1fr 1fr}.filterbar .fbtn2{min-width:0}}@media(max-width:760px){.app{grid-template-columns:1fr;grid-template-rows:auto 1fr}.rail{max-height:34vh}.filterbar{top:10px;left:10px;right:10px;grid-template-columns:1fr 1fr}.filterbar .fsel,.filterbar .fbtn2{height:36px;font-size:11px;padding:8px}#map,.mapwrap{height:66vh}}
+.govpanel{position:absolute;z-index:3;top:62px;right:12px;width:300px;max-width:38vw;max-height:calc(100vh - 84px);overflow-y:auto;background:var(--panel2);border:1px solid var(--line);border-radius:8px;box-shadow:0 4px 18px rgba(0,0,0,.22);padding:2px 12px 12px}.govpanel .sech:first-child{margin-top:9px}#govbox{margin-top:4px}.govcard{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:6px;padding:9px 11px}.govhint{color:var(--mut);font-size:12px;line-height:1.5}.govlayer{display:block;color:var(--mut);font:700 8px/1 var(--mono);letter-spacing:.13em;text-transform:uppercase;margin-bottom:6px}.govchip{display:inline-block;color:#fff;font:700 8px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:3px 6px;border-radius:3px;margin-bottom:7px}.gc-city{background:#2c7a55}.gc-para{background:var(--red)}.gc-state{background:#b07d18}.gc-union{background:var(--blue)}.gc-split{background:#7a6a1e}.gc-grace{background:#a9601f}.gc-ref{background:var(--mut)}.govbody{color:var(--mut);font-size:12px;line-height:1.55}.govbody b{color:var(--ink)}.govverdict{display:block;margin-top:7px;color:var(--ink);font:700 11px/1.4 var(--mono)}.govmore{display:inline-block;margin-top:8px;color:var(--gold);font:700 11px/1 var(--mono);text-decoration:none}.govmore:hover{color:var(--blue)}
+@media(max-width:980px){.filterbar{top:54px;right:12px;grid-template-columns:1fr 1fr}.filterbar .fbtn2{min-width:0}.govpanel{top:108px;max-width:46vw}}@media(max-width:760px){.app{grid-template-columns:1fr;grid-template-rows:auto 1fr}.rail{max-height:34vh}.filterbar{top:10px;left:10px;right:10px;grid-template-columns:1fr 1fr}.filterbar .fsel,.filterbar .fbtn2{height:36px;font-size:11px;padding:8px}#map,.mapwrap{height:66vh}.govpanel{top:auto;bottom:10px;left:10px;right:10px;width:auto;max-width:none;max-height:38vh}}
 """
 
 

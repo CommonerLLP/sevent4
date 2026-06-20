@@ -91,18 +91,39 @@ def main():
         d = r["decided"]
         print(f"{r['name']:<14}{(str(d['city'])+'/'+str(r['dtotal'])):>12}{r['pct_city']:>6}%   ({d['state']} / {d['centre']})")
 
-    # data product
-    sc = {r["id"]: {"name": r["name"],
+    # --- registry-driven assembly ---------------------------------------------------
+    # The PUBLIC registry is the canonical city set, NOT service_providers.json. We
+    # compute rows for cities in BOTH (so a stray service-map entry with no console —
+    # e.g. `nagpur` — is dropped), and for a registry city the service map cannot
+    # produce (e.g. Delhi, an NCT special case whose central/territorial split is not
+    # in this builder's vocabulary) we PRESERVE its existing scorecard row. This makes
+    # a clean regen reproduce consoles == scorecard == registry, idempotently.
+    registry = [c["id"] for c in json.loads((ROOT / "public/cities/registry.json").read_text(encoding="utf-8"))]
+    computed = {r["id"]: {"name": r["name"],
                     "elected": r["elected"], "n": r["n"], "pct": r["pct"],
                     "decided": {**r["decided"], "total": r["dtotal"], "pct_city": r["pct_city"]},
                     "taken": [{"service": lab, "provider": prov, "by": TYPELABEL.get(t, t)} for lab, prov, t in r["taken"]]}
-          for r in rows}
+          for r in rows if r["id"] in registry}
     scpath = ROOT / "public/cities/scorecard.json"
+    existing = json.loads(scpath.read_text(encoding="utf-8")) if scpath.exists() else {}
+    sc, preserved = {}, []
+    for cid in registry:
+        if cid in computed:
+            sc[cid] = computed[cid]
+        elif cid in existing:
+            sc[cid] = existing[cid]; preserved.append(cid)
+    dropped = sorted(r["id"] for r in rows if r["id"] not in registry)
     scpath.parent.mkdir(parents=True, exist_ok=True)
     scpath.write_text(json.dumps(sc, ensure_ascii=False, indent=1), encoding="utf-8")
+    if preserved:
+        print(f"preserved special-case rows (absent from service map): {preserved}")
+    if dropped:
+        print(f"dropped service-map entries with no console (not in registry): {dropped}")
 
     n_gov = 0
     for r in rows:
+        if r["id"] not in registry:
+            continue
         gp = ROOT / f"data/cities/{r['id']}/layers/governance.json"
         if gp.exists():
             g = json.loads(gp.read_text(encoding="utf-8"))
