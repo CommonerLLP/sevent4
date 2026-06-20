@@ -7,7 +7,7 @@ PORT="${PORT:-9174}"
 
 cd "$ROOT"
 
-echo "Serving SevenT4 from $ROOT"
+echo "Serving The Unelected City from $ROOT"
 echo "Open: http://127.0.0.1:$PORT/public/cities/$CITY/index.html"
 
 if [[ -x "$ROOT/.venv/bin/python" ]]; then

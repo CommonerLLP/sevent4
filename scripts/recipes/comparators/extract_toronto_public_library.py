@@ -59,7 +59,7 @@ def csv_path(cache_dir: Path, name: str, url: str) -> Path:
 
 
 def fetch_bytes(url: str) -> bytes:
-    request = Request(url, headers={"User-Agent": "SevenT4 Toronto library comparator"})
+    request = Request(url, headers={"User-Agent": "The Unelected City Toronto library comparator"})
     try:
         with urlopen(request, timeout=60) as response:
             return response.read()

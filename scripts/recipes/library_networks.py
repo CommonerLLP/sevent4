@@ -25,7 +25,7 @@ class PlainTextParser(HTMLParser):
         return " ".join(" ".join(self.parts).split())
 
 
-def fetch_bytes(url: str, user_agent: str = "SevenT4 library-network extractor") -> bytes:
+def fetch_bytes(url: str, user_agent: str = "The Unelected City library-network extractor") -> bytes:
     request = Request(url, headers={"User-Agent": user_agent})
     try:
         with urlopen(request, timeout=60) as response:

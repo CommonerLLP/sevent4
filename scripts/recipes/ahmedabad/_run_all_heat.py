@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Driver: build the Landsat heat layer for all SevenT4 cities."""
+"""Driver: build the Landsat heat layer for all atlas cities."""
 from __future__ import annotations
 
 import json

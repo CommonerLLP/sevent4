@@ -1,4 +1,4 @@
-"""Build the SevenT4 "Who controls the money" flow page for a major project.
+"""Build the "Who controls the money" flow page for a major project.
 
 Renders a hand-built inline-SVG money-flow (Sankey-style) diagram: where the
 capital comes from, through which vehicle, to whom it is paid — and, beneath it,
@@ -53,7 +53,7 @@ FOREIGN = {"KOR", "JPN", "FR", "US"}
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Build the SevenT4 money-flow page.")
+    parser = argparse.ArgumentParser(description="Build the money-flow page.")
     parser.add_argument("--city", required=True, help="Path to city.yaml")
     parser.add_argument("--out", required=True, help="Output HTML path")
     args = parser.parse_args()

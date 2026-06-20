@@ -13,7 +13,7 @@ from sevent4.city_dataset import CityDataset
 from sevent4.metrics.ward_service_access import build_metrics
 
 # Ahmedabad is the first implemented city recipe. Other cities can use this once
-# their source service layers match the SevenT4 city data contract.
+# their source service layers match the atlas city data contract.
 DEFAULT_CITY = "ahmedabad"
 
 

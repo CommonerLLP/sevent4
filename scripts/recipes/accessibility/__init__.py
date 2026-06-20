@@ -1,1 +1,1 @@
-"""Shared accessibility helpers for SevenT4 recipes."""
+"""Shared accessibility helpers for The Unelected City recipes."""

@@ -182,7 +182,7 @@ def _fetch_text(url: str) -> str:
 
 
 def _fetch_bytes(url: str) -> bytes:
-    request = Request(url, headers={"User-Agent": "SevenT4 city finance-book fetcher"})
+    request = Request(url, headers={"User-Agent": "The Unelected City finance-book fetcher"})
     try:
         with urlopen(request, timeout=60) as response:
             return response.read()
