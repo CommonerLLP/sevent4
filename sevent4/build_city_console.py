@@ -125,7 +125,7 @@ CITY_READINESS = {
     "kanpur": {
         # Ward vector is PARTIAL: DataMeet 2018 has 56 of 110 wards (54 missing). Per-ward
         # population (WorldPop) + heat (Landsat) are valid; the layer is NOT a complete city
-        # map and the population sum is NOT the city total. Kept non-"full" deliberately.
+        # map and the population sum is NOT the city total. Selectable but flagged skeleton.
         "console_grade": "skeleton",
         "wards_grade": "partial_56_of_110",
         "finance_grade": "missing",
@@ -133,8 +133,29 @@ CITY_READINESS = {
         "governance_grade": "partial",
         "source_confidence": "partial_vector_2018",
     },
+    "lucknow": {
+        "console_grade": "full",
+        "wards_grade": "complete_110",
+        "finance_grade": "missing",
+        "walkability_grade": "indicative_osm",
+        "governance_grade": "partial",
+        "source_confidence": "datameet_osm_2011",
+    },
 }
-READY_CITIES = {cid for cid, grades in CITY_READINESS.items() if grades["console_grade"] == "full"}
+
+
+def _selectable_cities() -> set[str]:
+    """Selectable = a built console (city.yaml) that also has a working jurisdiction
+    crosswalk (so its ward/AC/PC dropdowns actually cascade). This is deliberately
+    NOT the same as a strong finance/governance grade — a thin-but-navigable console
+    is still selectable; the CITY_READINESS grades carry the quality signal separately."""
+    root = Path(__file__).resolve().parents[1] / "data" / "cities"
+    built = {p.parent.name for p in root.glob("*/city.yaml")}
+    cross = {p.parent.parent.name for p in root.glob("*/layers/jurisdiction_crosswalk.json")}
+    return built & cross
+
+
+READY_CITIES = _selectable_cities()
 ABSENT_CITIES = {
     "Gujarat": ["Surat", "Vadodara", "Rajkot"],
     "Karnataka": ["Mysuru", "Hubballi-Dharwad", "Mangaluru"],

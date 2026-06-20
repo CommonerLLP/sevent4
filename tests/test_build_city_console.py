@@ -66,9 +66,16 @@ class FeatureOptionsTest(unittest.TestCase):
         self.assertLessEqual(READY_CITIES, crosswalk_cities)
 
     def test_ready_cities_are_the_approved_selectable_set(self) -> None:
+        # Selectable = a built console (city.yaml) with a working jurisdiction crosswalk,
+        # NOT the narrower "full quality grade" set. A thin-but-navigable console is still
+        # selectable; CITY_READINESS grades carry quality separately.
         self.assertEqual(
             READY_CITIES,
-            {"ahmedabad", "bengaluru", "chennai", "delhi", "kolkata"},
+            {
+                "ahmedabad", "bengaluru", "bhubaneswar", "chennai", "delhi", "hyderabad",
+                "jaipur", "kanpur", "kochi", "kolkata", "lucknow", "mumbai", "pune",
+                "visakhapatnam",
+            },
         )
 
     def test_finance_grades_use_standard_keywords(self) -> None:
