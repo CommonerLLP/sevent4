@@ -221,11 +221,12 @@ def main():
                    "population_2020", "pop_density_km2", "ward_coverage"],
         "paint": {"fill-color": "#1f6f8b", "fill-opacity": 0.18},
     })
-    manifest["layers"].append({
-        "id": "districts", "label": "District boundary", "file": "districts.geojson",
-        "kind": "line", "group": "Civic baseline", "default": True, "popup": ["district"],
-        "paint": {"line-color": "#c9c2b3", "line-width": 1.3, "line-opacity": 0.55},
-    })
+    if (layers / "districts.geojson").exists():  # only manifest districts when the layer was produced
+        manifest["layers"].append({
+            "id": "districts", "label": "District boundary", "file": "districts.geojson",
+            "kind": "line", "group": "Civic baseline", "default": True, "popup": ["district"],
+            "paint": {"line-color": "#c9c2b3", "line-width": 1.3, "line-opacity": 0.55},
+        })
     manifest["layers"].append({
         "id": "pcs", "label": "Parliament constituencies", "file": "pcs.geojson",
         "kind": "line", "group": "Public jurisdictions", "default": True,

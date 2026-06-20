@@ -25,6 +25,11 @@ heat = [
   "rioxarray",
   "xarray",
 ]
+# Budget-DB exports (scripts/budget_db/build_budget_db.py reaches to_parquet + duckdb)
+budget = [
+  "duckdb",
+  "pyarrow",
+]
 
 [project.scripts]
 sevent4-console = "sevent4.build_city_console:main"

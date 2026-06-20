@@ -26,7 +26,7 @@ from pathlib import Path
 from urllib.request import Request, urlopen
 from urllib.parse import urlencode
 
-ROOT = Path(__file__).resolve.parents[3]
+ROOT = Path(__file__).resolve().parents[3]
 ENDPOINTS = ["https://overpass-api.de/api/interpreter", "https://overpass.kumi.systems/api/interpreter"]
 UA = {"User-Agent": "sevent4-atlas/1.0 (74th-amendment atlas)"}
 

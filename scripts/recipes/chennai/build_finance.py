@@ -43,7 +43,7 @@ def num(x):
     except ValueError: return 0.0
 
 
-def acquire:
+def acquire():
     RAW.mkdir(parents=True, exist_ok=True)
     cat = json.load(open(CATALOGUE))
     ds = next((d for d in cat["datasets"] if d.get("title") == "Great Chennai Corporation Finances"), None)
@@ -99,7 +99,7 @@ def build_budget_summary(files: dict):
     return {"vintage": VINTAGE, "unit": "Rs lakh", "year": "2013-14 actuals", "lines": rows}
 
 
-def main:
+def main():
     files = acquire
     zones = build_zone_capex(files)
 

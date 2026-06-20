@@ -69,7 +69,7 @@ def fetch(url: str, dest: Path) -> int:
     return len(data)
 
 
-def main -> None:
+def main() -> None:
     RAW.mkdir(parents=True, exist_ok=True)
     provenance = []
 

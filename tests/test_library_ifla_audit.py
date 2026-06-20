@@ -1,5 +1,6 @@
 import unittest
 
+from scripts.recipes.comparators import build_library_ifla_audit as _audit
 from scripts.recipes.comparators.build_library_ifla_audit import (
     governance_rows,
     ifla_rows,
@@ -8,6 +9,10 @@ from scripts.recipes.comparators.build_library_ifla_audit import (
 )
 
 
+@unittest.skipUnless(
+    _audit.IFLA_REF.exists(),
+    "library audit source inputs are gitignored / local-only and absent on this checkout",
+)
 class LibraryIflaAuditTest(unittest.TestCase):
     def test_ifla_rows_audit_ahmedabad_and_delhi_core_metrics(self) -> None:
         rows = ifla_rows()

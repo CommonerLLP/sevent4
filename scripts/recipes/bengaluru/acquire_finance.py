@@ -60,7 +60,7 @@ def fetch(url: str, dest: Path) -> int:
     return 0
 
 
-def main -> None:
+def main() -> None:
     if not ARCHIVE.exists:
         sys.exit(f"archive root {ARCHIVE} not present — mount it or set OPENCITY_ARCHIVE")
     cat = json.load(open(CATALOGUE))
