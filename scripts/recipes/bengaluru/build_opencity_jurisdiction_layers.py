@@ -88,6 +88,7 @@ def clean(g: gpd.GeoDataFrame, spec: dict) -> gpd.GeoDataFrame:
 
 
 def main() -> None:
+    LAYERS.mkdir(parents=True, exist_ok=True)  # ensure the target exists on a fresh checkout
     built = []
     for spec in CURATED:
         src = RAW / spec["slug"] / spec["file"]

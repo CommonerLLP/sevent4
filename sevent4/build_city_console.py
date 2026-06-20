@@ -648,6 +648,11 @@ _CITY_BODIES: dict[str, dict[str, str]] = {
     "kolkata": dict(corp="the Kolkata Municipal Corporation", water="the KMC water-supply wing",
         planning="the KMDA", transit="the WBTC", metro="the Metro Railway (Indian Railways)",
         police="the Kolkata Police", pcb="the West Bengal Pollution Control Board"),
+    # Kanpur is a partial skeleton; only the bodyKeys its present layers use are named
+    # (corp/police/transit). The other layers render from State-level template defaults.
+    "kanpur": dict(corp="the Kanpur Municipal Corporation (Kanpur Nagar Nigam)",
+        transit="Kanpur City Transport Services Ltd",
+        police="the Kanpur Police Commissionerate"),
 }
 
 # Where a city breaks the national pattern, override the control verdict.
