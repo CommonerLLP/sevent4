@@ -269,6 +269,51 @@
    }
   ]
  },
+ "lucknow": {
+  "name": "Lucknow",
+  "elected": 6,
+  "n": 12,
+  "pct": 50,
+  "decided": {
+   "city": 6,
+   "state": 8,
+   "centre": 0,
+   "total": 14,
+   "pct_city": 43
+  },
+  "taken": [
+   {
+    "service": "Water supply",
+    "provider": "Jal Sansthan / UP Jal Nigam",
+    "by": "a state board"
+   },
+   {
+    "service": "Sewerage / sanitation",
+    "provider": "UP Jal Nigam",
+    "by": "a state board"
+   },
+   {
+    "service": "City bus",
+    "provider": "Lucknow City Transport Services Ltd (LCTSL)",
+    "by": "a state SPV"
+   },
+   {
+    "service": "Metro",
+    "provider": "UPMRC (UP Metro Rail Corp)",
+    "by": "a state SPV"
+   },
+   {
+    "service": "Urban planning / land",
+    "provider": "LDA (Lucknow Development Authority)",
+    "by": "a state board"
+   },
+   {
+    "service": "Fire services",
+    "provider": "UP Fire Service",
+    "by": "the state govt"
+   }
+  ]
+ },
  "bhubaneswar": {
   "name": "Bhubaneswar",
   "elected": 6,

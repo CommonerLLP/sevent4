@@ -72,6 +72,12 @@
   "district": "Kanpur Nagar"
  },
  {
+  "id": "lucknow",
+  "name": "Lucknow",
+  "state": "Uttar Pradesh",
+  "district": "Lucknow"
+ },
+ {
   "id": "jaipur",
   "name": "Jaipur",
   "state": "Rajasthan",
