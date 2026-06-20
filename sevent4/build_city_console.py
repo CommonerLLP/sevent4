@@ -142,20 +142,23 @@ CITY_READINESS = {
         "source_confidence": "datameet_osm_2011",
     },
 }
+# The cut-complete cities — full open ward layer + ACs/PCs/OSM + a built jurisdiction
+# crosswalk, but no finance/strong-provenance yet. Graded here so they are SELECTABLE
+# (a navigable console) while staying honest about the gaps.
+for _cid in ("mumbai", "pune", "hyderabad", "jaipur", "kochi", "bhubaneswar", "visakhapatnam"):
+    CITY_READINESS.setdefault(_cid, {
+        "console_grade": "full",
+        "finance_grade": "missing",
+        "walkability_grade": "indicative_osm",
+        "governance_grade": "partial",
+        "source_confidence": "datameet_osm_2011",
+    })
 
-
-def _selectable_cities() -> set[str]:
-    """Selectable = a built console (city.yaml) that also has a working jurisdiction
-    crosswalk (so its ward/AC/PC dropdowns actually cascade). This is deliberately
-    NOT the same as a strong finance/governance grade — a thin-but-navigable console
-    is still selectable; the CITY_READINESS grades carry the quality signal separately."""
-    root = Path(__file__).resolve().parents[1] / "data" / "cities"
-    built = {p.parent.name for p in root.glob("*/city.yaml")}
-    cross = {p.parent.parent.name for p in root.glob("*/layers/jurisdiction_crosswalk.json")}
-    return built & cross
-
-
-READY_CITIES = _selectable_cities()
+# Selectable set, derived from a TRACKED in-repo constant (NOT a scan of the gitignored
+# data/ tree, which is empty on a clean checkout). Every onboarded console graded in
+# CITY_READINESS is selectable — including the deliberately "skeleton" Kanpur; the grades
+# above carry the quality signal separately.
+READY_CITIES = set(CITY_READINESS)
 ABSENT_CITIES = {
     "Gujarat": ["Surat", "Vadodara", "Rajkot"],
     "Karnataka": ["Mysuru", "Hubballi-Dharwad", "Mangaluru"],
