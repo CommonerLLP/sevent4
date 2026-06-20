@@ -679,6 +679,10 @@ _CITY_BODIES: dict[str, dict[str, str]] = {
     "kanpur": dict(corp="the Kanpur Municipal Corporation (Kanpur Nagar Nigam)",
         transit="Kanpur City Transport Services Ltd",
         police="the Kanpur Police Commissionerate"),
+    "lucknow": dict(corp="the Lucknow Municipal Corporation (Lucknow Nagar Nigam)",
+        water="Jal Sansthan / UP Jal Nigam", planning="the LDA (Lucknow Development Authority)",
+        transit="Lucknow City Transport Services Ltd", metro="the UP Metro Rail Corp (Lucknow Metro)",
+        police="the Lucknow Police Commissionerate", pcb="the UP Pollution Control Board"),
 }
 
 # Where a city breaks the national pattern, override the control verdict.
