@@ -372,3 +372,14 @@ python -m sevent4.build_city_console \
   https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=59093
 - Janaagraha, Annual Survey of India's City-Systems:
   https://www.janaagraha.org/asics/
+
+## License & attribution
+
+- **Code** — the recipes, console generator, and page templates this project authored —
+  is licensed under **AGPL-3.0** (see [`LICENSE`](LICENSE)).
+- **Data** — the geospatial layers, population, and finance data — is **third-party data
+  redistributed under each source's own license** (OpenStreetMap/ODbL, WorldPop/CC-BY,
+  DataMeet, OpenCity, Census of India, the city/state governments, and others). It is
+  **not** relicensed under AGPL. Full credits and per-source terms are in
+  [`ATTRIBUTION.md`](ATTRIBUTION.md); reusing a layer carries its upstream obligations
+  (attribution, and share-alike where it applies).
