@@ -1,7 +1,7 @@
 {
   "name": "Part IXA: The Municipalities",
   "short_name": "Part IXA",
-  "description": "SevenT4 accountability atlas for Indian urban local bodies.",
+  "description": "An accountability atlas for Indian urban local bodies.",
   "id": "./",
   "start_url": "./cities/ahmedabad/",
   "scope": "./",

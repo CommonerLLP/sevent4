@@ -13,7 +13,7 @@ from .layer_manifest import LayerManifest, LayerSpec
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Build a SevenT4 city console.")
+    parser = argparse.ArgumentParser(description="Build a Municipalities Atlas city console.")
     parser.add_argument("--city", required=True, help="Path to city.yaml")
     parser.add_argument("--layers", required=True, help="Path to layer_manifest.json")
     parser.add_argument("--out", required=True, help="Output HTML path")
@@ -32,7 +32,7 @@ def build_console(city: CityDataset, manifest: LayerManifest, out: Path) -> None
     layer_out = out.parent / "layers"
     layer_out.mkdir(parents=True, exist_ok=True)
     _copy_layers(city, manifest, layer_out)
-    out.write_text(_html(city, manifest), encoding="utf-8")
+    out.write_text(_html(city, manifest, out.parent), encoding="utf-8")
 
 
 # Canonical name field every console assumes -> candidate source fields. KGIS layers
@@ -122,6 +122,17 @@ CITY_READINESS = {
         "governance_grade": "partial",
         "source_confidence": "mixed_official",
     },
+    "kanpur": {
+        # Ward vector is PARTIAL: DataMeet 2018 has 56 of 110 wards (54 missing). Per-ward
+        # population (WorldPop) + heat (Landsat) are valid; the layer is NOT a complete city
+        # map and the population sum is NOT the city total. Kept non-"full" deliberately.
+        "console_grade": "skeleton",
+        "wards_grade": "partial_56_of_110",
+        "finance_grade": "missing",
+        "walkability_grade": "indicative_osm",
+        "governance_grade": "partial",
+        "source_confidence": "partial_vector_2018",
+    },
 }
 READY_CITIES = {cid for cid, grades in CITY_READINESS.items() if grades["console_grade"] == "full"}
 ABSENT_CITIES = {
@@ -178,7 +189,14 @@ def _state_options(city: CityDataset, geo: dict, states: list[str]) -> str:
     return "".join(opts)
 
 
-def _html(city: CityDataset, manifest: LayerManifest) -> str:
+def _html(city: CityDataset, manifest: LayerManifest, out_dir: Path | None = None) -> str:
+    # The governance card CAN link the corporation's money-axis layers to a city
+    # budget page (mechanism in _governance_for_city). Auto-linking is OFF: Aakash
+    # parked the Ahmedabad finance/money HTML pages as not-good-enough, so we do not
+    # promote them from the console until they're reworked. Flip to "finance/" per
+    # city once the page clears the bar.
+    finance_url = None
+    _ = out_dir  # reserved for finance-page detection when re-enabled
     canon = _canon_layers(manifest.layers)
     groups = _groups(canon)
     jurisdiction = _jurisdiction_context(city.layers_dir)
@@ -199,35 +217,32 @@ def _html(city: CityDataset, manifest: LayerManifest) -> str:
     ac_label = "Assembly constituency" if ac_options else "Assembly constituency boundary not loaded"
     pc_label = "Parliamentary constituency" if pc_options else "Parliamentary constituency boundary not loaded"
     return f"""<!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
+  <script>(function(){{try{{var t=localStorage.getItem('atlas-theme');if(!t)t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.dataset.theme=t;}}catch(e){{document.documentElement.dataset.theme='dark';}}}})();</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="application-name" content="Part IXA: The Municipalities">
-  <meta name="theme-color" content="#f3f1ea">
+  <meta name="theme-color" content="#0a0c10" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f3f1ea" media="(prefers-color-scheme: light)">
   <title>Part IXA: The Municipalities - {html.escape(city.state)} / {html.escape(city.name)}</title>
   <link rel="icon" type="image/png" href="../../assets/ixa-mark.png?v=stitch-color">
   <link rel="manifest" href="../../site.webmanifest">
   <link rel="stylesheet" href="../../assets/maplibre-gl.css">
+  <link rel="stylesheet" href="../../assets/theme.css">
+  <link rel="stylesheet" href="../../assets/masthead.css">
   <style>{_css()}</style>
+  <script src="../../assets/theme.js" defer></script>
+  <script src="../../assets/masthead.js"></script>
 </head>
 <body>
   <div class="app">
     <aside class="rail">
-      <div class="mast">
-        <div>
-          <div class="brandrow">
-            <img class="ixamark" src="../../assets/ixa-mark.png?v=stitch-color" alt="" aria-hidden="true">
-            <div class="wordmark" aria-label="The Municipalities Accountability Atlas"><span>The Municipalities</span><b>Accountability Atlas</b></div>
-          </div>
-          <nav class="sitenav" aria-label="Site">
-            <a class="is-active" href="./">Atlas</a>
-            <a href="../../about/">About</a>
-          </nav>
-          <div class="jurisdictionbar" aria-label="Current jurisdiction">
-            <label><span>State</span><select id="statesel">{state_options}</select></label>
-            <label><span>City</span><select id="citysel"></select></label>
-          </div>
+      <header data-masthead="rail"></header>
+      <div class="railjur">
+        <div class="jurisdictionbar" aria-label="Current jurisdiction">
+          <label><span>State</span><select id="statesel">{state_options}</select></label>
+          <label><span>City</span><select id="citysel"></select></label>
         </div>
       </div>
       <div class="scroll">
@@ -236,6 +251,12 @@ def _html(city: CityDataset, manifest: LayerManifest) -> str:
 
         <div class="sech">Layers</div>
         {_toggles(groups)}
+        <div id="govbox">
+          <div class="sech">Who governs this?</div>
+          <div class="govcard" id="govcard">
+            <p class="govhint">Turn a layer on to see who actually controls it &mdash; and whether the vote you cast for this city reaches them.</p>
+          </div>
+        </div>
         <div id="airbox" style="display:none">
           <div class="sech">Who answers for the air?</div>
           <div class="readnote"><span id="airpanel"></span></div>
@@ -271,8 +292,10 @@ def _html(city: CityDataset, manifest: LayerManifest) -> str:
   const GEO = {json.dumps(geo, ensure_ascii=False)};
   const CURRENT_STATE = {json.dumps(city.state)};
   const CURRENT_CITY = {json.dumps(city.id)};
+  const GOV = {json.dumps(_governance_for_city(city.id, finance_url), ensure_ascii=False)};
   {_js()}
   {_air_panel_js()}
+  {_governance_js()}
   </script>
 </body>
 </html>
@@ -297,6 +320,40 @@ def _air_panel_js() -> str:
       }
       box.style.display='';
     }).catch(function(){});
+  })();
+"""
+
+
+def _governance_js() -> str:
+    """The 'Who governs this?' card. Toggling a layer on pushes it onto a small
+    stack and renders that function's governing body, control chip, and verdict;
+    toggling off pops it. Exposes window.__govShow(id,on) for the layer handlers."""
+    return """
+  (function(){
+    var card=document.getElementById('govcard');
+    if(!card) return;
+    var HINT=card.innerHTML, stack=[];
+    function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+    function labelOf(id){var l=(layers||[]).find(function(x){return x.id===id;});return l?l.label:id;}
+    function render(){
+      var id=stack[stack.length-1], g=id&&GOV[id];
+      if(!g){card.innerHTML=HINT;return;}
+      var fin=g.finance?('<a class="govmore" href="'+esc(g.finance)+'">Where the money goes &rarr;</a>'):'';
+      card.innerHTML='<span class="govlayer">'+esc(labelOf(id))+'</span>'+
+        '<span class="govchip '+g.chipClass+'">'+esc(g.chip)+'</span>'+
+        '<div class="govbody">'+g.line+'<span class="govverdict">'+esc(g.verdict)+'</span>'+fin+'</div>';
+    }
+    window.__govShow=function(id,on){
+      if(!GOV[id]) return;
+      var i=stack.indexOf(id); if(i>=0) stack.splice(i,1);
+      if(on) stack.push(id);
+      render();
+    };
+    // greet with whatever is already switched on (e.g. default wards layer)
+    document.querySelectorAll('[data-layer]').forEach(function(cb){
+      if(cb.checked && GOV[cb.dataset.layer]) stack.push(cb.dataset.layer);
+    });
+    render();
   })();
 """
 
@@ -330,11 +387,18 @@ def _layer_json(layer: LayerSpec, city: CityDataset) -> dict[str, Any]:
 # colour=None means "order/label/group only, keep the layer's own colour".
 _CANON: tuple[tuple[str, str, str, str | None], ...] = (
     ("wards", "Wards", "Civic baseline", "#1f6f8b"),
+    ("wards_2024", "AMC wards (2024, LGD)", "Civic baseline", None),
     ("districts", "Districts", "Civic baseline", "#c9c2b3"),
     ("villages", "Revenue villages", "Civic baseline", "#8a6f4e"),
     ("landuse", "Land use", "Civic baseline", None),
     ("acs", "Assembly constituencies", "Public jurisdictions", "#5c8af2"),
     ("pcs", "Parliament constituencies", "Public jurisdictions", "#d6a946"),
+    ("gba_corporations", "GBA corporations (2025)", "Public jurisdictions", None),
+    ("gba_zones", "GBA zones (2025)", "Public jurisdictions", None),
+    ("bda_zones", "BDA zones & subdivisions", "Public jurisdictions", None),
+    ("bwssb_divisions", "BWSSB divisions", "Public jurisdictions", None),
+    ("cmwssb_depots", "CMWSSB depots", "Public jurisdictions", None),
+    ("traffic_police_jurisdiction", "Traffic police zones", "Public jurisdictions", None),
     ("roads", "Major roads", "Mobility", "#58606d"),
     ("metro_lines", "Metro lines", "Transit", "#dc4c4c"),
     ("metro", "Metro stations", "Transit", "#dc4c4c"),
@@ -355,6 +419,15 @@ _CANON: tuple[tuple[str, str, str, str | None], ...] = (
     ("toilets", "Public toilets", "Public services", "#46c1b4"),
     ("river", "River", "Environment", None),
     ("water", "Water bodies", "Environment", "#3aa0d6"),
+    ("drains", "Storm-water drains", "Environment", None),
+    ("stormwater_drains", "Storm-water drains", "Environment", None),
+    ("flood_hazard", "Flood hazard zones", "Environment", None),
+    ("flood_inundation", "Flood inundation depth", "Environment", None),
+    ("flood_2015", "2015 flood points", "Environment", None),
+    ("sewer_command_area", "Sewerage command areas", "Environment", None),
+    ("water_overhead_tanks", "Water overhead tanks", "Environment", None),
+    ("bbmp_dry_waste_centres", "Dry-waste centres", "Environment", None),
+    ("bbmp_landfills", "Landfills", "Environment", None),
     ("ward_heat", "Ward heat", "Climate", None),
     ("heat30m", "Surface heat (30 m)", "Climate", None),
     ("air_quality", "Air quality (stations)", "Climate", None),
@@ -399,37 +472,70 @@ def _groups(layers: tuple[LayerSpec, ...]) -> dict[str, list[LayerSpec]]:
 
 
 def _toggles(groups: dict[str, list[LayerSpec]]) -> str:
+    """Render the layer panel as collapsible groups, each row carrying a
+    geometry-shaped legend swatch so a given layer reads identically in every city."""
     chunks: list[str] = []
     for group, layers in groups.items():
+        rows = []
         for layer in layers:
             checked = " checked" if layer.default else ""
-            color = _legend_color(layer.paint)
             search = f"{group} {layer.label}".lower()
-            year_select = _year_select(layer)
-            chunks.append(
+            rows.append(
                 f"<label class='tog' data-search='{html.escape(search)}'>"
                 f"<input type='checkbox' data-layer='{html.escape(layer.id)}'{checked}>"
-                f"<span class='sw' style='background:{html.escape(color)}'></span>"
+                f"{_legend_swatch(layer)}"
                 f"<b>{html.escape(layer.label)}</b>"
-                f"{year_select}"
+                f"{_year_transport(layer)}"
                 "</label>"
             )
+        on = sum(1 for l in layers if l.default)
+        count = f"<span class='lgc'>{on}/{len(layers)}</span>" if on else f"<span class='lgc'>{len(layers)}</span>"
+        chunks.append(
+            f"<div class='layerGroup'>"
+            f"<button type='button' class='lgh' aria-expanded='true'>"
+            f"<span class='lgcaret'></span><span class='lgname'>{html.escape(group)}</span>{count}</button>"
+            f"<div class='lgb'>{''.join(rows)}</div>"
+            f"</div>"
+        )
     return "\n".join(chunks)
 
 
-def _year_select(layer: LayerSpec) -> str:
+# A canonical legend swatch keyed on geometry kind, so "Libraries" is the same gold
+# dot in every city, "Major roads" the same grey bar, "Wards" the same filled chip.
+_SWATCH_SHAPE = {"circle": "sw-dot", "line": "sw-line", "fill": "sw-fill", "image": "sw-img"}
+
+
+def _legend_swatch(layer: LayerSpec) -> str:
+    shape = _SWATCH_SHAPE.get(layer.kind, "sw-fill")
+    if _is_graduated(layer.paint):
+        # data-driven colour ramp -> show a gradient chip instead of a flat colour
+        return f"<span class='sw {shape} sw-grad' aria-hidden='true'></span>"
+    color = _legend_color(layer.paint)
+    return f"<span class='sw {shape}' style='--swc:{html.escape(color)}' aria-hidden='true'></span>"
+
+
+def _year_transport(layer: LayerSpec) -> str:
+    """Transport control (step back / play-pause / step forward) for a time-series layer,
+    driving the same setLayerYear hook the old <select> used."""
     if not layer.year_values:
         return ""
     default = layer.default_year or layer.year_values[-1]
-    opts = []
-    for year in layer.year_values:
-        selected = " selected" if year == default else ""
-        opts.append(f"<option value='{year}'{selected}>{year}</option>")
+    years = ",".join(str(y) for y in layer.year_values)
+    lid = html.escape(layer.id)
     return (
-        f"<select class='yearctl' data-year-layer='{html.escape(layer.id)}' "
-        f"aria-label='Year for {html.escape(layer.label, quote=True)}'>"
-        f"{''.join(opts)}</select>"
+        f"<span class='yearctl' data-year-layer='{lid}' data-years='{years}' "
+        f"data-year-field='{html.escape(layer.year_field or '', quote=True)}'>"
+        f"<button type='button' class='ybtn' data-yact='back' aria-label='Previous year'>&#9664;</button>"
+        f"<button type='button' class='ybtn yplay' data-yact='play' aria-label='Play years'>&#9654;</button>"
+        f"<button type='button' class='ybtn' data-yact='fwd' aria-label='Next year'>&#9654;&#9654;</button>"
+        f"<span class='ylbl' data-year-label='{lid}'>{default}</span>"
+        f"</span>"
     )
+
+
+def _is_graduated(paint: dict[str, Any]) -> bool:
+    return any(isinstance(paint.get(k), list)
+               for k in ("circle-color", "line-color", "fill-color"))
 
 
 def _legend_color(paint: dict[str, Any]) -> str:
@@ -438,6 +544,193 @@ def _legend_color(paint: dict[str, Any]) -> str:
         if isinstance(value, str):
             return value
     return "#5a86f5"
+
+
+# ── Educational layer: "Who governs this?" ───────────────────────────────────
+# Toggling a layer surfaces the body that actually controls that function, and
+# whether it sits under the elected city (your vote reaches it) or a parastatal /
+# State agency outside municipal control. This is the atlas thesis — the unelected
+# city — made interactive: water in Bengaluru is a State board, in Ahmedabad it is
+# the corporation, and the same map layer says exactly that in each city.
+#
+# Each function template carries a control type and a control-NEUTRAL fact (so it
+# stays true whoever runs it); the chip + verdict clause carry the elected/unelected
+# judgement. {body} is filled from _CITY_BODIES per city. Lines are authored prose,
+# not data — kept honest and short.
+_GOV_TEMPLATES: dict[str, dict[str, str]] = {
+    "elected": dict(control="city", bodyKey="corp", finance="1",
+        line="These are the wards of {body} — the one authority on this map you elect directly. Article 243W says it should run the city; the other layers test how much of that it truly holds."),
+    "ward_money": dict(control="city", bodyKey="corp", finance="1",
+        line="{body} raises and spends this, ward by ward. It is elected — but most of what a city can spend is tied by the State tier above it."),
+    "water": dict(control="parastatal", bodyKey="water",
+        line="Piped water and sewerage here are run by {body}."),
+    "planning": dict(control="parastatal", bodyKey="planning",
+        line="Land use and the master plan are set by {body}, a State development authority whose lines override the elected corporation's wards."),
+    "transit_bus": dict(control="parastatal", bodyKey="transit",
+        line="City bus service here is run by {body}."),
+    "metro": dict(control="parastatal", bodyKey="metro",
+        line="The metro is built and run by {body} — a standalone rail company answerable to neither the Mayor nor your councillor."),
+    "police": dict(control="state", bodyKey="police",
+        line="Policing here is {body}'s. Law and order is not a municipal function; the police answer up to the government above the city, never to the Mayor."),
+    "fire": dict(control="state", body="the State fire & emergency service",
+        line="Fire & emergency response is run by {body}. The 12th Schedule lists it, but the State staffs and funds it."),
+    "libraries": dict(control="state", body="the State library directorate",
+        line="Public libraries fall to {body}. The city carries no statutory duty to fund or run a single one — which is how a ward ends up with none."),
+    "education": dict(control="shared", body="the State education department",
+        line="Most schooling here is {body}'s; the corporation runs, at best, some primary schools. Split mandate, blurred accountability."),
+    "health": dict(control="shared", body="the State health department",
+        line="Hospitals and primary health are largely {body}'s; the city runs only a thin layer of clinics."),
+    "roads": dict(control="shared", body="three different agencies",
+        line="These roads are split between the corporation, the State PWD and national highways — {body} you cannot hold to one account."),
+    "solid_waste": dict(control="city", bodyKey="corp", finance="1",
+        line="Waste collection and disposal is a core 12th-Schedule duty {body} actually holds — one of the few services your vote reaches."),
+    "sanitation": dict(control="city", bodyKey="corp", finance="1",
+        line="Public toilets and street sanitation are {body}'s own duty — a core 12th-Schedule service your vote reaches."),
+    "stormwater": dict(control="shared", bodyKey="corp",
+        line="Local drains are {body}'s — but storm-water and flooding spill into the State irrigation / water-resources department, so when your lane floods, responsibility falls between the two."),
+    "river": dict(control="state", body="the State water-resources department",
+        line="Rivers and major water bodies belong to {body}, not the city — even as the city drinks from them or floods."),
+    "environment_air": dict(control="parastatal", bodyKey="pcb",
+        line="Air and pollution are policed by {body}, a State board — see 'Who answers for the air?' below."),
+    "rail": dict(control="union", body="Indian Railways",
+        line="Suburban rail is {body}, a Union undertaking; the city it carries has no seat in how it runs."),
+    "assembly": dict(control="state", body="the State Legislative Assembly",
+        line="Assembly constituencies elect the State government — the tier that holds most of the money and powers the 74th Amendment was meant to send down."),
+    "parliament": dict(control="union", body="Parliament",
+        line="Parliamentary constituencies elect the Union government, which writes the terms the city's self-rule lives under."),
+    "revenue": dict(control="state", body="the State revenue administration",
+        line="Districts and revenue villages are {body}'s units — older than, and overlapping, the municipal map."),
+    "reference": dict(control="reference", body="",
+        line="A derived or reference layer, not an authority's own record. Read it as context, not as a line of accountability."),
+}
+
+# layer id -> function template key
+_GOV_LAYER: dict[str, str] = {
+    "wards": "elected", "wards_2024": "elected", "wards_buses": "elected",
+    "ward_library_exclusion": "elected", "gba_corporations": "elected", "gba_zones": "elected",
+    "ward_workorders": "ward_money", "ward_workorders_yearly": "ward_money",
+    "ward_analysis": "ward_money", "zone_finance": "ward_money",
+    "water": "water", "water_overhead_tanks": "water", "bwssb_divisions": "water",
+    "cmwssb_depots": "water", "sewer_command_area": "water",
+    "landuse": "planning", "bda_zones": "planning",
+    "bus_routes": "transit_bus", "stops": "transit_bus", "corr_amts": "transit_bus", "corr_brts": "transit_bus",
+    "metro": "metro", "metro_lines": "metro", "rrts": "metro",
+    "rail": "rail", "suburban_rail": "rail",
+    "police": "police", "traffic_police_jurisdiction": "police",
+    "fire": "fire",
+    "libraries": "libraries", "schools": "education", "universities": "education", "health": "health",
+    "roads": "roads",
+    "toilets": "sanitation",
+    "drains": "stormwater", "stormwater_drains": "stormwater",
+    "flood_hazard": "stormwater", "flood_inundation": "stormwater", "flood_2015": "stormwater",
+    "bbmp_dry_waste_centres": "solid_waste", "bbmp_landfills": "solid_waste",
+    "river": "river",
+    "air_quality": "environment_air", "ward_aqi": "environment_air",
+    "acs": "assembly", "pcs": "parliament",
+    "districts": "revenue", "villages": "revenue",
+    "heat30m": "reference", "ward_heat": "reference",
+}
+
+# city -> function bodyKey -> the actual authority's name
+_CITY_BODIES: dict[str, dict[str, str]] = {
+    "ahmedabad": dict(corp="the Ahmedabad Municipal Corporation", water="the AMC Water Supply department",
+        planning="AUDA", transit="AMTS / Janmarg, run by the AMC", metro="the Gujarat Metro Rail Corp",
+        police="the Ahmedabad City Police", pcb="the Gujarat Pollution Control Board"),
+    "bengaluru": dict(corp="the Greater Bengaluru / BBMP corporations", water="the BWSSB",
+        planning="the BDA", transit="the BMTC", metro="the BMRCL",
+        police="the Bengaluru City Police", pcb="the Karnataka State Pollution Control Board"),
+    "chennai": dict(corp="the Greater Chennai Corporation", water="CMWSSB (Metrowater)",
+        planning="the CMDA", transit="the MTC", metro="the CMRL",
+        police="the Greater Chennai Police", pcb="the Tamil Nadu Pollution Control Board"),
+    "delhi": dict(corp="the Municipal Corporation of Delhi", water="the Delhi Jal Board",
+        planning="the DDA", transit="the DTC", metro="the DMRC",
+        police="the Delhi Police (under the Union Home Ministry)", pcb="the Delhi Pollution Control Committee"),
+    "kolkata": dict(corp="the Kolkata Municipal Corporation", water="the KMC water-supply wing",
+        planning="the KMDA", transit="the WBTC", metro="the Metro Railway (Indian Railways)",
+        police="the Kolkata Police", pcb="the West Bengal Pollution Control Board"),
+}
+
+# Where a city breaks the national pattern, override the control verdict.
+# Ahmedabad/Kolkata run their own water (elected control); Delhi police is Union;
+# Kolkata's metro is Indian Railways; AMC runs its own buses.
+_CITY_CONTROL: dict[str, dict[str, str]] = {
+    "ahmedabad": {"water": "city", "transit_bus": "city"},
+    "kolkata": {"water": "city", "metro": "union"},
+    "delhi": {"police": "union"},
+}
+
+_GOV_VERDICT: dict[str, str] = {
+    "city": "Your vote reaches it.",
+    "parastatal": "No councillor you elect controls it.",
+    "state": "It answers to the State, not the city.",
+    "union": "It answers to the Union, not the city.",
+    "shared": "Split mandate — no single body to hold to account.",
+    "grace": "You elected who pays — but no law requires them to. It can be starved away, and a ward with none has no claim.",
+    "reference": "Context, not a line of accountability.",
+}
+
+_GOV_CHIP: dict[str, tuple[str, str]] = {
+    "city": ("Elected city", "gc-city"),
+    "parastatal": ("Parastatal", "gc-para"),
+    "state": ("State govt", "gc-state"),
+    "union": ("Union govt", "gc-union"),
+    "shared": ("Split mandate", "gc-split"),
+    "grace": ("By grace, not right", "gc-grace"),
+    "reference": ("Reference", "gc-ref"),
+}
+
+# Where a city's lived reality breaks the national function template entirely, override
+# the whole card. Ahmedabad libraries are the case: a State subject the 74th Amendment
+# never devolved, yet funded ~96% by the elected AMC out of discretion, not duty — so
+# neither "State runs it" nor "you elect them" is true. (The "Gujarat has no Public
+# Libraries Act" point is kept OUT of the rendered line pending a primary-source cite.)
+_CITY_FUNCTION_OVERRIDE: dict[str, dict[str, dict[str, str]]] = {
+    "ahmedabad": {
+        "libraries": {
+            "control": "grace",
+            "line": ("Ahmedabad's public libraries are funded almost entirely by "
+                     "<b>the AMC</b> — its grant covers ~96% of the M.J. Library network. "
+                     "Yet libraries are a State subject the 74th Amendment never placed in "
+                     "the 12th Schedule, so the city runs them by choice, not by legal duty."),
+        },
+    },
+}
+
+
+def _governance_for_city(city_id: str, finance_url: str | None = None) -> dict[str, dict[str, str]]:
+    """Resolve the per-layer governance card for one city: control verdict, chip,
+    and the body-filled fact line. Returns {layer_id: {...}} for the JS to render.
+    finance_url, when the city has a budget page, is attached to the corporation's
+    own money-axis layers so 'who governs this' flows into 'where the money goes'."""
+    bodies = _CITY_BODIES.get(city_id, {})
+    out: dict[str, dict[str, str]] = {}
+    for lid, tkey in _GOV_LAYER.items():
+        tpl = _GOV_TEMPLATES[tkey]
+        control = _CITY_CONTROL.get(city_id, {}).get(tkey, tpl["control"])
+        body = bodies.get(tpl["bodyKey"], "") if tpl.get("bodyKey") else tpl.get("body", "")
+        filled = "<b>" + html.escape(body) + "</b>" if body else "this body"
+        line = tpl["line"].replace("{body}", filled)
+        chip_label, chip_class = _GOV_CHIP[control]
+        card = {
+            "control": control,
+            "chip": chip_label,
+            "chipClass": chip_class,
+            "verdict": _GOV_VERDICT[control],
+            "line": line,
+        }
+        ov = _CITY_FUNCTION_OVERRIDE.get(city_id, {}).get(lid)
+        if ov:
+            if "control" in ov:
+                control = ov["control"]
+                chip_label, chip_class = _GOV_CHIP[control]
+                card.update(control=control, chip=chip_label, chipClass=chip_class,
+                            verdict=ov.get("verdict", _GOV_VERDICT[control]))
+            if "line" in ov:
+                card["line"] = ov["line"]
+        if finance_url and tpl.get("finance"):
+            card["finance"] = finance_url
+        out[lid] = card
+    return out
 
 
 def _pick_name_field(path: Path, candidates: tuple[str, ...]) -> str | None:
@@ -559,19 +852,20 @@ def _rings(geom: dict[str, Any]) -> list[list[list[float]]]:
 
 def _css() -> str:
     return """
-:root{color-scheme:dark;--bg:#0a0c10;--panel:#13161d;--panel2:#171b23;--ink:#ece9e2;--mut:#8b929f;--line:#262c38;--hair:#1b1f28;--blue:#5a86f5;--red:#f0303d;--gold:#edc233;--r:4px;--serif:Georgia,"Iowan Old Style","Times New Roman",serif;--mono:ui-monospace,Menlo,"SF Mono",Consolas,monospace;--sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-[data-theme=light]{color-scheme:light;--bg:#f3f1ea;--panel:#fff;--panel2:#f6f3ea;--ink:#16181d;--mut:#586071;--line:#d7d1c2;--hair:#e7e2d6;--blue:#22409A;--red:#c8102e;--gold:#9a7b14}
-*{box-sizing:border-box;margin:0}html,body{height:100%}body{font:400 15px/1.5 var(--sans);color:var(--ink);background:var(--bg);overflow:hidden}.app{display:grid;grid-template-columns:300px 1fr;height:100vh}.rail{background:var(--panel2);border-right:1px solid var(--line);display:flex;flex-direction:column;min-height:0}.rail .mast{background:var(--panel2);border-bottom:1px solid var(--ink);padding:13px 14px 14px}.rail .mast:before{background:var(--ink);content:"";display:block;height:1px;margin-bottom:9px}.brandmark{color:var(--ink);font-family:var(--serif);font-size:27px;font-weight:800;letter-spacing:0;line-height:1}.brandline{border-bottom:1px solid var(--line);color:var(--mut);font:700 9px/1 var(--mono);letter-spacing:.16em;margin:6px 0 10px;padding-bottom:8px;text-transform:uppercase}.jurisdictionbar{display:grid;grid-template-columns:1fr 1fr;gap:8px}.jurisdictionbar label{display:block;min-width:0}.jurisdictionbar label span{color:var(--mut);display:block;font:700 9px/1 var(--mono);letter-spacing:.14em;margin:0 0 5px;text-transform:uppercase}.jurisdictionbar select{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--ink);font:700 12px/1 var(--mono);height:34px;padding:0 8px;width:100%}.basis{color:var(--mut);font:700 9px/1.4 var(--mono);letter-spacing:.08em;margin-top:9px;text-transform:uppercase}.rail .scroll{overflow:auto;flex:1;padding:10px 12px}.sech{font:700 11px/1 var(--mono);letter-spacing:.14em;color:var(--mut);text-transform:uppercase;margin:14px 0 6px}.readnote{border-left:2px solid var(--gold);color:var(--mut);font-size:12px;line-height:1.55;padding-left:9px}.readnote b{color:var(--ink)}.search,.fsel{width:100%;margin-bottom:7px;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);padding:9px 10px;font:600 12px var(--mono)}.search::placeholder{color:var(--mut)}.fsel{cursor:pointer}.fsel.muted{color:var(--mut);cursor:not-allowed}.fbtn2{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);padding:8px 12px;font:700 11px var(--mono);cursor:pointer;letter-spacing:.06em}.fbtn2:hover,.tbtn:hover{border-color:var(--blue);color:var(--blue)}.tog{display:block;padding:6px 4px;border-bottom:1px solid var(--hair);cursor:pointer;font-size:13px}.tog input{vertical-align:-1px;margin-right:7px;accent-color:var(--blue)}.tog .sw{display:inline-block;width:11px;height:11px;border-radius:2px;vertical-align:0;margin-right:6px;border:1px solid rgba(255,255,255,.18)}.tog b{font-weight:600}.tog.is-hidden{display:none}.yearctl{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--ink);display:block;font:700 11px var(--mono);height:28px;margin:6px 0 2px 25px;padding:0 7px;width:92px}.rail .foot{padding:10px 14px;border-top:1px solid var(--line);font:600 11px/1.5 var(--mono);color:var(--mut)}.mapwrap{position:relative;height:100vh}#map{height:100vh}.filterbar{position:absolute;z-index:2;top:12px;left:12px;right:12px;display:grid;grid-template-columns:minmax(160px,1fr) minmax(150px,1fr) minmax(150px,1fr) auto 38px;gap:8px;align-items:start}.filterbar .fsel,.filterbar .fbtn2,.filterbar .tbtn{height:38px;margin:0;box-shadow:0 2px 10px rgba(0,0,0,.16)}.filterbar .fbtn2{min-width:116px;white-space:nowrap}.tbtn{align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--ink);cursor:pointer;display:grid;justify-content:center;padding:0;width:38px}.tbtn svg{display:block;fill:none;height:17px;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.2;width:17px}.default-view-ctrl button{color:#333}.default-view-ctrl .default-view-icon{display:grid;height:100%;place-items:center;width:100%}.default-view-ctrl svg{display:block;height:18px;width:18px;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.2}.maplibregl-popup-content{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:6px;font:600 12px/1.5 var(--mono);padding:10px 12px;max-width:320px}.maplibregl-popup-content b{color:var(--ink)}.maplibregl-popup-tip{display:none}.maplibregl-popup-content .k{color:var(--mut)}.hovpop .maplibregl-popup-content{padding:6px 9px;border-left-color:var(--gold);max-width:240px}.hovt .hk{display:block;color:var(--mut);font:700 8px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;margin-bottom:3px}.hovt .hmore{display:block;color:var(--gold);font:700 9px/1 var(--mono);margin-top:3px}.pgrp{margin-bottom:9px}.pgrp:last-child{margin-bottom:0}.pgl{display:block;color:var(--mut);font:700 8px/1 var(--mono);letter-spacing:.13em;text-transform:uppercase;border-bottom:1px solid var(--hair);padding-bottom:3px;margin-bottom:5px}.pf{margin-bottom:6px}.pf:last-child{margin-bottom:0}.pf b{display:block}.pmore{color:var(--gold);font:700 10px var(--mono)}
+/* colour tokens (palette + light/dark logic) come from the linked theme.css */
+*{box-sizing:border-box;margin:0}html,body{height:100%}body{font:400 15px/1.5 var(--sans);color:var(--ink);background:var(--bg);overflow:hidden}.app{display:grid;grid-template-columns:300px 1fr;height:100vh}.rail{background:var(--panel2);border-right:1px solid var(--line);display:flex;flex-direction:column;min-height:0}.rail .mast{background:var(--panel2);border-bottom:1px solid var(--ink);padding:13px 14px 14px}.rail .mast:before{background:var(--ink);content:"";display:block;height:1px;margin-bottom:9px}.brandmark{color:var(--ink);font-family:var(--serif);font-size:27px;font-weight:800;letter-spacing:0;line-height:1}.brandline{border-bottom:1px solid var(--line);color:var(--mut);font:700 9px/1 var(--mono);letter-spacing:.16em;margin:6px 0 10px;padding-bottom:8px;text-transform:uppercase}.jurisdictionbar{display:grid;grid-template-columns:1fr 1fr;gap:8px}.jurisdictionbar label{display:block;min-width:0}.jurisdictionbar label span{color:var(--mut);display:block;font:700 9px/1 var(--mono);letter-spacing:.14em;margin:0 0 5px;text-transform:uppercase}.jurisdictionbar select{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--ink);font:700 12px/1 var(--mono);height:34px;padding:0 8px;width:100%}.basis{color:var(--mut);font:700 9px/1.4 var(--mono);letter-spacing:.08em;margin-top:9px;text-transform:uppercase}.rail .scroll{overflow:auto;flex:1;padding:10px 12px}.sech{font:700 11px/1 var(--mono);letter-spacing:.14em;color:var(--mut);text-transform:uppercase;margin:14px 0 6px}.readnote{border-left:2px solid var(--gold);color:var(--mut);font-size:12px;line-height:1.55;padding-left:9px}.readnote b{color:var(--ink)}.search,.fsel{width:100%;margin-bottom:7px;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);padding:9px 10px;font:600 12px var(--mono)}.search::placeholder{color:var(--mut)}.fsel{cursor:pointer}.fsel.muted{color:var(--mut);cursor:not-allowed}.fbtn2{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);padding:8px 12px;font:700 11px var(--mono);cursor:pointer;letter-spacing:.06em}.fbtn2:hover,.tbtn:hover{border-color:var(--blue);color:var(--blue)}.tog{display:block;padding:6px 4px;border-bottom:1px solid var(--hair);cursor:pointer;font-size:13px}.tog input{vertical-align:-1px;margin-right:7px;accent-color:var(--blue)}.tog .sw{display:inline-block;vertical-align:0;margin-right:6px;background:var(--swc,#5a86f5)}.tog .sw-fill{width:11px;height:11px;border-radius:2px;border:1px solid rgba(255,255,255,.18)}.tog .sw-dot{width:10px;height:10px;border-radius:50%;border:1px solid rgba(255,255,255,.25)}.tog .sw-line{width:14px;height:3px;border-radius:2px;vertical-align:3px}.tog .sw-img{width:11px;height:11px;border-radius:2px;border:1px solid rgba(255,255,255,.18)}.tog .sw-grad{background:linear-gradient(90deg,#2c7a55,#d7b33f,#9f2d2d)}.tog b{font-weight:600}.tog.is-hidden{display:none}.layerGroup{margin:1px 0 3px}.lgh{align-items:center;background:none;border:0;color:var(--mut);cursor:pointer;display:flex;font:700 10px/1 var(--mono);gap:6px;letter-spacing:.13em;padding:7px 2px;text-transform:uppercase;width:100%}.lgh:hover{color:var(--ink)}.lgname{flex:1;text-align:left}.lgc{color:var(--mut);font:700 9px/1 var(--mono)}.lgcaret{border-bottom:3px solid transparent;border-left:4px solid currentColor;border-top:3px solid transparent;height:0;transform:rotate(90deg);transition:transform .12s;width:0}.layerGroup.collapsed .lgcaret{transform:rotate(0)}.layerGroup.collapsed .lgb{display:none}.lgb{padding-left:2px}.yearctl{align-items:center;display:flex;gap:4px;margin:6px 0 2px 25px}.ybtn{background:var(--panel);border:1px solid var(--line);border-radius:3px;color:var(--ink);cursor:pointer;font:700 9px var(--mono);height:20px;min-width:20px;padding:0 4px}.ybtn:hover,.ybtn.is-playing{border-color:var(--blue);color:var(--blue)}.ylbl{color:var(--ink);font:700 11px var(--mono);min-width:34px;text-align:center}.rail .foot{padding:10px 14px;border-top:1px solid var(--line);font:600 11px/1.5 var(--mono);color:var(--mut)}.mapwrap{position:relative;height:100vh}#map{height:100vh}.filterbar{position:absolute;z-index:2;top:12px;left:12px;right:12px;display:grid;grid-template-columns:minmax(160px,1fr) minmax(150px,1fr) minmax(150px,1fr) auto 38px;gap:8px;align-items:start}.filterbar .fsel,.filterbar .fbtn2,.filterbar .tbtn{height:38px;margin:0;box-shadow:0 2px 10px rgba(0,0,0,.16)}.filterbar .fbtn2{min-width:116px;white-space:nowrap}.tbtn{align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--ink);cursor:pointer;display:grid;justify-content:center;padding:0;width:38px}.tbtn svg{display:block;fill:none;height:17px;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.2;width:17px}.default-view-ctrl button{color:#333}.default-view-ctrl .default-view-icon{display:grid;height:100%;place-items:center;width:100%}.default-view-ctrl svg{display:block;height:18px;width:18px;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.2}.maplibregl-popup-content{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:6px;font:600 12px/1.5 var(--mono);padding:10px 12px;max-width:320px}.maplibregl-popup-content b{color:var(--ink)}.maplibregl-popup-tip{display:none}.maplibregl-popup-content .k{color:var(--mut)}.hovpop .maplibregl-popup-content{padding:6px 9px;border-left-color:var(--gold);max-width:240px}.hovt .hk{display:block;color:var(--mut);font:700 8px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;margin-bottom:3px}.hovt .hmore{display:block;color:var(--gold);font:700 9px/1 var(--mono);margin-top:3px}.pgrp{margin-bottom:9px}.pgrp:last-child{margin-bottom:0}.pgl{display:block;color:var(--mut);font:700 8px/1 var(--mono);letter-spacing:.13em;text-transform:uppercase;border-bottom:1px solid var(--hair);padding-bottom:3px;margin-bottom:5px}.pf{margin-bottom:6px}.pf:last-child{margin-bottom:0}.pf b{display:block}.pmore{color:var(--gold);font:700 10px var(--mono)}
 .brandrow{align-items:center;display:flex;gap:12px;margin-bottom:12px;min-width:0}.ixamark{display:block;flex:0 0 auto;height:58px;width:58px}.wordmark{display:block;min-width:0;white-space:normal}.wordmark span{color:var(--ink);display:block;font-family:var(--serif);font-size:17px;font-weight:700;letter-spacing:0;line-height:1.02}.wordmark b{color:var(--mut);display:block;font:800 8px/1 var(--mono);letter-spacing:.12em;margin-top:5px;text-transform:uppercase}.sitenav{display:grid;gap:7px;grid-template-columns:1fr 1fr;margin:0 0 14px}.sitenav a{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--mut);font:800 10px/1 var(--mono);letter-spacing:.12em;padding:9px 10px;text-align:center;text-decoration:none;text-transform:uppercase}.sitenav a.is-active{background:var(--ink);border-color:var(--ink);color:var(--bg)}.sitenav a:not(.is-active):hover{border-color:var(--blue);color:var(--blue)}.basis{text-transform:none}
 .brandmark{font-size:21px}
+#govbox{margin-top:4px}.govcard{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:6px;padding:9px 11px}.govhint{color:var(--mut);font-size:12px;line-height:1.5}.govlayer{display:block;color:var(--mut);font:700 8px/1 var(--mono);letter-spacing:.13em;text-transform:uppercase;margin-bottom:6px}.govchip{display:inline-block;color:#fff;font:700 8px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:3px 6px;border-radius:3px;margin-bottom:7px}.gc-city{background:#2c7a55}.gc-para{background:var(--red)}.gc-state{background:#b07d18}.gc-union{background:var(--blue)}.gc-split{background:#7a6a1e}.gc-grace{background:#a9601f}.gc-ref{background:var(--mut)}.govbody{color:var(--mut);font-size:12px;line-height:1.55}.govbody b{color:var(--ink)}.govverdict{display:block;margin-top:7px;color:var(--ink);font:700 11px/1.4 var(--mono)}.govmore{display:inline-block;margin-top:8px;color:var(--gold);font:700 11px/1 var(--mono);text-decoration:none}.govmore:hover{color:var(--blue)}
 @media(max-width:980px){.filterbar{top:54px;right:12px;grid-template-columns:1fr 1fr}.filterbar .fbtn2{min-width:0}}@media(max-width:760px){.app{grid-template-columns:1fr;grid-template-rows:auto 1fr}.rail{max-height:34vh}.filterbar{top:10px;left:10px;right:10px;grid-template-columns:1fr 1fr}.filterbar .fsel,.filterbar .fbtn2{height:36px;font-size:11px;padding:8px}#map,.mapwrap{height:66vh}}
 """
 
 
 def _js() -> str:
     return r"""
-  const savedTheme = localStorage.getItem("sevent4-theme") || "dark";
-  document.documentElement.dataset.theme = savedTheme;
+  // Theme is resolved pre-paint in <head> and toggled by the shared theme.js;
+  // the map reads its colours from the same CSS custom properties (themeBg /
+  // themeInk) so the palette is never duplicated in JS.
   let hoverPopup = null;
 
   function DefaultViewControl() {}
@@ -595,12 +889,12 @@ def _js() -> str:
 
   const map = new maplibregl.Map({
     container: "map",
-    style: {version: 8, sources: {}, layers: [{id: "bg", type: "background", paint: {"background-color": themeBg(savedTheme)}}]},
+    style: {version: 8, sources: {}, layers: [{id: "bg", type: "background", paint: {"background-color": themeBg()}}]},
     center: city.center,
     zoom: 9.7,
     attributionControl: false
   });
-  window.__sevent4Map = map;
+  window.__atlasMap = map;
   map.addControl(new maplibregl.NavigationControl({showCompass: false}), "bottom-right");
   map.addControl(new DefaultViewControl(), "bottom-right");
 
@@ -611,15 +905,14 @@ def _js() -> str:
     fitDefaultView(0);
   });
 
-  document.getElementById("theme").addEventListener("click", () => {
-    const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
-    document.documentElement.dataset.theme = next;
-    localStorage.setItem("sevent4-theme", next);
-    if (map.getLayer("bg")) map.setPaintProperty("bg", "background-color", themeBg(next));
-    if (map.getLayer("focusmask")) map.setPaintProperty("focusmask", "fill-color", themeBg(next));
+  // theme.js owns the #theme button, persistence and the data-theme flip; we
+  // only recolour the map's own layers once the new palette is in effect.
+  document.addEventListener("atlas:themechange", () => {
+    if (map.getLayer("bg")) map.setPaintProperty("bg", "background-color", themeBg());
+    if (map.getLayer("focusmask")) map.setPaintProperty("focusmask", "fill-color", themeBg());
     layers.forEach((layer) => {
       const outlineId = `${layer.id}_ln`;
-      if (map.getLayer(outlineId)) map.setPaintProperty(outlineId, "line-color", themeInk(next));
+      if (map.getLayer(outlineId)) map.setPaintProperty(outlineId, "line-color", themeInk());
     });
   });
   function fillCities(state) {
@@ -650,10 +943,59 @@ def _js() -> str:
   });
 
   document.querySelectorAll("[data-layer]").forEach((input) => {
-    input.addEventListener("change", () => setLayerVisibility(input.dataset.layer, input.checked));
+    input.addEventListener("change", () => {
+      setLayerVisibility(input.dataset.layer, input.checked);
+      if (window.__govShow) window.__govShow(input.dataset.layer, input.checked);
+    });
   });
-  document.querySelectorAll("[data-year-layer]").forEach((select) => {
-    select.addEventListener("change", () => setLayerYear(select.dataset.yearLayer, select.value));
+  // collapsible layer groups (keeps the panel from reading as a flat laundry list)
+  document.querySelectorAll(".lgh").forEach((h) => {
+    h.addEventListener("click", () => {
+      const g = h.closest(".layerGroup");
+      const open = !g.classList.toggle("collapsed");
+      h.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  });
+
+  // time-series transport: step back / play-pause / step forward through year_values
+  document.querySelectorAll(".yearctl").forEach((ctl) => {
+    const id = ctl.dataset.yearLayer;
+    const years = ctl.dataset.years.split(",").map(Number);
+    const lbl = ctl.querySelector(".ylbl");
+    const playBtn = ctl.querySelector(".yplay");
+    let idx = Math.max(0, years.indexOf(Number(lbl.textContent)));
+    let timer = null;
+    const show = (i) => {
+      idx = (i + years.length) % years.length;
+      lbl.textContent = years[idx];
+      setLayerYear(id, years[idx]);
+      const cb = document.querySelector('[data-layer="' + id + '"]');
+      if (cb && !cb.checked) {
+        cb.checked = true; setLayerVisibility(id, true);
+        if (window.__govShow) window.__govShow(id, true);
+      }
+    };
+    const stop = () => {
+      if (timer) { clearInterval(timer); timer = null; }
+      playBtn.classList.remove("is-playing");
+      playBtn.innerHTML = "▶";
+    };
+    const play = () => {
+      if (timer) { stop(); return; }
+      playBtn.classList.add("is-playing");
+      playBtn.innerHTML = "⏸";
+      timer = setInterval(() => show(idx >= years.length - 1 ? 0 : idx + 1), 900);
+    };
+    ctl.querySelectorAll(".ybtn").forEach((b) => {
+      b.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const act = b.dataset.yact;
+        if (act === "back") { stop(); show(idx - 1); }
+        else if (act === "fwd") { stop(); show(idx + 1); }
+        else { play(); }
+      });
+    });
   });
 
   document.getElementById("layerSearch").addEventListener("input", (event) => {
@@ -701,7 +1043,7 @@ def _js() -> str:
     map.addSource(layer.id, {type: "geojson", data: `layers/${layer.file}`});
     map.addLayer({id: layer.id, type: layer.kind, source: layer.id, layout: {visibility}, paint: layer.paint});
     if (layer.outline && layer.kind === "fill") {
-      map.addLayer({id: `${layer.id}_ln`, type: "line", source: layer.id, layout: {visibility}, paint: {"line-color": themeInk(document.documentElement.dataset.theme), "line-opacity": 0.28, "line-width": 0.7}});
+      map.addLayer({id: `${layer.id}_ln`, type: "line", source: layer.id, layout: {visibility}, paint: {"line-color": themeInk(), "line-opacity": 0.28, "line-width": 0.7}});
     }
     if (layer.yearField) setLayerYear(layer.id, layer.defaultYear || layer.yearValues[layer.yearValues.length - 1]);
     // interaction is wired once, map-wide (wireInteractions) — not per layer — so
@@ -747,7 +1089,7 @@ def _js() -> str:
 
   function addFocusLayers() {
     map.addSource("focusmask", {type: "geojson", data: {type: "FeatureCollection", features: []}});
-    map.addLayer({id: "focusmask", type: "fill", source: "focusmask", paint: {"fill-color": themeBg(document.documentElement.dataset.theme), "fill-opacity": 0.88}});
+    map.addLayer({id: "focusmask", type: "fill", source: "focusmask", paint: {"fill-color": themeBg(), "fill-opacity": 0.88}});
     map.addLayer({id: "wards_hi", type: "line", source: "wards", paint: {"line-color": "#edc233", "line-width": 3}, filter: ["==", "Name", "__none__"]});
     if (map.getSource("acs")) map.addLayer({id: "acs_hi", type: "line", source: "acs", paint: {"line-color": "#edc233", "line-width": 3.4}, filter: ["==", "ac_name", "__none__"]});
     if (map.getSource("pcs")) map.addLayer({id: "pcs_hi", type: "line", source: "pcs", paint: {"line-color": "#edc233", "line-width": 3.8}, filter: ["==", "pc_name", "__none__"]});
@@ -928,12 +1270,19 @@ def _js() -> str:
     return `<div class="pf"><b>${escapeHtml(title)}</b>${rows}</div>`;
   }
 
-  function themeBg(theme) {
-    return theme === "dark" ? "#0a0c10" : "#f3f1ea";
+  // Map layer colours read straight from the active CSS palette (theme.css), so
+  // there is no second copy of the hex values here and a theme switch needs only
+  // re-reading these custom properties.
+  function cssVar(name) {
+    return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
   }
 
-  function themeInk(theme) {
-    return theme === "dark" ? "#f4efe5" : "#16181d";
+  function themeBg() {
+    return cssVar("--bg");
+  }
+
+  function themeInk() {
+    return cssVar("--ink");
   }
 
   function clip(value, n) {

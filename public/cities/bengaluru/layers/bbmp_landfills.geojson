@@ -1,0 +1,11 @@
+{
+"type": "FeatureCollection",
+"name": "bbmp_landfills",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-06,
+"features": [
+{ "type": "Feature", "properties": { "DepartmentCode": "1", "KGISCode": "29572055426129150000URBMPPUGENLFL0001", "KGISLand_FillsID": 1, "KGISVillageID": 15317, "KGISWardID": 0, "Land_FillsName": "Outside Bbmp", "OBJECTID": 6, "source": "OpenCity (data.opencity.in)", "publisher": "Bruhat Bengaluru Mahanagara Palike (BBMP)" }, "geometry": { "type": "Point", "coordinates": [ 77.668878, 13.153942, 0.0 ] } },
+{ "type": "Feature", "properties": { "DepartmentCode": "2", "KGISCode": "29572055428031620000URBMPPUGENLFL0001", "KGISLand_FillsID": 2, "KGISVillageID": 15422, "KGISWardID": 5, "Land_FillsName": "Jakkur", "OBJECTID": 7, "source": "OpenCity (data.opencity.in)", "publisher": "Bruhat Bengaluru Mahanagara Palike (BBMP)" }, "geometry": { "type": "Point", "coordinates": [ 77.646467, 13.10395, 0.0 ] } },
+{ "type": "Feature", "properties": { "DepartmentCode": "3", "KGISCode": "29572055428031620000URBMPPUGENLFL0002", "KGISLand_FillsID": 3, "KGISVillageID": 15422, "KGISWardID": 5, "Land_FillsName": "Jakkur", "OBJECTID": 8, "source": "OpenCity (data.opencity.in)", "publisher": "Bruhat Bengaluru Mahanagara Palike (BBMP)" }, "geometry": { "type": "Point", "coordinates": [ 77.645922, 13.103583, 0.0 ] } }
+]
+}

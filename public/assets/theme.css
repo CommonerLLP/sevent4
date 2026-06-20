@@ -1,0 +1,63 @@
+/* ============================================================================
+   theme.css — the single source of truth for the atlas colour system.
+   ----------------------------------------------------------------------------
+   ONE place defines the design tokens and the light/dark logic. Everything that
+   renders atlas chrome consumes these tokens and nothing else redefines them:
+
+       atlas-ui.css ........ @imports this file (so the WHY pages, the
+                             devolution scoreboard, and any future editorial
+                             page inherit the tokens automatically).
+       build_city_console.py  links this file directly for the map consoles,
+                             and reads the same tokens at runtime via
+                             getComputedStyle() to colour map layers — so there
+                             is no second copy of the palette in JavaScript.
+       theme.js ............ flips :root[data-theme] and persists the choice.
+
+   Theme resolution (org design rule 6):
+       1. no [data-theme]            -> follow the OS via prefers-color-scheme
+       2. [data-theme="light|dark"]  -> the user's explicit, persisted override
+   The light palette is declared once and reused by both the OS branch and the
+   manual-override branch via a shared custom-property list; keep the two value
+   blocks identical if you edit them.
+   ========================================================================== */
+
+/* ---- structural tokens (theme-independent) ------------------------------- */
+:root{
+  --r:4px;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --mono:ui-monospace,Menlo,"SF Mono",Consolas,monospace;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+
+/* ---- dark is the base palette -------------------------------------------- */
+:root{
+  color-scheme:dark;
+  --bg:#0a0c10;--panel:#13161d;--panel2:#171b23;--ink:#ece9e2;--mut:#8b929f;--line:#262c38;--hair:#1b1f28;
+  --blue:#5a86f5;--red:#f0303d;--gold:#edc233;
+  /* semantic viz tokens (WHY layer charts) */
+  --viz-filled:#23303f;--viz-spend:#2c333f;--rcpt2:#3a63c7;
+  --danger-bg:#1a0e11;--act-tint:#0e1512;--act-bg:#0d130f;--act-line:#1c2a20;
+  --tag-bg:#0f2038;--tag-line:#29406e;--on-red:#150a0c;--on-gold:#0a0c10;
+}
+
+/* ---- light palette: applied from the OS unless the user has forced dark --- */
+@media (prefers-color-scheme: light){
+  :root:not([data-theme=dark]){
+    color-scheme:light;
+    --bg:#f3f1ea;--panel:#fff;--panel2:#f6f3ea;--ink:#16181d;--mut:#586071;--line:#d7d1c2;--hair:#e7e2d6;
+    --blue:#22409A;--red:#c8102e;--gold:#9a7b14;
+    --viz-filled:#d2e1ee;--viz-spend:#e6e0d2;--rcpt2:#2a4fb0;
+    --danger-bg:#fbe9ea;--act-tint:#eef6ef;--act-bg:#eef6ef;--act-line:#cfe6d4;
+    --tag-bg:#e4ecfb;--tag-line:#b9cdf2;--on-red:#fff;--on-gold:#fff;
+  }
+}
+
+/* ---- light palette: applied when the user explicitly forces light -------- */
+:root[data-theme=light]{
+  color-scheme:light;
+  --bg:#f3f1ea;--panel:#fff;--panel2:#f6f3ea;--ink:#16181d;--mut:#586071;--line:#d7d1c2;--hair:#e7e2d6;
+  --blue:#22409A;--red:#c8102e;--gold:#9a7b14;
+  --viz-filled:#d2e1ee;--viz-spend:#e6e0d2;--rcpt2:#2a4fb0;
+  --danger-bg:#fbe9ea;--act-tint:#eef6ef;--act-bg:#eef6ef;--act-line:#cfe6d4;
+  --tag-bg:#e4ecfb;--tag-line:#b9cdf2;--on-red:#fff;--on-gold:#fff;
+}

@@ -4,29 +4,25 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="application-name" content="Part IXA: The Municipalities">
-  <meta name="theme-color" content="#faf8f1">
+  <meta name="theme-color" content="#0a0c10" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f3f1ea" media="(prefers-color-scheme: light)">
   <title>About - Part IXA: The Municipalities</title>
   <link rel="icon" type="image/png" href="../assets/ixa-mark.png?v=stitch-color">
   <link rel="manifest" href="../site.webmanifest">
+  <script>(function(){try{var t=localStorage.getItem('atlas-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+  <link rel="stylesheet" href="../assets/theme.css">
+  <link rel="stylesheet" href="../assets/masthead.css">
   <style>
-:root{--paper:#faf8f1;--panel:#fffdf8;--panel2:#f1ebdd;--ink:#17191f;--mut:#5d6472;--line:#d8ceba;--blue:#075ca8;--red:#c9142f;--green:#174f36;--black:#111;--amber:#a87916;--mono:ui-monospace,Menlo,"SF Mono",Consolas,monospace;--serif:Georgia,"Iowan Old Style","Times New Roman",serif;--sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+/* core tokens + light/dark come from theme.css; about keeps only its extras */
+:root{--paper:var(--bg);--amber:var(--gold);--green:#2c7a55;--black:#11141b}
+:root[data-theme=light]{--green:#174f36;--black:#111}
+@media (prefers-color-scheme:light){:root:not([data-theme=dark]){--green:#174f36;--black:#111}}
 *{box-sizing:border-box}html{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.5}body{margin:0}.page{min-height:100vh}.wrap{margin:0 auto;max-width:1180px;padding:0 22px}.mast{border-bottom:1px solid var(--line);background:rgba(250,248,241,.92);position:sticky;top:0;z-index:5;backdrop-filter:blur(10px)}.mast .wrap{align-items:center;display:flex;gap:18px;justify-content:space-between;min-height:74px}.brand{align-items:center;color:inherit;display:flex;gap:12px;min-width:0;text-decoration:none}.brand img{display:block;height:48px;width:48px}.brand span{display:block;font:800 20px/1.05 var(--serif);letter-spacing:0}.brand b{color:var(--mut);display:block;font:800 10px/1 var(--mono);letter-spacing:.16em;margin-top:5px;text-transform:uppercase}.nav{align-items:center;display:flex;gap:8px}.nav a{border:1px solid var(--line);border-radius:4px;color:var(--ink);font:800 11px/1 var(--mono);letter-spacing:.08em;padding:10px 12px;text-decoration:none;text-transform:uppercase}.nav a.primary{background:var(--ink);border-color:var(--ink);color:var(--paper)}.hero{border-bottom:1px solid var(--line);padding:54px 0 44px}.eyebrow{color:var(--mut);font:800 12px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase}.hero h1{font:900 clamp(38px,7vw,78px)/.94 var(--serif);letter-spacing:0;margin:16px 0 18px;max-width:970px}.hero p{color:var(--mut);font-size:18px;max-width:760px}.hero-grid{display:grid;gap:22px;grid-template-columns:minmax(0,1fr) 310px;align-items:end}.registry{background:var(--black);border:1px solid var(--black);border-radius:6px;color:#f6e3a6;font:700 12px/1.4 var(--mono);padding:18px}.registry div{border-bottom:1px solid #343434;display:flex;justify-content:space-between;gap:16px;padding:8px 0}.registry div:first-child{padding-top:0}.registry div:last-child{border:0;padding-bottom:0}.registry span:last-child{color:#fff;text-align:right}.stats{display:grid;gap:10px;grid-template-columns:repeat(3,1fr);margin-top:24px;max-width:760px}.stat{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:14px;text-align:center}.stat strong{display:block;font:900 26px/1 var(--serif)}.stat span{color:var(--mut);display:block;font:800 10px/1.2 var(--mono);letter-spacing:.1em;margin-top:7px;text-transform:uppercase}.band{border-bottom:1px solid var(--line);padding:42px 0}.split{display:grid;gap:28px;grid-template-columns:330px minmax(0,1fr)}.section-kicker{color:var(--amber);font:900 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase}.band h2{font:900 32px/1.05 var(--serif);margin:10px 0 12px}.lead{color:var(--mut);font-size:16px;max-width:710px}.article-tabs,.filters{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 18px}.article-tabs button,.filters button{background:var(--panel);border:1px solid var(--line);border-radius:4px;color:var(--mut);cursor:pointer;font:800 11px/1 var(--mono);padding:10px 11px}.article-tabs button.is-active,.filters button.is-active{background:var(--ink);border-color:var(--ink);color:var(--paper)}.article-card{display:grid;gap:18px;grid-template-columns:minmax(0,1.25fr) minmax(260px,.75fr)}.article-copy,.meaning{border-radius:6px;padding:22px}.article-copy{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--amber)}.meaning{background:var(--ink);border:1px solid var(--ink);color:var(--paper)}.article-copy h3,.meaning h3{font:900 22px/1.12 var(--serif);margin:8px 0 10px}.article-copy p,.meaning p{font-size:14px;margin:0}.article-copy p{color:var(--mut)}.meaning p{color:#c9ccd2}.tag{border-radius:999px;display:inline-block;font:900 10px/1 var(--mono);letter-spacing:.12em;padding:7px 9px;text-transform:uppercase}.tag.amber{background:#f4dfb6;color:#6d4500}.tag.blue{background:#e6effa;color:var(--blue)}.subject-grid{display:grid;gap:12px;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:18px}.subject{background:var(--panel);border:1px solid var(--line);border-radius:6px;min-height:196px;padding:16px;position:relative}.subject[hidden]{display:none}.subject .top{align-items:flex-start;display:flex;justify-content:space-between;gap:10px}.num{color:var(--amber);font:900 12px/1 var(--mono)}.cat{border-radius:999px;font:900 9px/1 var(--mono);letter-spacing:.08em;padding:6px 7px;text-transform:uppercase}.cat.planning{background:#e7f0fb;color:var(--blue)}.cat.infrastructure{background:#e9ecf6;color:#2e4c86}.cat.health{background:#f8e9ec;color:var(--red)}.cat.development{background:#e4f1e9;color:var(--green)}.cat.regulatory{background:#f5ead2;color:#835200}.subject h3{font:800 16px/1.15 var(--sans);margin:16px 0 9px}.subject p{color:var(--mut);font-size:13px;margin:0}.clause{border-top:1px solid var(--line);bottom:0;color:var(--mut);font:800 10px/1.3 var(--mono);left:16px;letter-spacing:.04em;padding:12px 0;position:absolute;right:16px}.how{display:grid;gap:14px;grid-template-columns:repeat(3,1fr);margin-top:20px}.step{border-left:3px solid var(--blue);background:var(--panel);padding:16px}.step:nth-child(2){border-left-color:var(--red)}.step:nth-child(3){border-left-color:var(--green)}.step h3{font:900 18px/1.1 var(--serif);margin:0 0 8px}.step p{color:var(--mut);font-size:14px;margin:0}.cta{background:var(--ink);color:var(--paper);padding:42px 0}.cta .wrap{align-items:center;display:flex;gap:20px;justify-content:space-between}.cta h2{font:900 34px/1 var(--serif);margin:0}.cta p{color:#c9ccd2;margin:10px 0 0;max-width:680px}.cta a{background:var(--paper);border-radius:4px;color:var(--ink);font:900 12px/1 var(--mono);letter-spacing:.08em;padding:14px 16px;text-decoration:none;text-transform:uppercase;white-space:nowrap}.sources{font-size:12px;padding:22px 0;color:var(--mut)}.sources a{color:var(--blue)}@media(max-width:880px){.hero-grid,.split,.article-card,.how,.cta .wrap{grid-template-columns:1fr;display:grid}.registry{max-width:100%}.subject-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.cta a{justify-self:start}.mast .wrap{align-items:flex-start;flex-direction:column;padding-bottom:14px;padding-top:14px}.nav{width:100%}.nav a{flex:1;text-align:center}}@media(max-width:560px){.wrap{padding:0 16px}.hero{padding:36px 0}.stats,.subject-grid{grid-template-columns:1fr}.subject{min-height:174px}.brand img{height:42px;width:42px}.brand span{font-size:18px}.registry div{display:block}.registry span:last-child{display:block;text-align:left;margin-top:3px}}
   </style>
 </head>
 <body>
   <div class="page">
-    <header class="mast">
-      <div class="wrap">
-        <a class="brand" href="./" aria-label="The Municipalities Accountability Atlas">
-          <img src="../assets/ixa-mark.png?v=stitch-color" alt="">
-          <span>The Municipalities<b>Accountability Atlas</b></span>
-        </a>
-        <nav class="nav" aria-label="Site">
-          <a href="../cities/ahmedabad/">Atlas</a>
-          <a class="primary" href="./">About</a>
-        </nav>
-      </div>
-    </header>
+    <header data-masthead="bar"></header>
 
     <main>
       <section class="hero">
@@ -57,7 +53,7 @@
             <h2>Not a smart-city dashboard.</h2>
           </div>
           <div>
-            <p class="lead">SevenT4 does one small thing: it gives residents a way to ask, “whose jurisdiction is this?” Select a ward, Assembly constituency, or Parliamentary constituency; see the public services and infrastructure layers around it; then connect visible civic problems to councillors, MLAs, MPs, municipal departments, and public offices as city data improves.</p>
+            <p class="lead">This atlas does one small thing: it gives residents a way to ask, “whose jurisdiction is this?” Select a ward, Assembly constituency, or Parliamentary constituency; see the public services and infrastructure layers around it; then connect visible civic problems to councillors, MLAs, MPs, municipal departments, and public offices as city data improves.</p>
             <div class="how">
               <div class="step"><h3>Find the place</h3><p>Start from a ward, Assembly constituency, Parliamentary constituency, or visible map layer.</p></div>
               <div class="step"><h3>Read the split</h3><p>See where municipal, state, and parliamentary geographies overlap instead of assuming clean nesting.</p></div>
@@ -185,5 +181,7 @@ document.querySelectorAll("[data-filter]").forEach((button)=>{
   });
 });
   </script>
+  <script src="../assets/masthead.js"></script>
+  <script src="../assets/theme.js" defer></script>
 </body>
 </html>

@@ -217,7 +217,8 @@ def main():
     manifest["layers"].append({
         "id": "wards", "label": "Wards", "file": "wards.geojson", "kind": "fill",
         "group": "Civic baseline", "default": True, "outline": True,
-        "popup": ["Name", "councillors", "councillor_parties", "councillor_phones", "population_2020"],
+        "popup": ["Name", "councillors", "councillor_parties", "councillor_phones",
+                   "population_2020", "pop_density_km2", "ward_coverage"],
         "paint": {"fill-color": "#1f6f8b", "fill-opacity": 0.18},
     })
     manifest["layers"].append({

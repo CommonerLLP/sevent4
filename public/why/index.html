@@ -9,27 +9,13 @@
 <link rel="manifest" href="../site.webmanifest">
 <meta name="theme-color" content="#0a0c10" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#f3f1ea" media="(prefers-color-scheme: light)">
-<script>(function(){try{var t=localStorage.getItem('sevent4-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<script>(function(){try{var t=localStorage.getItem('atlas-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <link rel="stylesheet" href="../assets/atlas-ui.css">
 <link rel="stylesheet" href="../assets/why.css">
+<link rel="stylesheet" href="../assets/masthead.css">
 </head>
 <body>
-  <header class="mast">
-    <div class="brandrow">
-      <img class="ixamark" src="../assets/ixa-mark.png" alt="">
-      <span class="wordmark"><span>The&nbsp;Unelected&nbsp;City</span><b>Part IXA · Why</b></span>
-    </div>
-    <div class="navwrap">
-      <nav class="sitenav">
-        <a href="../index.html">Atlas</a>
-        <a href="../whose-city/index.html">Whose city</a>
-        <a class="is-active" href="#">Why</a>
-      </nav>
-      <button class="themebtn" id="theme" type="button" aria-label="Toggle light or dark theme" title="Toggle light / dark">
-        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3a6.5 6.5 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-      </button>
-    </div>
-  </header>
+  <header data-masthead="bar"></header>
 
   <main class="wrap">
 
@@ -118,6 +104,7 @@
     const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.16});
     document.querySelectorAll('.rise').forEach(el=>io.observe(el));
   </script>
+  <script src="../assets/masthead.js"></script>
   <script src="../assets/theme.js"></script>
 </body>
 </html>

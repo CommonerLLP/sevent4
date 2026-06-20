@@ -7,6 +7,8 @@ from sevent4.build_city_console import (
     CITY_READINESS,
     READY_CITIES,
     _feature_options,
+    _governance_for_city,
+    _governance_js,
     _js,
     _layer_json,
     _toggles,
@@ -119,7 +121,7 @@ class FeatureOptionsTest(unittest.TestCase):
         self.assertEqual(data["yearValues"], [2013, 2014])
         self.assertEqual(data["defaultYear"], 2014)
 
-    def test_toggles_render_compact_year_selector_for_timeline_layers(self) -> None:
+    def test_toggles_render_year_transport_for_timeline_layers(self) -> None:
         layer = LayerSpec(
             id="ward_workorders_yearly",
             label="BBMP works spend by ward, by year",
@@ -137,13 +139,94 @@ class FeatureOptionsTest(unittest.TestCase):
 
         html = _toggles({"Who pays": [layer]})
 
+        # transport control replaces the old <select>: step + play/pause buttons,
+        # the full year list for the animation loop, and a current-year readout
         self.assertIn("data-year-layer='ward_workorders_yearly'", html)
-        self.assertIn("<option value='2014' selected>2014</option>", html)
+        self.assertIn("data-years='2013,2014'", html)
+        self.assertIn("data-yact='play'", html)
+        self.assertIn("data-yact='back'", html)
+        self.assertIn("data-yact='fwd'", html)
+        self.assertIn("data-year-label='ward_workorders_yearly'", html)
+        self.assertNotIn("<option", html)
+
+    def test_toggles_swatch_shape_follows_geometry_kind(self) -> None:
+        # the legend swatch is geometry-shaped and consistent across cities:
+        # fill -> chip, line -> bar, circle -> dot
+        def spec(kind, color):
+            return LayerSpec(id=f"x_{kind}", label=kind, file="x.geojson", kind=kind,
+                             default=False, group="G", popup=(),
+                             paint={f"{kind}-color": color})
+        html = _toggles({"G": [spec("fill", "#111"), spec("line", "#222"), spec("circle", "#333")]})
+        self.assertIn("sw sw-fill", html)
+        self.assertIn("sw sw-line", html)
+        self.assertIn("sw sw-dot", html)
+        # collapsible group wrapper, not a flat list
+        self.assertIn("class='layerGroup'", html)
+        self.assertIn("class='lgh'", html)
+
+    def test_governance_card_states_water_control_per_city(self) -> None:
+        # the atlas thesis made interactive: the same water layer is a parastatal
+        # in Bengaluru but the elected corporation's own in Ahmedabad.
+        blr = _governance_for_city("bengaluru")
+        amd = _governance_for_city("ahmedabad")
+
+        self.assertEqual(blr["water"]["control"], "parastatal")
+        self.assertIn("BWSSB", blr["water"]["line"])
+        self.assertIn("No councillor you elect", blr["water"]["verdict"])
+
+        self.assertEqual(amd["water"]["control"], "city")
+        self.assertIn("AMC Water Supply", amd["water"]["line"])
+        self.assertIn("Your vote reaches it", amd["water"]["verdict"])
+
+    def test_governance_card_marks_ahmedabad_libraries_by_grace(self) -> None:
+        # right2read crux: Ahmedabad libraries are AMC-funded by discretion, not duty —
+        # neither "State runs it" nor "you elect them". The override carries that nuance.
+        amd = _governance_for_city("ahmedabad")
+        self.assertEqual(amd["libraries"]["control"], "grace")
+        self.assertEqual(amd["libraries"]["chipClass"], "gc-grace")
+        self.assertIn("96%", amd["libraries"]["line"])
+        self.assertIn("AMC", amd["libraries"]["line"])
+        self.assertIn("no law requires them", amd["libraries"]["verdict"])
+
+    def test_governance_libraries_stay_state_subject_without_override(self) -> None:
+        # the national default is unchanged for cities with no override.
+        blr = _governance_for_city("bengaluru")
+        self.assertEqual(blr["libraries"]["control"], "state")
+
+    def test_governance_splits_stormwater_from_clean_sanitation(self) -> None:
+        # a card that admits floods "fall between" AMC and State irrigation can't be a
+        # clean elected-city green; toilets (a genuine municipal duty) stays city.
+        amd = _governance_for_city("ahmedabad")
+        self.assertEqual(amd["stormwater_drains"]["control"], "shared")
+        self.assertEqual(amd["flood_hazard"]["control"], "shared")
+        self.assertEqual(amd["toilets"]["control"], "city")
+        self.assertIn("falls between", amd["stormwater_drains"]["line"])
+
+    def test_governance_applies_special_case_overrides(self) -> None:
+        self.assertEqual(_governance_for_city("delhi")["police"]["control"], "union")
+        self.assertEqual(_governance_for_city("kolkata")["metro"]["control"], "union")
+
+    def test_governance_links_corp_money_layers_to_finance_page(self) -> None:
+        # with a finance page, the corporation's own money-axis layers point to it;
+        # state/parastatal layers (and the no-finance case) do not.
+        with_fin = _governance_for_city("ahmedabad", "finance/")
+        self.assertEqual(with_fin["wards"]["finance"], "finance/")
+        self.assertNotIn("finance", with_fin["libraries"])  # state subject, not corp money
+        self.assertNotIn("finance", with_fin["water"])      # AMC water, but not the budget axis
+
+        without = _governance_for_city("ahmedabad")
+        self.assertNotIn("finance", without["wards"])
+
+    def test_governance_js_exposes_toggle_hook_and_card_renders(self) -> None:
+        script = _governance_js()
+        self.assertIn("window.__govShow", script)
+        self.assertIn("govcard", script)
+        self.assertIn("govchip", script)
 
     def test_generated_script_keeps_maplibre_qa_hooks_valid(self) -> None:
         script = _js()
 
-        self.assertIn("window.__sevent4Map = map;", script)
+        self.assertIn("window.__atlasMap = map;", script)
         self.assertLess(
             script.index("DefaultViewControl.prototype.onAdd"),
             script.index("map.addControl(new DefaultViewControl()"),
