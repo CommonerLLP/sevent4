@@ -14,4 +14,4 @@ fi
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 
-echo "SevenT4 environment ready: $ROOT/.venv"
+echo "The Unelected City environment ready: $ROOT/.venv"

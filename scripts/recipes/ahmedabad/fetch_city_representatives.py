@@ -71,7 +71,7 @@ def main() -> None:
 
 
 def download(url: str, out_path: Path) -> None:
-    request = Request(url, headers={"User-Agent": "SevenT4 city representative fetcher"})
+    request = Request(url, headers={"User-Agent": "The Unelected City city-representative fetcher"})
     try:
         with urlopen(request, timeout=60) as response:
             out_path.write_bytes(response.read())

@@ -1,4 +1,4 @@
-"""Build a SevenT4 municipal-finance explorer page.
+"""Build a municipal-finance explorer page for The Unelected City.
 
 Reads neutral civic-finance source data (a long headline budget timeseries and a
 detailed recent civic-lines series) and renders a self-contained HTML page. No
@@ -37,7 +37,7 @@ CIVIC_LINES = [
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Build a SevenT4 municipal-finance explorer page.")
+    parser = argparse.ArgumentParser(description="Build a municipal-finance explorer page for The Unelected City.")
     parser.add_argument("--city", required=True, help="Path to city.yaml")
     parser.add_argument("--out", required=True, help="Output HTML path")
     args = parser.parse_args()

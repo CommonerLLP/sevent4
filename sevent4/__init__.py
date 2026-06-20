@@ -1,3 +1,3 @@
-"""SevenT4 city-layer toolkit."""
+"""The Unelected City city-layer toolkit."""
 
 __version__ = "0.1.0"

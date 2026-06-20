@@ -2,7 +2,7 @@
 """Parse selected RBI Report on Municipal Finances tables from pdftotext output.
 
 The parser is deliberately narrow: it extracts only the table rows that the
-SevenT4 research note relies on. It uses fixed table titles and row labels from
+The Unelected City research note relies on. It uses fixed table titles and row labels from
 the RBI PDF, so failed layout changes surface as missing rows instead of silent
 guesses.
 """

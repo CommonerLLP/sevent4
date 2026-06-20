@@ -48,7 +48,7 @@ def main() -> None:
 
     content_js = args.content_js or args.cache_dir / "content.js"
     if not args.content_js:
-        content_js.write_bytes(fetch_bytes(CONTENT_JS_URL, user_agent="SevenT4 M.J. Library extractor"))
+        content_js.write_bytes(fetch_bytes(CONTENT_JS_URL, user_agent="The Unelected City M.J. Library extractor"))
 
     content = parse_js_object(content_js, "content")
     site_payload = {
@@ -81,7 +81,7 @@ def main() -> None:
         REPO,
         category="proactive_disclosure",
         no_download=args.no_download,
-        user_agent="SevenT4 M.J. Library extractor",
+        user_agent="The Unelected City M.J. Library extractor",
     )
     write_csv(
         out_dir / "mj_library_disclosure_text_index.csv",
