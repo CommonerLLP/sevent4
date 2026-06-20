@@ -13,16 +13,40 @@
       "console": "../../cities/delhi/index.html"
     },
     {
+      "city": "ahmedabad",
+      "name": "Ahmedabad",
+      "board": "GPCB",
+      "sanctioned": 430,
+      "vacant": 260,
+      "vacancy_pct": 60,
+      "status": "live",
+      "tier": "primary",
+      "featured": false,
+      "console": "../../cities/ahmedabad/index.html"
+    },
+    {
       "city": "bengaluru",
       "name": "Bengaluru",
       "board": "KSPCB",
-      "sanctioned": 709,
-      "vacant": 375,
-      "vacancy_pct": 53,
+      "sanctioned": 723,
+      "vacant": 437,
+      "vacancy_pct": 60,
       "status": "live",
-      "tier": "reported",
+      "tier": "primary",
       "featured": false,
       "console": "../../cities/bengaluru/index.html"
+    },
+    {
+      "city": "chennai",
+      "name": "Chennai",
+      "board": "TNPCB",
+      "sanctioned": 1118,
+      "vacant": 493,
+      "vacancy_pct": 44,
+      "status": "live",
+      "tier": "primary",
+      "featured": false,
+      "console": "../../cities/chennai/index.html"
     },
     {
       "city": "kolkata",
@@ -35,30 +59,6 @@
       "tier": "reported",
       "featured": true,
       "console": "../../cities/kolkata/index.html"
-    },
-    {
-      "city": "ahmedabad",
-      "name": "Ahmedabad",
-      "board": "GPCB",
-      "sanctioned": null,
-      "vacant": null,
-      "vacancy_pct": null,
-      "status": "pending",
-      "tier": "pending",
-      "featured": false,
-      "console": "../../cities/ahmedabad/index.html"
-    },
-    {
-      "city": "chennai",
-      "name": "Chennai",
-      "board": "TNPCB",
-      "sanctioned": null,
-      "vacant": null,
-      "vacancy_pct": null,
-      "status": "pending",
-      "tier": "pending",
-      "featured": false,
-      "console": "../../cities/chennai/index.html"
     }
   ]
 }
