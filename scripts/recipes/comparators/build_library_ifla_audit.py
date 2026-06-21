@@ -10,6 +10,17 @@ REPO = Path(__file__).resolve().parents[3]
 OUT_DIR = REPO / "data" / "comparators" / "library_ifla_audit"
 IFLA_REF = REPO / "data" / "reference" / "ifla" / "library_map_metrics.csv"
 
+# Every source CSV the row builders read. All live under the gitignored data/
+# tree, so callers/tests must guard on ALL of them — a partial checkout (some
+# present, some not) must skip, not error.
+REQUIRED_INPUTS = [
+    IFLA_REF,
+    REPO / "data/cities/ahmedabad/source/libraries/mj_library_annual_stats.csv",
+    REPO / "data/cities/ahmedabad/source/libraries/ahmedabad_library_locations.csv",
+    REPO / "data/cities/delhi/source/libraries/dpl_metrics_long.csv",
+    REPO / "data/cities/delhi/derived/library_access/dpl_service_hierarchy_summary.csv",
+]
+
 KPI_FIELDS = [
     "city",
     "library_system",

@@ -10,7 +10,7 @@ from scripts.recipes.comparators.build_library_ifla_audit import (
 
 
 @unittest.skipUnless(
-    _audit.IFLA_REF.exists(),
+    all(p.exists() for p in _audit.REQUIRED_INPUTS),
     "library audit source inputs are gitignored / local-only and absent on this checkout",
 )
 class LibraryIflaAuditTest(unittest.TestCase):
