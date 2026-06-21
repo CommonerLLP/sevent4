@@ -90,7 +90,15 @@ def plausible(cr: float | None, floor: float) -> float | None:
     return cr if (cr is not None and abs(cr) >= floor) else None
 
 
+def _vision_overlay() -> dict:
+    """Headline GNCTD totals read by Claude vision off the scanned PDFs, to correct
+    tesseract digit-drops/misses. Overrides the OCR value for the years it covers."""
+    p = BUDGET / "gnctd_vision_verified.json"
+    return json.loads(p.read_text(encoding="utf-8")).get("verified", {}) if p.exists() else {}
+
+
 def parse_gnctd() -> list[dict]:
+    overlay = _vision_overlay()
     rows = []
     for pdf in sorted((BUDGET / "gnctd").rglob("*.pdf")):
         if "glance" not in pdf.name.lower():
@@ -109,13 +117,18 @@ def parse_gnctd() -> list[dict]:
             exp_total = None
         if exp_total and rec_total and not (0.6 <= rec_total / exp_total <= 1.7):
             rec_total = None
+        ocr = is_ocr(pdf)
+        vision = fy in overlay
+        if vision:  # Claude-vision-read values override tesseract for these scanned years
+            exp_total = overlay[fy].get("exp", exp_total)
+            rec_total = overlay[fy].get("rec", rec_total)
         if not (rec_total or exp_total):
             continue
         rows.append({"body": "GNCTD", "body_full": "Government of NCT of Delhi", "fy": fy,
                      "total_receipts_cr": rec_total, "total_expenditure_cr": exp_total,
                      "own_tax_revenue_cr": own_tax, "unit": "INR_crore",
                      "estimate": "latest BE column in Budget-at-a-Glance",
-                     "ocr_sourced": is_ocr(pdf),
+                     "ocr_sourced": ocr and not vision, "vision_verified": vision,
                      "source_pdf": str(pdf.relative_to(ROOT)), "scope": "whole NCT (territorial govt)"})
     return rows
 
@@ -176,7 +189,7 @@ def main() -> None:
             "Units normalised to INR crore (GNCTD/NDMC native crore; MCD native lakh ÷100).",
             "MCD pre-2022 rows are SOUTH MCD only (the corporation was trifurcated 2012-2022; unified 2022). Scope flagged per row — do NOT sum across the discontinuity.",
             "Headline value = the latest Budget-Estimate column in each document; mixed Actuals/RE/BE bases across docs. Estimate basis recorded per row.",
-            "27 of 102 source PDFs were scanned and OCR'd (older GNCTD); OCR figures should be spot-checked before publication.",
+            "27 of 102 source PDFs were scanned and OCR'd (older GNCTD) by tesseract. The GNCTD years with OCR digit-drops/misses (2008-09, 2009-10, 2014-15, 2015-16, 2017-18, 2018-19) were re-read by Claude vision and corrected (vision_verified:true; values in gnctd_vision_verified.json); other tesseract years (ocr_sourced:true) were validated against vision spot-checks but not each individually.",
         ],
         "rows": rows,
     }
