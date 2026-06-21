@@ -8,8 +8,8 @@ until no one is answerable; this makes the first accountability question easy to
 ask: **whose jurisdiction is this, and why isn't it the city's?**
 (The full frame: [why this atlas exists](docsx/governance-frame.md).)
 
-> Repo id `sevent4`. **Private repo**; the atlas is a static bundle in `public/`,
-> served locally — there is no live public site.
+> **Private repo.** The atlas is a static bundle in `public/`, served locally —
+> there is no live public site.
 
 ## What's in it
 
