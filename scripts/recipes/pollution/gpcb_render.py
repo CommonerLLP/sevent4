@@ -7,8 +7,9 @@ The GPCB portal (gpcb.gujarat.gov.in) wraps its content API in client-side AES
 Chromium — the page decrypts its own responses — and we intercept the JSON the
 app receives, plus the post-render DOM links.
 
-Prereq: ssh -i <key> -D 1080 -N -f ec2-user@<box>   (India exit)
-Usage:  <twenty27-venv-python> gpcb_render.py <url> [nav-text-regex]
+Prereq: a venv with `playwright` (+ `playwright install chromium`), and an India
+        SOCKS exit:  ssh -i <key> -D 1080 -N -f <user>@<india-host>
+Usage:  <venv-python> gpcb_render.py <url> [nav-text-regex]
 """
 import sys, re, json, os
 from playwright.sync_api import sync_playwright
