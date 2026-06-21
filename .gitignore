@@ -10,9 +10,9 @@ build/
 *.egg-info/
 *.log
 
-# ── Internal brain — never publish (sevent4 is a public GitHub Pages repo) ──
-# Raw internal reasoning, coordination, and agent state. The PUBLIC, polished
-# version of this thinking lives in docs/ (tracked). Keep the raw notes local.
+# ── Internal brain — never tracked (this is a private repo). Raw reasoning,
+#    coordination, and agent state stay local; the polished, tracked docs live
+#    in docsx/. ──
 notes/
 memory/
 
@@ -22,18 +22,16 @@ CLAUDE.md
 AGENTS.md
 GEMINI.md
 
-# ── Third-party source PDFs (theses, reports) — kept local for research, not
-#    ours to redistribute on a public repo. Reference them by their canonical URL. ──
+# ── Third-party source PDFs (theses, reports) — kept local, referenced by URL. ──
 data/sources/
 
-# ── Statute PDFs — public-domain government works, but heavy (62MB+). Kept local;
-#    the citations + source URLs live in data/laws/**/manifest.md and INDEX.md (tracked). ──
+# ── Statute PDFs — public-domain but heavy (62MB+). Kept local; citations + URLs
+#    live in data/laws/**/manifest.md and INDEX.md. ──
 data/laws/**/*.pdf
 
-# ── City raw source intermediates — regenerable from recipes + local source archives.
-#    Only the built layers/ + deployed public/ + lightweight provenance (sources.json,
-#    CREDITS.md, governance/officers/representatives) are published. Raw OSM dumps, KMLs,
-#    rasters, and downloaded _raw/ payloads stay local (some exceed GitHub's size limits). ──
+# ── City raw source intermediates — regenerable from recipes + local source
+#    archives. Only built layers/ + public/ + lightweight provenance are tracked;
+#    raw OSM dumps, KMLs, rasters and downloaded _raw/ payloads stay local. ──
 data/cities/*/source/osm/
 data/cities/*/source/**/_raw/
 data/cities/*/source/**/*.kml
@@ -53,21 +51,22 @@ data/cities/*/source/**/*.gz
 /public-libraries-*.pdf
 /mcd_map_full_zone_image_cd_*.pdf
 
-# ── Secrets — API keys, never publish ──
+# ── Secrets — API keys, never tracked ──
 .secrets/
 .env
 *.key
 secrets.env
 
-# Local Claude Code config / PM tooling — never on the public repo
+# Local Claude Code config / PM tooling — never tracked
 .claude/
 
-# ── Local-only investigative scratch scripts. ──
-scripts/recipes/ahmedabad/*resurfaced*
-scripts/recipes/ahmedabad/*osm_arterials*
-data/cities/*/source/budget/roads/
+# Local-only scratch (regenerable; never tracked)
+**/_local/
 
-# ── docs/ + data/ are LOCAL-ONLY (kept on disk, off the public repo). The live site
-#    is deployed from public/ alone (.github/workflows/pages.yml: path: public). ──
+# ── docs/ + data/ are LOCAL-ONLY (kept on disk, off the repo). The site is
+#    built from public/ (.github/workflows/pages.yml: path: public). ──
 docs/
 data/
+
+# Internal mistakes log — belongs in _org/mistakes.md, never tracked in-repo
+MISTAKES.md
