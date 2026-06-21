@@ -27,14 +27,20 @@ No backend — HTML, map assets and processed GeoJSON are static files.
 
 ## Quick start
 
+The built atlas is checked into `public/`, so a fresh clone serves immediately —
+no build, no env:
+
 ```bash
 git clone https://github.com/CommonerLLP/sevent4.git
 cd sevent4
-scripts/start.sh           # sets up the env, builds Ahmedabad, serves on :9174
+scripts/serve.sh           # static server on :9174 (PORT=8080 to change)
 ```
 
-Open the URL the script prints. Other commands: `scripts/build-city.sh <city>`,
-`scripts/serve.sh <city>`, `PORT=8080 scripts/start.sh`.
+Open the URL it prints (`…/public/cities/ahmedabad/index.html`).
+
+> Rebuilding a console (`scripts/start.sh` / `scripts/build-city.sh <city>`) needs
+> the per-city source data under `data/`, which is **local-only** (gitignored) — so
+> it's for maintainers who hold that data, not a fresh clone.
 
 ## Add a city
 
