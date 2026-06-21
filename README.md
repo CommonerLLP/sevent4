@@ -6,6 +6,7 @@ responsible for it. Indian city power is split across municipal corporations,
 state departments, development authorities, parastatals, police and contractors
 until no one is answerable; this makes the first accountability question easy to
 ask: **whose jurisdiction is this, and why isn't it the city's?**
+(The full frame: [why this atlas exists](docsx/governance-frame.md).)
 
 > Repo id `sevent4`. **Private repo**; the atlas is a static bundle in `public/`,
 > served locally — there is no live public site.
@@ -45,9 +46,10 @@ scripts/build-city.sh <city> && scripts/serve.sh <city>
 ```
 
 Each city lives under `data/cities/<city>/` with a `city.yaml`, a `layers/`
-manifest, and a jurisdiction crosswalk (ward → AC → PC → district). The crosswalk
-is required — the console is a governance tool first, a map second. Delhi uses a
-separate governance adapter; don't force it into the plain municipal model.
+manifest, and a jurisdiction crosswalk (ward → AC → PC → district), which is
+required — the console is a governance tool first, a map second. Full spec +
+Python entry points: [city data contract](docsx/city-data-contract.md). To
+rebuild the Ahmedabad seed: [data recipes](docsx/data-recipes.md).
 
 ## Layout
 
@@ -57,6 +59,15 @@ scripts/        setup / build / serve
 data/cities/    per-city configs + source & layer data   (local-only)
 public/         the built static atlas (consoles + reading layer + assets)
 ```
+
+## Docs
+
+- [Why this atlas exists](docsx/governance-frame.md) — Part IXA, the
+  fragmentation problem, finance, what the console shows
+- [City data contract](docsx/city-data-contract.md) — `city.yaml`, layer
+  manifest, the jurisdiction crosswalk, add-a-city, entry points
+- [Data recipes](docsx/data-recipes.md) — rebuilding the Ahmedabad seed
+- [Reading](docsx/reading.md) — Constitution, NITI Aayog, RBI, Janaagraha
 
 ## License & attribution
 
