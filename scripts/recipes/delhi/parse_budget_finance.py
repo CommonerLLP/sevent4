@@ -67,8 +67,14 @@ def nums(line: str) -> list[float]:
 
 
 def fy_from_name(name: str) -> str:
+    # If the filename carries an explicit Budget-Estimate year (e.g. "RBE_18-19_BE_19-20"),
+    # the MCD parse extracts the BE column, so label the row with the BE year — not the
+    # leading/RBE year — so the value and its year stay in step. (?<!R) skips the BE in "RBE".
+    be = re.search(r"(?<!R)BE[_ ]?(?:20)?(\d{2})-(\d{2})", name)
+    if be:
+        return f"20{be.group(1)}-{be.group(2)}"
     yrs = re.findall(r"(20\d{2})-(\d{2})", name)  # no \b: underscores aren't boundaries
-    return f"{yrs[0][0]}-{yrs[0][1]}" if yrs else ""  # filenames lead with the primary FY
+    return f"{yrs[0][0]}-{yrs[0][1]}" if yrs else ""  # else filenames lead with the primary FY
 
 
 def last_total(text: str, *patterns: str) -> float | None:

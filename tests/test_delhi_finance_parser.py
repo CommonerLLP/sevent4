@@ -24,8 +24,11 @@ class DelhiFinanceParserHelpersTest(unittest.TestCase):
         text = "junk\n17. Total Expenditure (9+12)  65823.87 76000.00 69500.00 100000.00\nmore"
         self.assertEqual(pbf.last_total(text, "total expenditure ("), 100000.00)
 
-    def test_fy_from_name_reads_first_year_through_underscores(self) -> None:
-        self.assertEqual(pbf.fy_from_name("..._budget_2018-19_Income_RBE_18-19_BE_19-20_South_MCD"), "2018-19")
+    def test_fy_from_name_uses_be_year_then_leading_year(self) -> None:
+        # an explicit BE year wins (the parser extracts the BE column) — and the BE
+        # in "RBE" must not be mistaken for it:
+        self.assertEqual(pbf.fy_from_name("..._budget_2018-19_Income_RBE_18-19_BE_19-20_South_MCD"), "2019-20")
+        # otherwise the leading FY, read through underscores:
         self.assertEqual(pbf.fy_from_name("..._budget_at_a_glance_2025-26_Budget_at_a_Glance_2025-26"), "2025-26")
 
     def test_plausible_drops_subfloor_misparses(self) -> None:
