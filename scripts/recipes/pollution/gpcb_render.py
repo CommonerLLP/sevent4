@@ -46,7 +46,10 @@ with sync_playwright() as p:
         "els=>els.map(e=>[e.tagName,(e.href||e.getAttribute('onclick')||''),(e.innerText||'').trim().replace(/\\s+/g,' ').slice(0,60)])")
     followed = None
     for tag, attr, txt in nav:
-        if nav_kw.search(txt) and (attr.startswith("http") or "annual" in attr.lower()):
+        if nav_kw.search(txt) and "annual" in attr.lower():
+            # only a real http route that actually names the section is a nav target;
+            # an SPA placeholder like href="#" resolves to the current page URL and
+            # would silently "succeed" onto the home page, so fall through to the click.
             target = attr if attr.startswith("http") else None
             if target:
                 try:
