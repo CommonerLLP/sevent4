@@ -569,7 +569,8 @@
       if(b.status!=='live'){
         host.innerHTML='<b>'+b.board+'</b> regulates this city\'s air, but its staffing is <b>not yet on record</b> \u2014 the RTI that fills it is yours. <a href="../../why/air/index.html">Who answers? &rarr;</a>';
       } else {
-        host.innerHTML='<b>'+b.board+'</b> must act on every reading on this map \u2014 and <b style="color:var(--red)">'+b.vacancy_pct+'% of its posts are vacant</b> ('+b.vacant+' of '+b.sanctioned+'). <a href="../../why/air/index.html">Who answers for the air? &rarr;</a>';
+        var fin=b.finance_note?(' Yet it is <b>not short of money</b>: it has '+b.finance_note+'.'):'';
+        host.innerHTML='<b>'+b.board+'</b> must act on every reading on this map \u2014 and <b style="color:var(--red)">'+b.vacancy_pct+'% of its posts are vacant</b> ('+b.vacant+' of '+b.sanctioned+').'+fin+' <a href="../../why/air/index.html">Who answers for the air? &rarr;</a>';
       }
       box.style.display='';
     }).catch(function(){});

@@ -66,6 +66,11 @@ def build():
         year_src = pct_fact or sanc or vac or {}
         year = str(year_src.get("year", "") or "")[:4]
 
+        # optional curated finance block (surplus_cr, govt_grant_cr, interest_cr,
+        # labs, finance_note, …) — drives the surplus line on the air page + the
+        # per-console air panel; preserved across reruns by sourcing it here.
+        finance = data.get("finance") or {}
+
         boards.append({
             "city": city,
             "name": DISPLAY.get(city, city.title()),
@@ -77,6 +82,7 @@ def build():
             "status": status,
             "tier": tier,
             "featured": city in FEATURED,
+            **finance,
             "console": f"../../cities/{city}/index.html",
         })
 
