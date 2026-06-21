@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="application-name" content="Part IXA: The Municipalities">
+<title>Why the same road is dug up every year — The Unelected City</title>
+<link rel="icon" type="image/png" href="../../assets/ixa-mark.png">
+<link rel="manifest" href="../../site.webmanifest">
+<meta name="theme-color" content="#0a0c10" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f3f1ea" media="(prefers-color-scheme: light)">
+<script>(function(){try{var t=localStorage.getItem('atlas-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<link rel="stylesheet" href="../../assets/atlas-ui.css">
+<link rel="stylesheet" href="../../assets/why.css">
+<link rel="stylesheet" href="../../assets/masthead.css">
+<style>
+  /* the turf ledger — firm by ward */
+  .turf{display:grid;grid-template-columns:1fr;gap:8px;margin:22px 0 6px}
+  .turf .trow{display:grid;grid-template-columns:140px 1fr auto;gap:12px;align-items:baseline;
+    border-top:1px dotted var(--line);padding:9px 0;font-size:14.5px}
+  .turf .trow:first-child{border-top:0}
+  .turf .wd{font:800 12px/1.3 var(--mono);letter-spacing:.04em;color:var(--mut);text-transform:uppercase}
+  .turf .fm{color:var(--ink)}.turf .fm b{color:var(--ink)}
+  .turf .ct{font:800 13px/1 var(--mono);color:var(--red);white-space:nowrap}
+  @media(max-width:560px){.turf .trow{grid-template-columns:1fr auto}.turf .wd{grid-column:1/-1}}
+  /* the recurrence map */
+  .rmap{margin:26px 0 8px}
+  .rmap svg{width:100%;height:auto;display:block;background:var(--panel);border:1px solid var(--line);border-radius:10px}
+  .rmap .wd{stroke:var(--bg);stroke-width:.6;cursor:pointer;transition:opacity .12s}
+  .rmap .wd:hover{opacity:.78}
+  .rmap .wd.zero{fill:transparent;stroke:var(--mut);stroke-width:.9;stroke-dasharray:2 2;pointer-events:all}
+  .rmaplegend{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:12px;
+    font:700 11px/1 var(--mono);letter-spacing:.03em;color:var(--mut)}
+  .rmaplegend .sc{display:flex;align-items:center;gap:7px}
+  .rmaplegend .bar{width:120px;height:10px;border-radius:5px;
+    background:linear-gradient(90deg,var(--viz-filled),var(--gold),var(--red))}
+  .rmaplegend .zk{width:14px;height:10px;border:1px dashed var(--mut);border-radius:3px}
+  .rtip{position:fixed;z-index:30;pointer-events:none;opacity:0;transition:opacity .1s;
+    background:var(--ink);color:var(--bg);font:700 12px/1.3 var(--mono);padding:6px 9px;border-radius:6px;max-width:200px}
+  .rtip b{color:var(--bg)}.rtip .s{display:block;font-weight:400;opacity:.8;margin-top:2px}
+</style>
+</head>
+<body>
+  <header data-masthead="bar"></header>
+
+  <main class="wrap">
+
+    <section class="hero">
+      <div class="sech accent kick rise">Chapter 02 · burden → who → why → act</div>
+      <h1 class="display rise">The same roads,<br>dug up every year.<br><em>By the same few hands.</em></h1>
+      <p class="lede rise">A road is laid, then laid again, then again. In Ahmedabad you can watch it happen
+        in the city's own ledgers: <b>more than 1,600 resurfacing work-orders across seven years</b> — and a
+        handful of the same firms winning back the same neighbourhoods, year after year. It is not chaos. It
+        is a <b>settled arrangement</b>, and the bill is yours.</p>
+    </section>
+
+    <section>
+      <div class="sech kick rise">1 · The burden</div>
+      <h2 class="display rise">It isn't everyone's road that keeps getting redone</h2>
+      <p class="body rise">The city keeps a register of every stretch it resurfaces — with the road, the ward,
+        the contractor, and the <b>Defect Liability Period</b>: the years the firm stays on the hook to fix
+        its own bad work. Read seven of those registers together and a pattern falls out that no single year
+        shows. The <b>same favoured wards reappear again and again</b> — while others never appear at all.</p>
+      <div class="strip rise">
+        <div class="cell"><div class="big">6 of 7</div><div class="lab">years that the four most-favoured wards — Naroda, Bodakdev, Gota, Thaltej — were each resurfaced</div></div>
+        <div class="cell"><div class="big">18</div><div class="lab">of 48 wards resurfaced in five or more of the seven years — the roads that never stop being redone</div></div>
+        <div class="cell"><div class="big">5</div><div class="lab">wards with <b>zero</b> resurfacing on record across all seven years — Amraiwadi, Ramol-Hathijan, Viratnagar, Thakkarbapanagar, Saijpur Bogha</div></div>
+      </div>
+      <figure class="rmap rise">
+        <svg id="wardmap" viewBox="0 0 800 520" role="img"
+             aria-label="Map of Ahmedabad wards shaded by how many road stretches each had resurfaced over seven years"></svg>
+        <div class="rmaplegend">
+          <span class="sc">Fewer <span class="bar"></span> More resurfacing (7&nbsp;yrs)</span>
+          <span class="sc"><span class="zk"></span> Zero on record</span>
+        </div>
+        <figcaption class="body" style="font-size:13px;margin-top:10px;color:var(--mut)">Each shape is an AMC
+          ward, shaded by the number of road stretches resurfaced in it across seven years. The heat sits on a
+          handful of wards — the affluent western belt (Bodakdev, Gota, Thaltej) and the industrial north
+          (Naroda) alike; the dashed outlines — Amraiwadi, Ramol-Hathijan, Viratnagar, Thakkarbapanagar, Saijpur
+          Bogha — had <b>none</b>. Hover or tap a ward for its count.</figcaption>
+      </figure>
+      <div class="rtip" id="rtip"></div>
+
+      <p class="body rise" style="margin-top:24px">Read the two lists back to back. The wards redone six years
+        in seven are not a tidy income map — they run from the affluent western edge (Bodakdev, Gota, Thaltej) to
+        the industrial, working-class north (Naroda, the single most-resurfaced ward of all). What they share is
+        not wealth; it is a <b>contractor who keeps the turf</b>. The five that got <b>nothing</b> are the
+        eastern and peripheral wards — Amraiwadi, Ramol-Hathijan and the rest. That is the first answer to the
+        chapter's question, before any contractor is named: <b>the budget circles the same favoured wards and
+        never reaches the others.</b></p>
+    </section>
+
+    <section>
+      <div class="sech kick rise">2 · Who</div>
+      <h2 class="display rise">A closed club, and each member's own turf</h2>
+      <p class="body rise">Ahmedabad has eight million people and no shortage of road-builders. Yet in the
+        years where the register also names the contractor, <b>just seven firms take four out of every five
+        jobs</b>. One firm alone holds nearly a quarter of all the work. This is what concentration looks like
+        on the page:</p>
+      <div class="div rise">
+        <div class="divrow"><div class="lab"><span>Nar Narayan Infrastructure</span><span>189 &nbsp;(24%)</span></div><div class="track"><div class="fill staff" data-w="100"></div></div></div>
+        <div class="divrow"><div class="lab"><span>L.G. Chaudhary</span><span>120 &nbsp;(15%)</span></div><div class="track"><div class="fill staff" data-w="64"></div></div></div>
+        <div class="divrow"><div class="lab"><span>N.C.C. Infra</span><span>110 &nbsp;(14%)</span></div><div class="track"><div class="fill staff" data-w="58"></div></div></div>
+        <div class="divrow"><div class="lab"><span>Maruti Infracreation</span><span>64 &nbsp;(8%)</span></div><div class="track"><div class="fill staff" data-w="34"></div></div></div>
+        <div class="divrow"><div class="lab"><span>Ashish Infracon</span><span>53 &nbsp;(7%)</span></div><div class="track"><div class="fill staff" data-w="28"></div></div></div>
+        <div class="divrow"><div class="lab"><span>Maruti Construction</span><span>53 &nbsp;(7%)</span></div><div class="track"><div class="fill staff" data-w="28"></div></div></div>
+        <div class="divrow"><div class="lab"><span>Apex Protech</span><span>46 &nbsp;(6%)</span></div><div class="track"><div class="fill staff" data-w="24"></div></div></div>
+      </div>
+      <p class="body rise" style="margin-top:14px;font-size:14px;max-width:64ch">Contractors as named in AMC's
+        own resurfacing registers; share of the ~790 work-orders whose contractor is legible. Top three = 53%;
+        top seven = 80%.</p>
+
+      <div class="subh rise">And the club doesn't compete — it <em>divides</em>.</div>
+      <p class="body rise">Map each firm to the wards it works and the market stops looking like a market. The
+        same firm tops the same ward across the years — a settled turf, not a contest re-run each tender:</p>
+      <div class="turf rise">
+        <div class="trow"><span class="wd">Jodhpur</span><span class="fm"><b>Nar Narayan Infrastructure</b></span><span class="ct">68 jobs</span></div>
+        <div class="trow"><span class="wd">Sarkhej</span><span class="fm"><b>Nar Narayan Infrastructure</b></span><span class="ct">34 jobs</span></div>
+        <div class="trow"><span class="wd">Gota</span><span class="fm"><b>Maruti Infracreation</b></span><span class="ct">38 jobs</span></div>
+        <div class="trow"><span class="wd">Naroda</span><span class="fm"><b>N.C.C. Infra</b></span><span class="ct">33 jobs</span></div>
+        <div class="trow"><span class="wd">Bodakdev</span><span class="fm"><b>L.G. Chaudhary</b></span><span class="ct">28 jobs</span></div>
+        <div class="trow"><span class="wd">Thaltej</span><span class="fm"><b>Ashish Infracon</b></span><span class="ct">20 jobs</span></div>
+      </div>
+      <p class="body rise" style="margin-top:18px">No firm here is accused of anything. Each is simply the
+        contractor of record on the city's own documents. The finding is not about any one company — it is the
+        <b>shape</b>: a handful of firms, a city carved into stable territories, the same names returning to the
+        same wards while whole eastern wards see no work at all.</p>
+    </section>
+
+    <section>
+      <div class="sech kick rise">3 · Why it persists</div>
+      <h2 class="display rise">Every one of these contracts is approved by the same table</h2>
+      <p class="body rise">A municipal road contract in Ahmedabad is not awarded by an anonymous process. It
+        is cleared by the corporation's <b>Standing Committee</b> — the small, powerful body that signs off the
+        city's spending. That committee has been controlled by <b>a single party for the whole of this
+        seven-year record</b>, and it chairs every award. When the same body approves every contract and the
+        same firms keep their wards, the absence of churn is not a coincidence; it is the system working as
+        built.</p>
+      <p class="body rise">We tested the obvious suspicion — that the firms are tied to the ruling party
+        directly — against open records: electoral-bond filings, and company directors checked against the
+        councillor rolls for both terms. <b>On open data, no such link is establishable</b>, and we make none.
+        What <em>is</em> documentable is structural and sufficient: one party holds the committee, the committee
+        holds the award, and the award keeps returning to the same hands. You do not need a secret to explain a
+        closed market — you only need an award table with no one to answer to.</p>
+
+      <div class="subh rise">The defect-liability irony</div>
+      <p class="body rise">Here is the part that should sting. Every one of those work-orders carries a
+        <b>Defect Liability Period</b> — the contractor is legally bound to repair, at its own cost, any road
+        that fails within a few years of laying it. A system built around defect-liability is supposed to make
+        roads <em>last</em>. Instead the same wards are resurfaced six years in seven. Either the roads keep
+        failing inside their liability window and are quietly redone as fresh paid work, or the liability is
+        never enforced. Both readings point the same way: <b>the clause that should end the annual digging is
+        the one no one collects on.</b></p>
+      <p class="body rise">And the corporation keeps the receipt. Its budget books carry road resurfacing as a
+        standing capital head, funded every single year — and, on the income side, a line named in the city's
+        own ledger: <b>&ldquo;Penalty Recovered from Contractors.&rdquo;</b> The money the AMC is meant to claw
+        back from firms whose roads fail has its own budget code (23306), printed in book after book for nearly
+        two decades. The defect-liability isn't an abstraction the city forgot — it is a number the city
+        <em>prints a slot for</em>. The only question the chapter can't answer from outside is what goes in
+        that slot. That one is an RTI away.</p>
+      <p class="pull rise">A road that lasts is a contract that ends. A road redone every year is a
+        relationship that never has to.</p>
+    </section>
+
+    <section>
+      <div class="sech accent kick rise">Your money · your mandate</div>
+      <h2 class="display rise">You paid for every one of these layers</h2>
+      <p class="body rise">Road resurfacing is funded straight from the municipal budget — your property tax,
+        your user charges, the grants your taxes send the city. A road relaid before it needed to be is not
+        a free road; it is one you bought twice. And unlike the air or the water, this is a service the elected
+        corporation <b>fully controls</b> — there is no state board to blame, no parastatal in the way. The
+        councillor you vote for sits in the house that owns this. <b>Which makes it the rare failure your vote
+        can actually reach</b> — if the contract were ever made to answer to it.</p>
+    </section>
+
+    <section>
+      <div class="sech accent kick rise">4 · The question you're left with</div>
+      <h2 class="display rise">So who makes the award answer?</h2>
+      <p class="body rise">The people who live with the worst roads — the eastern wards that got no resurfacing
+        at all — are the least able to force a re-tender. None of the questions below need a lawyer or a leak.
+        They need the city's own register, read out loud.</p>
+      <div class="acts rise">
+        <div class="actitem"><div class="t"><b>Why this ward and not mine?</b><span>The resurfacing register is a public document, ward by ward. Pull your ward's seven-year row against Naroda's or Bodakdev's. When a residents' body or a ward-sabha puts the two lists side by side, the question stops being "where are our roads" and becomes "why does the budget circle the same favoured wards and never reach ours?"</span></div></div>
+        <div class="actitem"><div class="t"><b>Who is on the hook — and was the liability ever called?</b><span>Every stretch names a Defect Liability Period and the firm bound by it, and the budget already has the line: &ldquo;Penalty Recovered from Contractors&rdquo; (head 23306). Ask the corporation, by RTI for ₹10: what was actually credited to that head each year, and how many defect-liability claims were enforced? A number near zero is the finding.</span></div></div>
+        <div class="actitem"><div class="t"><b>Why does the same firm keep the same ward?</b><span>Tender records, bidder lists and the Standing Committee's minutes are obtainable. Who else bid for your ward's work — and lost, every year? A market with one perennial winner is a question the awarding committee can be made to answer in the open.</span></div></div>
+        <div class="actitem"><div class="t"><b>What is your vote even for here?</b><span>This is the one failure with no parastatal to hide behind — the elected corporation awards these contracts itself. One question for every councillor and candidate, on the record: how many firms won our ward's road work in the last seven years, and will you publish the tender file? If the answer is silence, the silence is the platform.</span></div></div>
+      </div>
+
+      <div class="cite rise" style="margin-top:26px">Sources — Ahmedabad Municipal Corporation's own
+        <b>road-resurfacing (Defect Liability Period) registers</b>, seven years (2017-18 to 2025-26; no 2021-22
+        or 2023-24 register exists), totalling more than 1,600 work-orders; gap-year registers obtained via the
+        AMC document portal. Firm names are as transliterated from the registers (Gujarati; transliteration
+        human-checked) and denote the contractor of record only. Award authority: the AMC Standing Committee.
+        Budget heads — &ldquo;Roads &amp; Streets Resurfacing&rdquo; (capex) and &ldquo;Penalty Recovered from
+        Contractors&rdquo; (income, head 23306) — are from the AMC's published budget books (read across ~18
+        years); rupee values are not quoted here because the books' legacy-font figures are not machine-verifiable.
+        The firm-to-party question was tested against electoral-bond and director records and is <b>not
+        establishable from open data</b>; no such claim is made.</div>
+
+      <div class="endnav rise">
+        <a class="btn" href="../index.html">← All chapters</a>
+        <a class="btn ghost" href="../../cities/ahmedabad/index.html">Open the Ahmedabad atlas</a>
+      </div>
+    </section>
+
+    <div class="foot">
+      A research reading of public records, built for <b>The Unelected City</b>. Figures are derived from
+      Ahmedabad Municipal Corporation's published resurfacing registers; ward and contractor transliterations
+      are human-checked against the source. The accountability reading is ours.
+      <div class="src">AMC resurfacing / DLP registers 2017-18 → 2025-26 · ward-level recurrence from the registers ·
+        award authority: AMC Standing Committee · firm→party link tested (electoral bonds, director rolls) and not establishable</div>
+    </div>
+  </main>
+
+  <script>
+    const io = new IntersectionObserver((es)=>{
+      es.forEach(e=>{
+        if(!e.isIntersecting) return;
+        const el=e.target; el.classList.add('in');
+        el.querySelectorAll('.fill').forEach(f=>f.style.width=f.dataset.w+'%');
+        io.unobserve(el);
+      });
+    },{threshold:.16});
+    document.querySelectorAll('.rise').forEach(el=>io.observe(el));
+
+    // ward-recurrence choropleth — self-contained SVG, counts only (no firm data)
+    (function(){
+      const svg=document.getElementById('wardmap'), tip=document.getElementById('rtip');
+      if(!svg) return;
+      const NS='http://www.w3.org/2000/svg', W=800,H=520,PAD=14;
+      const lerp=(a,b,t)=>a+(b-a)*t;
+      const hex=h=>[parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)];
+      const LO=hex('#2f6f8b'), MID=hex('#d9a94f'), HI=hex('#c0392b');
+      function ramp(t){ // 0..1 -> teal->gold->red
+        const c = t<.5 ? LO.map((v,i)=>lerp(v,MID[i],t*2)) : MID.map((v,i)=>lerp(v,HI[i],(t-.5)*2));
+        return 'rgb('+c.map(Math.round).join(',')+')';
+      }
+      fetch('recurrence.geojson').then(r=>r.json()).then(gj=>{
+        const fs=gj.features;
+        let minX=1e9,maxX=-1e9,minY=1e9,maxY=-1e9, max=0;
+        const polysOf=g=> g.type==='Polygon'?[g.coordinates]:g.type==='MultiPolygon'?g.coordinates:[];
+        fs.forEach(f=>{ max=Math.max(max,f.properties.segments_7yr||0);
+          polysOf(f.geometry).forEach(poly=>poly.forEach(ring=>ring.forEach(([x,y])=>{
+            if(x<minX)minX=x; if(x>maxX)maxX=x; if(y<minY)minY=y; if(y>maxY)maxY=y; })));});
+        const midLat=(minY+maxY)/2, kx=Math.cos(midLat*Math.PI/180);
+        const sw=(maxX-minX)*kx, sh=(maxY-minY);
+        const s=Math.min((W-2*PAD)/sw,(H-2*PAD)/sh);
+        const ox=(W-sw*s)/2, oy=(H-sh*s)/2;
+        const px=x=>ox+((x-minX)*kx)*s, py=y=>oy+((maxY-y))*s;
+        fs.forEach(f=>{
+          const seg=f.properties.segments_7yr||0, ya=f.properties.years_active||0;
+          const d=polysOf(f.geometry).map(poly=>poly.map(ring=>
+            'M'+ring.map(([x,y])=>px(x).toFixed(1)+' '+py(y).toFixed(1)).join('L')+'Z').join('')).join('');
+          const p=document.createElementNS(NS,'path');
+          p.setAttribute('d',d);
+          p.setAttribute('class','wd'+(seg===0?' zero':''));
+          if(seg>0) p.setAttribute('fill',ramp(max?seg/max:0));
+          const name=(f.properties.ward||'').replace(/^\d+\s*/,'');
+          const on=(e)=>{ const t=e.touches?e.touches[0]:e;
+            tip.innerHTML='<b>'+name+'</b><span class="s">'+(seg===0?'no resurfacing on record':seg+' stretches · '+ya+' of 7 years')+'</span>';
+            tip.style.opacity=1; tip.style.left=Math.min(t.clientX+12,innerWidth-210)+'px'; tip.style.top=(t.clientY+12)+'px'; };
+          p.addEventListener('mousemove',on); p.addEventListener('touchstart',on,{passive:true});
+          p.addEventListener('mouseleave',()=>tip.style.opacity=0);
+          svg.appendChild(p);
+        });
+      }).catch(()=>{ svg.insertAdjacentHTML('afterend','<p class="body" style="font-size:13px;color:var(--mut)">(Map data unavailable.)</p>'); });
+    })();
+  </script>
+  <script src="../../assets/masthead.js"></script>
+  <script src="../../assets/theme.js"></script>
+</body>
+</html>
