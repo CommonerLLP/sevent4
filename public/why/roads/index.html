@@ -28,7 +28,7 @@
   .rmap svg{width:100%;height:auto;display:block;background:var(--panel);border:1px solid var(--line);border-radius:10px}
   .rmap .wd{stroke:var(--bg);stroke-width:.6;cursor:pointer;transition:opacity .12s}
   .rmap .wd:hover{opacity:.78}
-  .rmap .wd.zero{fill:none;stroke:var(--mut);stroke-width:.9;stroke-dasharray:2 2}
+  .rmap .wd.zero{fill:transparent;stroke:var(--mut);stroke-width:.9;stroke-dasharray:2 2;pointer-events:all}
   .rmaplegend{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:12px;
     font:700 11px/1 var(--mono);letter-spacing:.03em;color:var(--mut)}
   .rmaplegend .sc{display:flex;align-items:center;gap:7px}
@@ -60,9 +60,9 @@
       <p class="body rise">The city keeps a register of every stretch it resurfaces — with the road, the ward,
         the contractor, and the <b>Defect Liability Period</b>: the years the firm stays on the hook to fix
         its own bad work. Read seven of those registers together and a pattern falls out that no single year
-        shows. The <b>same wards reappear again and again</b> — and they are not the city's poorest.</p>
+        shows. The <b>same favoured wards reappear again and again</b> — while others never appear at all.</p>
       <div class="strip rise">
-        <div class="cell"><div class="big">6 of 7</div><div class="lab">years that Naroda, Bodakdev, Gota and Thaltej — affluent west-side wards — were resurfaced</div></div>
+        <div class="cell"><div class="big">6 of 7</div><div class="lab">years that the four most-favoured wards — Naroda, Bodakdev, Gota, Thaltej — were each resurfaced</div></div>
         <div class="cell"><div class="big">18</div><div class="lab">of 48 wards resurfaced in five or more of the seven years — the roads that never stop being redone</div></div>
         <div class="cell"><div class="big">5</div><div class="lab">wards with <b>zero</b> resurfacing on record across all seven years — Amraiwadi, Ramol-Hathijan, Viratnagar, Thakkarbapanagar, Saijpur Bogha</div></div>
       </div>
@@ -74,17 +74,20 @@
           <span class="sc"><span class="zk"></span> Zero on record</span>
         </div>
         <figcaption class="body" style="font-size:13px;margin-top:10px;color:var(--mut)">Each shape is an AMC
-          ward, shaded by the number of road stretches resurfaced in it across seven years. The heat sits on the
-          western wards; the dashed outlines — Amraiwadi, Ramol-Hathijan, Viratnagar, Thakkarbapanagar, Saijpur
+          ward, shaded by the number of road stretches resurfaced in it across seven years. The heat sits on a
+          handful of wards — the affluent western belt (Bodakdev, Gota, Thaltej) and the industrial north
+          (Naroda) alike; the dashed outlines — Amraiwadi, Ramol-Hathijan, Viratnagar, Thakkarbapanagar, Saijpur
           Bogha — had <b>none</b>. Hover or tap a ward for its count.</figcaption>
       </figure>
       <div class="rtip" id="rtip"></div>
 
-      <p class="body rise" style="margin-top:24px">Read the two lists back to back. The wards resurfaced six
-        years out of seven sit on the prosperous west; the five that got <b>nothing</b> are eastern and
-        peripheral — the industrial, working-class, more Dalit-and-Muslim edge of the city. The question the
-        chapter title asks — <em>why is the same road dug up every year?</em> — has a first answer before any
-        contractor is named: because the resurfacing budget keeps returning to the same side of town.</p>
+      <p class="body rise" style="margin-top:24px">Read the two lists back to back. The wards redone six years
+        in seven are not a tidy income map — they run from the affluent western edge (Bodakdev, Gota, Thaltej) to
+        the industrial, working-class north (Naroda, the single most-resurfaced ward of all). What they share is
+        not wealth; it is a <b>contractor who keeps the turf</b>. The five that got <b>nothing</b> are the
+        eastern and peripheral wards — Amraiwadi, Ramol-Hathijan and the rest. That is the first answer to the
+        chapter's question, before any contractor is named: <b>the budget circles the same favoured wards and
+        never reaches the others.</b></p>
     </section>
 
     <section>
@@ -176,7 +179,7 @@
         at all — are the least able to force a re-tender. None of the questions below need a lawyer or a leak.
         They need the city's own register, read out loud.</p>
       <div class="acts rise">
-        <div class="actitem"><div class="t"><b>Why this ward and not mine?</b><span>The resurfacing register is a public document, ward by ward. Pull your ward's seven-year row against Naroda's or Bodakdev's. When a residents' body or a ward-sabha puts the two lists side by side, the question stops being "where are our roads" and becomes "why does the budget never come east?"</span></div></div>
+        <div class="actitem"><div class="t"><b>Why this ward and not mine?</b><span>The resurfacing register is a public document, ward by ward. Pull your ward's seven-year row against Naroda's or Bodakdev's. When a residents' body or a ward-sabha puts the two lists side by side, the question stops being "where are our roads" and becomes "why does the budget circle the same favoured wards and never reach ours?"</span></div></div>
         <div class="actitem"><div class="t"><b>Who is on the hook — and was the liability ever called?</b><span>Every stretch names a Defect Liability Period and the firm bound by it, and the budget already has the line: &ldquo;Penalty Recovered from Contractors&rdquo; (head 23306). Ask the corporation, by RTI for ₹10: what was actually credited to that head each year, and how many defect-liability claims were enforced? A number near zero is the finding.</span></div></div>
         <div class="actitem"><div class="t"><b>Why does the same firm keep the same ward?</b><span>Tender records, bidder lists and the Standing Committee's minutes are obtainable. Who else bid for your ward's work — and lost, every year? A market with one perennial winner is a question the awarding committee can be made to answer in the open.</span></div></div>
         <div class="actitem"><div class="t"><b>What is your vote even for here?</b><span>This is the one failure with no parastatal to hide behind — the elected corporation awards these contracts itself. One question for every councillor and candidate, on the record: how many firms won our ward's road work in the last seven years, and will you publish the tender file? If the answer is silence, the silence is the platform.</span></div></div>
