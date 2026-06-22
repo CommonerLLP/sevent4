@@ -1,10 +1,13 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import json
+from pathlib import Path
 import re
 from typing import Any
 
 SOURCE_PROFILE_RE = re.compile(r"^[a-z]{2}-[a-z0-9]+-[a-z0-9]+(?:-[a-z0-9]+)*$")
+CLAIM_ID_ATTR_RE = re.compile(r"""data-claim-id=["']([^"']+)["']""")
 
 VALID_TRANSPORTS = {
     "direct-http",
@@ -137,6 +140,52 @@ class ClaimRecord:
             raise ValueError(f"{self.id}: public_route must be an absolute route")
         if not self.constitutional_relevance.get("twelfth_schedule_function"):
             raise ValueError(f"{self.id}: missing Twelfth Schedule function")
+
+
+@dataclass(frozen=True)
+class EvidenceBundle:
+    schema: str
+    source_profiles: tuple[SourceProfile, ...]
+    facts: tuple[FactRecord, ...]
+    claims: tuple[ClaimRecord, ...]
+
+    def claim_by_id(self, claim_id: str) -> ClaimRecord:
+        for claim in self.claims:
+            if claim.id == claim_id:
+                return claim
+        raise KeyError(claim_id)
+
+    def validate(self) -> None:
+        source_ids = {profile.id for profile in self.source_profiles}
+        for fact in self.facts:
+            if fact.source_id not in source_ids:
+                raise ValueError(f"{fact.id}: references unknown source {fact.source_id}")
+        validate_claims_against_facts(list(self.claims), list(self.facts))
+
+
+def load_evidence_bundle(path: str | Path) -> EvidenceBundle:
+    data = json.loads(Path(path).read_text(encoding="utf-8"))
+    bundle = EvidenceBundle(
+        schema=_required_str(data, "schema"),
+        source_profiles=tuple(SourceProfile.from_dict(row) for row in data.get("source_profiles", [])),
+        facts=tuple(FactRecord.from_dict(row) for row in data.get("facts", [])),
+        claims=tuple(ClaimRecord.from_dict(row) for row in data.get("claims", [])),
+    )
+    bundle.validate()
+    return bundle
+
+
+def claim_ids_in_page(path: str | Path) -> tuple[str, ...]:
+    html = Path(path).read_text(encoding="utf-8")
+    return tuple(dict.fromkeys(CLAIM_ID_ATTR_RE.findall(html)))
+
+
+def validate_page_claim_ids(path: str | Path, bundle: EvidenceBundle) -> None:
+    bundle_claim_ids = {claim.id for claim in bundle.claims}
+    page_claim_ids = claim_ids_in_page(path)
+    missing = [claim_id for claim_id in page_claim_ids if claim_id not in bundle_claim_ids]
+    if missing:
+        raise ValueError(f"{Path(path)} references unknown claims: {', '.join(missing)}")
 
 
 def validate_claims_against_facts(claims: list[ClaimRecord], facts: list[FactRecord]) -> None:
