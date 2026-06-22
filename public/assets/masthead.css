@@ -18,6 +18,7 @@
   font:800 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;
   background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--mut)}
 .mh-nav a:not(.is-active):hover{border-color:var(--blue);color:var(--blue)}
+.mh-nav a:focus-visible,.mh-brand:focus-visible,.mh-theme:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 .mh-nav a.is-active{background:var(--ink);border-color:var(--ink);color:var(--bg)}
 .mh-theme{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;flex:0 0 auto;
   background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--mut);cursor:pointer;padding:0}

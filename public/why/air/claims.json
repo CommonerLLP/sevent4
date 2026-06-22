@@ -2,6 +2,16 @@
   "schema": "sevent4.evidence_bundle.v1",
   "source_profiles": [
     {
+      "id": "in-dl-dpcc-rti-capacity",
+      "country": "IN",
+      "institution": "Delhi Pollution Control Committee",
+      "source_family": "rti_capacity",
+      "transport": "manual-rti-upload",
+      "source_role": "official_record",
+      "owner_repo": "sevent4",
+      "retrieval_date": "2021"
+    },
+    {
       "id": "in-gj-gpcb-annual-reports",
       "country": "IN",
       "institution": "Gujarat Pollution Control Board",
@@ -22,6 +32,16 @@
       "retrieval_date": "2026-06-22"
     },
     {
+      "id": "in-national-moefcc-spcb-vacancies-2025",
+      "country": "IN",
+      "institution": "MoEFCC / Rajya Sabha",
+      "source_family": "spcb_vacancy_parliamentary_answers",
+      "transport": "direct-http",
+      "source_role": "legislative_record",
+      "owner_repo": "commoner-probe",
+      "retrieval_date": "2026-06-22"
+    },
+    {
       "id": "in-tn-tnpcb-annual-reports",
       "country": "IN",
       "institution": "Tamil Nadu Pollution Control Board",
@@ -30,9 +50,289 @@
       "source_role": "official_record",
       "owner_repo": "commoner-probe",
       "retrieval_date": "2026-06-21"
+    },
+    {
+      "id": "in-wb-wbpcb-rti-capacity",
+      "country": "IN",
+      "institution": "West Bengal Pollution Control Board",
+      "source_family": "rti_capacity",
+      "transport": "manual-rti-upload",
+      "source_role": "official_record",
+      "owner_repo": "sevent4",
+      "retrieval_date": "2023"
     }
   ],
   "facts": [
+    {
+      "id": "fact-dpcc-posts-sanctioned-2021",
+      "kind": "AirBoardCapacityFact",
+      "metric": "posts_sanctioned",
+      "value": 343,
+      "unit": "count",
+      "period": "2021",
+      "source_id": "in-dl-dpcc-rti-capacity",
+      "source_locator": "DPCC RTI 60075",
+      "extractor": "pollution-board-capacity-v1",
+      "confidence": "high",
+      "status": "found",
+      "geography": {
+        "country": "IN",
+        "state": "Delhi",
+        "city": "Delhi"
+      }
+    },
+    {
+      "id": "fact-dpcc-posts-vacant-2021",
+      "kind": "AirBoardCapacityFact",
+      "metric": "posts_vacant",
+      "value": 218,
+      "unit": "count",
+      "period": "2021",
+      "source_id": "in-dl-dpcc-rti-capacity",
+      "source_locator": "DPCC RTI 60075",
+      "extractor": "pollution-board-capacity-v1",
+      "confidence": "high",
+      "status": "found",
+      "geography": {
+        "country": "IN",
+        "state": "Delhi",
+        "city": "Delhi"
+      }
+    },
+    {
+      "id": "fact-dpcc-vacancy-pct-2021",
+      "kind": "AirBoardCapacityFact",
+      "metric": "vacancy_pct",
+      "value": 64,
+      "unit": "percent",
+      "period": "2021",
+      "source_id": "in-dl-dpcc-rti-capacity",
+      "source_locator": "DPCC RTI 60075; rounded from 218 vacant of 343 sanctioned posts",
+      "extractor": "pollution-board-capacity-v1",
+      "confidence": "high",
+      "status": "found",
+      "geography": {
+        "country": "IN",
+        "state": "Delhi",
+        "city": "Delhi"
+      }
+    },
+    {
+      "id": "fact-gpcb-posts-sanctioned-2025",
+      "kind": "AirBoardCapacityFact",
+      "metric": "posts_sanctioned",
+      "value": 430,
+      "unit": "count",
+      "period": "2025",
+      "source_id": "in-national-moefcc-spcb-vacancies-2025",
+      "source_locator": "Rajya Sabha U.Q. 3096, 27 Mar 2025",
+      "extractor": "pollution-board-capacity-v1",
+      "confidence": "high",
+      "status": "found",
+      "geography": {
+        "country": "IN",
+        "state": "Gujarat",
+        "city": "Ahmedabad"
+      }
+    },
+    {
+      "id": "fact-gpcb-posts-vacant-2025",
+      "kind": "AirBoardCapacityFact",
+      "metric": "posts_vacant",
+      "value": 260,
+      "unit": "count",
+      "period": "2025",
+      "source_id": "in-national-moefcc-spcb-vacancies-2025",
+      "source_locator": "Rajya Sabha U.Q. 3096, 27 Mar 2025",
+      "extractor": "pollution-board-capacity-v1",
+      "confidence": "high",
+      "status": "found",
+      "geography": {
+        "country": "IN",
+        "state": "Gujarat",
+        "city": "Ahmedabad"
+      }
+    },
+    {
+      "id": "fact-gpcb-vacancy-pct-2025",
+      "kind": "AirBoardCapacityFact",
+      "metric": "vacancy_pct",
+      "value": 60,
+      "unit": "percent",
+      "period": "2025",
+      "source_id": "in-national-moefcc-spcb-vacancies-2025",
+      "source_locator": "Rajya Sabha U.Q. 3096, 27 Mar 2025; rounded from 260 vacant of 430 sanctioned posts",
+      "extractor": "pollution-board-capacity-v1",
+      "confidence": "high",
+      "status": "found",
+      "geography": {
+        "country": "IN",
+        "state": "Gujarat",
+        "city": "Ahmedabad"
+      }
+    },
+    {
+      "id": "fact-kspcb-posts-sanctioned-2025",
+      "kind": "AirBoardCapacityFact",
+      "metric": "posts_sanctioned",
+      "value": 723,
+      "unit": "count",
+      "period": "2025",
+      "source_id": "in-national-moefcc-spcb-vacancies-2025",
+      "source_locator": "Rajya Sabha U.Q. 3096, 27 Mar 2025",
+      "extractor": "pollution-board-capacity-v1",
+      "confidence": "high",
+      "status": "found",
+      "geography": {
+        "country": "IN",
+        "state": "Karnataka",
+        "city": "Bengaluru"
+      }
+    },
+    {
+      "id": "fact-kspcb-posts-vacant-2025",
+      "kind": "AirBoardCapacityFact",
+      "metric": "posts_vacant",
+      "value": 437,
+      "unit": "count",
+      "period": "2025",
+      "source_id": "in-national-moefcc-spcb-vacancies-2025",
+      "source_locator": "Rajya Sabha U.Q. 3096, 27 Mar 2025",
+      "extractor": "pollution-board-capacity-v1",
+      "confidence": "high",
+      "status": "found",
+      "geography": {
+        "country": "IN",
+        "state": "Karnataka",
+        "city": "Bengaluru"
+      }
+    },
+    {
+      "id": "fact-kspcb-vacancy-pct-2025",
+      "kind": "AirBoardCapacityFact",
+      "metric": "vacancy_pct",
+      "value": 60,
+      "unit": "percent",
+      "period": "2025",
+      "source_id": "in-national-moefcc-spcb-vacancies-2025",
+      "source_locator": "Rajya Sabha U.Q. 3096, 27 Mar 2025; rounded from 437 vacant of 723 sanctioned posts",
+      "extractor": "pollution-board-capacity-v1",
+      "confidence": "high",
+      "status": "found",
+      "geography": {
+        "country": "IN",
+        "state": "Karnataka",
+        "city": "Bengaluru"
+      }
+    },
+    {
+      "id": "fact-tnpcb-posts-sanctioned-2025",
+      "kind": "AirBoardCapacityFact",
+      "metric": "posts_sanctioned",
+      "value": 1118,
+      "unit": "count",
+      "period": "2025",
+      "source_id": "in-national-moefcc-spcb-vacancies-2025",
+      "source_locator": "Rajya Sabha U.Q. 3096, 27 Mar 2025",
+      "extractor": "pollution-board-capacity-v1",
+      "confidence": "high",
+      "status": "found",
+      "geography": {
+        "country": "IN",
+        "state": "Tamil Nadu",
+        "city": "Chennai"
+      }
+    },
+    {
+      "id": "fact-tnpcb-posts-vacant-2025",
+      "kind": "AirBoardCapacityFact",
+      "metric": "posts_vacant",
+      "value": 493,
+      "unit": "count",
+      "period": "2025",
+      "source_id": "in-national-moefcc-spcb-vacancies-2025",
+      "source_locator": "Rajya Sabha U.Q. 3096, 27 Mar 2025",
+      "extractor": "pollution-board-capacity-v1",
+      "confidence": "high",
+      "status": "found",
+      "geography": {
+        "country": "IN",
+        "state": "Tamil Nadu",
+        "city": "Chennai"
+      }
+    },
+    {
+      "id": "fact-tnpcb-vacancy-pct-2025",
+      "kind": "AirBoardCapacityFact",
+      "metric": "vacancy_pct",
+      "value": 44,
+      "unit": "percent",
+      "period": "2025",
+      "source_id": "in-national-moefcc-spcb-vacancies-2025",
+      "source_locator": "Rajya Sabha U.Q. 3096, 27 Mar 2025; rounded from 493 vacant of 1,118 sanctioned posts",
+      "extractor": "pollution-board-capacity-v1",
+      "confidence": "high",
+      "status": "found",
+      "geography": {
+        "country": "IN",
+        "state": "Tamil Nadu",
+        "city": "Chennai"
+      }
+    },
+    {
+      "id": "fact-wbpcb-posts-sanctioned-2023",
+      "kind": "AirBoardCapacityFact",
+      "metric": "posts_sanctioned",
+      "value": 309,
+      "unit": "count",
+      "period": "2023",
+      "source_id": "in-wb-wbpcb-rti-capacity",
+      "source_locator": "WBPCB RTI and public roster capacity record",
+      "extractor": "pollution-board-capacity-v1",
+      "confidence": "medium",
+      "status": "found",
+      "geography": {
+        "country": "IN",
+        "state": "West Bengal",
+        "city": "Kolkata"
+      }
+    },
+    {
+      "id": "fact-wbpcb-posts-vacant-2023",
+      "kind": "AirBoardCapacityFact",
+      "metric": "posts_vacant",
+      "value": 122,
+      "unit": "count",
+      "period": "2023",
+      "source_id": "in-wb-wbpcb-rti-capacity",
+      "source_locator": "WBPCB RTI and public roster capacity record",
+      "extractor": "pollution-board-capacity-v1",
+      "confidence": "medium",
+      "status": "found",
+      "geography": {
+        "country": "IN",
+        "state": "West Bengal",
+        "city": "Kolkata"
+      }
+    },
+    {
+      "id": "fact-wbpcb-vacancy-pct-2023",
+      "kind": "AirBoardCapacityFact",
+      "metric": "vacancy_pct",
+      "value": 39,
+      "unit": "percent",
+      "period": "2023",
+      "source_id": "in-wb-wbpcb-rti-capacity",
+      "source_locator": "WBPCB RTI and public roster capacity record; rounded from 122 vacant of 309 sanctioned posts",
+      "extractor": "pollution-board-capacity-v1",
+      "confidence": "medium",
+      "status": "found",
+      "geography": {
+        "country": "IN",
+        "state": "West Bengal",
+        "city": "Kolkata"
+      }
+    },
     {
       "id": "fact-gpcb-accumulated-surplus-2024-25",
       "kind": "AirBoardFinanceFact",
@@ -179,6 +479,81 @@
     }
   ],
   "claims": [
+    {
+      "id": "claim-why-air-dpcc-vacancy-2021",
+      "text": "DPCC had 218 of 343 sanctioned posts vacant in 2021, a 64 percent vacancy rate.",
+      "fact_ids": [
+        "fact-dpcc-posts-sanctioned-2021",
+        "fact-dpcc-posts-vacant-2021",
+        "fact-dpcc-vacancy-pct-2021"
+      ],
+      "public_route": "/why/air/",
+      "constitutional_relevance": {
+        "twelfth_schedule_function": "public health, sanitation, conservancy and solid waste management",
+        "gap_type": "state-board-without-municipal-accountability",
+        "implementation_question": "Why is the city-facing air regulator staffed outside a directly accountable municipal chain?"
+      }
+    },
+    {
+      "id": "claim-why-air-gpcb-vacancy-2025",
+      "text": "GPCB had 260 of 430 sanctioned posts vacant in 2025, a 60 percent vacancy rate.",
+      "fact_ids": [
+        "fact-gpcb-posts-sanctioned-2025",
+        "fact-gpcb-posts-vacant-2025",
+        "fact-gpcb-vacancy-pct-2025"
+      ],
+      "public_route": "/why/air/",
+      "constitutional_relevance": {
+        "twelfth_schedule_function": "public health, sanitation, conservancy and solid waste management",
+        "gap_type": "state-board-without-municipal-accountability",
+        "implementation_question": "Why can a state regulator for city air remain structurally vacant outside municipal control?"
+      }
+    },
+    {
+      "id": "claim-why-air-kspcb-vacancy-2025",
+      "text": "KSPCB had 437 of 723 sanctioned posts vacant in 2025, a 60 percent vacancy rate.",
+      "fact_ids": [
+        "fact-kspcb-posts-sanctioned-2025",
+        "fact-kspcb-posts-vacant-2025",
+        "fact-kspcb-vacancy-pct-2025"
+      ],
+      "public_route": "/why/air/",
+      "constitutional_relevance": {
+        "twelfth_schedule_function": "public health, sanitation, conservancy and solid waste management",
+        "gap_type": "state-board-without-municipal-accountability",
+        "implementation_question": "Why does Bengaluru's pollution regulator sit in a state staffing chain rather than an accountable city chain?"
+      }
+    },
+    {
+      "id": "claim-why-air-tnpcb-vacancy-2025",
+      "text": "TNPCB had 493 of 1,118 sanctioned posts vacant in 2025, a 44 percent vacancy rate.",
+      "fact_ids": [
+        "fact-tnpcb-posts-sanctioned-2025",
+        "fact-tnpcb-posts-vacant-2025",
+        "fact-tnpcb-vacancy-pct-2025"
+      ],
+      "public_route": "/why/air/",
+      "constitutional_relevance": {
+        "twelfth_schedule_function": "public health, sanitation, conservancy and solid waste management",
+        "gap_type": "state-board-without-municipal-accountability",
+        "implementation_question": "Why is the air-enforcement staffing chain not answerable to the elected city government?"
+      }
+    },
+    {
+      "id": "claim-why-air-wbpcb-vacancy-2023",
+      "text": "WBPCB had 122 of 309 sanctioned posts vacant in 2023, a 39 percent vacancy rate.",
+      "fact_ids": [
+        "fact-wbpcb-posts-sanctioned-2023",
+        "fact-wbpcb-posts-vacant-2023",
+        "fact-wbpcb-vacancy-pct-2023"
+      ],
+      "public_route": "/why/air/",
+      "constitutional_relevance": {
+        "twelfth_schedule_function": "public health, sanitation, conservancy and solid waste management",
+        "gap_type": "state-board-without-municipal-accountability",
+        "implementation_question": "Why does the city-facing environmental regulator remain outside direct municipal staffing accountability?"
+      }
+    },
     {
       "id": "claim-why-air-gpcb-surplus-2024-25",
       "text": "GPCB resolved in September 2024 to spend down Rs 3,230 crore of surplus over five years.",
