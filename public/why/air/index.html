@@ -251,7 +251,7 @@
         const filled=b.sanctioned-b.vacant;
         const fp=(filled/b.sanctioned*100).toFixed(1), vp=(b.vacant/b.sanctioned*100).toFixed(1);
         const tier=b.tier==='primary'?'primary':'reported';
-        return `<a class="dcell in" href="${b.console}">
+        return `<a class="dcell in" data-claim-id="${b.capacity_claim_id||''}" href="${b.console}">
           <div class="city">${b.name} · ${b.board}${rank}</div>
           <div class="dstat" data-count="${b.vacancy_pct}">0<span class="u">% empty</span></div>
           <div class="dsub">${b.vacant} of ${b.sanctioned} posts vacant${b.year?' · '+b.year:''} · ${tier}</div>

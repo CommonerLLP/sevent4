@@ -177,7 +177,9 @@ def load_evidence_bundle(path: str | Path) -> EvidenceBundle:
 
 def claim_ids_in_page(path: str | Path) -> tuple[str, ...]:
     html = Path(path).read_text(encoding="utf-8")
-    return tuple(dict.fromkeys(CLAIM_ID_ATTR_RE.findall(html)))
+    return tuple(
+        dict.fromkeys(claim_id for claim_id in CLAIM_ID_ATTR_RE.findall(html) if "${" not in claim_id)
+    )
 
 
 def validate_page_claim_ids(path: str | Path, bundle: EvidenceBundle) -> None:

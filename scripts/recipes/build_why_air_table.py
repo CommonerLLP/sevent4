@@ -33,10 +33,12 @@ def _latest(facts, metric):
     return rows[0]
 
 
-def build():
+def build(cities_dir=CITIES_DIR, out=OUT, verbose=True):
+    cities_dir = Path(cities_dir)
+    out = Path(out)
     boards = []
-    for cap_path in sorted(CITIES_DIR.glob("*/source/pollution/capacity.json")):
-        city = cap_path.parts[2]
+    for cap_path in sorted(cities_dir.glob("*/source/pollution/capacity.json")):
+        city = cap_path.relative_to(cities_dir).parts[0]
         data = json.loads(cap_path.read_text(encoding="utf-8"))
         facts = data.get("facts", [])
         board = data.get("board", "")
@@ -71,7 +73,7 @@ def build():
         # per-console air panel; preserved across reruns by sourcing it here.
         finance = data.get("finance") or {}
 
-        boards.append({
+        row = {
             "city": city,
             "name": DISPLAY.get(city, city.title()),
             "board": board,
@@ -84,17 +86,27 @@ def build():
             "featured": city in FEATURED,
             **finance,
             "console": f"../../cities/{city}/index.html",
-        })
+        }
+        if status == "live":
+            row["capacity_claim_id"] = f"claim-why-air-{board.lower()}-vacancy-{year}"
+        if finance and finance.get("finance_year"):
+            finance_year = finance["finance_year"]
+            if finance.get("surplus_cr") is not None:
+                row["finance_claim_id"] = f"claim-why-air-{board.lower()}-surplus-{finance_year}"
+            elif finance.get("cash_opening_balance_cr") is not None:
+                row["finance_claim_id"] = f"claim-why-air-{board.lower()}-finance-{finance_year}"
+        boards.append(row)
 
     # ranked worst-empty first; pending cities fall to the bottom
     boards.sort(key=lambda b: (b["vacancy_pct"] is None, -(b["vacancy_pct"] or 0)))
-    OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(json.dumps({"boards": boards}, indent=2) + "\n", encoding="utf-8")
-    live = sum(b["status"] == "live" for b in boards)
-    print(f"wrote {OUT} — {len(boards)} cities ({live} with data, {len(boards)-live} pending)")
-    for b in boards:
-        pct = f'{b["vacancy_pct"]}%' if b["vacancy_pct"] is not None else "pending"
-        print(f'  {b["name"]:<12} {b["board"]:<7} {pct:>8}  [{b["tier"]}]')
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps({"boards": boards}, indent=2) + "\n", encoding="utf-8")
+    if verbose:
+        live = sum(b["status"] == "live" for b in boards)
+        print(f"wrote {out} — {len(boards)} cities ({live} with data, {len(boards)-live} pending)")
+        for b in boards:
+            pct = f'{b["vacancy_pct"]}%' if b["vacancy_pct"] is not None else "pending"
+            print(f'  {b["name"]:<12} {b["board"]:<7} {pct:>8}  [{b["tier"]}]')
 
 
 if __name__ == "__main__":

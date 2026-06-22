@@ -100,6 +100,35 @@ class WhyAirClaimContractsTest(unittest.TestCase):
             self.assertIn("finance_claim_id", row, f"{row['city']}: missing finance_claim_id")
             self.assertIn(row["finance_claim_id"], claim_ids, f"{row['city']}: unknown finance_claim_id")
 
+    def test_live_board_capacity_rows_point_to_claim_records(self) -> None:
+        boards = json.loads(BOARDS_PATH.read_text())["boards"]
+        bundle = load_evidence_bundle(CLAIMS_PATH)
+        claim_ids = {claim.id for claim in bundle.claims}
+
+        live_rows = [row for row in boards if row.get("status") == "live"]
+        self.assertGreaterEqual(len(live_rows), 5)
+        for row in live_rows:
+            self.assertIn("capacity_claim_id", row, f"{row['city']}: missing capacity_claim_id")
+            self.assertIn(row["capacity_claim_id"], claim_ids, f"{row['city']}: unknown capacity_claim_id")
+
+    def test_live_board_capacity_claims_are_backed_by_board_data(self) -> None:
+        boards = json.loads(BOARDS_PATH.read_text())["boards"]
+        bundle = load_evidence_bundle(CLAIMS_PATH)
+        facts = {fact.id: fact for fact in bundle.facts}
+
+        for row in boards:
+            if row.get("status") != "live":
+                continue
+            claim = bundle.claim_by_id(row["capacity_claim_id"])
+            values = {facts[fact_id].metric: facts[fact_id].value for fact_id in claim.fact_ids}
+            self.assertEqual(values["posts_sanctioned"], row["sanctioned"], row["city"])
+            self.assertEqual(values["posts_vacant"], row["vacant"], row["city"])
+            self.assertEqual(values["vacancy_pct"], row["vacancy_pct"], row["city"])
+
+    def test_roster_template_renders_capacity_claim_ids(self) -> None:
+        html = HTML_PATH.read_text(encoding="utf-8")
+        self.assertIn("data-claim-id=\"${b.capacity_claim_id||''}\"", html)
+
 
 if __name__ == "__main__":
     unittest.main()
