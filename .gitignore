@@ -17,7 +17,9 @@ notes/
 memory/
 
 # Generated / per-session agent-config files (also blocked by the pre-commit hook)
+CONTEXT.md
 WORKING.md
+TODO.md
 CLAUDE.md
 AGENTS.md
 GEMINI.md
