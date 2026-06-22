@@ -42,6 +42,16 @@
       "status": "live",
       "tier": "primary",
       "featured": false,
+      "cash_opening_balance_cr": 1292.45,
+      "receipts_cr": 348.7,
+      "expenditure_cr": 78.85,
+      "interest_cr": 66.86,
+      "labs": 9,
+      "inspections": 20124,
+      "samples": 114167,
+      "finance_year": "2023-24",
+      "finance_note": "Rs 1,292 crore opening cash, Rs 349 crore receipts and Rs 79 crore expenditure in 2023-24; interest alone was Rs 67 crore",
+      "finance_source": "KSPCB Annual Report 2023-24",
       "console": "../../cities/bengaluru/index.html"
     },
     {
