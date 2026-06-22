@@ -26,6 +26,7 @@ class HexagonalArchitectureTest(unittest.TestCase):
             "sevent4.ports.acquisition",
             "sevent4.ports.evidence",
             "sevent4.ports.publication",
+            "sevent4.application.city_console",
             "sevent4.application.public_site",
             "sevent4.application.why_air",
             "sevent4.adapters.filesystem",
@@ -113,12 +114,52 @@ class HexagonalArchitectureTest(unittest.TestCase):
         self.assertEqual(graph["why/"], {"", "why/air/"})
         self.assertEqual(graph["why/air/"], {"findings/"})
 
+    def test_city_console_application_publishes_through_surface_port(self) -> None:
+        from sevent4.application.city_console import publish_city_console
+
+        class FakeSurface:
+            output_dir = Path("public/cities/test")
+
+            def __init__(self) -> None:
+                self.events: list[str] = []
+                self.html = ""
+
+            def prepare(self) -> None:
+                self.events.append("prepare")
+
+            def publish_layers(self, city, manifest) -> None:
+                self.events.append(f"layers:{city.id}:{len(manifest.layers)}")
+
+            def write_index(self, html: str) -> None:
+                self.events.append("write")
+                self.html = html
+
+        class City:
+            id = "test"
+            name = "Test City"
+
+        class Manifest:
+            layers: tuple = ()
+
+        surface = FakeSurface()
+        result = publish_city_console(
+            City(),
+            Manifest(),
+            surface,
+            lambda city, manifest, output_dir: f"{city.name} -> {output_dir.as_posix()}",
+        )
+
+        self.assertEqual(surface.events, ["prepare", "layers:test:0", "write"])
+        self.assertEqual(surface.html, "Test City -> public/cities/test")
+        self.assertEqual(result.html, "Test City -> public/cities/test")
+
     def test_architecture_doc_names_operational_layers(self) -> None:
         text = ARCHITECTURE_DOC.read_text(encoding="utf-8")
 
         for name in (
             "sevent4.domain.evidence",
             "sevent4.application.why_air",
+            "sevent4.application.city_console",
             "sevent4.application.public_site",
             "sevent4.ports.acquisition",
             "sevent4.ports.evidence",

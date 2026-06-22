@@ -55,6 +55,7 @@ Implemented package boundaries:
 - `sevent4.ports.acquisition`
 - `sevent4.ports.evidence`
 - `sevent4.ports.publication`
+- `sevent4.application.city_console`
 - `sevent4.application.why_air`
 - `sevent4.application.public_site`
 - `sevent4.adapters.filesystem`

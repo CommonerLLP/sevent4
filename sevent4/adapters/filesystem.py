@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+import shutil
 from typing import Any, Mapping
 import html.parser
 
@@ -37,6 +38,34 @@ class PublicSiteFileRepository:
         parser = _LinkParser()
         parser.feed((self.public_dir / _path_from_page_id(page_id)).read_text(encoding="utf-8"))
         return parser.links
+
+
+class FileCityConsolePublicSurface:
+    def __init__(self, out: str | Path) -> None:
+        self.out = Path(out).resolve()
+
+    @property
+    def output_dir(self) -> Path:
+        return self.out.parent
+
+    def prepare(self) -> None:
+        self.output_dir.mkdir(parents=True, exist_ok=True)
+        (self.output_dir / "layers").mkdir(parents=True, exist_ok=True)
+
+    def publish_layers(self, city, manifest) -> None:
+        layer_out = self.output_dir / "layers"
+        for layer in manifest.layers:
+            shutil.copy2(city.layers_dir / layer.file, layer_out / layer.file)
+            _canonicalise_geojson(layer_out / layer.file)
+            if layer.bounds_file:
+                shutil.copy2(city.layers_dir / layer.bounds_file, layer_out / layer.bounds_file)
+        for sidecar in ("jurisdiction_crosswalk.json",):
+            path = city.layers_dir / sidecar
+            if path.exists():
+                shutil.copy2(path, layer_out / sidecar)
+
+    def write_index(self, html: str) -> None:
+        self.out.write_text(html, encoding="utf-8")
 
 
 class JsonEvidenceBundleRepository:
@@ -90,3 +119,38 @@ def _page_id(rel: Path) -> str:
 
 def _path_from_page_id(page_id: str) -> Path:
     return Path("index.html") if page_id == "" else Path(page_id) / "index.html"
+
+
+_CANONICAL_GEOJSON_FIELDS = {
+    "wards.geojson": ("Name", ("ward_name", "Name", "name", "ward_no", "WARD_NO")),
+    "acs.geojson": ("ac_name", ("AC_NAME", "ac_name", "ASSEM_CSTNY_NAME", "Name", "name")),
+    "pcs.geojson": ("pc_name", ("PC_NAME", "pc_name", "PARLY_CSTNY_NAME", "Name", "name")),
+}
+
+
+def _canonicalise_geojson(path: Path) -> None:
+    if path.name not in _CANONICAL_GEOJSON_FIELDS:
+        return
+    canonical_field, candidates = _CANONICAL_GEOJSON_FIELDS[path.name]
+    data = json.loads(path.read_text())
+    features = data.get("features", [])
+    if not features:
+        return
+    source_field = next(
+        (candidate for candidate in candidates if any(_has_value(feature["properties"].get(candidate)) for feature in features)),
+        None,
+    )
+    if not source_field:
+        return
+    changed = False
+    for feature in features:
+        properties = feature["properties"]
+        if not _has_value(properties.get(canonical_field)) and _has_value(properties.get(source_field)):
+            properties[canonical_field] = properties[source_field]
+            changed = True
+    if changed:
+        path.write_text(json.dumps(data))
+
+
+def _has_value(value) -> bool:
+    return str(value if value is not None else "").strip() not in ("", "None", "nan")
