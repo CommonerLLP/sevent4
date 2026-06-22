@@ -1,0 +1,135 @@
+import ast
+import importlib
+from pathlib import Path
+import unittest
+
+
+ROOT = Path(__file__).resolve().parents[1]
+ARCHITECTURE_DOC = ROOT / "docsx" / "system-architecture-2026-06-22.md"
+
+
+def _imports(path: Path) -> set[str]:
+    tree = ast.parse(path.read_text(encoding="utf-8"))
+    names: set[str] = set()
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Import):
+            names.update(alias.name for alias in node.names)
+        elif isinstance(node, ast.ImportFrom) and node.module:
+            names.add(node.module)
+    return names
+
+
+class HexagonalArchitectureTest(unittest.TestCase):
+    def test_layer_packages_are_explicit(self) -> None:
+        for module in (
+            "sevent4.domain.evidence",
+            "sevent4.ports.acquisition",
+            "sevent4.ports.evidence",
+            "sevent4.ports.publication",
+            "sevent4.application.public_site",
+            "sevent4.application.why_air",
+            "sevent4.adapters.filesystem",
+        ):
+            importlib.import_module(module)
+
+    def test_domain_layer_has_no_adapter_or_io_imports(self) -> None:
+        forbidden_roots = {
+            "pathlib",
+            "shutil",
+            "subprocess",
+            "requests",
+            "playwright",
+            "selenium",
+            "scripts",
+            "sevent4.adapters",
+            "sevent4.application",
+        }
+        for path in (ROOT / "sevent4" / "domain").glob("*.py"):
+            if path.name == "__init__.py":
+                continue
+            bad = {
+                name
+                for name in _imports(path)
+                if name in forbidden_roots or any(name.startswith(f"{root}.") for root in forbidden_roots)
+            }
+            self.assertEqual(bad, set(), f"{path} imports adapter/IO modules: {sorted(bad)}")
+
+    def test_application_layer_has_no_recipe_or_network_imports(self) -> None:
+        forbidden_roots = {
+            "requests",
+            "playwright",
+            "selenium",
+            "subprocess",
+            "scripts",
+            "sevent4.adapters",
+        }
+        for path in (ROOT / "sevent4" / "application").glob("*.py"):
+            if path.name == "__init__.py":
+                continue
+            bad = {
+                name
+                for name in _imports(path)
+                if name in forbidden_roots or any(name.startswith(f"{root}.") for root in forbidden_roots)
+            }
+            self.assertEqual(bad, set(), f"{path} imports adapter modules: {sorted(bad)}")
+
+    def test_why_air_application_builds_roster_without_filesystem_writer(self) -> None:
+        from sevent4.application.why_air import build_pollution_board_roster
+
+        rows = build_pollution_board_roster(
+            {
+                "bengaluru": {
+                    "board": "KSPCB",
+                    "facts": [
+                        {"metric": "posts_sanctioned", "value": 723, "year": "2025-03", "confidence": "high"},
+                        {"metric": "posts_vacant", "value": 437, "year": "2025-03", "confidence": "high"},
+                    ],
+                    "finance": {
+                        "finance_year": "2023-24",
+                        "cash_opening_balance_cr": 1292.45,
+                    },
+                }
+            }
+        )
+
+        self.assertEqual(rows[0]["city"], "bengaluru")
+        self.assertEqual(rows[0]["vacancy_pct"], 60)
+        self.assertEqual(rows[0]["tier"], "primary")
+        self.assertEqual(rows[0]["finance_claim_id"], "claim-why-air-kspcb-finance-2023-24")
+
+    def test_public_site_application_builds_route_graph_without_reading_files(self) -> None:
+        from sevent4.application.public_site import build_public_route_graph
+
+        graph = build_public_route_graph(
+            {
+                "": ["why/index.html", "findings/"],
+                "why/": ["../index.html", "air/index.html"],
+                "why/air/": ["../../findings/index.html"],
+                "findings/": ["../index.html"],
+            }
+        )
+
+        self.assertEqual(graph[""], {"why/", "findings/"})
+        self.assertEqual(graph["why/"], {"", "why/air/"})
+        self.assertEqual(graph["why/air/"], {"findings/"})
+
+    def test_architecture_doc_names_operational_layers(self) -> None:
+        text = ARCHITECTURE_DOC.read_text(encoding="utf-8")
+
+        for name in (
+            "sevent4.domain.evidence",
+            "sevent4.application.why_air",
+            "sevent4.application.public_site",
+            "sevent4.ports.acquisition",
+            "sevent4.ports.evidence",
+            "sevent4.ports.publication",
+            "sevent4.adapters.filesystem",
+            "commoner-probe",
+            "partial-recall",
+            "public-finance",
+        ):
+            self.assertIn(name, text)
+
+
+if __name__ == "__main__":
+    unittest.main()

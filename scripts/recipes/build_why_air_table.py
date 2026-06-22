@@ -10,103 +10,29 @@ as `pending`, never a fabricated number.
 
 Run: .venv/bin/python scripts/recipes/build_why_air_table.py
 """
-import json
 from pathlib import Path
+
+from sevent4.adapters.filesystem import FilePollutionBoardCapacityRepository, JsonFilePublicSurfaceWriter
+from sevent4.application.why_air import publish_pollution_board_table
 
 CITIES_DIR = Path("data/cities")
 OUT = Path("public/why/air/boards.json")
 
-# pretty names + the worked-example deep-dives that have bespoke narrative
-DISPLAY = {
-    "ahmedabad": "Ahmedabad", "bengaluru": "Bengaluru", "chennai": "Chennai",
-    "delhi": "Delhi", "kolkata": "Kolkata",
-}
-FEATURED = {"delhi", "kolkata"}  # cities with a hand-built deep-dive on the page
-
-
-def _latest(facts, metric):
-    """Most recent non-null fact for a metric, preferring status=found."""
-    rows = [f for f in facts if f.get("metric") == metric and f.get("value") is not None]
-    if not rows:
-        return None
-    rows.sort(key=lambda f: (f.get("status") == "found", str(f.get("year", ""))), reverse=True)
-    return rows[0]
-
 
 def build(cities_dir=CITIES_DIR, out=OUT, verbose=True):
-    cities_dir = Path(cities_dir)
     out = Path(out)
-    boards = []
-    for cap_path in sorted(cities_dir.glob("*/source/pollution/capacity.json")):
-        city = cap_path.relative_to(cities_dir).parts[0]
-        data = json.loads(cap_path.read_text(encoding="utf-8"))
-        facts = data.get("facts", [])
-        board = data.get("board", "")
-
-        sanc = _latest(facts, "posts_sanctioned")
-        vac = _latest(facts, "posts_vacant")
-        pct_fact = _latest(facts, "vacancy_pct")
-
-        sanctioned = sanc["value"] if sanc else None
-        vacant = vac["value"] if vac else None
-        pct = None
-        if pct_fact and isinstance(pct_fact["value"], (int, float)):
-            pct = round(pct_fact["value"])
-        elif isinstance(sanctioned, (int, float)) and isinstance(vacant, (int, float)) and sanctioned:
-            pct = round(vacant / sanctioned * 100)
-
-        if pct is None:
-            status, tier = "pending", "pending"
-        else:
-            # confidence of the underlying staffing fact -> primary vs reported
-            conf = (sanc or vac or pct_fact or {}).get("confidence", "low")
-            tier = "primary" if conf == "high" else "reported"
-            status = "live"
-
-        # the year the vacancy figure is FROM — boards report at different dates,
-        # so the league table must show each board's vintage rather than imply one year
-        year_src = pct_fact or sanc or vac or {}
-        year = str(year_src.get("year", "") or "")[:4]
-
-        # optional curated finance block (surplus_cr, govt_grant_cr, interest_cr,
-        # labs, finance_note, …) — drives the surplus line on the air page + the
-        # per-console air panel; preserved across reruns by sourcing it here.
-        finance = data.get("finance") or {}
-
-        row = {
-            "city": city,
-            "name": DISPLAY.get(city, city.title()),
-            "board": board,
-            "sanctioned": sanctioned,
-            "vacant": vacant,
-            "vacancy_pct": pct,
-            "year": year,
-            "status": status,
-            "tier": tier,
-            "featured": city in FEATURED,
-            **finance,
-            "console": f"../../cities/{city}/index.html",
-        }
-        if status == "live":
-            row["capacity_claim_id"] = f"claim-why-air-{board.lower()}-vacancy-{year}"
-        if finance and finance.get("finance_year"):
-            finance_year = finance["finance_year"]
-            if finance.get("surplus_cr") is not None:
-                row["finance_claim_id"] = f"claim-why-air-{board.lower()}-surplus-{finance_year}"
-            elif finance.get("cash_opening_balance_cr") is not None:
-                row["finance_claim_id"] = f"claim-why-air-{board.lower()}-finance-{finance_year}"
-        boards.append(row)
-
-    # ranked worst-empty first; pending cities fall to the bottom
-    boards.sort(key=lambda b: (b["vacancy_pct"] is None, -(b["vacancy_pct"] or 0)))
-    out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(json.dumps({"boards": boards}, indent=2) + "\n", encoding="utf-8")
+    document = publish_pollution_board_table(
+        FilePollutionBoardCapacityRepository(cities_dir),
+        JsonFilePublicSurfaceWriter(out),
+    )
+    boards = document["boards"]
     if verbose:
         live = sum(b["status"] == "live" for b in boards)
         print(f"wrote {out} — {len(boards)} cities ({live} with data, {len(boards)-live} pending)")
         for b in boards:
             pct = f'{b["vacancy_pct"]}%' if b["vacancy_pct"] is not None else "pending"
             print(f'  {b["name"]:<12} {b["board"]:<7} {pct:>8}  [{b["tier"]}]')
+    return document
 
 
 if __name__ == "__main__":

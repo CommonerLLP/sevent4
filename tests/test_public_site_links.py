@@ -1,23 +1,17 @@
-import html.parser
 import unittest
 from pathlib import Path
-from urllib.parse import urldefrag, urlparse
+
+from sevent4.adapters.filesystem import PublicSiteFileRepository
+from sevent4.application.public_site import (
+    build_public_route_graph_from_repository,
+    public_target_page,
+    reachable_public_pages,
+    resolve_public_target_page,
+    terminal_public_pages,
+)
 
 
 PUBLIC = Path("public")
-
-
-class LinkParser(html.parser.HTMLParser):
-    def __init__(self) -> None:
-        super().__init__()
-        self.links: list[str] = []
-
-    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
-        if tag != "a":
-            return
-        href = dict(attrs).get("href")
-        if href:
-            self.links.append(href)
 
 
 def _id_from_rel(rel: Path) -> str:
@@ -32,31 +26,20 @@ def _page_id(path: Path) -> str:
     return _id_from_rel(path.relative_to(PUBLIC))
 
 
-def _target_page(from_page: Path, href: str) -> str | None:
-    parsed = urlparse(href)
-    if parsed.scheme or parsed.netloc or href.startswith(("mailto:", "tel:", "javascript:")):
-        return None
-    clean, _fragment = urldefrag(parsed.path or href)
-    if not clean:
-        return None
-    if clean.startswith("/"):
-        target = PUBLIC / clean.lstrip("/")
-    else:
-        target = from_page.parent / clean
-    if target.is_dir() or clean.endswith("/"):
-        target = target / "index.html"
-    return _id_from_rel(target.resolve().relative_to(PUBLIC.resolve()))
-
-
 class PublicSiteLinksTest(unittest.TestCase):
     def setUp(self) -> None:
+        self.repository = PublicSiteFileRepository(PUBLIC)
         self.pages = sorted(PUBLIC.glob("**/index.html"))
-        self.page_ids = {_page_id(page) for page in self.pages}
+        self.page_ids = self.repository.page_ids()
 
     def _links_from(self, page: Path) -> list[str]:
-        parser = LinkParser()
-        parser.feed(page.read_text(encoding="utf-8"))
-        return parser.links
+        return self.repository.links_for_page(_page_id(page))
+
+    def _target_page(self, from_page: Path, href: str) -> str | None:
+        return public_target_page(_page_id(from_page), href, self.page_ids)
+
+    def _resolved_target_page(self, from_page: Path, href: str) -> str | None:
+        return resolve_public_target_page(_page_id(from_page), href)
 
     def test_public_pages_do_not_ship_placeholder_links(self) -> None:
         placeholders: list[str] = []
@@ -71,43 +54,19 @@ class PublicSiteLinksTest(unittest.TestCase):
         missing: list[str] = []
         for page in self.pages:
             for href in self._links_from(page):
-                target = _target_page(page, href)
+                target = self._resolved_target_page(page, href)
                 if target is not None and target not in self.page_ids:
                     missing.append(f"{_page_id(page) or 'index.html'} -> {href}")
 
         self.assertEqual([], missing)
 
     def test_public_pages_are_reachable_from_home_by_static_links(self) -> None:
-        graph: dict[str, set[str]] = {}
-        for page in self.pages:
-            page_id = _page_id(page)
-            graph[page_id] = {
-                target
-                for href in self._links_from(page)
-                if (target := _target_page(page, href)) in self.page_ids and target != page_id
-            }
+        graph = build_public_route_graph_from_repository(self.repository)
 
-        seen = {""}
-        queue = [""]
-        while queue:
-            current = queue.pop(0)
-            for target in sorted(graph[current] - seen):
-                seen.add(target)
-                queue.append(target)
-
-        self.assertEqual(sorted(self.page_ids), sorted(seen))
+        self.assertEqual(sorted(self.page_ids), sorted(reachable_public_pages(graph)))
 
     def test_public_pages_are_not_terminal_islands(self) -> None:
-        terminals: list[str] = []
-        for page in self.pages:
-            page_id = _page_id(page)
-            outbound = {
-                target
-                for href in self._links_from(page)
-                if (target := _target_page(page, href)) in self.page_ids and target != page_id
-            }
-            if not outbound:
-                terminals.append(page_id or "index.html")
+        terminals = terminal_public_pages(build_public_route_graph_from_repository(self.repository))
 
         self.assertEqual([], terminals)
 
