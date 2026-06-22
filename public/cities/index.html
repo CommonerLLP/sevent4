@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="application-name" content="The Unelected City">
+<title>Cities — The Unelected City</title>
+<link rel="icon" type="image/png" href="../assets/ixa-mark.png?v=stitch-color">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#0a0c10" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f3f1ea" media="(prefers-color-scheme: light)">
+<script>(function(){try{var t=localStorage.getItem('atlas-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<link rel="stylesheet" href="../assets/atlas-ui.css">
+<link rel="stylesheet" href="../assets/masthead.css">
+<style>
+  body{display:flex;flex-direction:column;min-height:100dvh}
+  .wrap{width:100%;max-width:980px;margin:0 auto;padding:40px 20px 64px}
+  .kick{font:800 9px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--mut);margin-bottom:14px}
+  h1{font:800 clamp(30px,6vw,50px)/1.04 var(--serif);margin-bottom:14px}
+  .lede{color:var(--mut);font-size:17px;line-height:1.6;max-width:66ch;margin-bottom:28px}
+  .lede b{color:var(--ink)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:11px}
+  .citycard{display:block;background:var(--panel);border:1px solid var(--line);border-radius:8px;color:var(--ink);padding:16px;text-decoration:none;transition:border-color .12s,transform .12s}
+  .citycard:hover,.citycard:focus-visible{border-color:var(--blue);transform:translateY(-1px)}
+  .citycard b{display:block;font:700 20px/1.1 var(--serif)}
+  .citycard span{display:block;color:var(--mut);font:700 10px/1.4 var(--mono);letter-spacing:.08em;margin-top:5px;text-transform:uppercase}
+  .macro{border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px;margin-top:34px;padding-top:18px}
+  .macro a{color:var(--blue);font:800 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;text-decoration:none}
+  .macro a:hover{color:var(--gold)}
+</style>
+</head>
+<body>
+<header data-masthead="bar"></header>
+<main class="wrap">
+  <div class="kick">Accountability Atlas</div>
+  <h1>Open the city map.</h1>
+  <p class="lede">Each console is a political map of one Indian city: wards, services, money, public jurisdictions, and the agencies that sit outside the elected corporation. Start with a city, then move sideways into the <b>Why</b> chapters and findings that explain what the map shows.</p>
+
+  <div class="grid" aria-label="City consoles">
+    <a class="citycard" href="ahmedabad/index.html"><b>Ahmedabad</b><span>Gujarat</span></a>
+    <a class="citycard" href="bengaluru/index.html"><b>Bengaluru</b><span>Karnataka</span></a>
+    <a class="citycard" href="bhubaneswar/index.html"><b>Bhubaneswar</b><span>Odisha</span></a>
+    <a class="citycard" href="chennai/index.html"><b>Chennai</b><span>Tamil Nadu</span></a>
+    <a class="citycard" href="delhi/index.html"><b>Delhi</b><span>Delhi (NCT)</span></a>
+    <a class="citycard" href="hyderabad/index.html"><b>Hyderabad</b><span>Telangana</span></a>
+    <a class="citycard" href="jaipur/index.html"><b>Jaipur</b><span>Rajasthan</span></a>
+    <a class="citycard" href="kanpur/index.html"><b>Kanpur</b><span>Uttar Pradesh</span></a>
+    <a class="citycard" href="kochi/index.html"><b>Kochi</b><span>Kerala</span></a>
+    <a class="citycard" href="kolkata/index.html"><b>Kolkata</b><span>West Bengal</span></a>
+    <a class="citycard" href="lucknow/index.html"><b>Lucknow</b><span>Uttar Pradesh</span></a>
+    <a class="citycard" href="mumbai/index.html"><b>Mumbai</b><span>Maharashtra</span></a>
+    <a class="citycard" href="pune/index.html"><b>Pune</b><span>Maharashtra</span></a>
+    <a class="citycard" href="visakhapatnam/index.html"><b>Visakhapatnam</b><span>Andhra Pradesh</span></a>
+  </div>
+
+  <nav class="macro" aria-label="Site map">
+    <a href="../index.html">Home</a>
+    <a href="../why/index.html">Why</a>
+    <a href="../findings/index.html">Findings</a>
+    <a href="../about/index.html">About</a>
+  </nav>
+</main>
+<script src="../assets/masthead.js"></script>
+<script src="../assets/theme.js" defer></script>
+</body>
+</html>

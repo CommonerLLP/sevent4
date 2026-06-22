@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="application-name" content="The Unelected City">
-<title>The Unelected City — whose city is it?</title>
+<title>The Unelected City — where do you live?</title>
 <link rel="icon" type="image/png" href="assets/ixa-mark.png?v=stitch-color">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#0a0c10" media="(prefers-color-scheme: dark)">
@@ -13,104 +13,39 @@
 <link rel="stylesheet" href="assets/theme.css">
 <link rel="stylesheet" href="assets/masthead.css">
 <style>
-  body{margin:0;font:400 16px/1.6 var(--sans);color:var(--ink);background:var(--bg);
-    -webkit-font-smoothing:antialiased;display:flex;flex-direction:column;min-height:100dvh}
-  .wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 22px}
-  a{color:var(--blue)}
-
-  /* ---- hero: the question + the instrument ---- */
-  .hero{padding:48px 0 22px}
-  .eyebrow{font:800 10px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--mut);margin-bottom:18px}
-  .hero h1{font:800 clamp(40px,8vw,76px)/.98 var(--serif);letter-spacing:-.015em;margin:0 0 18px}
-  .hero h1 em{font-style:italic;color:var(--gold)}
-  .hero .lede{font-size:18px;line-height:1.6;color:var(--mut);max-width:64ch;margin:0}
-  .hero .lede b{color:var(--ink)}
-
-  /* ---- the ledger (signature) ---- */
-  .audit{margin:30px 0 8px;border:1px solid var(--line);border-radius:10px;background:var(--panel);overflow:hidden}
-  .audit-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 16px;
-    padding:18px 20px;border-bottom:1px solid var(--line);background:var(--panel2)}
-  .audit-top .pick{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
-  .audit-top label{font:800 10px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
-  .audit-top select{font:700 22px/1.1 var(--serif);color:var(--ink);background:transparent;border:0;
-    border-bottom:2px solid var(--gold);padding:2px 22px 4px 2px;cursor:pointer;
-    -webkit-appearance:none;appearance:none;
-    background-image:linear-gradient(45deg,transparent 50%,var(--mut) 50%),linear-gradient(135deg,var(--mut) 50%,transparent 50%);
-    background-position:right 6px top 60%,right 1px top 60%;background-size:5px 5px,5px 5px;background-repeat:no-repeat}
-  .audit-top .verdict{flex:1;min-width:200px;text-align:right;font:700 13px/1.4 var(--mono);color:var(--mut)}
-  .audit-top .verdict b{color:var(--ink)}
-
-  /* the city/state/centre split bar */
-  .split{display:flex;height:10px;margin:0;background:var(--hair)}
-  .split i{display:block;height:100%;transition:width .5s cubic-bezier(.2,.7,.2,1)}
-  .split .c-city{background:var(--gold)}
-  .split .c-state{background:var(--mut)}
-  .split .c-centre{background:var(--red)}
-  .legend{display:flex;flex-wrap:wrap;gap:6px 18px;padding:11px 20px 4px;
-    font:700 9px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
-  .legend i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:6px;vertical-align:0}
-  .legend .c-city{background:var(--gold)}.legend .c-state{background:var(--mut)}.legend .c-centre{background:var(--red)}
-
-  .council{margin:4px 20px 0;padding:9px 12px;border-radius:6px;font:700 12px/1.45 var(--mono);
-    background:var(--danger-bg);color:var(--red);border:1px solid var(--red)}
-  .council.ok{background:transparent;border-color:var(--line);color:var(--mut)}
-
-  /* the register rows */
-  .rows{list-style:none;margin:8px 0 0;padding:6px 8px 10px}
-  .row{display:grid;grid-template-columns:22px 1fr auto;align-items:center;gap:12px;
-    padding:10px 12px;border-bottom:1px solid var(--hair)}
-  .row:last-child{border-bottom:0}
-  .row .svc{font:600 14px/1.3 var(--sans);color:var(--ink)}
-  .row .svc small{display:block;font:600 11px/1.3 var(--mono);color:var(--mut);margin-top:2px}
-  .row .who{font:800 9px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;
-    padding:5px 8px;border-radius:3px;white-space:nowrap}
-  .row .tick{font:800 13px/1 var(--mono);text-align:center}
-  .row.city .tick{color:var(--gold)} .row.city .who{color:var(--gold);border:1px solid var(--gold)}
-  .row.state .tick{color:var(--mut)} .row.state .who{color:var(--mut);border:1px solid var(--line)}
-  .row.centre .tick{color:var(--red)} .row.centre .who{color:var(--red);border:1px solid var(--red)}
-  .audit-foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;
-    padding:14px 20px;border-top:1px solid var(--line);background:var(--panel2)}
-  .audit-foot .note{font:600 11px/1.4 var(--mono);color:var(--mut);max-width:46ch}
-  .opencity{font:800 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;
-    color:var(--bg);background:var(--ink);border:1px solid var(--ink);border-radius:var(--r);padding:11px 15px;white-space:nowrap}
-  .opencity:hover{background:var(--blue);border-color:var(--blue)}
-
-  /* ---- section heads ---- */
-  .sech{font:800 10px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--mut);
-    margin:48px 0 14px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+  .wrap{width:100%;max-width:1040px;margin:0 auto;padding:0 22px}
+  .hero{padding:52px 0 34px}
+  .eyebrow{color:var(--mut);font:800 10px/1 var(--mono);letter-spacing:.22em;margin-bottom:18px;text-transform:uppercase}
+  h1{font:800 clamp(42px,8vw,78px)/.98 var(--serif);letter-spacing:0;margin:0 0 18px}
+  h1 em{color:var(--gold);font-style:italic}
+  .lede{color:var(--mut);font-size:18px;line-height:1.6;max-width:64ch;margin:0}
+  .lede b{color:var(--ink)}
+  .sech{border-bottom:1px solid var(--line);color:var(--mut);font:800 10px/1 var(--mono);letter-spacing:.18em;margin:34px 0 14px;padding-bottom:9px;text-transform:uppercase}
   .sech b{color:var(--ink)}
-
-  /* ---- all cities ---- */
-  .cities{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:11px}
-  .ccard{display:block;text-decoration:none;color:var(--ink);background:var(--panel);
-    border:1px solid var(--line);border-radius:8px;padding:15px 16px;transition:border-color .12s}
-  .ccard:hover{border-color:var(--blue)}
-  .ccard .nm{font:700 18px/1.1 var(--serif)}
-  .ccard .st{font:600 10px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--mut);margin-top:3px}
-  .ccard .mini{display:flex;height:6px;margin-top:12px;border-radius:3px;overflow:hidden;background:var(--hair)}
-  .ccard .mini i{height:100%}
-  .ccard .frac{display:block;font:700 10px/1.4 var(--mono);color:var(--mut);margin-top:7px;letter-spacing:.02em}
-  .ccard .frac b{color:var(--ink)}
-  .ccard .nocouncil{color:var(--red)}
-
-  /* ---- question cards ---- */
-  .ask{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-  .qcard{display:block;text-decoration:none;color:var(--ink);background:var(--panel);
-    border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:8px;padding:18px 18px 20px;transition:border-color .12s}
-  .qcard:hover{border-color:var(--blue);border-left-color:var(--blue)}
-  .qcard b{display:block;font:700 18px/1.2 var(--serif);margin-bottom:7px}
-  .qcard span{font-size:13.5px;line-height:1.5;color:var(--mut)}
-
-  footer{margin-top:54px;border-top:1px solid var(--line);background:var(--panel2)}
+  .citygrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:11px}
+  .city{display:block;background:var(--panel);border:1px solid var(--line);border-radius:8px;color:var(--ink);min-height:126px;padding:16px;text-decoration:none;transition:border-color .12s,transform .12s}
+  .city:hover,.city:focus-visible{border-color:var(--blue);transform:translateY(-1px)}
+  .city b{display:block;font:700 21px/1.1 var(--serif)}
+  .city .st{display:block;color:var(--mut);font:700 10px/1.4 var(--mono);letter-spacing:.08em;margin-top:5px;text-transform:uppercase}
+  .city .act{display:inline-block;border:1px solid var(--tag-line);border-radius:3px;color:var(--blue);font:800 8px/1 var(--mono);letter-spacing:.1em;margin-top:16px;padding:5px 7px;text-transform:uppercase}
+  .city.map .act{border-color:var(--line);color:var(--mut)}
+  .city.live{border-left:3px solid var(--gold)}
+  .questiongrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .qcard{display:block;background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:8px;color:var(--ink);padding:18px;text-decoration:none;transition:border-color .12s}
+  .qcard:hover,.qcard:focus-visible{border-color:var(--blue);border-left-color:var(--blue)}
+  .qcard b{display:block;font:700 19px/1.2 var(--serif);margin-bottom:7px}
+  .qcard span{color:var(--mut);font-size:13.5px;line-height:1.5}
+  .macro{border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:12px;margin:44px 0 0;padding:18px 0 46px}
+  .macro a{color:var(--blue);font:800 11px/1 var(--mono);letter-spacing:.1em;text-decoration:none;text-transform:uppercase}
+  .macro a:hover,.macro a:focus-visible{color:var(--gold)}
+  footer{background:var(--panel2);border-top:1px solid var(--line)}
   footer .wrap{padding:24px 22px 40px}
-  footer p{font-size:12.5px;line-height:1.65;color:var(--mut);max-width:80ch;margin:0 0 12px}
-  footer b{color:var(--ink)} footer i{color:var(--ink)}
-
-  @media (max-width:680px){
-    .ask{grid-template-columns:1fr}
-    .audit-top .verdict{text-align:left;flex-basis:100%}
-  }
-  @media (prefers-reduced-motion:reduce){.split i{transition:none}}
+  footer p{color:var(--mut);font-size:12.5px;line-height:1.65;margin:0;max-width:82ch}
+  footer b{color:var(--ink)}
+  @media(max-width:720px){.questiongrid{grid-template-columns:1fr}.hero{padding-top:38px}}
 </style>
 </head>
 <body>
@@ -118,148 +53,63 @@
 
 <main>
   <section class="wrap hero">
-    <div class="eyebrow">The Municipalities · Accountability Atlas</div>
-    <h1>Whose city <em>is</em> it?</h1>
-    <p class="lede">You vote for a municipal council. In most Indian cities it runs only a fraction of
-      the place — and in some, <b>it hasn't been elected for years.</b> Pick a city and read the ledger:
-      what your elected government actually controls, and who holds the rest.</p>
-
-    <section class="audit" aria-label="What the elected city controls" hidden>
-      <div class="audit-top">
-        <div class="pick">
-          <label for="citypick">City</label>
-          <select id="citypick" aria-label="Choose a city"></select>
-        </div>
-        <div class="verdict" id="verdict"></div>
-      </div>
-      <div class="split" id="split" role="img" aria-label="Share of services decided by city, state, and centre">
-        <i class="c-city" style="width:0"></i><i class="c-state" style="width:0"></i><i class="c-centre" style="width:0"></i>
-      </div>
-      <div class="legend">
-        <span><i class="c-city"></i>Your elected city</span>
-        <span><i class="c-state"></i>State government</span>
-        <span><i class="c-centre"></i>Central government</span>
-      </div>
-      <div class="council" id="council"></div>
-      <ul class="rows" id="rows"></ul>
-      <div class="audit-foot">
-        <div class="note">A reading of who runs each core service — not a demand. The full picture is on the map.</div>
-        <a class="opencity" id="opencity" href="#">Open on the map →</a>
-      </div>
-    </section>
+    <div class="eyebrow">The Municipalities · 74th Amendment</div>
+    <h1>Where do you live?</h1>
+    <p class="lede">If you live in one of these cities, start there. The first question is not abstract:
+      <b>how much of the city you use every day did you actually elect?</b></p>
   </section>
 
-  <section class="wrap">
-    <div class="sech">Every city, <b>by how little it controls</b></div>
-    <div class="cities" id="cities"></div>
-  </section>
-
-  <section class="wrap">
-    <div class="sech">Start with a question</div>
-    <div class="ask">
-      <a class="qcard" href="whose-city/index.html"><b>Whose city is it?</b><span>A 90-second walk through one city's accounts.</span></a>
-      <a class="qcard" href="why/index.html"><b>Why is it governed this way?</b><span>The explanatory layer — the burden, the who, the why.</span></a>
-      <a class="qcard" href="findings/index.html"><b>What does the data show?</b><span>Investigations traced to the public record, city by city.</span></a>
+  <section class="wrap" aria-labelledby="live-game">
+    <div class="sech" id="live-game">Start the game</div>
+    <div class="citygrid">
+      <a class="city live" href="whose-city/index.html?city=ahmedabad"><b>Ahmedabad</b><span class="st">Gujarat</span><span class="act">Start with your city</span></a>
+      <a class="city live" href="whose-city/index.html?city=bengaluru"><b>Bengaluru</b><span class="st">Karnataka</span><span class="act">Start with your city</span></a>
     </div>
   </section>
+
+  <section class="wrap" aria-labelledby="mapped-cities">
+    <div class="sech" id="mapped-cities">Mapped now, game script next</div>
+    <div class="citygrid">
+      <a class="city map" href="cities/bhubaneswar/index.html"><b>Bhubaneswar</b><span class="st">Odisha</span><span class="act">Open the map</span></a>
+      <a class="city map" href="cities/chennai/index.html"><b>Chennai</b><span class="st">Tamil Nadu</span><span class="act">Open the map</span></a>
+      <a class="city map" href="cities/delhi/index.html"><b>Delhi</b><span class="st">Delhi (NCT)</span><span class="act">Open the map</span></a>
+      <a class="city map" href="cities/hyderabad/index.html"><b>Hyderabad</b><span class="st">Telangana</span><span class="act">Open the map</span></a>
+      <a class="city map" href="cities/jaipur/index.html"><b>Jaipur</b><span class="st">Rajasthan</span><span class="act">Open the map</span></a>
+      <a class="city map" href="cities/kanpur/index.html"><b>Kanpur</b><span class="st">Uttar Pradesh</span><span class="act">Open the map</span></a>
+      <a class="city map" href="cities/kochi/index.html"><b>Kochi</b><span class="st">Kerala</span><span class="act">Open the map</span></a>
+      <a class="city map" href="cities/kolkata/index.html"><b>Kolkata</b><span class="st">West Bengal</span><span class="act">Open the map</span></a>
+      <a class="city map" href="cities/lucknow/index.html"><b>Lucknow</b><span class="st">Uttar Pradesh</span><span class="act">Open the map</span></a>
+      <a class="city map" href="cities/mumbai/index.html"><b>Mumbai</b><span class="st">Maharashtra</span><span class="act">Open the map</span></a>
+      <a class="city map" href="cities/pune/index.html"><b>Pune</b><span class="st">Maharashtra</span><span class="act">Open the map</span></a>
+      <a class="city map" href="cities/visakhapatnam/index.html"><b>Visakhapatnam</b><span class="st">Andhra Pradesh</span><span class="act">Open the map</span></a>
+    </div>
+  </section>
+
+  <section class="wrap" aria-labelledby="questions">
+    <div class="sech" id="questions">Or start with the political question</div>
+    <div class="questiongrid">
+      <a class="qcard" href="why/index.html"><b>Why is it governed this way?</b><span>The explanatory layer: burden, who, why, and what can be organised.</span></a>
+      <a class="qcard" href="why/air/index.html"><b>Who answers for the air?</b><span>Pollution boards, vacancies, money, and enforcement capacity.</span></a>
+      <a class="qcard" href="findings/index.html"><b>What does the data show?</b><span>Findings traced into public records, city by city.</span></a>
+    </div>
+  </section>
+
+  <nav class="wrap macro" aria-label="Site map">
+    <a href="cities/index.html">All cities</a>
+    <a href="whose-city/index.html">Game</a>
+    <a href="why/index.html">Why</a>
+    <a href="findings/index.html">Findings</a>
+    <a href="about/index.html">About</a>
+  </nav>
 </main>
 
 <footer>
   <div class="wrap">
-    <p>Coverage is built city by city; <b>Ahmedabad</b> is the most complete. A red flag means the
-      corporation currently has <b>no elected council</b> — it is run by a state-appointed administrator.
-      Every figure is a research reading of public records, and each is sourced on its own page.</p>
-    <p>The analytical spine of this atlas — <i>the Indian municipality as a corporate machine built to
-      extract rent rather than deliver service</i> — is drawn wholeheartedly from the work of the historian
-      <b>Anwesha Ghosh</b> (<i>Municipal Calcutta: Urban Governance in a Colonial City</i>, University of
-      Toronto, 2021). The application to contemporary cities is ours; the framework is hers.</p>
+    <p>This is a political education surface for the 74th Amendment: the test is whether the city you vote in can actually govern the city you live in.</p>
   </div>
 </footer>
 
 <script src="assets/masthead.js"></script>
 <script src="assets/theme.js" defer></script>
-<script>
-(function(){
-  var NO_COUNCIL = {
-    bengaluru:"No elected council since 2020 — run by a state-appointed administrator.",
-    hyderabad:"Council dissolved ahead of the 2026 trifurcation — administrator-run.",
-    jaipur:"Fragmented and administrator-run since the 2019 split."
-  };
-  var $ = function(id){ return document.getElementById(id); };
-  var REG = [], SC = {};
-
-  Promise.all([
-    fetch("cities/registry.json").then(function(r){return r.json();}),
-    fetch("cities/scorecard.json").then(function(r){return r.json();}).catch(function(){return {};})
-  ]).then(function(res){
-    REG = res[0]; SC = res[1] || {};
-    buildPicker(); buildCities();
-    var featured = SC.bengaluru ? "bengaluru" : (REG[0] && REG[0].id);
-    $("citypick").value = featured; renderAudit(featured);
-    document.querySelector(".audit").hidden = false;
-  });
-
-  function buildPicker(){
-    var sel = $("citypick");
-    REG.slice().sort(byName).forEach(function(c){
-      if(!SC[c.id]) return;
-      var o = document.createElement("option"); o.value = c.id; o.textContent = c.name; sel.appendChild(o);
-    });
-    sel.addEventListener("change", function(){ renderAudit(sel.value); });
-  }
-
-  function renderAudit(id){
-    var s = SC[id]; if(!s) return;
-    var d = s.decided || {};
-    var city = d.city||0, state = d.state||0, centre = d.centre||0, total = d.total||(city+state+centre)||1;
-    var pct = function(n){ return Math.round(n/total*100); };
-
-    $("verdict").innerHTML = "Your elected council decides <b>"+city+" of "+total+"</b> core services";
-    var sp = $("split").children;
-    sp[0].style.width = pct(city)+"%"; sp[1].style.width = pct(state)+"%"; sp[2].style.width = pct(centre)+"%";
-
-    var nc = NO_COUNCIL[id], cl = $("council");
-    if(nc){ cl.className = "council"; cl.textContent = "⚠ "+nc; cl.hidden = false; }
-    else { cl.className = "council ok"; cl.textContent = "An elected council currently sits."; cl.hidden = false; }
-
-    var taken = s.taken || [];
-    $("rows").innerHTML = taken.map(function(t){
-      var by = (t.by||"").toLowerCase();
-      var tier = by.indexOf("central")>=0 ? "centre" : (by.indexOf("city")>=0||by.indexOf("corp")>=0 ? "city" : "state");
-      var tick = tier==="city" ? "✓" : "✕";
-      var stamp = tier==="centre" ? "Centre" : (tier==="city" ? "City" : "State");
-      return '<li class="row '+tier+'"><span class="tick">'+tick+'</span>'
-        + '<span class="svc">'+esc(t.service)+'<small>'+esc(t.provider||"")+'</small></span>'
-        + '<span class="who">'+stamp+'</span></li>';
-    }).join("");
-
-    $("opencity").setAttribute("href", "cities/"+id+"/index.html");
-    $("opencity").textContent = "Open "+s.name+" on the map →";
-  }
-
-  function buildCities(){
-    var rows = REG.slice().filter(function(c){return SC[c.id];}).sort(function(a,b){
-      var pa = pctCity(a.id), pb = pctCity(b.id);
-      return (pa-pb) || byName(a,b);
-    });
-    $("cities").innerHTML = rows.map(function(c){
-      var s = SC[c.id], d = s.decided||{}, p = pctCity(c.id);
-      var col = p<35 ? "var(--red)" : (p<50 ? "var(--gold)" : "var(--mut)");
-      var nc = NO_COUNCIL[c.id];
-      var frac = nc
-        ? '<span class="frac nocouncil"><b>No elected council</b> · '+p+'% city-run</span>'
-        : '<span class="frac"><b>'+(d.city||0)+' of '+(d.total||0)+'</b> services your vote reaches · '+p+'%</span>';
-      return '<a class="ccard" href="cities/'+c.id+'/index.html">'
-        + '<span class="nm">'+esc(c.name)+'</span><span class="st">'+esc(c.state)+'</span>'
-        + '<span class="mini"><i style="width:'+p+'%;background:'+col+'"></i></span>'
-        + frac + '</a>';
-    }).join("");
-  }
-
-  function pctCity(id){ var s=SC[id]; return s && s.decided ? (s.decided.pct_city||0) : 0; }
-  function byName(a,b){ return a.name.localeCompare(b.name); }
-  function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
-})();
-</script>
 </body>
 </html>

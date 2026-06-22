@@ -66,6 +66,11 @@
   p.body{font-size:16px;color:var(--mut);margin-bottom:18px}
   p.body b{color:var(--ink);font-weight:600}
   .readnote{margin-bottom:26px}
+  .basics{display:grid;gap:10px;margin:4px 0 24px}
+  .basics label{display:block}
+  .basics span{display:block;color:var(--mut);font:800 9px/1 var(--mono);letter-spacing:.12em;margin-bottom:5px;text-transform:uppercase}
+  .basics input,.basics select{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--ink);font:600 14px var(--sans);padding:11px 12px;width:100%}
+  .basics input::placeholder{color:var(--mut)}
 
   .nav{display:flex;gap:11px;flex-wrap:wrap;align-items:center}
   .endcard h2{font-family:var(--serif);font-weight:400;font-size:clamp(25px,5.2vw,33px);line-height:1.2;margin-bottom:16px}
@@ -97,6 +102,59 @@
     <p class="pfoot" id="pickfoot">Loading…</p>
   </section>
 
+  <!-- CIVIC ADDRESS CHECK -->
+  <section class="scene hide" id="s-basics">
+    <div class="sech accent kick">Before the map</div>
+    <h1 class="display" style="font-size:clamp(23px,4.8vw,31px)">Can you locate yourself politically?</h1>
+    <p class="body">No map matters if you do not know where you stand inside the city. Try this first. No account, no storage, no score sent anywhere.</p>
+    <div class="basics">
+      <label><span>When was the last local body election here?</span><input autocomplete="off" placeholder="Year, month, or I do not know"></label>
+      <label><span>Did you vote in it?</span>
+        <select>
+          <option>I voted</option>
+          <option>I was eligible but did not vote</option>
+          <option>I was not eligible then</option>
+          <option>I do not remember</option>
+          <option>I do not know whether an election was held</option>
+        </select>
+      </label>
+      <label><span>What did you vote on?</span>
+        <select>
+          <option>Candidate / party</option>
+          <option>Roads, drainage, garbage, water</option>
+          <option>Religion, caste, community, identity</option>
+          <option>State or national politics</option>
+          <option>I did not have a clear reason</option>
+          <option>I did not vote</option>
+        </select>
+      </label>
+      <label><span>What should a local vote decide?</span><input autocomplete="off" placeholder="The issue you expected your councillor to solve"></label>
+      <label><span>Your ward</span><input autocomplete="off" placeholder="Ward name or number"></label>
+      <label><span>Your councillor</span><input autocomplete="off" placeholder="Name, if you know it"></label>
+      <label><span>Your Assembly constituency</span><input autocomplete="off" placeholder="AC name"></label>
+      <label><span>Your MLA</span><input autocomplete="off" placeholder="Name, if you know it"></label>
+      <label><span>Your Parliamentary constituency</span><input autocomplete="off" placeholder="PC name"></label>
+      <label><span>Your MP</span><input autocomplete="off" placeholder="Name, if you know it"></label>
+      <label><span>If the street floods, where do you go first?</span>
+        <select>
+          <option>Municipal ward office</option>
+          <option>MLA office</option>
+          <option>State water board</option>
+          <option>Police station</option>
+          <option>I do not know</option>
+        </select>
+      </label>
+    </div>
+    <button class="btn" id="basicsCommit">Check what I know →</button>
+  </section>
+  <section class="scene reveal hide" id="s-basicsr">
+    <div class="sech kick">The first lesson</div>
+    <div class="verdict">Most people remember voting. Fewer are taught <em>what power that vote reached.</em></div>
+    <p class="body">That knowledge gap is not a personal failure. It is the first lesson: the city is split across election, ward, Assembly constituency, Parliamentary constituency, corporation, board, department, and contractor until responsibility becomes hard to name.</p>
+    <p class="body"><b>This is a learning exercise, not a test of intelligence.</b> National and state voting cannot substitute for knowing who governs your street, your air, your drain, your police station, and your budget. Neutrality does not keep you outside politics; it only means you have not yet been taught where power sits, who benefits from that confusion, and who pays for it.</p>
+    <button class="btn" data-go="r1">Teach me what my city controls →</button>
+  </section>
+
   <!-- ROUND 1 — slider -->
   <section class="scene hide" id="s-r1">
     <div class="prog"><i class="on"></i><i></i><i></i></div>
@@ -115,7 +173,7 @@
     <div class="big"><span id="r1-big">9</span><span class="of" id="r1-of"> / 18</span></div>
     <div class="verdict" id="r1-verdict"></div>
     <p class="body" id="r1-body"></p>
-    <div class="readnote"><span id="r1-source"></span> <a href="#">See the proof →</a></div>
+    <div class="readnote"><span id="r1-source"></span> <a href="../devolution/index.html">See the proof →</a></div>
     <button class="btn" data-go="r2">Next question →</button>
   </section>
 
@@ -134,7 +192,7 @@
     <div class="sech kick">The record says</div>
     <div class="verdict" id="r2-verdict"></div>
     <p class="body" id="r2-body"></p>
-    <div class="readnote"><span id="r2-source"></span> <a href="#">See the proof →</a></div>
+    <div class="readnote"><span id="r2-source"></span> <a href="../findings/index.html">See the proof →</a></div>
     <button class="btn" data-go="r3">Last question →</button>
   </section>
 
@@ -153,15 +211,16 @@
     <div class="sech kick">The record says</div>
     <div class="verdict" id="r3-verdict"></div>
     <p class="body" id="r3-body"></p>
-    <div class="readnote"><span id="r3-source"></span> <a href="#">See the proof →</a></div>
+    <div class="readnote"><span id="r3-source"></span> <a href="../findings/index.html">See the proof →</a></div>
     <button class="btn" data-go="end">See the whole machine →</button>
   </section>
 
   <!-- END -->
   <section class="scene endcard hide" id="s-end">
-    <div class="sech accent kick">What you just learned</div>
+    <div class="sech accent kick">What this lesson opens</div>
     <h2 id="end-text"></h2>
-    <p class="body">None of the taxing power, an unelected officer at the wheel, and half its services decided elsewhere. The maps show the whole machine — who decides, who profits, who pays, and who is made to do the dangerous work.</p>
+    <p class="body">None of the taxing power, an unelected officer at the wheel, and half its services decided elsewhere. This is why local politics cannot be treated as small, dirty, or optional.</p>
+    <p class="body"><b>Politicization is a practice you can learn:</b> identify the office, name the power, ask who controls each civic problem, and organise at the scale where the decision is actually made. The maps are the next lesson — who decides, who profits, who pays, who is protected, and who is made to live with the damage.</p>
     <div class="nav">
       <a class="btn" id="end-map" href="../cities/ahmedabad/index.html">Explore the map →</a>
       <a class="btn ghost" href="../about/">Why your city isn’t yours</a>
@@ -173,7 +232,7 @@
 
 <script>
 (function(){
-  var scenes = ["title","pick","r1","r1r","r2","r2r","r3","r3r","end"];
+  var scenes = ["title","pick","basics","basicsr","r1","r1r","r2","r2r","r3","r3r","end"];
   function show(id){
     scenes.forEach(function(s){ document.getElementById("s-"+s).classList.add("hide"); });
     var el = document.getElementById("s-"+id);
@@ -184,7 +243,7 @@
 
   var DATA=null, current=null;
   var ALL=["Ahmedabad","Mumbai","Bengaluru","Kolkata","Chennai","Hyderabad",
-           "Pune","Jaipur","Kanpur","Kochi","Bhubaneswar","Visakhapatnam"];
+           "Pune","Jaipur","Kanpur","Kochi","Bhubaneswar","Visakhapatnam","Lucknow"];
 
   // ---- render a chosen city's data into all the round scenes ----
   function selectCity(slug){
@@ -208,7 +267,7 @@
 
     // reset slider to the honest midpoint guess
     sl.value = 9; paint();
-    show("r1");
+    show("basics");
   }
 
   // ---- build the picker from the data (live vs soon) ----
@@ -235,6 +294,7 @@
   function paint(){ sl.style.backgroundSize=(sl.value/18*100)+"% 100%"; val.textContent=sl.value; }
   sl.addEventListener("input", paint); paint();
   document.getElementById("r1commit").addEventListener("click", function(){ show("r1r"); });
+  document.getElementById("basicsCommit").addEventListener("click", function(){ show("basicsr"); });
 
   // ---- generic nav ----
   document.querySelectorAll("[data-go]").forEach(function(b){
@@ -244,6 +304,8 @@
   // ---- load data, then go ----
   fetch("./cities.json").then(function(r){ return r.json(); }).then(function(j){
     DATA = j; buildGrid();
+    var city = new URLSearchParams(window.location.search).get("city");
+    if(city && DATA[city] && DATA[city].live){ selectCity(city); return; }
   }).catch(function(){
     document.getElementById("pickfoot").textContent = "Could not load city data — serve over http (not file://).";
   });

@@ -13,6 +13,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 body{font:400 15px/1.5 var(--sans);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
+:where(a,button,input,select,[tabindex]):focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 
 /* ---- brand chrome (mirrors the console rail masthead) ---- */
 .brandrow{align-items:center;display:flex;gap:12px;min-width:0}
@@ -27,6 +28,7 @@ body{font:400 15px/1.5 var(--sans);color:var(--ink);background:var(--bg);-webkit
   font:800 10px/1 var(--mono);letter-spacing:.12em;padding:9px 10px;text-decoration:none;text-transform:uppercase}
 .sitenav a.is-active{background:var(--ink);border-color:var(--ink);color:var(--bg)}
 .sitenav a:not(.is-active):hover{border-color:var(--blue);color:var(--blue)}
+.sitenav a:focus-visible{border-color:var(--blue);color:var(--blue)}
 
 /* ---- section label / kicker ---- */
 .sech{font:700 11px/1 var(--mono);letter-spacing:.14em;color:var(--mut);text-transform:uppercase}
@@ -43,6 +45,7 @@ body{font:400 15px/1.5 var(--sans);color:var(--ink);background:var(--bg);-webkit
   font:800 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:14px 20px;
   text-decoration:none;transition:filter .12s,transform .1s}
 .btn:hover{filter:brightness(1.08)}
+.btn:focus-visible{filter:brightness(1.08)}
 .btn:active{transform:translateY(1px)}
 .btn.ghost{background:var(--panel);color:var(--ink);border-color:var(--line)}
 .btn.ghost:hover{border-color:var(--blue);color:var(--blue);filter:none}

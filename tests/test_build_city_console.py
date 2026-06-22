@@ -7,10 +7,12 @@ from sevent4.build_city_console import (
     CITY_READINESS,
     READY_CITIES,
     _feature_options,
+    _css,
     _governance_for_city,
     _governance_js,
     _js,
     _layer_json,
+    _macro_links,
     _toggles,
 )
 from sevent4.city_dataset import CityDataset
@@ -241,6 +243,21 @@ class FeatureOptionsTest(unittest.TestCase):
             script.index("map.addControl(new DefaultViewControl()"),
         )
         self.assertNotIn('"line-color": "var(--ink)"', script)
+
+    def test_city_console_renders_static_macro_links(self) -> None:
+        html = _macro_links("../../")
+
+        self.assertIn('href="../../index.html"', html)
+        self.assertIn('href="../../cities/index.html"', html)
+        self.assertIn('href="../../why/index.html"', html)
+        self.assertIn('href="../../findings/index.html"', html)
+        self.assertIn('href="../../about/index.html"', html)
+
+    def test_city_console_css_has_visible_keyboard_focus(self) -> None:
+        css = _css()
+
+        self.assertIn(":focus-visible", css)
+        self.assertIn("outline:3px solid var(--gold)", css)
 
 
 if __name__ == "__main__":
