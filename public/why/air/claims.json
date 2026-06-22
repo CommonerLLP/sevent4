@@ -1,0 +1,227 @@
+{
+  "schema": "sevent4.evidence_bundle.v1",
+  "source_profiles": [
+    {
+      "id": "in-gj-gpcb-annual-reports",
+      "country": "IN",
+      "institution": "Gujarat Pollution Control Board",
+      "source_family": "annual_reports",
+      "transport": "browser-rendered",
+      "source_role": "official_record",
+      "owner_repo": "commoner-probe",
+      "retrieval_date": "2026-06-21"
+    },
+    {
+      "id": "in-ka-kspcb-annual-reports",
+      "country": "IN",
+      "institution": "Karnataka State Pollution Control Board",
+      "source_family": "annual_reports",
+      "transport": "browser-rendered",
+      "source_role": "official_record",
+      "owner_repo": "commoner-probe",
+      "retrieval_date": "2026-06-22"
+    },
+    {
+      "id": "in-tn-tnpcb-annual-reports",
+      "country": "IN",
+      "institution": "Tamil Nadu Pollution Control Board",
+      "source_family": "annual_reports",
+      "transport": "direct-http",
+      "source_role": "official_record",
+      "owner_repo": "commoner-probe",
+      "retrieval_date": "2026-06-21"
+    }
+  ],
+  "facts": [
+    {
+      "id": "fact-gpcb-accumulated-surplus-2024-25",
+      "kind": "AirBoardFinanceFact",
+      "metric": "accumulated_surplus",
+      "value": 3230,
+      "unit": "INR_crore",
+      "period": "2024-25",
+      "source_id": "in-gj-gpcb-annual-reports",
+      "source_locator": "GPCB Annual Report 2024-25, Board Meeting 276",
+      "extractor": "pollution-board-annual-report-finance-v1",
+      "confidence": "high",
+      "status": "found",
+      "geography": {
+        "country": "IN",
+        "state": "Gujarat",
+        "city": "Ahmedabad"
+      }
+    },
+    {
+      "id": "fact-kspcb-budget-opening-balance-2023-24",
+      "kind": "AirBoardFinanceFact",
+      "metric": "budget_opening_balance",
+      "value": 1292.45,
+      "unit": "INR_crore",
+      "period": "2023-24",
+      "source_id": "in-ka-kspcb-annual-reports",
+      "source_locator": "KSPCB Annual Report 2023-24, finance and accounts table",
+      "extractor": "pollution-board-annual-report-finance-v1",
+      "confidence": "high",
+      "status": "found",
+      "geography": {
+        "country": "IN",
+        "state": "Karnataka",
+        "city": "Bengaluru"
+      }
+    },
+    {
+      "id": "fact-kspcb-budget-total-receipts-2023-24",
+      "kind": "AirBoardFinanceFact",
+      "metric": "budget_total_receipts",
+      "value": 348.7,
+      "unit": "INR_crore",
+      "period": "2023-24",
+      "source_id": "in-ka-kspcb-annual-reports",
+      "source_locator": "KSPCB Annual Report 2023-24, finance and accounts table",
+      "extractor": "pollution-board-annual-report-finance-v1",
+      "confidence": "high",
+      "status": "found",
+      "geography": {
+        "country": "IN",
+        "state": "Karnataka",
+        "city": "Bengaluru"
+      }
+    },
+    {
+      "id": "fact-kspcb-budget-total-expenditure-2023-24",
+      "kind": "AirBoardFinanceFact",
+      "metric": "budget_total_expenditure",
+      "value": 78.85,
+      "unit": "INR_crore",
+      "period": "2023-24",
+      "source_id": "in-ka-kspcb-annual-reports",
+      "source_locator": "KSPCB Annual Report 2023-24, finance and accounts table",
+      "extractor": "pollution-board-annual-report-finance-v1",
+      "confidence": "high",
+      "status": "found",
+      "geography": {
+        "country": "IN",
+        "state": "Karnataka",
+        "city": "Bengaluru"
+      }
+    },
+    {
+      "id": "fact-kspcb-budget-interest-income-2023-24",
+      "kind": "AirBoardFinanceFact",
+      "metric": "budget_interest_income",
+      "value": 66.86,
+      "unit": "INR_crore",
+      "period": "2023-24",
+      "source_id": "in-ka-kspcb-annual-reports",
+      "source_locator": "KSPCB Annual Report 2023-24, finance and accounts table",
+      "extractor": "pollution-board-annual-report-finance-v1",
+      "confidence": "high",
+      "status": "found",
+      "geography": {
+        "country": "IN",
+        "state": "Karnataka",
+        "city": "Bengaluru"
+      }
+    },
+    {
+      "id": "fact-tnpcb-accumulated-surplus-2024-25",
+      "kind": "AirBoardFinanceFact",
+      "metric": "accumulated_surplus",
+      "value": 2065,
+      "unit": "INR_crore",
+      "period": "2024-25",
+      "source_id": "in-tn-tnpcb-annual-reports",
+      "source_locator": "TNPCB Annual Report 2024-25, audited accounts",
+      "extractor": "pollution-board-annual-report-finance-v1",
+      "confidence": "high",
+      "status": "found",
+      "geography": {
+        "country": "IN",
+        "state": "Tamil Nadu",
+        "city": "Chennai"
+      }
+    },
+    {
+      "id": "fact-tnpcb-government-grant-2024-25",
+      "kind": "AirBoardFinanceFact",
+      "metric": "government_grant",
+      "value": 0,
+      "unit": "INR_crore",
+      "period": "2024-25",
+      "source_id": "in-tn-tnpcb-annual-reports",
+      "source_locator": "TNPCB Annual Report 2024-25, audited accounts",
+      "extractor": "pollution-board-annual-report-finance-v1",
+      "confidence": "high",
+      "status": "found",
+      "geography": {
+        "country": "IN",
+        "state": "Tamil Nadu",
+        "city": "Chennai"
+      }
+    },
+    {
+      "id": "fact-tnpcb-budget-interest-income-2024-25",
+      "kind": "AirBoardFinanceFact",
+      "metric": "budget_interest_income",
+      "value": 162,
+      "unit": "INR_crore",
+      "period": "2024-25",
+      "source_id": "in-tn-tnpcb-annual-reports",
+      "source_locator": "TNPCB Annual Report 2024-25, audited accounts",
+      "extractor": "pollution-board-annual-report-finance-v1",
+      "confidence": "high",
+      "status": "found",
+      "geography": {
+        "country": "IN",
+        "state": "Tamil Nadu",
+        "city": "Chennai"
+      }
+    }
+  ],
+  "claims": [
+    {
+      "id": "claim-why-air-gpcb-surplus-2024-25",
+      "text": "GPCB resolved in September 2024 to spend down Rs 3,230 crore of surplus over five years.",
+      "fact_ids": [
+        "fact-gpcb-accumulated-surplus-2024-25"
+      ],
+      "public_route": "/why/air/",
+      "constitutional_relevance": {
+        "twelfth_schedule_function": "public health, sanitation, conservancy and solid waste management",
+        "gap_type": "state-board-without-municipal-accountability",
+        "implementation_question": "Why can a state pollution regulator accumulate city-impacting environmental money outside a municipal accountability chain?"
+      }
+    },
+    {
+      "id": "claim-why-air-kspcb-finance-2023-24",
+      "text": "KSPCB opened 2023-24 with Rs 1,292 crore in cash, took in Rs 349 crore, spent Rs 79 crore, and earned Rs 67 crore from interest.",
+      "fact_ids": [
+        "fact-kspcb-budget-opening-balance-2023-24",
+        "fact-kspcb-budget-total-receipts-2023-24",
+        "fact-kspcb-budget-total-expenditure-2023-24",
+        "fact-kspcb-budget-interest-income-2023-24"
+      ],
+      "public_route": "/why/air/",
+      "constitutional_relevance": {
+        "twelfth_schedule_function": "public health, sanitation, conservancy and solid waste management",
+        "gap_type": "state-board-without-municipal-accountability",
+        "implementation_question": "Why is pollution-control money and enforcement capacity held in a state board rather than in an accountable municipal chain?"
+      }
+    },
+    {
+      "id": "claim-why-air-tnpcb-surplus-2024-25",
+      "text": "TNPCB reported a Rs 2,065 crore accumulated surplus, Rs 0 state grant, and Rs 162 crore interest income in 2024-25.",
+      "fact_ids": [
+        "fact-tnpcb-accumulated-surplus-2024-25",
+        "fact-tnpcb-government-grant-2024-25",
+        "fact-tnpcb-budget-interest-income-2024-25"
+      ],
+      "public_route": "/why/air/",
+      "constitutional_relevance": {
+        "twelfth_schedule_function": "public health, sanitation, conservancy and solid waste management",
+        "gap_type": "state-board-without-municipal-accountability",
+        "implementation_question": "Why does an environmental regulator with large fee-funded balances sit outside direct municipal democratic control?"
+      }
+    }
+  ]
+}
