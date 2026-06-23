@@ -36,7 +36,12 @@ cd sevent4
 scripts/serve.sh           # static server on :9174 (PORT=8080 to change)
 ```
 
-Open the URL it prints (`…/public/cities/ahmedabad/index.html`).
+Open the first URL it prints (`…/index.html`). To smoke-test the checked-in
+static bundle with the Playwright CLI:
+
+```bash
+.venv/bin/python -m sevent4.qa.browser_smoke
+```
 
 > Rebuilding a console (`scripts/start.sh` / `scripts/build-city.sh <city>`) needs
 > the per-city source data under `data/`, which is **local-only** (gitignored) — so

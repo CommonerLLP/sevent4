@@ -8,7 +8,8 @@ PORT="${PORT:-9174}"
 cd "$ROOT"
 
 echo "Serving The Unelected City from $ROOT"
-echo "Open: http://127.0.0.1:$PORT/public/cities/$CITY/index.html"
+echo "Open: http://127.0.0.1:$PORT/index.html"
+echo "City console: http://127.0.0.1:$PORT/public/cities/$CITY/index.html"
 
 if [[ -x "$ROOT/.venv/bin/python" ]]; then
   exec "$ROOT/.venv/bin/python" -m http.server "$PORT" --bind 127.0.0.1
