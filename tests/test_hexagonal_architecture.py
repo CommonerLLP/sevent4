@@ -31,6 +31,7 @@ class HexagonalArchitectureTest(unittest.TestCase):
             "sevent4.ports.library_access",
             "sevent4.ports.metrics",
             "sevent4.ports.publication",
+            "sevent4.ports.representatives",
             "sevent4.ports.transit",
             "sevent4.application.city_console",
             "sevent4.application.acquisition",
@@ -39,6 +40,7 @@ class HexagonalArchitectureTest(unittest.TestCase):
             "sevent4.application.library_access",
             "sevent4.application.metrics",
             "sevent4.application.public_site",
+            "sevent4.application.representatives",
             "sevent4.application.transit",
             "sevent4.application.why_air",
             "sevent4.adapters.finance_filesystem",
@@ -47,6 +49,7 @@ class HexagonalArchitectureTest(unittest.TestCase):
             "sevent4.adapters.acquisition_filesystem",
             "sevent4.adapters.filesystem",
             "sevent4.adapters.metrics_filesystem",
+            "sevent4.adapters.representatives_filesystem",
             "sevent4.adapters.transit_filesystem",
         ):
             importlib.import_module(module)
@@ -132,6 +135,18 @@ class HexagonalArchitectureTest(unittest.TestCase):
             self.assertNotIn("csv", imports, f"{path} should not own GTFS CSV IO")
             self.assertIn("sevent4.adapters.metrics_filesystem", imports)
             self.assertIn("sevent4.application.metrics", imports)
+
+    def test_ahmedabad_representative_recipes_use_representative_adapter(self) -> None:
+        for path in (
+            ROOT / "scripts" / "recipes" / "ahmedabad" / "fetch_city_representatives.py",
+            ROOT / "scripts" / "recipes" / "ahmedabad" / "parse_city_representatives.py",
+        ):
+            imports = _imports(path)
+            self.assertNotIn("json", imports, f"{path} should not own representative JSON IO")
+            self.assertNotIn("csv", imports, f"{path} should not own councillor CSV IO")
+            self.assertNotIn("subprocess", imports, f"{path} should not own representative subprocess IO")
+            self.assertIn("sevent4.adapters.representatives_filesystem", imports)
+            self.assertIn("sevent4.application.representatives", imports)
 
     def test_why_air_application_builds_roster_without_filesystem_writer(self) -> None:
         from sevent4.application.why_air import build_pollution_board_roster
@@ -314,6 +329,7 @@ class HexagonalArchitectureTest(unittest.TestCase):
             "sevent4.application.library_access",
             "sevent4.application.metrics",
             "sevent4.application.public_site",
+            "sevent4.application.representatives",
             "sevent4.application.transit",
             "sevent4.ports.acquisition",
             "sevent4.ports.evidence",
@@ -322,6 +338,7 @@ class HexagonalArchitectureTest(unittest.TestCase):
             "sevent4.ports.library_access",
             "sevent4.ports.metrics",
             "sevent4.ports.publication",
+            "sevent4.ports.representatives",
             "sevent4.ports.transit",
             "sevent4.adapters.finance_filesystem",
             "sevent4.adapters.acquisition_filesystem",
@@ -329,6 +346,7 @@ class HexagonalArchitectureTest(unittest.TestCase):
             "sevent4.adapters.jurisdiction_geospatial",
             "sevent4.adapters.library_access_filesystem",
             "sevent4.adapters.metrics_filesystem",
+            "sevent4.adapters.representatives_filesystem",
             "sevent4.adapters.transit_filesystem",
             "commoner-probe",
             "partial-recall",

@@ -931,13 +931,14 @@ SevenT4 already has pieces of this architecture:
 - explicit ports in `sevent4.ports.acquisition`, `sevent4.ports.evidence`,
   `sevent4.ports.finance`, `sevent4.ports.jurisdiction`,
   `sevent4.ports.library_access`, `sevent4.ports.metrics`,
-  `sevent4.ports.publication`, and `sevent4.ports.transit`
+  `sevent4.ports.publication`, `sevent4.ports.representatives`, and
+  `sevent4.ports.transit`
 - application services in `sevent4.application.acquisition`,
   `sevent4.application.city_console`,
   `sevent4.application.finance`, `sevent4.application.jurisdiction`,
   `sevent4.application.library_access`, `sevent4.application.metrics`,
-  `sevent4.application.public_site`, `sevent4.application.transit`, and
-  `sevent4.application.why_air`
+  `sevent4.application.public_site`, `sevent4.application.representatives`,
+  `sevent4.application.transit`, and `sevent4.application.why_air`
 - filesystem adapters for source inventory, city-console, WHY/air evidence, finance pages,
   library-access CSV summaries, devolution scorecards, jurisdiction
   crosswalks, ward service-access metrics, Ahmedabad transit-frequency and
@@ -965,6 +966,11 @@ SevenT4 already has pieces of this architecture:
   assignment, composite ward service scoring, and AC rollups, with GTFS CSV,
   ward/AC GeoJSON, and crosswalk JSON I/O kept in the filesystem adapter and
   recipe adapter
+- representative application logic for Ahmedabad source-manifest rows,
+  Gujarati councillor text parsing, councillor-row validation, city-officer
+  records, and ward-layer representative fields, with downloads, `pdftotext`,
+  CSV/JSON writes, and ward GeoJSON reads/writes kept in filesystem and recipe
+  adapters
 - city data contracts in `docsx/`
 - source policy in `docsx/source-policy-and-readiness.md`
 - generated public JSON for several surfaces

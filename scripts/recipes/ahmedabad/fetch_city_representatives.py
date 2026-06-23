@@ -2,36 +2,18 @@
 from __future__ import annotations
 
 import argparse
-import json
-import shutil
-import subprocess
 import sys
 from pathlib import Path
-from urllib.request import Request, urlopen
+
+from sevent4.adapters.representatives_filesystem import (
+    JsonRepresentativeManifestWriter,
+    RepresentativeDocumentDownloader,
+)
+from sevent4.application.representatives import CITY_REPRESENTATIVE_SOURCES, build_representative_source_manifest
 
 
 REPO = Path(__file__).resolve().parents[3]
-
-# Ahmedabad is the first implemented representative-source adapter. Other cities
-# should add their ward roster, committee, zone, and officer source documents.
 DEFAULT_CITY = "ahmedabad"
-
-CITY_REPRESENTATIVE_SOURCES = {
-    "ahmedabad": [
-        {
-            "id": "ward_councillors_2026_27",
-            "label": "Councillors 2026-27",
-            "url": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2638",
-            "notes": "AMC ward councillor names and information.",
-        },
-        {
-            "id": "standing_committee_english_2026_27",
-            "label": "Standing Committee Member List - English",
-            "url": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2645",
-            "notes": "AMC Standing Committee member list in English.",
-        },
-    ]
-}
 
 
 def main() -> None:
@@ -47,48 +29,35 @@ def main() -> None:
     if not sources:
         sys.exit(f"No representative-source adapter for city={city!r}. Add public source URLs first.")
 
-    out_dir = Path(args.out_dir) if args.out_dir else REPO / "data" / "cities" / city / "source" / "representatives" / "docs"
-    manifest = Path(args.manifest) if args.manifest else REPO / "data" / "cities" / city / "source" / "representatives" / "representative_sources.json"
-    if not args.dry_run:
-        out_dir.mkdir(parents=True, exist_ok=True)
-        manifest.parent.mkdir(parents=True, exist_ok=True)
-
-    rows = []
-    for source in sources:
-        filename = f"{source['id']}.pdf"
-        out_path = out_dir / filename
-        row = {**source, "city": city, "path": str(out_path.relative_to(REPO))}
-        if args.dry_run:
+    out_dir = (
+        Path(args.out_dir)
+        if args.out_dir
+        else REPO / "data" / "cities" / city / "source" / "representatives" / "docs"
+    )
+    manifest_path = (
+        Path(args.manifest)
+        if args.manifest
+        else REPO / "data" / "cities" / city / "source" / "representatives" / "representative_sources.json"
+    )
+    document = build_representative_source_manifest(
+        city,
+        sources,
+        lambda source: str((out_dir / f"{source['id']}.pdf").relative_to(REPO)),
+    )
+    if args.dry_run:
+        for source in sources:
             print(f"{source['id']}\t{source['label']}\t{source['url']}")
-        else:
-            download(source["url"], out_path)
-            print(f"wrote {out_path}")
-        rows.append(row)
+        return
 
-    if not args.dry_run:
-        manifest.write_text(json.dumps({"city": city, "items": rows}, indent=2), encoding="utf-8")
-        print(f"wrote {manifest}")
+    out_dir.mkdir(parents=True, exist_ok=True)
+    downloader = RepresentativeDocumentDownloader()
+    for source in sources:
+        out_path = out_dir / f"{source['id']}.pdf"
+        downloader.download(source["url"], out_path)
+        print(f"wrote {out_path}")
 
-
-def download(url: str, out_path: Path) -> None:
-    request = Request(url, headers={"User-Agent": "The Unelected City city-representative fetcher"})
-    try:
-        with urlopen(request, timeout=60) as response:
-            out_path.write_bytes(response.read())
-            return
-    except Exception as exc:
-        curl = shutil.which("curl")
-        if not curl:
-            raise
-        result = subprocess.run(
-            [curl, "-L", "--fail", "--silent", "--show-error", url],
-            check=False,
-            capture_output=True,
-        )
-        if result.returncode == 0:
-            out_path.write_bytes(result.stdout)
-            return
-        raise RuntimeError(result.stderr.decode("utf-8", errors="ignore").strip() or str(exc)) from exc
+    JsonRepresentativeManifestWriter(manifest_path).write_manifest(document)
+    print(f"wrote {manifest_path}")
 
 
 if __name__ == "__main__":

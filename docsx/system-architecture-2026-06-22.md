@@ -62,6 +62,7 @@ Implemented package boundaries:
 - `sevent4.ports.library_access`
 - `sevent4.ports.metrics`
 - `sevent4.ports.publication`
+- `sevent4.ports.representatives`
 - `sevent4.ports.transit`
 - `sevent4.application.city_console`
 - `sevent4.application.acquisition`
@@ -71,6 +72,7 @@ Implemented package boundaries:
 - `sevent4.application.metrics`
 - `sevent4.application.why_air`
 - `sevent4.application.public_site`
+- `sevent4.application.representatives`
 - `sevent4.application.transit`
 - `sevent4.adapters.acquisition_filesystem`
 - `sevent4.adapters.finance_filesystem`
@@ -78,6 +80,7 @@ Implemented package boundaries:
 - `sevent4.adapters.jurisdiction_geospatial`
 - `sevent4.adapters.library_access_filesystem`
 - `sevent4.adapters.metrics_filesystem`
+- `sevent4.adapters.representatives_filesystem`
 - `sevent4.adapters.transit_filesystem`
 
 Compatibility surfaces remain:
@@ -142,6 +145,11 @@ Compatibility surfaces remain:
   GTFS CSV tables, ward/AC GeoJSON, and jurisdiction-crosswalk records, while
   the application owns stop-to-ward assignment, frequency fields, composite
   ward scoring, and AC rollups.
+- Ahmedabad representative fetch and parse recipes now route through the
+  representatives application service. The application layer owns source
+  manifest row shaping, Gujarati councillor text parsing, validation, officer
+  records, and ward-layer representative fields; the filesystem adapter owns
+  document download, `pdftotext`, CSV/JSON writes, and ward GeoJSON reads/writes.
 - `sevent4.transit.gtfs_corridors` is now a thin CLI adapter over the transit
   application service. The filesystem adapter loads GTFS CSV tables before the
   application builds route-corridor GeoJSON.
