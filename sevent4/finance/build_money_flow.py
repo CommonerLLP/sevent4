@@ -83,12 +83,12 @@ def _band(x1: float, yt1: float, yb1: float, x2: float, yt2: float, yb2: float, 
 
 
 def _flow_svg() -> str:
-    W, H = 880, 640
+    W, H = 980, 640
     top = 96
     col_h = 300  # SPV stack height
-    src_x0, src_x1 = 40, 188
-    spv_x0, spv_x1 = 372, 520
-    rcp_x0, rcp_x1 = 700, 868
+    src_x0, src_x1 = 40, 230
+    spv_x0, spv_x1 = 400, 560
+    rcp_x0, rcp_x1 = 730, 960
 
     parts = [f'<svg viewBox="0 0 {W} {H}" class="flow" role="img" preserveAspectRatio="xMidYMid meet">']
 
@@ -157,12 +157,14 @@ def _flow_svg() -> str:
 
 def render_html(city: CityDataset) -> str:
     return f"""<!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
+  <script>(function(){{try{{var t=localStorage.getItem('atlas-theme');if(t)document.documentElement.dataset.theme=t;}}catch(e){{}}}})();</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Who controls the money — {html.escape(city.name)} Metro</title>
   <link rel="icon" type="image/png" href="../../../assets/ixa-mark.png">
+  <link rel="stylesheet" href="../../../assets/theme.css">
   <link rel="stylesheet" href="../../../assets/maplibre-gl.css">
   <style>{_css()}</style>
 </head>
@@ -254,8 +256,9 @@ def _risk_grid() -> str:
 
 def _css() -> str:
     return """
-:root{color-scheme:dark;--bg:#0a0c10;--panel:#13161d;--panel2:#171b23;--ink:#ece9e2;--mut:#8b929f;--line:#262c38;--hair:#1b1f28;--blue:#5a86f5;--red:#f0303d;--gold:#edc233;--r:6px;--serif:Georgia,"Iowan Old Style","Times New Roman",serif;--mono:ui-monospace,Menlo,"SF Mono",Consolas,monospace;--sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-[data-theme=light]{color-scheme:light;--bg:#f3f1ea;--panel:#fff;--panel2:#f6f3ea;--ink:#16181d;--mut:#586071;--line:#d7d1c2;--hair:#e7e2d6;--blue:#22409A;--red:#c8102e;--gold:#9a7b14}
+:root{--metro-spv-bg:#2a2030;--metro-public-bg:#241015}
+@media (prefers-color-scheme: light){:root:not([data-theme=dark]){--metro-spv-bg:#fff8df;--metro-public-bg:#fbe9ea}}
+:root[data-theme=light]{--metro-spv-bg:#fff8df;--metro-public-bg:#fbe9ea}
 *{box-sizing:border-box;margin:0}body{font:400 16px/1.6 var(--sans);color:var(--ink);background:var(--bg)}
 .wrap{max-width:940px;margin:0 auto;padding:32px 22px 80px}
 .crumb{font:700 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-bottom:18px}
@@ -269,17 +272,17 @@ h1{font:700 30px/1.15 var(--serif);letter-spacing:-.01em;margin-bottom:8px}
 .flow .nlab{fill:var(--ink);font:700 12px var(--sans)}
 .flow .nsub{fill:var(--mut);font:600 9.5px var(--mono)}
 .flow .ncr{fill:var(--ink);font:700 11px var(--mono);text-anchor:end}
-.flow .spv{fill:#2a2030;stroke:var(--gold);stroke-width:1.4}
+.flow .spv{fill:var(--metro-spv-bg);stroke:var(--gold);stroke-width:1.4}
 .flow .spvlab{fill:var(--ink);font:800 18px var(--serif);text-anchor:middle}
 .flow .spvsub{fill:var(--gold);font:700 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;text-anchor:middle}
 .flow .rnode{fill:var(--panel2);stroke:var(--line)}
 .flow .rnode.foreign{stroke:var(--gold)}
-.flow .rlab{fill:var(--ink);font:700 11px var(--sans)}
+.flow .rlab{fill:var(--ink);font:700 10.5px var(--sans)}
 .flow .rlab .flag{fill:var(--gold);font:800 9px var(--mono)}
-.flow .rsub{fill:var(--mut);font:600 9px var(--mono)}
+.flow .rsub{fill:var(--mut);font:600 8.5px var(--mono)}
 .flow .repay{fill:none;stroke:var(--gold);stroke-width:2;stroke-dasharray:4 3}
 .flow .repaylab{fill:var(--gold);font:700 10px var(--mono)}
-.flow .public{fill:#241015;stroke:var(--red);stroke-width:1.4}
+.flow .public{fill:var(--metro-public-bg);stroke:var(--red);stroke-width:1.4}
 .flow .publab{fill:var(--ink);font:800 15px var(--serif)}
 .flow .pubsub{fill:var(--mut);font:600 10.5px var(--mono)}
 .figmnote{color:var(--mut);font-size:12.5px;max-width:74ch;margin:12px 0 0}
