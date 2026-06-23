@@ -940,7 +940,8 @@ SevenT4 already has pieces of this architecture:
   `sevent4.application.why_air`
 - filesystem adapters for source inventory, city-console, WHY/air evidence, finance pages,
   library-access CSV summaries, devolution scorecards, jurisdiction
-  crosswalks, ward service-access metrics, and GTFS route-corridor generation
+  crosswalks, ward service-access metrics, Ahmedabad transit-frequency and
+  service-access composite overlays, and GTFS route-corridor generation
 - acquisition application logic for OpenCity source-inventory rows, OpenCity
   atlas scoping markdown, and Delhi finance document manifest/run-log records
 - source-archive application logic for source URL normalization, sparse-text OCR
@@ -960,6 +961,10 @@ SevenT4 already has pieces of this architecture:
   overlap-crosswalk document shaping, field cleaning, threshold metadata, and
   summary counts, with GeoPandas/YAML reads, spatial joins/intersections, and
   JSON writes kept in the geospatial filesystem adapter and recipe adapter
+- metrics application logic for Ahmedabad stop-to-ward transit-frequency
+  assignment, composite ward service scoring, and AC rollups, with GTFS CSV,
+  ward/AC GeoJSON, and crosswalk JSON I/O kept in the filesystem adapter and
+  recipe adapter
 - city data contracts in `docsx/`
 - source policy in `docsx/source-policy-and-readiness.md`
 - generated public JSON for several surfaces

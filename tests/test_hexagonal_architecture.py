@@ -122,6 +122,17 @@ class HexagonalArchitectureTest(unittest.TestCase):
             self.assertIn("sevent4.adapters.jurisdiction_geospatial", imports)
             self.assertIn("sevent4.application.jurisdiction", imports)
 
+    def test_ahmedabad_service_metric_recipes_use_metrics_adapter(self) -> None:
+        for path in (
+            ROOT / "scripts" / "recipes" / "ahmedabad" / "build_ward_transit_frequency.py",
+            ROOT / "scripts" / "recipes" / "ahmedabad" / "build_service_access_composite.py",
+        ):
+            imports = _imports(path)
+            self.assertNotIn("json", imports, f"{path} should not own GeoJSON/JSON IO")
+            self.assertNotIn("csv", imports, f"{path} should not own GTFS CSV IO")
+            self.assertIn("sevent4.adapters.metrics_filesystem", imports)
+            self.assertIn("sevent4.application.metrics", imports)
+
     def test_why_air_application_builds_roster_without_filesystem_writer(self) -> None:
         from sevent4.application.why_air import build_pollution_board_roster
         from sevent4.domain.pollution import PollutionBoardCapacityRecord

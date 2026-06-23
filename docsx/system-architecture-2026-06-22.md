@@ -137,6 +137,11 @@ Compatibility surfaces remain:
 - `sevent4.metrics.ward_service_access` is now a thin CLI adapter over the
   metrics application service. The filesystem adapter loads ward, service, and
   GTFS stop layers before the application computes ward service-access rows.
+- Ahmedabad ward transit-frequency and service-access composite recipes now
+  route through the metrics application service. The filesystem adapter loads
+  GTFS CSV tables, ward/AC GeoJSON, and jurisdiction-crosswalk records, while
+  the application owns stop-to-ward assignment, frequency fields, composite
+  ward scoring, and AC rollups.
 - `sevent4.transit.gtfs_corridors` is now a thin CLI adapter over the transit
   application service. The filesystem adapter loads GTFS CSV tables before the
   application builds route-corridor GeoJSON.
