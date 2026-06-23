@@ -56,11 +56,14 @@ Implemented package boundaries:
 - `sevent4.domain.pollution`
 - `sevent4.ports.acquisition`
 - `sevent4.ports.evidence`
+- `sevent4.ports.metrics`
 - `sevent4.ports.publication`
 - `sevent4.application.city_console`
+- `sevent4.application.metrics`
 - `sevent4.application.why_air`
 - `sevent4.application.public_site`
 - `sevent4.adapters.filesystem`
+- `sevent4.adapters.metrics_filesystem`
 
 Compatibility surfaces remain:
 
@@ -73,6 +76,9 @@ Compatibility surfaces remain:
   WHY/air application service. The filesystem adapter parses
   `capacity.json` into `sevent4.domain.pollution` records before the
   application builds public rows.
+- `sevent4.metrics.ward_service_access` is now a thin CLI adapter over the
+  metrics application service. The filesystem adapter loads ward, service, and
+  GTFS stop layers before the application computes ward service-access rows.
 
 ## Public Education Surface
 

@@ -35,6 +35,7 @@ budget = [
 sevent4-console = "sevent4.build_city_console:main"
 sevent4-gtfs-corridors = "sevent4.transit.gtfs_corridors:main"
 sevent4-ward-service-access = "sevent4.metrics.ward_service_access:main"
+sevent4-browser-smoke = "sevent4.qa.browser_smoke:main"
 
 [tool.setuptools.packages.find]
 include = ["sevent4*"]
