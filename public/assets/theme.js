@@ -21,10 +21,20 @@
     document.dispatchEvent(new CustomEvent('atlas:themechange', { detail: { theme: theme } }));
   }
 
-  function wire() {
-    var btn = document.getElementById('theme');
+  function toggleFrom(event) {
+    var btn = event.target && event.target.closest ? event.target.closest('#theme') : null;
     if (!btn) return;
-    btn.addEventListener('click', function () {
+    event.preventDefault();
+    apply(effective() === 'dark' ? 'light' : 'dark');
+  }
+
+  function wire() {
+    document.addEventListener('click', toggleFrom);
+    document.addEventListener('keydown', function (event) {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      var btn = event.target && event.target.closest ? event.target.closest('#theme') : null;
+      if (!btn) return;
+      event.preventDefault();
       apply(effective() === 'dark' ? 'light' : 'dark');
     });
   }

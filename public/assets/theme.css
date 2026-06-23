@@ -33,7 +33,7 @@
 :root{
   color-scheme:dark;
   --bg:#0a0c10;--panel:#13161d;--panel2:#171b23;--ink:#ece9e2;--mut:#8b929f;--line:#262c38;--hair:#1b1f28;
-  --blue:#5a86f5;--red:#f0303d;--gold:#edc233;
+  --blue:#5a86f5;--action-blue:#315ed8;--on-action:#fff;--red:#f0303d;--gold:#edc233;
   /* semantic viz tokens (WHY layer charts) */
   --viz-filled:#23303f;--viz-spend:#2c333f;--rcpt2:#3a63c7;
   --danger-bg:#1a0e11;--act-tint:#0e1512;--act-bg:#0d130f;--act-line:#1c2a20;
@@ -45,7 +45,7 @@
   :root:not([data-theme=dark]){
     color-scheme:light;
     --bg:#f3f1ea;--panel:#fff;--panel2:#f6f3ea;--ink:#16181d;--mut:#586071;--line:#d7d1c2;--hair:#e7e2d6;
-    --blue:#22409A;--red:#c8102e;--gold:#9a7b14;
+    --blue:#22409A;--action-blue:#22409A;--on-action:#fff;--red:#c8102e;--gold:#9a7b14;
     --viz-filled:#d2e1ee;--viz-spend:#e6e0d2;--rcpt2:#2a4fb0;
     --danger-bg:#fbe9ea;--act-tint:#eef6ef;--act-bg:#eef6ef;--act-line:#cfe6d4;
     --tag-bg:#e4ecfb;--tag-line:#b9cdf2;--on-red:#fff;--on-gold:#fff;
@@ -56,7 +56,7 @@
 :root[data-theme=light]{
   color-scheme:light;
   --bg:#f3f1ea;--panel:#fff;--panel2:#f6f3ea;--ink:#16181d;--mut:#586071;--line:#d7d1c2;--hair:#e7e2d6;
-  --blue:#22409A;--red:#c8102e;--gold:#9a7b14;
+  --blue:#22409A;--action-blue:#22409A;--on-action:#fff;--red:#c8102e;--gold:#9a7b14;
   --viz-filled:#d2e1ee;--viz-spend:#e6e0d2;--rcpt2:#2a4fb0;
   --danger-bg:#fbe9ea;--act-tint:#eef6ef;--act-bg:#eef6ef;--act-line:#cfe6d4;
   --tag-bg:#e4ecfb;--tag-line:#b9cdf2;--on-red:#fff;--on-gold:#fff;
