@@ -44,6 +44,40 @@ class PublicSiteFileRepository:
         return parser.links
 
 
+class FileDevolutionScorecardRepository:
+    def __init__(self, root: str | Path) -> None:
+        self.root = Path(root)
+        self.service_providers_path = self.root / "data" / "institutions" / "service_providers.json"
+        self.registry_path = self.root / "public" / "cities" / "registry.json"
+        self.scorecard_path = self.root / "public" / "cities" / "scorecard.json"
+        self.city_layers_dir = self.root / "data" / "cities"
+
+    def load_service_providers(self) -> Mapping[str, Mapping[str, Any]]:
+        return json.loads(self.service_providers_path.read_text(encoding="utf-8"))
+
+    def load_registry_city_ids(self) -> tuple[str, ...]:
+        return tuple(row["id"] for row in json.loads(self.registry_path.read_text(encoding="utf-8")))
+
+    def load_existing_scorecard(self) -> Mapping[str, Mapping[str, Any]]:
+        if not self.scorecard_path.exists():
+            return {}
+        return json.loads(self.scorecard_path.read_text(encoding="utf-8"))
+
+    def write_scorecard(self, scorecard: Mapping[str, Mapping[str, Any]]) -> None:
+        self.scorecard_path.parent.mkdir(parents=True, exist_ok=True)
+        self.scorecard_path.write_text(json.dumps(scorecard, ensure_ascii=False, indent=1), encoding="utf-8")
+
+    def write_governance_metrics(self, city_id: str, update: Mapping[str, Mapping[str, int]]) -> bool:
+        governance_path = self.city_layers_dir / city_id / "layers" / "governance.json"
+        if not governance_path.exists():
+            return False
+        governance = json.loads(governance_path.read_text(encoding="utf-8"))
+        governance["devolution"] = dict(update["devolution"])
+        governance["decided_by"] = dict(update["decided_by"])
+        governance_path.write_text(json.dumps(governance, ensure_ascii=False), encoding="utf-8")
+        return True
+
+
 class FileCityConsoleInputRepository:
     def __init__(self, city_config: str | Path, layer_manifest: str | Path) -> None:
         self.city_config = Path(city_config)

@@ -938,8 +938,8 @@ SevenT4 already has pieces of this architecture:
   `sevent4.application.metrics`, `sevent4.application.public_site`,
   `sevent4.application.transit`, and `sevent4.application.why_air`
 - filesystem adapters for source inventory, city-console, WHY/air evidence, finance pages,
-  library-access CSV summaries, and ward service-access metrics, plus GTFS
-  route-corridor generation
+  library-access CSV summaries, devolution scorecards, ward service-access
+  metrics, and GTFS route-corridor generation
 - acquisition application logic for OpenCity source-inventory rows, OpenCity
   atlas scoping markdown, and Delhi finance document manifest/run-log records
 - source-archive application logic for source URL normalization, sparse-text OCR
@@ -952,6 +952,9 @@ SevenT4 already has pieces of this architecture:
   shaping, pairwise comparison rows, IFLA service-detail audit rows, and
   Toronto comparator headline rows, with CSV loading/writing kept in filesystem
   adapters and recipe adapters
+- devolution scorecard application logic for service-provider scoring, registry
+  alignment, preserved special-case rows, and governance-update shaping, with
+  JSON loading/writing kept in the filesystem adapter and recipe adapter
 - city data contracts in `docsx/`
 - source policy in `docsx/source-policy-and-readiness.md`
 - generated public JSON for several surfaces

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Protocol
+from typing import Any, Mapping, Protocol
 
 
 class CityConsoleCity(Protocol):
@@ -41,6 +41,25 @@ class PublicPageRepository(Protocol):
         ...
 
     def links_for_page(self, page_id: str) -> list[str]:
+        ...
+
+
+class DevolutionScorecardRepository(Protocol):
+    def load_service_providers(self) -> Mapping[str, Mapping[str, Any]]:
+        ...
+
+    def load_registry_city_ids(self) -> tuple[str, ...]:
+        ...
+
+    def load_existing_scorecard(self) -> Mapping[str, Mapping[str, Any]]:
+        ...
+
+
+class DevolutionScorecardPublisher(Protocol):
+    def write_scorecard(self, scorecard: Mapping[str, Mapping[str, Any]]) -> None:
+        ...
+
+    def write_governance_metrics(self, city_id: str, update: Mapping[str, Mapping[str, int]]) -> bool:
         ...
 
 

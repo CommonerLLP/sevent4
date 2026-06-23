@@ -18,7 +18,8 @@ SevenT4 uses ports and adapters, not MVC, as the governing architecture.
 - `sevent4.domain` owns facts, evidence, claims, pollution-board records, and
   city-domain contracts.
 - `sevent4.application` owns use cases: build a board roster, validate a public
-  route graph, assemble a public-surface document.
+  route graph, assemble a devolution scorecard, or produce another
+  public-surface document.
 - `sevent4.ports` owns protocols that application services depend on.
 - `sevent4.adapters` owns filesystem, HTML, JSON, browser, public-source, and
   future shared-infra integrations.
@@ -109,6 +110,11 @@ Compatibility surfaces remain:
   library-access application service. Toronto comparator headline row shaping
   also lives in the application layer. Filesystem adapters load source CSV rows
   and write summary CSV outputs; the recipe scripts remain CLI adapters.
+- `scripts/recipes/build_devolution_scorecard.py` is now a thin CLI adapter
+  over the public-site application service. The application layer owns
+  service-provider scoring, registry alignment, preserved special-case rows,
+  and governance-update shaping; the filesystem adapter owns service-map,
+  registry, scorecard, and governance JSON I/O.
 - The city-console CLI now loads `city.yaml` and `layer_manifest.json` through
   a filesystem input adapter and publishes through a public-surface adapter; the
   application service depends on the `sevent4.ports.publication` contracts.
