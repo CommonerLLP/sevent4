@@ -23,6 +23,7 @@ class HexagonalArchitectureTest(unittest.TestCase):
     def test_layer_packages_are_explicit(self) -> None:
         for module in (
             "sevent4.domain.evidence",
+            "sevent4.domain.pollution",
             "sevent4.ports.acquisition",
             "sevent4.ports.evidence",
             "sevent4.ports.publication",
@@ -76,27 +77,71 @@ class HexagonalArchitectureTest(unittest.TestCase):
 
     def test_why_air_application_builds_roster_without_filesystem_writer(self) -> None:
         from sevent4.application.why_air import build_pollution_board_roster
+        from sevent4.domain.pollution import PollutionBoardCapacityRecord
 
         rows = build_pollution_board_roster(
-            {
-                "bengaluru": {
-                    "board": "KSPCB",
-                    "facts": [
-                        {"metric": "posts_sanctioned", "value": 723, "year": "2025-03", "confidence": "high"},
-                        {"metric": "posts_vacant", "value": 437, "year": "2025-03", "confidence": "high"},
-                    ],
-                    "finance": {
-                        "finance_year": "2023-24",
-                        "cash_opening_balance_cr": 1292.45,
+            [
+                PollutionBoardCapacityRecord.from_dict(
+                    "bengaluru",
+                    {
+                        "board": "KSPCB",
+                        "facts": [
+                            {"metric": "posts_sanctioned", "value": 723, "year": "2025-03", "confidence": "high"},
+                            {"metric": "posts_vacant", "value": 437, "year": "2025-03", "confidence": "high"},
+                        ],
+                        "finance": {
+                            "finance_year": "2023-24",
+                            "cash_opening_balance_cr": 1292.45,
+                        },
                     },
-                }
-            }
+                )
+            ]
         )
 
         self.assertEqual(rows[0]["city"], "bengaluru")
         self.assertEqual(rows[0]["vacancy_pct"], 60)
         self.assertEqual(rows[0]["tier"], "primary")
         self.assertEqual(rows[0]["finance_claim_id"], "claim-why-air-kspcb-finance-2023-24")
+
+    def test_pollution_board_filesystem_adapter_returns_domain_records(self) -> None:
+        from sevent4.adapters.filesystem import FilePollutionBoardCapacityRepository
+        from sevent4.domain.pollution import PollutionBoardCapacityRecord
+
+        records = FilePollutionBoardCapacityRepository(ROOT / "data" / "cities").list_capacity_records()
+
+        self.assertTrue(records)
+        self.assertTrue(all(isinstance(record, PollutionBoardCapacityRecord) for record in records))
+        self.assertIn("bengaluru", {record.city for record in records})
+        self.assertIn("KSPCB", {record.board for record in records})
+
+    def test_why_air_application_publishes_through_evidence_port(self) -> None:
+        from sevent4.application.why_air import build_pollution_board_table
+        from sevent4.domain.pollution import PollutionBoardCapacityRecord
+
+        class Repository:
+            def list_capacity_records(self):
+                return [
+                    PollutionBoardCapacityRecord.from_dict(
+                        "bengaluru",
+                        {
+                            "board": "KSPCB",
+                            "facts": [
+                                {"metric": "posts_sanctioned", "value": 723, "year": "2025-03", "confidence": "high"},
+                                {"metric": "posts_vacant", "value": 437, "year": "2025-03", "confidence": "high"},
+                            ],
+                            "finance": {
+                                "finance_year": "2023-24",
+                                "cash_opening_balance_cr": 1292.45,
+                            },
+                        },
+                    )
+                ]
+
+        document = build_pollution_board_table(Repository())
+
+        self.assertEqual(document["boards"][0]["city"], "bengaluru")
+        self.assertEqual(document["boards"][0]["vacancy_pct"], 60)
+        self.assertEqual(document["boards"][0]["finance_claim_id"], "claim-why-air-kspcb-finance-2023-24")
 
     def test_public_site_application_builds_route_graph_without_reading_files(self) -> None:
         from sevent4.application.public_site import build_public_route_graph
@@ -158,6 +203,7 @@ class HexagonalArchitectureTest(unittest.TestCase):
 
         for name in (
             "sevent4.domain.evidence",
+            "sevent4.domain.pollution",
             "sevent4.application.why_air",
             "sevent4.application.city_console",
             "sevent4.application.public_site",

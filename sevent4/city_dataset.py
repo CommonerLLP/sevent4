@@ -24,7 +24,7 @@ class CityDataset:
 
     @classmethod
     def from_yaml(cls, path: str | Path) -> "CityDataset":
-        config_path = Path(path).resolve()
+        config_path = _absolute_path(path)
         repo_root = _find_repo_root(config_path)
         data = yaml.safe_load(config_path.read_text()) or {}
 
@@ -53,10 +53,20 @@ class CityDataset:
 
 
 def _find_repo_root(path: Path) -> Path:
-    for parent in [path.parent, *path.parents]:
+    for candidate in (path, path.resolve()):
+        for parent in [candidate.parent, *candidate.parents]:
+            if (parent / "pyproject.toml").exists() or (parent / ".git").exists():
+                return parent
+    cwd = Path.cwd()
+    for parent in [cwd, *cwd.parents]:
         if (parent / "pyproject.toml").exists() or (parent / ".git").exists():
             return parent
     return path.parent
+
+
+def _absolute_path(path: str | Path) -> Path:
+    candidate = Path(path).expanduser()
+    return candidate if candidate.is_absolute() else Path.cwd() / candidate
 
 
 def _resolve(root: Path, value: str | Path) -> Path:

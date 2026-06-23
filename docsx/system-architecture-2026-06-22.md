@@ -15,7 +15,8 @@ elected city institutions where the Constitution intended that shift.
 
 SevenT4 uses ports and adapters, not MVC, as the governing architecture.
 
-- `sevent4.domain` owns facts, evidence, claims, and city-domain contracts.
+- `sevent4.domain` owns facts, evidence, claims, pollution-board records, and
+  city-domain contracts.
 - `sevent4.application` owns use cases: build a board roster, validate a public
   route graph, assemble a public-surface document.
 - `sevent4.ports` owns protocols that application services depend on.
@@ -52,6 +53,7 @@ public education flows, and topic-specific normalizers.
 Implemented package boundaries:
 
 - `sevent4.domain.evidence`
+- `sevent4.domain.pollution`
 - `sevent4.ports.acquisition`
 - `sevent4.ports.evidence`
 - `sevent4.ports.publication`
@@ -65,7 +67,9 @@ Compatibility surfaces remain:
 - `sevent4.contracts` re-exports the evidence contracts and filesystem helpers
   for existing tests and pages.
 - `scripts/recipes/build_why_air_table.py` is now a thin CLI adapter over the
-  WHY/air application service.
+  WHY/air application service. The filesystem adapter parses
+  `capacity.json` into `sevent4.domain.pollution` records before the
+  application builds public rows.
 
 ## Public Education Surface
 
