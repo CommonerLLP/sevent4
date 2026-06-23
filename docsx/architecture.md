@@ -929,15 +929,17 @@ SevenT4 already has pieces of this architecture:
 
 - package entry points in `sevent4/`
 - explicit ports in `sevent4.ports.acquisition`, `sevent4.ports.evidence`,
-  `sevent4.ports.finance`, `sevent4.ports.metrics`, and
-  `sevent4.ports.publication`, and `sevent4.ports.transit`
+  `sevent4.ports.finance`, `sevent4.ports.library_access`,
+  `sevent4.ports.metrics`, `sevent4.ports.publication`, and
+  `sevent4.ports.transit`
 - application services in `sevent4.application.acquisition`,
   `sevent4.application.city_console`,
-  `sevent4.application.finance`, `sevent4.application.metrics`,
-  `sevent4.application.public_site`, `sevent4.application.transit`, and
-  `sevent4.application.why_air`
+  `sevent4.application.finance`, `sevent4.application.library_access`,
+  `sevent4.application.metrics`, `sevent4.application.public_site`,
+  `sevent4.application.transit`, and `sevent4.application.why_air`
 - filesystem adapters for source inventory, city-console, WHY/air evidence, finance pages,
-  and ward service-access metrics, plus GTFS route-corridor generation
+  library-access CSV summaries, and ward service-access metrics, plus GTFS
+  route-corridor generation
 - acquisition application logic for OpenCity source-inventory rows, OpenCity
   atlas scoping markdown, and Delhi finance document manifest/run-log records
 - source-archive application logic for source URL normalization, sparse-text OCR
@@ -946,6 +948,10 @@ SevenT4 already has pieces of this architecture:
   parsing, with commoner-probe execution kept in the script adapter
 - M.J. Library source-classification application logic for official PDF category
   and disclosure-year parsing, with fetching/exporting kept in the recipe adapter
+- library-access application logic for distance/access math, city-level summary
+  shaping, pairwise comparison rows, IFLA service-detail audit rows, and
+  Toronto comparator headline rows, with CSV loading/writing kept in filesystem
+  adapters and recipe adapters
 - city data contracts in `docsx/`
 - source policy in `docsx/source-policy-and-readiness.md`
 - generated public JSON for several surfaces

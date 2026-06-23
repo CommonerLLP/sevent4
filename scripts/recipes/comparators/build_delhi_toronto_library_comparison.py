@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
-import csv
 import json
 from pathlib import Path
+
+from sevent4.adapters.library_access_filesystem import read_csv, write_csv
 
 
 REPO = Path(__file__).resolve().parents[3]
@@ -418,18 +419,6 @@ def ppp_map(rows: list[dict[str, str]]) -> dict[str, float]:
 
 def by_key(rows: list[dict[str, str]], key: str) -> dict[str, dict[str, str]]:
     return {row[key]: row for row in rows}
-
-
-def read_csv(path: Path) -> list[dict[str, str]]:
-    with path.open(newline="", encoding="utf-8") as handle:
-        return list(csv.DictReader(handle))
-
-
-def write_csv(path: Path, rows: list[dict[str, str]], fieldnames: list[str]) -> None:
-    with path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fieldnames, lineterminator="\n")
-        writer.writeheader()
-        writer.writerows(rows)
 
 
 def number(value: str) -> float:

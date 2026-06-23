@@ -27,17 +27,20 @@ class HexagonalArchitectureTest(unittest.TestCase):
             "sevent4.ports.acquisition",
             "sevent4.ports.evidence",
             "sevent4.ports.finance",
+            "sevent4.ports.library_access",
             "sevent4.ports.metrics",
             "sevent4.ports.publication",
             "sevent4.ports.transit",
             "sevent4.application.city_console",
             "sevent4.application.acquisition",
             "sevent4.application.finance",
+            "sevent4.application.library_access",
             "sevent4.application.metrics",
             "sevent4.application.public_site",
             "sevent4.application.transit",
             "sevent4.application.why_air",
             "sevent4.adapters.finance_filesystem",
+            "sevent4.adapters.library_access_filesystem",
             "sevent4.adapters.acquisition_filesystem",
             "sevent4.adapters.filesystem",
             "sevent4.adapters.metrics_filesystem",
@@ -85,6 +88,17 @@ class HexagonalArchitectureTest(unittest.TestCase):
                 if name in forbidden_roots or any(name.startswith(f"{root}.") for root in forbidden_roots)
             }
             self.assertEqual(bad, set(), f"{path} imports adapter modules: {sorted(bad)}")
+
+    def test_library_comparator_recipes_reuse_csv_filesystem_adapter(self) -> None:
+        for path in (
+            ROOT / "scripts" / "recipes" / "comparators" / "build_library_access_comparison.py",
+            ROOT / "scripts" / "recipes" / "comparators" / "build_library_ifla_audit.py",
+            ROOT / "scripts" / "recipes" / "comparators" / "build_delhi_toronto_library_comparison.py",
+            ROOT / "scripts" / "recipes" / "comparators" / "extract_toronto_public_library.py",
+        ):
+            imports = _imports(path)
+            self.assertNotIn("csv", imports, f"{path} should use the library filesystem adapter for CSV IO")
+            self.assertIn("sevent4.adapters.library_access_filesystem", imports)
 
     def test_why_air_application_builds_roster_without_filesystem_writer(self) -> None:
         from sevent4.application.why_air import build_pollution_board_roster
@@ -263,18 +277,21 @@ class HexagonalArchitectureTest(unittest.TestCase):
             "sevent4.application.city_console",
             "sevent4.application.acquisition",
             "sevent4.application.finance",
+            "sevent4.application.library_access",
             "sevent4.application.metrics",
             "sevent4.application.public_site",
             "sevent4.application.transit",
             "sevent4.ports.acquisition",
             "sevent4.ports.evidence",
             "sevent4.ports.finance",
+            "sevent4.ports.library_access",
             "sevent4.ports.metrics",
             "sevent4.ports.publication",
             "sevent4.ports.transit",
             "sevent4.adapters.finance_filesystem",
             "sevent4.adapters.acquisition_filesystem",
             "sevent4.adapters.filesystem",
+            "sevent4.adapters.library_access_filesystem",
             "sevent4.adapters.metrics_filesystem",
             "sevent4.adapters.transit_filesystem",
             "commoner-probe",
