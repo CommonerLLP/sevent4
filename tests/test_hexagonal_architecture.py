@@ -100,6 +100,14 @@ class HexagonalArchitectureTest(unittest.TestCase):
             self.assertNotIn("csv", imports, f"{path} should use the library filesystem adapter for CSV IO")
             self.assertIn("sevent4.adapters.library_access_filesystem", imports)
 
+    def test_devolution_scorecard_recipe_uses_publication_ports(self) -> None:
+        path = ROOT / "scripts" / "recipes" / "build_devolution_scorecard.py"
+        imports = _imports(path)
+
+        self.assertNotIn("json", imports, f"{path} should not own scorecard JSON IO")
+        self.assertIn("sevent4.adapters.filesystem", imports)
+        self.assertIn("sevent4.application.public_site", imports)
+
     def test_why_air_application_builds_roster_without_filesystem_writer(self) -> None:
         from sevent4.application.why_air import build_pollution_board_roster
         from sevent4.domain.pollution import PollutionBoardCapacityRecord
