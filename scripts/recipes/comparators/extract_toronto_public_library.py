@@ -2,11 +2,13 @@
 from __future__ import annotations
 
 import argparse
-import csv
 import shutil
 import subprocess
 from pathlib import Path
 from urllib.request import Request, urlopen
+
+from sevent4.adapters.library_access_filesystem import read_csv, write_csv
+from sevent4.application.library_access import build_toronto_library_headline_rows
 
 
 REPO = Path(__file__).resolve().parents[3]
@@ -108,58 +110,7 @@ def annual_sum(path: Path, value_col: str) -> tuple[dict[int, int], dict[int, se
 
 
 def headline_rows(physical_branches: int, total_square_feet: float) -> list[dict[str, str]]:
-    about = "https://tpl.ca/about-the-library/"
-    finance = "https://tpl.ca/about-the-library/library-finance/"
-    open_data = "https://tpl.ca/about-the-library/open-data/"
-    rows = [
-        ("2024", "network", "branches", physical_branches, "count", open_data, "high", "PhysicalBranch=1 rows in TPL branch general information open data."),
-        ("2024", "network", "bookmobiles", 2, "count", about, "high", "TPL About page reports two bookmobiles."),
-        ("2024", "network", "collection_items", 10_500_000, "count", about, "medium", "TPL About page reports more than 10.5 million items; stored as 10.5m lower-bound value."),
-        ("2024", "network", "branch_square_feet", int(total_square_feet), "square_feet", open_data, "high", "Sum of SquareFootage in TPL branch general information open data."),
-        ("2024", "usage", "total_visits_branch_and_online", 45_000_000, "count", about, "medium", "TPL About page reports nearly 45 million visits; stored as 45m rounded value."),
-        ("2024", "usage", "branch_visits", 13_400_000, "count", about, "medium", "TPL About page reports 13.4 million branch visits."),
-        ("2024", "usage", "online_visits", 31_500_000, "count", about, "medium", "TPL About page reports 31.5 million visits to online platforms."),
-        ("2024", "usage", "borrowings", 28_000_000, "count", about, "medium", "TPL About page reports materials borrowed 28 million times."),
-        ("2024", "usage", "card_registrations", 235_270, "count", about, "high", "TPL About page reports 235,270 people registered for a library card."),
-        ("2024", "technology", "wireless_sessions", 6_000_000, "count", about, "medium", "TPL About page reports nearly six million wireless sessions."),
-        ("2024", "technology", "public_computer_workstation_hours", 1_200_000, "hours", about, "medium", "TPL About page reports more than 1.2 million workstation session hours."),
-        ("2024", "programs", "in_person_programs", 38_000, "count", about, "medium", "TPL About page reports over 38,000 in-person programs."),
-        ("2024", "programs", "in_person_program_attendance", 750_000, "count", about, "medium", "TPL About page reports more than 750,000 in-person program participants."),
-        ("2026", "finance", "gross_expenditure", 296_057_196, "CAD", finance, "high", "TPL 2026 operating budget reports gross expenditure."),
-        ("2026", "finance", "staffing_salaries_benefits", 217_954_794, "CAD", finance, "high", "TPL 2026 gross expenditure split."),
-        ("2026", "finance", "library_materials", 23_082_883, "CAD", finance, "high", "TPL 2026 gross expenditure split."),
-        ("2026", "finance", "operations_administration", 55_019_519, "CAD", finance, "high", "TPL 2026 gross expenditure split."),
-        ("2026", "finance", "city_funding_property_taxes", 274_378_001, "CAD", finance, "high", "TPL 2026 revenue split."),
-        ("2026", "finance", "revenues_fines_fees", 4_298_350, "CAD", finance, "high", "TPL 2026 revenue split."),
-        ("2026", "finance", "other_sources", 17_380_845, "CAD", finance, "high", "TPL 2026 revenue split."),
-        ("2026", "capital", "capital_budget_total", 72_776_219, "CAD", finance, "high", "TPL 2026 capital budget funding sources."),
-        ("2026", "capital", "capital_debt", 51_087_186, "CAD", finance, "high", "TPL 2026 capital budget funding sources."),
-    ]
-    return [
-        {
-            "year": str(year),
-            "metric_group": group,
-            "metric_name": name,
-            "value": str(value),
-            "unit": unit,
-            "source_url": source,
-            "confidence": confidence,
-            "notes": notes,
-        }
-        for year, group, name, value, unit, source, confidence, notes in rows
-    ]
-
-
-def read_csv(path: Path) -> list[dict[str, str]]:
-    with path.open(newline="", encoding="utf-8-sig") as handle:
-        return list(csv.DictReader(handle))
-
-
-def write_csv(path: Path, rows: list[dict[str, str]], fieldnames: list[str]) -> None:
-    with path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fieldnames, lineterminator="\n")
-        writer.writeheader()
-        writer.writerows(rows)
+    return build_toronto_library_headline_rows(physical_branches, total_square_feet)
 
 
 if __name__ == "__main__":

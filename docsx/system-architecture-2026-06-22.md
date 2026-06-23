@@ -57,12 +57,14 @@ Implemented package boundaries:
 - `sevent4.ports.acquisition`
 - `sevent4.ports.evidence`
 - `sevent4.ports.finance`
+- `sevent4.ports.library_access`
 - `sevent4.ports.metrics`
 - `sevent4.ports.publication`
 - `sevent4.ports.transit`
 - `sevent4.application.city_console`
 - `sevent4.application.acquisition`
 - `sevent4.application.finance`
+- `sevent4.application.library_access`
 - `sevent4.application.metrics`
 - `sevent4.application.why_air`
 - `sevent4.application.public_site`
@@ -70,6 +72,7 @@ Implemented package boundaries:
 - `sevent4.adapters.acquisition_filesystem`
 - `sevent4.adapters.finance_filesystem`
 - `sevent4.adapters.filesystem`
+- `sevent4.adapters.library_access_filesystem`
 - `sevent4.adapters.metrics_filesystem`
 - `sevent4.adapters.transit_filesystem`
 
@@ -101,6 +104,11 @@ Compatibility surfaces remain:
   fetching, PDF text export, location-file reads, and network JSON writes.
   Shared acquisition application code now owns M.J. Library PDF classification
   and disclosure-year parsing.
+- Library access recipes now route distance/access math, city summary shaping,
+  pairwise comparison rows, and IFLA service-detail audit rows through the
+  library-access application service. Toronto comparator headline row shaping
+  also lives in the application layer. Filesystem adapters load source CSV rows
+  and write summary CSV outputs; the recipe scripts remain CLI adapters.
 - The city-console CLI now loads `city.yaml` and `layer_manifest.json` through
   a filesystem input adapter and publishes through a public-surface adapter; the
   application service depends on the `sevent4.ports.publication` contracts.

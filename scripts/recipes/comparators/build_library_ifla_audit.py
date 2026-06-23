@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
-import csv
 import json
 from pathlib import Path
+
+from sevent4.adapters.library_access_filesystem import read_csv, write_csv
+from sevent4.application.library_access import build_library_service_detail_audit
+from sevent4.ports.library_access import CityLibraryServiceDetailInput, LIBRARY_SERVICE_DETAIL_FIELDS
 
 
 REPO = Path(__file__).resolve().parents[3]
@@ -48,17 +51,7 @@ GOV_FIELDS = [
     "request_priority",
 ]
 
-SERVICE_DETAIL_FIELDS = [
-    "city",
-    "library_system",
-    "detail_field",
-    "locations_with_value",
-    "total_locations",
-    "status",
-    "source_path",
-    "notes",
-    "request_priority",
-]
+SERVICE_DETAIL_FIELDS = LIBRARY_SERVICE_DETAIL_FIELDS
 
 LEGAL_FIELDS = [
     "city",
@@ -224,44 +217,34 @@ def governance_rows() -> list[dict[str, str]]:
 def service_detail_rows() -> list[dict[str, str]]:
     delhi = latest_csv_row(REPO / "data/cities/delhi/derived/library_access/dpl_service_hierarchy_summary.csv")
     ahm_total = str(len(read_csv(REPO / "data/cities/ahmedabad/source/libraries/ahmedabad_library_locations.csv")))
-    rows = []
-    for city, system, total, source, values in [
-        (
-            "ahmedabad",
-            "Sheth M.J. Library / Ahmedabad municipal library network",
-            ahm_total,
-            "data/cities/ahmedabad/source/libraries/ahmedabad_library_locations.csv",
-            {"max_seating_capacity": "", "opening_hours": "", "branch_collection_size": "", "collection_types": ""},
-        ),
-        (
-            "delhi",
-            "Delhi Public Library",
-            delhi["total_locations"],
-            "data/cities/delhi/derived/library_access/dpl_service_hierarchy_summary.csv",
-            {
-                "max_seating_capacity": delhi["branchwise_seating_capacity_locations"],
-                "opening_hours": delhi["branchwise_opening_hours_locations"],
-                "branch_collection_size": delhi["branchwise_collection_size_locations"],
-                "collection_types": delhi["branchwise_collection_type_locations"],
-            },
-        ),
-    ]:
-        for field in ("max_seating_capacity", "opening_hours", "branch_collection_size", "collection_types"):
-            count = values[field]
-            rows.append(
-                {
-                    "city": city,
-                    "library_system": system,
-                    "detail_field": field,
-                    "locations_with_value": count or "0",
-                    "total_locations": total,
-                    "status": "missing_branchwise_public_detail",
-                    "source_path": source,
-                    "notes": "Branch-wise field not available in the current public extract; request from librarian/board or file RTI.",
-                    "request_priority": "rti_or_request",
-                }
-            )
-    return rows
+    return build_library_service_detail_audit(
+        [
+            CityLibraryServiceDetailInput(
+                city="ahmedabad",
+                library_system="Sheth M.J. Library / Ahmedabad municipal library network",
+                total_locations=ahm_total,
+                source_path="data/cities/ahmedabad/source/libraries/ahmedabad_library_locations.csv",
+                values={
+                    "max_seating_capacity": "",
+                    "opening_hours": "",
+                    "branch_collection_size": "",
+                    "collection_types": "",
+                },
+            ),
+            CityLibraryServiceDetailInput(
+                city="delhi",
+                library_system="Delhi Public Library",
+                total_locations=delhi["total_locations"],
+                source_path="data/cities/delhi/derived/library_access/dpl_service_hierarchy_summary.csv",
+                values={
+                    "max_seating_capacity": delhi["branchwise_seating_capacity_locations"],
+                    "opening_hours": delhi["branchwise_opening_hours_locations"],
+                    "branch_collection_size": delhi["branchwise_collection_size_locations"],
+                    "collection_types": delhi["branchwise_collection_type_locations"],
+                },
+            ),
+        ]
+    )
 
 
 def legal_rows() -> list[dict[str, str]]:
@@ -334,18 +317,6 @@ def metric_values(path: Path) -> dict[str, str]:
 def latest_csv_row(path: Path) -> dict[str, str]:
     rows = read_csv(path)
     return rows[-1] if rows else {}
-
-
-def read_csv(path: Path) -> list[dict[str, str]]:
-    with path.open(newline="", encoding="utf-8") as handle:
-        return list(csv.DictReader(handle))
-
-
-def write_csv(path: Path, rows: list[dict[str, str]], fieldnames: list[str]) -> None:
-    with path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fieldnames, lineterminator="\n")
-        writer.writeheader()
-        writer.writerows(rows)
 
 
 if __name__ == "__main__":
