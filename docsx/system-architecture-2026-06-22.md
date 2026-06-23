@@ -66,6 +66,9 @@ Compatibility surfaces remain:
 
 - `sevent4.contracts` re-exports the evidence contracts and filesystem helpers
   for existing tests and pages.
+- The city-console CLI now loads `city.yaml` and `layer_manifest.json` through
+  a filesystem input adapter and publishes through a public-surface adapter; the
+  application service depends on the `sevent4.ports.publication` contracts.
 - `scripts/recipes/build_why_air_table.py` is now a thin CLI adapter over the
   WHY/air application service. The filesystem adapter parses
   `capacity.json` into `sevent4.domain.pollution` records before the

@@ -7,8 +7,8 @@ import json
 from pathlib import Path
 from typing import Any
 
-from sevent4.adapters.filesystem import FileCityConsolePublicSurface
-from sevent4.application.city_console import publish_city_console
+from sevent4.adapters.filesystem import FileCityConsoleInputRepository, FileCityConsolePublicSurface
+from sevent4.application.city_console import publish_city_console, publish_city_console_from_repository
 
 from .city_dataset import CityDataset
 from .layer_manifest import LayerManifest, LayerSpec
@@ -21,11 +21,17 @@ def main() -> None:
     parser.add_argument("--out", required=True, help="Output HTML path")
     args = parser.parse_args()
 
-    city = CityDataset.from_yaml(args.city)
-    manifest = LayerManifest.from_json(args.layers, city)
     out = Path(args.out)
-    build_console(city, manifest, out)
+    build_console_from_files(args.city, args.layers, out)
     print(f"wrote {out}")
+
+
+def build_console_from_files(city_config: str | Path, layer_manifest: str | Path, out: Path) -> None:
+    publish_city_console_from_repository(
+        FileCityConsoleInputRepository(city_config, layer_manifest),
+        FileCityConsolePublicSurface(out),
+        _html,
+    )
 
 
 def build_console(city: CityDataset, manifest: LayerManifest, out: Path) -> None:
