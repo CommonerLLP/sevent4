@@ -90,8 +90,17 @@ class FinancePortsTest(unittest.TestCase):
             build_budget_explorer_from_files(str(city_yaml), str(budget_out))
             build_money_flow_from_files(str(city_yaml), str(money_out))
 
-            self.assertIn("What Testville city budget funds", budget_out.read_text(encoding="utf-8"))
-            self.assertIn("Who controls the money", money_out.read_text(encoding="utf-8"))
+            budget_html = budget_out.read_text(encoding="utf-8")
+            money_html = money_out.read_text(encoding="utf-8")
+            self.assertIn("What Testville city budget funds", budget_html)
+            self.assertIn("Who controls the money", money_html)
+            for html in (budget_html, money_html):
+                self.assertNotIn('data-theme="dark"', html)
+                self.assertIn('href="../../../assets/theme.css"', html)
+                self.assertIn("localStorage.getItem('atlas-theme')", html)
+            self.assertIn("@media (prefers-color-scheme: light)", money_html)
+            self.assertIn(":root:not([data-theme=dark])", money_html)
+            self.assertIn(":root[data-theme=light]", money_html)
 
     def test_html_file_writer_creates_parent_directories(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:

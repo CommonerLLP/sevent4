@@ -930,12 +930,13 @@ SevenT4 already has pieces of this architecture:
 - package entry points in `sevent4/`
 - explicit ports in `sevent4.ports.acquisition`, `sevent4.ports.evidence`,
   `sevent4.ports.finance`, `sevent4.ports.metrics`, and
-  `sevent4.ports.publication`
+  `sevent4.ports.publication`, and `sevent4.ports.transit`
 - application services in `sevent4.application.city_console`,
   `sevent4.application.finance`, `sevent4.application.metrics`,
-  `sevent4.application.public_site`, and `sevent4.application.why_air`
+  `sevent4.application.public_site`, `sevent4.application.transit`, and
+  `sevent4.application.why_air`
 - filesystem adapters for city-console, WHY/air evidence, finance pages, and
-  ward service-access metrics
+  ward service-access metrics, plus GTFS route-corridor generation
 - city data contracts in `docsx/`
 - source policy in `docsx/source-policy-and-readiness.md`
 - generated public JSON for several surfaces

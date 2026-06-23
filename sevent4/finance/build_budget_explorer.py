@@ -231,12 +231,14 @@ def render_html(
     )
 
     return f"""<!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
+  <script>(function(){{try{{var t=localStorage.getItem('atlas-theme');if(t)document.documentElement.dataset.theme=t;}}catch(e){{}}}})();</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Part IXA: The Municipalities - {html.escape(city.name)} city finance</title>
   <link rel="icon" type="image/png" href="../../../assets/ixa-mark.png">
+  <link rel="stylesheet" href="../../../assets/theme.css">
   <link rel="stylesheet" href="../../../assets/maplibre-gl.css">
   <style>{_css()}</style>
 </head>
@@ -364,8 +366,6 @@ def _first_caveat(civic_meta: dict[str, Any]) -> str:
 
 def _css() -> str:
     return """
-:root{color-scheme:dark;--bg:#0a0c10;--panel:#13161d;--panel2:#171b23;--ink:#ece9e2;--mut:#8b929f;--line:#262c38;--hair:#1b1f28;--blue:#5a86f5;--red:#f0303d;--gold:#edc233;--r:6px;--serif:Georgia,"Iowan Old Style","Times New Roman",serif;--mono:ui-monospace,Menlo,"SF Mono",Consolas,monospace;--sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-[data-theme=light]{color-scheme:light;--bg:#f3f1ea;--panel:#fff;--panel2:#f6f3ea;--ink:#16181d;--mut:#586071;--line:#d7d1c2;--hair:#e7e2d6;--blue:#22409A;--red:#c8102e;--gold:#9a7b14}
 *{box-sizing:border-box;margin:0}body{font:400 16px/1.6 var(--sans);color:var(--ink);background:var(--bg)}
 .wrap{max-width:860px;margin:0 auto;padding:32px 22px 80px}
 .crumb{font:700 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-bottom:20px}
