@@ -20,9 +20,10 @@ from __future__ import annotations
 
 import argparse
 import html
-from pathlib import Path
 
-from ..city_dataset import CityDataset
+from sevent4.adapters.finance_filesystem import FileMoneyFlowInputRepository, HtmlFileWriter
+from sevent4.application.finance import publish_money_flow
+from sevent4.city_dataset import CityDataset
 
 
 # ── the data (public record) ──────────────────────────────────────────────
@@ -58,11 +59,16 @@ def main() -> None:
     parser.add_argument("--out", required=True, help="Output HTML path")
     args = parser.parse_args()
 
-    city = CityDataset.from_yaml(args.city)
-    out = Path(args.out)
-    out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(render_html(city), encoding="utf-8")
-    print(f"wrote {out}")
+    build_money_flow_from_files(args.city, args.out)
+    print(f"wrote {args.out}")
+
+
+def build_money_flow_from_files(city_config: str, out: str) -> None:
+    publish_money_flow(
+        FileMoneyFlowInputRepository(city_config),
+        HtmlFileWriter(out),
+        render_html,
+    )
 
 
 # ── svg flow diagram ──────────────────────────────────────────────────────

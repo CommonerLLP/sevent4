@@ -26,10 +26,13 @@ class HexagonalArchitectureTest(unittest.TestCase):
             "sevent4.domain.pollution",
             "sevent4.ports.acquisition",
             "sevent4.ports.evidence",
+            "sevent4.ports.finance",
             "sevent4.ports.publication",
             "sevent4.application.city_console",
+            "sevent4.application.finance",
             "sevent4.application.public_site",
             "sevent4.application.why_air",
+            "sevent4.adapters.finance_filesystem",
             "sevent4.adapters.filesystem",
         ):
             importlib.import_module(module)
