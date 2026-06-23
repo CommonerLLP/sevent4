@@ -16,38 +16,15 @@ import shutil
 import sys
 from typing import Any
 
+from sevent4.application.acquisition import parliament_probe_filter, parse_session_range
+
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 COMMONER = ROOT.parent / "commoner-probe"
 
 
-DPL_TERMS = (
-    "delhi public library",
-    "delhi library board",
-)
-DPL_CONTEXT_TERMS = (
-    "dpl",
-    "staff",
-    "vacanc",
-    "recruit",
-    "post",
-    "mobile",
-    "branch",
-    "modern",
-    "digital",
-    "grant",
-    "ministry of culture",
-    "raja rammohun",
-    "rrrlf",
-    "national mission on libraries",
-)
-
-
 def dpl_filter(title: str, query: str) -> bool:
-    haystack = f"{title or ''} {query or ''}".lower()
-    if any(term in haystack for term in DPL_TERMS):
-        return True
-    return "delhi" in haystack and any(term in haystack for term in DPL_CONTEXT_TERMS)
+    return parliament_probe_filter(title, query)
 
 
 def load_commoner_probe() -> tuple[Any, Any, Any]:
@@ -163,17 +140,7 @@ def main() -> None:
 
 
 def _parse_session_range(value: str) -> list[int]:
-    out: list[int] = []
-    for part in value.split(","):
-        part = part.strip()
-        if not part:
-            continue
-        if "-" in part:
-            start, end = [int(x.strip()) for x in part.split("-", 1)]
-            out.extend(range(start, end + 1))
-        else:
-            out.append(int(part))
-    return sorted(set(out))
+    return parse_session_range(value)
 
 
 if __name__ == "__main__":

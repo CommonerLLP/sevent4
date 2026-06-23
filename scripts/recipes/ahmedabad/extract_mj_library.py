@@ -8,6 +8,11 @@ import re
 from pathlib import Path
 from urllib.parse import unquote, urljoin
 
+from sevent4.application.acquisition import (
+    classify_mj_library_pdf,
+    mj_library_proactive_disclosure_year,
+    mj_library_year_from_text,
+)
 from scripts.recipes.library_networks import (
     as_float,
     export_pdf_texts,
@@ -271,68 +276,15 @@ def derived_2025_26(annual_stats: list[dict[str, str]], finance: list[dict[str, 
 
 
 def classify_pdf(context: str, url: str, year: str, proactive_context: bool = False) -> str:
-    filename = Path(unquote(url)).name.lower()
-    if "annual_report" in filename:
-        return "rti_annual_report"
-    if "fee" in filename:
-        return "fees"
-    if filename.startswith("admissionform") or filename == "mj-membership-and-gaurantor-form.pdf":
-        return "forms"
-    if "listappofficer" in filename or "listpio" in filename:
-        return "rti_officers"
-    if filename in {
-        "rightofinformationact2005.pdf",
-        "rtiact2005gujarati.pdf",
-        "gad.pdf",
-        "rulesorder.pdf",
-        "rulesorderguj.pdf",
-        "goggazzateeng.pdf",
-        "rtirulegujarati.pdf",
-    }:
-        return "rules_orders"
-    if filename == "list_of_ccc.pdf":
-        return "civic_centres"
-    haystack = f"{context} {url}".lower()
-    if proactive_context and year:
-        return "proactive_disclosure"
-    if "annual_report" in haystack or "annual report" in haystack:
-        return "rti_annual_report"
-    if "fee" in haystack:
-        return "fees"
-    if "form" in haystack:
-        return "forms"
-    if "rule" in haystack or "gazette" in haystack or "notification" in haystack:
-        return "rules_orders"
-    if "p.i.o" in haystack or "pio" in haystack or "applet officer" in haystack:
-        return "rti_officers"
-    return "other"
+    return classify_mj_library_pdf(context, url, year, proactive_context)
 
 
 def year_from_text(text: str) -> str | None:
-    match = re.search(r"(20\d{2})\s*[-_]\s*(20\d{2})", text)
-    if match:
-        return f"{match.group(1)}-{match.group(2)[-2:]}"
-    match = re.search(r"(20\d{2})\s*[-_]\s*(\d{2})", text)
-    if match:
-        return f"{match.group(1)}-{match.group(2)}"
-    match = re.search(r"(?<!\d)(20\d{2})(\d{2})(?!\d)", text)
-    if match:
-        start = int(match.group(1))
-        end = int(match.group(2))
-        if end == (start + 1) % 100:
-            return f"{start}-{match.group(2)}"
-    match = re.search(r"\b(2015|2016|2017|2018|2019|2020|2021|2022|2023|2024|2025)\s*[-_]\s*(16|17|18|19|20|21|22|23|24|25|26)\b", text)
-    if match:
-        return f"{match.group(1)}-{match.group(2)}"
-    return None
+    return mj_library_year_from_text(text)
 
 
 def proactive_disclosure_year(prefix: str) -> str | None:
-    years = re.findall(r"PRO\s+ACTIVE\s+DISCLOSURE\s+(20\d{2})\s*[-_]\s*(\d{2})", prefix, flags=re.I)
-    if not years:
-        return None
-    start, end = years[-1]
-    return f"{start}-{end}"
+    return mj_library_proactive_disclosure_year(prefix)
 
 
 def plain_text(raw: str) -> str:
