@@ -59,14 +59,17 @@ Implemented package boundaries:
 - `sevent4.ports.finance`
 - `sevent4.ports.metrics`
 - `sevent4.ports.publication`
+- `sevent4.ports.transit`
 - `sevent4.application.city_console`
 - `sevent4.application.finance`
 - `sevent4.application.metrics`
 - `sevent4.application.why_air`
 - `sevent4.application.public_site`
+- `sevent4.application.transit`
 - `sevent4.adapters.finance_filesystem`
 - `sevent4.adapters.filesystem`
 - `sevent4.adapters.metrics_filesystem`
+- `sevent4.adapters.transit_filesystem`
 
 Compatibility surfaces remain:
 
@@ -85,6 +88,9 @@ Compatibility surfaces remain:
 - `sevent4.metrics.ward_service_access` is now a thin CLI adapter over the
   metrics application service. The filesystem adapter loads ward, service, and
   GTFS stop layers before the application computes ward service-access rows.
+- `sevent4.transit.gtfs_corridors` is now a thin CLI adapter over the transit
+  application service. The filesystem adapter loads GTFS CSV tables before the
+  application builds route-corridor GeoJSON.
 - `sevent4.qa.browser_smoke` is the browser-smoke QA adapter. It serves the
   checked-in static bundle locally and uses the Playwright CLI to screenshot
   `/index.html`, `/public/index.html`, and the Ahmedabad console route.
