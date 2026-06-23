@@ -67,10 +67,14 @@
   p.body b{color:var(--ink);font-weight:600}
   .readnote{margin-bottom:26px}
   .basics{display:grid;gap:10px;margin:4px 0 24px}
-  .basics label{display:block}
-  .basics span{display:block;color:var(--mut);font:800 9px/1 var(--mono);letter-spacing:.12em;margin-bottom:5px;text-transform:uppercase}
-  .basics input,.basics select{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--ink);font:600 14px var(--sans);padding:11px 12px;width:100%}
-  .basics input::placeholder{color:var(--mut)}
+  .clue{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px}
+  .clue h2{font:800 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
+  .clue p{color:var(--ink);font-size:15px;line-height:1.38;margin-bottom:12px}
+  .chips{display:flex;flex-wrap:wrap;gap:7px}
+  .chip{background:var(--panel2);border:1px solid var(--line);border-radius:999px;color:var(--ink);
+    cursor:pointer;font:800 10px/1 var(--mono);letter-spacing:.08em;padding:9px 11px;text-transform:uppercase}
+  .chip:hover{border-color:var(--blue);color:var(--blue)}
+  .chip[aria-pressed=true]{background:var(--action-blue);border-color:var(--action-blue);color:var(--on-action)}
 
   .nav{display:flex;gap:11px;flex-wrap:wrap;align-items:center}
   .endcard h2{font-family:var(--serif);font-weight:400;font-size:clamp(25px,5.2vw,33px);line-height:1.2;margin-bottom:16px}
@@ -104,54 +108,45 @@
 
   <!-- CIVIC ADDRESS CHECK -->
   <section class="scene hide" id="s-basics">
-    <div class="sech accent kick">Before the map</div>
-    <h1 class="display" style="font-size:clamp(23px,4.8vw,31px)">Can you locate yourself politically?</h1>
-    <p class="body">No map matters if you do not know where you stand inside the city. Try this first. No account, no storage, no score sent anywhere.</p>
+    <div class="sech accent kick">Warm-up</div>
+    <h1 class="display" style="font-size:clamp(25px,5vw,34px)">Play the power map.</h1>
+    <p class="body">Pick a door. Make a guess. Then see who actually controls your street.</p>
     <div class="basics">
-      <label><span>When was the last local body election here?</span><input autocomplete="off" placeholder="Year, month, or I do not know"></label>
-      <label><span>Did you vote in it?</span>
-        <select>
-          <option>I voted</option>
-          <option>I was eligible but did not vote</option>
-          <option>I was not eligible then</option>
-          <option>I do not remember</option>
-          <option>I do not know whether an election was held</option>
-        </select>
-      </label>
-      <label><span>What did you vote on?</span>
-        <select>
-          <option>Candidate / party</option>
-          <option>Roads, drainage, garbage, water</option>
-          <option>Religion, caste, community, identity</option>
-          <option>State or national politics</option>
-          <option>I did not have a clear reason</option>
-          <option>I did not vote</option>
-        </select>
-      </label>
-      <label><span>What should a local vote decide?</span><input autocomplete="off" placeholder="The issue you expected your councillor to solve"></label>
-      <label><span>Your ward</span><input autocomplete="off" placeholder="Ward name or number"></label>
-      <label><span>Your councillor</span><input autocomplete="off" placeholder="Name, if you know it"></label>
-      <label><span>Your Assembly constituency</span><input autocomplete="off" placeholder="AC name"></label>
-      <label><span>Your MLA</span><input autocomplete="off" placeholder="Name, if you know it"></label>
-      <label><span>Your Parliamentary constituency</span><input autocomplete="off" placeholder="PC name"></label>
-      <label><span>Your MP</span><input autocomplete="off" placeholder="Name, if you know it"></label>
-      <label><span>If the street floods, where do you go first?</span>
-        <select>
-          <option>Municipal ward office</option>
-          <option>MLA office</option>
-          <option>State water board</option>
-          <option>Police station</option>
-          <option>I do not know</option>
-        </select>
-      </label>
+      <article class="clue">
+        <h2>Move 1 · Election memory</h2>
+        <p>Your city last voted for its council. Do you remember when?</p>
+        <div class="chips" role="group" aria-label="Last local election">
+          <button class="chip" type="button" aria-pressed="false" data-basics-choice>Yes</button>
+          <button class="chip" type="button" aria-pressed="false" data-basics-choice>No idea</button>
+        </div>
+      </article>
+      <article class="clue">
+        <h2>Move 2 · Home base</h2>
+        <p>Your street sits inside a ward. Can you place it?</p>
+        <div class="chips" role="group" aria-label="Ward and councillor">
+          <button class="chip" type="button" aria-pressed="false" data-basics-choice>Ward</button>
+          <button class="chip" type="button" aria-pressed="false" data-basics-choice>Councillor</button>
+          <button class="chip" type="button" aria-pressed="false" data-basics-choice>No idea</button>
+        </div>
+      </article>
+      <article class="clue">
+        <h2>Move 3 · Rain night</h2>
+        <p>Water enters your street tonight. First door?</p>
+        <div class="chips" role="group" aria-label="Flooded street first stop">
+          <button class="chip" type="button" aria-pressed="false" data-basics-choice>Ward office</button>
+          <button class="chip" type="button" aria-pressed="false" data-basics-choice>MLA</button>
+          <button class="chip" type="button" aria-pressed="false" data-basics-choice>Police</button>
+          <button class="chip" type="button" aria-pressed="false" data-basics-choice>No idea</button>
+        </div>
+      </article>
     </div>
-    <button class="btn" id="basicsCommit">Check what I know →</button>
+    <button class="btn" id="basicsCommit">Reveal the trap →</button>
   </section>
   <section class="scene reveal hide" id="s-basicsr">
     <div class="sech kick">The first lesson</div>
-    <div class="verdict">Most people remember voting. Fewer are taught <em>what power that vote reached.</em></div>
-    <p class="body">That knowledge gap is not a personal failure. It is the first lesson: the city is split across election, ward, Assembly constituency, Parliamentary constituency, corporation, board, department, and contractor until responsibility becomes hard to name.</p>
-    <p class="body"><b>This is a learning exercise, not a test of intelligence.</b> National and state voting cannot substitute for knowing who governs your street, your air, your drain, your police station, and your budget. Neutrality does not keep you outside politics; it only means you have not yet been taught where power sits, who benefits from that confusion, and who pays for it.</p>
+    <div class="verdict">Most people remember the party. Fewer are taught <em>which office has the power.</em></div>
+    <p class="body">That knowledge gap is not a personal failure. It is the first lesson: the city is split across ward, corporation, board, department, contractor, Assembly constituency, and Parliamentary constituency until responsibility becomes hard to name.</p>
+    <p class="body"><b>This is a learning exercise, not a test of intelligence.</b> National and state voting cannot substitute for knowing who governs your street, your air, your drain, your police station, and your budget. Neutrality does not keep you outside politics; it leaves the map of power with someone else, including who benefits from that confusion, and who pays for it.</p>
     <button class="btn" data-go="r1">Teach me what my city controls →</button>
   </section>
 
@@ -295,6 +290,14 @@
   sl.addEventListener("input", paint); paint();
   document.getElementById("r1commit").addEventListener("click", function(){ show("r1r"); });
   document.getElementById("basicsCommit").addEventListener("click", function(){ show("basicsr"); });
+  document.getElementById("s-basics").addEventListener("click", function(event){
+    var chip = event.target.closest("[data-basics-choice]");
+    if(!chip) return;
+    var group = chip.closest(".chips");
+    group.querySelectorAll("[data-basics-choice]").forEach(function(btn){
+      btn.setAttribute("aria-pressed", btn === chip ? "true" : "false");
+    });
+  });
 
   // ---- generic nav ----
   document.querySelectorAll("[data-go]").forEach(function(b){

@@ -4,9 +4,11 @@ import argparse
 import dataclasses
 import html
 import json
-import shutil
 from pathlib import Path
 from typing import Any
+
+from sevent4.adapters.filesystem import FileCityConsolePublicSurface
+from sevent4.application.city_console import publish_city_console
 
 from .city_dataset import CityDataset
 from .layer_manifest import LayerManifest, LayerSpec
@@ -27,61 +29,7 @@ def main() -> None:
 
 
 def build_console(city: CityDataset, manifest: LayerManifest, out: Path) -> None:
-    out = out.resolve()
-    out.parent.mkdir(parents=True, exist_ok=True)
-    layer_out = out.parent / "layers"
-    layer_out.mkdir(parents=True, exist_ok=True)
-    _copy_layers(city, manifest, layer_out)
-    out.write_text(_html(city, manifest, out.parent), encoding="utf-8")
-
-
-# Canonical name field every console assumes -> candidate source fields. KGIS layers
-# (Bengaluru) leave the canonical lowercase field null and carry the value in AC_NAME /
-# PARLY_CSTNY_NAME / ward_name; canonicalising once here fixes dropdowns, map filters,
-# highlights AND popups together instead of patching each.
-_CANON = {
-    "wards.geojson": ("Name", ("ward_name", "Name", "name", "ward_no", "WARD_NO")),
-    "acs.geojson": ("ac_name", ("AC_NAME", "ac_name", "ASSEM_CSTNY_NAME", "Name", "name")),
-    "pcs.geojson": ("pc_name", ("PC_NAME", "pc_name", "PARLY_CSTNY_NAME", "Name", "name")),
-}
-
-
-def _ok(v) -> bool:
-    return str(v if v is not None else "").strip() not in ("", "None", "nan")
-
-
-def _canonicalise(path: Path) -> None:
-    """Ensure the canonical name field on a copied ward/AC/PC layer is populated."""
-    if path.name not in _CANON:
-        return
-    canon, cands = _CANON[path.name]
-    data = json.loads(path.read_text())
-    feats = data.get("features", [])
-    if not feats:
-        return
-    src = next((c for c in cands if any(_ok(f["properties"].get(c)) for f in feats)), None)
-    if not src:
-        return
-    changed = False
-    for f in feats:
-        p = f["properties"]
-        if not _ok(p.get(canon)) and _ok(p.get(src)):
-            p[canon] = p[src]
-            changed = True
-    if changed:
-        path.write_text(json.dumps(data))
-
-
-def _copy_layers(city: CityDataset, manifest: LayerManifest, layer_out: Path) -> None:
-    for layer in manifest.layers:
-        shutil.copy2(city.layers_dir / layer.file, layer_out / layer.file)
-        _canonicalise(layer_out / layer.file)
-        if layer.bounds_file:
-            shutil.copy2(city.layers_dir / layer.bounds_file, layer_out / layer.bounds_file)
-    for sidecar in ("jurisdiction_crosswalk.json",):
-        path = city.layers_dir / sidecar
-        if path.exists():
-            shutil.copy2(path, layer_out / sidecar)
+    publish_city_console(city, manifest, FileCityConsolePublicSurface(out), _html)
 
 
 # City readiness is graded because "selectable console" is not the same as

@@ -83,6 +83,35 @@ class PublicSiteLinksTest(unittest.TestCase):
 
         self.assertEqual([], missing)
 
+    def test_primary_buttons_use_action_ink_token(self) -> None:
+        theme = (PUBLIC / "assets" / "theme.css").read_text(encoding="utf-8")
+        atlas = (PUBLIC / "assets" / "atlas-ui.css").read_text(encoding="utf-8")
+
+        self.assertIn("--action-blue:", theme)
+        self.assertIn("--on-action:", theme)
+        self.assertIn("background:var(--action-blue);color:var(--on-action)", atlas)
+        self.assertNotIn("background:var(--blue);color:#0a0c10", atlas)
+
+    def test_theme_defaults_to_browser_device_preference(self) -> None:
+        theme = (PUBLIC / "assets" / "theme.css").read_text(encoding="utf-8")
+        script = (PUBLIC / "assets" / "theme.js").read_text(encoding="utf-8")
+        home = (PUBLIC / "index.html").read_text(encoding="utf-8")
+
+        self.assertIn("@media (prefers-color-scheme: light)", theme)
+        self.assertIn(":root:not([data-theme=dark])", theme)
+        self.assertIn(":root[data-theme=light]", theme)
+        self.assertIn("localStorage.getItem('atlas-theme')", home)
+        self.assertIn("localStorage.setItem(THEME_KEY, theme)", script)
+        self.assertIn("matchMedia('(prefers-color-scheme: light)')", script)
+
+    def test_theme_toggle_uses_delegated_click_and_keyboard_handlers(self) -> None:
+        script = (PUBLIC / "assets" / "theme.js").read_text(encoding="utf-8")
+
+        self.assertIn("closest('#theme')", script)
+        self.assertIn("document.addEventListener('click', toggleFrom)", script)
+        self.assertIn("document.addEventListener('keydown'", script)
+        self.assertNotIn("document.getElementById('theme')", script)
+
     def test_home_starts_with_residence_question_and_game_routes(self) -> None:
         html = (PUBLIC / "index.html").read_text(encoding="utf-8")
 
@@ -91,16 +120,23 @@ class PublicSiteLinksTest(unittest.TestCase):
         self.assertIn('href="whose-city/index.html?city=bengaluru"', html)
         self.assertIn('href="cities/index.html"', html)
 
-    def test_game_asks_local_election_memory_before_maps(self) -> None:
+    def test_game_uses_short_tap_warmup_before_maps(self) -> None:
         html = (PUBLIC / "whose-city" / "index.html").read_text(encoding="utf-8")
+        basics = html[html.index('id="s-basics"') : html.index('id="s-basicsr"')]
 
-        self.assertIn("When was the last local body election here?", html)
-        self.assertIn("Did you vote in it?", html)
-        self.assertIn("What did you vote on?", html)
-        self.assertIn("What should a local vote decide?", html)
+        self.assertIn("Play the power map.", html)
+        self.assertIn("Pick a door. Make a guess.", html)
+        self.assertIn("Last local election", html)
+        self.assertIn("Your street sits inside a ward", html)
+        self.assertIn("Rain night", html)
+        self.assertIn("No idea", html)
+        self.assertIn("Reveal the trap", html)
+        self.assertIn("data-basics-choice", html)
+        self.assertNotIn("<input", basics)
+        self.assertNotIn("<select", basics)
         self.assertLess(
-            html.index("When was the last local body election here?"),
-            html.index("Your ward"),
+            html.index("Play the power map."),
+            html.index("Teach me what my city controls"),
         )
 
     def test_game_frames_political_knowledge_gap_without_shame(self) -> None:
