@@ -929,17 +929,17 @@ SevenT4 already has pieces of this architecture:
 
 - package entry points in `sevent4/`
 - explicit ports in `sevent4.ports.acquisition`, `sevent4.ports.evidence`,
-  `sevent4.ports.finance`, `sevent4.ports.jurisdiction`,
+  `sevent4.ports.city_build`, `sevent4.ports.finance`, `sevent4.ports.jurisdiction`,
   `sevent4.ports.library_access`, `sevent4.ports.metrics`,
   `sevent4.ports.publication`, `sevent4.ports.representatives`, and
   `sevent4.ports.transit`
 - application services in `sevent4.application.acquisition`,
-  `sevent4.application.city_console`,
+  `sevent4.application.city_build`, `sevent4.application.city_console`,
   `sevent4.application.finance`, `sevent4.application.jurisdiction`,
   `sevent4.application.library_access`, `sevent4.application.metrics`,
   `sevent4.application.public_site`, `sevent4.application.representatives`,
   `sevent4.application.transit`, and `sevent4.application.why_air`
-- filesystem adapters for source inventory, city-console, WHY/air evidence, finance pages,
+- filesystem adapters for source inventory, city bootstrap, city-console, WHY/air evidence, finance pages,
   library-access CSV summaries, devolution scorecards, jurisdiction
   crosswalks, ward service-access metrics, Ahmedabad transit-frequency and
   service-access composite overlays, and GTFS route-corridor generation

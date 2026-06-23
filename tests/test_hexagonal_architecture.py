@@ -33,8 +33,10 @@ class HexagonalArchitectureTest(unittest.TestCase):
             "sevent4.ports.publication",
             "sevent4.ports.representatives",
             "sevent4.ports.transit",
+            "sevent4.ports.city_build",
             "sevent4.application.city_console",
             "sevent4.application.acquisition",
+            "sevent4.application.city_build",
             "sevent4.application.finance",
             "sevent4.application.jurisdiction",
             "sevent4.application.library_access",
@@ -51,6 +53,7 @@ class HexagonalArchitectureTest(unittest.TestCase):
             "sevent4.adapters.metrics_filesystem",
             "sevent4.adapters.representatives_filesystem",
             "sevent4.adapters.transit_filesystem",
+            "sevent4.adapters.city_build_filesystem",
         ):
             importlib.import_module(module)
 
@@ -147,6 +150,15 @@ class HexagonalArchitectureTest(unittest.TestCase):
             self.assertNotIn("subprocess", imports, f"{path} should not own representative subprocess IO")
             self.assertIn("sevent4.adapters.representatives_filesystem", imports)
             self.assertIn("sevent4.application.representatives", imports)
+
+    def test_generic_city_build_recipe_uses_city_build_adapter(self) -> None:
+        path = ROOT / "scripts" / "recipes" / "build_city.py"
+        imports = _imports(path)
+
+        self.assertNotIn("json", imports, f"{path} should not own city-build JSON IO")
+        self.assertNotIn("csv", imports, f"{path} should not own councillor CSV IO")
+        self.assertIn("sevent4.adapters.city_build_filesystem", imports)
+        self.assertIn("sevent4.application.city_build", imports)
 
     def test_why_air_application_builds_roster_without_filesystem_writer(self) -> None:
         from sevent4.application.why_air import build_pollution_board_roster
@@ -332,6 +344,7 @@ class HexagonalArchitectureTest(unittest.TestCase):
             "sevent4.application.representatives",
             "sevent4.application.transit",
             "sevent4.ports.acquisition",
+            "sevent4.ports.city_build",
             "sevent4.ports.evidence",
             "sevent4.ports.finance",
             "sevent4.ports.jurisdiction",
@@ -342,6 +355,7 @@ class HexagonalArchitectureTest(unittest.TestCase):
             "sevent4.ports.transit",
             "sevent4.adapters.finance_filesystem",
             "sevent4.adapters.acquisition_filesystem",
+            "sevent4.adapters.city_build_filesystem",
             "sevent4.adapters.filesystem",
             "sevent4.adapters.jurisdiction_geospatial",
             "sevent4.adapters.library_access_filesystem",
