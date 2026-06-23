@@ -1,15 +1,17 @@
 from __future__ import annotations
 
+import csv
 import json
 from pathlib import Path
+from typing import Iterable
 
 import geopandas as gpd
 import pandas as pd
 from shapely.geometry import Point
 
-from sevent4.city_dataset import CityDataset
 from sevent4.application.metrics import OUTPUT_COLUMNS
-from sevent4.ports.metrics import WardServiceAccessInput
+from sevent4.city_dataset import CityDataset
+from sevent4.ports.metrics import ServiceAccessCompositeInput, WardServiceAccessInput, WardTransitFrequencyInput
 
 
 class FileWardServiceAccessInputRepository:
@@ -53,6 +55,61 @@ class CsvWardServiceAccessWriter:
         pd.DataFrame(rows)[OUTPUT_COLUMNS].to_csv(self.path, index=False)
 
 
+class FileWardTransitFrequencyInputRepository:
+    def __init__(
+        self,
+        wards_path: str | Path,
+        gtfs_dir: str | Path,
+        *,
+        buffer_m: float = 2500.0,
+    ) -> None:
+        self.wards_path = Path(wards_path)
+        self.gtfs_dir = Path(gtfs_dir)
+        self.buffer_m = buffer_m
+
+    def load(self) -> WardTransitFrequencyInput:
+        return WardTransitFrequencyInput(
+            wards=_read_json(self.wards_path),
+            gtfs_routes=list(_read_csv(self.gtfs_dir / "routes.txt")),
+            gtfs_trips=list(_read_csv(self.gtfs_dir / "trips.txt")),
+            gtfs_stops=list(_read_csv(self.gtfs_dir / "stops.txt")),
+            gtfs_stop_times=list(_read_csv(self.gtfs_dir / "stop_times.txt")),
+            buffer_m=self.buffer_m,
+        )
+
+
+class GeoJsonWardTransitFrequencyWriter:
+    def __init__(self, wards_path: str | Path) -> None:
+        self.wards_path = Path(wards_path)
+
+    def write_wards(self, document: dict) -> None:
+        self.wards_path.write_text(json.dumps(document, ensure_ascii=False), encoding="utf-8")
+
+
+class FileServiceAccessCompositeInputRepository:
+    def __init__(self, wards_path: str | Path, acs_path: str | Path, crosswalk_path: str | Path) -> None:
+        self.wards_path = Path(wards_path)
+        self.acs_path = Path(acs_path)
+        self.crosswalk_path = Path(crosswalk_path)
+
+    def load(self) -> ServiceAccessCompositeInput:
+        return ServiceAccessCompositeInput(
+            wards=_read_json(self.wards_path),
+            acs=_read_json(self.acs_path),
+            crosswalk_records=_read_json(self.crosswalk_path).get("records", []),
+        )
+
+
+class GeoJsonServiceAccessCompositeWriter:
+    def __init__(self, wards_path: str | Path, acs_path: str | Path) -> None:
+        self.wards_path = Path(wards_path)
+        self.acs_path = Path(acs_path)
+
+    def write_documents(self, wards: dict, acs: dict) -> None:
+        self.wards_path.write_text(json.dumps(wards, ensure_ascii=False), encoding="utf-8")
+        self.acs_path.write_text(json.dumps(acs, ensure_ascii=False), encoding="utf-8")
+
+
 def _points_json(path: Path) -> gpd.GeoDataFrame:
     rows = json.loads(path.read_text()) if path.exists() else []
     return _rows_to_points(rows)
@@ -82,3 +139,12 @@ def _rows_to_points(rows: list[dict]) -> gpd.GeoDataFrame:
 
 def _read_optional(path: Path) -> gpd.GeoDataFrame | None:
     return gpd.read_file(path) if path.exists() else None
+
+
+def _read_json(path: Path) -> dict:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _read_csv(path: Path) -> Iterable[dict[str, str]]:
+    with path.open(newline="", encoding="utf-8-sig") as handle:
+        yield from csv.DictReader(handle)
