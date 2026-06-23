@@ -70,6 +70,7 @@
   function init() {
     var nodes = document.querySelectorAll("[data-masthead]");
     for (var i = 0; i < nodes.length; i++) render(nodes[i]);
+    document.dispatchEvent(new CustomEvent("atlas:mastheadrendered"));
   }
 
   if (document.readyState === "loading") {

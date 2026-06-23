@@ -171,6 +171,9 @@ class FeatureOptionsTest(unittest.TestCase):
         self.assertIn("sw sw-fill", html)
         self.assertIn("sw sw-line", html)
         self.assertIn("sw sw-dot", html)
+        self.assertIn("aria-label='Toggle fill layer'", html)
+        self.assertIn("aria-label='Toggle line layer'", html)
+        self.assertIn("aria-label='Toggle circle layer'", html)
         # collapsible group wrapper, not a flat list
         self.assertIn("class='layerGroup'", html)
         self.assertIn("class='lgh'", html)
@@ -258,6 +261,23 @@ class FeatureOptionsTest(unittest.TestCase):
 
         self.assertIn(":focus-visible", css)
         self.assertIn("outline:3px solid var(--gold)", css)
+
+    def test_city_console_css_uses_touch_sized_controls(self) -> None:
+        css = _css()
+
+        self.assertIn(".lgh{", css)
+        self.assertIn("min-height:44px", css)
+        self.assertIn(".jurisdictionbar select", css)
+        self.assertIn("height:44px;padding:0 8px;width:100%", css)
+        self.assertIn(".search,.fsel{width:100%;min-height:44px", css)
+        self.assertIn(".tog{align-items:center;display:flex;min-height:44px", css)
+        self.assertIn("grid-template-columns:minmax(160px,1fr) minmax(150px,1fr) minmax(150px,1fr) auto 44px", css)
+        self.assertIn(".filterbar .fsel,.filterbar .fbtn2,.filterbar .tbtn{height:44px", css)
+        self.assertIn(".tbtn{", css)
+        self.assertIn("width:44px", css)
+        self.assertIn(".ybtn{", css)
+        self.assertIn("height:44px;min-width:44px", css)
+        self.assertIn(".maplibregl-ctrl-group button{height:44px;width:44px}", css)
 
 
 if __name__ == "__main__":

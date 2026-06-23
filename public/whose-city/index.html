@@ -71,12 +71,14 @@
   .clue h2{font:800 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
   .clue p{color:var(--ink);font-size:15px;line-height:1.38;margin-bottom:12px}
   .chips{display:flex;flex-wrap:wrap;gap:7px}
-  .chip{background:var(--panel2);border:1px solid var(--line);border-radius:999px;color:var(--ink);
-    cursor:pointer;font:800 10px/1 var(--mono);letter-spacing:.08em;padding:9px 11px;text-transform:uppercase}
+  .chip{align-items:center;background:var(--panel2);border:1px solid var(--line);border-radius:999px;color:var(--ink);
+    cursor:pointer;display:inline-flex;font:800 10px/1 var(--mono);justify-content:center;letter-spacing:.08em;
+    min-height:44px;padding:10px 13px;text-transform:uppercase}
   .chip:hover{border-color:var(--blue);color:var(--blue)}
   .chip[aria-pressed=true]{background:var(--action-blue);border-color:var(--action-blue);color:var(--on-action)}
 
   .nav{display:flex;gap:11px;flex-wrap:wrap;align-items:center}
+  .btn{min-height:44px}
   .endcard h2{font-family:var(--serif);font-weight:400;font-size:clamp(25px,5.2vw,33px);line-height:1.2;margin-bottom:16px}
   .endcard h2 b{color:var(--blue);font-weight:400}
   .endcard .body{margin-bottom:26px;max-width:48ch}
