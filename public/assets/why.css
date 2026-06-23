@@ -16,10 +16,10 @@ body{overflow-x:hidden}
 .wrap{max-width:760px;margin:0 auto;padding:0 20px}
 
 /* theme toggle button (mast) */
-.themebtn{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;
+.themebtn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;
   background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--mut);cursor:pointer;padding:0}
 .themebtn:hover{border-color:var(--blue);color:var(--blue)}
-.themebtn svg{width:16px;height:16px;fill:currentColor}
+.themebtn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.2}
 
 section{padding:62px 0;border-bottom:1px solid var(--hair)}
 section:last-of-type{border-bottom:0}
@@ -67,7 +67,7 @@ h1.display{font-size:clamp(34px,8vw,62px);margin-bottom:22px}
 .chap.soon .go{color:var(--mut)}
 
 /* ---- big stat ---- */
-.stat{font-family:var(--serif);font-size:clamp(64px,17vw,116px);line-height:.9;color:var(--red);letter-spacing:-.02em}
+.stat{font-family:var(--serif);font-size:clamp(64px,17vw,116px);line-height:.9;color:var(--red);letter-spacing:0}
 .stat .u{font-size:.26em;color:var(--mut);letter-spacing:0}
 .statcap{font:700 11px/1.5 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mut);margin-top:14px;max-width:44ch}
 .statcap b{color:var(--ink)}
@@ -77,7 +77,7 @@ h1.display{font-size:clamp(34px,8vw,62px);margin-bottom:22px}
 @media (max-width:560px){.duo{grid-template-columns:1fr}}
 .dcell{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:22px 20px}
 .dcell .city{font:800 9px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
-.dcell .dstat{font-family:var(--serif);font-size:clamp(46px,12vw,78px);line-height:.92;color:var(--red);letter-spacing:-.02em;margin:12px 0 4px}
+.dcell .dstat{font-family:var(--serif);font-size:clamp(46px,12vw,78px);line-height:.92;color:var(--red);letter-spacing:0;margin:12px 0 4px}
 .dcell .dstat .u{font-size:.2em;color:var(--mut);letter-spacing:0}
 .dcell .dsub{font:700 10px/1.5 var(--mono);letter-spacing:.03em;text-transform:uppercase;color:var(--mut)}
 .dcell .stack{height:32px;margin-top:16px}
@@ -165,6 +165,7 @@ a.dcell:focus-visible{border-color:var(--blue);transform:translateY(-2px)}
 .cite{font:600 12px/1.55 var(--mono);color:var(--mut);margin-top:16px;max-width:62ch}
 .cite b{color:var(--ink)}
 .endnav{display:flex;gap:11px;flex-wrap:wrap;margin-top:30px}
+.endnav .btn{align-items:center;display:inline-flex;min-height:44px}
 .foot{padding:40px 0 80px;color:var(--mut);font-size:13px;line-height:1.6;max-width:68ch}
 .foot b{color:var(--ink)}
 .src{margin-top:14px;font:600 11px/1.7 var(--mono);color:var(--mut)}

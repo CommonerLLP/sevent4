@@ -44,7 +44,7 @@
 @media (prefers-color-scheme: light){
   :root:not([data-theme=dark]){
     color-scheme:light;
-    --bg:#f3f1ea;--panel:#fff;--panel2:#f6f3ea;--ink:#16181d;--mut:#586071;--line:#d7d1c2;--hair:#e7e2d6;
+    --bg:#f3f1ea;--panel:#fffdf8;--panel2:#f7f4ec;--ink:#16181d;--mut:#586071;--line:#d7d1c2;--hair:#e7e2d6;
     --blue:#22409A;--action-blue:#22409A;--on-action:#fff;--red:#c8102e;--gold:#9a7b14;
     --viz-filled:#d2e1ee;--viz-spend:#e6e0d2;--rcpt2:#2a4fb0;
     --danger-bg:#fbe9ea;--act-tint:#eef6ef;--act-bg:#eef6ef;--act-line:#cfe6d4;
@@ -55,7 +55,7 @@
 /* ---- light palette: applied when the user explicitly forces light -------- */
 :root[data-theme=light]{
   color-scheme:light;
-  --bg:#f3f1ea;--panel:#fff;--panel2:#f6f3ea;--ink:#16181d;--mut:#586071;--line:#d7d1c2;--hair:#e7e2d6;
+  --bg:#f3f1ea;--panel:#fffdf8;--panel2:#f7f4ec;--ink:#16181d;--mut:#586071;--line:#d7d1c2;--hair:#e7e2d6;
   --blue:#22409A;--action-blue:#22409A;--on-action:#fff;--red:#c8102e;--gold:#9a7b14;
   --viz-filled:#d2e1ee;--viz-spend:#e6e0d2;--rcpt2:#2a4fb0;
   --danger-bg:#fbe9ea;--act-tint:#eef6ef;--act-bg:#eef6ef;--act-line:#cfe6d4;

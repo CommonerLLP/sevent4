@@ -9,16 +9,45 @@
 (function () {
   var root = document.documentElement;
   var THEME_KEY = 'atlas-theme';
+  var ICONS = {
+    dark: '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3a6.5 6.5 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>',
+    light: '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 4.5v-2M12 21.5v-2M4.5 12h-2M21.5 12h-2M5.6 5.6 4.2 4.2M19.8 19.8l-1.4-1.4M18.4 5.6l1.4-1.4M4.2 19.8l1.4-1.4"/><circle cx="12" cy="12" r="4.5"/></svg>'
+  };
 
-  function effective() {
-    if (root.dataset.theme) return root.dataset.theme;
+  function systemTheme() {
     return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
   }
 
-  function apply(theme) {
+  function effective() {
+    return root.dataset.theme || systemTheme();
+  }
+
+  function hasSavedTheme() {
+    try { return !!localStorage.getItem(THEME_KEY); } catch (e) { return false; }
+  }
+
+  function syncControls() {
+    var theme = effective();
+    var next = theme === 'dark' ? 'light' : 'dark';
+    document.querySelectorAll('#theme').forEach(function (btn) {
+      btn.innerHTML = ICONS[next];
+      btn.setAttribute('aria-label', 'Switch to ' + next + ' theme');
+      btn.setAttribute('title', 'Switch to ' + next + ' theme');
+      btn.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+    });
+  }
+
+  function setTheme(theme, persist) {
     root.dataset.theme = theme;
-    try { localStorage.setItem(THEME_KEY, theme); } catch (e) {}
+    if (persist) {
+      try { localStorage.setItem(THEME_KEY, theme); } catch (e) {}
+    }
+    syncControls();
     document.dispatchEvent(new CustomEvent('atlas:themechange', { detail: { theme: theme } }));
+  }
+
+  function apply(theme) {
+    setTheme(theme, true);
   }
 
   function toggleFrom(event) {
@@ -29,6 +58,10 @@
   }
 
   function wire() {
+    if (!root.dataset.theme) setTheme(systemTheme(), false);
+    syncControls();
+    document.addEventListener('DOMContentLoaded', syncControls);
+    document.addEventListener('atlas:mastheadrendered', syncControls);
     document.addEventListener('click', toggleFrom);
     document.addEventListener('keydown', function (event) {
       if (event.key !== 'Enter' && event.key !== ' ') return;
@@ -37,6 +70,11 @@
       event.preventDefault();
       apply(effective() === 'dark' ? 'light' : 'dark');
     });
+    if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', function () {
+        if (!hasSavedTheme()) setTheme(systemTheme(), false);
+      });
+    }
   }
 
   if (document.readyState === 'loading') {

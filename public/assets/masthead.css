@@ -16,14 +16,14 @@
 .mh-nav{display:flex}
 .mh-nav a{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;
   font:800 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;
-  background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--mut)}
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--mut);min-height:44px}
 .mh-nav a:not(.is-active):hover{border-color:var(--blue);color:var(--blue)}
 .mh-nav a:focus-visible,.mh-brand:focus-visible,.mh-theme:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 .mh-nav a.is-active{background:var(--ink);border-color:var(--ink);color:var(--bg)}
-.mh-theme{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;flex:0 0 auto;
+.mh-theme{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;flex:0 0 auto;
   background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--mut);cursor:pointer;padding:0}
 .mh-theme:hover{border-color:var(--blue);color:var(--blue)}
-.mh-theme svg{width:16px;height:16px;fill:currentColor}
+.mh-theme svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.2}
 
 /* ---- bar: sticky top chrome for editorial pages ---- */
 .mh--bar{display:flex;align-items:center;justify-content:space-between;gap:14px;
