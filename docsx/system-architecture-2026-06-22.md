@@ -56,6 +56,7 @@ Implemented package boundaries:
 - `sevent4.domain.evidence`
 - `sevent4.domain.pollution`
 - `sevent4.ports.acquisition`
+- `sevent4.ports.city_build`
 - `sevent4.ports.evidence`
 - `sevent4.ports.finance`
 - `sevent4.ports.jurisdiction`
@@ -66,6 +67,7 @@ Implemented package boundaries:
 - `sevent4.ports.transit`
 - `sevent4.application.city_console`
 - `sevent4.application.acquisition`
+- `sevent4.application.city_build`
 - `sevent4.application.finance`
 - `sevent4.application.jurisdiction`
 - `sevent4.application.library_access`
@@ -75,6 +77,7 @@ Implemented package boundaries:
 - `sevent4.application.representatives`
 - `sevent4.application.transit`
 - `sevent4.adapters.acquisition_filesystem`
+- `sevent4.adapters.city_build_filesystem`
 - `sevent4.adapters.finance_filesystem`
 - `sevent4.adapters.filesystem`
 - `sevent4.adapters.jurisdiction_geospatial`
@@ -150,6 +153,11 @@ Compatibility surfaces remain:
   manifest row shaping, Gujarati councillor text parsing, validation, officer
   records, and ward-layer representative fields; the filesystem adapter owns
   document download, `pdftotext`, CSV/JSON writes, and ward GeoJSON reads/writes.
+- `scripts/recipes/build_city.py` is now a thin CLI adapter over the city-build
+  application service. The application layer owns ward/AC/PC normalization,
+  councillor merging, city metadata shaping, governance JSON shaping, and layer
+  manifest construction; the filesystem adapter owns source GeoJSON/CSV/JSON
+  reads plus generated layer, manifest, governance, and `city.yaml` writes.
 - `sevent4.transit.gtfs_corridors` is now a thin CLI adapter over the transit
   application service. The filesystem adapter loads GTFS CSV tables before the
   application builds route-corridor GeoJSON.
