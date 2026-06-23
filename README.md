@@ -8,9 +8,6 @@ until no one is answerable; this makes the first accountability question easy to
 ask: **whose jurisdiction is this, and why isn't it the city's?**
 (The full frame: [why this atlas exists](docsx/governance-frame.md).)
 
-> **Private repo.** The atlas is a static bundle in `public/`, served locally —
-> there is no live public site.
-
 ## What's in it
 
 - **14 city consoles** (`/cities/<city>/`) — ward, Assembly- and
@@ -75,6 +72,8 @@ public/         the built static atlas (consoles + reading layer + assets)
 
 - [Why this atlas exists](docsx/governance-frame.md) — Part IXA, the
   fragmentation problem, finance, what the console shows
+- [System architecture](docsx/system-architecture-2026-06-22.md) — current
+  ports/adapters boundaries, shared-infra rules, and browser smoke gate
 - [City data contract](docsx/city-data-contract.md) — `city.yaml`, layer
   manifest, the jurisdiction crosswalk, add-a-city, entry points
 - [Data recipes](docsx/data-recipes.md) — rebuilding the Ahmedabad seed
