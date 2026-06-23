@@ -21,12 +21,15 @@ import re
 import subprocess
 import sys
 import time
-from dataclasses import asdict, dataclass
+from dataclasses import asdict
 from datetime import datetime
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
 from urllib.parse import quote, urljoin, urlparse, urlsplit, urlunsplit
+
+from sevent4.application.acquisition import build_document_manifest, build_runlog_record
+from sevent4.ports.acquisition import SourceDocument as BudgetDocument
 
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -74,19 +77,6 @@ MCD_BUDGET_RE = re.compile(
     r"\b(budget|estimate|estimates|grant|grants|receipt|receipts|rbe|be|income|expenditure)\b",
     re.I,
 )
-
-
-@dataclass(frozen=True)
-class BudgetDocument:
-    government: str
-    document_type: str
-    fiscal_year: str | None
-    title: str
-    url: str
-    source_page: str
-    local_path: str | None = None
-    sha256: str | None = None
-    status: str = "discovered"
 
 
 class _AnchorParser(HTMLParser):
@@ -682,39 +672,34 @@ def sha256_file(path: Path) -> str:
 
 
 def write_manifest(path: Path, docs: list[BudgetDocument], scope: str) -> None:
-    payload = {
-        "generated_at": datetime.now().isoformat(timespec="seconds"),
-        "scope": scope,
-        "sources": {
+    payload = build_document_manifest(
+        docs,
+        generated_at=datetime.now().isoformat(timespec="seconds"),
+        scope=scope,
+        sources={
             "gnctd_finance_pages": GNCTD_PAGES,
             "gnctd_detailed_demands_index": DETAILED_DEMANDS_INDEX,
             "legacy_delhi_budget_urls": LEGACY_DELHI_BUDGET_URLS,
             "mcd_seed_urls": MCD_SEED_URLS,
         },
-        "documents": [asdict(doc) for doc in docs],
-    }
+    )
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
 def append_runlog(path: Path, *, scope: str, docs: list[BudgetDocument], started_at: str) -> None:
-    statuses: dict[str, int] = {}
-    for doc in docs:
-        statuses[doc.status] = statuses.get(doc.status, 0) + 1
-    record = {
-        "run_id": hashlib.sha256(f"{started_at}:{scope}:{len(docs)}".encode()).hexdigest()[:16],
-        "tool": TOOL_NAME,
-        "scope": scope,
-        "started_at": started_at,
-        "ended_at": datetime.now().isoformat(timespec="seconds"),
-        "documents": len(docs),
-        "statuses": statuses,
-        "sources": {
+    record = build_runlog_record(
+        docs,
+        tool=TOOL_NAME,
+        scope=scope,
+        started_at=started_at,
+        ended_at=datetime.now().isoformat(timespec="seconds"),
+        sources={
             "gnctd_finance_pages": list(GNCTD_PAGES.values()) if scope in {"gnctd", "all"} else [],
             "legacy_delhi_budget_urls": LEGACY_DELHI_BUDGET_URLS if scope in {"legacy", "all"} else [],
             "mcd_seed_urls": MCD_SEED_URLS if scope in {"mcd", "all"} else [],
         },
-    }
+    )
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("a", encoding="utf-8") as handle:
         handle.write(json.dumps(record, ensure_ascii=False) + "\n")

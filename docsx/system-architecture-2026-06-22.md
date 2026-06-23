@@ -61,11 +61,13 @@ Implemented package boundaries:
 - `sevent4.ports.publication`
 - `sevent4.ports.transit`
 - `sevent4.application.city_console`
+- `sevent4.application.acquisition`
 - `sevent4.application.finance`
 - `sevent4.application.metrics`
 - `sevent4.application.why_air`
 - `sevent4.application.public_site`
 - `sevent4.application.transit`
+- `sevent4.adapters.acquisition_filesystem`
 - `sevent4.adapters.finance_filesystem`
 - `sevent4.adapters.filesystem`
 - `sevent4.adapters.metrics_filesystem`
@@ -75,6 +77,30 @@ Compatibility surfaces remain:
 
 - `sevent4.contracts` re-exports the evidence contracts and filesystem helpers
   for existing tests and pages.
+- `scripts/recipes/delhi/build_atlas_source_inventory.py` is now a thin CLI
+  adapter over the acquisition application service. The filesystem adapter
+  reads the OpenCity catalogue JSON and writes inventory CSVs plus the manifest,
+  while the application service owns city filtering, axis classification,
+  shortlisting, and row shaping.
+- `scripts/recipes/scope_opencity_for_atlas.py` is now a thin CLI adapter over
+  the acquisition application service. The application layer owns OpenCity
+  atlas-axis classification, representative-cut geometry detection, structured
+  resource ranking, and markdown note construction.
+- `scripts/recipes/delhi/acquire_finance.py` still owns live curl/download
+  behavior, but finance document manifest and run-log record shaping now route
+  through the acquisition application service and shared acquisition document
+  record.
+- `scripts/recipes/libraries/source_archive.py` still owns curl, PDF text
+  extraction, OCR invocation, and archive-file I/O. Shared acquisition
+  application code now owns Google Drive download URL normalization, sparse-text
+  OCR detection, and DPL staffing-row parsing.
+- `scripts/research/run_dpl_parliament_probe.py` still owns commoner-probe
+  loading and probe execution. Shared acquisition application code now owns the
+  DPL parliament-topic filter and Sansad session-range parsing.
+- `scripts/recipes/ahmedabad/extract_mj_library.py` still owns site-content
+  fetching, PDF text export, location-file reads, and network JSON writes.
+  Shared acquisition application code now owns M.J. Library PDF classification
+  and disclosure-year parsing.
 - The city-console CLI now loads `city.yaml` and `layer_manifest.json` through
   a filesystem input adapter and publishes through a public-surface adapter; the
   application service depends on the `sevent4.ports.publication` contracts.

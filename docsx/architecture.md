@@ -931,12 +931,21 @@ SevenT4 already has pieces of this architecture:
 - explicit ports in `sevent4.ports.acquisition`, `sevent4.ports.evidence`,
   `sevent4.ports.finance`, `sevent4.ports.metrics`, and
   `sevent4.ports.publication`, and `sevent4.ports.transit`
-- application services in `sevent4.application.city_console`,
+- application services in `sevent4.application.acquisition`,
+  `sevent4.application.city_console`,
   `sevent4.application.finance`, `sevent4.application.metrics`,
   `sevent4.application.public_site`, `sevent4.application.transit`, and
   `sevent4.application.why_air`
-- filesystem adapters for city-console, WHY/air evidence, finance pages, and
-  ward service-access metrics, plus GTFS route-corridor generation
+- filesystem adapters for source inventory, city-console, WHY/air evidence, finance pages,
+  and ward service-access metrics, plus GTFS route-corridor generation
+- acquisition application logic for OpenCity source-inventory rows, OpenCity
+  atlas scoping markdown, and Delhi finance document manifest/run-log records
+- source-archive application logic for source URL normalization, sparse-text OCR
+  detection, and DPL staffing extraction from archived report text
+- DPL parliament-probe application logic for topic filtering and session-range
+  parsing, with commoner-probe execution kept in the script adapter
+- M.J. Library source-classification application logic for official PDF category
+  and disclosure-year parsing, with fetching/exporting kept in the recipe adapter
 - city data contracts in `docsx/`
 - source policy in `docsx/source-policy-and-readiness.md`
 - generated public JSON for several surfaces

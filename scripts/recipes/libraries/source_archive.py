@@ -7,38 +7,18 @@ import shutil
 import subprocess
 from pathlib import Path
 
+from sevent4.application.acquisition import (
+    STAFFING_FIELDS,
+    google_drive_download_url,
+    parse_dpl_staffing_text,
+    text_needs_ocr,
+    vacancy_rate,
+)
 from scripts.recipes.library_networks import pdf_pages, run_pdftotext, sha256
 
 
-STAFFING_FIELDS = [
-    "year",
-    "source_url",
-    "archive_pdf_path",
-    "total_posts_sanctioned",
-    "total_posts_filled",
-    "total_posts_vacant",
-    "professional_posts_sanctioned",
-    "ministerial_posts_sanctioned",
-    "professional_posts_filled",
-    "ministerial_posts_filled",
-    "professional_posts_vacant",
-    "ministerial_posts_vacant",
-    "vacancy_rate_pct",
-    "extraction_status",
-    "notes",
-]
-
-
 def drive_download_url(url: str) -> str:
-    match = re.search(r"drive\.google\.com/file/d/([^/]+)/", url)
-    if not match:
-        return url
-    return f"https://drive.google.com/uc?export=download&id={match.group(1)}"
-
-
-def text_needs_ocr(text: str, *, min_chars: int = 2000) -> bool:
-    alpha_num = re.findall(r"[A-Za-z0-9]", text)
-    return len(alpha_num) < min_chars
+    return google_drive_download_url(url)
 
 
 def fetch_with_curl(url: str, output_path: Path, *, timeout_seconds: int = 90) -> None:
@@ -138,84 +118,6 @@ def archive_source_pdf(
         "extraction_method": extraction_method,
         "extraction_note": extraction_note(extraction_method),
     }
-
-
-def parse_dpl_staffing_text(year: str, text: str) -> dict[str, str]:
-    collapsed = " ".join(text.replace("\xa0", " ").split())
-    row = empty_staffing_row(year)
-
-    table_match = re.search(
-        r"Total Posts Sanctioned\s*:\s*(\d+)\s+Filled\s*up(?:\s+Post)?\s*:\s*(\d+)\s+Vacant\s*Post\s*:\s*(\d+)(.{0,260})",
-        collapsed,
-        flags=re.I,
-    )
-    if table_match:
-        sanctioned, filled, vacant, tail = table_match.groups()
-        row.update(
-            {
-                "total_posts_sanctioned": sanctioned,
-                "total_posts_filled": filled,
-                "total_posts_vacant": vacant,
-                "vacancy_rate_pct": vacancy_rate(sanctioned, vacant),
-                "extraction_status": "observed_total_only",
-                "notes": "Annual report staffing table parsed from text.",
-            }
-        )
-        numbers = re.findall(r"\b\d+\b", tail)
-        if len(numbers) >= 6:
-            row.update(
-                {
-                    "professional_posts_sanctioned": numbers[0],
-                    "ministerial_posts_sanctioned": numbers[1],
-                    "professional_posts_filled": numbers[2],
-                    "ministerial_posts_filled": numbers[3],
-                    "professional_posts_vacant": numbers[4],
-                    "ministerial_posts_vacant": numbers[5],
-                    "extraction_status": "observed_split",
-                }
-            )
-        elif len(numbers) >= 2:
-            row.update(
-                {
-                    "professional_posts_sanctioned": numbers[0],
-                    "ministerial_posts_sanctioned": numbers[1],
-                }
-            )
-        return row
-
-    prose_match = re.search(
-        r"sanctioned staff strength of\s+(\d+)\s+comprising of\s+(\d+)\s+professionals?\s+and\s+(\d+)\s+Non-Professionals?,\s+out of which\s+(\d+)\s+posts?\s+are\s+lying\s+vacant",
-        collapsed,
-        flags=re.I,
-    )
-    if prose_match:
-        sanctioned, professional, ministerial, vacant = prose_match.groups()
-        filled = str(int(sanctioned) - int(vacant))
-        row.update(
-            {
-                "total_posts_sanctioned": sanctioned,
-                "total_posts_filled": filled,
-                "total_posts_vacant": vacant,
-                "professional_posts_sanctioned": professional,
-                "ministerial_posts_sanctioned": ministerial,
-                "vacancy_rate_pct": vacancy_rate(sanctioned, vacant),
-                "extraction_status": "observed_total_only",
-                "notes": "Annual report prose staffing paragraph parsed from text.",
-            }
-        )
-        return row
-
-    row["extraction_status"] = "not_found"
-    row["notes"] = "No comparable staffing table found in extracted text; OCR/manual review may be required."
-    return row
-
-
-def empty_staffing_row(year: str) -> dict[str, str]:
-    return {field: "" for field in STAFFING_FIELDS} | {"year": year}
-
-
-def vacancy_rate(sanctioned: str, vacant: str) -> str:
-    return f"{int(vacant) / int(sanctioned) * 100:.1f}"
 
 
 def safe_slug(value: str) -> str:
