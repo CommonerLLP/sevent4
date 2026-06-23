@@ -12,6 +12,7 @@ from sevent4.domain.evidence import (
     evidence_bundle_from_dict,
     validate_claim_ids,
 )
+from sevent4.domain.pollution import PollutionBoardCapacityRecord
 
 
 class _LinkParser(html.parser.HTMLParser):
@@ -80,12 +81,13 @@ class FilePollutionBoardCapacityRepository:
     def __init__(self, cities_dir: str | Path) -> None:
         self.cities_dir = Path(cities_dir)
 
-    def list_capacity_records(self) -> Mapping[str, Mapping[str, Any]]:
-        records: dict[str, Mapping[str, Any]] = {}
+    def list_capacity_records(self) -> tuple[PollutionBoardCapacityRecord, ...]:
+        records: list[PollutionBoardCapacityRecord] = []
         for capacity_path in sorted(self.cities_dir.glob("*/source/pollution/capacity.json")):
             city = capacity_path.relative_to(self.cities_dir).parts[0]
-            records[city] = json.loads(capacity_path.read_text(encoding="utf-8"))
-        return records
+            data = json.loads(capacity_path.read_text(encoding="utf-8"))
+            records.append(PollutionBoardCapacityRecord.from_dict(city, data))
+        return tuple(records)
 
 
 class JsonFilePublicSurfaceWriter:

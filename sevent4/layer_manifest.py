@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-from .city_dataset import CityDataset
+from .city_dataset import CityDataset, _absolute_path
 
 VALID_KINDS = {"fill", "line", "circle", "image"}
 
@@ -38,7 +38,7 @@ class LayerManifest:
 
     @classmethod
     def from_json(cls, path: str | Path, city: CityDataset) -> "LayerManifest":
-        manifest_path = Path(path).resolve()
+        manifest_path = _absolute_path(path)
         data = json.loads(manifest_path.read_text())
         specs = tuple(_layer_spec(item) for item in data.get("layers", []))
         manifest = cls(path=manifest_path, layers=specs)
