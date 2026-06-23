@@ -272,6 +272,7 @@ Adapters implement ports for concrete technologies or source quirks:
 - `SansadAdapter`
 - `LocalJsonFactStore`
 - `StaticPwaRenderer`
+- `PlaywrightCliSmokeRunner`
 - `BraveBrowserQaAdapter`
 - `GitHubPullRequestAdapter`
 
@@ -459,7 +460,10 @@ The PWA must support:
 - accessible, responsive layouts
 - dark and light modes
 - printable/shareable public action views
-- browser QA for every public surface that changes
+- browser QA for every public surface that changes. The checked-in smoke gate is
+  `sevent4.qa.browser_smoke`, which serves the static bundle locally and uses
+  the Playwright CLI against `/index.html`, `/public/index.html`, and the
+  Ahmedabad console route.
 
 Public surfaces are adapters over the fact and claim layer:
 
@@ -924,10 +928,19 @@ Do not:
 SevenT4 already has pieces of this architecture:
 
 - package entry points in `sevent4/`
+- explicit ports in `sevent4.ports.acquisition`, `sevent4.ports.evidence`,
+  `sevent4.ports.finance`, `sevent4.ports.metrics`, and
+  `sevent4.ports.publication`
+- application services in `sevent4.application.city_console`,
+  `sevent4.application.finance`, `sevent4.application.metrics`,
+  `sevent4.application.public_site`, and `sevent4.application.why_air`
+- filesystem adapters for city-console, WHY/air evidence, finance pages, and
+  ward service-access metrics
 - city data contracts in `docsx/`
 - source policy in `docsx/source-policy-and-readiness.md`
 - generated public JSON for several surfaces
-- tests over city readiness, pollution capacity, finance parsing, and hygiene
+- tests over city readiness, pollution capacity, finance parsing, metrics
+  boundaries, browser smoke, docs sync, and hygiene
 - a PWA manifest
 - shared theme and masthead assets
 
