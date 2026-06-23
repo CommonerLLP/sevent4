@@ -213,6 +213,13 @@ class PublicSiteLinksTest(unittest.TestCase):
         self.assertIn(".hero{padding-block:52px 34px}", html)
         self.assertNotIn(".hero{padding:52px 0 34px}", html)
 
+    def test_root_index_enters_public_home_not_city_console(self) -> None:
+        html = Path("index.html").read_text(encoding="utf-8")
+
+        self.assertIn("url=public/index.html", html)
+        self.assertIn('href="public/index.html"', html)
+        self.assertNotIn("public/cities/ahmedabad", html)
+
     def test_game_uses_short_tap_warmup_before_maps(self) -> None:
         html = (PUBLIC / "whose-city" / "index.html").read_text(encoding="utf-8")
         basics = html[html.index('id="s-basics"') : html.index('id="s-basicsr"')]
