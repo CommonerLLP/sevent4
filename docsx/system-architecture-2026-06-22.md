@@ -58,6 +58,7 @@ Implemented package boundaries:
 - `sevent4.ports.acquisition`
 - `sevent4.ports.evidence`
 - `sevent4.ports.finance`
+- `sevent4.ports.jurisdiction`
 - `sevent4.ports.library_access`
 - `sevent4.ports.metrics`
 - `sevent4.ports.publication`
@@ -65,6 +66,7 @@ Implemented package boundaries:
 - `sevent4.application.city_console`
 - `sevent4.application.acquisition`
 - `sevent4.application.finance`
+- `sevent4.application.jurisdiction`
 - `sevent4.application.library_access`
 - `sevent4.application.metrics`
 - `sevent4.application.why_air`
@@ -73,6 +75,7 @@ Implemented package boundaries:
 - `sevent4.adapters.acquisition_filesystem`
 - `sevent4.adapters.finance_filesystem`
 - `sevent4.adapters.filesystem`
+- `sevent4.adapters.jurisdiction_geospatial`
 - `sevent4.adapters.library_access_filesystem`
 - `sevent4.adapters.metrics_filesystem`
 - `sevent4.adapters.transit_filesystem`
@@ -115,6 +118,12 @@ Compatibility surfaces remain:
   service-provider scoring, registry alignment, preserved special-case rows,
   and governance-update shaping; the filesystem adapter owns service-map,
   registry, scorecard, and governance JSON I/O.
+- Jurisdiction crosswalk recipes are now thin CLI adapters over the jurisdiction
+  application service. The application layer owns crosswalk document shaping,
+  field cleaning, sort order, thresholds, and summary counts; the geospatial
+  adapter owns GeoPandas/YAML reads, spatial joins/intersections, and JSON
+  writes for both generic representative-point crosswalks and Ahmedabad overlap
+  crosswalks.
 - The city-console CLI now loads `city.yaml` and `layer_manifest.json` through
   a filesystem input adapter and publishes through a public-surface adapter; the
   application service depends on the `sevent4.ports.publication` contracts.

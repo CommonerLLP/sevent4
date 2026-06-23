@@ -27,6 +27,7 @@ class HexagonalArchitectureTest(unittest.TestCase):
             "sevent4.ports.acquisition",
             "sevent4.ports.evidence",
             "sevent4.ports.finance",
+            "sevent4.ports.jurisdiction",
             "sevent4.ports.library_access",
             "sevent4.ports.metrics",
             "sevent4.ports.publication",
@@ -34,12 +35,14 @@ class HexagonalArchitectureTest(unittest.TestCase):
             "sevent4.application.city_console",
             "sevent4.application.acquisition",
             "sevent4.application.finance",
+            "sevent4.application.jurisdiction",
             "sevent4.application.library_access",
             "sevent4.application.metrics",
             "sevent4.application.public_site",
             "sevent4.application.transit",
             "sevent4.application.why_air",
             "sevent4.adapters.finance_filesystem",
+            "sevent4.adapters.jurisdiction_geospatial",
             "sevent4.adapters.library_access_filesystem",
             "sevent4.adapters.acquisition_filesystem",
             "sevent4.adapters.filesystem",
@@ -107,6 +110,17 @@ class HexagonalArchitectureTest(unittest.TestCase):
         self.assertNotIn("json", imports, f"{path} should not own scorecard JSON IO")
         self.assertIn("sevent4.adapters.filesystem", imports)
         self.assertIn("sevent4.application.public_site", imports)
+
+    def test_jurisdiction_crosswalk_recipes_use_geospatial_adapter(self) -> None:
+        for path in (
+            ROOT / "scripts" / "recipes" / "build_jurisdiction_crosswalk.py",
+            ROOT / "scripts" / "recipes" / "ahmedabad" / "build_jurisdiction_crosswalk.py",
+        ):
+            imports = _imports(path)
+            self.assertNotIn("json", imports, f"{path} should not own crosswalk JSON IO")
+            self.assertNotIn("geopandas", imports, f"{path} should not own geospatial joins")
+            self.assertIn("sevent4.adapters.jurisdiction_geospatial", imports)
+            self.assertIn("sevent4.application.jurisdiction", imports)
 
     def test_why_air_application_builds_roster_without_filesystem_writer(self) -> None:
         from sevent4.application.why_air import build_pollution_board_roster
@@ -285,6 +299,7 @@ class HexagonalArchitectureTest(unittest.TestCase):
             "sevent4.application.city_console",
             "sevent4.application.acquisition",
             "sevent4.application.finance",
+            "sevent4.application.jurisdiction",
             "sevent4.application.library_access",
             "sevent4.application.metrics",
             "sevent4.application.public_site",
@@ -292,6 +307,7 @@ class HexagonalArchitectureTest(unittest.TestCase):
             "sevent4.ports.acquisition",
             "sevent4.ports.evidence",
             "sevent4.ports.finance",
+            "sevent4.ports.jurisdiction",
             "sevent4.ports.library_access",
             "sevent4.ports.metrics",
             "sevent4.ports.publication",
@@ -299,6 +315,7 @@ class HexagonalArchitectureTest(unittest.TestCase):
             "sevent4.adapters.finance_filesystem",
             "sevent4.adapters.acquisition_filesystem",
             "sevent4.adapters.filesystem",
+            "sevent4.adapters.jurisdiction_geospatial",
             "sevent4.adapters.library_access_filesystem",
             "sevent4.adapters.metrics_filesystem",
             "sevent4.adapters.transit_filesystem",
