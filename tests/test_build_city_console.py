@@ -248,13 +248,15 @@ class FeatureOptionsTest(unittest.TestCase):
         self.assertNotIn('"line-color": "var(--ink)"', script)
 
     def test_city_console_renders_static_macro_links(self) -> None:
-        html = _macro_links("../../")
+        html = _macro_links("../../", (("Finance", "finance/index.html"), ("Money", "money/index.html")))
 
         self.assertIn('href="../../index.html"', html)
         self.assertIn('href="../../cities/index.html"', html)
         self.assertIn('href="../../why/index.html"', html)
         self.assertIn('href="../../findings/index.html"', html)
         self.assertIn('href="../../about/index.html"', html)
+        self.assertIn('href="finance/index.html"', html)
+        self.assertIn('href="money/index.html"', html)
 
     def test_city_console_css_has_visible_keyboard_focus(self) -> None:
         css = _css()
@@ -278,6 +280,13 @@ class FeatureOptionsTest(unittest.TestCase):
         self.assertIn(".ybtn{", css)
         self.assertIn("height:44px;min-width:44px", css)
         self.assertIn(".maplibregl-ctrl-group button{height:44px;width:44px}", css)
+
+    def test_mobile_filterbar_gives_parliamentary_selector_full_width(self) -> None:
+        css = _css()
+
+        self.assertIn("@media(max-width:760px)", css)
+        self.assertIn("grid-template-columns:minmax(0,1fr) minmax(0,1fr)", css)
+        self.assertIn(".filterbar #pcsel{grid-column:1/-1}", css)
 
 
 if __name__ == "__main__":

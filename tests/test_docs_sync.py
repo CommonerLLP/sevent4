@@ -20,6 +20,7 @@ class DocsSyncTest(unittest.TestCase):
         pyproject = (ROOT / "pyproject.toml").read_text(encoding="utf-8")
 
         self.assertIn(".venv/bin/python -m sevent4.qa.browser_smoke", readme)
+        self.assertIn("mobile, tablet, and desktop viewports", readme)
         self.assertIn('sevent4-browser-smoke = "sevent4.qa.browser_smoke:main"', pyproject)
 
     def test_readme_links_current_architecture_snapshot(self) -> None:

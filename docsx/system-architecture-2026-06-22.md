@@ -119,7 +119,8 @@ Compatibility surfaces remain:
   application builds route-corridor GeoJSON.
 - `sevent4.qa.browser_smoke` is the browser-smoke QA adapter. It serves the
   checked-in static bundle locally and uses the Playwright CLI to screenshot
-  `/index.html`, `/public/index.html`, and the Ahmedabad console route.
+  `/index.html`, `/public/index.html`, and the Ahmedabad console route across
+  mobile, tablet, and desktop viewports.
 
 ## Public Education Surface
 

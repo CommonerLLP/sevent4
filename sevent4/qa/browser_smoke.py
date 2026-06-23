@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+from dataclasses import dataclass
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -15,6 +16,20 @@ SMOKE_PATHS = (
     "/index.html",
     "/public/index.html",
     "/public/cities/ahmedabad/index.html",
+)
+
+
+@dataclass(frozen=True)
+class SmokeViewport:
+    label: str
+    width: int
+    height: int
+
+
+SMOKE_VIEWPORTS = (
+    SmokeViewport("mobile", 390, 844),
+    SmokeViewport("tablet", 768, 1024),
+    SmokeViewport("desktop", 1366, 900),
 )
 
 
@@ -62,15 +77,17 @@ def run_smoke(root: Path, playwright: Path, out_dir: Path, *, verbose_server: bo
     base_url = f"http://{host}:{port}"
 
     try:
-        for path in SMOKE_PATHS:
-            command = [
-                str(playwright),
-                "screenshot",
-                "--full-page",
-                f"{base_url}{path}",
-                str(out_dir / screenshot_path(path)),
-            ]
-            subprocess.run(command, check=True)
+        for viewport in SMOKE_VIEWPORTS:
+            for path in SMOKE_PATHS:
+                subprocess.run(
+                    build_screenshot_command(
+                        playwright,
+                        f"{base_url}{path}",
+                        out_dir / screenshot_path(path, viewport.label),
+                        viewport,
+                    ),
+                    check=True,
+                )
     finally:
         server.shutdown()
         server.server_close()
@@ -86,7 +103,10 @@ def run_smoke(root: Path, playwright: Path, out_dir: Path, *, verbose_server: bo
         for failure in failures:
             print(f"  {failure}", file=sys.stderr)
         return 1
-    print(f"browser smoke OK: {len(SMOKE_PATHS)} routes, screenshots in {out_dir}")
+    print(
+        f"browser smoke OK: {len(SMOKE_PATHS)} routes x {len(SMOKE_VIEWPORTS)} viewports, "
+        f"screenshots in {out_dir}"
+    )
     return 0
 
 
@@ -94,8 +114,19 @@ def is_ignored_request(path: str) -> bool:
     return path.split("?", 1)[0] == "/favicon.ico"
 
 
-def screenshot_path(route: str) -> str:
-    return route.strip("/").replace("/", "-") + ".png"
+def build_screenshot_command(playwright: Path, url: str, screenshot: Path, viewport: SmokeViewport) -> list[str]:
+    return [
+        str(playwright),
+        "screenshot",
+        "--full-page",
+        f"--viewport-size={viewport.width},{viewport.height}",
+        url,
+        str(screenshot),
+    ]
+
+
+def screenshot_path(route: str, viewport_label: str) -> str:
+    return f"{viewport_label}-{route.strip('/').replace('/', '-')}.png"
 
 
 class _screenshot_dir:

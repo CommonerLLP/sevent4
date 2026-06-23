@@ -463,7 +463,7 @@ The PWA must support:
 - browser QA for every public surface that changes. The checked-in smoke gate is
   `sevent4.qa.browser_smoke`, which serves the static bundle locally and uses
   the Playwright CLI against `/index.html`, `/public/index.html`, and the
-  Ahmedabad console route.
+  Ahmedabad console route across mobile, tablet, and desktop viewports.
 
 Public surfaces are adapters over the fact and claim layer:
 
