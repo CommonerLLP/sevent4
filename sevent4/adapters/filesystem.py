@@ -13,6 +13,9 @@ from sevent4.domain.evidence import (
     validate_claim_ids,
 )
 from sevent4.domain.pollution import PollutionBoardCapacityRecord
+from sevent4.city_dataset import CityDataset
+from sevent4.layer_manifest import LayerManifest
+from sevent4.ports.publication import CityConsoleCity, CityConsoleInput, CityConsoleManifest
 
 
 class _LinkParser(html.parser.HTMLParser):
@@ -41,6 +44,17 @@ class PublicSiteFileRepository:
         return parser.links
 
 
+class FileCityConsoleInputRepository:
+    def __init__(self, city_config: str | Path, layer_manifest: str | Path) -> None:
+        self.city_config = Path(city_config)
+        self.layer_manifest = Path(layer_manifest)
+
+    def load(self) -> CityConsoleInput:
+        city = CityDataset.from_yaml(self.city_config)
+        manifest = LayerManifest.from_json(self.layer_manifest, city)
+        return CityConsoleInput(city=city, manifest=manifest)
+
+
 class FileCityConsolePublicSurface:
     def __init__(self, out: str | Path) -> None:
         self.out = Path(out).resolve()
@@ -53,7 +67,7 @@ class FileCityConsolePublicSurface:
         self.output_dir.mkdir(parents=True, exist_ok=True)
         (self.output_dir / "layers").mkdir(parents=True, exist_ok=True)
 
-    def publish_layers(self, city, manifest) -> None:
+    def publish_layers(self, city: CityConsoleCity, manifest: CityConsoleManifest) -> None:
         layer_out = self.output_dir / "layers"
         for layer in manifest.layers:
             shutil.copy2(city.layers_dir / layer.file, layer_out / layer.file)

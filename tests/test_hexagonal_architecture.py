@@ -198,6 +198,50 @@ class HexagonalArchitectureTest(unittest.TestCase):
         self.assertEqual(surface.html, "Test City -> public/cities/test")
         self.assertEqual(result.html, "Test City -> public/cities/test")
 
+    def test_city_console_application_publishes_through_input_repository(self) -> None:
+        from sevent4.application.city_console import publish_city_console_from_repository
+        from sevent4.ports.publication import CityConsoleInput
+
+        class FakeSurface:
+            output_dir = Path("public/cities/test")
+
+            def __init__(self) -> None:
+                self.events: list[str] = []
+                self.html = ""
+
+            def prepare(self) -> None:
+                self.events.append("prepare")
+
+            def publish_layers(self, city, manifest) -> None:
+                self.events.append(f"layers:{city.id}:{len(manifest.layers)}")
+
+            def write_index(self, html: str) -> None:
+                self.events.append("write")
+                self.html = html
+
+        class City:
+            id = "test"
+            name = "Test City"
+            layers_dir = Path("data/cities/test/layers")
+
+        class Manifest:
+            layers: tuple = ()
+
+        class Repository:
+            def load(self) -> CityConsoleInput:
+                return CityConsoleInput(city=City(), manifest=Manifest())
+
+        surface = FakeSurface()
+        result = publish_city_console_from_repository(
+            Repository(),
+            surface,
+            lambda city, manifest, output_dir: f"{city.name} -> {output_dir.as_posix()}",
+        )
+
+        self.assertEqual(surface.events, ["prepare", "layers:test:0", "write"])
+        self.assertEqual(result.output_dir, Path("public/cities/test"))
+        self.assertEqual(result.html, "Test City -> public/cities/test")
+
     def test_architecture_doc_names_operational_layers(self) -> None:
         text = ARCHITECTURE_DOC.read_text(encoding="utf-8")
 
