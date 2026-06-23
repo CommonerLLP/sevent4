@@ -168,13 +168,8 @@ def _state_options(city: CityDataset, geo: dict, states: list[str]) -> str:
 
 
 def _html(city: CityDataset, manifest: LayerManifest, out_dir: Path | None = None) -> str:
-    # The governance card CAN link the corporation's money-axis layers to a city
-    # budget page (mechanism in _governance_for_city). Auto-linking is OFF: Aakash
-    # parked the Ahmedabad finance/money HTML pages as not-good-enough, so we do not
-    # promote them from the console until they're reworked. Flip to "finance/" per
-    # city once the page clears the bar.
-    finance_url = None
-    _ = out_dir  # reserved for finance-page detection when re-enabled
+    city_links = _city_extra_links(out_dir)
+    finance_url = "finance/" if ("Finance", "finance/index.html") in city_links else None
     canon = _canon_layers(manifest.layers)
     groups = _groups(canon)
     jurisdiction = _jurisdiction_context(city.layers_dir)
@@ -240,7 +235,7 @@ def _html(city: CityDataset, manifest: LayerManifest, out_dir: Path | None = Non
           Ward fill = <b>composite service gap</b>. Use the ward, Assembly
           constituency, and Parliamentary constituency filters above the map.
         </div>
-        {_macro_links("../../")}
+        {_macro_links("../../", city_links)}
       </div>
     </aside>
     <main class="mapwrap"><div id="map"></div>
@@ -283,7 +278,18 @@ def _html(city: CityDataset, manifest: LayerManifest, out_dir: Path | None = Non
 """
 
 
-def _macro_links(prefix: str) -> str:
+def _city_extra_links(out_dir: Path | None) -> tuple[tuple[str, str], ...]:
+    if out_dir is None:
+        return ()
+    links = []
+    if (out_dir / "finance" / "index.html").exists():
+        links.append(("Finance", "finance/index.html"))
+    if (out_dir / "money" / "index.html").exists():
+        links.append(("Money", "money/index.html"))
+    return tuple(links)
+
+
+def _macro_links(prefix: str, city_links: tuple[tuple[str, str], ...] = ()) -> str:
     links = (
         ("Home", "index.html"),
         ("Cities", "cities/index.html"),
@@ -294,6 +300,10 @@ def _macro_links(prefix: str) -> str:
     items = "".join(
         f'<a href="{html.escape(prefix + href, quote=True)}">{html.escape(label)}</a>'
         for label, href in links
+    )
+    items += "".join(
+        f'<a href="{html.escape(href, quote=True)}">{html.escape(label)}</a>'
+        for label, href in city_links
     )
     return f'<nav class="macrotrail" aria-label="Site map">{items}</nav>'
 
@@ -865,7 +875,7 @@ def _css() -> str:
 .brandrow{align-items:center;display:flex;gap:12px;margin-bottom:12px;min-width:0}.ixamark{display:block;flex:0 0 auto;height:58px;width:58px}.wordmark{display:block;min-width:0;white-space:normal}.wordmark span{color:var(--ink);display:block;font-family:var(--serif);font-size:17px;font-weight:700;letter-spacing:0;line-height:1.02}.wordmark b{color:var(--mut);display:block;font:800 8px/1 var(--mono);letter-spacing:.12em;margin-top:5px;text-transform:uppercase}.sitenav{display:grid;gap:7px;grid-template-columns:1fr 1fr;margin:0 0 14px}.sitenav a{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--mut);font:800 10px/1 var(--mono);letter-spacing:.12em;padding:9px 10px;text-align:center;text-decoration:none;text-transform:uppercase}.sitenav a.is-active{background:var(--ink);border-color:var(--ink);color:var(--bg)}.sitenav a:not(.is-active):hover{border-color:var(--blue);color:var(--blue)}.basis{text-transform:none}
 .brandmark{font-size:21px}
 .govpanel{position:absolute;z-index:3;top:62px;right:12px;width:300px;max-width:38vw;max-height:calc(100vh - 84px);overflow-y:auto;background:var(--panel2);border:1px solid var(--line);border-radius:8px;box-shadow:0 4px 18px rgba(0,0,0,.22);padding:2px 12px 12px}.govpanel .sech:first-child{margin-top:9px}#govbox{margin-top:4px}.govcard{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:6px;padding:9px 11px}.govhint{color:var(--mut);font-size:12px;line-height:1.5}.govlayer{display:block;color:var(--mut);font:700 8px/1 var(--mono);letter-spacing:.13em;text-transform:uppercase;margin-bottom:6px}.govchip{display:inline-block;color:#fff;font:700 8px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:3px 6px;border-radius:3px;margin-bottom:7px}.gc-city{background:#2c7a55}.gc-para{background:var(--red)}.gc-state{background:#b07d18}.gc-union{background:var(--blue)}.gc-split{background:#7a6a1e}.gc-grace{background:#a9601f}.gc-ref{background:var(--mut)}.govbody{color:var(--mut);font-size:12px;line-height:1.55}.govbody b{color:var(--ink)}.govverdict{display:block;margin-top:7px;color:var(--ink);font:700 11px/1.4 var(--mono)}.govmore{display:inline-block;margin-top:8px;color:var(--gold);font:700 11px/1 var(--mono);text-decoration:none}.govmore:hover{color:var(--blue)}
-@media(max-width:980px){.filterbar{top:54px;right:12px;grid-template-columns:1fr 1fr}.filterbar .fbtn2{min-width:0}.govpanel{top:auto;bottom:10px;left:12px;right:12px;width:auto;max-width:none;max-height:42vh}}@media(max-width:760px){.app{grid-template-columns:1fr;grid-template-rows:auto 1fr}.rail{max-height:34vh}.filterbar{top:10px;left:10px;right:10px;grid-template-columns:1fr 1fr}.filterbar .fsel,.filterbar .fbtn2{height:44px;font-size:11px;padding:8px}#map,.mapwrap{height:66vh}.govpanel{top:auto;bottom:10px;left:10px;right:10px;width:auto;max-width:none;max-height:38vh}}
+@media(max-width:980px){.filterbar{top:54px;right:12px;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.filterbar .fbtn2{min-width:0}.govpanel{top:auto;bottom:10px;left:12px;right:12px;width:auto;max-width:none;max-height:42vh}}@media(max-width:760px){.app{grid-template-columns:1fr;grid-template-rows:auto 1fr}.rail{max-height:34vh}.filterbar{top:10px;left:10px;right:10px;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.filterbar #pcsel{grid-column:1/-1}.filterbar .fsel,.filterbar .fbtn2{height:44px;font-size:11px;padding:8px;min-width:0}#map,.mapwrap{height:66vh}.govpanel{top:auto;bottom:10px;left:10px;right:10px;width:auto;max-width:none;max-height:38vh}}
 """
 
 

@@ -34,7 +34,7 @@ scripts/serve.sh           # static server on :9174 (PORT=8080 to change)
 ```
 
 Open the first URL it prints (`…/index.html`). To smoke-test the checked-in
-static bundle with the Playwright CLI:
+static bundle on mobile, tablet, and desktop viewports with the Playwright CLI:
 
 ```bash
 .venv/bin/python -m sevent4.qa.browser_smoke
