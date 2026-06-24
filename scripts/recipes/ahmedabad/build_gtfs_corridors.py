@@ -1,16 +1,21 @@
 #!/usr/bin/env python3
+"""Build city transit route-corridor layers from GTFS, split per agency. Thin
+CLI wrapper: corridor construction and agency splitting live in the transit
+application service; GTFS reads and GeoJSON writes in the transit adapters.
+"""
 from __future__ import annotations
 
 import argparse
-import json
-import sys
 from pathlib import Path
 
+from sevent4.adapters.transit_filesystem import (
+    AgencyCorridorWriter,
+    FileGtfsCorridorInputRepository,
+    GeoJsonGtfsCorridorWriter,
+)
+from sevent4.application.transit import build_gtfs_corridors, split_corridors_by_agency
 
 REPO = Path(__file__).resolve().parents[3]
-sys.path.insert(0, str(REPO))
-
-from sevent4.transit.gtfs_corridors import build_corridors
 
 # Ahmedabad is the first city recipe. The same wrapper can be reused when another
 # city supplies a GTFS feed under data/cities/<city>/source/gtfs/.
@@ -19,6 +24,7 @@ AGENCY_OUTPUTS = {
     "AMTS": "corr_amts.geojson",
     "AJL": "corr_brts.geojson",
 }
+ALL_ROUTES = "gtfs_corridors.geojson"
 
 
 def main() -> None:
@@ -32,31 +38,20 @@ def main() -> None:
     city = args.city.lower()
     gtfs_dir = Path(args.gtfs_dir) if args.gtfs_dir else REPO / "data" / "cities" / city / "source" / "gtfs" / "amts_janmarg"
     out_dir = Path(args.out_dir) if args.out_dir else REPO / "data" / "cities" / city / "layers"
-    out_dir.mkdir(parents=True, exist_ok=True)
+    all_routes_path = out_dir / ALL_ROUTES
 
-    all_routes = out_dir / "gtfs_corridors.geojson"
-    build_corridors(gtfs_dir, all_routes)
-    split_by_agency(all_routes, out_dir)
+    result = build_gtfs_corridors(
+        FileGtfsCorridorInputRepository(gtfs_dir).load(),
+        GeoJsonGtfsCorridorWriter(all_routes_path),
+    )
+    print(f"wrote {all_routes_path} ({len(result.document['features'])} route corridors)")
+
+    agency_writer = AgencyCorridorWriter(out_dir)
+    for filename, document in split_corridors_by_agency(result.document, AGENCY_OUTPUTS).items():
+        count = agency_writer.write(filename, document)
+        print(f"wrote {out_dir / filename} ({count} routes)")
     if not args.keep_all:
-        all_routes.unlink(missing_ok=True)
-
-
-def split_by_agency(all_routes: Path, out_dir: Path) -> None:
-    data = json.loads(all_routes.read_text(encoding="utf-8"))
-    features = data.get("features", [])
-    for agency, filename in AGENCY_OUTPUTS.items():
-        selected = []
-        for feature in features:
-            props = feature.get("properties") or {}
-            if props.get("agency_id") == agency:
-                selected.append({
-                    "type": "Feature",
-                    "properties": {"kind": agency},
-                    "geometry": feature.get("geometry"),
-                })
-        out = out_dir / filename
-        out.write_text(json.dumps({"type": "FeatureCollection", "features": selected}, separators=(",", ":")), encoding="utf-8")
-        print(f"wrote {out} ({len(selected)} routes)")
+        agency_writer.remove(ALL_ROUTES)
 
 
 if __name__ == "__main__":
