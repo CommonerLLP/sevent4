@@ -24,6 +24,7 @@ class HexagonalArchitectureTest(unittest.TestCase):
         for module in (
             "sevent4.domain.evidence",
             "sevent4.domain.pollution",
+            "sevent4.domain.heat",
             "sevent4.ports.acquisition",
             "sevent4.ports.evidence",
             "sevent4.ports.finance",
@@ -34,6 +35,7 @@ class HexagonalArchitectureTest(unittest.TestCase):
             "sevent4.ports.representatives",
             "sevent4.ports.transit",
             "sevent4.ports.city_build",
+            "sevent4.ports.heat",
             "sevent4.application.city_console",
             "sevent4.application.acquisition",
             "sevent4.application.city_build",
@@ -45,6 +47,7 @@ class HexagonalArchitectureTest(unittest.TestCase):
             "sevent4.application.representatives",
             "sevent4.application.transit",
             "sevent4.application.why_air",
+            "sevent4.application.heat",
             "sevent4.adapters.finance_filesystem",
             "sevent4.adapters.jurisdiction_geospatial",
             "sevent4.adapters.library_access_filesystem",
@@ -54,6 +57,8 @@ class HexagonalArchitectureTest(unittest.TestCase):
             "sevent4.adapters.representatives_filesystem",
             "sevent4.adapters.transit_filesystem",
             "sevent4.adapters.city_build_filesystem",
+            "sevent4.adapters.heat_filesystem",
+            "sevent4.adapters.heat_planetary",
         ):
             importlib.import_module(module)
 
@@ -333,7 +338,9 @@ class HexagonalArchitectureTest(unittest.TestCase):
         for name in (
             "sevent4.domain.evidence",
             "sevent4.domain.pollution",
+            "sevent4.domain.heat",
             "sevent4.application.why_air",
+            "sevent4.application.heat",
             "sevent4.application.city_console",
             "sevent4.application.acquisition",
             "sevent4.application.finance",
@@ -353,6 +360,7 @@ class HexagonalArchitectureTest(unittest.TestCase):
             "sevent4.ports.publication",
             "sevent4.ports.representatives",
             "sevent4.ports.transit",
+            "sevent4.ports.heat",
             "sevent4.adapters.finance_filesystem",
             "sevent4.adapters.acquisition_filesystem",
             "sevent4.adapters.city_build_filesystem",
@@ -362,6 +370,8 @@ class HexagonalArchitectureTest(unittest.TestCase):
             "sevent4.adapters.metrics_filesystem",
             "sevent4.adapters.representatives_filesystem",
             "sevent4.adapters.transit_filesystem",
+            "sevent4.adapters.heat_filesystem",
+            "sevent4.adapters.heat_planetary",
             "commoner-probe",
             "partial-recall",
             "public-finance",

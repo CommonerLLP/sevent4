@@ -55,8 +55,10 @@ Implemented package boundaries:
 
 - `sevent4.domain.evidence`
 - `sevent4.domain.pollution`
+- `sevent4.domain.heat`
 - `sevent4.ports.acquisition`
 - `sevent4.ports.city_build`
+- `sevent4.ports.heat`
 - `sevent4.ports.evidence`
 - `sevent4.ports.finance`
 - `sevent4.ports.jurisdiction`
@@ -76,8 +78,11 @@ Implemented package boundaries:
 - `sevent4.application.public_site`
 - `sevent4.application.representatives`
 - `sevent4.application.transit`
+- `sevent4.application.heat`
 - `sevent4.adapters.acquisition_filesystem`
 - `sevent4.adapters.city_build_filesystem`
+- `sevent4.adapters.heat_filesystem`
+- `sevent4.adapters.heat_planetary`
 - `sevent4.adapters.finance_filesystem`
 - `sevent4.adapters.filesystem`
 - `sevent4.adapters.jurisdiction_geospatial`
@@ -161,6 +166,14 @@ Compatibility surfaces remain:
 - `sevent4.transit.gtfs_corridors` is now a thin CLI adapter over the transit
   application service. The filesystem adapter loads GTFS CSV tables before the
   application builds route-corridor GeoJSON.
+- Ahmedabad heat recipes (`build_heat_layer`, `aggregate_ward_heat`,
+  `patch_heat_manifest`, `_run_all_heat`) are now thin CLI adapters over the heat
+  application service. `sevent4.domain.heat` owns QA masking, brightness-to-Celsius
+  conversion, the colour ramp, per-ward LST statistics, and the Climate
+  layer-manifest entries; the application owns median-grid artifact assembly, ward
+  aggregation, and idempotent manifest patching; `heat_planetary` owns the
+  Planetary Computer STAC fetch and xarray median stacking, while `heat_filesystem`
+  owns rasterio sampling, GeoTIFF/PNG/npz writes, and manifest JSON I/O.
 - `sevent4.qa.browser_smoke` is the browser-smoke QA adapter. It serves the
   checked-in static bundle locally and uses the Playwright CLI to screenshot
   `/index.html`, `/public/index.html`, and the Ahmedabad console route across
