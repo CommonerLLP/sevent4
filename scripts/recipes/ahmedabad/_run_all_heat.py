@@ -37,7 +37,9 @@ def run_city(city: str) -> dict:
         grid = PlanetaryComputerHeatSource().median_grid(bbox, "2023-04-01/2025-06-30", 30.0)
         raster = build_city_heat(city, grid)
         FileHeatArtifactWriter(REPO, city).write_raster_artifacts(raster)
-    except SystemExit as exc:
+    except (SystemExit, Exception) as exc:  # noqa: B014 - isolate any per-city build failure
+        # The previous subprocess driver turned any non-zero build into this
+        # city's MISSING result and carried on; keep that per-city isolation.
         print(f"{city}: HEAT MISSING -> {exc}", flush=True)
         return {"status": "MISSING", "reason": str(exc)}
 
