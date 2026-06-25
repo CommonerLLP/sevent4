@@ -53,24 +53,41 @@ public education flows, and topic-specific normalizers.
 
 Implemented package boundaries:
 
+- `sevent4.domain.ahmedabad_library_paper_figures`
+- `sevent4.domain.bengaluru_finance`
+- `sevent4.domain.bengaluru_opencity`
+- `sevent4.domain.bengaluru_ward_analysis`
+- `sevent4.domain.chennai_finance`
+- `sevent4.domain.chennai_opencity_water`
+- `sevent4.domain.delhi_dpl_extract`
+- `sevent4.domain.delhi_library_paper_figures`
 - `sevent4.domain.evidence`
-- `sevent4.domain.pollution`
 - `sevent4.domain.heat`
+- `sevent4.domain.pollution`
 - `sevent4.ports.acquisition`
 - `sevent4.ports.city_build`
-- `sevent4.ports.heat`
 - `sevent4.ports.evidence`
 - `sevent4.ports.finance`
+- `sevent4.ports.heat`
 - `sevent4.ports.jurisdiction`
 - `sevent4.ports.library_access`
 - `sevent4.ports.metrics`
 - `sevent4.ports.publication`
 - `sevent4.ports.representatives`
 - `sevent4.ports.transit`
+- `sevent4.application.ahmedabad_library_paper_figures`
 - `sevent4.application.city_console`
 - `sevent4.application.acquisition`
+- `sevent4.application.bengaluru_finance`
+- `sevent4.application.bengaluru_opencity`
+- `sevent4.application.bengaluru_ward_analysis`
+- `sevent4.application.chennai_finance`
+- `sevent4.application.chennai_opencity_water`
 - `sevent4.application.city_build`
+- `sevent4.application.delhi_dpl_extract`
+- `sevent4.application.delhi_library_paper_figures`
 - `sevent4.application.finance`
+- `sevent4.application.heat`
 - `sevent4.application.jurisdiction`
 - `sevent4.application.library_access`
 - `sevent4.application.metrics`
@@ -78,13 +95,20 @@ Implemented package boundaries:
 - `sevent4.application.public_site`
 - `sevent4.application.representatives`
 - `sevent4.application.transit`
-- `sevent4.application.heat`
 - `sevent4.adapters.acquisition_filesystem`
+- `sevent4.adapters.ahmedabad_library_paper_figures_geospatial`
+- `sevent4.adapters.bengaluru_finance_filesystem`
+- `sevent4.adapters.bengaluru_opencity_filesystem`
+- `sevent4.adapters.bengaluru_ward_analysis_geospatial`
+- `sevent4.adapters.chennai_finance_filesystem`
+- `sevent4.adapters.chennai_opencity_water_filesystem`
 - `sevent4.adapters.city_build_filesystem`
-- `sevent4.adapters.heat_filesystem`
-- `sevent4.adapters.heat_planetary`
+- `sevent4.adapters.delhi_dpl_extract_filesystem`
+- `sevent4.adapters.delhi_library_paper_figures_matplotlib`
 - `sevent4.adapters.finance_filesystem`
 - `sevent4.adapters.filesystem`
+- `sevent4.adapters.heat_filesystem`
+- `sevent4.adapters.heat_planetary`
 - `sevent4.adapters.jurisdiction_geospatial`
 - `sevent4.adapters.library_access_filesystem`
 - `sevent4.adapters.metrics_filesystem`
@@ -148,6 +172,10 @@ Compatibility surfaces remain:
 - `sevent4.metrics.ward_service_access` is now a thin CLI adapter over the
   metrics application service. The filesystem adapter loads ward, service, and
   GTFS stop layers before the application computes ward service-access rows.
+- Ahmedabad heat recipes now route through the heat application service. Domain
+  code owns QA masking, brightness conversion, ward LST summaries, and
+  layer-manifest entries; adapters own Planetary Computer access, raster
+  sampling, file writes, and manifest JSON I/O.
 - Ahmedabad ward transit-frequency and service-access composite recipes now
   route through the metrics application service. The filesystem adapter loads
   GTFS CSV tables, ward/AC GeoJSON, and jurisdiction-crosswalk records, while
@@ -166,14 +194,24 @@ Compatibility surfaces remain:
 - `sevent4.transit.gtfs_corridors` is now a thin CLI adapter over the transit
   application service. The filesystem adapter loads GTFS CSV tables before the
   application builds route-corridor GeoJSON.
-- Ahmedabad heat recipes (`build_heat_layer`, `aggregate_ward_heat`,
-  `patch_heat_manifest`, `_run_all_heat`) are now thin CLI adapters over the heat
-  application service. `sevent4.domain.heat` owns QA masking, brightness-to-Celsius
-  conversion, the colour ramp, per-ward LST statistics, and the Climate
-  layer-manifest entries; the application owns median-grid artifact assembly, ward
-  aggregation, and idempotent manifest patching; `heat_planetary` owns the
-  Planetary Computer STAC fetch and xarray median stacking, while `heat_filesystem`
-  owns rasterio sampling, GeoTIFF/PNG/npz writes, and manifest JSON I/O.
+- `scripts/recipes/delhi/extract_dpl_library.py` is now a thin CLI adapter over
+  the Delhi DPL extraction application service. Domain code owns annual metric,
+  location, geocode-cache, and long-table shaping; the filesystem adapter owns
+  CSV/JSON reads and writes.
+- Bengaluru OpenCity finance, boundary, jurisdiction, and ward-reconciliation
+  recipes now route through Bengaluru application services. Domain modules own
+  work-order aggregation, OpenCity resource planning, curated-layer records, and
+  ward-analysis property shaping; filesystem/geospatial adapters own downloads,
+  hashing, GeoPandas joins, and JSON/GeoJSON output.
+- Chennai GCC finance and OpenCity water/flood recipes now route through
+  Chennai application services. Domain modules own finance CSV parsing,
+  zone-layer shaping, water resource selection, and curated-layer records; the
+  adapters own OpenCity requests, CSV files, KML/KMZ conversion, and layer
+  reports.
+- Ahmedabad and Delhi library-paper figure scripts are thin CLI adapters. The
+  application layer owns figure-build orchestration and scalar stats; plotting,
+  geospatial reads, Matplotlib backend setup, and figure writes live in adapter
+  modules.
 - `sevent4.qa.browser_smoke` is the browser-smoke QA adapter. It serves the
   checked-in static bundle locally and uses the Playwright CLI to screenshot
   `/index.html`, `/public/index.html`, and the Ahmedabad console route across
