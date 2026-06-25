@@ -36,7 +36,7 @@ bash scripts/serve.sh          # then open http://127.0.0.1:9174/
 ## Quality checks (run before opening a PR)
 
 ```bash
-python3 -m unittest discover -s tests       # the full suite must pass (currently 319 tests)
+python3 -m unittest discover -s tests       # the full suite must pass (currently 321 tests)
 git ls-files '*.py' | xargs -I{} python3 -m py_compile {}   # every tracked .py must compile
 ```
 

@@ -22,6 +22,8 @@ ask: **whose jurisdiction is this, and why isn't it the city's?**
 
 No backend — HTML, map assets and processed GeoJSON are static files.
 
+Live site: <https://commonerllp.org/sevent4/>
+
 ## Quick start
 
 The built atlas is checked into `public/`, so a fresh clone serves immediately —
@@ -70,6 +72,9 @@ public/         the built static atlas (consoles + reading layer + assets)
 
 ## Docs
 
+- [Scope](SCOPE.md) — what this repo owns and what belongs upstream
+- [Roadmap](ROADMAP.md) — current public-readiness and evidence gates
+- [Architecture](ARCHITECTURE.md) — root architecture entrypoint
 - [Why this atlas exists](docsx/governance-frame.md) — Part IXA, the
   fragmentation problem, finance, what the console shows
 - [Architecture doctrine](docsx/architecture.md) — constitutional implementation
@@ -80,6 +85,12 @@ public/         the built static atlas (consoles + reading layer + assets)
   manifest, the jurisdiction crosswalk, add-a-city, entry points
 - [Data recipes](docsx/data-recipes.md) — rebuilding the Ahmedabad seed
 - [Reading](docsx/reading.md) — Constitution, NITI Aayog, RBI, Janaagraha
+
+## Deployment
+
+GitHub Pages deploys `public/` from `main` through the
+`Deploy Pages` workflow. The canonical public URL is
+<https://commonerllp.org/sevent4/>.
 
 ## License & attribution
 

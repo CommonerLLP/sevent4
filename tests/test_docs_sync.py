@@ -29,10 +29,26 @@ class DocsSyncTest(unittest.TestCase):
         self.assertIn("[Architecture doctrine](docsx/architecture.md)", readme)
         self.assertIn("[System architecture](docsx/system-architecture-2026-06-22.md)", readme)
 
+    def test_readme_advertises_live_public_site(self) -> None:
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+
+        self.assertIn("https://commonerllp.org/sevent4/", readme)
+        self.assertNotIn("no live public site", readme.lower())
+        self.assertNotIn("private repo", readme.lower())
+
+    def test_pages_workflow_auto_deploys_public_main(self) -> None:
+        workflow = (ROOT / ".github" / "workflows" / "pages.yml").read_text(encoding="utf-8")
+
+        self.assertIn('branches: ["main"]', workflow)
+        self.assertIn("workflow_dispatch:", workflow)
+        self.assertNotIn("PRIVATE", workflow)
+        self.assertNotIn("Auto-deploy on push to main is DISABLED", workflow)
+
     def test_contributing_documents_current_full_suite_count(self) -> None:
         contributing = (ROOT / "CONTRIBUTING.md").read_text(encoding="utf-8")
 
-        self.assertIn("currently 319 tests", contributing)
+        self.assertIn("currently 321 tests", contributing)
+        self.assertNotIn("currently 319 tests", contributing)
         self.assertNotIn("currently 315 tests", contributing)
         self.assertNotIn("currently 93 tests", contributing)
 
