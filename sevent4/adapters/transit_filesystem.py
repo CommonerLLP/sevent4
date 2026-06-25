@@ -31,6 +31,24 @@ class GeoJsonGtfsCorridorWriter:
         self.path.write_text(json.dumps(document, separators=(",", ":")), encoding="utf-8")
 
 
+class AgencyCorridorWriter:
+    """Writes per-agency corridor splits into a layers directory and can drop the
+    combined all-routes file."""
+
+    def __init__(self, out_dir: str | Path) -> None:
+        self.out_dir = Path(out_dir)
+
+    def write(self, filename: str, document: dict) -> int:
+        self.out_dir.mkdir(parents=True, exist_ok=True)
+        (self.out_dir / filename).write_text(
+            json.dumps(document, separators=(",", ":")), encoding="utf-8"
+        )
+        return len(document.get("features", []))
+
+    def remove(self, filename: str) -> None:
+        (self.out_dir / filename).unlink(missing_ok=True)
+
+
 def _read_csv(path: Path) -> Iterable[dict[str, str]]:
     with path.open(newline="", encoding="utf-8-sig") as handle:
         yield from csv.DictReader(handle)
