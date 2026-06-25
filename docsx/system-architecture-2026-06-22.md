@@ -1,10 +1,10 @@
-# SevenT4 System Architecture
+# The Unelected City System Architecture
 
-Generated: 2026-06-23
+Generated: 2026-06-25
 
 ## Purpose
 
-SevenT4 is a city-intelligence engine and Progressive Web App for political
+The Unelected City is a city-intelligence engine and Progressive Web App for political
 education around the 74th Constitutional Amendment. The product outcome is not
 only map exploration. It is civic literacy: residents should learn where they
 live politically, who governs each civic problem, and why municipal power,
@@ -13,7 +13,7 @@ elected city institutions where the Constitution intended that shift.
 
 ## Architecture Rule
 
-SevenT4 uses ports and adapters, not MVC, as the governing architecture.
+The Unelected City uses ports and adapters, not MVC, as the governing architecture.
 
 - `sevent4.domain` owns facts, evidence, claims, pollution-board records, and
   city-domain contracts.
@@ -45,81 +45,133 @@ The normalized pipeline is:
 
 Generic acquisition and provenance should flow to `commoner-probe`. Generic
 text/PDF extraction, indexing, search, embeddings, FTS, vector storage, and MCP
-retrieval should flow to `partial-recall`. Generic public-finance parsing should
-flow to `public-finance`. SevenT4 keeps city interpretation, evidence contracts,
-public education flows, and topic-specific normalizers.
+retrieval should flow to `partial-recall`. Generic public finance parsing should
+flow to `budget-crawler`. The Unelected City keeps city interpretation, evidence
+contracts, public education flows, and topic-specific normalizers.
 
 ## Current Operational Boundaries
 
 Implemented package boundaries:
 
 - `sevent4.domain.ahmedabad_library_paper_figures`
+- `sevent4.domain.amc_budget`
 - `sevent4.domain.bengaluru_finance`
 - `sevent4.domain.bengaluru_opencity`
 - `sevent4.domain.bengaluru_ward_analysis`
+- `sevent4.domain.budget`
 - `sevent4.domain.chennai_finance`
 - `sevent4.domain.chennai_opencity_water`
+- `sevent4.domain.delhi_acquire`
+- `sevent4.domain.delhi_air_quality`
 - `sevent4.domain.delhi_dpl_extract`
+- `sevent4.domain.delhi_finance`
 - `sevent4.domain.delhi_library_paper_figures`
+- `sevent4.domain.delhi_library_spatial`
+- `sevent4.domain.delhi_opencity`
+- `sevent4.domain.dpl_geocode`
+- `sevent4.domain.dpl_hierarchy`
 - `sevent4.domain.evidence`
+- `sevent4.domain.gujarat_transport`
 - `sevent4.domain.heat`
+- `sevent4.domain.kanpur_wards`
+- `sevent4.domain.library_exclusion`
+- `sevent4.domain.library_networks`
+- `sevent4.domain.mj_library`
+- `sevent4.domain.opencity_catalogue`
 - `sevent4.domain.pollution`
-- `sevent4.domain.budget`
+- `sevent4.domain.rbi_finance`
+- `sevent4.domain.roads`
+- `sevent4.domain.suburban_rail`
 - `sevent4.ports.acquisition`
 - `sevent4.ports.budget`
 - `sevent4.ports.city_build`
+- `sevent4.ports.delhi_acquire`
 - `sevent4.ports.evidence`
 - `sevent4.ports.finance`
 - `sevent4.ports.heat`
 - `sevent4.ports.jurisdiction`
+- `sevent4.ports.kanpur`
 - `sevent4.ports.library_access`
 - `sevent4.ports.metrics`
 - `sevent4.ports.publication`
+- `sevent4.ports.rbi_finance`
 - `sevent4.ports.representatives`
+- `sevent4.ports.roads`
 - `sevent4.ports.transit`
-- `sevent4.application.ahmedabad_library_paper_figures`
-- `sevent4.application.city_console`
 - `sevent4.application.acquisition`
+- `sevent4.application.ahmedabad_library_paper_figures`
+- `sevent4.application.amc_budget`
 - `sevent4.application.bengaluru_finance`
 - `sevent4.application.bengaluru_opencity`
 - `sevent4.application.bengaluru_ward_analysis`
+- `sevent4.application.budget`
 - `sevent4.application.chennai_finance`
 - `sevent4.application.chennai_opencity_water`
 - `sevent4.application.city_build`
+- `sevent4.application.city_console`
+- `sevent4.application.comparators`
+- `sevent4.application.delhi_acquire`
+- `sevent4.application.delhi_air_quality`
 - `sevent4.application.delhi_dpl_extract`
+- `sevent4.application.delhi_finance`
 - `sevent4.application.delhi_library_paper_figures`
+- `sevent4.application.delhi_library_spatial`
+- `sevent4.application.delhi_opencity`
+- `sevent4.application.dpl_geocode`
+- `sevent4.application.dpl_hierarchy`
 - `sevent4.application.finance`
+- `sevent4.application.gujarat_transport`
 - `sevent4.application.heat`
 - `sevent4.application.jurisdiction`
+- `sevent4.application.kanpur`
 - `sevent4.application.library_access`
+- `sevent4.application.library_exclusion`
 - `sevent4.application.metrics`
-- `sevent4.application.why_air`
+- `sevent4.application.mj_library`
 - `sevent4.application.public_site`
+- `sevent4.application.rbi_finance`
 - `sevent4.application.representatives`
+- `sevent4.application.roads`
 - `sevent4.application.transit`
-- `sevent4.application.budget`
+- `sevent4.application.why_air`
 - `sevent4.adapters.acquisition_filesystem`
-- `sevent4.adapters.budget_filesystem`
-- `sevent4.adapters.budget_http`
-- `sevent4.adapters.budget_ocr`
 - `sevent4.adapters.ahmedabad_library_paper_figures_geospatial`
+- `sevent4.adapters.amc_budget_filesystem`
 - `sevent4.adapters.bengaluru_finance_filesystem`
 - `sevent4.adapters.bengaluru_opencity_filesystem`
 - `sevent4.adapters.bengaluru_ward_analysis_geospatial`
+- `sevent4.adapters.budget_filesystem`
+- `sevent4.adapters.budget_http`
+- `sevent4.adapters.budget_ocr`
 - `sevent4.adapters.chennai_finance_filesystem`
 - `sevent4.adapters.chennai_opencity_water_filesystem`
 - `sevent4.adapters.city_build_filesystem`
+- `sevent4.adapters.comparators_filesystem`
+- `sevent4.adapters.delhi_acquire_filesystem`
+- `sevent4.adapters.delhi_air_quality_filesystem`
 - `sevent4.adapters.delhi_dpl_extract_filesystem`
+- `sevent4.adapters.delhi_finance_filesystem`
 - `sevent4.adapters.delhi_library_paper_figures_matplotlib`
-- `sevent4.adapters.finance_filesystem`
-- `sevent4.adapters.filesystem`
+- `sevent4.adapters.delhi_library_spatial_geospatial`
+- `sevent4.adapters.delhi_opencity_geospatial`
+- `sevent4.adapters.dpl_geocode_net`
+- `sevent4.adapters.dpl_hierarchy_filesystem`
+- `sevent4.adapters.gujarat_transport_filesystem`
 - `sevent4.adapters.heat_filesystem`
 - `sevent4.adapters.heat_planetary`
 - `sevent4.adapters.jurisdiction_geospatial`
+- `sevent4.adapters.kanpur_filesystem`
 - `sevent4.adapters.library_access_filesystem`
+- `sevent4.adapters.library_exclusion_filesystem`
+- `sevent4.adapters.library_networks_filesystem`
 - `sevent4.adapters.metrics_filesystem`
+- `sevent4.adapters.mj_library_filesystem`
+- `sevent4.adapters.rbi_finance_filesystem`
 - `sevent4.adapters.representatives_filesystem`
+- `sevent4.adapters.roads_filesystem`
 - `sevent4.adapters.transit_filesystem`
+- `sevent4.adapters.finance_filesystem`
+- `sevent4.adapters.filesystem`
 
 Compatibility surfaces remain:
 
@@ -259,9 +311,8 @@ Every new feature must answer:
 - Is this reusable acquisition/provenance? Move or backflow to `commoner-probe`.
 - Is this generic extraction/search/retrieval? Move or backflow to
   `partial-recall`.
-- Is this generic fiscal parsing? Move or backflow to `public-finance`.
-- Is this SevenT4-specific interpretation or pedagogy? Keep it here behind a
-  port.
+- Is this generic fiscal parsing? Move or backflow to `budget-crawler`.
+- Is this project-specific interpretation or pedagogy? Keep it here behind a port.
 
 Legacy scripts are permitted only as adapters. When a legacy script changes,
 move any reusable logic into `sevent4.application` or the appropriate shared

@@ -26,6 +26,7 @@ class DocsSyncTest(unittest.TestCase):
     def test_readme_links_current_architecture_snapshot(self) -> None:
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
 
+        self.assertIn("[Architecture doctrine](docsx/architecture.md)", readme)
         self.assertIn("[System architecture](docsx/system-architecture-2026-06-22.md)", readme)
 
 

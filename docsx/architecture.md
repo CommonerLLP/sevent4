@@ -1,11 +1,11 @@
-# SevenT4 System Architecture
+# The Unelected City System Architecture
 
 Status: binding target architecture for The Unelected City.
-Last updated: 2026-06-22T19:30:29Z.
+Last updated: 2026-06-25T03:53:31Z.
 
 ## Purpose
 
-SevenT4 exists to help people become politically literate about Indian city
+The Unelected City exists to help people become politically literate about Indian city
 power and to move from private frustration to public action.
 
 The product has two equal identities:
@@ -19,13 +19,13 @@ The product has two equal identities:
 
 Neither identity is subordinate to the other. A beautiful public page without a
 reproducible evidence chain is propaganda risk. A rigorous engine without a
-teachable public surface is inert research. SevenT4 must be both.
+teachable public surface is inert research. The Unelected City must be both.
 
 ## Intended Political Outcome
 
-The intended outcome of the SevenT4 political education program is that the
-spirit and letter of the Constitution (Seventy-fourth Amendment) Act, 1992 are
-executed and in place.
+The intended outcome of The Unelected City's political education program is
+that the spirit and letter of the Constitution (Seventy-fourth Amendment) Act,
+1992 are executed and in place.
 
 That means the campaign is not merely asking for better dashboards, better
 service delivery, cleaner budgets, or more responsive officials. Those are
@@ -34,7 +34,7 @@ real institutions of self-government, with the powers, authority,
 responsibilities, finance, staff, planning capacity, data, and public
 accountability needed to govern urban life.
 
-SevenT4 therefore treats Article 243W, the Twelfth Schedule, ward committees,
+The Unelected City therefore treats Article 243W, the Twelfth Schedule, ward committees,
 metropolitan planning, district planning, municipal finance, state finance
 commissions, elections, representative accountability, and actual state-level
 devolution orders as one connected implementation problem.
@@ -51,7 +51,7 @@ the constitutional transfer of urban power.
 
 ## Core Political Goal
 
-SevenT4 should make Indian urban governance legible enough that residents,
+The Unelected City should make Indian urban governance legible enough that residents,
 workers, tenants, students, organizers, journalists, lawyers, and ward-level
 political actors can ask sharper constitutional and political questions:
 
@@ -72,7 +72,7 @@ the public argument honest.
 
 ## Constitutional Implementation Frame
 
-SevenT4's top-level object is not a map layer, a page, or a dataset. It is a
+The Unelected City's top-level object is not a map layer, a page, or a dataset. It is a
 constitutional implementation gap.
 
 Each domain is read through the 74th Amendment question:
@@ -82,7 +82,7 @@ What did Part IXA and the Twelfth Schedule place within the horizon of
 municipal self-government, and where does the real power sit now?
 ```
 
-For each city and domain, SevenT4 should model:
+For each city and domain, The Unelected City should model:
 
 - **Function**: which Twelfth Schedule function or related urban power is at
   stake.
@@ -108,7 +108,7 @@ This is the constitutional data model. Domain facts exist to populate it.
 
 ## Architectural Doctrine
 
-SevenT4 follows a ports-and-adapters architecture, also known as hexagonal
+The Unelected City follows a ports-and-adapters architecture, also known as hexagonal
 architecture.
 
 The rule is simple:
@@ -128,7 +128,7 @@ Adapters are replaceable. Facts are not.
 
 ## CommonerLLP Layering
 
-SevenT4 does not own every layer. It sits inside the CommonerLLP toolchain:
+The Unelected City does not own every layer. It sits inside the CommonerLLP toolchain:
 
 ```text
 commoner-probe
@@ -145,7 +145,7 @@ sevent4
   generated public PWA surfaces, browser QA
 ```
 
-If a capability is reusable across repos, it belongs upstream. SevenT4 should
+If a capability is reusable across repos, it belongs upstream. The Unelected City should
 not grow its own generic crawler, generic PDF extractor, search stack, or
 budget parser.
 
@@ -160,7 +160,7 @@ public disclosure portals
   -> public surface        generated education/action view
 ```
 
-SevenT4 extends this pattern from parliamentary questions and committee reports
+The Unelected City extends this pattern from parliamentary questions and committee reports
 to Indian city domains: traffic, parking, roads, air, water, sanitation,
 libraries, public health, construction labour, municipal finance, land,
 transport, flooding, and representative accountability.
@@ -174,7 +174,7 @@ domain:
 
 ## Hexagonal Shape
 
-SevenT4's target shape:
+The Unelected City's target shape:
 
 ```text
                          Public PWA
@@ -418,7 +418,7 @@ constitutional relevance when applicable:
 }
 ```
 
-This prevents SevenT4 from becoming a generic urban dashboard. Every fact must
+This prevents The Unelected City from becoming a generic urban dashboard. Every fact must
 be available to the constitutional argument.
 
 ## Claim Contract
@@ -449,7 +449,7 @@ by a claim test that links it back to fact IDs.
 
 ## Public Education PWA Layer
 
-SevenT4 is a Progressive Web App, not just a data repository.
+The Unelected City is a Progressive Web App, not just a data repository.
 
 The PWA must support:
 
@@ -713,7 +713,7 @@ Views:
 
 ## Campaign Outputs
 
-SevenT4 should generate not only pages but campaign-ready artifacts:
+The Unelected City should generate not only pages but campaign-ready artifacts:
 
 - ward-level accountability notes
 - city-domain explainers
@@ -752,7 +752,7 @@ make test-why-air
 make qa-why-air
 ```
 
-Current SevenT4 is not fully there. The architecture target is:
+The current implementation is not fully there. The architecture target is:
 
 ```text
 raw source + source profile + extractor + fact schema + view generator
@@ -764,7 +764,7 @@ claim tests.
 
 ## Agentic Engineering Rules
 
-SevenT4 should be agent-native but not agent-chaotic.
+The Unelected City should be agent-native but not agent-chaotic.
 
 Modern agentic engineering gives us useful primitives:
 
@@ -778,7 +778,7 @@ Modern agentic engineering gives us useful primitives:
 - sandboxed workspaces
 - human-in-the-loop checkpoints
 
-These map cleanly onto SevenT4:
+These map cleanly onto The Unelected City:
 
 ```text
 Tools      -> acquisition, extraction, build, test, browser QA
@@ -793,7 +793,7 @@ Tracing    -> run logs, artifact manifests, commit/PR links
 Agents may execute work, but the architecture must be deterministic enough that
 a human or a different agent can reproduce the result.
 
-This doctrine is vendor-neutral. SevenT4 should be able to use Codex, Claude,
+This doctrine is vendor-neutral. The Unelected City should be able to use Codex, Claude,
 Gemini, Cursor, Grok/xAI, DeepSeek-compatible APIs, or future agents because
 the repo exposes stable ports, manifests, facts, tests, and QA gates. The agent
 is an operator, not the architecture.
@@ -819,7 +819,7 @@ The cross-vendor design lessons are:
   multi-step execution.
 - **Grok / xAI API**: function calling, built-in web/X/code/RAG tools, Remote
   MCP tools, and multi-agent models reinforce a strict boundary: the model or
-  provider may orchestrate tool use, but SevenT4 must own tool schemas,
+  provider may orchestrate tool use, but The Unelected City must own tool schemas,
   allowed-tool limits, provenance checks, and returned evidence.
 - **DeepSeek API pattern**: function/tool calling reinforces the same boundary:
   the model proposes a tool call, but the system owns the actual function,
@@ -827,7 +827,7 @@ The cross-vendor design lessons are:
 - **MCP**: tools, resources, and prompts should be discoverable through a
   standard protocol, with data/tool concerns separated from transport.
 
-SevenT4's conclusion from all of these is conservative:
+The Unelected City's conclusion from all of these is conservative:
 
 ```text
 Use the simplest deterministic workflow that can prove the claim.
@@ -843,7 +843,7 @@ Agent rules:
 - Agent instructions should be layered by repo and subdirectory where needed;
   more specific rules override general rules.
 - Agents must not bypass source profiles and fact schemas for one-off prose.
-- Agents must not build generic infrastructure in SevenT4 when it belongs in
+- Agents must not build generic infrastructure in The Unelected City when it belongs in
   `commoner-probe`, `partial-recall`, or `budget-crawler`.
 - Agents must expose missing capabilities instead of silently working around
   them.
@@ -923,59 +923,83 @@ Do not:
 - let claims drift from facts
 - let agent session memory be the only record of why a number is public
 
-## Current Gap
+## Current Implementation Snapshot
 
-SevenT4 already has pieces of this architecture:
+The Unelected City now has a broad ports-and-adapters surface. The machine-checked
+implementation snapshot lives in
+`docsx/system-architecture-2026-06-22.md`; this doctrine file records the same
+current boundary at a higher level.
 
-- package entry points in `sevent4/`
-- explicit ports in `sevent4.ports.acquisition`, `sevent4.ports.evidence`,
-  `sevent4.ports.city_build`, `sevent4.ports.finance`, `sevent4.ports.jurisdiction`,
-  `sevent4.ports.library_access`, `sevent4.ports.metrics`,
-  `sevent4.ports.publication`, `sevent4.ports.representatives`, and
-  `sevent4.ports.transit`
-- application services in `sevent4.application.acquisition`,
-  `sevent4.application.city_build`, `sevent4.application.city_console`,
-  `sevent4.application.finance`, `sevent4.application.jurisdiction`,
-  `sevent4.application.library_access`, `sevent4.application.metrics`,
-  `sevent4.application.public_site`, `sevent4.application.representatives`,
-  `sevent4.application.transit`, and `sevent4.application.why_air`
-- filesystem adapters for source inventory, city bootstrap, city-console, WHY/air evidence, finance pages,
-  library-access CSV summaries, devolution scorecards, jurisdiction
-  crosswalks, ward service-access metrics, Ahmedabad transit-frequency and
-  service-access composite overlays, and GTFS route-corridor generation
-- acquisition application logic for OpenCity source-inventory rows, OpenCity
-  atlas scoping markdown, and Delhi finance document manifest/run-log records
-- source-archive application logic for source URL normalization, sparse-text OCR
-  detection, and DPL staffing extraction from archived report text
-- DPL parliament-probe application logic for topic filtering and session-range
-  parsing, with commoner-probe execution kept in the script adapter
-- M.J. Library source-classification application logic for official PDF category
-  and disclosure-year parsing, with fetching/exporting kept in the recipe adapter
-- library-access application logic for distance/access math, city-level summary
-  shaping, pairwise comparison rows, IFLA service-detail audit rows, and
-  Toronto comparator headline rows, with CSV loading/writing kept in filesystem
-  adapters and recipe adapters
-- devolution scorecard application logic for service-provider scoring, registry
-  alignment, preserved special-case rows, and governance-update shaping, with
-  JSON loading/writing kept in the filesystem adapter and recipe adapter
-- jurisdiction crosswalk application logic for representative-point and
-  overlap-crosswalk document shaping, field cleaning, threshold metadata, and
-  summary counts, with GeoPandas/YAML reads, spatial joins/intersections, and
-  JSON writes kept in the geospatial filesystem adapter and recipe adapter
-- metrics application logic for Ahmedabad stop-to-ward transit-frequency
-  assignment, composite ward service scoring, and AC rollups, with GTFS CSV,
-  ward/AC GeoJSON, and crosswalk JSON I/O kept in the filesystem adapter and
-  recipe adapter
-- representative application logic for Ahmedabad source-manifest rows,
-  Gujarati councillor text parsing, councillor-row validation, city-officer
-  records, and ward-layer representative fields, with downloads, `pdftotext`,
-  CSV/JSON writes, and ward GeoJSON reads/writes kept in filesystem and recipe
-  adapters
+Current port modules:
+
+- `sevent4.ports.acquisition`
+- `sevent4.ports.budget`
+- `sevent4.ports.city_build`
+- `sevent4.ports.delhi_acquire`
+- `sevent4.ports.evidence`
+- `sevent4.ports.finance`
+- `sevent4.ports.heat`
+- `sevent4.ports.jurisdiction`
+- `sevent4.ports.kanpur`
+- `sevent4.ports.library_access`
+- `sevent4.ports.metrics`
+- `sevent4.ports.publication`
+- `sevent4.ports.rbi_finance`
+- `sevent4.ports.representatives`
+- `sevent4.ports.roads`
+- `sevent4.ports.transit`
+
+Current application services include acquisition, Ahmedabad budget/heat/roads
+and library-paper figures, Bengaluru finance/OpenCity/ward analysis, Chennai
+finance/OpenCity water, city build, city console, comparators, Delhi
+acquisition/finance/DPL/geocoding/hierarchy/OpenCity/library spatial/air
+quality/library-paper figures, finance, Gujarat transport, jurisdiction,
+Kanpur, library access, library exclusion, metrics, MJ library, public-site
+publication, RBI finance, representatives, roads, transit, and WHY/air.
+
+Current domain modules include evidence, pollution, budget, heat, roads, RBI
+finance, Ahmedabad library-paper figures and AMC budget, Bengaluru finance,
+Bengaluru OpenCity, Bengaluru ward analysis, Chennai finance, Chennai OpenCity
+water, Delhi acquisition, Delhi air quality, Delhi DPL extraction, Delhi
+finance, Delhi library spatial, Delhi OpenCity, DPL geocoding, DPL hierarchy,
+Gujarat transport, Kanpur wards, library exclusion, library networks, MJ
+library, OpenCity catalogue, and suburban rail.
+
+Current adapters own concrete I/O for acquisition files, budget filesystem/HTTP
+/OCR, AMC budget files, Ahmedabad and Delhi figure rendering, Bengaluru and
+Chennai files/geospatial sources, city-build files, comparators, Delhi
+acquisition/finance/DPL/geocoding/hierarchy/OpenCity/library spatial/air
+quality files, finance files, heat filesystem/Planetary Computer access,
+jurisdiction geospatial joins, Kanpur files, library access/exclusion/network
+files, MJ library files, RBI finance files, representative files, road files,
+and transit files.
+
+Compatibility surfaces remain where public recipes or tests import legacy
+function names. Those compatibility wrappers should stay thin: argument
+parsing, adapter construction, and re-exports only. Domain decisions, record
+shaping, scoring, parsing, and view-model construction belong in
+`sevent4.domain` or `sevent4.application`; concrete HTTP, filesystem, OCR,
+GeoPandas, Matplotlib, SQLite, CSV, JSON, and browser work belongs in
+`sevent4.adapters`.
+
+Still not complete:
+
+- Source-profile, acquisition-adapter, evidence-contract, and public-surface
+  contracts are not normalized across every topic.
+- Console-built cities are not automatically publication-grade; source
+  provenance and limitations still need city-by-city review.
+- Public factual claims still need source-backed fact/claim records rather than
+  hand-maintained HTML prose.
+- Reusable crawling, parsing, retrieval, or fiscal-data logic must continue to
+  backflow to `commoner-probe`, `partial-recall`, or `budget-crawler`.
+
+Existing supporting surfaces:
+
 - city data contracts in `docsx/`
 - source policy in `docsx/source-policy-and-readiness.md`
-- generated public JSON for several surfaces
+- generated public JSON and static PWA surfaces
 - tests over city readiness, pollution capacity, finance parsing, metrics
-  boundaries, browser smoke, docs sync, and hygiene
+  boundaries, browser smoke, docs sync, architecture boundaries, and hygiene
 - a PWA manifest
 - shared theme and masthead assets
 
@@ -1039,7 +1063,7 @@ The next architecture hardening work should:
   explicit server labels, optional allowed-tool filters, and authentication.
   https://docs.x.ai/developers/tools/remote-mcp
 - xAI Multi Agent: provider-managed multi-agent execution makes hidden
-  orchestration possible, so SevenT4 needs explicit evidence and artifact
+  orchestration possible, so The Unelected City needs explicit evidence and artifact
   boundaries before trusting outputs.
   https://docs.x.ai/developers/model-capabilities/text/multi-agent
 - DeepSeek API function calling: provider-neutral tool calling still requires

@@ -8,6 +8,14 @@ ROOT = Path(__file__).resolve().parents[1]
 ARCHITECTURE_DOC = ROOT / "docsx" / "system-architecture-2026-06-22.md"
 
 
+def _layer_modules(layer: str) -> tuple[str, ...]:
+    return tuple(
+        f"sevent4.{layer}.{path.stem}"
+        for path in sorted((ROOT / "sevent4" / layer).glob("*.py"))
+        if path.name != "__init__.py"
+    )
+
+
 def _imports(path: Path) -> set[str]:
     tree = ast.parse(path.read_text(encoding="utf-8"))
     names: set[str] = set()
@@ -22,73 +30,10 @@ def _imports(path: Path) -> set[str]:
 class HexagonalArchitectureTest(unittest.TestCase):
     def test_layer_packages_are_explicit(self) -> None:
         for module in (
-            "sevent4.domain.ahmedabad_library_paper_figures",
-            "sevent4.domain.bengaluru_finance",
-            "sevent4.domain.bengaluru_opencity",
-            "sevent4.domain.bengaluru_ward_analysis",
-            "sevent4.domain.chennai_finance",
-            "sevent4.domain.chennai_opencity_water",
-            "sevent4.domain.delhi_dpl_extract",
-            "sevent4.domain.delhi_library_paper_figures",
-            "sevent4.domain.evidence",
-            "sevent4.domain.heat",
-            "sevent4.domain.pollution",
-            "sevent4.domain.budget",
-            "sevent4.ports.acquisition",
-            "sevent4.ports.budget",
-            "sevent4.ports.evidence",
-            "sevent4.ports.finance",
-            "sevent4.ports.heat",
-            "sevent4.ports.jurisdiction",
-            "sevent4.ports.library_access",
-            "sevent4.ports.metrics",
-            "sevent4.ports.publication",
-            "sevent4.ports.representatives",
-            "sevent4.ports.transit",
-            "sevent4.ports.city_build",
-            "sevent4.application.ahmedabad_library_paper_figures",
-            "sevent4.application.bengaluru_finance",
-            "sevent4.application.bengaluru_opencity",
-            "sevent4.application.bengaluru_ward_analysis",
-            "sevent4.application.chennai_finance",
-            "sevent4.application.chennai_opencity_water",
-            "sevent4.application.city_console",
-            "sevent4.application.acquisition",
-            "sevent4.application.city_build",
-            "sevent4.application.delhi_dpl_extract",
-            "sevent4.application.delhi_library_paper_figures",
-            "sevent4.application.finance",
-            "sevent4.application.heat",
-            "sevent4.application.jurisdiction",
-            "sevent4.application.library_access",
-            "sevent4.application.metrics",
-            "sevent4.application.public_site",
-            "sevent4.application.representatives",
-            "sevent4.application.transit",
-            "sevent4.application.why_air",
-            "sevent4.application.budget",
-            "sevent4.adapters.budget_filesystem",
-            "sevent4.adapters.budget_http",
-            "sevent4.adapters.budget_ocr",
-            "sevent4.adapters.ahmedabad_library_paper_figures_geospatial",
-            "sevent4.adapters.bengaluru_finance_filesystem",
-            "sevent4.adapters.bengaluru_opencity_filesystem",
-            "sevent4.adapters.bengaluru_ward_analysis_geospatial",
-            "sevent4.adapters.chennai_finance_filesystem",
-            "sevent4.adapters.chennai_opencity_water_filesystem",
-            "sevent4.adapters.delhi_dpl_extract_filesystem",
-            "sevent4.adapters.delhi_library_paper_figures_matplotlib",
-            "sevent4.adapters.finance_filesystem",
-            "sevent4.adapters.heat_filesystem",
-            "sevent4.adapters.heat_planetary",
-            "sevent4.adapters.jurisdiction_geospatial",
-            "sevent4.adapters.library_access_filesystem",
-            "sevent4.adapters.acquisition_filesystem",
-            "sevent4.adapters.filesystem",
-            "sevent4.adapters.metrics_filesystem",
-            "sevent4.adapters.representatives_filesystem",
-            "sevent4.adapters.transit_filesystem",
-            "sevent4.adapters.city_build_filesystem",
+            *_layer_modules("domain"),
+            *_layer_modules("ports"),
+            *_layer_modules("application"),
+            *_layer_modules("adapters"),
         ):
             importlib.import_module(module)
 
@@ -366,46 +311,13 @@ class HexagonalArchitectureTest(unittest.TestCase):
         text = ARCHITECTURE_DOC.read_text(encoding="utf-8")
 
         for name in (
-            "sevent4.domain.evidence",
-            "sevent4.domain.pollution",
-            "sevent4.domain.budget",
-            "sevent4.application.why_air",
-            "sevent4.application.budget",
-            "sevent4.application.city_console",
-            "sevent4.application.acquisition",
-            "sevent4.application.finance",
-            "sevent4.application.jurisdiction",
-            "sevent4.application.library_access",
-            "sevent4.application.metrics",
-            "sevent4.application.public_site",
-            "sevent4.application.representatives",
-            "sevent4.application.transit",
-            "sevent4.ports.acquisition",
-            "sevent4.ports.city_build",
-            "sevent4.ports.evidence",
-            "sevent4.ports.finance",
-            "sevent4.ports.jurisdiction",
-            "sevent4.ports.library_access",
-            "sevent4.ports.metrics",
-            "sevent4.ports.publication",
-            "sevent4.ports.representatives",
-            "sevent4.ports.transit",
-            "sevent4.ports.budget",
-            "sevent4.adapters.finance_filesystem",
-            "sevent4.adapters.acquisition_filesystem",
-            "sevent4.adapters.budget_filesystem",
-            "sevent4.adapters.budget_http",
-            "sevent4.adapters.budget_ocr",
-            "sevent4.adapters.city_build_filesystem",
-            "sevent4.adapters.filesystem",
-            "sevent4.adapters.jurisdiction_geospatial",
-            "sevent4.adapters.library_access_filesystem",
-            "sevent4.adapters.metrics_filesystem",
-            "sevent4.adapters.representatives_filesystem",
-            "sevent4.adapters.transit_filesystem",
+            *_layer_modules("domain"),
+            *_layer_modules("ports"),
+            *_layer_modules("application"),
+            *_layer_modules("adapters"),
             "commoner-probe",
             "partial-recall",
-            "public-finance",
+            "budget-crawler",
         ):
             self.assertIn(name, text)
 

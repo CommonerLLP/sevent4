@@ -72,6 +72,8 @@ public/         the built static atlas (consoles + reading layer + assets)
 
 - [Why this atlas exists](docsx/governance-frame.md) — Part IXA, the
   fragmentation problem, finance, what the console shows
+- [Architecture doctrine](docsx/architecture.md) — constitutional implementation
+  frame, evidence contract, and source/adapter rules
 - [System architecture](docsx/system-architecture-2026-06-22.md) — current
   ports/adapters boundaries, shared-infra rules, and browser smoke gate
 - [City data contract](docsx/city-data-contract.md) — `city.yaml`, layer
