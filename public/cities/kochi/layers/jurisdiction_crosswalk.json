@@ -1,0 +1,442 @@
+{
+ "schema": "sevent4.jurisdiction_crosswalk.v1",
+ "city": "kochi",
+ "country": "India",
+ "levels": [
+  "state",
+  "district"
+ ],
+ "thresholds": {
+  "method": "ward representative point within AC/PC polygon (nearest fallback), EPSG:3857"
+ },
+ "excluded_acs": [],
+ "source": "spatial join of city ward/AC/PC layers",
+ "records": [
+  {
+   "ward_name": "Kalvathi",
+   "ac_name": "Kochi",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Iraveli",
+   "ac_name": "Kochi",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Karippalam",
+   "ac_name": "Kochi",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Mattanchery",
+   "ac_name": "Kochi",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Kochangadi",
+   "ac_name": "Kochi",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Cheralai",
+   "ac_name": "Kochi",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Panayappilly",
+   "ac_name": "Kochi",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Chakkamadam",
+   "ac_name": "Kochi",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Karuvelippady",
+   "ac_name": "Kochi",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Tharebhagam",
+   "ac_name": "Kochi",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Kadebhagam",
+   "ac_name": "Kochi",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Thoppumpadi",
+   "ac_name": "Kochi",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Amaravathy",
+   "ac_name": "Kochi",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Thazhuppu",
+   "ac_name": "Kochi",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Pullardesham",
+   "ac_name": "Kochi",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Perumpadappu",
+   "ac_name": "Kochi",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Nambyapuram",
+   "ac_name": "Kochi",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Edakochi South",
+   "ac_name": "Kochi",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Konam",
+   "ac_name": "Kochi",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Edakochi",
+   "ac_name": "Kochi",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Palluruthy - Kacherippady",
+   "ac_name": "Kochi",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Fort Cochin Veli",
+   "ac_name": "Kochi",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Nazarath",
+   "ac_name": "Kochi",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Chullikkal",
+   "ac_name": "Kochi",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Moolamkuzhi",
+   "ac_name": "Kochi",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Manassery",
+   "ac_name": "Kochi",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Vaduthala West",
+   "ac_name": "Ernakulam",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Thattazham",
+   "ac_name": "Vypeen",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Mundamveli",
+   "ac_name": "Kochi",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Wellinton Island South",
+   "ac_name": "Kochi",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Ravipuram",
+   "ac_name": "Ernakulam",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Wellinton Island North",
+   "ac_name": "Kochi",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Ayyappankavu",
+   "ac_name": "Ernakulam",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Palarivattom",
+   "ac_name": "Thrikkakara",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Ernakulam North",
+   "ac_name": "Ernakulam",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Ernakulam Central",
+   "ac_name": "Ernakulam",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Ernakulam South",
+   "ac_name": "Ernakulam",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Thevara",
+   "ac_name": "Thrikkakara",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Vaduthala East",
+   "ac_name": "Ernakulam",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Gandinagar",
+   "ac_name": "Ernakulam",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Pachalam",
+   "ac_name": "Ernakulam",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Thrikkanar Vattom",
+   "ac_name": "Ernakulam",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Kaloor North",
+   "ac_name": "Thrikkakara",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "kaloor South",
+   "ac_name": "Thrikkakara",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Kathrukadavu",
+   "ac_name": "Ernakulam",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Elamakkara North",
+   "ac_name": "Thrikkakara",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Puthukkalavattom",
+   "ac_name": "Thrikkakara",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Elamakkara South",
+   "ac_name": "Thrikkakara",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Kunnumpuarm",
+   "ac_name": "Thrikkakara",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Ponekkara",
+   "ac_name": "Thrikkakara",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Edappally",
+   "ac_name": "Thrikkakara",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Karukappilly",
+   "ac_name": "Thrikkakara",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Devankulangara",
+   "ac_name": "Thrikkakara",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Mamangalam",
+   "ac_name": "Thrikkakara",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Karanakodam",
+   "ac_name": "Thrikkakara",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Vennala",
+   "ac_name": "Thrikkakara",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Chakkraparambu",
+   "ac_name": "Thrikkakara",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Chalikkavattom",
+   "ac_name": "Thrikkakara",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Ponnurunny East",
+   "ac_name": "Thrikkakara",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Thammanam",
+   "ac_name": "Thrikkakara",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Elamkulam",
+   "ac_name": "Thrikkakara",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Ponnurnny",
+   "ac_name": "Thrikkakara",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Vyttila",
+   "ac_name": "Thripunithura",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Poonithura",
+   "ac_name": "Thripunithura",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Vyttila Janatha",
+   "ac_name": "Thrikkakara",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Konthuruthy",
+   "ac_name": "Thrikkakara",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Perumanoor",
+   "ac_name": "Thrikkakara",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Kadavanthra",
+   "ac_name": "Thrikkakara",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Giri Nagar",
+   "ac_name": "Thrikkakara",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Panampally Nagar",
+   "ac_name": "Ernakulam",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  },
+  {
+   "ward_name": "Fort Kochi",
+   "ac_name": "Kochi",
+   "pc_name": "Ernakulam",
+   "district_name": "ERNAKULAM"
+  }
+ ]
+}

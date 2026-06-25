@@ -1,0 +1,51 @@
+/* ============================================================================
+   masthead.css — styling for the shared global nav (see masthead.js).
+   ----------------------------------------------------------------------------
+   Two variants from one nav model:
+     .mh--bar   editorial pages — a sticky top bar (brand · nav · theme)
+     .mh--rail  the console — stacked to fit the 300px left rail
+   All colour flows through the theme.css tokens; no hard-coded hex.
+   ========================================================================== */
+
+.mh{--mh-pad:14px}
+.mh-brand{display:flex;align-items:center;gap:12px;min-width:0;text-decoration:none;color:inherit}
+.mh-mark{display:block;flex:0 0 auto}
+.mh-word{display:block;min-width:0}
+.mh-word span{display:block;font-family:var(--serif);font-weight:700;color:var(--ink);line-height:1.02}
+.mh-word b{display:block;font:800 8px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin-top:5px}
+.mh-nav{display:flex}
+.mh-nav a{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;
+  font:800 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--mut);min-height:44px}
+.mh-nav a:not(.is-active):hover{border-color:var(--blue);color:var(--blue)}
+.mh-nav a:focus-visible,.mh-brand:focus-visible,.mh-theme:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.mh-nav a.is-active{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.mh-theme{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;flex:0 0 auto;
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--mut);cursor:pointer;padding:0}
+.mh-theme:hover{border-color:var(--blue);color:var(--blue)}
+.mh-theme svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.2}
+
+/* ---- bar: sticky top chrome for editorial pages ---- */
+.mh--bar{display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:12px 18px;border-bottom:1px solid var(--line);background:var(--bg);
+  position:sticky;top:0;z-index:50}
+.mh--bar .mh-mark{height:46px;width:46px}
+.mh--bar .mh-word span{font-size:17px}
+.mh--bar .mh-nav{gap:7px;flex-wrap:wrap;justify-content:flex-end}
+.mh--bar .mh-nav a{padding:9px 12px}
+@media (max-width:560px){
+  .mh--bar{flex-wrap:wrap}
+  .mh--bar .mh-word span{font-size:15px}
+  .mh--bar .mh-nav{order:3;width:100%;justify-content:flex-start}
+}
+
+/* ---- rail: stacked block inside the console's 300px rail ---- */
+.mh--rail{display:block;background:var(--panel2);border-bottom:1px solid var(--ink);padding:13px 14px 14px}
+.mh--rail:before{content:"";display:block;height:1px;background:var(--ink);margin-bottom:9px}
+.mh--rail .mh-brand{margin-bottom:12px}
+.mh--rail .mh-mark{height:58px;width:58px}
+.mh--rail .mh-word span{font-size:17px}
+.mh--rail .mh-nav{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.mh--rail .mh-nav a{padding:9px 10px;text-align:center}
+/* the console's jurisdiction picker sits directly under the rail masthead */
+.railjur{padding:12px 14px}

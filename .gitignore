@@ -1,0 +1,61 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.mypy_cache/
+.cache/
+dist/
+build/
+*.egg-info/
+*.log
+
+# Local planning files
+CONTEXT.md
+TODO.md
+
+# ── Third-party source PDFs (theses, reports) — kept local, referenced by URL. ──
+data/sources/
+
+# ── Statute PDFs — public-domain but heavy (62MB+). Kept local; citations + URLs
+#    live in data/laws/**/manifest.md and INDEX.md. ──
+data/laws/**/*.pdf
+
+# ── City raw source intermediates — regenerable from recipes + local source
+#    archives. Only built layers/ + public/ + lightweight provenance are tracked;
+#    raw OSM dumps, KMLs, rasters and downloaded _raw/ payloads stay local. ──
+data/cities/*/source/osm/
+data/cities/*/source/**/_raw/
+data/cities/*/source/**/*.kml
+data/cities/*/source/**/*.geojson
+data/cities/*/source/**/*.tif
+data/cities/*/source/**/*.gtfs*
+data/cities/*/source/gtfs/
+data/cities/*/source/**/*.py
+data/cities/*/source/**/*.sh
+data/cities/*/source/**/dumps/
+data/cities/*/source/**/*.txt
+data/cities/*/source/**/*.gz
+
+# Stray scratch dumps at repo root
+/s.json
+/public-libraries-*.html
+/public-libraries-*.pdf
+/mcd_map_full_zone_image_cd_*.pdf
+
+# ── Secrets — API keys, never tracked ──
+.secrets/
+.env
+*.key
+secrets.env
+
+# Local-only scratch (regenerable; never tracked)
+**/_local/
+
+# ── docs/ + data/ are LOCAL-ONLY (kept on disk, off the repo). The site is
+#    built from public/ (.github/workflows/pages.yml: path: public). ──
+docs/
+data/
+
+# Internal mistakes log — never tracked in-repo
+MISTAKES.md

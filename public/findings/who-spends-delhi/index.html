@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="application-name" content="Part IXA: The Municipalities">
+<title>Who spends Delhi's money? — The Unelected City</title>
+<link rel="icon" type="image/png" href="../../assets/ixa-mark.png?v=stitch-color">
+<link rel="manifest" href="../../site.webmanifest">
+<meta name="theme-color" content="#0a0c10" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f3f1ea" media="(prefers-color-scheme: light)">
+<script>(function(){try{var t=localStorage.getItem('atlas-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<link rel="stylesheet" href="../../assets/atlas-ui.css">
+<link rel="stylesheet" href="../../assets/masthead.css">
+<style>
+  body{display:flex;flex-direction:column;min-height:100dvh}
+  .wrap{flex:1;width:100%;max-width:760px;margin:0 auto;padding:40px 20px 64px}
+  .crumb{font:800 9px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-bottom:14px}
+  .crumb a{color:var(--mut);text-decoration:none}.crumb a:hover{color:var(--blue)}
+  h1{font:800 clamp(30px,6vw,46px)/1.05 var(--serif);letter-spacing:-.01em;margin-bottom:16px}
+  .lede{font-size:18px;line-height:1.6;color:var(--mut);margin-bottom:8px}
+  .lede b{color:var(--ink)}
+  h2{font:800 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mut);
+    margin:38px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+  p{font-size:15.5px;line-height:1.7;color:var(--ink);margin:0 0 16px}
+  p .mut{color:var(--mut)}
+  .pose{border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:8px;
+    background:var(--panel);padding:18px 20px;margin:26px 0}
+  .pose b{color:var(--ink)}.pose p:last-child{margin-bottom:0}
+  .note{margin-top:36px;font-size:12.5px;line-height:1.65;color:var(--mut);border-top:1px solid var(--line);padding-top:16px}
+  .note b{color:var(--ink)} .note a{color:var(--blue)}
+  .back{display:inline-block;margin-top:26px;font:800 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--blue);text-decoration:none}
+  .back:hover{color:var(--gold)}
+  /* three-body budget bars */
+  .bars{margin:26px 0 6px}
+  .bar{margin-bottom:16px}
+  .bar .top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:5px}
+  .bar .who{font:800 13px/1.2 var(--mono);color:var(--ink);text-transform:uppercase;letter-spacing:.04em}
+  .bar .who span{display:block;font:600 11px/1.3 var(--sans);color:var(--mut);text-transform:none;letter-spacing:0;margin-top:2px}
+  .bar .amt{font:800 17px/1 var(--serif);color:var(--ink);white-space:nowrap}
+  .bar .track{height:22px;background:var(--hair);border-radius:4px;overflow:hidden}
+  .bar .fill{height:100%;border-radius:4px;transition:width .8s ease}
+  .f-gnctd{background:#b07d18}.f-mcd{background:#2c7a55}.f-ndmc{background:var(--red)}
+  .barcap{font-size:12px;line-height:1.5;color:var(--mut);margin-top:2px}
+</style>
+</head>
+<body>
+<header data-masthead="bar"></header>
+<main class="wrap">
+  <div class="crumb"><a href="../">Findings</a> · Delhi · the money map</div>
+  <h1>Who spends Delhi's money?</h1>
+  <p class="lede">Delhi has not one civic budget but three, run by three different kinds of body.
+    Delhiites <b>elect two</b> of them — a state government (the Legislative Assembly) and a city
+    corporation — and the third is nominated. Yet the tier closest to your neighbourhood, <b>the elected
+    city corporation, commands the smallest share</b>; and even the elected state government doesn't
+    control the city's police, land or public order. In Delhi, the elected layers are the ones kept either
+    small or hemmed in.</p>
+
+  <h2>Three budgets, three mandates</h2>
+  <div class="bars">
+    <div class="bar">
+      <div class="top"><div class="who">GNCTD<span>Govt of NCT of Delhi — the <b>elected</b> state government (Assembly, every 5 yrs); but police, land &amp; public order stay with the Union/LG</span></div><div class="amt">₹1,00,000 cr</div></div>
+      <div class="track"><div class="fill f-gnctd" style="width:100%"></div></div>
+    </div>
+    <div class="bar">
+      <div class="top"><div class="who">MCD<span>Municipal Corporation of Delhi — <b>directly elected</b>, 250 wards</span></div><div class="amt">₹17,012 cr</div></div>
+      <div class="track"><div class="fill f-mcd" style="width:17%"></div></div>
+    </div>
+    <div class="bar">
+      <div class="top"><div class="who">NDMC<span>New Delhi Municipal Council — <b>nominated</b>; no member directly elected to it</span></div><div class="amt">₹5,307 cr</div></div>
+      <div class="track"><div class="fill f-ndmc" style="width:5.3%"></div></div>
+    </div>
+  </div>
+  <p class="barcap">A snapshot at mixed vintages — GNCTD 2025-26 BE, MCD 2024-25 BE, NDMC 2025-26 BE; the
+    years differ and some bodies have since tabled 2026-27 budgets, so read this as the relative scale of the
+    three purses, not a single-year league. ₹ crore, to scale against the GNCTD total; parsed from each body's
+    own budget documents.</p>
+
+  <h2>What the comparison does — and doesn't — say</h2>
+  <p>Read it carefully, because the bars are not strictly like-for-like. The GNCTD figure is the elected
+    state government's <em>whole</em> budget — health, education, transport, welfare across the NCT — not
+    just municipal services; a large part of it is state-tier spending the MCD was never meant to do. So
+    this is not "the city spends ₹17,012 cr and someone unelected hoards the rest." <b>Two of these three
+    budgets are democratically elected.</b></p>
+  <p>What it <em>does</em> show is which kind of body the money tracks. The tier closest to a resident —
+    the elected <b>municipal</b> corporation, the one the 74th Amendment was meant to empower — is the
+    smallest, about <b>one-sixth</b> of the state government's budget. And the Delhi twist sits inside the
+    biggest bar: even the elected GNCTD does <em>not</em> run the city's <b>police, land (DDA) or public
+    order</b> — those are the Union's, exercised through the Lieutenant-Governor. So the money concentrates
+    in the elected state tier, while the powers a city most visibly needs are split off above it. The
+    elected layers are the small one and the hemmed-in one.</p>
+
+  <h2>And the enclave the money loves</h2>
+  <p>The third bar is the sharpest, because it <em>is</em> unelected. The <b>NDMC</b> — a council with
+    <a href="../new-delhi-unelected/">no directly elected member</a> — spends ₹5,307 cr governing the
+    capital's richest few square miles (Lutyens', the ministries, ~258,000 residents). Meanwhile the state
+    government's budget has ballooned from about <b>₹20,000 crore in 2008-09 to ₹1 lakh crore in
+    2025-26</b> — a fivefold rise — and the elected city corporation's slice has not kept pace.</p>
+
+  <div class="pose">
+    <p><b>So the question this finding poses is not "is Delhi underfunded," nor even "is it unelected."</b>
+    It is plainly neither — over a lakh crore flows through its civic bodies, and two of the three are
+    voted in. The question is which of your votes carries weight: the <em>municipal</em> vote reaches the
+    smallest budget; the <em>Assembly</em> vote reaches the largest, but that government is overruled on
+    police, land and order by an officer no Delhi voter chooses. <b>So which ballot actually decides how
+    your city is run — and is any of them the city's own?</b></p>
+    <p>And the harder follow-on for "devolve more power to cities": in Delhi the elected <em>city</em> is
+    the ₹17,000-crore layer while the ₹1-lakh-crore decisions sit at the state tier — itself hemmed by the
+    Union. <b>Power follows money and the money sits a tier (or two) above the ward. Which body would you
+    actually have to win to change how Delhi is run?</b></p>
+  </div>
+
+  <p class="note">
+    <b>Sources.</b> Parsed from the three bodies' own budget documents: GNCTD <i>Budget at a Glance</i>
+    (2007-08 → 2026-27 series), MCD income/expenditure budgets (2012-13 → 2025-26; pre-2022 figures are
+    South-MCD only — the corporation was trifurcated 2012-2022, unified in 2022 — and are not summed across
+    that break), and the NDMC <i>Budget at a Glance 2025-26</i>. Figures are mixed-vintage Budget Estimates
+    from each body's own documents, not a single latest-year league; units normalised to ₹ crore. The comparison
+    is of total budgets, not a like-for-like municipal
+    slice (the GNCTD total includes state-tier functions) — see the second section. Extraction is
+    reproducible (<span class="mut">scripts/recipes/delhi/parse_budget_finance.py</span>); the reading of the
+    split as a money map of the unelected city is ours.
+  </p>
+  <a class="back" href="../">← Back to Findings</a>
+</main>
+<script src="../../assets/masthead.js"></script>
+<script src="../../assets/theme.js" defer></script>
+</body>
+</html>

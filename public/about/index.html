@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="application-name" content="Part IXA: The Municipalities">
+  <meta name="theme-color" content="#0a0c10" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f3f1ea" media="(prefers-color-scheme: light)">
+  <title>About - Part IXA: The Municipalities</title>
+  <link rel="icon" type="image/png" href="../assets/ixa-mark.png?v=stitch-color">
+  <link rel="manifest" href="../site.webmanifest">
+  <script>(function(){try{var t=localStorage.getItem('atlas-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+  <link rel="stylesheet" href="../assets/theme.css">
+  <link rel="stylesheet" href="../assets/masthead.css">
+  <style>
+/* core tokens + light/dark come from theme.css; about keeps only its extras */
+:root{--paper:var(--bg);--amber:var(--gold);--green:#2c7a55;--black:#11141b}
+:root[data-theme=light]{--green:#174f36;--black:#111}
+@media (prefers-color-scheme:light){:root:not([data-theme=dark]){--green:#174f36;--black:#111}}
+*{box-sizing:border-box}html{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.5}body{margin:0}.page{min-height:100vh}.wrap{margin:0 auto;max-width:1180px;padding:0 22px}.mast{border-bottom:1px solid var(--line);background:rgba(250,248,241,.92);position:sticky;top:0;z-index:5;backdrop-filter:blur(10px)}.mast .wrap{align-items:center;display:flex;gap:18px;justify-content:space-between;min-height:74px}.brand{align-items:center;color:inherit;display:flex;gap:12px;min-width:0;text-decoration:none}.brand img{display:block;height:48px;width:48px}.brand span{display:block;font:800 20px/1.05 var(--serif);letter-spacing:0}.brand b{color:var(--mut);display:block;font:800 10px/1 var(--mono);letter-spacing:.16em;margin-top:5px;text-transform:uppercase}.nav{align-items:center;display:flex;gap:8px}.nav a{border:1px solid var(--line);border-radius:4px;color:var(--ink);font:800 11px/1 var(--mono);letter-spacing:.08em;padding:10px 12px;text-decoration:none;text-transform:uppercase}.nav a.primary{background:var(--ink);border-color:var(--ink);color:var(--paper)}.hero{border-bottom:1px solid var(--line);padding:54px 0 44px}.eyebrow{color:var(--mut);font:800 12px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase}.hero h1{font:400 clamp(36px,6.6vw,68px)/1.04 var(--serif);letter-spacing:0;margin:16px 0 18px;max-width:970px}.hero p{color:var(--mut);font-size:18px;max-width:760px}.hero-grid{display:grid;gap:22px;grid-template-columns:minmax(0,1fr) 310px;align-items:end}.registry{background:var(--black);border:1px solid var(--black);border-radius:6px;color:#f6e3a6;font:700 12px/1.4 var(--mono);padding:18px}.registry div{border-bottom:1px solid #343434;display:flex;justify-content:space-between;gap:16px;padding:8px 0}.registry div:first-child{padding-top:0}.registry div:last-child{border:0;padding-bottom:0}.registry span:last-child{color:#fff;text-align:right}.stats{display:grid;gap:10px;grid-template-columns:repeat(3,1fr);margin-top:24px;max-width:760px}.stat{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:14px;text-align:center}.stat strong{display:block;font:700 26px/1 var(--serif)}.stat span{color:var(--mut);display:block;font:800 10px/1.2 var(--mono);letter-spacing:.1em;margin-top:7px;text-transform:uppercase}.band{border-bottom:1px solid var(--line);padding:42px 0}.split{display:grid;gap:28px;grid-template-columns:330px minmax(0,1fr)}.section-kicker{color:var(--amber);font:800 10px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase}.band h2{font:400 32px/1.12 var(--serif);margin:10px 0 12px}.lead{color:var(--mut);font-size:16px;max-width:710px}.article-tabs,.filters{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 18px}.article-tabs button,.filters button{background:var(--panel);border:1px solid var(--line);border-radius:4px;color:var(--mut);cursor:pointer;font:800 11px/1 var(--mono);min-height:46px;min-width:46px;padding:10px 11px}.article-tabs button.is-active,.filters button.is-active{background:var(--ink);border-color:var(--ink);color:var(--paper)}.article-card{display:grid;gap:18px;grid-template-columns:minmax(0,1.25fr) minmax(260px,.75fr)}.article-copy,.meaning{border-radius:6px;padding:22px}.article-copy{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--amber)}.meaning{background:var(--ink);border:1px solid var(--ink);color:var(--paper)}.article-copy h3,.meaning h3{font:700 22px/1.16 var(--serif);margin:8px 0 10px}.article-copy p,.meaning p{font-size:14px;margin:0}.article-copy p{color:var(--mut)}.meaning p{color:#c9ccd2}.tag{border-radius:999px;display:inline-block;font:800 10px/1 var(--mono);letter-spacing:.12em;padding:7px 9px;text-transform:uppercase}.tag.amber{background:#f4dfb6;color:#6d4500}.tag.blue{background:#e6effa;color:var(--blue)}.subject-grid{display:grid;gap:12px;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:18px}.subject{background:var(--panel);border:1px solid var(--line);border-radius:6px;min-height:196px;padding:16px;position:relative}.subject[hidden]{display:none}.subject .top{align-items:flex-start;display:flex;justify-content:space-between;gap:10px}.num{color:var(--amber);font:800 12px/1 var(--mono)}.cat{border-radius:999px;font:800 9px/1 var(--mono);letter-spacing:.08em;padding:6px 7px;text-transform:uppercase}.cat.planning{background:#e7f0fb;color:var(--blue)}.cat.infrastructure{background:#e9ecf6;color:#2e4c86}.cat.health{background:#f8e9ec;color:var(--red)}.cat.development{background:#e4f1e9;color:var(--green)}.cat.regulatory{background:#f5ead2;color:#835200}.subject h3{font:800 16px/1.15 var(--sans);margin:16px 0 9px}.subject p{color:var(--mut);font-size:13px;margin:0}.clause{border-top:1px solid var(--line);bottom:0;color:var(--mut);font:800 10px/1.3 var(--mono);left:16px;letter-spacing:.04em;padding:12px 0;position:absolute;right:16px}.how{display:grid;gap:14px;grid-template-columns:repeat(3,1fr);margin-top:20px}.step{border-left:3px solid var(--blue);background:var(--panel);padding:16px}.step:nth-child(2){border-left-color:var(--red)}.step:nth-child(3){border-left-color:var(--green)}.step h3{font:700 18px/1.14 var(--serif);margin:0 0 8px}.step p{color:var(--mut);font-size:14px;margin:0}.cta{background:var(--ink);color:var(--paper);padding:42px 0}.cta .wrap{align-items:center;display:flex;gap:20px;justify-content:space-between}.cta h2{font:400 34px/1.08 var(--serif);margin:0}.cta p{color:#c9ccd2;margin:10px 0 0;max-width:680px}.cta a{background:var(--paper);border-radius:4px;color:var(--ink);font:800 12px/1 var(--mono);letter-spacing:.08em;padding:14px 16px;text-decoration:none;text-transform:uppercase;white-space:nowrap}.sources{font-size:12px;padding:22px 0;color:var(--mut)}.sources a{color:var(--blue)}@media(max-width:880px){.hero-grid,.split,.article-card,.how,.cta .wrap{grid-template-columns:1fr;display:grid}.registry{max-width:100%}.subject-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.cta a{justify-self:start}.mast .wrap{align-items:flex-start;flex-direction:column;padding-bottom:14px;padding-top:14px}.nav{width:100%}.nav a{flex:1;text-align:center}}@media(max-width:560px){.wrap{padding:0 16px}.hero{padding:36px 0}.stats,.subject-grid{grid-template-columns:1fr}.subject{min-height:174px}.brand img{height:42px;width:42px}.brand span{font-size:18px}.registry div{display:block}.registry span:last-child{display:block;text-align:left;margin-top:3px}}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header data-masthead="bar"></header>
+
+    <main>
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div>
+            <div class="eyebrow">Part IXA · The Municipalities</div>
+            <h1>The constitutional promise of city government, made visible on a map.</h1>
+            <p>Indian cities often fail residents because responsibility is split across municipal bodies, state departments, parastatals, engineers, contractors, MLAs, MPs, and councillors. This project helps people connect a civic problem to the public geography and public office around it.</p>
+            <div class="stats" aria-label="74th Amendment quick facts">
+              <div class="stat"><strong>18</strong><span>Twelfth Schedule subjects</span></div>
+              <div class="stat"><strong>IXA</strong><span>Municipalities</span></div>
+              <div class="stat"><strong>243W</strong><span>Self-government hinge</span></div>
+            </div>
+          </div>
+          <aside class="registry" aria-label="Constitutional reference">
+            <div><span>INSERTED BY</span><span>74th Amendment Act, 1992</span></div>
+            <div><span>PART</span><span>IXA · The Municipalities</span></div>
+            <div><span>ARTICLES</span><span>243P to 243ZG</span></div>
+            <div><span>CONSOLE SEED</span><span>Ahmedabad, Gujarat</span></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="band">
+        <div class="wrap split">
+          <div>
+            <div class="section-kicker">What this is</div>
+            <h2>Not a smart-city dashboard.</h2>
+          </div>
+          <div>
+            <p class="lead">This atlas does one small thing: it gives residents a way to ask, “whose jurisdiction is this?” Select a ward, Assembly constituency, or Parliamentary constituency; see the public services and infrastructure layers around it; then connect visible civic problems to councillors, MLAs, MPs, municipal departments, and public offices as city data improves.</p>
+            <div class="how">
+              <div class="step"><h3>Find the place</h3><p>Start from a ward, Assembly constituency, Parliamentary constituency, or visible map layer.</p></div>
+              <div class="step"><h3>Read the split</h3><p>See where municipal, state, and parliamentary geographies overlap instead of assuming clean nesting.</p></div>
+              <div class="step"><h3>Ask the question</h3><p>Use public geography to ask why power, funds, and responsibility sit where they do.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band">
+        <div class="wrap">
+          <div class="section-kicker">Part IXA handbook</div>
+          <h2>Articles residents should know</h2>
+          <p class="lead">The 74th Amendment does not automatically make cities powerful. It gives a constitutional language for asking why powers, functions, and finances have not moved down to urban local bodies.</p>
+
+          <div class="article-tabs" role="tablist" aria-label="Part IXA articles">
+            <button class="is-active" type="button" data-article="243P">243P</button>
+            <button type="button" data-article="243Q">243Q</button>
+            <button type="button" data-article="243S">243S</button>
+            <button type="button" data-article="243T">243T</button>
+            <button type="button" data-article="243W">243W</button>
+            <button type="button" data-article="243Y">243Y</button>
+            <button type="button" data-article="243ZA">243ZA</button>
+          </div>
+
+          <div class="article-card">
+            <article class="article-copy">
+              <span class="tag amber" id="articleTag">Article 243P</span>
+              <h3 id="articleTitle">Definitions of municipal territory</h3>
+              <p id="articleText">Defines the basic vocabulary of Part IXA: municipality, municipal area, district, metropolitan area, population, and related terms. Without these definitions, city power cannot be mapped or compared.</p>
+            </article>
+            <aside class="meaning">
+              <span class="tag blue">Civic meaning</span>
+              <h3 id="meaningTitle">The map starts with legal boundaries.</h3>
+              <p id="meaningText">A resident cannot attribute responsibility if the public boundary itself is unclear. Definitions are not technical trivia; they decide what counts as the city and who can be questioned.</p>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="band">
+        <div class="wrap">
+          <div class="section-kicker">Twelfth Schedule</div>
+          <h2>The 18 municipal functions</h2>
+          <p class="lead">These are the domains that make city life feel functional or broken: planning, land, roads, water, sanitation, public health, ecology, poverty, public spaces, and more.</p>
+          <div class="filters" aria-label="Filter Twelfth Schedule subjects">
+            <button class="is-active" type="button" data-filter="all">All</button>
+            <button type="button" data-filter="planning">Planning</button>
+            <button type="button" data-filter="infrastructure">Infrastructure</button>
+            <button type="button" data-filter="health">Health & Social</button>
+            <button type="button" data-filter="development">Development</button>
+            <button type="button" data-filter="regulatory">Regulatory</button>
+          </div>
+
+          <div class="subject-grid" id="subjects">
+            <article class="subject" data-category="planning"><div class="top"><span class="num">#01</span><span class="cat planning">Planning</span></div><h3>Urban planning, including town planning</h3><p>Master plans, zoning, layout, growth, and the planned shape of the city.</p><div class="clause">Twelfth Schedule · Clause 1</div></article>
+            <article class="subject" data-category="regulatory"><div class="top"><span class="num">#02</span><span class="cat regulatory">Regulatory</span></div><h3>Regulation of land-use and construction</h3><p>Building permissions, land-use control, construction regulation, and the everyday politics of what can be built where.</p><div class="clause">Twelfth Schedule · Clause 2</div></article>
+            <article class="subject" data-category="planning"><div class="top"><span class="num">#03</span><span class="cat planning">Planning</span></div><h3>Planning for economic and social development</h3><p>Local development priorities, social justice planning, and public investment choices.</p><div class="clause">Twelfth Schedule · Clause 3</div></article>
+            <article class="subject" data-category="infrastructure"><div class="top"><span class="num">#04</span><span class="cat infrastructure">Infrastructure</span></div><h3>Roads and bridges</h3><p>Street networks, bridges, footpaths, repair priorities, and transport access.</p><div class="clause">Twelfth Schedule · Clause 4</div></article>
+            <article class="subject" data-category="infrastructure"><div class="top"><span class="num">#05</span><span class="cat infrastructure">Infrastructure</span></div><h3>Water supply</h3><p>Domestic, industrial, and commercial water supply across neighbourhoods.</p><div class="clause">Twelfth Schedule · Clause 5</div></article>
+            <article class="subject" data-category="health"><div class="top"><span class="num">#06</span><span class="cat health">Health & Social</span></div><h3>Public health, sanitation, conservancy, and solid waste</h3><p>Garbage, drains, toilets, public health, waste systems, and disease-risk infrastructure.</p><div class="clause">Twelfth Schedule · Clause 6</div></article>
+            <article class="subject" data-category="regulatory"><div class="top"><span class="num">#07</span><span class="cat regulatory">Regulatory</span></div><h3>Fire services</h3><p>Fire stations, hydrants, emergency reach, and building-safety preparedness.</p><div class="clause">Twelfth Schedule · Clause 7</div></article>
+            <article class="subject" data-category="development"><div class="top"><span class="num">#08</span><span class="cat development">Development</span></div><h3>Urban forestry, environment, and ecology</h3><p>Trees, water bodies, heat exposure, ecological protection, and liveability.</p><div class="clause">Twelfth Schedule · Clause 8</div></article>
+            <article class="subject" data-category="health"><div class="top"><span class="num">#09</span><span class="cat health">Health & Social</span></div><h3>Safeguarding weaker sections</h3><p>Protection of disabled people, older residents, and other vulnerable groups in city design and services.</p><div class="clause">Twelfth Schedule · Clause 9</div></article>
+            <article class="subject" data-category="development"><div class="top"><span class="num">#10</span><span class="cat development">Development</span></div><h3>Slum improvement and upgradation</h3><p>Services, secure tenure questions, housing upgrades, and infrastructure in informal settlements.</p><div class="clause">Twelfth Schedule · Clause 10</div></article>
+            <article class="subject" data-category="development"><div class="top"><span class="num">#11</span><span class="cat development">Development</span></div><h3>Urban poverty alleviation</h3><p>Local anti-poverty programmes, livelihoods, shelters, and access to public support.</p><div class="clause">Twelfth Schedule · Clause 11</div></article>
+            <article class="subject" data-category="infrastructure"><div class="top"><span class="num">#12</span><span class="cat infrastructure">Infrastructure</span></div><h3>Parks, gardens, and playgrounds</h3><p>Public open space, recreation, neighbourhood parks, and child-friendly city infrastructure.</p><div class="clause">Twelfth Schedule · Clause 12</div></article>
+            <article class="subject" data-category="health"><div class="top"><span class="num">#13</span><span class="cat health">Health & Social</span></div><h3>Cultural, educational, and aesthetic aspects</h3><p>Libraries, heritage, public culture, local education assets, and the civic face of the city.</p><div class="clause">Twelfth Schedule · Clause 13</div></article>
+            <article class="subject" data-category="health"><div class="top"><span class="num">#14</span><span class="cat health">Health & Social</span></div><h3>Burials, burial grounds, cremations, and crematoriums</h3><p>Dignified public facilities for death, mourning, sanitation, and memorial space.</p><div class="clause">Twelfth Schedule · Clause 14</div></article>
+            <article class="subject" data-category="regulatory"><div class="top"><span class="num">#15</span><span class="cat regulatory">Regulatory</span></div><h3>Cattle pounds and prevention of cruelty to animals</h3><p>Street animal management, public safety, care obligations, and humane municipal systems.</p><div class="clause">Twelfth Schedule · Clause 15</div></article>
+            <article class="subject" data-category="regulatory"><div class="top"><span class="num">#16</span><span class="cat regulatory">Regulatory</span></div><h3>Vital statistics</h3><p>Registration of births and deaths, demographic records, and the data basis for public planning.</p><div class="clause">Twelfth Schedule · Clause 16</div></article>
+            <article class="subject" data-category="infrastructure"><div class="top"><span class="num">#17</span><span class="cat infrastructure">Infrastructure</span></div><h3>Public amenities</h3><p>Street lighting, parking, bus stops, public conveniences, and everyday usable infrastructure.</p><div class="clause">Twelfth Schedule · Clause 17</div></article>
+            <article class="subject" data-category="regulatory"><div class="top"><span class="num">#18</span><span class="cat regulatory">Regulatory</span></div><h3>Regulation of slaughter houses and tanneries</h3><p>Public health, waste control, labour conditions, and environmental regulation around these sites.</p><div class="clause">Twelfth Schedule · Clause 18</div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta">
+        <div class="wrap">
+          <div>
+            <h2>Start with Ahmedabad.</h2>
+            <p>Ahmedabad is the working atlas seed. The same contract can be rebuilt for Kolkata, Chennai, Bengaluru, Mumbai, Delhi, Pune, Surat, Jaipur, Lucknow, and other urban local bodies.</p>
+          </div>
+          <a href="../cities/ahmedabad/">Open the Atlas</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="sources">
+      <div class="wrap">
+        Constitutional frame: Part IXA, Articles 243P-243ZG, and the Twelfth Schedule. See <a href="https://www.constitutionofindia.net/parts/part-ixa/">Part IXA</a> and <a href="https://www.constitutionofindia.net/articles/article-243w-powers-authority-and-responsibilities-of-municipalities-etc/">Article 243W</a>.
+      </div>
+    </footer>
+  </div>
+  <script>
+const articles={
+  "243P":["Definitions of municipal territory","Defines the basic vocabulary of Part IXA: municipality, municipal area, district, metropolitan area, population, and related terms. Without these definitions, city power cannot be mapped or compared.","The map starts with legal boundaries.","A resident cannot attribute responsibility if the public boundary itself is unclear. Definitions are not technical trivia; they decide what counts as the city and who can be questioned."],
+  "243Q":["Constitution of municipalities","Requires three forms of urban local body: Nagar Panchayat for transitional areas, Municipal Council for smaller urban areas, and Municipal Corporation for larger urban areas.","The form of city government should match the settlement.","This article is where the Constitution says cities and urbanising places need elected local bodies, not just state departments administering them from above."],
+  "243S":["Wards committees","Provides for wards committees in municipalities with large populations, creating a smaller representative layer inside the city.","The neighbourhood needs a democratic forum.","Large cities cannot be accountable only at city-hall scale. Ward-level structures are the route through which neighbourhood problems can become public questions."],
+  "243T":["Reservation of seats","Provides reservation of municipal seats for Scheduled Castes, Scheduled Tribes, and women.","Representation is part of city power.","Urban governance is not just engineering. The city government must also reflect social democracy, caste realities, and gendered access to public power."],
+  "243W":["Powers, authority, and responsibilities","Allows State legislatures to endow municipalities with powers and authority needed to function as institutions of self-government, including Twelfth Schedule matters.","This is the hinge.","Article 243W is why this atlas exists. When a city problem cannot be solved locally, the next question is whether the function, funds, and authority have actually moved to the urban local body."],
+  "243Y":["Finance Commission oversight","Extends Finance Commission review to the financial position of municipalities and recommendations on revenue sharing, grants, and taxes.","No money, no devolution.","A city can be formally elected and still powerless if funds are controlled elsewhere. Finance is not an appendix to urban democracy; it is one of its conditions."],
+  "243ZA":["Municipal elections","Places preparation of electoral rolls and conduct of municipal elections under the State Election Commission.","City democracy needs regular elections.","If elections are delayed or controlled, city accountability collapses. Local self-government needs an electoral clock that cannot be casually switched off."]
+};
+document.querySelectorAll("[data-article]").forEach((button)=>{
+  button.addEventListener("click",()=>{
+    document.querySelectorAll("[data-article]").forEach((b)=>b.classList.remove("is-active"));
+    button.classList.add("is-active");
+    const a=articles[button.dataset.article];
+    document.getElementById("articleTag").textContent="Article "+button.dataset.article;
+    document.getElementById("articleTitle").textContent=a[0];
+    document.getElementById("articleText").textContent=a[1];
+    document.getElementById("meaningTitle").textContent=a[2];
+    document.getElementById("meaningText").textContent=a[3];
+  });
+});
+document.querySelectorAll("[data-filter]").forEach((button)=>{
+  button.addEventListener("click",()=>{
+    document.querySelectorAll("[data-filter]").forEach((b)=>b.classList.remove("is-active"));
+    button.classList.add("is-active");
+    const filter=button.dataset.filter;
+    document.querySelectorAll(".subject").forEach((card)=>{
+      card.hidden=filter!=="all"&&card.dataset.category!==filter;
+    });
+  });
+});
+  </script>
+  <script src="../assets/masthead.js"></script>
+  <script src="../assets/theme.js" defer></script>
+</body>
+</html>

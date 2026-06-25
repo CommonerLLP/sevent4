@@ -1,0 +1,676 @@
+{
+ "schema": "sevent4.jurisdiction_crosswalk.v1",
+ "city": "lucknow",
+ "country": "India",
+ "levels": [
+  "state",
+  "district"
+ ],
+ "thresholds": {
+  "method": "ward representative point within AC/PC polygon (nearest fallback), EPSG:3857"
+ },
+ "excluded_acs": [],
+ "source": "spatial join of city ward/AC/PC layers",
+ "records": [
+  {
+   "ward_name": "Ward 4 · Sarojni Nagar Part 1",
+   "ac_name": "Sarojini Nagar",
+   "pc_name": "Mohanlalganj",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 15 · Sarojni Nagar Part 2",
+   "ac_name": "Sarojini Nagar",
+   "pc_name": "Mohanlalganj",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 2 · Raja Bijli Pasi",
+   "ac_name": "Sarojini Nagar",
+   "pc_name": "Mohanlalganj",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 21 · Sharda Nagar",
+   "ac_name": "Sarojini Nagar",
+   "pc_name": "Mohanlalganj",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 1 · Ibrahimpur",
+   "ac_name": "Sarojini Nagar",
+   "pc_name": "Mohanlalganj",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 10 · Kharika",
+   "ac_name": "Sarojini Nagar",
+   "pc_name": "Mohanlalganj",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 88 · Vidyavati 1st",
+   "ac_name": "Sarojini Nagar",
+   "pc_name": "Mohanlalganj",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 73 · Vidyavati 2nd",
+   "ac_name": "Sarojini Nagar",
+   "pc_name": "Mohanlalganj",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 66 · Hind Nagar",
+   "ac_name": "Sarojini Nagar",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 44 · Chitragupt Nagar",
+   "ac_name": "Lucknow Cantt.",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 19 · Kesri Kheda",
+   "ac_name": "Lucknow West",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 69 · Ramjilal Nagar",
+   "ac_name": "Lucknow Cantt.",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 22 · Gurunanak Nagar",
+   "ac_name": "Lucknow Cantt.",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 28 · Geeta Palli",
+   "ac_name": "Lucknow Cantt.",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 20 · Guru Govind Singh Ward",
+   "ac_name": "Lucknow Cantt.",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 18 · Om Nagar",
+   "ac_name": "Lucknow Cantt.",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 26 · Babu Kunj Bihari Lal Ward",
+   "ac_name": "Lucknow Cantt.",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 75 · Sardar Patel Nagar",
+   "ac_name": "Lucknow Cantt.",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 78 · Alam Nagar",
+   "ac_name": "Lucknow West",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 70 · Shahdatganj",
+   "ac_name": "Lucknow West",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 16 · Haidar Ganj 2nd",
+   "ac_name": "Lucknow West",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 47 · Haidarganj 1st",
+   "ac_name": "Lucknow West",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 9 · Kanhaiya Madhopur",
+   "ac_name": "Lucknow West",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 83 · Rajaji Puram",
+   "ac_name": "Lucknow West",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 5 · Ambedkar Nagar 2nd",
+   "ac_name": "Lucknow Cantt.",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 68 · Chandrabhan Gupt Nagar",
+   "ac_name": "Lucknow Cantt.",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 76 · Babu Banarsi Das",
+   "ac_name": "Lucknow Cantt.",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 57 · Vikramaditya",
+   "ac_name": "Lucknow Central",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 65 · Ram Tirath",
+   "ac_name": "Lucknow Central",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 48 · Mahatma Gandhi",
+   "ac_name": "Lucknow Central",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 13 · Lal Kuan",
+   "ac_name": "Lucknow Central",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 93 · Yadhu Nath Sanyal",
+   "ac_name": "Lucknow Central",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 72 · Ganesh Ganj",
+   "ac_name": "Lucknow Central",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 55 · Motilal Nehru",
+   "ac_name": "Lucknow Central",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 54 · Kunwer Jyoti Prasad 2nd",
+   "ac_name": "Lucknow West",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 50 · Hardeen Rai Nagar",
+   "ac_name": "Lucknow West",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 86 · Kashmiri Mohalla",
+   "ac_name": "Lucknow West",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 60 · Labour Colony",
+   "ac_name": "Lucknow West",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 14 · Ambedkar Nagar 1st",
+   "ac_name": "Lucknow Central",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 7 · Malviya Nagar",
+   "ac_name": "Lucknow Central",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 80 · Sheetla Devi",
+   "ac_name": "Lucknow West",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 97 · Bhawani Ganj",
+   "ac_name": "Lucknow West",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 39 · Aish Bagh",
+   "ac_name": "Lucknow Central",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 33 · Rajendra Nagar",
+   "ac_name": "Lucknow Central",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 96 · Basheerat Ganj",
+   "ac_name": "Lucknow Central",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 3 · Tilak Nagar",
+   "ac_name": "Lucknow Central",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 106 · Kundri Rakab Ganj",
+   "ac_name": "Lucknow Central",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 94 · Moulviya Ganj",
+   "ac_name": "Lucknow Central",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 34 · Rani Laxmi Bai",
+   "ac_name": "Lucknow Central",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 100 · Nazer Bagh",
+   "ac_name": "Lucknow Central",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 23 · Jagdish Chandra Bose",
+   "ac_name": "Lucknow Central",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 17 · Hazarat Ganj",
+   "ac_name": "Lucknow Central",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 29 · Raja Ram Mohan Rai",
+   "ac_name": "Lucknow Central",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 108 · Maulana Kalbey Abid 2nd",
+   "ac_name": "Lucknow West",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 105 · Gadi Peer Khan",
+   "ac_name": "Lucknow West",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 85 · Ambar Ganj",
+   "ac_name": "Lucknow West",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 107 · Maulana Kalbey Abid 1st",
+   "ac_name": "Lucknow West",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 101 · Asharfabad",
+   "ac_name": "Lucknow Central",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 110 · Raja Bazar",
+   "ac_name": "Lucknow Central",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 98 · Yahiya Ganj",
+   "ac_name": "Lucknow Central",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 25 · Bala Ganj",
+   "ac_name": "Lucknow West",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 53 · Mallahi Tola 1st",
+   "ac_name": "Lucknow North",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 109 · Mallahi Tola 2nd",
+   "ac_name": "Lucknow North",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 92 · Daulat Ganj",
+   "ac_name": "Lucknow North",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 90 · Acharya Narendra Dev",
+   "ac_name": "Lucknow West",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 59 · Hussainabad",
+   "ac_name": "Lucknow North",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 104 · Chowk Kaliji Bazar",
+   "ac_name": "Lucknow Central",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 71 · Netaji Subhash Chandra Bose",
+   "ac_name": "Lucknow Central",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 79 · Mashk Ganj",
+   "ac_name": "Lucknow Central",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 95 · Wazeer Ganj",
+   "ac_name": "Lucknow Central",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 46 · Golaganj Peer Jaleel",
+   "ac_name": "Lucknow Central",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 12 · Faizullah Ganj 2nd",
+   "ac_name": "Lucknow North",
+   "pc_name": "Mohanlalganj",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 32 · Faizullah Ganj 1st",
+   "ac_name": "Lucknow North",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 82 · Ayodhyadas",
+   "ac_name": "Lucknow North",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 51 · Kadam Rasul",
+   "ac_name": "Lucknow North",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 63 · Triveni Nagar",
+   "ac_name": "Lucknow North",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 40 · Rafi Ahmad Kidwai",
+   "ac_name": "Lucknow Central",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 36 · Rajiv Gandhi 1st",
+   "ac_name": "Lucknow Central",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 81 · Rajiv Gandhi 2nd",
+   "ac_name": "Lucknow East",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 11 · Chinhat",
+   "ac_name": "Bakshi Kaa Talab",
+   "pc_name": "Mohanlalganj",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 45 · Paper Mill Colony",
+   "ac_name": "Lucknow Central",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 31 · Nishat Ganj",
+   "ac_name": "Lucknow East",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 42 · Colvin College",
+   "ac_name": "Lucknow East",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 27 · Nirala Nagar",
+   "ac_name": "Lucknow East",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 67 · Mankameshwar",
+   "ac_name": "Lucknow North",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 56 · Dali Ganj",
+   "ac_name": "Lucknow North",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 74 · Mahakavi Jai Shankar Prasad",
+   "ac_name": "Lucknow North",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 89 · Ali Ganj Ward",
+   "ac_name": "Lucknow North",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 103 · Vivekanand Puri",
+   "ac_name": "Lucknow East",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 62 · Mahanagar",
+   "ac_name": "Lucknow East",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 35 · Jankipuram 1st",
+   "ac_name": "Lucknow North",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 91 · Jankipuram 2nd",
+   "ac_name": "Lucknow North",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 77 · Bhartendu Harish Chandra",
+   "ac_name": "Lucknow North",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 102 · Bajrang Bali",
+   "ac_name": "Lucknow North",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 61 · Begum Hazrat Mehal",
+   "ac_name": "Lucknow East",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 43 · Lala Lajpat Rai",
+   "ac_name": "Lucknow North",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 99 · Shankar Purwa 1st",
+   "ac_name": "Lucknow East",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 30 · Shankar Purwa 2nd",
+   "ac_name": "Lucknow North",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 84 · Lohiya Nagar",
+   "ac_name": "Lucknow East",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 8 · Lal Bahadur Shastri 1st",
+   "ac_name": "Lucknow East",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 58 · Lal Bahadur Shastri 2nd",
+   "ac_name": "Lucknow East",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 52 · Gomti Nagar",
+   "ac_name": "Lucknow East",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 38 · Maithli Sharan Gupt",
+   "ac_name": "Lucknow East",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 87 · Indra Nagar",
+   "ac_name": "Lucknow East",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 49 · Babu Jagjivan Ram",
+   "ac_name": "Lucknow East",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 24 · Indira Priyadarshini",
+   "ac_name": "Lucknow East",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 41 · Ismail Ganj 2nd",
+   "ac_name": "Lucknow East",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 37 · Ismail Ganj 1st",
+   "ac_name": "Lucknow East",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 6 · Shaheed Bhagat Singh",
+   "ac_name": "Bakshi Kaa Talab",
+   "pc_name": "Mohanlalganj",
+   "district_name": ""
+  },
+  {
+   "ward_name": "Ward 64 · Kunwar Jyoti Prasad 1st",
+   "ac_name": "Lucknow West",
+   "pc_name": "Lucknow",
+   "district_name": ""
+  }
+ ]
+}

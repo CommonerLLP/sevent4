@@ -1,0 +1,1322 @@
+{
+  "source": {
+    "cover_text": "REPORT ON\nMUNICIPAL FINANCES\n\n\n\n\n  RESERVE BANK OF INDIA\n        November 2024\n In India   \u2013    \u20b9 300    (Over the Counter)\n           \u2013    \u20b9 350    (Inclusive of Postal Charges)\nAbroad     \u2013    US$ 16 (Inclusive of Air Mail Courier Charges)\n\n\n\n\n\u00a9 Reserve Bank of India 2024\nAll rights reserved. Reproduction is permitted provided an acknowledgement of the source is made.\n\n\n\n\nPublished by Dr.",
+    "parser": "scripts/research/parse_rbi_municipal_finances.py",
+    "path": "data/reference/RBI_Report_on_Municipal_Finances.pdf",
+    "sha256": "ac021f301bce38e65eaed2328f028d61d15112e2abeb22e6414d92efc1c351db"
+  },
+  "tables": {
+    "ii_2_state_revenue_receipts_expenditure": {
+      "All India": {
+        "2021-22_accounts": {
+          "revenue_expenditure_inr_crore": 123201,
+          "revenue_receipts_inr_crore": 137058,
+          "surplus_deficit_inr_crore": 13857
+        },
+        "2022-23_re": {
+          "revenue_expenditure_inr_crore": 131608,
+          "revenue_receipts_inr_crore": 142178,
+          "surplus_deficit_inr_crore": 10570
+        },
+        "2023-24_be": {
+          "revenue_expenditure_inr_crore": 149903,
+          "revenue_receipts_inr_crore": 170722,
+          "surplus_deficit_inr_crore": 20819
+        }
+      },
+      "Andhra Pradesh": {
+        "2021-22_accounts": {
+          "revenue_expenditure_inr_crore": 1951,
+          "revenue_receipts_inr_crore": 2539,
+          "surplus_deficit_inr_crore": 587
+        },
+        "2022-23_re": {
+          "revenue_expenditure_inr_crore": 2265,
+          "revenue_receipts_inr_crore": 2808,
+          "surplus_deficit_inr_crore": 543
+        },
+        "2023-24_be": {
+          "revenue_expenditure_inr_crore": 3732,
+          "revenue_receipts_inr_crore": 4334,
+          "surplus_deficit_inr_crore": 603
+        }
+      },
+      "Arunachal Pradesh": {
+        "2021-22_accounts": {
+          "revenue_expenditure_inr_crore": 16,
+          "revenue_receipts_inr_crore": 108,
+          "surplus_deficit_inr_crore": 92
+        },
+        "2022-23_re": {
+          "revenue_expenditure_inr_crore": null,
+          "revenue_receipts_inr_crore": null,
+          "surplus_deficit_inr_crore": null
+        },
+        "2023-24_be": {
+          "revenue_expenditure_inr_crore": null,
+          "revenue_receipts_inr_crore": null,
+          "surplus_deficit_inr_crore": null
+        }
+      },
+      "Assam": {
+        "2021-22_accounts": {
+          "revenue_expenditure_inr_crore": 219,
+          "revenue_receipts_inr_crore": 372,
+          "surplus_deficit_inr_crore": 153
+        },
+        "2022-23_re": {
+          "revenue_expenditure_inr_crore": null,
+          "revenue_receipts_inr_crore": null,
+          "surplus_deficit_inr_crore": null
+        },
+        "2023-24_be": {
+          "revenue_expenditure_inr_crore": null,
+          "revenue_receipts_inr_crore": null,
+          "surplus_deficit_inr_crore": null
+        }
+      },
+      "Bihar": {
+        "2021-22_accounts": {
+          "revenue_expenditure_inr_crore": 1110,
+          "revenue_receipts_inr_crore": 1224,
+          "surplus_deficit_inr_crore": 114
+        },
+        "2022-23_re": {
+          "revenue_expenditure_inr_crore": 1260,
+          "revenue_receipts_inr_crore": 1301,
+          "surplus_deficit_inr_crore": 42
+        },
+        "2023-24_be": {
+          "revenue_expenditure_inr_crore": 2418,
+          "revenue_receipts_inr_crore": 2114,
+          "surplus_deficit_inr_crore": -304
+        }
+      },
+      "Chhattisgarh": {
+        "2021-22_accounts": {
+          "revenue_expenditure_inr_crore": 1410,
+          "revenue_receipts_inr_crore": 1459,
+          "surplus_deficit_inr_crore": 49
+        },
+        "2022-23_re": {
+          "revenue_expenditure_inr_crore": 1571,
+          "revenue_receipts_inr_crore": 1538,
+          "surplus_deficit_inr_crore": -33
+        },
+        "2023-24_be": {
+          "revenue_expenditure_inr_crore": 2184,
+          "revenue_receipts_inr_crore": 1775,
+          "surplus_deficit_inr_crore": -408
+        }
+      },
+      "Delhi": {
+        "2021-22_accounts": {
+          "revenue_expenditure_inr_crore": 15079,
+          "revenue_receipts_inr_crore": 14127,
+          "surplus_deficit_inr_crore": -952
+        },
+        "2022-23_re": {
+          "revenue_expenditure_inr_crore": 21116,
+          "revenue_receipts_inr_crore": 20678,
+          "surplus_deficit_inr_crore": -438
+        },
+        "2023-24_be": {
+          "revenue_expenditure_inr_crore": 20947,
+          "revenue_receipts_inr_crore": 21634,
+          "surplus_deficit_inr_crore": 687
+        }
+      },
+      "Goa": {
+        "2021-22_accounts": {
+          "revenue_expenditure_inr_crore": 43,
+          "revenue_receipts_inr_crore": 56,
+          "surplus_deficit_inr_crore": 13
+        },
+        "2022-23_re": {
+          "revenue_expenditure_inr_crore": 49,
+          "revenue_receipts_inr_crore": 51,
+          "surplus_deficit_inr_crore": 3
+        },
+        "2023-24_be": {
+          "revenue_expenditure_inr_crore": 72,
+          "revenue_receipts_inr_crore": 76,
+          "surplus_deficit_inr_crore": 5
+        }
+      },
+      "Gujarat": {
+        "2021-22_accounts": {
+          "revenue_expenditure_inr_crore": 10119,
+          "revenue_receipts_inr_crore": 10976,
+          "surplus_deficit_inr_crore": 857
+        },
+        "2022-23_re": {
+          "revenue_expenditure_inr_crore": 11616,
+          "revenue_receipts_inr_crore": 11989,
+          "surplus_deficit_inr_crore": 373
+        },
+        "2023-24_be": {
+          "revenue_expenditure_inr_crore": 13187,
+          "revenue_receipts_inr_crore": 16290,
+          "surplus_deficit_inr_crore": 3104
+        }
+      },
+      "Haryana": {
+        "2021-22_accounts": {
+          "revenue_expenditure_inr_crore": 2280,
+          "revenue_receipts_inr_crore": 2723,
+          "surplus_deficit_inr_crore": 443
+        },
+        "2022-23_re": {
+          "revenue_expenditure_inr_crore": 2681,
+          "revenue_receipts_inr_crore": 3643,
+          "surplus_deficit_inr_crore": 963
+        },
+        "2023-24_be": {
+          "revenue_expenditure_inr_crore": 3616,
+          "revenue_receipts_inr_crore": 5380,
+          "surplus_deficit_inr_crore": 1763
+        }
+      },
+      "Himachal Pradesh": {
+        "2021-22_accounts": {
+          "revenue_expenditure_inr_crore": 146,
+          "revenue_receipts_inr_crore": 69,
+          "surplus_deficit_inr_crore": -77
+        },
+        "2022-23_re": {
+          "revenue_expenditure_inr_crore": 155,
+          "revenue_receipts_inr_crore": 76,
+          "surplus_deficit_inr_crore": -79
+        },
+        "2023-24_be": {
+          "revenue_expenditure_inr_crore": 309,
+          "revenue_receipts_inr_crore": 132,
+          "surplus_deficit_inr_crore": -176
+        }
+      },
+      "Jammu and Kashmir": {
+        "2021-22_accounts": {
+          "revenue_expenditure_inr_crore": 159,
+          "revenue_receipts_inr_crore": 199,
+          "surplus_deficit_inr_crore": 39
+        },
+        "2022-23_re": {
+          "revenue_expenditure_inr_crore": 519,
+          "revenue_receipts_inr_crore": 31,
+          "surplus_deficit_inr_crore": -488
+        },
+        "2023-24_be": {
+          "revenue_expenditure_inr_crore": 459,
+          "revenue_receipts_inr_crore": 33,
+          "surplus_deficit_inr_crore": -425
+        }
+      },
+      "Jharkhand": {
+        "2021-22_accounts": {
+          "revenue_expenditure_inr_crore": 544,
+          "revenue_receipts_inr_crore": 478,
+          "surplus_deficit_inr_crore": -66
+        },
+        "2022-23_re": {
+          "revenue_expenditure_inr_crore": 671,
+          "revenue_receipts_inr_crore": 634,
+          "surplus_deficit_inr_crore": -36
+        },
+        "2023-24_be": {
+          "revenue_expenditure_inr_crore": 711,
+          "revenue_receipts_inr_crore": 535,
+          "surplus_deficit_inr_crore": -175
+        }
+      },
+      "Karnataka": {
+        "2021-22_accounts": {
+          "revenue_expenditure_inr_crore": 9546,
+          "revenue_receipts_inr_crore": 3164,
+          "surplus_deficit_inr_crore": -6382
+        },
+        "2022-23_re": {
+          "revenue_expenditure_inr_crore": 5016,
+          "revenue_receipts_inr_crore": 5509,
+          "surplus_deficit_inr_crore": 492
+        },
+        "2023-24_be": {
+          "revenue_expenditure_inr_crore": 7962,
+          "revenue_receipts_inr_crore": 9905,
+          "surplus_deficit_inr_crore": 1942
+        }
+      },
+      "Kerala": {
+        "2021-22_accounts": {
+          "revenue_expenditure_inr_crore": 1575,
+          "revenue_receipts_inr_crore": 1732,
+          "surplus_deficit_inr_crore": 156
+        },
+        "2022-23_re": {
+          "revenue_expenditure_inr_crore": 1419,
+          "revenue_receipts_inr_crore": 1905,
+          "surplus_deficit_inr_crore": 486
+        },
+        "2023-24_be": {
+          "revenue_expenditure_inr_crore": 3212,
+          "revenue_receipts_inr_crore": 2423,
+          "surplus_deficit_inr_crore": -789
+        }
+      },
+      "Madhya Pradesh": {
+        "2021-22_accounts": {
+          "revenue_expenditure_inr_crore": 4832,
+          "revenue_receipts_inr_crore": 5311,
+          "surplus_deficit_inr_crore": 478
+        },
+        "2022-23_re": {
+          "revenue_expenditure_inr_crore": 5234,
+          "revenue_receipts_inr_crore": 5504,
+          "surplus_deficit_inr_crore": 270
+        },
+        "2023-24_be": {
+          "revenue_expenditure_inr_crore": 6690,
+          "revenue_receipts_inr_crore": 8456,
+          "surplus_deficit_inr_crore": 1766
+        }
+      },
+      "Maharashtra": {
+        "2021-22_accounts": {
+          "revenue_expenditure_inr_crore": 46022,
+          "revenue_receipts_inr_crore": 65323,
+          "surplus_deficit_inr_crore": 19301
+        },
+        "2022-23_re": {
+          "revenue_expenditure_inr_crore": 47413,
+          "revenue_receipts_inr_crore": 55370,
+          "surplus_deficit_inr_crore": 7956
+        },
+        "2023-24_be": {
+          "revenue_expenditure_inr_crore": 52266,
+          "revenue_receipts_inr_crore": 63371,
+          "surplus_deficit_inr_crore": 11104
+        }
+      },
+      "Manipur": {
+        "2021-22_accounts": {
+          "revenue_expenditure_inr_crore": 12,
+          "revenue_receipts_inr_crore": 12,
+          "surplus_deficit_inr_crore": 0
+        },
+        "2022-23_re": {
+          "revenue_expenditure_inr_crore": null,
+          "revenue_receipts_inr_crore": null,
+          "surplus_deficit_inr_crore": null
+        },
+        "2023-24_be": {
+          "revenue_expenditure_inr_crore": null,
+          "revenue_receipts_inr_crore": null,
+          "surplus_deficit_inr_crore": null
+        }
+      },
+      "Mizoram": {
+        "2021-22_accounts": {
+          "revenue_expenditure_inr_crore": 43,
+          "revenue_receipts_inr_crore": 43,
+          "surplus_deficit_inr_crore": 0
+        },
+        "2022-23_re": {
+          "revenue_expenditure_inr_crore": 46,
+          "revenue_receipts_inr_crore": 45,
+          "surplus_deficit_inr_crore": 0
+        },
+        "2023-24_be": {
+          "revenue_expenditure_inr_crore": 54,
+          "revenue_receipts_inr_crore": 97,
+          "surplus_deficit_inr_crore": 43
+        }
+      },
+      "Odisha": {
+        "2021-22_accounts": {
+          "revenue_expenditure_inr_crore": 1007,
+          "revenue_receipts_inr_crore": 831,
+          "surplus_deficit_inr_crore": -176
+        },
+        "2022-23_re": {
+          "revenue_expenditure_inr_crore": 835,
+          "revenue_receipts_inr_crore": 854,
+          "surplus_deficit_inr_crore": 19
+        },
+        "2023-24_be": {
+          "revenue_expenditure_inr_crore": 1061,
+          "revenue_receipts_inr_crore": 1267,
+          "surplus_deficit_inr_crore": 206
+        }
+      },
+      "Punjab": {
+        "2021-22_accounts": {
+          "revenue_expenditure_inr_crore": 2136,
+          "revenue_receipts_inr_crore": 2148,
+          "surplus_deficit_inr_crore": 13
+        },
+        "2022-23_re": {
+          "revenue_expenditure_inr_crore": 2300,
+          "revenue_receipts_inr_crore": 2116,
+          "surplus_deficit_inr_crore": -184
+        },
+        "2023-24_be": {
+          "revenue_expenditure_inr_crore": 2301,
+          "revenue_receipts_inr_crore": 2322,
+          "surplus_deficit_inr_crore": 21
+        }
+      },
+      "Rajasthan": {
+        "2021-22_accounts": {
+          "revenue_expenditure_inr_crore": 1494,
+          "revenue_receipts_inr_crore": 1627,
+          "surplus_deficit_inr_crore": 133
+        },
+        "2022-23_re": {
+          "revenue_expenditure_inr_crore": 2180,
+          "revenue_receipts_inr_crore": 2466,
+          "surplus_deficit_inr_crore": 285
+        },
+        "2023-24_be": {
+          "revenue_expenditure_inr_crore": 2379,
+          "revenue_receipts_inr_crore": 2972,
+          "surplus_deficit_inr_crore": 592
+        }
+      },
+      "Sikkim": {
+        "2021-22_accounts": {
+          "revenue_expenditure_inr_crore": 13,
+          "revenue_receipts_inr_crore": 25,
+          "surplus_deficit_inr_crore": 12
+        },
+        "2022-23_re": {
+          "revenue_expenditure_inr_crore": 20,
+          "revenue_receipts_inr_crore": 27,
+          "surplus_deficit_inr_crore": 7
+        },
+        "2023-24_be": {
+          "revenue_expenditure_inr_crore": 24,
+          "revenue_receipts_inr_crore": 31,
+          "surplus_deficit_inr_crore": 7
+        }
+      },
+      "Tamil Nadu": {
+        "2021-22_accounts": {
+          "revenue_expenditure_inr_crore": 7846,
+          "revenue_receipts_inr_crore": 6365,
+          "surplus_deficit_inr_crore": -1481
+        },
+        "2022-23_re": {
+          "revenue_expenditure_inr_crore": 8465,
+          "revenue_receipts_inr_crore": 7729,
+          "surplus_deficit_inr_crore": -736
+        },
+        "2023-24_be": {
+          "revenue_expenditure_inr_crore": 8734,
+          "revenue_receipts_inr_crore": 8834,
+          "surplus_deficit_inr_crore": 100
+        }
+      },
+      "Telangana": {
+        "2021-22_accounts": {
+          "revenue_expenditure_inr_crore": 3542,
+          "revenue_receipts_inr_crore": 4037,
+          "surplus_deficit_inr_crore": 495
+        },
+        "2022-23_re": {
+          "revenue_expenditure_inr_crore": 3742,
+          "revenue_receipts_inr_crore": 4573,
+          "surplus_deficit_inr_crore": 831
+        },
+        "2023-24_be": {
+          "revenue_expenditure_inr_crore": 3269,
+          "revenue_receipts_inr_crore": 4762,
+          "surplus_deficit_inr_crore": 1494
+        }
+      },
+      "Tripura": {
+        "2021-22_accounts": {
+          "revenue_expenditure_inr_crore": 307,
+          "revenue_receipts_inr_crore": 283,
+          "surplus_deficit_inr_crore": -24
+        },
+        "2022-23_re": {
+          "revenue_expenditure_inr_crore": 241,
+          "revenue_receipts_inr_crore": 240,
+          "surplus_deficit_inr_crore": -1
+        },
+        "2023-24_be": {
+          "revenue_expenditure_inr_crore": 265,
+          "revenue_receipts_inr_crore": 264,
+          "surplus_deficit_inr_crore": -2
+        }
+      },
+      "Uttar Pradesh": {
+        "2021-22_accounts": {
+          "revenue_expenditure_inr_crore": 5742,
+          "revenue_receipts_inr_crore": 5930,
+          "surplus_deficit_inr_crore": 188
+        },
+        "2022-23_re": {
+          "revenue_expenditure_inr_crore": 6796,
+          "revenue_receipts_inr_crore": 7095,
+          "surplus_deficit_inr_crore": 299
+        },
+        "2023-24_be": {
+          "revenue_expenditure_inr_crore": 7963,
+          "revenue_receipts_inr_crore": 7437,
+          "surplus_deficit_inr_crore": -526
+        }
+      },
+      "Uttarakhand": {
+        "2021-22_accounts": {
+          "revenue_expenditure_inr_crore": 458,
+          "revenue_receipts_inr_crore": 458,
+          "surplus_deficit_inr_crore": 0
+        },
+        "2022-23_re": {
+          "revenue_expenditure_inr_crore": 468,
+          "revenue_receipts_inr_crore": 491,
+          "surplus_deficit_inr_crore": 24
+        },
+        "2023-24_be": {
+          "revenue_expenditure_inr_crore": 552,
+          "revenue_receipts_inr_crore": 568,
+          "surplus_deficit_inr_crore": 16
+        }
+      },
+      "West Bengal": {
+        "2021-22_accounts": {
+          "revenue_expenditure_inr_crore": 5548,
+          "revenue_receipts_inr_crore": 5441,
+          "surplus_deficit_inr_crore": -107
+        },
+        "2022-23_re": {
+          "revenue_expenditure_inr_crore": 5531,
+          "revenue_receipts_inr_crore": 5502,
+          "surplus_deficit_inr_crore": -29
+        },
+        "2023-24_be": {
+          "revenue_expenditure_inr_crore": 5538,
+          "revenue_receipts_inr_crore": 5711,
+          "surplus_deficit_inr_crore": 173
+        }
+      }
+    },
+    "ii_3_mc_revenue_to_state_revenue_ratio": {
+      "All India": {
+        "2019-20_accounts": 4.2,
+        "2020-21_accounts": 4.3,
+        "2021-22_accounts": 4.2,
+        "2022-23_re": 3.6,
+        "2023-24_be": 4.0
+      },
+      "Andhra Pradesh": {
+        "2019-20_accounts": 1.6,
+        "2020-21_accounts": 2.0,
+        "2021-22_accounts": 1.7,
+        "2022-23_re": 1.6,
+        "2023-24_be": 2.1
+      },
+      "Arunachal Pradesh": {
+        "2019-20_accounts": 0.1,
+        "2020-21_accounts": 0.1,
+        "2021-22_accounts": 0.5,
+        "2022-23_re": null,
+        "2023-24_be": null
+      },
+      "Assam": {
+        "2019-20_accounts": 0.3,
+        "2020-21_accounts": 0.2,
+        "2021-22_accounts": 0.5,
+        "2022-23_re": null,
+        "2023-24_be": null
+      },
+      "Bihar": {
+        "2019-20_accounts": 0.6,
+        "2020-21_accounts": 0.6,
+        "2021-22_accounts": 0.8,
+        "2022-23_re": 0.6,
+        "2023-24_be": 1.0
+      },
+      "Chhattisgarh": {
+        "2019-20_accounts": 2.6,
+        "2020-21_accounts": 2.3,
+        "2021-22_accounts": 1.8,
+        "2022-23_re": 1.6,
+        "2023-24_be": 1.7
+      },
+      "Delhi": {
+        "2019-20_accounts": 31.7,
+        "2020-21_accounts": 31.7,
+        "2021-22_accounts": 28.6,
+        "2022-23_re": 32.9,
+        "2023-24_be": 34.5
+      },
+      "Goa": {
+        "2019-20_accounts": 0.4,
+        "2020-21_accounts": 0.4,
+        "2021-22_accounts": 0.4,
+        "2022-23_re": 0.3,
+        "2023-24_be": 0.4
+      },
+      "Gujarat": {
+        "2019-20_accounts": 6.4,
+        "2020-21_accounts": 7.4,
+        "2021-22_accounts": 6.6,
+        "2022-23_re": 6.1,
+        "2023-24_be": 7.8
+      },
+      "Haryana": {
+        "2019-20_accounts": 3.3,
+        "2020-21_accounts": 2.4,
+        "2021-22_accounts": 3.5,
+        "2022-23_re": 3.8,
+        "2023-24_be": 4.9
+      },
+      "Himachal Pradesh": {
+        "2019-20_accounts": 0.3,
+        "2020-21_accounts": 0.3,
+        "2021-22_accounts": 0.2,
+        "2022-23_re": 0.2,
+        "2023-24_be": 0.3
+      },
+      "Jammu and Kashmir": {
+        "2019-20_accounts": 0.3,
+        "2020-21_accounts": 0.3,
+        "2021-22_accounts": 0.3,
+        "2022-23_re": 0.0,
+        "2023-24_be": 0.0
+      },
+      "Jharkhand": {
+        "2019-20_accounts": 0.7,
+        "2020-21_accounts": 0.7,
+        "2021-22_accounts": 0.7,
+        "2022-23_re": 0.8,
+        "2023-24_be": 0.5
+      },
+      "Karnataka": {
+        "2019-20_accounts": 2.9,
+        "2020-21_accounts": 3.1,
+        "2021-22_accounts": 1.6,
+        "2022-23_re": 2.6,
+        "2023-24_be": 4.2
+      },
+      "Kerala": {
+        "2019-20_accounts": 1.3,
+        "2020-21_accounts": 1.8,
+        "2021-22_accounts": 1.5,
+        "2022-23_re": 1.5,
+        "2023-24_be": 1.8
+      },
+      "Madhya Pradesh": {
+        "2019-20_accounts": 3.3,
+        "2020-21_accounts": 3.4,
+        "2021-22_accounts": 2.9,
+        "2022-23_re": 2.7,
+        "2023-24_be": 3.7
+      },
+      "Maharashtra": {
+        "2019-20_accounts": 15.9,
+        "2020-21_accounts": 15.0,
+        "2021-22_accounts": 19.6,
+        "2022-23_re": 12.8,
+        "2023-24_be": 14.1
+      },
+      "Manipur": {
+        "2019-20_accounts": 0.1,
+        "2020-21_accounts": 0.1,
+        "2021-22_accounts": 0.1,
+        "2022-23_re": null,
+        "2023-24_be": null
+      },
+      "Mizoram": {
+        "2019-20_accounts": 0.4,
+        "2020-21_accounts": 0.5,
+        "2021-22_accounts": 0.5,
+        "2022-23_re": 0.4,
+        "2023-24_be": 0.8
+      },
+      "Odisha": {
+        "2019-20_accounts": 0.6,
+        "2020-21_accounts": 0.7,
+        "2021-22_accounts": 0.5,
+        "2022-23_re": 0.5,
+        "2023-24_be": 0.7
+      },
+      "Punjab": {
+        "2019-20_accounts": 3.1,
+        "2020-21_accounts": 2.8,
+        "2021-22_accounts": 2.7,
+        "2022-23_re": 2.3,
+        "2023-24_be": 2.3
+      },
+      "Rajasthan": {
+        "2019-20_accounts": 0.9,
+        "2020-21_accounts": 0.9,
+        "2021-22_accounts": 0.9,
+        "2022-23_re": 1.1,
+        "2023-24_be": 1.3
+      },
+      "Sikkim": {
+        "2019-20_accounts": 0.3,
+        "2020-21_accounts": 0.4,
+        "2021-22_accounts": 0.4,
+        "2022-23_re": 0.3,
+        "2023-24_be": 0.3
+      },
+      "Tamil Nadu": {
+        "2019-20_accounts": 3.4,
+        "2020-21_accounts": 3.6,
+        "2021-22_accounts": 3.1,
+        "2022-23_re": 3.1,
+        "2023-24_be": 3.3
+      },
+      "Telangana": {
+        "2019-20_accounts": 3.5,
+        "2020-21_accounts": 2.9,
+        "2021-22_accounts": 3.2,
+        "2022-23_re": 2.6,
+        "2023-24_be": 2.2
+      },
+      "Tripura": {
+        "2019-20_accounts": 1.2,
+        "2020-21_accounts": 0.9,
+        "2021-22_accounts": 1.6,
+        "2022-23_re": 1.1,
+        "2023-24_be": 1.2
+      },
+      "Uttar Pradesh": {
+        "2019-20_accounts": 1.3,
+        "2020-21_accounts": 1.8,
+        "2021-22_accounts": 1.6,
+        "2022-23_re": 1.5,
+        "2023-24_be": 1.3
+      },
+      "Uttarakhand": {
+        "2019-20_accounts": 1.4,
+        "2020-21_accounts": 1.3,
+        "2021-22_accounts": 1.1,
+        "2022-23_re": 0.9,
+        "2023-24_be": 1.0
+      },
+      "West Bengal": {
+        "2019-20_accounts": 3.5,
+        "2020-21_accounts": 4.0,
+        "2021-22_accounts": 3.1,
+        "2022-23_re": 2.8,
+        "2023-24_be": 2.7
+      }
+    },
+    "ii_4_all_mc_revenue_receipts": {
+      "fees_user_charges_inr_crore": {
+        "2019-20_accounts": 20867,
+        "2020-21_accounts": 16856,
+        "2021-22_accounts": 37378,
+        "2022-23_re": 26908,
+        "2023-24_be": 34426
+      },
+      "income_from_investment_inr_crore": {
+        "2019-20_accounts": 5341,
+        "2020-21_accounts": 3322,
+        "2021-22_accounts": 3284,
+        "2022-23_re": 3777,
+        "2023-24_be": 4596
+      },
+      "own_non_tax_revenue_inr_crore": {
+        "2019-20_accounts": 35324,
+        "2020-21_accounts": 29472,
+        "2021-22_accounts": 49840,
+        "2022-23_re": 42754,
+        "2023-24_be": 54503
+      },
+      "own_tax_revenue_inr_crore": {
+        "2019-20_accounts": 30371,
+        "2020-21_accounts": 32301,
+        "2021-22_accounts": 34358,
+        "2022-23_re": 42090,
+        "2023-24_be": 51237
+      },
+      "property_tax_inr_crore": {
+        "2019-20_accounts": 18389,
+        "2020-21_accounts": 19812,
+        "2021-22_accounts": 18387,
+        "2022-23_re": 26054,
+        "2023-24_be": 32450
+      },
+      "revenue_receipts_inr_crore": {
+        "2019-20_accounts": 111308,
+        "2020-21_accounts": 111891,
+        "2021-22_accounts": 137058,
+        "2022-23_re": 142178,
+        "2023-24_be": 170722
+      },
+      "transfers_inr_crore": {
+        "2019-20_accounts": 45613,
+        "2020-21_accounts": 50118,
+        "2021-22_accounts": 52860,
+        "2022-23_re": 57333,
+        "2023-24_be": 64982
+      },
+      "water_tax_inr_crore": {
+        "2019-20_accounts": 3756,
+        "2020-21_accounts": 4130,
+        "2021-22_accounts": 4419,
+        "2022-23_re": 4499,
+        "2023-24_be": 5759
+      }
+    },
+    "ii_5_mc_tax_non_tax_to_state_ratios": {
+      "All India": {
+        "non_tax_revenue_ratio_to_state_non_tax_revenue_percent": {
+          "2019-20_accounts": 4.4,
+          "2020-21_accounts": 3.6,
+          "2021-22_accounts": 5.7,
+          "2022-23_re": 3.7,
+          "2023-24_be": 4.7
+        },
+        "tax_revenue_ratio_to_state_tax_revenue_percent": {
+          "2019-20_accounts": 1.6,
+          "2020-21_accounts": 1.8,
+          "2021-22_accounts": 1.5,
+          "2022-23_re": 1.5,
+          "2023-24_be": 1.6
+        }
+      },
+      "Andhra Pradesh": {
+        "non_tax_revenue_ratio_to_state_non_tax_revenue_percent": {
+          "2019-20_accounts": 3.0,
+          "2020-21_accounts": 2.5,
+          "2021-22_accounts": 2.3,
+          "2022-23_re": 2.3,
+          "2023-24_be": 2.9
+        },
+        "tax_revenue_ratio_to_state_tax_revenue_percent": {
+          "2019-20_accounts": 0.9,
+          "2020-21_accounts": 1.0,
+          "2021-22_accounts": 0.9,
+          "2022-23_re": 1.0,
+          "2023-24_be": 1.2
+        }
+      },
+      "Arunachal Pradesh": {
+        "non_tax_revenue_ratio_to_state_non_tax_revenue_percent": {
+          "2019-20_accounts": 0.1,
+          "2020-21_accounts": 0.0,
+          "2021-22_accounts": 0.1,
+          "2022-23_re": null,
+          "2023-24_be": null
+        },
+        "tax_revenue_ratio_to_state_tax_revenue_percent": {
+          "2019-20_accounts": null,
+          "2020-21_accounts": null,
+          "2021-22_accounts": null,
+          "2022-23_re": null,
+          "2023-24_be": null
+        }
+      },
+      "Assam": {
+        "non_tax_revenue_ratio_to_state_non_tax_revenue_percent": {
+          "2019-20_accounts": 0.0,
+          "2020-21_accounts": 0.0,
+          "2021-22_accounts": 0.0,
+          "2022-23_re": null,
+          "2023-24_be": null
+        },
+        "tax_revenue_ratio_to_state_tax_revenue_percent": {
+          "2019-20_accounts": 0.2,
+          "2020-21_accounts": 0.2,
+          "2021-22_accounts": 0.2,
+          "2022-23_re": null,
+          "2023-24_be": null
+        }
+      },
+      "Bihar": {
+        "non_tax_revenue_ratio_to_state_non_tax_revenue_percent": {
+          "2019-20_accounts": 0.2,
+          "2020-21_accounts": 0.1,
+          "2021-22_accounts": 0.2,
+          "2022-23_re": 0.2,
+          "2023-24_be": 0.4
+        },
+        "tax_revenue_ratio_to_state_tax_revenue_percent": {
+          "2019-20_accounts": 0.2,
+          "2020-21_accounts": 0.2,
+          "2021-22_accounts": 0.2,
+          "2022-23_re": 0.2,
+          "2023-24_be": 0.3
+        }
+      },
+      "Chhattisgarh": {
+        "non_tax_revenue_ratio_to_state_non_tax_revenue_percent": {
+          "2019-20_accounts": 1.1,
+          "2020-21_accounts": 0.7,
+          "2021-22_accounts": 1.2,
+          "2022-23_re": 1.2,
+          "2023-24_be": 1.3
+        },
+        "tax_revenue_ratio_to_state_tax_revenue_percent": {
+          "2019-20_accounts": 0.7,
+          "2020-21_accounts": 0.9,
+          "2021-22_accounts": 0.7,
+          "2022-23_re": 0.7,
+          "2023-24_be": 0.8
+        }
+      },
+      "Delhi": {
+        "non_tax_revenue_ratio_to_state_non_tax_revenue_percent": {
+          "2019-20_accounts": 48.1,
+          "2020-21_accounts": 34.1,
+          "2021-22_accounts": 47.4,
+          "2022-23_re": 50.5,
+          "2023-24_be": 82.4
+        },
+        "tax_revenue_ratio_to_state_tax_revenue_percent": {
+          "2019-20_accounts": 8.3,
+          "2020-21_accounts": 9.2,
+          "2021-22_accounts": 9.0,
+          "2022-23_re": 12.0,
+          "2023-24_be": 12.3
+        }
+      },
+      "Goa": {
+        "non_tax_revenue_ratio_to_state_non_tax_revenue_percent": {
+          "2019-20_accounts": 0.5,
+          "2020-21_accounts": 0.4,
+          "2021-22_accounts": 0.5,
+          "2022-23_re": 0.3,
+          "2023-24_be": 0.5
+        },
+        "tax_revenue_ratio_to_state_tax_revenue_percent": {
+          "2019-20_accounts": 0.3,
+          "2020-21_accounts": 0.3,
+          "2021-22_accounts": 0.3,
+          "2022-23_re": 0.3,
+          "2023-24_be": 0.3
+        }
+      },
+      "Gujarat": {
+        "non_tax_revenue_ratio_to_state_non_tax_revenue_percent": {
+          "2019-20_accounts": 6.2,
+          "2020-21_accounts": 8.1,
+          "2021-22_accounts": 8.5,
+          "2022-23_re": 12.0,
+          "2023-24_be": 18.0
+        },
+        "tax_revenue_ratio_to_state_tax_revenue_percent": {
+          "2019-20_accounts": 3.2,
+          "2020-21_accounts": 3.3,
+          "2021-22_accounts": 2.9,
+          "2022-23_re": 2.7,
+          "2023-24_be": 3.4
+        }
+      },
+      "Haryana": {
+        "non_tax_revenue_ratio_to_state_non_tax_revenue_percent": {
+          "2019-20_accounts": 3.3,
+          "2020-21_accounts": 1.8,
+          "2021-22_accounts": 5.4,
+          "2022-23_re": 4.3,
+          "2023-24_be": 9.4
+        },
+        "tax_revenue_ratio_to_state_tax_revenue_percent": {
+          "2019-20_accounts": 1.0,
+          "2020-21_accounts": 1.0,
+          "2021-22_accounts": 0.7,
+          "2022-23_re": 0.9,
+          "2023-24_be": 1.5
+        }
+      },
+      "Himachal Pradesh": {
+        "non_tax_revenue_ratio_to_state_non_tax_revenue_percent": {
+          "2019-20_accounts": 0.2,
+          "2020-21_accounts": 0.1,
+          "2021-22_accounts": 0.1,
+          "2022-23_re": 0.2,
+          "2023-24_be": 0.4
+        },
+        "tax_revenue_ratio_to_state_tax_revenue_percent": {
+          "2019-20_accounts": 0.2,
+          "2020-21_accounts": 0.2,
+          "2021-22_accounts": 0.1,
+          "2022-23_re": 0.1,
+          "2023-24_be": 0.2
+        }
+      },
+      "Jammu and Kashmir": {
+        "non_tax_revenue_ratio_to_state_non_tax_revenue_percent": {
+          "2019-20_accounts": 0.0,
+          "2020-21_accounts": 0.0,
+          "2021-22_accounts": 0.1,
+          "2022-23_re": 0.0,
+          "2023-24_be": 0.0
+        },
+        "tax_revenue_ratio_to_state_tax_revenue_percent": {
+          "2019-20_accounts": null,
+          "2020-21_accounts": null,
+          "2021-22_accounts": null,
+          "2022-23_re": null,
+          "2023-24_be": null
+        }
+      },
+      "Jharkhand": {
+        "non_tax_revenue_ratio_to_state_non_tax_revenue_percent": {
+          "2019-20_accounts": 0.6,
+          "2020-21_accounts": 0.4,
+          "2021-22_accounts": 0.6,
+          "2022-23_re": 0.5,
+          "2023-24_be": 0.7
+        },
+        "tax_revenue_ratio_to_state_tax_revenue_percent": {
+          "2019-20_accounts": 0.3,
+          "2020-21_accounts": 0.3,
+          "2021-22_accounts": 0.3,
+          "2022-23_re": 0.3,
+          "2023-24_be": 0.4
+        }
+      },
+      "Karnataka": {
+        "non_tax_revenue_ratio_to_state_non_tax_revenue_percent": {
+          "2019-20_accounts": 4.3,
+          "2020-21_accounts": 2.6,
+          "2021-22_accounts": 3.2,
+          "2022-23_re": 2.7,
+          "2023-24_be": 11.6
+        },
+        "tax_revenue_ratio_to_state_tax_revenue_percent": {
+          "2019-20_accounts": 2.0,
+          "2020-21_accounts": 2.9,
+          "2021-22_accounts": 0.7,
+          "2022-23_re": 2.3,
+          "2023-24_be": 2.5
+        }
+      },
+      "Kerala": {
+        "non_tax_revenue_ratio_to_state_non_tax_revenue_percent": {
+          "2019-20_accounts": 0.8,
+          "2020-21_accounts": 0.4,
+          "2021-22_accounts": 0.4,
+          "2022-23_re": 0.5,
+          "2023-24_be": 0.8
+        },
+        "tax_revenue_ratio_to_state_tax_revenue_percent": {
+          "2019-20_accounts": 0.5,
+          "2020-21_accounts": 0.7,
+          "2021-22_accounts": 0.6,
+          "2022-23_re": 0.6,
+          "2023-24_be": 0.6
+        }
+      },
+      "Madhya Pradesh": {
+        "non_tax_revenue_ratio_to_state_non_tax_revenue_percent": {
+          "2019-20_accounts": 1.7,
+          "2020-21_accounts": 1.8,
+          "2021-22_accounts": 1.9,
+          "2022-23_re": 1.7,
+          "2023-24_be": 2.2
+        },
+        "tax_revenue_ratio_to_state_tax_revenue_percent": {
+          "2019-20_accounts": 1.2,
+          "2020-21_accounts": 1.3,
+          "2021-22_accounts": 1.0,
+          "2022-23_re": 1.0,
+          "2023-24_be": 1.7
+        }
+      },
+      "Maharashtra": {
+        "non_tax_revenue_ratio_to_state_non_tax_revenue_percent": {
+          "2019-20_accounts": 27.0,
+          "2020-21_accounts": 16.2,
+          "2021-22_accounts": 50.6,
+          "2022-23_re": 19.1,
+          "2023-24_be": 24.8
+        },
+        "tax_revenue_ratio_to_state_tax_revenue_percent": {
+          "2019-20_accounts": 4.9,
+          "2020-21_accounts": 5.3,
+          "2021-22_accounts": 5.2,
+          "2022-23_re": 4.0,
+          "2023-24_be": 4.3
+        }
+      },
+      "Manipur": {
+        "non_tax_revenue_ratio_to_state_non_tax_revenue_percent": {
+          "2019-20_accounts": 0.1,
+          "2020-21_accounts": 0.1,
+          "2021-22_accounts": 0.1,
+          "2022-23_re": null,
+          "2023-24_be": null
+        },
+        "tax_revenue_ratio_to_state_tax_revenue_percent": {
+          "2019-20_accounts": 0.0,
+          "2020-21_accounts": 0.0,
+          "2021-22_accounts": 0.0,
+          "2022-23_re": null,
+          "2023-24_be": null
+        }
+      },
+      "Mizoram": {
+        "non_tax_revenue_ratio_to_state_non_tax_revenue_percent": {
+          "2019-20_accounts": 0.2,
+          "2020-21_accounts": 0.2,
+          "2021-22_accounts": 0.4,
+          "2022-23_re": 0.3,
+          "2023-24_be": 0.1
+        },
+        "tax_revenue_ratio_to_state_tax_revenue_percent": {
+          "2019-20_accounts": 0.1,
+          "2020-21_accounts": 0.1,
+          "2021-22_accounts": 0.1,
+          "2022-23_re": 0.1,
+          "2023-24_be": 0.1
+        }
+      },
+      "Odisha": {
+        "non_tax_revenue_ratio_to_state_non_tax_revenue_percent": {
+          "2019-20_accounts": 0.3,
+          "2020-21_accounts": 0.3,
+          "2021-22_accounts": 0.2,
+          "2022-23_re": 0.2,
+          "2023-24_be": 0.3
+        },
+        "tax_revenue_ratio_to_state_tax_revenue_percent": {
+          "2019-20_accounts": 0.2,
+          "2020-21_accounts": 0.2,
+          "2021-22_accounts": 0.2,
+          "2022-23_re": 0.2,
+          "2023-24_be": 0.2
+        }
+      },
+      "Punjab": {
+        "non_tax_revenue_ratio_to_state_non_tax_revenue_percent": {
+          "2019-20_accounts": 2.1,
+          "2020-21_accounts": 1.3,
+          "2021-22_accounts": 2.0,
+          "2022-23_re": 1.7,
+          "2023-24_be": 1.5
+        },
+        "tax_revenue_ratio_to_state_tax_revenue_percent": {
+          "2019-20_accounts": 2.0,
+          "2020-21_accounts": 2.1,
+          "2021-22_accounts": 1.8,
+          "2022-23_re": 1.4,
+          "2023-24_be": 1.2
+        }
+      },
+      "Rajasthan": {
+        "non_tax_revenue_ratio_to_state_non_tax_revenue_percent": {
+          "2019-20_accounts": 0.5,
+          "2020-21_accounts": 0.5,
+          "2021-22_accounts": 0.7,
+          "2022-23_re": 1.2,
+          "2023-24_be": 2.0
+        },
+        "tax_revenue_ratio_to_state_tax_revenue_percent": {
+          "2019-20_accounts": 0.1,
+          "2020-21_accounts": 0.1,
+          "2021-22_accounts": 0.1,
+          "2022-23_re": 0.1,
+          "2023-24_be": 0.1
+        }
+      },
+      "Sikkim": {
+        "non_tax_revenue_ratio_to_state_non_tax_revenue_percent": {
+          "2019-20_accounts": 0.5,
+          "2020-21_accounts": 0.2,
+          "2021-22_accounts": 0.3,
+          "2022-23_re": 0.2,
+          "2023-24_be": 0.2
+        },
+        "tax_revenue_ratio_to_state_tax_revenue_percent": {
+          "2019-20_accounts": 0.0,
+          "2020-21_accounts": 0.0,
+          "2021-22_accounts": 0.0,
+          "2022-23_re": 0.0,
+          "2023-24_be": 0.0
+        }
+      },
+      "Tamil Nadu": {
+        "non_tax_revenue_ratio_to_state_non_tax_revenue_percent": {
+          "2019-20_accounts": 3.9,
+          "2020-21_accounts": 3.2,
+          "2021-22_accounts": 3.5,
+          "2022-23_re": 2.5,
+          "2023-24_be": 3.5
+        },
+        "tax_revenue_ratio_to_state_tax_revenue_percent": {
+          "2019-20_accounts": 1.5,
+          "2020-21_accounts": 1.5,
+          "2021-22_accounts": 1.4,
+          "2022-23_re": 1.9,
+          "2023-24_be": 1.8
+        }
+      },
+      "Telangana": {
+        "non_tax_revenue_ratio_to_state_non_tax_revenue_percent": {
+          "2019-20_accounts": 7.2,
+          "2020-21_accounts": 3.6,
+          "2021-22_accounts": 9.1,
+          "2022-23_re": 4.4,
+          "2023-24_be": 3.0
+        },
+        "tax_revenue_ratio_to_state_tax_revenue_percent": {
+          "2019-20_accounts": 2.2,
+          "2020-21_accounts": 2.2,
+          "2021-22_accounts": 1.9,
+          "2022-23_re": 1.7,
+          "2023-24_be": 1.6
+        }
+      },
+      "Tripura": {
+        "non_tax_revenue_ratio_to_state_non_tax_revenue_percent": {
+          "2019-20_accounts": 1.5,
+          "2020-21_accounts": 0.9,
+          "2021-22_accounts": 1.2,
+          "2022-23_re": 1.0,
+          "2023-24_be": 1.1
+        },
+        "tax_revenue_ratio_to_state_tax_revenue_percent": {
+          "2019-20_accounts": 0.2,
+          "2020-21_accounts": 0.2,
+          "2021-22_accounts": 0.2,
+          "2022-23_re": 0.1,
+          "2023-24_be": 0.1
+        }
+      },
+      "Uttar Pradesh": {
+        "non_tax_revenue_ratio_to_state_non_tax_revenue_percent": {
+          "2019-20_accounts": 0.3,
+          "2020-21_accounts": 0.4,
+          "2021-22_accounts": 0.7,
+          "2022-23_re": 0.5,
+          "2023-24_be": 0.7
+        },
+        "tax_revenue_ratio_to_state_tax_revenue_percent": {
+          "2019-20_accounts": 0.4,
+          "2020-21_accounts": 0.5,
+          "2021-22_accounts": 0.4,
+          "2022-23_re": 0.4,
+          "2023-24_be": 0.4
+        }
+      },
+      "Uttarakhand": {
+        "non_tax_revenue_ratio_to_state_non_tax_revenue_percent": {
+          "2019-20_accounts": 0.3,
+          "2020-21_accounts": 0.3,
+          "2021-22_accounts": 0.2,
+          "2022-23_re": 0.2,
+          "2023-24_be": 0.3
+        },
+        "tax_revenue_ratio_to_state_tax_revenue_percent": {
+          "2019-20_accounts": 0.3,
+          "2020-21_accounts": 0.3,
+          "2021-22_accounts": 0.2,
+          "2022-23_re": 0.2,
+          "2023-24_be": 0.3
+        }
+      },
+      "West Bengal": {
+        "non_tax_revenue_ratio_to_state_non_tax_revenue_percent": {
+          "2019-20_accounts": 9.2,
+          "2020-21_accounts": 8.2,
+          "2021-22_accounts": 7.6,
+          "2022-23_re": 7.2,
+          "2023-24_be": 7.0
+        },
+        "tax_revenue_ratio_to_state_tax_revenue_percent": {
+          "2019-20_accounts": 0.8,
+          "2020-21_accounts": 1.2,
+          "2021-22_accounts": 0.7,
+          "2022-23_re": 0.7,
+          "2023-24_be": 0.6
+        }
+      }
+    },
+    "ii_7_grants_to_ulbs": {
+      "central_grants_other_than_fc_inr_crore": {
+        "2019-20_accounts": 8495,
+        "2020-21_accounts": 7216,
+        "2021-22_accounts": 5719,
+        "2022-23_re": 7664
+      },
+      "central_grants_to_mcs_inr_crore": {
+        "2019-20_accounts": 13881,
+        "2020-21_accounts": 14316,
+        "2021-22_accounts": 11795,
+        "2022-23_re": 14731
+      },
+      "fc_grants_reported_by_mcs_inr_crore": {
+        "2019-20_accounts": 5386,
+        "2020-21_accounts": 7099,
+        "2021-22_accounts": 6076,
+        "2022-23_re": 7067
+      },
+      "fc_grants_to_ulbs_union_budget_inr_crore": {
+        "2019-20_accounts": 25098,
+        "2020-21_accounts": 26710,
+        "2021-22_accounts": 16147,
+        "2022-23_re": 17779
+      },
+      "sfc_grants_reported_by_mcs_inr_crore": {
+        "2019-20_accounts": 6861,
+        "2020-21_accounts": 7168,
+        "2021-22_accounts": 6592,
+        "2022-23_re": 8605
+      },
+      "state_grants_other_than_sfc_inr_crore": {
+        "2019-20_accounts": 25287,
+        "2020-21_accounts": 26380,
+        "2021-22_accounts": 28180,
+        "2022-23_re": 33267
+      },
+      "state_grants_to_mcs_inr_crore": {
+        "2019-20_accounts": 32148,
+        "2020-21_accounts": 33548,
+        "2021-22_accounts": 34772,
+        "2022-23_re": 41872
+      }
+    },
+    "ii_8_key_ratios": {
+      "central_transfer_to_total_revenue_percent": {
+        "2019-20_accounts": 2.7,
+        "2020-21_accounts": 3.6,
+        "2021-22_accounts": 2.7,
+        "2022-23_re": 2.5,
+        "2023-24_be": 2.5
+      },
+      "combined_transfer_to_total_revenue_percent": {
+        "2019-20_accounts": 33.0,
+        "2020-21_accounts": 33.8,
+        "2021-22_accounts": 29.7,
+        "2022-23_re": 32.5,
+        "2023-24_be": 31.3
+      },
+      "own_revenue_to_total_revenue_percent": {
+        "2019-20_accounts": 59.0,
+        "2020-21_accounts": 55.2,
+        "2021-22_accounts": 61.4,
+        "2022-23_re": 59.7,
+        "2023-24_be": 61.9
+      },
+      "property_tax_to_total_revenue_percent": {
+        "2019-20_accounts": 16.5,
+        "2020-21_accounts": 17.7,
+        "2021-22_accounts": 13.4,
+        "2022-23_re": 18.3,
+        "2023-24_be": 19.0
+      },
+      "state_transfer_to_total_revenue_percent": {
+        "2019-20_accounts": 30.3,
+        "2020-21_accounts": 30.2,
+        "2021-22_accounts": 27.0,
+        "2022-23_re": 30.0,
+        "2023-24_be": 28.7
+      },
+      "tax_revenue_to_total_revenue_percent": {
+        "2019-20_accounts": 27.3,
+        "2020-21_accounts": 28.9,
+        "2021-22_accounts": 25.1,
+        "2022-23_re": 29.6,
+        "2023-24_be": 30.0
+      }
+    }
+  }
+}

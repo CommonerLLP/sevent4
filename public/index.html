@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="application-name" content="The Unelected City">
+<title>The Unelected City — where do you live?</title>
+<link rel="icon" type="image/png" href="assets/ixa-mark.png?v=stitch-color">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#0a0c10" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f3f1ea" media="(prefers-color-scheme: light)">
+<script>(function(){try{var t=localStorage.getItem('atlas-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<link rel="stylesheet" href="assets/theme.css">
+<link rel="stylesheet" href="assets/masthead.css">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+  .wrap{width:100%;max-width:1040px;margin:0 auto;padding:0 22px}
+  .hero{padding-block:52px 34px}
+  .eyebrow{color:var(--mut);font:800 10px/1 var(--mono);letter-spacing:.22em;margin-bottom:18px;text-transform:uppercase}
+  h1{font:400 clamp(40px,7vw,72px)/1.04 var(--serif);letter-spacing:0;margin:0 0 18px}
+  h1 em{color:var(--gold);font-style:italic}
+  .lede{color:var(--mut);font-size:18px;line-height:1.6;max-width:64ch;margin:0}
+  .lede b{color:var(--ink)}
+  .sech{border-bottom:1px solid var(--line);color:var(--mut);font:800 10px/1 var(--mono);letter-spacing:.18em;margin:34px 0 14px;padding-bottom:9px;text-transform:uppercase}
+  .sech b{color:var(--ink)}
+  .citygrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:11px}
+  .city{display:block;background:var(--panel);border:1px solid var(--line);border-radius:8px;color:var(--ink);min-height:126px;padding:16px;text-decoration:none;transition:border-color .12s,transform .12s}
+  .city:hover,.city:focus-visible{border-color:var(--blue);transform:translateY(-1px)}
+  .city b{display:block;font:700 21px/1.1 var(--serif)}
+  .city .st{display:block;color:var(--mut);font:700 10px/1.4 var(--mono);letter-spacing:.08em;margin-top:5px;text-transform:uppercase}
+  .city .act{display:inline-block;border:1px solid var(--tag-line);border-radius:3px;color:var(--blue);font:800 8px/1 var(--mono);letter-spacing:.1em;margin-top:16px;padding:5px 7px;text-transform:uppercase}
+  .city.map .act{border-color:var(--line);color:var(--mut)}
+  .city.live{border-left:3px solid var(--gold)}
+  .questiongrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .qcard{display:block;background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:8px;color:var(--ink);padding:18px;text-decoration:none;transition:border-color .12s}
+  .qcard:hover,.qcard:focus-visible{border-color:var(--blue);border-left-color:var(--blue)}
+  .qcard b{display:block;font:700 19px/1.2 var(--serif);margin-bottom:7px}
+  .qcard span{color:var(--mut);font-size:13.5px;line-height:1.5}
+  .macro{border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:12px;margin:44px 0 0;padding:18px 0 46px}
+  .macro a{color:var(--blue);font:800 11px/1 var(--mono);letter-spacing:.1em;text-decoration:none;text-transform:uppercase}
+  .macro a:hover,.macro a:focus-visible{color:var(--gold)}
+  footer{background:var(--panel2);border-top:1px solid var(--line)}
+  footer .wrap{padding:24px 22px 40px}
+  footer p{color:var(--mut);font-size:12.5px;line-height:1.65;margin:0;max-width:82ch}
+  footer b{color:var(--ink)}
+  @media(max-width:720px){.questiongrid{grid-template-columns:1fr}.hero{padding-block-start:38px}}
+</style>
+</head>
+<body>
+<header data-masthead="bar"></header>
+
+<main>
+  <section class="wrap hero">
+    <div class="eyebrow">The Municipalities · 74th Amendment</div>
+    <h1>Where do you live?</h1>
+    <p class="lede">If you live in one of these cities, start there. The first question is not abstract:
+      <b>how much of the city you use every day did you actually elect?</b></p>
+  </section>
+
+  <section class="wrap" aria-labelledby="live-game">
+    <div class="sech" id="live-game">Start the game</div>
+    <div class="citygrid">
+      <a class="city live" href="whose-city/index.html?city=ahmedabad"><b>Ahmedabad</b><span class="st">Gujarat</span><span class="act">Start with your city</span></a>
+      <a class="city live" href="whose-city/index.html?city=bengaluru"><b>Bengaluru</b><span class="st">Karnataka</span><span class="act">Start with your city</span></a>
+    </div>
+  </section>
+
+  <section class="wrap" aria-labelledby="mapped-cities">
+    <div class="sech" id="mapped-cities">Mapped now, game script next</div>
+    <div class="citygrid">
+      <a class="city map" href="cities/bhubaneswar/index.html"><b>Bhubaneswar</b><span class="st">Odisha</span><span class="act">Open the map</span></a>
+      <a class="city map" href="cities/chennai/index.html"><b>Chennai</b><span class="st">Tamil Nadu</span><span class="act">Open the map</span></a>
+      <a class="city map" href="cities/delhi/index.html"><b>Delhi</b><span class="st">Delhi (NCT)</span><span class="act">Open the map</span></a>
+      <a class="city map" href="cities/hyderabad/index.html"><b>Hyderabad</b><span class="st">Telangana</span><span class="act">Open the map</span></a>
+      <a class="city map" href="cities/jaipur/index.html"><b>Jaipur</b><span class="st">Rajasthan</span><span class="act">Open the map</span></a>
+      <a class="city map" href="cities/kanpur/index.html"><b>Kanpur</b><span class="st">Uttar Pradesh</span><span class="act">Open the map</span></a>
+      <a class="city map" href="cities/kochi/index.html"><b>Kochi</b><span class="st">Kerala</span><span class="act">Open the map</span></a>
+      <a class="city map" href="cities/kolkata/index.html"><b>Kolkata</b><span class="st">West Bengal</span><span class="act">Open the map</span></a>
+      <a class="city map" href="cities/lucknow/index.html"><b>Lucknow</b><span class="st">Uttar Pradesh</span><span class="act">Open the map</span></a>
+      <a class="city map" href="cities/mumbai/index.html"><b>Mumbai</b><span class="st">Maharashtra</span><span class="act">Open the map</span></a>
+      <a class="city map" href="cities/pune/index.html"><b>Pune</b><span class="st">Maharashtra</span><span class="act">Open the map</span></a>
+      <a class="city map" href="cities/visakhapatnam/index.html"><b>Visakhapatnam</b><span class="st">Andhra Pradesh</span><span class="act">Open the map</span></a>
+    </div>
+  </section>
+
+  <section class="wrap" aria-labelledby="questions">
+    <div class="sech" id="questions">Or start with the political question</div>
+    <div class="questiongrid">
+      <a class="qcard" href="why/index.html"><b>Why is it governed this way?</b><span>The explanatory layer: burden, who, why, and what can be organised.</span></a>
+      <a class="qcard" href="why/air/index.html"><b>Who answers for the air?</b><span>Pollution boards, vacancies, money, and enforcement capacity.</span></a>
+      <a class="qcard" href="findings/index.html"><b>What does the data show?</b><span>Findings traced into public records, city by city.</span></a>
+    </div>
+  </section>
+
+  <nav class="wrap macro" aria-label="Site map">
+    <a href="cities/index.html">All cities</a>
+    <a href="whose-city/index.html">Game</a>
+    <a href="why/index.html">Why</a>
+    <a href="findings/index.html">Findings</a>
+    <a href="about/index.html">About</a>
+  </nav>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>This is a political education surface for the 74th Amendment: the test is whether the city you vote in can actually govern the city you live in.</p>
+  </div>
+</footer>
+
+<script src="assets/masthead.js"></script>
+<script src="assets/theme.js" defer></script>
+</body>
+</html>

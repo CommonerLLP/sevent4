@@ -1,0 +1,18 @@
+{
+  "name": "Part IXA: The Municipalities",
+  "short_name": "Part IXA",
+  "description": "An accountability atlas for Indian urban local bodies.",
+  "id": "./",
+  "start_url": "./cities/ahmedabad/",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f3f1ea",
+  "theme_color": "#f3f1ea",
+  "icons": [
+    {
+      "src": "assets/ixa-mark.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

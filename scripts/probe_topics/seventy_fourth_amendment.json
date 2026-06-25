@@ -1,0 +1,65 @@
+{
+  "name": "seventy_fourth_amendment",
+  "description": "Parliamentary oversight of the Constitution (Seventy-fourth Amendment) Act, 1992: Part IXA municipalities, Article 243W/243X powers and finances, Twelfth Schedule functions, ward committees, metropolitan planning, State Finance Commissions, and devolution to urban local bodies.",
+  "search_groups": {
+    "constitutional_text": [
+      "74th Amendment",
+      "Seventy Fourth Amendment",
+      "Seventy-fourth Amendment",
+      "Constitution Seventy Fourth Amendment",
+      "Part IXA",
+      "Article 243W",
+      "Article 243X",
+      "Twelfth Schedule"
+    ],
+    "municipal_devolution": [
+      "urban local bodies",
+      "municipal devolution",
+      "devolution of functions",
+      "municipalities",
+      "municipal finance",
+      "State Finance Commission"
+    ],
+    "participatory_planning": [
+      "ward committees",
+      "Metropolitan Planning Committee",
+      "District Planning Committee",
+      "city planning",
+      "urban governance"
+    ]
+  },
+  "lok_sabha_ministries": [
+    "HOUSING AND URBAN AFFAIRS",
+    "URBAN DEVELOPMENT",
+    "PANCHAYATI RAJ",
+    "HOME AFFAIRS",
+    "LAW AND JUSTICE",
+    "FINANCE"
+  ],
+  "rajya_sabha_ministry_likes": [
+    "HOUSING",
+    "URBAN",
+    "PANCHAYATI",
+    "HOME",
+    "LAW",
+    "FINANCE"
+  ],
+  "classifier_config": {
+    "include_terms": [
+      "74th",
+      "seventy fourth",
+      "seventy-fourth",
+      "part ixa",
+      "article 243",
+      "twelfth schedule",
+      "urban local",
+      "municipal",
+      "ward committee",
+      "metropolitan planning",
+      "district planning",
+      "state finance commission",
+      "devolution"
+    ],
+    "notes": "commoner-probe stores classifier_config in run logs; filtering requires a compose layer or explicit injected filter_fn."
+  }
+}

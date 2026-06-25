@@ -1,0 +1,1378 @@
+{
+ "schema": "sevent4.jurisdiction_crosswalk.v1",
+ "city": "mumbai",
+ "country": "India",
+ "levels": [
+  "state",
+  "district"
+ ],
+ "thresholds": {
+  "method": "ward representative point within AC/PC polygon (nearest fallback), EPSG:3857"
+ },
+ "excluded_acs": [],
+ "source": "spatial join of city ward/AC/PC layers",
+ "records": [
+  {
+   "ward_name": "Ward A",
+   "ac_name": "Colaba",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward A",
+   "ac_name": "Colaba",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward B",
+   "ac_name": "Colaba",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward A",
+   "ac_name": "Colaba",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward E",
+   "ac_name": "Byculla",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward F - South",
+   "ac_name": "Shivadi",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward F - South",
+   "ac_name": "Shivadi",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward F - South",
+   "ac_name": "Shivadi",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward D",
+   "ac_name": "Malabar Hill",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward D",
+   "ac_name": "Malabar Hill",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward D",
+   "ac_name": "Malabar Hill",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward D",
+   "ac_name": "Mumbadevi",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward E",
+   "ac_name": "Byculla",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward E",
+   "ac_name": "Byculla",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward E",
+   "ac_name": "Byculla",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward G - South",
+   "ac_name": "Worli",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward G - South",
+   "ac_name": "Worli",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward C",
+   "ac_name": "Colaba",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward C",
+   "ac_name": "Colaba",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward B",
+   "ac_name": "Mumbadevi",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward C",
+   "ac_name": "Mumbadevi",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward D",
+   "ac_name": "Malabar Hill",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward D",
+   "ac_name": "Malabar Hill",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward E",
+   "ac_name": "Byculla",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward E",
+   "ac_name": "Mumbadevi",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward E",
+   "ac_name": "Byculla",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward G - North",
+   "ac_name": "Mahim",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward H - West",
+   "ac_name": "Andheri West",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward H - West",
+   "ac_name": "Vandre West",
+   "pc_name": "Mumbai North Central",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward H - West",
+   "ac_name": "Vandre West",
+   "pc_name": "Mumbai North Central",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward L",
+   "ac_name": "Kalina",
+   "pc_name": "Mumbai North Central",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward H - East",
+   "ac_name": "Vile Parle",
+   "pc_name": "Mumbai North Central",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward H - East",
+   "ac_name": "Vandre East",
+   "pc_name": "Mumbai North Central",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward H - East",
+   "ac_name": "Kalina",
+   "pc_name": "Mumbai North Central",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward G - South",
+   "ac_name": "Shivadi",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward F - South",
+   "ac_name": "Shivadi",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward F - South",
+   "ac_name": "Wadala",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward F - South",
+   "ac_name": "Wadala",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward F - South",
+   "ac_name": "Shivadi",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward G - North",
+   "ac_name": "Mahim",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward G - South",
+   "ac_name": "Mahim",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward F - North",
+   "ac_name": "Wadala",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward F - North",
+   "ac_name": "Sion Koliwada",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward F - North",
+   "ac_name": "Sion Koliwada",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward F - North",
+   "ac_name": "Wadala",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward F - North",
+   "ac_name": "Wadala",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward F - North",
+   "ac_name": "Sion Koliwada",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward F - North",
+   "ac_name": "Sion Koliwada",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward G - South",
+   "ac_name": "Mahim",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward G - North",
+   "ac_name": "Wadala",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward G - North",
+   "ac_name": "Wadala",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward G - South",
+   "ac_name": "Worli",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward F - North",
+   "ac_name": "Sion Koliwada",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward H - East",
+   "ac_name": "Vile Parle",
+   "pc_name": "Mumbai North Central",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward H - East",
+   "ac_name": "Kalina",
+   "pc_name": "Mumbai North Central",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward H - East",
+   "ac_name": "Vandre West",
+   "pc_name": "Mumbai North Central",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward H - East",
+   "ac_name": "Vandre West",
+   "pc_name": "Mumbai North Central",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward M - West",
+   "ac_name": "Chembur",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward M - East",
+   "ac_name": "Mankhurd Shivaji Nagar",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward M - East",
+   "ac_name": "Anushakti Nagar",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward M - East",
+   "ac_name": "Mankhurd Shivaji Nagar",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward M - East",
+   "ac_name": "Chembur",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward M - West",
+   "ac_name": "Chembur",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward H - West",
+   "ac_name": "Vandre West",
+   "pc_name": "Mumbai North Central",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward H - West",
+   "ac_name": "Vandre West",
+   "pc_name": "Mumbai North Central",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward L",
+   "ac_name": "Kalina",
+   "pc_name": "Mumbai North Central",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward L",
+   "ac_name": "Kalina",
+   "pc_name": "Mumbai North Central",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward L",
+   "ac_name": "Vandre East",
+   "pc_name": "Mumbai North Central",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward G - North",
+   "ac_name": "Dharavi (SC)",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward G - North",
+   "ac_name": "Dharavi (SC)",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward G - North",
+   "ac_name": "Sion Koliwada",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward G - North",
+   "ac_name": "Dharavi (SC)",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward G - North",
+   "ac_name": "Dharavi (SC)",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward F - North",
+   "ac_name": "Sion Koliwada",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward F - North",
+   "ac_name": "Sion Koliwada",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward L",
+   "ac_name": "Vile Parle",
+   "pc_name": "Mumbai North Central",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward G - North",
+   "ac_name": "Dharavi (SC)",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward H - East",
+   "ac_name": "Vandre East",
+   "pc_name": "Mumbai North Central",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward H - East",
+   "ac_name": "Vandre West",
+   "pc_name": "Mumbai North Central",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward G - North",
+   "ac_name": "Dharavi (SC)",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  },
+  {
+   "ward_name": "Ward M - East",
+   "ac_name": "Anushakti Nagar",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward M - West",
+   "ac_name": "Kurla (SC)",
+   "pc_name": "Mumbai North Central",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward M - West",
+   "ac_name": "Chembur",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward M - West",
+   "ac_name": "Kurla (SC)",
+   "pc_name": "Mumbai North Central",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward M - East",
+   "ac_name": "Ghatkopar East",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward M - East",
+   "ac_name": "Ghatkopar East",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward M - East",
+   "ac_name": "Ghatkopar East",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward M - East",
+   "ac_name": "Ghatkopar East",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward M - East",
+   "ac_name": "Mankhurd Shivaji Nagar",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward M - East",
+   "ac_name": "Mankhurd Shivaji Nagar",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward M - East",
+   "ac_name": "Ghatkopar East",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward M - West",
+   "ac_name": "Ghatkopar West",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward L",
+   "ac_name": "Kalina",
+   "pc_name": "Mumbai North Central",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward K - East",
+   "ac_name": "Jogeshwari East",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward K - West",
+   "ac_name": "Andheri West",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward K - West",
+   "ac_name": "Andheri West",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward K - West",
+   "ac_name": "Andheri West",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward K - West",
+   "ac_name": "Andheri West",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward K - East",
+   "ac_name": "Vile Parle",
+   "pc_name": "Mumbai North Central",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward L",
+   "ac_name": "Vile Parle",
+   "pc_name": "Mumbai North Central",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward N",
+   "ac_name": "Ghatkopar West",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward M - East",
+   "ac_name": "Ghatkopar East",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward M - East",
+   "ac_name": "Mankhurd Shivaji Nagar",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward M - East",
+   "ac_name": "Anushakti Nagar",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward L",
+   "ac_name": "Chandivali",
+   "pc_name": "Mumbai North Central",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward M - West",
+   "ac_name": "Ghatkopar West",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward N",
+   "ac_name": "Ghatkopar West",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward K - East",
+   "ac_name": "Andheri East",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward K - East",
+   "ac_name": "Andheri East",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward K - East",
+   "ac_name": "Andheri East",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward K - East",
+   "ac_name": "Andheri East",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward K - East",
+   "ac_name": "Andheri East",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward K - East",
+   "ac_name": "Vile Parle",
+   "pc_name": "Mumbai North Central",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward K - East",
+   "ac_name": "Vile Parle",
+   "pc_name": "Mumbai North Central",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward H - East",
+   "ac_name": "Vile Parle",
+   "pc_name": "Mumbai North Central",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward H - West",
+   "ac_name": "Andheri West",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward K - West",
+   "ac_name": "Andheri West",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward K - West",
+   "ac_name": "Andheri West",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward K - East",
+   "ac_name": "Andheri East",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward P - South",
+   "ac_name": "Jogeshwari East",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward P - South",
+   "ac_name": "Dindoshi",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward K - West",
+   "ac_name": "Versova",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward K - West",
+   "ac_name": "Versova",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward K - West",
+   "ac_name": "Versova",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward N",
+   "ac_name": "Ghatkopar East",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward S",
+   "ac_name": "Bhandup West",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward S",
+   "ac_name": "Vikhroli",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward S",
+   "ac_name": "Bhandup West",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward P - South",
+   "ac_name": "Goregaon",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward P - South",
+   "ac_name": "Goregaon",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward P - South",
+   "ac_name": "Goregaon",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward P - South",
+   "ac_name": "Goregaon",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward K - East",
+   "ac_name": "Jogeshwari East",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward K - East",
+   "ac_name": "Jogeshwari East",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward K - East",
+   "ac_name": "Jogeshwari East",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward K - East",
+   "ac_name": "Jogeshwari East",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward K - East",
+   "ac_name": "Jogeshwari East",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward P - North",
+   "ac_name": "Malad West",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward K - West",
+   "ac_name": "Versova",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward P - South",
+   "ac_name": "Goregaon",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward P - South",
+   "ac_name": "Jogeshwari East",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward K - West",
+   "ac_name": "Goregaon",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward K - West",
+   "ac_name": "Goregaon",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward K - West",
+   "ac_name": "Versova",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward S",
+   "ac_name": "Bhandup West",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward N",
+   "ac_name": "Vikhroli",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward N",
+   "ac_name": "Chandivali",
+   "pc_name": "Mumbai North Central",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward N",
+   "ac_name": "Chandivali",
+   "pc_name": "Mumbai North Central",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward L",
+   "ac_name": "Chandivali",
+   "pc_name": "Mumbai North Central",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward L",
+   "ac_name": "Chandivali",
+   "pc_name": "Mumbai North Central",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward L",
+   "ac_name": "Andheri East",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward S",
+   "ac_name": "Bhandup West",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward P - North",
+   "ac_name": "Dindoshi",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward S",
+   "ac_name": "Mulund",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward S",
+   "ac_name": "Bhandup West",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward S",
+   "ac_name": "Mulund",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward T",
+   "ac_name": "Mulund",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward T",
+   "ac_name": "Mulund",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward T",
+   "ac_name": "Mulund",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward L",
+   "ac_name": "Chandivali",
+   "pc_name": "Mumbai North Central",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward L",
+   "ac_name": "Chandivali",
+   "pc_name": "Mumbai North Central",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward N",
+   "ac_name": "Vikhroli",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward N",
+   "ac_name": "Ghatkopar West",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward N",
+   "ac_name": "Ghatkopar West",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward L",
+   "ac_name": "Andheri East",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward L",
+   "ac_name": "Chandivali",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward L",
+   "ac_name": "Andheri East",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward N",
+   "ac_name": "Chandivali",
+   "pc_name": "Mumbai North Central",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward N",
+   "ac_name": "Chandivali",
+   "pc_name": "Mumbai North Central",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward S",
+   "ac_name": "Bhandup West",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward T",
+   "ac_name": "Mulund",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward S",
+   "ac_name": "Mulund",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward S",
+   "ac_name": "Mulund",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward S",
+   "ac_name": "Mulund",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward S",
+   "ac_name": "Bhandup West",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward S",
+   "ac_name": "Mulund",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward T",
+   "ac_name": "Mulund",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward P - North",
+   "ac_name": "Kandivali East",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward P - North",
+   "ac_name": "Kandivali East",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward P - North",
+   "ac_name": "Dindoshi",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward P - North",
+   "ac_name": "Kandivali East",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward R - South",
+   "ac_name": "Borivali",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward R - South",
+   "ac_name": "Kandivali East",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward R - South",
+   "ac_name": "Kandivali East",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward R - South",
+   "ac_name": "Kandivali East",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward P - North",
+   "ac_name": "Kandivali East",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward P - North",
+   "ac_name": "Kandivali East",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward R - North",
+   "ac_name": "Magathane",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward P - North",
+   "ac_name": "Malad West",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward P - North",
+   "ac_name": "Malad West",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward P - North",
+   "ac_name": "Dindoshi",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward P - South",
+   "ac_name": "Goregaon",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward P - North",
+   "ac_name": "Charkop",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward R - South",
+   "ac_name": "Charkop",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward P - North",
+   "ac_name": "Malad West",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward P - North",
+   "ac_name": "Charkop",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward P - North",
+   "ac_name": "Charkop",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward P - North",
+   "ac_name": "Kandivali East",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward R - South",
+   "ac_name": "Charkop",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward R - South",
+   "ac_name": "Charkop",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward R - South",
+   "ac_name": "Charkop",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward P - North",
+   "ac_name": "Malad West",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward R - South",
+   "ac_name": "Charkop",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward R - South",
+   "ac_name": "Charkop",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward R - South",
+   "ac_name": "Magathane",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward R - South",
+   "ac_name": "Magathane",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward R - North",
+   "ac_name": "Magathane",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward R - North",
+   "ac_name": "Dahisar",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward R - Central",
+   "ac_name": "Borivali",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward R - Central",
+   "ac_name": "Borivali",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward R - Central",
+   "ac_name": "Dahisar",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward R - Central",
+   "ac_name": "Borivali",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward R - Central",
+   "ac_name": "Borivali",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward R - Central",
+   "ac_name": "Borivali",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward R - North",
+   "ac_name": "Dahisar",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward R - North",
+   "ac_name": "Dahisar",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward R - North",
+   "ac_name": "Dahisar",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward R - North",
+   "ac_name": "Dahisar",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward R - North",
+   "ac_name": "Magathane",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward R - Central",
+   "ac_name": "Magathane",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward R - Central",
+   "ac_name": "Magathane",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward R - Central",
+   "ac_name": "Borivali",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward R - Central",
+   "ac_name": "Magathane",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward P - North",
+   "ac_name": "Dindoshi",
+   "pc_name": "Mumbai North West",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward T",
+   "ac_name": "Mulund",
+   "pc_name": "Mumbai North East",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward R - South",
+   "ac_name": "Magathane",
+   "pc_name": "Mumbai North",
+   "district_name": "MUMBAI (SUBURBAN) *"
+  },
+  {
+   "ward_name": "Ward G - South",
+   "ac_name": "Worli",
+   "pc_name": "Mumbai South",
+   "district_name": "MUMBAI"
+  }
+ ]
+}
