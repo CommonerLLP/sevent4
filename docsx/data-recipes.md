@@ -17,12 +17,12 @@ https://ahmedabadcity.gov.in/SP/AboutAMCFinance
 The recipe is city-generic by filename but Ahmedabad-specific by default:
 
 ```bash
-python3 scripts/recipes/ahmedabad/fetch_city_budget.py
-python3 scripts/recipes/ahmedabad/fetch_city_budget.py --kind balance-sheet
-python3 scripts/recipes/ahmedabad/fetch_city_representatives.py
-python3 scripts/recipes/ahmedabad/parse_city_representatives.py
-python3 scripts/recipes/ahmedabad/ocr_city_budget.py
-python3 scripts/recipes/ahmedabad/parse_city_budget.py
+.venv/bin/python scripts/recipes/ahmedabad/fetch_city_budget.py
+.venv/bin/python scripts/recipes/ahmedabad/fetch_city_budget.py --kind balance-sheet
+.venv/bin/python scripts/recipes/ahmedabad/fetch_city_representatives.py
+.venv/bin/python scripts/recipes/ahmedabad/parse_city_representatives.py
+.venv/bin/python scripts/recipes/ahmedabad/ocr_city_budget.py
+.venv/bin/python scripts/recipes/ahmedabad/parse_city_budget.py
 ```
 
 That shape is intentional. Other cities publish budgets through different

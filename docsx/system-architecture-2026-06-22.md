@@ -64,7 +64,9 @@ Implemented package boundaries:
 - `sevent4.domain.evidence`
 - `sevent4.domain.heat`
 - `sevent4.domain.pollution`
+- `sevent4.domain.budget`
 - `sevent4.ports.acquisition`
+- `sevent4.ports.budget`
 - `sevent4.ports.city_build`
 - `sevent4.ports.evidence`
 - `sevent4.ports.finance`
@@ -95,7 +97,11 @@ Implemented package boundaries:
 - `sevent4.application.public_site`
 - `sevent4.application.representatives`
 - `sevent4.application.transit`
+- `sevent4.application.budget`
 - `sevent4.adapters.acquisition_filesystem`
+- `sevent4.adapters.budget_filesystem`
+- `sevent4.adapters.budget_http`
+- `sevent4.adapters.budget_ocr`
 - `sevent4.adapters.ahmedabad_library_paper_figures_geospatial`
 - `sevent4.adapters.bengaluru_finance_filesystem`
 - `sevent4.adapters.bengaluru_opencity_filesystem`
@@ -194,6 +200,14 @@ Compatibility surfaces remain:
 - `sevent4.transit.gtfs_corridors` is now a thin CLI adapter over the transit
   application service. The filesystem adapter loads GTFS CSV tables before the
   application builds route-corridor GeoJSON.
+- Ahmedabad budget recipes (`fetch_city_budget`, `ocr_city_budget`,
+  `parse_city_budget`) are now thin CLI adapters over the budget application
+  service. `sevent4.domain.budget` owns Gujarati-digit number parsing, OCR
+  summary-label matching, finance-book link identity, dense-page selection, and
+  the per-city source/label registries; the application owns finance-link
+  discovery, manifest/row shaping, and OCR-parse orchestration; `budget_http`
+  owns HTTP/curl fetching, `budget_ocr` owns the poppler/tesseract toolchain, and
+  `budget_filesystem` owns OCR text reads, CSV/manifest/PDF writes.
 - `scripts/recipes/delhi/extract_dpl_library.py` is now a thin CLI adapter over
   the Delhi DPL extraction application service. Domain code owns annual metric,
   location, geocode-cache, and long-table shaping; the filesystem adapter owns

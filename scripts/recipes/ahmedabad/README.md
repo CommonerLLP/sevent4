@@ -8,16 +8,16 @@ city adapter; other cities will need their own source discovery and parsing
 rules over time.
 
 ```bash
-python3 scripts/recipes/ahmedabad/fetch_city_budget.py
-python3 scripts/recipes/ahmedabad/fetch_city_budget.py --kind balance-sheet
-python3 scripts/recipes/ahmedabad/fetch_city_representatives.py
-python3 scripts/recipes/ahmedabad/parse_city_representatives.py
-python3 scripts/recipes/ahmedabad/build_jurisdiction_crosswalk.py
-python3 scripts/recipes/ahmedabad/ocr_city_budget.py
-python3 scripts/recipes/ahmedabad/parse_city_budget.py
-python3 scripts/recipes/ahmedabad/build_gtfs_corridors.py
-python3 scripts/recipes/ahmedabad/build_ward_service_access.py
-python3 scripts/recipes/ahmedabad/build_heat_layer.py
+.venv/bin/python scripts/recipes/ahmedabad/fetch_city_budget.py
+.venv/bin/python scripts/recipes/ahmedabad/fetch_city_budget.py --kind balance-sheet
+.venv/bin/python scripts/recipes/ahmedabad/fetch_city_representatives.py
+.venv/bin/python scripts/recipes/ahmedabad/parse_city_representatives.py
+.venv/bin/python scripts/recipes/ahmedabad/build_jurisdiction_crosswalk.py
+.venv/bin/python scripts/recipes/ahmedabad/ocr_city_budget.py
+.venv/bin/python scripts/recipes/ahmedabad/parse_city_budget.py
+.venv/bin/python scripts/recipes/ahmedabad/build_gtfs_corridors.py
+.venv/bin/python scripts/recipes/ahmedabad/build_ward_service_access.py
+.venv/bin/python scripts/recipes/ahmedabad/build_heat_layer.py
 ```
 
 Budget OCR requires command-line tools:
