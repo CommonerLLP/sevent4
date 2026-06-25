@@ -13,5 +13,8 @@ fi
 . .venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
+# install the sevent4 package itself (editable) so the recipe wrappers under
+# scripts/ can `import sevent4...` when run by path with .venv/bin/python.
+python -m pip install -e .
 
 echo "The Unelected City environment ready: $ROOT/.venv"
