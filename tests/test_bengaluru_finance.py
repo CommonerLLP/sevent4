@@ -1,3 +1,4 @@
+import ast
 import csv
 import tempfile
 import unittest
@@ -9,8 +10,33 @@ from scripts.recipes.bengaluru.build_finance_layer import (
 )
 from scripts.recipes.bengaluru.wire_finance_layer import build_yearly_geojson
 
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def _imports(path: Path) -> set[str]:
+    tree = ast.parse(path.read_text(encoding="utf-8"))
+    names: set[str] = set()
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Import):
+            names.update(alias.name for alias in node.names)
+        elif isinstance(node, ast.ImportFrom) and node.module:
+            names.add(node.module)
+    return names
+
 
 class BengaluruFinanceTest(unittest.TestCase):
+    def test_finance_recipes_route_through_ports(self) -> None:
+        for recipe in (
+            ROOT / "scripts" / "recipes" / "bengaluru" / "build_finance_layer.py",
+            ROOT / "scripts" / "recipes" / "bengaluru" / "wire_finance_layer.py",
+        ):
+            imports = _imports(recipe)
+            for forbidden in ("csv", "glob", "json", "os", "re"):
+                self.assertNotIn(forbidden, imports, f"{recipe} should not own {forbidden} parsing/IO")
+            self.assertIn("sevent4.adapters.bengaluru_finance_filesystem", imports)
+            self.assertIn("sevent4.application.bengaluru_finance", imports)
+            self.assertIn("sevent4.domain.bengaluru_finance", imports)
+
     def test_order_year_accepts_two_and_four_digit_year_dates(self) -> None:
         self.assertEqual(order_year({"Order Date": "20-Dec-21"}), 2021)
         self.assertEqual(order_year({"Order Date": "04-Apr-2022"}), 2022)

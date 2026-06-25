@@ -53,6 +53,22 @@ def build_gtfs_corridors(
     return GtfsCorridorResult(document=document)
 
 
+def split_corridors_by_agency(document: dict, agency_outputs: dict[str, str]) -> dict[str, dict]:
+    """Split a route-corridor FeatureCollection into one FeatureCollection per
+    agency. Each output keeps only that agency's features, reshaped to a `kind`
+    property. Returns {output_filename: FeatureCollection}."""
+    features = document.get("features", [])
+    splits: dict[str, dict] = {}
+    for agency, filename in agency_outputs.items():
+        selected = [
+            {"type": "Feature", "properties": {"kind": agency}, "geometry": feature.get("geometry")}
+            for feature in features
+            if (feature.get("properties") or {}).get("agency_id") == agency
+        ]
+        splits[filename] = {"type": "FeatureCollection", "features": selected}
+    return splits
+
+
 def _stops(rows: list[GtfsRow]) -> dict[str, list[float]]:
     out: dict[str, list[float]] = {}
     for row in rows:
