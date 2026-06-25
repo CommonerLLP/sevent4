@@ -53,6 +53,14 @@ public education flows, and topic-specific normalizers.
 
 Implemented package boundaries:
 
+- `sevent4.domain.ahmedabad_library_paper_figures`
+- `sevent4.domain.bengaluru_finance`
+- `sevent4.domain.bengaluru_opencity`
+- `sevent4.domain.bengaluru_ward_analysis`
+- `sevent4.domain.chennai_finance`
+- `sevent4.domain.chennai_opencity_water`
+- `sevent4.domain.delhi_dpl_extract`
+- `sevent4.domain.delhi_library_paper_figures`
 - `sevent4.domain.evidence`
 - `sevent4.domain.pollution`
 - `sevent4.ports.acquisition`
@@ -65,9 +73,17 @@ Implemented package boundaries:
 - `sevent4.ports.publication`
 - `sevent4.ports.representatives`
 - `sevent4.ports.transit`
+- `sevent4.application.ahmedabad_library_paper_figures`
 - `sevent4.application.city_console`
 - `sevent4.application.acquisition`
+- `sevent4.application.bengaluru_finance`
+- `sevent4.application.bengaluru_opencity`
+- `sevent4.application.bengaluru_ward_analysis`
+- `sevent4.application.chennai_finance`
+- `sevent4.application.chennai_opencity_water`
 - `sevent4.application.city_build`
+- `sevent4.application.delhi_dpl_extract`
+- `sevent4.application.delhi_library_paper_figures`
 - `sevent4.application.finance`
 - `sevent4.application.jurisdiction`
 - `sevent4.application.library_access`
@@ -77,7 +93,15 @@ Implemented package boundaries:
 - `sevent4.application.representatives`
 - `sevent4.application.transit`
 - `sevent4.adapters.acquisition_filesystem`
+- `sevent4.adapters.ahmedabad_library_paper_figures_geospatial`
+- `sevent4.adapters.bengaluru_finance_filesystem`
+- `sevent4.adapters.bengaluru_opencity_filesystem`
+- `sevent4.adapters.bengaluru_ward_analysis_geospatial`
+- `sevent4.adapters.chennai_finance_filesystem`
+- `sevent4.adapters.chennai_opencity_water_filesystem`
 - `sevent4.adapters.city_build_filesystem`
+- `sevent4.adapters.delhi_dpl_extract_filesystem`
+- `sevent4.adapters.delhi_library_paper_figures_matplotlib`
 - `sevent4.adapters.finance_filesystem`
 - `sevent4.adapters.filesystem`
 - `sevent4.adapters.jurisdiction_geospatial`
@@ -161,6 +185,24 @@ Compatibility surfaces remain:
 - `sevent4.transit.gtfs_corridors` is now a thin CLI adapter over the transit
   application service. The filesystem adapter loads GTFS CSV tables before the
   application builds route-corridor GeoJSON.
+- `scripts/recipes/delhi/extract_dpl_library.py` is now a thin CLI adapter over
+  the Delhi DPL extraction application service. Domain code owns annual metric,
+  location, geocode-cache, and long-table shaping; the filesystem adapter owns
+  CSV/JSON reads and writes.
+- Bengaluru OpenCity finance, boundary, jurisdiction, and ward-reconciliation
+  recipes now route through Bengaluru application services. Domain modules own
+  work-order aggregation, OpenCity resource planning, curated-layer records, and
+  ward-analysis property shaping; filesystem/geospatial adapters own downloads,
+  hashing, GeoPandas joins, and JSON/GeoJSON output.
+- Chennai GCC finance and OpenCity water/flood recipes now route through
+  Chennai application services. Domain modules own finance CSV parsing,
+  zone-layer shaping, water resource selection, and curated-layer records; the
+  adapters own OpenCity requests, CSV files, KML/KMZ conversion, and layer
+  reports.
+- Ahmedabad and Delhi library-paper figure scripts are thin CLI adapters. The
+  application layer owns figure-build orchestration and scalar stats; plotting,
+  geospatial reads, Matplotlib backend setup, and figure writes live in adapter
+  modules.
 - `sevent4.qa.browser_smoke` is the browser-smoke QA adapter. It serves the
   checked-in static bundle locally and uses the Playwright CLI to screenshot
   `/index.html`, `/public/index.html`, and the Ahmedabad console route across
