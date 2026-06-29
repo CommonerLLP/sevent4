@@ -118,7 +118,13 @@ def summary_json(summary: Mapping[str, Any], indent: int | None = 2) -> str:
     return json.dumps(summary, indent=indent)
 
 
-def load_city_bbox(root: str | Path, city: str) -> list[float]:
+def load_city_bbox(root: str | Path, city: str, layers_dir: str | Path | None = None) -> list[float]:
+    # Prefer the committed heat bounds, so a refresh can source the bbox from a
+    # public-only checkout (no gitignored city.yaml); fall back to city.yaml.
+    if layers_dir is not None:
+        bounds = Path(layers_dir) / "heat30m_bounds.json"
+        if bounds.exists():
+            return list(json.loads(bounds.read_text(encoding="utf-8"))["bbox"])
     import yaml
 
     config = yaml.safe_load(
