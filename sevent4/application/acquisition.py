@@ -12,6 +12,9 @@ from sevent4.ports.acquisition import AtlasSourceInventory, OpenDataCatalogueInp
 
 
 STRUCTURED_FORMATS = {"CSV", "GEOJSON", "KML", "KMZ", "XLSX", "XLS", "JSON", "SHP", "ZIP"}
+# Formats that can actually carry boundary geometry. Tabular formats (CSV/XLS/XLSX)
+# are structured but cannot satisfy a slice-by-geometry cut on their own.
+GEOMETRY_FORMATS = {"GEOJSON", "KML", "KMZ", "JSON", "SHP", "ZIP"}
 OPENCITY_ATLAS_AXES: dict[str, list[str]] = {
     "decides": [
         r"\bward",
@@ -244,7 +247,7 @@ def opencity_cut_hits(dataset: dict[str, Any]) -> dict[str, bool]:
         ]
     ).lower()
     has_geometry = any(
-        str(resource.get("format", "")).upper() in STRUCTURED_FORMATS
+        str(resource.get("format", "")).upper() in GEOMETRY_FORMATS
         for resource in dataset.get("resources", [])
     )
     return {
