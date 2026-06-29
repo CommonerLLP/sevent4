@@ -269,6 +269,7 @@ def _html(city: CityDataset, manifest: LayerManifest, out_dir: Path | None = Non
   const CURRENT_STATE = {json.dumps(city.state)};
   const CURRENT_CITY = {json.dumps(city.id)};
   const GOV = {json.dumps(_governance_for_city(city.id, finance_url), ensure_ascii=False)};
+  const JURIS_FIELDS = {json.dumps({"ward": ward_field, "ac": ac_field or "ac_name", "pc": pc_field or "pc_name"})};
   {_js()}
   {_air_panel_js()}
   {_governance_js()}
@@ -1108,9 +1109,9 @@ def _js() -> str:
   function addFocusLayers() {
     map.addSource("focusmask", {type: "geojson", data: {type: "FeatureCollection", features: []}});
     map.addLayer({id: "focusmask", type: "fill", source: "focusmask", paint: {"fill-color": themeBg(), "fill-opacity": 0.88}});
-    map.addLayer({id: "wards_hi", type: "line", source: "wards", paint: {"line-color": "#edc233", "line-width": 3}, filter: ["==", "Name", "__none__"]});
-    if (map.getSource("acs")) map.addLayer({id: "acs_hi", type: "line", source: "acs", paint: {"line-color": "#edc233", "line-width": 3.4}, filter: ["==", "ac_name", "__none__"]});
-    if (map.getSource("pcs")) map.addLayer({id: "pcs_hi", type: "line", source: "pcs", paint: {"line-color": "#edc233", "line-width": 3.8}, filter: ["==", "pc_name", "__none__"]});
+    map.addLayer({id: "wards_hi", type: "line", source: "wards", paint: {"line-color": "#edc233", "line-width": 3}, filter: ["==", JURIS_FIELDS.ward, "__none__"]});
+    if (map.getSource("acs")) map.addLayer({id: "acs_hi", type: "line", source: "acs", paint: {"line-color": "#edc233", "line-width": 3.4}, filter: ["==", JURIS_FIELDS.ac, "__none__"]});
+    if (map.getSource("pcs")) map.addLayer({id: "pcs_hi", type: "line", source: "pcs", paint: {"line-color": "#edc233", "line-width": 3.8}, filter: ["==", JURIS_FIELDS.pc, "__none__"]});
   }
 
   function setLayerVisibility(id, on) {
@@ -1168,9 +1169,9 @@ def _js() -> str:
     const pcOption = currentOption("pcsel");
     const acOption = currentOption("acsel");
     const wardOption = currentOption("wardsel");
-    if (map.getLayer("wards_hi")) map.setFilter("wards_hi", ["==", "Name", "__none__"]);
-    if (map.getLayer("acs_hi")) map.setFilter("acs_hi", ["==", "ac_name", "__none__"]);
-    if (map.getLayer("pcs_hi")) map.setFilter("pcs_hi", ["==", "pc_name", "__none__"]);
+    if (map.getLayer("wards_hi")) map.setFilter("wards_hi", ["==", JURIS_FIELDS.ward, "__none__"]);
+    if (map.getLayer("acs_hi")) map.setFilter("acs_hi", ["==", JURIS_FIELDS.ac, "__none__"]);
+    if (map.getLayer("pcs_hi")) map.setFilter("pcs_hi", ["==", JURIS_FIELDS.pc, "__none__"]);
 
     // highlight the selected jurisdiction AND every AC / ward nested inside it
     let acSet = [], wardSet = [];
@@ -1186,9 +1187,9 @@ def _js() -> str:
       acSet = info.acs || [];
       wardSet = info.wards || [];
     }
-    if (pcVal && map.getLayer("pcs_hi")) map.setFilter("pcs_hi", ["==", "pc_name", pcVal]);
-    if (acSet.length && map.getLayer("acs_hi")) map.setFilter("acs_hi", ["in", "ac_name"].concat(acSet));
-    if (wardSet.length && map.getLayer("wards_hi")) map.setFilter("wards_hi", ["in", "Name"].concat(wardSet));
+    if (pcVal && map.getLayer("pcs_hi")) map.setFilter("pcs_hi", ["==", JURIS_FIELDS.pc, pcVal]);
+    if (acSet.length && map.getLayer("acs_hi")) map.setFilter("acs_hi", ["in", JURIS_FIELDS.ac].concat(acSet));
+    if (wardSet.length && map.getLayer("wards_hi")) map.setFilter("wards_hi", ["in", JURIS_FIELDS.ward].concat(wardSet));
 
     const focusOption = wardOption || acOption || pcOption;
     if (!focusOption) {
@@ -1210,9 +1211,9 @@ def _js() -> str:
     });
     setOptionAvailability(document.getElementById("wardsel"), null);
     setOptionAvailability(document.getElementById("acsel"), null);
-    if (map.getLayer("wards_hi")) map.setFilter("wards_hi", ["==", "Name", "__none__"]);
-    if (map.getLayer("acs_hi")) map.setFilter("acs_hi", ["==", "ac_name", "__none__"]);
-    if (map.getLayer("pcs_hi")) map.setFilter("pcs_hi", ["==", "pc_name", "__none__"]);
+    if (map.getLayer("wards_hi")) map.setFilter("wards_hi", ["==", JURIS_FIELDS.ward, "__none__"]);
+    if (map.getLayer("acs_hi")) map.setFilter("acs_hi", ["==", JURIS_FIELDS.ac, "__none__"]);
+    if (map.getLayer("pcs_hi")) map.setFilter("pcs_hi", ["==", JURIS_FIELDS.pc, "__none__"]);
     setMask(null);
     fitDefaultView(500);
   }
