@@ -272,7 +272,9 @@ class FeatureOptionsTest(unittest.TestCase):
         self.assertIn(".jurisdictionbar select", css)
         self.assertIn("height:44px;padding:0 8px;width:100%", css)
         self.assertIn(".search,.fsel{width:100%;min-height:44px", css)
-        self.assertIn(".tog{align-items:center;display:flex;min-height:44px", css)
+        self.assertIn(".tog{align-items:center;display:flex;flex-wrap:wrap;min-height:44px", css)
+        # year controls wrap onto their own full-width line instead of overflowing the rail
+        self.assertIn(".yearctl{align-items:center;display:flex;flex-basis:100%", css)
         self.assertIn("grid-template-columns:minmax(160px,1fr) minmax(150px,1fr) minmax(150px,1fr) auto 44px", css)
         self.assertIn(".filterbar .fsel,.filterbar .fbtn2,.filterbar .tbtn{height:44px", css)
         self.assertIn(".tbtn{", css)
