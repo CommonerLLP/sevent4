@@ -1,0 +1,16 @@
+{
+  "_note": "Per-city heat roster for the console heat strip. A city appears here only when its heat figures are primary-verified; others get no strip until then. Source-of-record per row.",
+  "cities": [
+    {
+      "city": "delhi",
+      "status": "live",
+      "heat_stressed_pct": 75.78,
+      "lst_peak_c": 54.61,
+      "green_cover_then_pct": 25.36,
+      "green_cover_now_pct": 14.14,
+      "green_cover_then_year": 2014,
+      "green_cover_now_year": 2024,
+      "source": "CSE, Making Delhi Heat-Resilient (2 Jun 2026)"
+    }
+  ]
+}

@@ -257,6 +257,10 @@ def _html(city: CityDataset, manifest: LayerManifest, out_dir: Path | None = Non
           <div class="sech">Who answers for the air?</div>
           <div class="readnote"><span id="airpanel"></span></div>
         </div>
+        <div id="heatbox" style="display:none">
+          <div class="sech">Whose neighbourhood is the oven?</div>
+          <div class="readnote"><span id="heatpanel"></span></div>
+        </div>
       </div>
     </main>
   </div>
@@ -272,6 +276,7 @@ def _html(city: CityDataset, manifest: LayerManifest, out_dir: Path | None = Non
   const JURIS_FIELDS = {json.dumps({"ward": ward_field, "ac": ac_field or "ac_name", "pc": pc_field or "pc_name"})};
   {_js()}
   {_air_panel_js()}
+  {_heat_panel_js()}
   {_governance_js()}
   </script>
 </body>
@@ -326,6 +331,24 @@ def _air_panel_js() -> str:
         var fin=b.finance_note?(' Yet it is <b>not short of money</b>: it has '+b.finance_note+'.'):'';
         host.innerHTML='<b>'+b.board+'</b> must act on every reading on this map \\u2014 and <b style="color:var(--red)">'+b.vacancy_pct+'% of its posts are vacant</b> ('+b.vacant+' of '+b.sanctioned+').'+fin+' <a href="../../why/air/index.html">Who answers for the air? &rarr;</a>';
       }
+      box.style.display='';
+    }).catch(function(){});
+  })();
+"""
+
+
+def _heat_panel_js() -> str:
+    """Sidebar 'Whose neighbourhood is the oven?' card — pairs this city's heat
+    layer on the map with its verified urban-heat figures, read from the WHY/heat
+    roster. Hidden for cities whose heat figures are not yet primary-verified."""
+    return """
+  (function(){
+    var box=document.getElementById('heatbox'), host=document.getElementById('heatpanel');
+    if(!box||!host) return;
+    fetch('../../why/heat/cities.json').then(function(r){return r.json();}).then(function(d){
+      var h=(d.cities||[]).find(function(x){return x.city===CURRENT_CITY;});
+      if(!h||h.status!=='live') return;
+      host.innerHTML='This city\\'s land surface hit <b style="color:var(--red)">'+h.lst_peak_c+'\\u00b0C</b> and <b>'+h.heat_stressed_pct+'% of it is persistently heat-stressed</b> \\u2014 green cover fell from '+h.green_cover_then_pct+'% to '+h.green_cover_now_pct+'% in a decade. <a href="../../why/heat/index.html">Whose neighbourhood is the oven? &rarr;</a>';
       box.style.display='';
     }).catch(function(){});
   })();
