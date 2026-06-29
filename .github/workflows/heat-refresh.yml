@@ -71,12 +71,17 @@ jobs:
             ahmedabad bengaluru bhubaneswar chennai delhi hyderabad jaipur \
             kanpur kochi kolkata mumbai pune visakhapatnam
 
-      # The .tif / _heat30m_* intermediates are gitignored, so create-pull-request
-      # won't stage them — only the tracked ward_heat.geojson + heat30m.png change.
+      # Under public/, the heat30m.tif / _heat30m_* intermediates are NOT covered by
+      # .gitignore (which only ignores data/), so restrict the PR to the three
+      # published layer artifacts — never the large raster intermediates.
 
       - name: Open a PR with the refreshed layers
         uses: peter-evans/create-pull-request@v6
         with:
+          add-paths: |
+            public/cities/*/layers/ward_heat.geojson
+            public/cities/*/layers/heat30m.png
+            public/cities/*/layers/heat30m_bounds.json
           branch: chore/heat-refresh
           title: "chore(heat): refresh Landsat heat layers (${{ steps.window.outputs.value }})"
           commit-message: "chore(heat): refresh Landsat heat layers (${{ steps.window.outputs.value }})"
