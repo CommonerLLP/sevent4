@@ -57,10 +57,9 @@ def _find_repo_root(path: Path) -> Path:
         for parent in [candidate.parent, *candidate.parents]:
             if (parent / "pyproject.toml").exists() or (parent / ".git").exists():
                 return parent
-    cwd = Path.cwd()
-    for parent in [cwd, *cwd.parents]:
-        if (parent / "pyproject.toml").exists() or (parent / ".git").exists():
-            return parent
+    # A config outside any repo tree resolves relative paths beside itself, not
+    # under the current repo. Falling back to cwd here would wrongly anchor a
+    # standalone/external city.yaml to this repo when run from inside it.
     return path.parent
 
 
