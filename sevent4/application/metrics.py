@@ -474,10 +474,10 @@ def _transit_correlations(features: list[dict], aggregate: dict[int, dict[str, i
     buses = []
     buses_per_stop = []
     for index, feature in enumerate(features):
-        value = feature.get("properties", {}).get("deprivation")
-        if value in (None, ""):
+        value = _optional_float(feature.get("properties", {}).get("deprivation"))
+        if value is None:
             continue
-        deprivation.append(_float_value(value))
+        deprivation.append(value)
         record = aggregate.get(index, {})
         events = record.get("amts_ev", 0)
         stops = record.get("amts_stops", 0)
@@ -525,12 +525,13 @@ def _deprivation_quartiles(features: list[dict]) -> list[dict[str, float | str]]
     paired = []
     for feature in features:
         props = feature.get("properties", {})
-        if props.get("deprivation") in (None, ""):
+        deprivation = _optional_float(props.get("deprivation"))
+        if deprivation is None:
             continue
         paired.append(
             (
                 str(props.get("Name", "?")),
-                _float_value(props.get("deprivation")),
+                deprivation,
                 int(_float_value(props.get("amts_buses_day"))),
                 _float_value(props.get("buses_per_stop")),
             )
@@ -577,6 +578,13 @@ def _float_value(value) -> float:
         return float(value)
     except (TypeError, ValueError):
         return 0.0
+
+
+def _optional_float(value) -> float | None:
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return None
 
 
 def _normalize_values(values: list[float]) -> list[float]:

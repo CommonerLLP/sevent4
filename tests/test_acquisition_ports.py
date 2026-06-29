@@ -287,6 +287,24 @@ class AcquisitionPortsTest(unittest.TestCase):
         self.assertIn("_ward_: **Delhi Ward Boundary Map**", markdown)
         self.assertIn("### (unclassified — 1; frame may be missing a keyword)", markdown)
 
+    def test_opencity_cut_hits_requires_geometry_not_just_tabular(self) -> None:
+        # A ward-titled dataset whose only resource is a CSV/XLS table cannot
+        # satisfy a slice-by-geometry cut, even though the title matches.
+        tabular = {
+            "title": "Delhi Ward Population Table",
+            "name": "delhi-ward-population",
+            "tags": ["ward"],
+            "notes": "Ward-wise population counts",
+            "resources": [{"format": "CSV"}, {"format": "XLSX"}],
+        }
+        self.assertEqual(
+            opencity_cut_hits(tabular), {"ward": False, "assembly": False, "parliament": False}
+        )
+        geo = {**tabular, "resources": [{"format": "GEOJSON"}]}
+        self.assertEqual(
+            opencity_cut_hits(geo), {"ward": True, "assembly": False, "parliament": False}
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
