@@ -55,6 +55,41 @@ class AhmedabadMetricsPortsTest(unittest.TestCase):
         self.assertEqual(result.summary["outside_ward_stops"], 2)
         self.assertEqual(result.summary["reassigned_stops"], 1)
 
+    def test_transit_frequency_excludes_non_numeric_deprivation(self) -> None:
+        gtfs = dict(
+            gtfs_routes=[{"route_id": "r1", "agency_id": "AMTS"}, {"route_id": "r2", "agency_id": "AJL"}],
+            gtfs_trips=[{"route_id": "r1", "trip_id": "t1"}, {"route_id": "r2", "trip_id": "t2"}],
+            gtfs_stops=[{"stop_id": "inside", "stop_lon": "0.5", "stop_lat": "0.5"}],
+            gtfs_stop_times=[{"trip_id": "t1", "stop_id": "inside"}],
+            buffer_m=2_500,
+        )
+
+        class _W:
+            def write_wards(self, document) -> None:  # noqa: D401
+                self.document = document
+
+        baseline = build_ward_transit_frequency(
+            WardTransitFrequencyInput(wards=_ward_document(), **gtfs), _W()
+        )
+
+        with_blank = _ward_document()
+        with_blank["features"].append(
+            {
+                "type": "Feature",
+                "properties": {"Name": "Blank", "deprivation": "N/A"},
+                "geometry": {"type": "Polygon", "coordinates": [[(9, 9), (10, 9), (10, 10), (9, 10), (9, 9)]]},
+            }
+        )
+        with_na = build_ward_transit_frequency(
+            WardTransitFrequencyInput(wards=with_blank, **gtfs), _W()
+        )
+
+        # A non-numeric deprivation ward must be dropped from the equity stats,
+        # not coerced to 0.0 (which would read as least-deprived).
+        self.assertEqual(
+            with_na.summary["deprivation_quartiles"], baseline.summary["deprivation_quartiles"]
+        )
+
     def test_service_access_composite_application_rolls_wards_up_to_acs(self) -> None:
         class Writer:
             def __init__(self) -> None:
