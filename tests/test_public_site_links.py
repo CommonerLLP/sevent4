@@ -191,7 +191,11 @@ class PublicSiteLinksTest(unittest.TestCase):
         self.assertIn("atlas:mastheadrendered", script)
         self.assertIn("syncControls()", script)
         self.assertIn("'Switch to ' + next + ' theme'", script)
-        self.assertIn("aria-pressed", script)
+        self.assertIn("aria-label", script)
+        # The toggle's accessible name changes ("Switch to light/dark theme"), so it
+        # must not also carry aria-pressed — that would report the switch-to-light
+        # control as pressed while light is inactive.
+        self.assertNotIn("aria-pressed", script)
         self.assertIn("ICONS[next]", script)
         self.assertIn("stroke:currentColor", masthead_css)
         self.assertIn("min-height:44px", masthead_css)

@@ -33,7 +33,6 @@
       btn.innerHTML = ICONS[next];
       btn.setAttribute('aria-label', 'Switch to ' + next + ' theme');
       btn.setAttribute('title', 'Switch to ' + next + ' theme');
-      btn.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
     });
   }
 
