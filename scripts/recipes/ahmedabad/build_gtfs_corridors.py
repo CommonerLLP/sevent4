@@ -37,6 +37,11 @@ def main() -> None:
 
     city = args.city.lower()
     gtfs_dir = Path(args.gtfs_dir) if args.gtfs_dir else REPO / "data" / "cities" / city / "source" / "gtfs" / "amts_janmarg"
+    if not gtfs_dir.exists():
+        raise SystemExit(
+            f"GTFS feed not found at {gtfs_dir}. GTFS feeds are gitignored external inputs "
+            f"— supply one with --gtfs-dir or place the txt files there."
+        )
     out_dir = Path(args.out_dir) if args.out_dir else REPO / "data" / "cities" / city / "layers"
     all_routes_path = out_dir / ALL_ROUTES
 

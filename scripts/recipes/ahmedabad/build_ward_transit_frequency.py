@@ -23,6 +23,11 @@ def main() -> None:
     parser.add_argument("--gtfs-dir", type=Path, default=GTFS)
     parser.add_argument("--wards", type=Path, default=WARDS)
     args = parser.parse_args()
+    if not args.gtfs_dir.exists():
+        raise SystemExit(
+            f"GTFS feed not found at {args.gtfs_dir}. GTFS feeds are gitignored external inputs "
+            f"— supply one with --gtfs-dir or place the txt files there."
+        )
 
     result = build_ward_transit_frequency(
         FileWardTransitFrequencyInputRepository(args.wards, args.gtfs_dir, buffer_m=args.buffer_m).load(),
