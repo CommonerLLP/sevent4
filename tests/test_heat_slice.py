@@ -15,6 +15,7 @@ from sevent4.domain.heat import (
     WARD_HEAT_LAYER,
     celsius_from_landsat_st,
     heat_rgba,
+    hottest_wards,
     patched_manifest_layers,
     qa_mask,
     ward_lst_stats,
@@ -54,6 +55,28 @@ class HeatRecipeArchitectureTest(unittest.TestCase):
 
 
 class HeatDomainTest(unittest.TestCase):
+    def test_hottest_wards_dedupes_and_uses_city_specific_name_fields(self) -> None:
+        features = [
+            # KGIS-derived (Bengaluru-style): usable name in KGISWardName, Name is "Ward ".
+            {"properties": {"Name": "Ward ", "KGISWardName": "Munnekollala", "mean_lst_c": 44.8}},
+            # Same ward split across features (Mumbai-style) — must not repeat in the top.
+            {"properties": {"ward_name": "Ward P - North", "mean_lst_c": 47.56}},
+            {"properties": {"ward_name": "Ward P - North", "mean_lst_c": 46.97}},
+            {"properties": {"ward_name": "Ward R - South", "mean_lst_c": 46.65}},
+            # No usable name / no LST — skipped.
+            {"properties": {"Name": "Ward ", "mean_lst_c": 50.0}},
+            {"properties": {"ward_name": "Nowhere", "mean_lst_c": None}},
+        ]
+        summary = hottest_wards(features, top_n=3)
+        self.assertEqual(summary["n"], 3)  # P-North, R-South, Munnekollala — deduped
+        names = [row["ward"] for row in summary["top"]]
+        self.assertEqual(names, ["Ward P - North", "Ward R - South", "Munnekollala"])
+        self.assertEqual(summary["top"][0]["lst"], 47.6)  # hottest reading kept, rounded
+        self.assertEqual(names.count("Ward P - North"), 1)
+
+    def test_hottest_wards_returns_none_when_no_usable_ward(self) -> None:
+        self.assertIsNone(hottest_wards([{"properties": {"Name": "Ward ", "mean_lst_c": 50.0}}]))
+
     def test_qa_mask_rejects_fill_and_flagged_bits(self) -> None:
         # 0=fill, 8=cloud(bit3), 2=dilated-cloud(bit1) are bad; 1(bit0) and 32(bit5) are usable.
         qa = np.array([[0, 8, 2], [1, 32, 16]], dtype="uint16")
