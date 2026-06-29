@@ -3,6 +3,7 @@
 build_budget_db.py — build the canonical municipal budget database (Ahmedabad first).
 
 Reproducible: `.venv/bin/python scripts/budget_db/build_budget_db.py`
+The parquet + duckdb exports need the budget extra: `pip install -e '.[budget]'`.
 Inputs  (verified, in-repo): amc_budget_22yr.csv, amc_civic_lines.json,
     amts_income_expenditure.json under data/cities/ahmedabad/source/budget/.
 Inputs  (optional): AMC budget PDFs under the AMC_PDF_DIRS search path.

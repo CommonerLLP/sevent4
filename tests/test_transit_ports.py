@@ -9,6 +9,21 @@ from sevent4.transit.gtfs_corridors import build_corridors
 
 
 class TransitPortsTest(unittest.TestCase):
+    def test_gtfs_corridor_build_fails_loudly_without_shapes_or_stop_times(self) -> None:
+        class Writer:
+            def write_geojson(self, document) -> None:  # pragma: no cover - must not be reached
+                raise AssertionError("writer should not run when the feed is unusable")
+
+        inputs = GtfsCorridorInput(
+            stops=[{"stop_id": "s1", "stop_lon": "72.1", "stop_lat": "23.1"}],
+            routes=[{"route_id": "r1", "agency_id": "AMTS"}],
+            trips=[{"route_id": "r1", "trip_id": "t1"}],
+            shapes=[],
+            stop_times=[],
+        )
+        with self.assertRaises(ValueError):
+            build_gtfs_corridors(inputs, Writer())
+
     def test_gtfs_corridor_application_builds_geojson_without_file_io(self) -> None:
         class Writer:
             def __init__(self) -> None:

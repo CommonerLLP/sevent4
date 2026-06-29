@@ -71,6 +71,8 @@ class WhyAirBoardsTest(unittest.TestCase):
             self.assertEqual(boards[0]["capacity_claim_id"], "claim-why-air-kspcb-vacancy-2025")
 
     def test_published_table_matches_fresh_builder_output(self) -> None:
+        if not list(Path("data/cities").glob("*/source/pollution/capacity.json")):
+            self.skipTest("pollution capacity records live under gitignored data/ and are absent on this checkout")
         with tempfile.TemporaryDirectory() as tmp:
             out = Path(tmp) / "boards.json"
             build(out=out, verbose=False)

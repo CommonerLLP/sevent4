@@ -19,6 +19,11 @@ def build_gtfs_corridors(
     routes = _routes(inputs.routes)
     trips = _trips(inputs.trips)
     shapes = _shapes(inputs.shapes) if inputs.shapes else {}
+    if not shapes and not inputs.stop_times:
+        # With no shapes.txt, corridors are drawn from stop_times. A feed missing
+        # both would silently yield an empty FeatureCollection, hiding a bad or
+        # incomplete acquisition — fail loudly instead.
+        raise ValueError("GTFS feed has neither shapes.txt nor stop_times.txt; cannot build corridors")
     stop_times = _stop_times(inputs.stop_times) if not shapes else {}
 
     features = []
