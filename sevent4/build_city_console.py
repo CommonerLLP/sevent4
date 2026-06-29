@@ -274,6 +274,7 @@ def _html(city: CityDataset, manifest: LayerManifest, out_dir: Path | None = Non
   const CURRENT_CITY = {json.dumps(city.id)};
   const GOV = {json.dumps(_governance_for_city(city.id, finance_url), ensure_ascii=False)};
   const JURIS_FIELDS = {json.dumps({"ward": ward_field, "ac": ac_field or "ac_name", "pc": pc_field or "pc_name"})};
+  const HEAT = {json.dumps(_heat_summary(city.layers_dir))};
   {_js()}
   {_air_panel_js()}
   {_heat_panel_js()}
@@ -337,19 +338,43 @@ def _air_panel_js() -> str:
 """
 
 
+def _heat_summary(layers_dir: Path) -> dict[str, Any] | None:
+    """Top hottest wards for this city, from its own Landsat ward-LST layer
+    (ward_heat.geojson). Drives the console heat strip for every city that has the
+    layer — not just the ones with a verified city-wide CSE figure."""
+    path = layers_dir / "ward_heat.geojson"
+    if not path.exists():
+        return None
+    rows = []
+    for feature in json.loads(path.read_text(encoding="utf-8")).get("features", []):
+        props = feature.get("properties", {})
+        mean_lst = props.get("mean_lst_c")
+        name = str(props.get("ward_name") or props.get("Name") or "").strip()
+        if mean_lst is not None and name:
+            rows.append({"ward": name, "lst": round(float(mean_lst), 1)})
+    if not rows:
+        return None
+    rows.sort(key=lambda row: -row["lst"])
+    return {"top": rows[:3], "n": len(rows)}
+
+
 def _heat_panel_js() -> str:
-    """Sidebar 'Whose neighbourhood is the oven?' card — pairs this city's heat
-    layer on the map with its verified urban-heat figures, read from the WHY/heat
-    roster. Hidden for cities whose heat figures are not yet primary-verified."""
+    """Sidebar 'Whose neighbourhood is the oven?' card. Names this city's hottest
+    wards from its own ward-LST layer (HEAT), turned to the thesis — the plan that
+    built those ovens is on no ballot. Cities with a verified city-wide CSE figure
+    (WHY/heat roster) get the extra headline prepended."""
     return """
   (function(){
     var box=document.getElementById('heatbox'), host=document.getElementById('heatpanel');
-    if(!box||!host) return;
+    if(!box||!host||typeof HEAT==='undefined'||!HEAT||!HEAT.top||!HEAT.top.length) return;
+    var t=HEAT.top;
+    var wards=t[0].ward+(t[1]?', '+t[1].ward:'')+(t[2]?' and '+t[2].ward:'');
+    var atlas='The atlas\\'s own satellite read puts your hottest ward at <b style="color:var(--red)">'+t[0].lst+'\\u00b0C</b> \\u2014 '+wards+'. The plan that built those ovens is on <b>no ballot you cast</b> \\u2014 an unelected city, cooking its own people. ';
+    function render(prefix){host.innerHTML=prefix+atlas+'<a href="../../why/heat/index.html">Whose neighbourhood is the oven? &rarr;</a>';box.style.display='';}
+    render('');
     fetch('../../why/heat/cities.json').then(function(r){return r.json();}).then(function(d){
       var h=(d.cities||[]).find(function(x){return x.city===CURRENT_CITY;});
-      if(!h||h.status!=='live') return;
-      host.innerHTML='This city\\'s land surface hit <b style="color:var(--red)">'+h.lst_peak_c+'\\u00b0C</b> and <b>'+h.heat_stressed_pct+'% of it is persistently heat-stressed</b> \\u2014 green cover fell from '+h.green_cover_then_pct+'% to '+h.green_cover_now_pct+'% in a decade. <a href="../../why/heat/index.html">Whose neighbourhood is the oven? &rarr;</a>';
-      box.style.display='';
+      if(h&&h.status==='live') render('This city\\'s land surface hit <b style="color:var(--red)">'+h.lst_peak_c+'\\u00b0C</b>; <b>'+h.heat_stressed_pct+'%</b> of it is persistently heat-stressed. ');
     }).catch(function(){});
   })();
 """
