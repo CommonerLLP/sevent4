@@ -46,6 +46,36 @@ class CityDatasetPathTest(unittest.TestCase):
             self.assertEqual(repo_city / "source", city.source_dir)
             self.assertEqual(repo / "public" / "cities" / "testville", city.outputs_dir)
 
+    def test_standalone_config_outside_repo_anchors_relative_paths_to_config_dir(self) -> None:
+        # A city.yaml outside any repo tree must resolve its relative paths beside
+        # itself, not under whichever repo happens to be the cwd.
+        with tempfile.TemporaryDirectory() as tmp:
+            standalone = Path(tmp) / "standalone"
+            standalone.mkdir()
+            (standalone / "city.yaml").write_text(
+                "\n".join(
+                    [
+                        "id: testville",
+                        "name: Testville",
+                        "country: India",
+                        "state: State",
+                        "center: [72.0, 23.0]",
+                        "bbox: [71.0, 22.0, 73.0, 24.0]",
+                        "crs_metric: EPSG:32643",
+                        "layers_dir: layers",
+                        "source_dir: source",
+                        "outputs_dir: out",
+                    ]
+                ),
+                encoding="utf-8",
+            )
+
+            city = CityDataset.from_yaml(standalone / "city.yaml")
+
+            self.assertEqual(standalone, city.repo_root)
+            self.assertEqual(standalone / "layers", city.layers_dir)
+            self.assertEqual(standalone / "source", city.source_dir)
+
     def test_symlinked_layer_manifest_keeps_repo_root_for_layer_validation(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             base = Path(tmp)
