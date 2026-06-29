@@ -8,7 +8,9 @@ from pathlib import Path
 from typing import Any
 
 from sevent4.adapters.filesystem import FileCityConsoleInputRepository, FileCityConsolePublicSurface
+from sevent4.adapters.heat_filesystem import load_ward_heat
 from sevent4.application.city_console import publish_city_console, publish_city_console_from_repository
+from sevent4.domain.heat import hottest_wards
 
 from .city_dataset import CityDataset
 from .layer_manifest import LayerManifest, LayerSpec
@@ -339,23 +341,13 @@ def _air_panel_js() -> str:
 
 
 def _heat_summary(layers_dir: Path) -> dict[str, Any] | None:
-    """Top hottest wards for this city, from its own Landsat ward-LST layer
-    (ward_heat.geojson). Drives the console heat strip for every city that has the
-    layer — not just the ones with a verified city-wide CSE figure."""
-    path = layers_dir / "ward_heat.geojson"
-    if not path.exists():
+    """Top hottest wards for this city's heat strip — read via the heat adapter,
+    ranked by the heat domain. Drives the console heat strip for every city that
+    has the ward-LST layer, not just the ones with a verified city-wide CSE figure."""
+    document = load_ward_heat(layers_dir)
+    if not document:
         return None
-    rows = []
-    for feature in json.loads(path.read_text(encoding="utf-8")).get("features", []):
-        props = feature.get("properties", {})
-        mean_lst = props.get("mean_lst_c")
-        name = str(props.get("ward_name") or props.get("Name") or "").strip()
-        if mean_lst is not None and name:
-            rows.append({"ward": name, "lst": round(float(mean_lst), 1)})
-    if not rows:
-        return None
-    rows.sort(key=lambda row: -row["lst"])
-    return {"top": rows[:3], "n": len(rows)}
+    return hottest_wards(document.get("features", []))
 
 
 def _heat_panel_js() -> str:
