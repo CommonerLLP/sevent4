@@ -1,7 +1,27 @@
+import tempfile
 import unittest
+from pathlib import Path
 
 
 class JurisdictionPortsTest(unittest.TestCase):
+    def test_overlap_writer_defaults_to_configured_layers_dir(self) -> None:
+        from sevent4.adapters.jurisdiction_geospatial import AhmedabadOverlapJurisdictionRepository
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            custom_layers = root / "elsewhere" / "layers"
+            custom_layers.mkdir(parents=True)
+            city_yaml = root / "elsewhere" / "city.yaml"
+            city_yaml.write_text("layers_dir: elsewhere/layers\nstate: Gujarat\n", encoding="utf-8")
+
+            repo = AhmedabadOverlapJurisdictionRepository(root=root, city_yaml=city_yaml)
+            out = repo.write_crosswalk("ahmedabad", {"records": []})
+
+            # Written into the configured layers_dir, not the hardcoded default.
+            self.assertEqual(custom_layers / "jurisdiction_crosswalk.json", out)
+            self.assertTrue(out.exists())
+            self.assertFalse((root / "data" / "cities" / "ahmedabad" / "layers" / "jurisdiction_crosswalk.json").exists())
+
     def test_pick_populated_field_skips_empty_case_insensitive_matches(self) -> None:
         from sevent4.application.jurisdiction import pick_populated_field
 

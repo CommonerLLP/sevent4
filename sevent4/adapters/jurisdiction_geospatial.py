@@ -163,9 +163,20 @@ class AhmedabadOverlapJurisdictionRepository:
         )
 
     def write_crosswalk(self, city: str, document: dict[str, Any]) -> Path:
-        out = self.out or self.root / "data" / "cities" / city / "layers" / "jurisdiction_crosswalk.json"
+        out = self.out or self._default_crosswalk_path(city)
         out.write_text(json.dumps(document, ensure_ascii=False, indent=2), encoding="utf-8")
         return out
+
+    def _default_crosswalk_path(self, city: str) -> Path:
+        # Mirror load_overlap_crosswalk_input: write the crosswalk into the same
+        # configured layers_dir we read from, so a custom --city-yaml does not
+        # silently leave its selected dataset without a crosswalk.
+        city_yaml = self.city_yaml or self.root / "data" / "cities" / city / "city.yaml"
+        if city_yaml.exists():
+            config = yaml.safe_load(city_yaml.read_text(encoding="utf-8"))
+            if config.get("layers_dir"):
+                return self.root / config["layers_dir"] / "jurisdiction_crosswalk.json"
+        return self.root / "data" / "cities" / city / "layers" / "jurisdiction_crosswalk.json"
 
 
 def _properties(frame) -> tuple[dict[str, Any], ...]:
