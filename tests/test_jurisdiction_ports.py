@@ -73,6 +73,34 @@ class JurisdictionPortsTest(unittest.TestCase):
         self.assertEqual(document["records"][1]["overlap_area_m2"], 2000.46)
         self.assertEqual(document["records"][1]["overlap_pct_of_ward"], 0.12346)
 
+    def test_overlap_crosswalk_preserves_zero_padded_ward_no(self) -> None:
+        from sevent4.application.jurisdiction import build_overlap_crosswalk
+
+        document = build_overlap_crosswalk(
+            city="ahmedabad",
+            state="Gujarat",
+            records=[
+                {
+                    "district_name": "Ahmedabad",
+                    "pc_name": "Ahmedabad East",
+                    "pc_code": "7.0",
+                    "ac_no": "44.0",
+                    "ac_name": "Vatva",
+                    "ward_no": "02",
+                    "ward_name": "02 Ward",
+                    "overlap_area_m2": 2000.0,
+                    "overlap_pct_of_ward": 0.1,
+                    "overlap_pct_of_ac": 0.001,
+                }
+            ],
+            thresholds={"min_ward_pct": 0.005, "min_area_m2": 2500.0},
+        )
+        record = document["records"][0]
+        # ward_no keeps its zero-padded source string; numeric AC/PC codes are still normalized.
+        self.assertEqual(record["ward_no"], "02")
+        self.assertEqual(record["ac_no"], "44")
+        self.assertEqual(record["pc_code"], "7")
+
     def test_publisher_uses_repository_and_writer_ports(self) -> None:
         from sevent4.application.jurisdiction import publish_representative_point_crosswalk
 
