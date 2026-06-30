@@ -76,6 +76,13 @@ jobs:
         # them here updates the live strips without rebuilding the consoles.
         run: python scripts/recipes/build_heat_summaries.py --tree public
 
+      - name: Keep workflow files in lockstep with main
+        # The Actions token cannot push workflow-file changes; if main advanced
+        # since checkout, realign .github so the PR branch carries no workflow diff.
+        run: |
+          git fetch origin main
+          git checkout origin/main -- .github/ 2>/dev/null || true
+
       # Under public/, the heat30m.tif / _heat30m_* intermediates are NOT covered by
       # .gitignore (which only ignores data/), so restrict the PR to the published
       # layer artifacts — never the large raster intermediates.

@@ -133,6 +133,16 @@ def write_ward_heat_summary(layers_dir: str | Path, summary: Mapping[str, Any]) 
     return path
 
 
+def remove_ward_heat_summary(layers_dir: str | Path) -> bool:
+    """Delete a stale heat summary so the strip hides when ward data is gone.
+    Returns True if a file was removed."""
+    path = Path(layers_dir) / "ward_heat_summary.json"
+    if path.exists():
+        path.unlink()
+        return True
+    return False
+
+
 def load_city_bbox(root: str | Path, city: str, layers_dir: str | Path | None = None) -> list[float]:
     # Prefer the committed heat bounds, so a refresh can source the bbox from a
     # public-only checkout (no gitignored city.yaml); fall back to city.yaml.

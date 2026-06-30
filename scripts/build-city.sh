@@ -30,4 +30,8 @@ cd "$ROOT"
   --layers "$MANIFEST" \
   --out "$OUT"
 
+# The strip reads layers/ward_heat_summary.json at runtime; rebuild it next to the
+# just-published ward_heat.geojson so a console rebuild is self-consistent.
+"$PY" scripts/recipes/build_heat_summaries.py --tree public "$CITY"
+
 echo "Built $CITY console: $OUT"
