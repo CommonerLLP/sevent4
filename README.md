@@ -86,7 +86,9 @@ public/         the built static atlas (consoles + reading layer + assets)
 - [City data contract](docsx/city-data-contract.md) — `city.yaml`, layer
   manifest, the jurisdiction crosswalk, add-a-city, entry points
 - [Data recipes](docsx/data-recipes.md) — rebuilding the Ahmedabad seed
-- [Reading](docsx/reading.md) — Constitution, NITI Aayog, RBI, Janaagraha
+- [Reading](docsx/reading.md) — Ambedkar, Teltumbde, Lefebvre/Harvey on the right
+  to the city; the 74th Amendment as the promise; the technocratic governance
+  discourse read against
 
 ## Deployment
 
