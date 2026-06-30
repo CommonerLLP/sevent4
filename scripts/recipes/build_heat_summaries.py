@@ -28,27 +28,33 @@ REPO = Path(__file__).resolve().parents[2]
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Build per-city ward heat summaries.")
-    parser.add_argument("--tree", default="public", help='Layer tree: "public" (default) or "data".')
-    parser.add_argument("cities", nargs="*", help="City ids (default: every city under the tree).")
+    parser.add_argument("--tree", default="public", help='Layer tree to read ward_heat from: "public" (default) or "data".')
+    parser.add_argument(
+        "--write-tree",
+        help="Tree to write the summary into (default: same as --tree). Use --tree data "
+        "--write-tree public so a console rebuild reads the source layer but writes the published sidecar.",
+    )
+    parser.add_argument("cities", nargs="*", help="City ids (default: every city under --tree).")
     args = parser.parse_args()
 
-    cities_root = REPO / args.tree / "cities"
-    cities = args.cities or sorted(p.name for p in cities_root.iterdir() if (p / "layers").is_dir())
+    read_root = REPO / args.tree / "cities"
+    write_root = REPO / (args.write_tree or args.tree) / "cities"
+    cities = args.cities or sorted(p.name for p in read_root.iterdir() if (p / "layers").is_dir())
 
     written = 0
     for city in cities:
-        layers_dir = cities_root / city / "layers"
-        document = load_ward_heat(layers_dir)
+        write_dir = write_root / city / "layers"
+        document = load_ward_heat(read_root / city / "layers")
         summary = hottest_wards(document.get("features", [])) if document else None
         if summary is None:
-            # No usable ward data — remove any stale sidecar so the strip hides
-            # rather than rendering obsolete hottest wards.
-            if remove_ward_heat_summary(layers_dir):
+            # No usable ward data in the SOURCE tree — remove any stale published
+            # sidecar so the strip hides rather than rendering obsolete wards.
+            if write_dir.exists() and remove_ward_heat_summary(write_dir):
                 print(f"{city}: no ward_heat — removed stale summary", flush=True)
             else:
                 print(f"{city}: no ward_heat — skipped", flush=True)
             continue
-        out = write_ward_heat_summary(layers_dir, summary)
+        out = write_ward_heat_summary(write_dir, summary)
         written += 1
         print(f"{city}: {summary['top'][0]['ward']} {summary['top'][0]['lst']}C -> {out}", flush=True)
     print(f"\nwrote {written} heat summaries")
