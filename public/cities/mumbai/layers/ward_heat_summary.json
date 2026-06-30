@@ -1,0 +1,17 @@
+{
+  "top": [
+    {
+      "ward": "Ward P - North",
+      "lst": 47.6
+    },
+    {
+      "ward": "Ward R - South",
+      "lst": 46.6
+    },
+    {
+      "ward": "Ward R - North",
+      "lst": 45.9
+    }
+  ],
+  "n": 6
+}

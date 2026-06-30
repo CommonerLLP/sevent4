@@ -71,15 +71,21 @@ jobs:
             ahmedabad bengaluru bhubaneswar chennai delhi hyderabad jaipur \
             kanpur kochi kolkata mumbai pune visakhapatnam
 
+      - name: Rebuild the console heat-strip summaries
+        # The strips read layers/ward_heat_summary.json at runtime, so refreshing
+        # them here updates the live strips without rebuilding the consoles.
+        run: python scripts/recipes/build_heat_summaries.py --tree public
+
       # Under public/, the heat30m.tif / _heat30m_* intermediates are NOT covered by
-      # .gitignore (which only ignores data/), so restrict the PR to the three
-      # published layer artifacts — never the large raster intermediates.
+      # .gitignore (which only ignores data/), so restrict the PR to the published
+      # layer artifacts — never the large raster intermediates.
 
       - name: Open a PR with the refreshed layers
         uses: peter-evans/create-pull-request@v6
         with:
           add-paths: |
             public/cities/*/layers/ward_heat.geojson
+            public/cities/*/layers/ward_heat_summary.json
             public/cities/*/layers/heat30m.png
             public/cities/*/layers/heat30m_bounds.json
           branch: chore/heat-refresh

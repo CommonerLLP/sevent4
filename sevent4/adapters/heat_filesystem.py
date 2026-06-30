@@ -126,6 +126,13 @@ def load_ward_heat(layers_dir: str | Path) -> Mapping[str, Any] | None:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def write_ward_heat_summary(layers_dir: str | Path, summary: Mapping[str, Any]) -> Path:
+    """Write the tiny per-city heat summary the console strip reads at runtime."""
+    path = Path(layers_dir) / "ward_heat_summary.json"
+    path.write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
+    return path
+
+
 def load_city_bbox(root: str | Path, city: str, layers_dir: str | Path | None = None) -> list[float]:
     # Prefer the committed heat bounds, so a refresh can source the bbox from a
     # public-only checkout (no gitignored city.yaml); fall back to city.yaml.
