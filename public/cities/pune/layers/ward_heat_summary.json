@@ -2,15 +2,15 @@
   "top": [
     {
       "ward": "Ward Ward 1",
-      "lst": 49.5
-    },
-    {
-      "ward": "Ward Ward 45",
-      "lst": 48.0
+      "lst": 49.6
     },
     {
       "ward": "Ward Ward 44",
-      "lst": 47.8
+      "lst": 48.1
+    },
+    {
+      "ward": "Ward Ward 45",
+      "lst": 47.9
     }
   ],
   "n": 76
