@@ -11,7 +11,16 @@
     {
       "ward": "Ward BANDLA GUDA · BANDLAGUDA",
       "lst": 44.8
+    },
+    {
+      "ward": "Ward 130-SUBHASH NAGAR · KUKATPALLY ZONE",
+      "lst": 44.7
+    },
+    {
+      "ward": "Ward 31-REIN BAZAR · CHARMINAR ZONE",
+      "lst": 44.7
     }
   ],
-  "n": 155
+  "n": 155,
+  "window": "2023-04-01/2025-06-30"
 }

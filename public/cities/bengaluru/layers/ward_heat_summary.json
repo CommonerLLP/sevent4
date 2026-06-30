@@ -11,7 +11,16 @@
     {
       "ward": "Varthuru",
       "lst": 44.4
+    },
+    {
+      "ward": "Anjanapura",
+      "lst": 44.3
+    },
+    {
+      "ward": "Naganathapura",
+      "lst": 44.2
     }
   ],
-  "n": 243
+  "n": 243,
+  "window": "2023-04-01/2025-06-30"
 }

@@ -14,6 +14,7 @@ ranking in the heat domain.
 from __future__ import annotations
 
 import argparse
+import os
 from pathlib import Path
 
 from sevent4.adapters.heat_filesystem import (
@@ -24,6 +25,11 @@ from sevent4.adapters.heat_filesystem import (
 from sevent4.domain.heat import hottest_wards
 
 REPO = Path(__file__).resolve().parents[2]
+
+# The Landsat median window the layers were built from — same default as the heat
+# pipeline, overridable via HEAT_WINDOW (the refresh workflow sets it). Stamped into
+# the summary so the chapter can date its figures from the data, not hardcode them.
+HEAT_WINDOW = os.environ.get("HEAT_WINDOW", "2023-04-01/2025-06-30")
 
 
 def main() -> None:
@@ -45,7 +51,9 @@ def main() -> None:
     for city in cities:
         write_dir = write_root / city / "layers"
         document = load_ward_heat(read_root / city / "layers")
-        summary = hottest_wards(document.get("features", [])) if document else None
+        summary = hottest_wards(document.get("features", []), top_n=5) if document else None
+        if summary is not None:
+            summary = {**summary, "window": HEAT_WINDOW}
         if summary is None:
             # No usable ward data in the SOURCE tree — remove any stale published
             # sidecar so the strip hides rather than rendering obsolete wards.
