@@ -16,7 +16,11 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from sevent4.adapters.heat_filesystem import load_ward_heat, write_ward_heat_summary
+from sevent4.adapters.heat_filesystem import (
+    load_ward_heat,
+    remove_ward_heat_summary,
+    write_ward_heat_summary,
+)
 from sevent4.domain.heat import hottest_wards
 
 REPO = Path(__file__).resolve().parents[2]
@@ -37,7 +41,12 @@ def main() -> None:
         document = load_ward_heat(layers_dir)
         summary = hottest_wards(document.get("features", [])) if document else None
         if summary is None:
-            print(f"{city}: no ward_heat — skipped", flush=True)
+            # No usable ward data — remove any stale sidecar so the strip hides
+            # rather than rendering obsolete hottest wards.
+            if remove_ward_heat_summary(layers_dir):
+                print(f"{city}: no ward_heat — removed stale summary", flush=True)
+            else:
+                print(f"{city}: no ward_heat — skipped", flush=True)
             continue
         out = write_ward_heat_summary(layers_dir, summary)
         written += 1

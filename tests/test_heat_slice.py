@@ -77,6 +77,19 @@ class HeatDomainTest(unittest.TestCase):
     def test_hottest_wards_returns_none_when_no_usable_ward(self) -> None:
         self.assertIsNone(hottest_wards([{"properties": {"Name": "Ward ", "mean_lst_c": 50.0}}]))
 
+    def test_ward_heat_summary_write_then_remove(self) -> None:
+        import tempfile
+
+        from sevent4.adapters.heat_filesystem import remove_ward_heat_summary, write_ward_heat_summary
+
+        with tempfile.TemporaryDirectory() as tmp:
+            layers = Path(tmp)
+            out = write_ward_heat_summary(layers, {"top": [{"ward": "X", "lst": 1.0}], "n": 1})
+            self.assertTrue(out.exists())
+            self.assertTrue(remove_ward_heat_summary(layers))   # removes the stale sidecar
+            self.assertFalse(out.exists())
+            self.assertFalse(remove_ward_heat_summary(layers))  # nothing left to remove
+
     def test_qa_mask_rejects_fill_and_flagged_bits(self) -> None:
         # 0=fill, 8=cloud(bit3), 2=dilated-cloud(bit1) are bad; 1(bit0) and 32(bit5) are usable.
         qa = np.array([[0, 8, 2], [1, 32, 16]], dtype="uint16")
