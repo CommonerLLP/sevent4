@@ -73,7 +73,10 @@ jobs:
 
       - name: Rebuild the console heat-strip summaries
         # The strips read layers/ward_heat_summary.json at runtime, so refreshing
-        # them here updates the live strips without rebuilding the consoles.
+        # them here updates the live strips without rebuilding the consoles. Pass
+        # the same window so the summary's self-dating matches the refreshed layers.
+        env:
+          HEAT_WINDOW: ${{ steps.window.outputs.value }}
         run: python scripts/recipes/build_heat_summaries.py --tree public
 
       - name: Keep workflow files in lockstep with main
