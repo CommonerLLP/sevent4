@@ -42,6 +42,17 @@ Per-ward population (`population_2020`) is from the **WorldPop** Global Project 
 Data (`wpgppop`, 2020, 100 m). © WorldPop / University of Southampton, **CC-BY 4.0**.
 <https://www.worldpop.org>
 
+### USGS / NASA Landsat, via Microsoft Planetary Computer — Public Domain
+The per-city heat layers (`heat30m.png`, `ward_heat.geojson`, and the
+`ward_heat_summary.json` the console strips read) are derived from **Landsat
+Collection-2 Level-2 surface-temperature** scenes (USGS/NASA), accessed through
+the **Microsoft Planetary Computer** STAC. Landsat data is U.S. Government public
+domain; thanks to the USGS/NASA Landsat program and the Planetary Computer for
+open access. The WHY/heat chapter additionally cites the **Centre for Science and
+Environment** (*Making Delhi Heat-Resilient*, 2026) and the **Lancet Countdown on
+Health and Climate Change 2025** for city-wide figures — credited inline there.
+<https://planetarycomputer.microsoft.com>
+
 ### OpenCity Urban Data Portal (Oorvani Foundation) — open / CC-BY / Public Domain
 City finance, ward/jurisdiction, and several civic datasets come from the **OpenCity**
 Urban Data Portal (`data.opencity.in`). Thank you to OpenCity and the Oorvani Foundation

@@ -33,3 +33,22 @@ extended city by city.
 
 Ahmedabad representative, officer, civic-center, and department source notes are
 tracked in `data/cities/ahmedabad/source/public_sources.json`.
+
+## Heat layers (all cities)
+
+Each city's heat layers are derived from a Landsat land-surface-temperature
+median (USGS/NASA Collection-2 Level-2) over a date window, pulled via the
+Microsoft Planetary Computer:
+
+```bash
+# build the raster + per-ward LST layers (needs the heat extra: pip install -e '.[heat]')
+.venv/bin/python scripts/recipes/ahmedabad/_run_all_heat.py <city...>
+
+# rebuild the tiny per-city ward_heat_summary.json the console heat strips read
+.venv/bin/python scripts/recipes/build_heat_summaries.py
+```
+
+`_run_all_heat.py` reads two env knobs — `HEAT_WINDOW` (the STAC date window) and
+`HEAT_LAYERS_ROOT` (`data` locally, `public` to refresh the committed tree on a
+CI checkout). The scheduled `Heat refresh` workflow runs both on a rolling window
+quarterly and opens a PR (it never pushes to `main`).
