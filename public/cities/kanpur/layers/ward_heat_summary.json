@@ -11,7 +11,16 @@
     {
       "ward": "Bakar Ganj",
       "lst": 46.7
+    },
+    {
+      "ward": "Juhi Hamirpur Road",
+      "lst": 46.2
+    },
+    {
+      "ward": "Transport Nagar",
+      "lst": 46.2
     }
   ],
-  "n": 56
+  "n": 56,
+  "window": "2023-04-01/2025-06-30"
 }

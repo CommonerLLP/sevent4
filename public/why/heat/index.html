@@ -46,15 +46,15 @@
         <div class="cell"><div class="big">6</div><div class="lab">of the hottest pockets — Karala, Mundka, Begumpur, Bawana, Chhawla, Khera — all on the western and north-western fringe</div></div>
       </div>
       <p class="body rise" style="margin-top:24px">And these are not just labels on a press release. The
-        atlas built <b>its own heat surface</b> — a 30-metre Landsat land-surface-temperature median over
-        <b>2023–25</b> — and summed it ward by ward. Ranked by that independent measure, on a different
-        method and a different period, Delhi's hottest wards are <b>the same names</b>:</p>
-      <div class="strip rise">
-        <div class="cell"><div class="big">48.0°C</div><div class="lab"><b>Khera</b> — the atlas's hottest Delhi ward by mean LST (max 52.9°C)</div></div>
-        <div class="cell"><div class="big">46.2°C</div><div class="lab"><b>Chhawla</b> — 2nd</div></div>
-        <div class="cell"><div class="big">45.5°C</div><div class="lab"><b>Karala</b> — 3rd</div></div>
-        <div class="cell"><div class="big">45.4°C</div><div class="lab"><b>Begumpur · Bawana</b> — 4th &amp; 5th; Mundka (as "Mundaka") sits 8th</div></div>
+        atlas built <b>its own heat surface</b> — a 30-metre Landsat land-surface-temperature median — and
+        summed it ward by ward. Ranked by that independent measure, on a different method and a different
+        period, Delhi's hottest wards are <b>the same names</b>:</p>
+      <!-- Data-driven from the same ward_heat_summary.json the console strip reads, so these never
+           drift from the layer: the figures and the window below come straight from the data. -->
+      <div class="strip rise" id="atlas-hot" aria-busy="true">
+        <div class="cell"><div class="big">·</div><div class="lab">loading the atlas's hottest wards…</div></div>
       </div>
+      <p class="cite rise" id="atlas-hot-src" style="margin-top:8px"></p>
       <p class="body rise" style="margin-top:24px">Five of CSE's six named hotspots are the atlas's own
         <b>top five</b> — a single-day satellite snapshot and a multi-year median, two readings, <b>one
         geography</b>, all on the western and north-western fringe. These are where construction workers,
@@ -163,10 +163,10 @@
         Change 2025</b> (India): 247 billion potential labour-hours lost in 2024, 419 hours/person, +124%
         vs 1990-99, construction 20% of the loss. Unauthorised-colony counts and regularisation from
         <b>DDA</b> and the <b>Centre/GNCTD "as-is, where-is" regularisation</b> of 1,511 of 1,731 colonies
-        (PM-UDAY, 2026, PIB). The per-ward ranking (Khera, Chhawla, Karala, Begumpur, Bawana) is the
-        <b>atlas's own</b> computation — a 30-metre Landsat land-surface-temperature median over April
-        2023–June 2025 (Microsoft Planetary Computer), summed over each ward; it corroborates CSE's
-        single-day hotspots on an independent method. The heat reading is ours.</div>
+        (PM-UDAY, 2026, PIB). The per-ward ranking shown above is the <b>atlas's own</b> computation — a
+        30-metre Landsat land-surface-temperature median (Microsoft Planetary Computer), summed over each
+        ward, read live from the published layer (its window is printed beneath the ranking); it
+        corroborates CSE's single-day hotspots on an independent method. The heat reading is ours.</div>
 
       <div class="endnav rise">
         <a class="btn" href="../index.html">← All chapters</a>
@@ -204,6 +204,24 @@
       let n=0,step=Math.max(1,Math.round(target/40));
       const t=setInterval(()=>{n+=step;if(n>=target){n=target;clearInterval(t);}node.innerHTML=n+unit;},22);
     }
+
+    // The atlas's hottest Delhi wards + the window, read live from the same
+    // ward_heat_summary.json the console strip reads — never hardcoded, so a
+    // layer refresh updates the chapter too.
+    fetch('../../cities/delhi/layers/ward_heat_summary.json').then(r=>r.json()).then(s=>{
+      const host=document.getElementById('atlas-hot');
+      if(!host||!s.top||!s.top.length) return;
+      const ord=['the atlas’s hottest Delhi ward by mean LST','2nd','3rd','4th','5th'];
+      host.innerHTML=s.top.map((w,i)=>
+        '<div class="cell"><div class="big">'+w.lst+'°C</div><div class="lab"><b>'+w.ward+'</b> — '+(ord[i]||(i+1)+'th')+'</div></div>'
+      ).join('');
+      host.removeAttribute('aria-busy');
+      const src=document.getElementById('atlas-hot-src');
+      if(src&&s.window){
+        const w=s.window.split('/');
+        src.innerHTML='The atlas’s own Landsat land-surface-temperature median, <b>'+w[0]+' – '+w[1]+'</b> ('+s.n+' wards) — read live from the published layer, not hardcoded.';
+      }
+    }).catch(function(){});
   </script>
   <script src="../../assets/masthead.js"></script>
   <script src="../../assets/theme.js"></script>

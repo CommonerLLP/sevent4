@@ -11,7 +11,16 @@
     {
       "ward": "Ward 65 · THIRU-VI-KA-NAGAR",
       "lst": 46.0
+    },
+    {
+      "ward": "Ward 161 · ALANDUR",
+      "lst": 46.0
+    },
+    {
+      "ward": "Ward 26 · MADHAVARAM",
+      "lst": 45.9
     }
   ],
-  "n": 200
+  "n": 200,
+  "window": "2023-04-01/2025-06-30"
 }
