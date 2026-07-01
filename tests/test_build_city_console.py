@@ -254,6 +254,14 @@ class FeatureOptionsTest(unittest.TestCase):
         self.assertIn("govcard", script)
         self.assertIn("govchip", script)
 
+    def test_official_row_html_only_linkifies_a_real_url(self) -> None:
+        # a non-URL provenance note (e.g. reused from this repo's own layer
+        # file) must render as plain text in the AC/PC click-popup, never as
+        # a broken <a href> — caught by automated review on PR #103
+        script = _js()
+        self.assertIn('firstSource.startsWith("http://")', script)
+        self.assertIn("pfsrc-text", script)
+
     def test_generated_script_keeps_maplibre_qa_hooks_valid(self) -> None:
         script = _js()
 
