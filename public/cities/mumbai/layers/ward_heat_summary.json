@@ -2,25 +2,25 @@
   "top": [
     {
       "ward": "Ward P - North",
-      "lst": 47.6
+      "lst": 47.2
     },
     {
       "ward": "Ward R - South",
-      "lst": 46.6
+      "lst": 45.7
     },
     {
       "ward": "Ward R - North",
-      "lst": 45.9
+      "lst": 44.9
     },
     {
       "ward": "Ward T",
-      "lst": 45.1
+      "lst": 44.5
     },
     {
       "ward": "Ward P - South",
-      "lst": 44.8
+      "lst": 43.8
     }
   ],
   "n": 6,
-  "window": "2023-04-01/2025-06-30"
+  "window": "2024-04-01/2026-07-01"
 }

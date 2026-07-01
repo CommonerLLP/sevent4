@@ -1,26 +1,26 @@
 {
   "top": [
     {
-      "ward": "14 KUBERNAGR",
-      "lst": 42.4
-    },
-    {
-      "ward": "47 VATVA",
-      "lst": 42.3
-    },
-    {
       "ward": "40 ODHAV",
-      "lst": 42.3
+      "lst": 49.1
     },
     {
-      "ward": "45 ISANPUR",
-      "lst": 42.2
+      "ward": "48 RAMOL HATHIJAN",
+      "lst": 49.0
     },
     {
-      "ward": "42 INDRAPURI",
-      "lst": 42.2
+      "ward": "46 LAMBHA",
+      "lst": 48.3
+    },
+    {
+      "ward": "41 VASTRAL",
+      "lst": 48.3
+    },
+    {
+      "ward": "38 GOMTIPUR",
+      "lst": 48.2
     }
   ],
   "n": 48,
-  "window": "2023-04-01/2025-06-30"
+  "window": "2024-04-01/2026-07-01"
 }
