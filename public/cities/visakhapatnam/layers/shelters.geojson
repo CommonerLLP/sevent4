@@ -1,0 +1,141 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [83.294778, 17.719823]
+   },
+   "properties": {
+    "name": "Bheem Nagar Shelter",
+    "zone": null,
+    "ward": null,
+    "capacity": 100,
+    "day_service": false,
+    "source": "https://www.deccanchronicle.com/southern-states/andhra-pradesh/inadequate-night-shelter-plagues-vizag-js-leader-1868224",
+    "geocode_confidence": "approximate",
+    "notes": "Address given as 'Allipuram, Railway Station Road'. Geocoded (Photon/OSM, Nominatim was blocked in this environment) to the Allipuram neighbourhood centroid, ~430m from Visakhapatnam Railway Station, consistent with the 'Railway Station Road' landmark; not the specific building."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [83.304049, 17.724696]
+   },
+   "properties": {
+    "name": "TSR Complex Men Shelter",
+    "zone": null,
+    "ward": null,
+    "capacity": 60,
+    "day_service": false,
+    "source": "https://www.deccanchronicle.com/southern-states/andhra-pradesh/inadequate-night-shelter-plagues-vizag-js-leader-1868224",
+    "geocode_confidence": "good",
+    "notes": "Address given as 'Dwaraka Nagar, Railway Station Road'. Geocoded directly to 'TSR building complex' (OSM POI, Dwaraka Nagar), a name-exact match. Independently corroborated by a separate GVMC/AUTD shelter listing (Justdial) citing 'VRC Complex, Dwaraka Nagar, Railway Station Road, Opp. TSR Complex' ~180m away."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [83.304049, 17.724696]
+   },
+   "properties": {
+    "name": "TSR Complex Women Shelter",
+    "zone": null,
+    "ward": null,
+    "capacity": 50,
+    "day_service": false,
+    "source": "https://www.deccanchronicle.com/southern-states/andhra-pradesh/inadequate-night-shelter-plagues-vizag-js-leader-1868224",
+    "geocode_confidence": "good",
+    "notes": "Co-located with the men's wing at the same TSR Complex address (Dwaraka Nagar, Railway Station Road) per source; same coordinates used. See TSR Complex Men Shelter notes for geocode basis."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [83.308086, 17.709447]
+   },
+   "properties": {
+    "name": "Maharanipeta Shelter",
+    "zone": null,
+    "ward": null,
+    "capacity": 50,
+    "day_service": false,
+    "source": "https://www.deccanchronicle.com/southern-states/andhra-pradesh/inadequate-night-shelter-plagues-vizag-js-leader-1868224",
+    "geocode_confidence": "good",
+    "notes": "Address given as 'Beside Collector Office'. Geocoded directly to the Visakhapatnam District Collector Office (OSM POI), matching the address's landmark exactly."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [83.333602, 17.730178]
+   },
+   "properties": {
+    "name": "Peda Waltair Shelter",
+    "zone": null,
+    "ward": null,
+    "capacity": 50,
+    "day_service": false,
+    "source": "https://www.deccanchronicle.com/southern-states/andhra-pradesh/inadequate-night-shelter-plagues-vizag-js-leader-1868224",
+    "geocode_confidence": "approximate",
+    "notes": "Address given as 'Dalai Vari Peta' (a sub-locality of Peda Waltair). Resolved to the Pedda Waltair locality centroid (OSM); the specific Dalai Vari Peta site was not separately resolvable."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [83.290622, 17.72143]
+   },
+   "properties": {
+    "name": "Bhupesh Nagar Shelter",
+    "zone": null,
+    "ward": null,
+    "capacity": 50,
+    "day_service": false,
+    "source": "https://www.deccanchronicle.com/southern-states/andhra-pradesh/inadequate-night-shelter-plagues-vizag-js-leader-1868224",
+    "geocode_confidence": "approximate",
+    "notes": "Address given as 'Chavula Madum, Beside Railway Station'. Neither 'Bhupesh Nagar' nor 'Chavula Madum' resolved as a named OSM locality; placed at Visakhapatnam Railway Station, matching the address's 'Beside Railway Station' landmark. Not the specific site."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [83.23087, 17.743963]
+   },
+   "properties": {
+    "name": "Butchi Raju Palem Shelter",
+    "zone": null,
+    "ward": null,
+    "capacity": 50,
+    "day_service": false,
+    "source": "https://www.deccanchronicle.com/southern-states/andhra-pradesh/inadequate-night-shelter-plagues-vizag-js-leader-1868224",
+    "geocode_confidence": "good",
+    "notes": "Address given as 'Near NAD Kotha Road'. Geocoded to a named Butchirajupalem POI (OSM) ~250-500m from both 'NAD Junction' and a 'NAD Kotha Road' bus stop (OSM), corroborating the address landmark. CONFLICT FLAGGED: a separate listing (Mappls) ties a 'Night Shelter for Urban Homeless' at Butchirajupalem to GVMC Ward No. 67, but this repo's wards.geojson Ward 67 polygon centroid lies ~6.4km away and does not contain this point -- the ward-number attribution looks stale or mismatched (possible ward renumbering/delimitation change) and was NOT used for placement; the independently corroborated street-level geocode was used instead."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [83.315413, 17.765124]
+   },
+   "properties": {
+    "name": "Arilova Shelter",
+    "zone": null,
+    "ward": null,
+    "capacity": 50,
+    "day_service": false,
+    "source": "https://www.deccanchronicle.com/southern-states/andhra-pradesh/inadequate-night-shelter-plagues-vizag-js-leader-1868224",
+    "geocode_confidence": "approximate",
+    "notes": "Source gives no street address, only the locality name 'Arilova'. Placed at the Arilova neighbourhood centroid (OSM); several nearby OSM points (Arilova Colony, Arilova Main Road) cluster within ~1km, consistent with this placement."
+   }
+  }
+ ]
+}

@@ -108,7 +108,7 @@ class FileCityConsolePublicSurface:
             _canonicalise_geojson(layer_out / layer.file)
             if layer.bounds_file:
                 shutil.copy2(city.layers_dir / layer.bounds_file, layer_out / layer.bounds_file)
-        for sidecar in ("jurisdiction_crosswalk.json",):
+        for sidecar in ("jurisdiction_crosswalk.json", "officials.json"):
             path = city.layers_dir / sidecar
             if path.exists():
                 shutil.copy2(path, layer_out / sidecar)

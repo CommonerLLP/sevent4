@@ -1,0 +1,78 @@
+{
+  "type": "FeatureCollection",
+  "properties": {
+    "note": "PARTIAL facility-level list. Kudumbashree's own SUH progress note names 5 shelter homes 'refurbished' in Kochi under the NULM Shelter for Urban Homeless (SUH) component (total project cost cited as Rs 2.5 crore for all 5, undated but describing an early-phase NULM achievement, likely pre-2020). Several of these are legacy institutions (a 1941 vagrancy-act settlement, a state old-age home, a church-run children's/migrant-youth home) repurposed/counted toward SUH rather than purpose-built 24-hr community shelters matching the NULM capacity model. Per-facility capacity is publicly documented for only 2 of 5 sites (Santhi Bhavan, Goodhope); Thevara Old Age Home and Sneha Bhavan have no public capacity figure found. Palluruthy Relief Settlement has a documented point-in-time inmate count (not a fixed sanctioned bed capacity). A sixth, NEW night shelter (GCDA building, NULM + Peace Valley Foundation, District Administration) was reported still pending a GCDA no-objection certificate as of the last dated report found (24 Jun 2025) with no stated address/capacity — it is NOT included here as a feature because no location could be geocoded, but is noted in the accompanying report. Nominatim (nominatim.openstreetmap.org) returned HTTP 429 (rate-limited) for every query attempted from this environment; all placements below fall back to this repo's data/cities/kochi/layers/wards.geojson ward centroids, per the task's stated fallback method."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [76.2417827039983, 9.961468145859264] },
+      "properties": {
+        "name": "Goodhope Old Age Home (Relief Settlement Annexe)",
+        "zone": "Fort Kochi",
+        "ward": "Fort Kochi (Ward 1)",
+        "capacity": 30,
+        "day_service": null,
+        "source": "https://samarth.community/senior-housing/good-hope/ ; corroborated by Kudumbashree SUH note at https://www.kudumbashree.org/pages/228",
+        "geocode_confidence": "approximate",
+        "notes": "Owned by Cochin Corporation, managed by Congregation of Sisters of Destitutes; address given as 'Relief Settlement Annexe, Fort Kochi, Ernakulam 682001'. Listed by Kudumbashree as one of 5 shelters refurbished under NULM's SUH component. Nominatim was rate-limited (429) for this and every other query in this session; placed at the Fort Kochi ward (Ward 1) centroid from this repo's wards.geojson, not a geocoded street address. Capacity 30 sourced from Samarth Community's senior-housing listing, not from the NULM/Kudumbashree SUH page itself (which gives no capacity figure)."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [76.2983232038597, 9.9361993268864] },
+      "properties": {
+        "name": "Thevara Government Old Age Home",
+        "zone": "Thevara",
+        "ward": "Thevara (Ward 57)",
+        "capacity": null,
+        "day_service": null,
+        "source": "https://sjd.kerala.gov.in/institutionprofile.php?keyid=MTk0 ; Kudumbashree SUH note at https://www.kudumbashree.org/pages/228",
+        "geocode_confidence": "approximate",
+        "notes": "Run by Kerala Social Justice Department at 'Government Oldage Home, Thevara P.O., Kochi-682013'; one of the 5 shelters Kudumbashree lists as refurbished under NULM's SUH component. No numeric bed/inmate capacity is published on the Social Justice Dept institution profile (only facility-category checkboxes, no counts). Do not treat the null capacity as zero -- it is undocumented, not absent. Placed at the Thevara ward (Ward 57) centroid from this repo's wards.geojson; Nominatim was rate-limited (429) so no street-level geocode was obtained."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [76.29389247710347, 9.974441205085428] },
+      "properties": {
+        "name": "Santhi Bhavan",
+        "zone": "Gandhi Nagar",
+        "ward": "Gandinagar (Ward 61)",
+        "capacity": 50,
+        "day_service": null,
+        "source": "https://www.kudumbashree.org/pages/228",
+        "geocode_confidence": "approximate",
+        "notes": "Shelter for women in distress, abandoned women with children, and unwed mothers; Kudumbashree states it is 'situated at division 63, Gandhi Nagar' (an older corporation division number that may not map 1:1 to the current ward system after redelimitation) with 50 inmates including women and infants. One of 5 shelters refurbished under NULM's SUH component. Placed at the Gandinagar ward (Ward 61) centroid from this repo's wards.geojson as the closest current-ward match to 'Gandhi Nagar'; Nominatim was rate-limited (429), no street-level geocode obtained."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [76.29389247710347, 9.974441205085428] },
+      "properties": {
+        "name": "Sneha Bhavan",
+        "zone": "Gandhi Nagar (per Kudumbashree) -- see notes on address ambiguity",
+        "ward": "Gandinagar (Ward 61)",
+        "capacity": null,
+        "day_service": null,
+        "source": "https://www.kudumbashree.org/pages/228 ; https://www.dbsnehabhavan.org/",
+        "geocode_confidence": "unplaced",
+        "notes": "Kudumbashree's SUH note lists 'Sneha Bhavan at Gandhi Nagar' as the shelter for migrant youth among the 5 NULM-refurbished facilities, with no street address. A Don Bosco-run 'Sneha Bhavan' / 'Sneha Bhavan Annexe' operates in Kochi (est. 1974, family home for street boys; the Annexe, est. 1990 with Corporation of Cochin, is described as a night shelter for young migrant workers and orphaned street youth) at a documented address in Palluruthy (23/2139 Aroor-Thoppumpady Road, Marunnukada, Palluruthy, Kochi 682006) -- a DIFFERENT locality from Gandhi Nagar. It is not certain whether Kudumbashree's 'Sneha Bhavan at Gandhi Nagar' is the same institution, a co-located annexe, or a distinct facility; no capacity figure was found for either. Placed at the Gandinagar ward centroid to match the authoritative NULM/Kudumbashree source text, but flagged 'unplaced' rather than 'approximate' given the unresolved address conflict -- treat this point's location with low confidence."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [76.27380800028426, 9.910468604137714] },
+      "properties": {
+        "name": "Palluruthy Relief Settlement (PRS)",
+        "zone": "Palluruthy",
+        "ward": "Palluruthy - Kacherippady (Ward 19)",
+        "capacity": 148,
+        "day_service": false,
+        "source": "https://en.wikipedia.org/wiki/Palluruthy_Relief_Settlement (secondary, citing Corporation of Cochin records); Kudumbashree SUH note at https://www.kudumbashree.org/pages/228",
+        "geocode_confidence": "approximate",
+        "notes": "A rehabilitation shelter for vagrant/destitute persons under the (now-repealed) Cochin Vagrancy Act, established by the Maharajah of Cochin in 1941, taken over by the Corporation of Cochin in 1968, run jointly with the Peoples Council for Social Justice; located at Palluruthy Veli, Ernakulam. This is a pre-NULM legacy institution counted by Kudumbashree toward its 5-shelter SUH refurbishment tally, not a purpose-built SUH shelter. Capacity is not a fixed sanctioned bed number: Wikipedia records 148 inmates (121 male, 28 female) as of 02/02/2019, while the Corporation is reported to budget for food/shelter/operations of roughly 200-300 residents. 148 is used here as the most specific documented point-in-time figure; treat 148-300 as the plausible range. day_service=false because it functions as a 24-hour residential settlement, not a day-only drop-in centre. Placed at the Palluruthy-Kacherippady ward (Ward 19) centroid from this repo's wards.geojson; Nominatim was rate-limited (429), no street-level geocode obtained."
+      }
+    }
+  ]
+}

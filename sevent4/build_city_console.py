@@ -4,6 +4,7 @@ import argparse
 import dataclasses
 import html
 import json
+import re
 from pathlib import Path
 from typing import Any
 
@@ -173,6 +174,7 @@ def _html(city: CityDataset, manifest: LayerManifest, out_dir: Path | None = Non
     canon = _canon_layers(manifest.layers)
     groups = _groups(canon)
     jurisdiction = _jurisdiction_context(city.layers_dir)
+    officials = _officials_context(city.layers_dir)
     geo, geo_states = _geo_roster(city)
     state_options = _state_options(city, geo, geo_states)
     _wp = city.layers_dir / "wards.geojson"
@@ -269,6 +271,7 @@ def _html(city: CityDataset, manifest: LayerManifest, out_dir: Path | None = Non
   const city = {json.dumps({"center": city.center, "bbox": city.bbox})};
   const layers = {json.dumps([_layer_json(layer, city) for layer in canon])};
   const jurisdiction = {json.dumps(jurisdiction, ensure_ascii=False)};
+  const OFFICIALS = {json.dumps(officials, ensure_ascii=False)};
   const GEO = {json.dumps(geo, ensure_ascii=False)};
   const CURRENT_STATE = {json.dumps(city.state)};
   const CURRENT_CITY = {json.dumps(city.id)};
@@ -292,6 +295,8 @@ def _city_extra_links(out_dir: Path | None) -> tuple[tuple[str, str], ...]:
         links.append(("Finance", "finance/index.html"))
     if (out_dir / "money" / "index.html").exists():
         links.append(("Money", "money/index.html"))
+    if (out_dir / "officials" / "index.html").exists():
+        links.append(("Officials", "officials/index.html"))
     return tuple(links)
 
 
@@ -456,6 +461,7 @@ _CANON: tuple[tuple[str, str, str, str | None], ...] = (
     ("police", "Police", "Public services", "#4d76c7"),
     ("fire", "Fire & emergency", "Public services", "#db4c45"),
     ("toilets", "Public toilets", "Public services", "#46c1b4"),
+    ("shelters", "Homeless shelters (NULM)", "Public services", "#c76b3f"),
     ("river", "River", "Environment", None),
     ("water", "Water bodies", "Environment", "#3aa0d6"),
     ("drains", "Storm-water drains", "Environment", None),
@@ -642,6 +648,8 @@ _GOV_TEMPLATES: dict[str, dict[str, str]] = {
         line="Districts and revenue villages are {body}'s units — older than, and overlapping, the municipal map."),
     "reference": dict(control="reference", body="",
         line="A derived or reference layer, not an authority's own record. Read it as context, not as a line of accountability."),
+    "shelter_homeless": dict(control="shared", body="the Union's NULM scheme, implemented by the corporation",
+        line="Shelters for the urban homeless are funded and normed by {body} — a Centrally Sponsored Scheme, not a 12th-Schedule city duty."),
 }
 
 # layer id -> function template key
@@ -661,6 +669,8 @@ _GOV_LAYER: dict[str, str] = {
     "libraries": "libraries", "schools": "education", "universities": "education", "health": "health",
     "roads": "roads",
     "toilets": "sanitation",
+    "shelters": "shelter_homeless",
+    "shelters_seasonal": "shelter_homeless",
     "drains": "stormwater", "stormwater_drains": "stormwater",
     "flood_hazard": "stormwater", "flood_inundation": "stormwater", "flood_2015": "stormwater",
     "bbmp_dry_waste_centres": "solid_waste", "bbmp_landfills": "solid_waste",
@@ -741,6 +751,104 @@ _CITY_FUNCTION_OVERRIDE: dict[str, dict[str, dict[str, str]]] = {
                      "<b>the AMC</b> — its grant covers ~96% of the M.J. Library network. "
                      "Yet libraries are a State subject the 74th Amendment never placed in "
                      "the 12th Schedule, so the city runs them by choice, not by legal duty."),
+        },
+        "shelters": {
+            "line": ("Ahmedabad runs 35 Shelters for Urban Homeless (4,315-bed capacity) "
+                     "under the Union's NULM scheme. The scheme's own norm — 100 persons "
+                     "of shelter capacity per 1 lakh urban population — implies about "
+                     "7,079 beds for this city; actual capacity is <b>~39% short</b>, about "
+                     "one bed per 1,640 residents. Census 2011 already counted 11,293 "
+                     "homeless people here — more than double today's total capacity."),
+        },
+    },
+    "mumbai": {
+        "shelters": {
+            "line": ("MCGM's own list names only 9 shelters (460-bed capacity) under the "
+                     "Union's NULM scheme — later BMC statements cite up to 19, still with "
+                     "no public facility register. The scheme's own norm — 100 persons of "
+                     "shelter capacity per 1 lakh urban population — implies about 12,442 "
+                     "beds for this city; actual capacity is <b>~96% short</b>, about one "
+                     "bed per 27,000 residents. Census 2011 already counted 57,416 "
+                     "homeless people here; BMC's own 2020 survey (11,915, disputed as an "
+                     "undercount) still exceeds today's total capacity 25-fold."),
+        },
+    },
+    "kochi": {
+        "shelters": {
+            "line": ("Kochi's 5 known Shelters for Urban Homeless under NULM total only "
+                     "228-380 beds (2 of 5 sites have no published capacity at all). The "
+                     "scheme's own norm implies about 602 beds for this city; actual "
+                     "capacity is <b>37-62% short</b> depending on the range used. A 2025 "
+                     "street survey counted 300+ people living on Kochi's streets — close "
+                     "to today's documented shelter capacity, meaning the shelters may "
+                     "roughly match the counted street population while still falling "
+                     "well short of the Union's own population-based norm."),
+        },
+    },
+    "kolkata": {
+        "shelters": {
+            "line": ("A 2023 West Bengal SUDA quality audit names only 6 NULM-registered "
+                     "Shelters for Urban Homeless in Kolkata (437-bed capacity) — a 2017 "
+                     "citywide count found more (~1,588 beds across a broader set of KMC "
+                     "and state shelters), but no current full register exists. The "
+                     "scheme's own norm implies about 4,497 beds for this city; the 2023 "
+                     "registered figure is <b>~90% short</b>. Census 2011 already counted "
+                     "69,798 homeless people here — the highest of any Indian district — "
+                     "against which even the broader 2017 count covers barely 2%."),
+        },
+    },
+    "jaipur": {
+        "shelters_seasonal": {
+            "line": ("This layer shows only Jaipur's <i>temporary</i> winter night-shelter "
+                     "camps (900-bed capacity) — a separate, seasonal tier from the "
+                     "permanent Shelters for Urban Homeless network. The permanent network's "
+                     "own known capacity (1,875 beds, Gambhir Committee 2017) is already "
+                     "<b>~38% short</b> of the Union's own norm (~3,046 beds implied for "
+                     "this city's population), before the seasonal camps are even counted. "
+                     "Census 2011 counted 11,396 homeless people here."),
+        },
+    },
+    "visakhapatnam": {
+        "shelters": {
+            "line": ("GVMC runs 8 named Shelters for Urban Homeless under NULM (460-bed "
+                     "capacity). The scheme's own norm implies about 1,728 beds for this "
+                     "city; actual capacity is <b>~73% short</b>, about one bed per 3,757 "
+                     "residents. A 2020 survey estimated ~4,000 people using footpaths, "
+                     "flyovers, and stations here."),
+        },
+    },
+    "pune": {
+        "shelters": {
+            "line": ("PMC runs only 5 Shelters for Urban Homeless under NULM (209-bed "
+                     "capacity — including 109 beds whose per-site split is undisclosed). "
+                     "The scheme's own norm implies about 3,124-4,200 beds for this city "
+                     "depending on which population estimate is used; actual capacity is "
+                     "<b>~93-95% short</b> either way, about one bed per 15,000-20,000 "
+                     "residents. This is the same 'one shelter per lakh' shortfall the "
+                     "Free Press Journal's own Dec 2024 reporting independently arrives at."),
+        },
+    },
+    "bengaluru": {
+        "shelters": {
+            "line": ("BBMP's own facility roster names 48 Shelters for Urban Homeless "
+                     "(1,650-bed capacity) — a sixth of the Supreme Court/NULM-ordered "
+                     "target of 84 shelters. The scheme's own norm implies about 8,444 "
+                     "beds for this city; actual capacity is <b>~80% short</b>, about one "
+                     "bed per 5,117 residents. Census 2011 counted 15,333 homeless people "
+                     "here; a 2010 NGO survey found 17,141."),
+        },
+    },
+    "delhi": {
+        "shelters": {
+            "line": ("DUSIB runs 371 shelters citywide, but its own live register shows a "
+                     "system-wide COVID-era capacity cut — from ~21,300 sanctioned beds to "
+                     "9,681 today — never reversed. Against the Union's own norm for "
+                     "Delhi's projected 2026 population, that's <b>~57-68% short</b>, about "
+                     "one bed per 2,340-3,159 residents. By shelter <i>count</i> Delhi "
+                     "nearly meets the norm — the shortfall is capacity per shelter (~35 "
+                     "people, below the guideline's own 50-person floor), not sites. A 2024 "
+                     "five-night street count found 154,369 people, with researchers "
+                     "estimating the true figure above 300,000."),
         },
     },
 }
@@ -862,6 +970,43 @@ def _jurisdiction_context(layers_dir: Path) -> dict[str, Any]:
     }
 
 
+_AC_AREA_RE = re.compile(r"\(AC\s*(\d+)\)", re.IGNORECASE)
+_PC_AREA_RE = re.compile(r"\(PC\s*(\d+)\)", re.IGNORECASE)
+
+
+def _officials_context(layers_dir: Path) -> dict[str, Any]:
+    """Named-officials directory (data/cities/{city}/layers/officials.json), reduced to
+    the two lookup maps the click-popup can join against: AC/PC, keyed by the numeric
+    code already carried on acs.geojson/pcs.geojson features (ac_no/pc_code). Other
+    institutions (AMC/SMC zones, police zones, utilities, SPVs...) have no boundary
+    geometry to click on yet and are covered by the /officials sub-page instead, not
+    the map."""
+    path = layers_dir / "officials.json"
+    empty: dict[str, Any] = {"acs": {}, "pcs": {}, "as_of": ""}
+    if not path.exists():
+        return empty
+    data = json.loads(path.read_text(encoding="utf-8"))
+    records = data.get("records", [])
+    acs: dict[str, dict[str, str]] = {}
+    pcs: dict[str, dict[str, str]] = {}
+    for row in records:
+        area = str(row.get("area", ""))
+        entry = {
+            "designation": str(row.get("designation", "")),
+            "name": str(row.get("name", "")),
+            "source": str(row.get("source", "")),
+        }
+        if row.get("department") == "election_ac":
+            m = _AC_AREA_RE.search(area)
+            if m:
+                acs[m.group(1)] = entry
+        elif row.get("department") == "election_pc":
+            m = _PC_AREA_RE.search(area)
+            if m:
+                pcs[m.group(1)] = entry
+    return {"acs": acs, "pcs": pcs, "as_of": str(data.get("as_of", ""))}
+
+
 def _add_index(index: dict[str, dict[str, set[str]]], item: str, key: str, value: str) -> None:
     if not value:
         return
@@ -903,7 +1048,7 @@ def _css() -> str:
     return """
 /* colour tokens (palette + light/dark logic) come from the linked theme.css */
 :where(a,button,input,select,[tabindex]):focus-visible{outline:3px solid var(--gold);outline-offset:3px}.macrotrail{display:grid;gap:7px;grid-template-columns:1fr 1fr;margin:14px 0 0}.macrotrail a{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--mut);font:800 10px/1 var(--mono);letter-spacing:.1em;padding:9px 10px;text-align:center;text-decoration:none;text-transform:uppercase}.macrotrail a:hover,.macrotrail a:focus-visible{border-color:var(--blue);color:var(--blue)}
-*{box-sizing:border-box;margin:0}html,body{height:100%}body{font:400 15px/1.5 var(--sans);color:var(--ink);background:var(--bg);overflow:hidden}.app{display:grid;grid-template-columns:300px 1fr;height:100vh}.rail{background:var(--panel2);border-right:1px solid var(--line);display:flex;flex-direction:column;min-height:0}.rail .mast{background:var(--panel2);border-bottom:1px solid var(--ink);padding:13px 14px 14px}.rail .mast:before{background:var(--ink);content:"";display:block;height:1px;margin-bottom:9px}.brandmark{color:var(--ink);font-family:var(--serif);font-size:27px;font-weight:800;letter-spacing:0;line-height:1}.brandline{border-bottom:1px solid var(--line);color:var(--mut);font:700 9px/1 var(--mono);letter-spacing:.16em;margin:6px 0 10px;padding-bottom:8px;text-transform:uppercase}.jurisdictionbar{display:grid;grid-template-columns:1fr 1fr;gap:8px}.jurisdictionbar label{display:block;min-width:0}.jurisdictionbar label span{color:var(--mut);display:block;font:700 9px/1 var(--mono);letter-spacing:.14em;margin:0 0 5px;text-transform:uppercase}.jurisdictionbar select{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--ink);font:700 12px/1 var(--mono);height:44px;padding:0 8px;width:100%}.basis{color:var(--mut);font:700 9px/1.4 var(--mono);letter-spacing:.08em;margin-top:9px;text-transform:uppercase}.rail .scroll{overflow:auto;flex:1;padding:10px 12px}.sech{font:700 11px/1 var(--mono);letter-spacing:.14em;color:var(--mut);text-transform:uppercase;margin:14px 0 6px}.readnote{border-left:2px solid var(--gold);color:var(--mut);font-size:12px;line-height:1.55;padding-left:9px}.readnote b{color:var(--ink)}.search,.fsel{width:100%;min-height:44px;margin-bottom:7px;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);padding:9px 10px;font:600 12px var(--mono)}.search::placeholder{color:var(--mut)}.fsel{cursor:pointer}.fsel.muted{color:var(--mut);cursor:not-allowed}.fbtn2{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);min-height:44px;padding:8px 12px;font:700 11px var(--mono);cursor:pointer;letter-spacing:.06em}.fbtn2:hover,.tbtn:hover{border-color:var(--blue);color:var(--blue)}.tog{align-items:center;display:flex;flex-wrap:wrap;min-height:44px;padding:6px 4px;border-bottom:1px solid var(--hair);cursor:pointer;font-size:13px}.tog input{vertical-align:-1px;margin-right:7px;accent-color:var(--blue)}.tog .sw{display:inline-block;vertical-align:0;margin-right:6px;background:var(--swc,#5a86f5)}.tog .sw-fill{width:11px;height:11px;border-radius:2px;border:1px solid rgba(255,255,255,.18)}.tog .sw-dot{width:10px;height:10px;border-radius:50%;border:1px solid rgba(255,255,255,.25)}.tog .sw-line{width:14px;height:3px;border-radius:2px;vertical-align:3px}.tog .sw-img{width:11px;height:11px;border-radius:2px;border:1px solid rgba(255,255,255,.18)}.tog .sw-grad{background:linear-gradient(90deg,#2c7a55,#d7b33f,#9f2d2d)}.tog b{font-weight:600}.tog.is-hidden{display:none}.layerGroup{margin:1px 0 3px}.lgh{align-items:center;background:none;border:0;color:var(--mut);cursor:pointer;display:flex;font:700 10px/1 var(--mono);gap:6px;letter-spacing:.13em;min-height:44px;padding:7px 2px;text-transform:uppercase;width:100%}.lgh:hover{color:var(--ink)}.lgname{flex:1;text-align:left}.lgc{color:var(--mut);font:700 9px/1 var(--mono)}.lgcaret{border-bottom:3px solid transparent;border-left:4px solid currentColor;border-top:3px solid transparent;height:0;transform:rotate(90deg);transition:transform .12s;width:0}.layerGroup.collapsed .lgcaret{transform:rotate(0)}.layerGroup.collapsed .lgb{display:none}.lgb{padding-left:2px}.yearctl{align-items:center;display:flex;flex-basis:100%;gap:4px;margin:6px 0 2px 25px}.ybtn{background:var(--panel);border:1px solid var(--line);border-radius:3px;color:var(--ink);cursor:pointer;font:700 9px var(--mono);height:44px;min-width:44px;padding:0 4px}.ybtn:hover,.ybtn.is-playing{border-color:var(--blue);color:var(--blue)}.ylbl{color:var(--ink);font:700 11px var(--mono);min-width:34px;text-align:center}.rail .foot{padding:10px 14px;border-top:1px solid var(--line);font:600 11px/1.5 var(--mono);color:var(--mut)}.mapwrap{position:relative;height:100vh}#map{height:100vh}.filterbar{position:absolute;z-index:2;top:12px;left:12px;right:12px;display:grid;grid-template-columns:minmax(160px,1fr) minmax(150px,1fr) minmax(150px,1fr) auto 44px;gap:8px;align-items:start}.filterbar .fsel,.filterbar .fbtn2,.filterbar .tbtn{height:44px;margin:0;box-shadow:0 2px 10px rgba(0,0,0,.16)}.filterbar .fbtn2{min-width:116px;white-space:nowrap}.tbtn{align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--ink);cursor:pointer;display:grid;justify-content:center;padding:0;width:44px}.tbtn svg{display:block;fill:none;height:17px;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.2;width:17px}.maplibregl-ctrl-group button{height:44px;width:44px}.default-view-ctrl button{color:#333}.default-view-ctrl .default-view-icon{display:grid;height:100%;place-items:center;width:100%}.default-view-ctrl svg{display:block;height:18px;width:18px;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.2}.maplibregl-popup-content{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:6px;font:600 12px/1.5 var(--mono);padding:10px 12px;max-width:320px}.maplibregl-popup-content b{color:var(--ink)}.maplibregl-popup-tip{display:none}.maplibregl-popup-content .k{color:var(--mut)}.hovpop .maplibregl-popup-content{padding:6px 9px;border-left-color:var(--gold);max-width:240px}.hovt .hk{display:block;color:var(--mut);font:700 8px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;margin-bottom:3px}.hovt .hmore{display:block;color:var(--gold);font:700 9px/1 var(--mono);margin-top:3px}.pgrp{margin-bottom:9px}.pgrp:last-child{margin-bottom:0}.pgl{display:block;color:var(--mut);font:700 8px/1 var(--mono);letter-spacing:.13em;text-transform:uppercase;border-bottom:1px solid var(--hair);padding-bottom:3px;margin-bottom:5px}.pf{margin-bottom:6px}.pf:last-child{margin-bottom:0}.pf b{display:block}.pmore{color:var(--gold);font:700 10px var(--mono)}
+*{box-sizing:border-box;margin:0}html,body{height:100%}body{font:400 15px/1.5 var(--sans);color:var(--ink);background:var(--bg);overflow:hidden}.app{display:grid;grid-template-columns:300px 1fr;height:100vh}.rail{background:var(--panel2);border-right:1px solid var(--line);display:flex;flex-direction:column;min-height:0}.rail .mast{background:var(--panel2);border-bottom:1px solid var(--ink);padding:13px 14px 14px}.rail .mast:before{background:var(--ink);content:"";display:block;height:1px;margin-bottom:9px}.brandmark{color:var(--ink);font-family:var(--serif);font-size:27px;font-weight:800;letter-spacing:0;line-height:1}.brandline{border-bottom:1px solid var(--line);color:var(--mut);font:700 9px/1 var(--mono);letter-spacing:.16em;margin:6px 0 10px;padding-bottom:8px;text-transform:uppercase}.jurisdictionbar{display:grid;grid-template-columns:1fr 1fr;gap:8px}.jurisdictionbar label{display:block;min-width:0}.jurisdictionbar label span{color:var(--mut);display:block;font:700 9px/1 var(--mono);letter-spacing:.14em;margin:0 0 5px;text-transform:uppercase}.jurisdictionbar select{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--ink);font:700 12px/1 var(--mono);height:44px;padding:0 8px;width:100%}.basis{color:var(--mut);font:700 9px/1.4 var(--mono);letter-spacing:.08em;margin-top:9px;text-transform:uppercase}.rail .scroll{overflow:auto;flex:1;padding:10px 12px}.sech{font:700 11px/1 var(--mono);letter-spacing:.14em;color:var(--mut);text-transform:uppercase;margin:14px 0 6px}.readnote{border-left:2px solid var(--gold);color:var(--mut);font-size:12px;line-height:1.55;padding-left:9px}.readnote b{color:var(--ink)}.search,.fsel{width:100%;min-height:44px;margin-bottom:7px;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);padding:9px 10px;font:600 12px var(--mono)}.search::placeholder{color:var(--mut)}.fsel{cursor:pointer}.fsel.muted{color:var(--mut);cursor:not-allowed}.fbtn2{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);min-height:44px;padding:8px 12px;font:700 11px var(--mono);cursor:pointer;letter-spacing:.06em}.fbtn2:hover,.tbtn:hover{border-color:var(--blue);color:var(--blue)}.tog{align-items:center;display:flex;flex-wrap:wrap;min-height:44px;padding:6px 4px;border-bottom:1px solid var(--hair);cursor:pointer;font-size:13px}.tog input{vertical-align:-1px;margin-right:7px;accent-color:var(--blue)}.tog .sw{display:inline-block;vertical-align:0;margin-right:6px;background:var(--swc,#5a86f5)}.tog .sw-fill{width:11px;height:11px;border-radius:2px;border:1px solid rgba(255,255,255,.18)}.tog .sw-dot{width:10px;height:10px;border-radius:50%;border:1px solid rgba(255,255,255,.25)}.tog .sw-line{width:14px;height:3px;border-radius:2px;vertical-align:3px}.tog .sw-img{width:11px;height:11px;border-radius:2px;border:1px solid rgba(255,255,255,.18)}.tog .sw-grad{background:linear-gradient(90deg,#2c7a55,#d7b33f,#9f2d2d)}.tog b{font-weight:600}.tog.is-hidden{display:none}.layerGroup{margin:1px 0 3px}.lgh{align-items:center;background:none;border:0;color:var(--mut);cursor:pointer;display:flex;font:700 10px/1 var(--mono);gap:6px;letter-spacing:.13em;min-height:44px;padding:7px 2px;text-transform:uppercase;width:100%}.lgh:hover{color:var(--ink)}.lgname{flex:1;text-align:left}.lgc{color:var(--mut);font:700 9px/1 var(--mono)}.lgcaret{border-bottom:3px solid transparent;border-left:4px solid currentColor;border-top:3px solid transparent;height:0;transform:rotate(90deg);transition:transform .12s;width:0}.layerGroup.collapsed .lgcaret{transform:rotate(0)}.layerGroup.collapsed .lgb{display:none}.lgb{padding-left:2px}.yearctl{align-items:center;display:flex;flex-basis:100%;gap:4px;margin:6px 0 2px 25px}.ybtn{background:var(--panel);border:1px solid var(--line);border-radius:3px;color:var(--ink);cursor:pointer;font:700 9px var(--mono);height:44px;min-width:44px;padding:0 4px}.ybtn:hover,.ybtn.is-playing{border-color:var(--blue);color:var(--blue)}.ylbl{color:var(--ink);font:700 11px var(--mono);min-width:34px;text-align:center}.rail .foot{padding:10px 14px;border-top:1px solid var(--line);font:600 11px/1.5 var(--mono);color:var(--mut)}.mapwrap{position:relative;height:100vh}#map{height:100vh}.filterbar{position:absolute;z-index:2;top:12px;left:12px;right:12px;display:grid;grid-template-columns:minmax(160px,1fr) minmax(150px,1fr) minmax(150px,1fr) auto 44px;gap:8px;align-items:start}.filterbar .fsel,.filterbar .fbtn2,.filterbar .tbtn{height:44px;margin:0;box-shadow:0 2px 10px rgba(0,0,0,.16)}.filterbar .fbtn2{min-width:116px;white-space:nowrap}.tbtn{align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--ink);cursor:pointer;display:grid;justify-content:center;padding:0;width:44px}.tbtn svg{display:block;fill:none;height:17px;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.2;width:17px}.maplibregl-ctrl-group button{height:44px;width:44px}.default-view-ctrl button{color:#333}.default-view-ctrl .default-view-icon{display:grid;height:100%;place-items:center;width:100%}.default-view-ctrl svg{display:block;height:18px;width:18px;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.2}.maplibregl-popup-content{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:6px;font:600 12px/1.5 var(--mono);padding:10px 12px;max-width:320px}.maplibregl-popup-content b{color:var(--ink)}.maplibregl-popup-tip{display:none}.maplibregl-popup-content .k{color:var(--mut)}.hovpop .maplibregl-popup-content{padding:6px 9px;border-left-color:var(--gold);max-width:240px}.hovt .hk{display:block;color:var(--mut);font:700 8px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;margin-bottom:3px}.hovt .hmore{display:block;color:var(--gold);font:700 9px/1 var(--mono);margin-top:3px}.pgrp{margin-bottom:9px}.pgrp:last-child{margin-bottom:0}.pgl{display:block;color:var(--mut);font:700 8px/1 var(--mono);letter-spacing:.13em;text-transform:uppercase;border-bottom:1px solid var(--hair);padding-bottom:3px;margin-bottom:5px}.pf{margin-bottom:6px}.pf:last-child{margin-bottom:0}.pf b{display:block}.pmore{color:var(--gold);font:700 10px var(--mono)}.pf-off{margin-top:5px;padding-left:7px;border-left:2px solid var(--blue)}.pf-off .pfsrc{color:var(--gold);text-decoration:none;font-size:11px}.pf-off.pf-off-ghost{border-left-style:dashed;border-left-color:var(--mut);color:var(--mut);font-style:italic}
 .brandrow{align-items:center;display:flex;gap:12px;margin-bottom:12px;min-width:0}.ixamark{display:block;flex:0 0 auto;height:58px;width:58px}.wordmark{display:block;min-width:0;white-space:normal}.wordmark span{color:var(--ink);display:block;font-family:var(--serif);font-size:17px;font-weight:700;letter-spacing:0;line-height:1.02}.wordmark b{color:var(--mut);display:block;font:800 8px/1 var(--mono);letter-spacing:.12em;margin-top:5px;text-transform:uppercase}.sitenav{display:grid;gap:7px;grid-template-columns:1fr 1fr;margin:0 0 14px}.sitenav a{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--mut);font:800 10px/1 var(--mono);letter-spacing:.12em;padding:9px 10px;text-align:center;text-decoration:none;text-transform:uppercase}.sitenav a.is-active{background:var(--ink);border-color:var(--ink);color:var(--bg)}.sitenav a:not(.is-active):hover{border-color:var(--blue);color:var(--blue)}.basis{text-transform:none}
 .brandmark{font-size:21px}
 .govpanel{position:absolute;z-index:3;top:62px;right:12px;width:300px;max-width:38vw;max-height:calc(100vh - 84px);overflow-y:auto;background:var(--panel2);border:1px solid var(--line);border-radius:8px;box-shadow:0 4px 18px rgba(0,0,0,.22);padding:2px 12px 12px}.govpanel .sech:first-child{margin-top:9px}#govbox{margin-top:4px}.govcard{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:6px;padding:9px 11px}.govhint{color:var(--mut);font-size:12px;line-height:1.5}.govlayer{display:block;color:var(--mut);font:700 8px/1 var(--mono);letter-spacing:.13em;text-transform:uppercase;margin-bottom:6px}.govchip{display:inline-block;color:#fff;font:700 8px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:3px 6px;border-radius:3px;margin-bottom:7px}.gc-city{background:#2c7a55}.gc-para{background:var(--red)}.gc-state{background:#b07d18}.gc-union{background:var(--blue)}.gc-split{background:#7a6a1e}.gc-grace{background:#a9601f}.gc-ref{background:var(--mut)}.govbody{color:var(--mut);font-size:12px;line-height:1.55}.govbody b{color:var(--ink)}.govverdict{display:block;margin-top:7px;color:var(--ink);font:700 11px/1.4 var(--mono)}.govmore{display:inline-block;margin-top:8px;color:var(--gold);font:700 11px/1 var(--mono);text-decoration:none}.govmore:hover{color:var(--blue)}
@@ -1317,7 +1462,24 @@ def _js() -> str:
       const limit = key.startsWith("councillors") ? 180 : 96;
       return `<div><span class="k">${escapeHtml(labelFor(key))}:</span> ${escapeHtml(clip(String(value), limit))}</div>`;
     }).join("");
-    return `<div class="pf"><b>${escapeHtml(title)}</b>${rows}</div>`;
+    return `<div class="pf"><b>${escapeHtml(title)}</b>${rows}${officialRowHtml(meta, props)}</div>`;
+  }
+
+  // Who currently holds this specific seat (AC/PC only — other institutions have no
+  // boundary geometry to click on and live in the /officials sub-page instead). A
+  // matched-but-blank record renders as a ghost row, not silence: an unconfirmed
+  // officeholder is itself a finding, not a gap to hide.
+  function officialRowHtml(meta, props) {
+    let rec;
+    if (meta.id === "acs" && props.ac_no != null) rec = OFFICIALS.acs[props.ac_no];
+    else if (meta.id === "pcs" && props.pc_code != null) rec = OFFICIALS.pcs[props.pc_code];
+    if (!rec) return "";
+    if (rec.name) {
+      const src = rec.source ? ` <a class="pfsrc" href="${escapeHtml(rec.source)}" target="_blank" rel="noopener">source</a>` : "";
+      return `<div class="pf-off"><span class="k">${escapeHtml(rec.designation || "Officeholder")}:</span> ${escapeHtml(rec.name)}${src}</div>`;
+    }
+    const asOf = OFFICIALS.as_of ? ` as of ${escapeHtml(OFFICIALS.as_of)}` : "";
+    return `<div class="pf-off pf-off-ghost">${escapeHtml(rec.designation || "Officeholder")} not publicly confirmed${asOf}</div>`;
   }
 
   // Map layer colours read straight from the active CSS palette (theme.css), so
