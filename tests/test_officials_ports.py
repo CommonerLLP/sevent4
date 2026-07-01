@@ -3,7 +3,6 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from sevent4.adapters.finance_filesystem import HtmlFileWriter
 from sevent4.adapters.officials_filesystem import FileOfficialsInputRepository
 from sevent4.application.officials import publish_officials_directory
 from sevent4.officials.build_officials_directory import build_officials_directory_from_files
