@@ -1,0 +1,1013 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.581515,
+     12.865535
+    ]
+   },
+   "properties": {
+    "name": "Ambedkar Bhavana",
+    "zone": "Bommanahalli",
+    "ward": null,
+    "capacity": 40,
+    "category": "Men",
+    "status": "Refurbishment",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "approximate",
+    "notes": "Geocoded via Photon, full source address (Nominatim returned no result). Matched: GHPS Jambusavari Dinne, Kothanur, Karnataka, India. Source address: Ambedkar Bhavana, Jambusavari, Dinne, Bengaluru. Only the general locality/area matched; the specific building or site named in the source was not resolved."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.66221,
+     12.921279
+    ]
+   },
+   "properties": {
+    "name": "Ambedkar Community House",
+    "zone": "Bommanahalli",
+    "ward": null,
+    "capacity": 40,
+    "category": "Men",
+    "status": "Refurbishment",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "approximate",
+    "notes": "Geocoded via Photon, locality-name fallback (Nominatim and Photon full-address both failed). Matched: Ibbaluru, Sarjapura Road, Agaram, Bengaluru, Karnataka, India. Source address: Ambedkar Community House, Ibbaluru, Sarjapur Main Road, Bengaluru. Only the general locality/area matched; the specific building or site named in the source was not resolved."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.613011,
+     12.863389
+    ]
+   },
+   "properties": {
+    "name": "Old PHC Center",
+    "zone": "Bommanahalli",
+    "ward": null,
+    "capacity": 40,
+    "category": "Men",
+    "status": "O&M",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "approximate",
+    "notes": "Geocoded via Photon, locality-name query (manually re-run to fix a mismatched automated result). Matched: Begur, Bengaluru South City Corporation, Bengaluru, Karnataka, India. Source address: Old PHC Center, Begur Main Road, Bengaluru. Automated pipeline's top Photon match (\"Kannamangala Primary Health Center\") was a false positive ~18km away in northeast Bengaluru, matched only on the generic \"PHC\" keyword. Manually re-geocoded to Begur locality (Bengaluru South City Corporation), matching the source's \"Begur Main Road\" and the Bommanahalli zone."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.573495,
+     12.901479
+    ]
+   },
+   "properties": {
+    "name": "Shaktibhava BBMP Building",
+    "zone": "Bommanahalli",
+    "ward": null,
+    "capacity": 40,
+    "category": "Men",
+    "status": "O&M",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "good",
+    "notes": "Geocoded via Photon, full-address/locality query (manually re-run to fix a mismatched automated result). Matched: Jaraganahalli Cross, Kanakapura Road, Jaraganahalli, Bangalore South, Karnataka, India. Source address: Shaktibhava, BBMP Building, Jaraganahalli, Kanakapura Road, Bengaluru. Manually re-geocoded to Jaraganahalli Cross on Kanakapura Road, matching both the locality and road name in the source address more precisely than the pipeline's generic \"Jaraganahalli\" locality point."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.612427,
+     12.8967
+    ]
+   },
+   "properties": {
+    "name": "Ambedkar Community Hall, Kodi Chikkanahalli",
+    "zone": "Bommanahalli",
+    "ward": null,
+    "capacity": 40,
+    "category": "Men",
+    "status": "O&M",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "good",
+    "notes": "Geocoded via Photon, full-address/locality query (manually re-run to fix a mismatched automated result). Matched: Kodichikkanahalli, Bangalore South, Karnataka, India. Source address: Ambedkar Community Hall, Kodi Chikkanahalli, Bengaluru. Automated pipeline's top Photon match (\"Tharabana Halli Choultry, Hesaraghatta Road\") was a false positive ~24km away in north Bengaluru, matched only on the \"Chikkanahalli\" substring. Manually re-geocoded to the Kodichikkanahalli neighbourhood (postcode 560076), matching the source's \"Kodi Chikkanahalli\" and the Bommanahalli zone."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.51733,
+     13.06477
+    ]
+   },
+   "properties": {
+    "name": "Mallasandra Veterinary Hospital (Ground Floor)",
+    "zone": "Dasarahalli",
+    "ward": null,
+    "capacity": 22,
+    "category": "Men",
+    "status": "O&M",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "good",
+    "notes": "Geocoded via Nominatim, locality-name query (manually re-run to fix a mismatched automated result). Matched: Shettty Halli, Shettihalli Main Road, Shettihalli, Bengaluru North City Corporation, Bengaluru, Karnataka, 560015, India. Source address: Mallasandra Veterinary Hospital, Ground Floor, Shettihalli Main Road, Bengaluru 560057. Manually re-geocoded; this Nominatim result directly names \"Shettihalli Main Road\", matching the source address's road name (source states pincode 560057; Nominatim returns 560015 for the same named road \u2014 flagging the pincode discrepancy, but the road/locality match is exact)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.51733,
+     13.06477
+    ]
+   },
+   "properties": {
+    "name": "Mallasandra Veterinary Hospital (1st Floor)",
+    "zone": "Dasarahalli",
+    "ward": null,
+    "capacity": 40,
+    "category": "Men",
+    "status": "O&M",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "good",
+    "notes": "Geocoded via Nominatim, locality-name query (manually re-run to fix a mismatched automated result). Matched: Shettty Halli, Shettihalli Main Road, Shettihalli, Bengaluru North City Corporation, Bengaluru, Karnataka, 560015, India. Source address: Mallasandra Veterinary Hospital, 1st Floor, Shettihalli Main Road, Bengaluru 560057. Same building as SL13 (Mallasandra Veterinary Hospital), 1st floor. Manually re-geocoded; this Nominatim result directly names \"Shettihalli Main Road\", matching the source address's road name (source states pincode 560057; Nominatim returns 560015 for the same named road \u2014 flagging the pincode discrepancy, but the road/locality match is exact)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.533223,
+     13.033051
+    ]
+   },
+   "properties": {
+    "name": "Peenya Industrial Area BBMP Community Hall",
+    "zone": "Dasarahalli",
+    "ward": null,
+    "capacity": 22,
+    "category": "Men",
+    "status": "O&M",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "approximate",
+    "notes": "Geocoded via Photon, locality-name fallback (Nominatim and Photon full-address both failed). Matched: Peenya, Tumkur Road, Peenya, Bengaluru, Karnataka, India. Source address: Peenya Industrial Area, Sahivapura Colony, BBMP Community Hall, Bengaluru 560058. Only the general locality/area matched; the specific building or site named in the source was not resolved."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.62467,
+     12.977879
+    ]
+   },
+   "properties": {
+    "name": "Aptha Mithra Nirashritara Ashraya (Murphy Town)",
+    "zone": "East",
+    "ward": null,
+    "capacity": 50,
+    "category": "General",
+    "status": "O&M",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "approximate",
+    "notes": "Geocoded via Photon, full source address (Nominatim returned no result). Matched: Halasuru, Bengaluru, Karnataka, India. Source address: Murphy Town, Halasuru, Bengaluru. Only the general locality/area matched; the specific building or site named in the source was not resolved."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.5919,
+     13.038218
+    ]
+   },
+   "properties": {
+    "name": "Dr. B.R. Ambedkar Bhavan, Guddadahalli",
+    "zone": "East",
+    "ward": null,
+    "capacity": 20,
+    "category": "General",
+    "status": "O&M",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "approximate",
+    "notes": "Geocoded via Photon, locality-name fallback (Nominatim and Photon full-address both failed). Matched: Hebbal, Bengaluru, Karnataka, India. Source address: Dr. B.R. Ambedkar Bhavan, Guddadahalli Main Road, Hebbal, Bengaluru. Only the general locality/area matched; the specific building or site named in the source was not resolved."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.5919,
+     13.038218
+    ]
+   },
+   "properties": {
+    "name": "Urban Primary Health Center, Hebbal (backyard)",
+    "zone": "East",
+    "ward": null,
+    "capacity": 20,
+    "category": "Men",
+    "status": "O&M",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "approximate",
+    "notes": "Geocoded via Nominatim, locality-name fallback (full address returned no result). Matched: Hebbal, Bengaluru North City Corporation, Bengaluru, Bangalore North, Bengaluru Urban, Karnataka, India. Source address: Urban Primary Health Center, Hebbal, Ganganagar, Bengaluru. Only the general locality/area matched; the specific building or site named in the source was not resolved."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.599511,
+     13.000769
+    ]
+   },
+   "properties": {
+    "name": "The Dream India Institute's Refuge Center",
+    "zone": "East",
+    "ward": null,
+    "capacity": 30,
+    "category": "Women",
+    "status": "O&M",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "good",
+    "notes": "Geocoded via Nominatim, full source address. Matched: Nandidurga Road, Nandi Durga Road, Jayamahal Extension, Jayamahal, Bengaluru Central City Corporation, Bengaluru, Bangalore North, Bengaluru Urban, Karnataka, 560046, India. Source address: Nandidurga Road, Benson Town, Bengaluru."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.592509,
+     12.966608
+    ]
+   },
+   "properties": {
+    "name": "SUH-1 Bajrangi Exercise School, Sampangi Ramanagara",
+    "zone": "East",
+    "ward": null,
+    "capacity": 50,
+    "category": "Men",
+    "status": "O&M",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "approximate",
+    "notes": "Geocoded via Nominatim, locality-name fallback (full address returned no result). Matched: Sampangi Rama Nagar Vegetables Market, 6th Cross Road, D'Souza Layout, Shanthala Nagar, Ashokanagar, Bengaluru Central City Corporation, Bengaluru, Bangalore North, Bengaluru Urban, Karnataka, 560027, India. Source address: Bajrangi Exercise School, Sampangi Ramanagara, Bengaluru. Only the general locality/area matched; the specific building or site named in the source was not resolved."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.592509,
+     12.966608
+    ]
+   },
+   "properties": {
+    "name": "SUH-2 Bajrangi Exercise School, Sampangi Ramanagara",
+    "zone": "East",
+    "ward": null,
+    "capacity": 20,
+    "category": "Men",
+    "status": "O&M",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "approximate",
+    "notes": "Geocoded via Nominatim, locality-name fallback (full address returned no result). Matched: Sampangi Rama Nagar Vegetables Market, 6th Cross Road, D'Souza Layout, Shanthala Nagar, Ashokanagar, Bengaluru Central City Corporation, Bengaluru, Bangalore North, Bengaluru Urban, Karnataka, 560027, India. Source address: Bajrangi Exercise School, Sampangi Ramanagara, Bengaluru. Only the general locality/area matched; the specific building or site named in the source was not resolved."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.626788,
+     13.009395
+    ]
+   },
+   "properties": {
+    "name": "BBMP Samudaya Bhavana, Janakiram Layout, Lingarajapuram",
+    "zone": "East",
+    "ward": null,
+    "capacity": 30,
+    "category": "Men",
+    "status": "Refurbishment",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "approximate",
+    "notes": "Geocoded via Nominatim, locality-name fallback (full address returned no result). Matched: Lingarajapuram, Maruthi Seva Nagara, Bengaluru North City Corporation, Bengaluru, Bangalore North, Bengaluru Urban, Karnataka, 560084, India. Source address: Janakiram Layout, Lingarajapuram, Bengaluru. Only the general locality/area matched; the specific building or site named in the source was not resolved."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.626788,
+     13.009395
+    ]
+   },
+   "properties": {
+    "name": "St. Charles Convent, Hennur Main Road (Shelter 01)",
+    "zone": "East",
+    "ward": null,
+    "capacity": 30,
+    "category": "Women",
+    "status": "O&M",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "approximate",
+    "notes": "Geocoded via Nominatim, locality-name fallback (full address returned no result). Matched: Lingarajapuram, Maruthi Seva Nagara, Bengaluru North City Corporation, Bengaluru, Bangalore North, Bengaluru Urban, Karnataka, 560084, India. Source address: No. 20, St. Charles Convent, Hennur Main Road, Lingarajapuram, Bengaluru. Only the general locality/area matched; the specific building or site named in the source was not resolved."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.626788,
+     13.009395
+    ]
+   },
+   "properties": {
+    "name": "St. Charles Convent, Hennur Main Road (Shelter 02)",
+    "zone": "East",
+    "ward": null,
+    "capacity": 26,
+    "category": "Women",
+    "status": "O&M",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "approximate",
+    "notes": "Geocoded via Nominatim, locality-name fallback (full address returned no result). Matched: Lingarajapuram, Maruthi Seva Nagara, Bengaluru North City Corporation, Bengaluru, Bangalore North, Bengaluru Urban, Karnataka, 560084, India. Source address: No. 20, St. Charles Convent, Hennur Main Road, Lingarajapuram, Bengaluru. Only the general locality/area matched; the specific building or site named in the source was not resolved."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.71928,
+     12.995923
+    ]
+   },
+   "properties": {
+    "name": "CMC Building, Hoodi",
+    "zone": "Mahadevapura",
+    "ward": null,
+    "capacity": 25,
+    "category": "Men",
+    "status": "O&M",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "approximate",
+    "notes": "Geocoded via Nominatim, locality-name fallback (full address returned no result). Matched: Hoodi, Kumbena Agrahara Main Road, Hoody Garden, Hoodi, Bengaluru East City Corporation, Bengaluru, Bangalore East, Bengaluru Urban, Karnataka, 560048, India. Source address: CMC Building, Hoodi Main Road, Hoodi, Bengaluru. Only the general locality/area matched; the specific building or site named in the source was not resolved."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.630698,
+     12.961696
+    ]
+   },
+   "properties": {
+    "name": "Reddy Palya, Ward 87 (near HAL Airport)",
+    "zone": "Mahadevapura",
+    "ward": "Ward 87",
+    "capacity": 30,
+    "category": "Men",
+    "status": "Refurbishment",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "approximate",
+    "notes": "Geocoded via Nominatim, locality-name fallback (full address returned no result). Matched: HAL Old Airport Road, Siddhartha Nagar, Agaram, Bengaluru Central City Corporation, Bengaluru, Bangalore North, Bengaluru Urban, Karnataka, 560007, India. Source address: Reddy Palya, near H.A.L Airport, Bengaluru. Only the general locality/area matched; the specific building or site named in the source was not resolved."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.675456,
+     13.000546
+    ]
+   },
+   "properties": {
+    "name": "Batrahalli Community Hall, K.R. Puram (Ward 52)",
+    "zone": "Mahadevapura",
+    "ward": "Ward 52",
+    "capacity": 25,
+    "category": "Men",
+    "status": "Refurbishment",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "good",
+    "notes": "Geocoded via Nominatim, locality-name fallback (full address returned no result). Matched: Krishnarajapuram, Platform Road, Darga Mohalla, K.S. Nissar Ahmed Ward, Bengaluru East City Corporation, Bengaluru, Bangalore East, Bengaluru Urban, Karnataka, 560016, India. Source address: Batrahalli Community Hall, K.R Puram, Bengaluru."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.69144,
+     13.001971
+    ]
+   },
+   "properties": {
+    "name": "Basavanapura/Devasandra, Mahadevapura (Ward 53)",
+    "zone": "Mahadevapura",
+    "ward": "Ward 53",
+    "capacity": 30,
+    "category": "Men",
+    "status": "O&M",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "good",
+    "notes": "Geocoded via Nominatim, locality-name fallback (full address returned no result). Matched: Devasandra, Bengaluru East City Corporation, Bengaluru, Bangalore East, Bengaluru Urban, Karnataka, India. Source address: Basavanapura, Devasandra, Mahadevapura, Bengaluru."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.67363,
+     13.003903
+    ]
+   },
+   "properties": {
+    "name": "BBMP Sewing Training Center, Vijinapura (Ward 51)",
+    "zone": "Mahadevapura",
+    "ward": "Ward 51",
+    "capacity": 30,
+    "category": "Men",
+    "status": "Refurbishment",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "good",
+    "notes": "Geocoded via Nominatim, locality-name fallback (full address returned no result). Matched: Vijinapura, Bengaluru East City Corporation, Bengaluru, Bangalore East, Bengaluru Urban, Karnataka, India. Source address: Lakshmanamurthy Nagar, Vijinapura, Bengaluru."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.696477,
+     12.971319
+    ]
+   },
+   "properties": {
+    "name": "BBMP Ward Office, Dodmanekkundi (Ward 85)",
+    "zone": "Mahadevapura",
+    "ward": "Ward 85",
+    "capacity": 50,
+    "category": "Men",
+    "status": "O&M",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "good",
+    "notes": "Geocoded via Nominatim, locality-name fallback (full address returned no result). Matched: Doddanekundi, Dodda Nekkundi, Bengaluru East City Corporation, Bengaluru, Bangalore East, Bengaluru Urban, Karnataka, 560037, India. Source address: BBMP Ward Office, Dodmanekundi, AECS Layout, Bengaluru 560048."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.553082,
+     13.022184
+    ]
+   },
+   "properties": {
+    "name": "BMTC Building, Yeshwantpur (4th Floor - A)",
+    "zone": "R.R Nagara",
+    "ward": null,
+    "capacity": 40,
+    "category": "Men",
+    "status": "Refurbishment",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "good",
+    "notes": "Geocoded via Nominatim, locality-name fallback (full address returned no result). Matched: Yeswanthpur, Yeshwanthpura, Bengaluru North City Corporation, Bengaluru, Bangalore North, Bengaluru Urban, Karnataka, 560022, India. Source address: BMTC Building, Yeshwantpur, Bengaluru."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.483757,
+     12.917657
+    ]
+   },
+   "properties": {
+    "name": "BMTC Building, Mallasandra Kengeri (2nd Floor)",
+    "zone": "R.R Nagara",
+    "ward": null,
+    "capacity": 50,
+    "category": "Men",
+    "status": "Refurbishment",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "good",
+    "notes": "Geocoded via Nominatim, locality-name fallback (full address returned no result). Matched: Kengeri, Kengeri Main Road, Kengeri, Bengaluru West City Corporation, Bengaluru, Bangalore South, Bengaluru Urban, Karnataka, 560060, India. Source address: BMTC Building, Mallasandra, Kengeri, Bengaluru."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.553082,
+     13.022184
+    ]
+   },
+   "properties": {
+    "name": "BMTC Building, Yeshwantpur (4th Floor - B)",
+    "zone": "R.R Nagara",
+    "ward": null,
+    "capacity": 30,
+    "category": "Men",
+    "status": "Refurbishment",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "good",
+    "notes": "Geocoded via Nominatim, locality-name fallback (full address returned no result). Matched: Yeswanthpur, Yeshwanthpura, Bengaluru North City Corporation, Bengaluru, Bangalore North, Bengaluru Urban, Karnataka, 560022, India. Source address: BMTC Building, Yeshwantpur, Bengaluru."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.584492,
+     12.963602
+    ]
+   },
+   "properties": {
+    "name": "Kumbaragundi Shelter 1, Town Hall Circle",
+    "zone": "South",
+    "ward": null,
+    "capacity": 40,
+    "category": "Men",
+    "status": "Refurbishment",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "good",
+    "notes": "Geocoded via Nominatim, locality-name fallback (full address returned no result). Matched: Town Hall, NR Road, SilverJubilee Park Ward, Bengaluru Central City Corporation, Bengaluru, Bangalore North, Bengaluru Urban, Karnataka, 560002, India. Source address: Kumbaragundi, Mysore Building, Town Hall Circle, Bengaluru."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.584492,
+     12.963602
+    ]
+   },
+   "properties": {
+    "name": "Kumbaragundi Shelter 2, Town Hall Circle",
+    "zone": "South",
+    "ward": null,
+    "capacity": 40,
+    "category": "Men",
+    "status": "Refurbishment",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "good",
+    "notes": "Geocoded via Nominatim, locality-name fallback (full address returned no result). Matched: Town Hall, NR Road, SilverJubilee Park Ward, Bengaluru Central City Corporation, Bengaluru, Bangalore North, Bengaluru Urban, Karnataka, 560002, India. Source address: Kumbaragundi, Mysore Building, Town Hall Circle, Bengaluru."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.584492,
+     12.963602
+    ]
+   },
+   "properties": {
+    "name": "Kumbaragundi Shelter 3, Town Hall Circle",
+    "zone": "South",
+    "ward": null,
+    "capacity": 35,
+    "category": "Men",
+    "status": "Refurbishment",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "good",
+    "notes": "Geocoded via Nominatim, locality-name fallback (full address returned no result). Matched: Town Hall, NR Road, SilverJubilee Park Ward, Bengaluru Central City Corporation, Bengaluru, Bangalore North, Bengaluru Urban, Karnataka, 560002, India. Source address: Kumbaragundi, Mysore Building, Town Hall Circle, Bengaluru."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.601298,
+     12.930131
+    ]
+   },
+   "properties": {
+    "name": "Office of Assistant Engineer, Wilson Garden",
+    "zone": "South",
+    "ward": null,
+    "capacity": 25,
+    "category": "Women",
+    "status": "Refurbishment",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "good",
+    "notes": "Geocoded via Nominatim, locality-name fallback (full address returned no result). Matched: Spar, Hombegowda Nagar, Bannerghatta Road, S.G Palya, Bengaluru South City Corporation, Bengaluru, Bangalore South, Bengaluru Urban, Karnataka, 560029, India. Source address: Wilson Garden, Main Road, Hombegowda Nagar, Bengaluru."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.575502,
+     12.941726
+    ]
+   },
+   "properties": {
+    "name": "BBMP Building (Kempegowda Swimming Pool), Basavanagudi",
+    "zone": "South",
+    "ward": null,
+    "capacity": 40,
+    "category": "Women",
+    "status": "Refurbishment",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "good",
+    "notes": "Geocoded via Nominatim, locality-name fallback (full address returned no result). Matched: Basavanagudi, Sunkenahalli, Bengaluru Central City Corporation, Bengaluru, Bangalore North, Bengaluru Urban, Karnataka, 560004, India. Source address: Kempegowda Swimming Pool, Basavanagudi, Bengaluru 560004."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.582423,
+     12.929273
+    ]
+   },
+   "properties": {
+    "name": "BBMP Building, Jayanagar 3rd Block 25th Cross, Pattabhiramanagar",
+    "zone": "South",
+    "ward": null,
+    "capacity": 25,
+    "category": "Men",
+    "status": "O&M",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "approximate",
+    "notes": "Geocoded via Nominatim, locality-name fallback (full address returned no result). Matched: Jayanagar, Tilak Nagara, Bengaluru South City Corporation, Bengaluru, Bangalore South, Bengaluru Urban, Karnataka, 560011, India. Source address: Jayanagar 3rd Block, 25th Cross, Pattabhiramanagar, Bengaluru. Only the general locality/area matched; the specific building or site named in the source was not resolved."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.586607,
+     12.909694
+    ]
+   },
+   "properties": {
+    "name": "Night Shelter, JP Nagar 6th Phase, Marenahalli",
+    "zone": "South",
+    "ward": null,
+    "capacity": 30,
+    "category": "Men",
+    "status": "O&M",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "good",
+    "notes": "Geocoded via Nominatim, locality-name fallback (full address returned no result). Matched: JP Nagar, Bengaluru South City Corporation, Bengaluru, Bangalore South, Bengaluru Urban, Karnataka, India. Source address: Marenahalli, JP Nagar 6th Phase, Bengaluru."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.570535,
+     12.97475
+    ]
+   },
+   "properties": {
+    "name": "Ward No-94 BBMP Night Shelter-01, Goods Shed Road",
+    "zone": "West",
+    "ward": "Ward 94",
+    "capacity": 36,
+    "category": "Men",
+    "status": "Refurbishment",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "approximate",
+    "notes": "Geocoded via Photon, full-address/locality query (manually re-run to fix a mismatched automated result). Matched: TCM Royan Road, Cottonpete, Bengaluru, Karnataka, India. Source address: Office of the Revenue Officers Building, Goods Shed Road, Bengaluru 560053. Automated pipeline's top match (\"SGT Goods Shed Road\", Belathur, Bengaluru East City Corporation) is a same-named street ~18km away in the opposite (east) part of the city, inconsistent with the source's stated pincode 560053 and West Zone designation. Manually re-geocoded to the Cottonpete/Binny Mill area of west-central Bengaluru, which matches pincode 560053; the exact Goods Shed Road (Revenue Officers Building) site was not resolved, so this is an area-level placement only."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.570535,
+     12.97475
+    ]
+   },
+   "properties": {
+    "name": "Ward No-94 BBMP Night Shelter-02, Goods Shed Road",
+    "zone": "West",
+    "ward": "Ward 94",
+    "capacity": 36,
+    "category": "Men",
+    "status": "Refurbishment",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "approximate",
+    "notes": "Geocoded via Photon, full-address/locality query (manually re-run to fix a mismatched automated result). Matched: TCM Royan Road, Cottonpete, Bengaluru, Karnataka, India. Source address: Office of the Revenue Officers Building, Goods Shed Road, Bengaluru 560053. Automated pipeline's top match (\"SGT Goods Shed Road\", Belathur, Bengaluru East City Corporation) is a same-named street ~18km away in the opposite (east) part of the city, inconsistent with the source's stated pincode 560053 and West Zone designation. Manually re-geocoded to the Cottonpete/Binny Mill area of west-central Bengaluru, which matches pincode 560053; the exact Goods Shed Road (Revenue Officers Building) site was not resolved, so this is an area-level placement only."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.557228,
+     12.985696
+    ]
+   },
+   "properties": {
+    "name": "No.58, 4th B Block, 5 Block, Rajajinagar",
+    "zone": "West",
+    "ward": null,
+    "capacity": 28,
+    "category": "Men",
+    "status": "O&M",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "good",
+    "notes": "Geocoded via Nominatim, full source address. Matched: 57th Cross, 4th Block, Rajajinagar 4th Block, Rama Mandira, Bengaluru West City Corporation, Bengaluru, Bangalore North, Bengaluru Urban, Karnataka, 560010, India. Source address: 4th Block, Rajajinagar, Bengaluru 560010."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.580031,
+     12.977153
+    ]
+   },
+   "properties": {
+    "name": "BBMP Health Kiosk Building, near Upparpet PS, Gandhinagar",
+    "zone": "West",
+    "ward": null,
+    "capacity": 40,
+    "category": "Men",
+    "status": "O&M",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "good",
+    "notes": "Geocoded via Nominatim, locality-name fallback (full address returned no result). Matched: Gandhinagar, Nehru Nagar, Bengaluru Central City Corporation, Bengaluru, Bangalore North, Bengaluru Urban, Karnataka, 560009, India. Source address: Health Kiosk Building, near Upparpet Police Station, Majestic, Gandhinagar, Bengaluru 560009."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.580031,
+     12.977153
+    ]
+   },
+   "properties": {
+    "name": "Health Officers Office, Subedar Chatram Road, Tulsi Gardens",
+    "zone": "West",
+    "ward": null,
+    "capacity": 50,
+    "category": "Men",
+    "status": "Refurbishment",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "good",
+    "notes": "Geocoded via Nominatim, locality-name fallback (full address returned no result). Matched: Gandhinagar, Nehru Nagar, Bengaluru Central City Corporation, Bengaluru, Bangalore North, Bengaluru Urban, Karnataka, 560009, India. Source address: Subedar Chatram Road, Tulsi Gardens, Gandhinagar, Bengaluru 560009."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.580031,
+     12.977153
+    ]
+   },
+   "properties": {
+    "name": "BBMP Health Kiosk Building, Majestic, Gandhinagar (Ground+1st Floor)",
+    "zone": "West",
+    "ward": null,
+    "capacity": 36,
+    "category": "Men",
+    "status": "Refurbishment",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "good",
+    "notes": "Geocoded via Nominatim, locality-name fallback (full address returned no result). Matched: Gandhinagar, Nehru Nagar, Bengaluru Central City Corporation, Bengaluru, Bangalore North, Bengaluru Urban, Karnataka, 560009, India. Source address: Health Kiosk Building, near Upparpet Police Station, Majestic, Gandhinagar, Bengaluru 560009."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.641677,
+     12.983988
+    ]
+   },
+   "properties": {
+    "name": "Shelter 1, near Angalparameshwari Temple, Binnimill Road",
+    "zone": "West",
+    "ward": null,
+    "capacity": 40,
+    "category": "Men",
+    "status": "Refurbishment",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "good",
+    "notes": "Geocoded via Nominatim, locality-name fallback (full address returned no result). Matched: Binnamangala, Indiranagar, Bengaluru Central City Corporation, Bengaluru, Bangalore North, Bengaluru Urban, Karnataka, 560038, India. Source address: Angalparameshwari Temple, Binnimill Road, Bengaluru."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.641677,
+     12.983988
+    ]
+   },
+   "properties": {
+    "name": "Shelter 2, near Angalparameshwari Temple, Binnimill Road",
+    "zone": "West",
+    "ward": null,
+    "capacity": 40,
+    "category": "Men",
+    "status": "Refurbishment",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "good",
+    "notes": "Geocoded via Nominatim, locality-name fallback (full address returned no result). Matched: Binnamangala, Indiranagar, Bengaluru Central City Corporation, Bengaluru, Bangalore North, Bengaluru Urban, Karnataka, 560038, India. Source address: Angalparameshwari Temple, Binnimill Road, Bengaluru."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.5497,
+     13.000536
+    ]
+   },
+   "properties": {
+    "name": "DIN-St. Theresa Grace Hospital, Rajajinagar",
+    "zone": "West",
+    "ward": null,
+    "capacity": 40,
+    "category": "Women",
+    "status": "O&M",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "good",
+    "notes": "Geocoded via Nominatim, locality-name fallback (full address returned no result). Matched: Rajajinagar, Chord Road, Ketamaranahalli, Basaveshwaranagar, Kethamaranahalli, Bengaluru West City Corporation, Bengaluru, Bangalore North, Bengaluru Urban, Karnataka, 560010, India. Source address: St. Theresa Grace Hospital, Tulasi Thota, Sugedar Chatram Road, Rajajinagar 1st Block, I Dr. Rajkumar Road, Bengaluru 560010."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.596345,
+     13.100698
+    ]
+   },
+   "properties": {
+    "name": "6th Cross, Vinayaka Nagar (Defence Layout), Yelahanka",
+    "zone": "West",
+    "ward": null,
+    "capacity": 25,
+    "category": "Men",
+    "status": "O&M",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "good",
+    "notes": "Geocoded via Nominatim, locality-name fallback (full address returned no result). Matched: Yelahanka, Yelahanka Old Town, Bengaluru North City Corporation, Bengaluru, Yelahanka taluku, Bengaluru Urban, Karnataka, 560064, India. Source address: Vinayaka Nagar, Defence Layout, 6th Cross, near Government Primary School, Yelahanka Main Road, Bengaluru 560064."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.596345,
+     13.100698
+    ]
+   },
+   "properties": {
+    "name": "No.41/A, 1st Floor, 6th Main Street, Yelahanka",
+    "zone": "Yelahanka",
+    "ward": null,
+    "capacity": 24,
+    "category": "Men",
+    "status": "Refurbishment",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "good",
+    "notes": "Geocoded via Nominatim, locality-name fallback (full address returned no result). Matched: Yelahanka, Yelahanka Old Town, Bengaluru North City Corporation, Bengaluru, Yelahanka taluku, Bengaluru Urban, Karnataka, 560064, India. Source address: No.41/A, 6th Main Street, Yelahanka, Bengaluru 560064."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.596345,
+     13.100698
+    ]
+   },
+   "properties": {
+    "name": "Shelter-2, No.41/A, Multi Diamond Apartment, Balaji Project",
+    "zone": "Yelahanka",
+    "ward": null,
+    "capacity": 40,
+    "category": "Men",
+    "status": "Refurbishment",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "approximate",
+    "notes": "Geocoded via Nominatim, locality-name fallback (full address returned no result). Matched: Yelahanka, Yelahanka Old Town, Bengaluru North City Corporation, Bengaluru, Yelahanka taluku, Bengaluru Urban, Karnataka, 560064, India. Source address: Multi Diamond Apartment, Balaji Project, Cooperative Nagar Postal, Bengaluru 560092. Only the general locality/area matched; the specific building or site named in the source was not resolved."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.623258,
+     13.058859
+    ]
+   },
+   "properties": {
+    "name": "BBMP Old Ward Office, Rachenahalli, SRK Nagar",
+    "zone": "Yelahanka",
+    "ward": null,
+    "capacity": 30,
+    "category": "Men",
+    "status": "Refurbishment",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "good",
+    "notes": "Geocoded via Nominatim, locality-name fallback (full address returned no result). Matched: Rachenahalli, Jakkur, Bengaluru North City Corporation, Bengaluru, Bangalore East, Bengaluru Urban, Karnataka, 560045, India. Source address: BBMP Old Ward Office, Rachenahalli, SRK Nagar, Bengaluru 560077."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.580061,
+     13.062147
+    ]
+   },
+   "properties": {
+    "name": "Shelter-01, No.41/A, 11th Main Road, Sahakaranagara",
+    "zone": "Yelahanka",
+    "ward": null,
+    "capacity": 40,
+    "category": "Men",
+    "status": "Refurbishment",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "good",
+    "notes": "Geocoded via Nominatim, locality-name fallback (full address returned no result). Matched: Sahakara Nagar CQAL Kids Park, Kodigehalli, Byatarayanapura, Bengaluru North City Corporation, Bengaluru, Yelahanka taluku, Bengaluru Urban, Karnataka, 560092, India. Source address: No.41/A, 11th Main Road, near Multi Diamond Apartment, Balaji Sahakaranagara, Bengaluru 560092."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.598115,
+     13.095457
+    ]
+   },
+   "properties": {
+    "name": "BMTC Bus-stand Building, Yelahanka Old Town",
+    "zone": "Yelahanka",
+    "ward": null,
+    "capacity": 40,
+    "category": "Men",
+    "status": "Refurbishment",
+    "source": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+    "geocode_confidence": "good",
+    "notes": "Geocoded via Nominatim, locality-name fallback (full address returned no result). Matched: Yelahanka Old Town, Bengaluru North City Corporation, Bengaluru, Yelahanka taluku, Bengaluru Urban, Karnataka, India. Source address: BMTC Bus Stand, Mezzanine Floor, East Part, Yelahanka Old Town, Bengaluru."
+   }
+  }
+ ]
+}

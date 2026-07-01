@@ -1,0 +1,166 @@
+{
+  "type": "FeatureCollection",
+  "properties": {
+    "source": "Brihanmumbai Mahanagarpalika (MCGM), Planning Department, \"List of existing shelters for urban homeless in the jurisdiction of MCGM\" (signed by Assistant Commissioner, Planning; undated on the document itself)",
+    "source_url": "https://www.mcgm.gov.in/irj/go/km/docs/documents/MCGM%20Department%20List/%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A5%8B%E0%A4%9C%E0%A4%A8/%E0%A4%A6%E0%A4%BE%E0%A4%B0%E0%A4%BF%E0%A4%A6%E0%A5%8D%E0%A4%B0%E0%A5%8D%E0%A4%AF%20%E0%A4%B0%E0%A5%87%E0%A4%B7%E0%A5%87%E0%A4%96%E0%A4%BE%E0%A4%B2%E0%A5%80%E0%A4%B2%20%E0%A4%AF%E0%A4%BE%E0%A4%A6%E0%A5%80/List%20of%20Shelters%20for%20urban%20homeless.pdf",
+    "notes": "This MCGM document lists 9 facilities; 7 were 'In Operation' with stated capacity (sum = 460), 2 were listed as pending refurbishment/not-yet-operational with no capacity stated. Independent, more recent secondary reporting (Governance Now, 10 Oct 2021, citing a BMC World Homeless Day announcement) describes a different, larger snapshot: 12 adult shelters (capacity 342) + 11 children's shelters (capacity 590) + 2 seasonal monsoon shelters (capacity 930, operate June-October only) = 23 standing shelters, 932 standing capacity. Newslaundry (3 Mar 2021) separately reports 19 BMC-run shelters total (only 10 meeting NULM guidelines) and independently computes Mumbai's NULM-norm requirement at 125 shelters -- this closely corroborates this project's own naive count-norm calculation of ~124-125 shelters from 2011 Census population, done independently. These figures come from different points in time and are not fully reconcilable; none is a full facility-level list except the MCGM document geocoded here.",
+    "geocoding_method": "OpenStreetMap Nominatim (nominatim.openstreetmap.org/search), cross-checked against data/cities/mumbai/layers/wards.geojson ward centroids (24 administrative wards, WARD property) using shapely for haversine distance sanity-checks.",
+    "population_source": "Census of India 2011, Greater Mumbai (Brihanmumbai Municipal Corporation jurisdiction): 12,442,373",
+    "generated": "2026-07-01"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [72.8219451, 18.9606077] },
+      "properties": {
+        "name": "Khetwadi Municipal School, Near Alankar Cinema",
+        "zone": "Mumbai Zone 1",
+        "ward": "D",
+        "capacity": 70,
+        "avg_occupancy": 70,
+        "agency": "Prerana",
+        "day_service": null,
+        "status": "In Operation",
+        "source": "MCGM Planning Department, List of existing shelters for urban homeless (mcgm.gov.in)",
+        "geocode_confidence": "approximate",
+        "notes": "Nominatim resolved only the Khetwadi locality (not the specific municipal school building); locality result is tagged 'D Ward' by Nominatim itself, matching the ward this project's wards.geojson assigns to the area (centroid distance 1.20 km, expected for a large ward polygon). Capacity/occupancy as stated in source document ('70 inmates', 'Around 70')."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [72.8261833, 18.9650659] },
+      "properties": {
+        "name": "Kamathipura 14th Lane, Byculla",
+        "zone": "Mumbai Zone 1",
+        "ward": "E",
+        "capacity": 30,
+        "avg_occupancy": 30,
+        "agency": "Prerana",
+        "day_service": null,
+        "status": "In Operation",
+        "source": "MCGM Planning Department, List of existing shelters for urban homeless (mcgm.gov.in)",
+        "geocode_confidence": "approximate",
+        "notes": "Nominatim resolved the Kamathipura/Nagpada locality (not the specific 14th lane address); result tagged 'E Ward' by Nominatim, matching wards.geojson (centroid distance 1.45 km)."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [72.8257408, 18.9385497] },
+      "properties": {
+        "name": "Under Foot-over Bridge, Wankhede Stadium",
+        "zone": "Mumbai Zone 1",
+        "ward": "A",
+        "capacity": 70,
+        "avg_occupancy": 70,
+        "agency": "SPARC",
+        "day_service": null,
+        "status": "In Operation",
+        "source": "MCGM Planning Department, List of existing shelters for urban homeless (mcgm.gov.in)",
+        "geocode_confidence": "good",
+        "notes": "Named landmark (Wankhede Stadium) geocoded precisely by Nominatim, tagged 'A Ward' matching wards.geojson (centroid distance 1.71 km, within expected bounds for A Ward's extent)."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [72.8392683, 19.0535072] },
+      "properties": {
+        "name": "Dharmashala Maintenance Chowky, Station Road, Opp. Bandra Bus Depot, Bandra (W)",
+        "zone": "Mumbai Zone 3",
+        "ward": "H - West",
+        "capacity": 10,
+        "avg_occupancy": 12,
+        "agency": "Niradhar Vidyarthi Pragatik Sanstha",
+        "day_service": null,
+        "status": "In Operation",
+        "source": "MCGM Planning Department, List of existing shelters for urban homeless (mcgm.gov.in)",
+        "geocode_confidence": "good",
+        "notes": "Named landmark (Bandra BEST Bus Depot) geocoded precisely by Nominatim, tagged 'H/W Ward' matching wards.geojson H - West (centroid distance 1.61 km). Note average occupancy (12) exceeds stated capacity (10) per source document as written."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [72.8583450, 19.1151110] },
+      "properties": {
+        "name": "Welfare Centre, CTS No. 240/240-1/240-2 Village Kondivita, Trade Star Building, Andheri-Kurla Road, Andheri (East)",
+        "zone": "Mumbai Zone 3",
+        "ward": "K - East",
+        "capacity": 80,
+        "avg_occupancy": 61,
+        "agency": "Salaam Balak Trust",
+        "day_service": null,
+        "status": "In Operation",
+        "source": "MCGM Planning Department, List of existing shelters for urban homeless (mcgm.gov.in)",
+        "geocode_confidence": "approximate",
+        "notes": "Nominatim resolved the road (Mathuradas Vasanji Road, Chakala) near the stated building rather than the Trade Star Building itself; tagged 'K/E Ward' matching wards.geojson (centroid distance 0.77 km)."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [72.8563181, 19.1860219] },
+      "properties": {
+        "name": "CTS No. 480 (Pt.), CST No. 430/1 of Village, Malad (East)",
+        "zone": "Mumbai Zone 4",
+        "ward": "P - North",
+        "capacity": 80,
+        "avg_occupancy": 60,
+        "agency": "Mother Foundation",
+        "day_service": null,
+        "status": "In Operation",
+        "source": "MCGM Planning Department, List of existing shelters for urban homeless (mcgm.gov.in)",
+        "geocode_confidence": "approximate",
+        "notes": "Source gives only survey/CTS numbers, not a geocodable street address; Nominatim result is the Malad East suburb centroid, tagged 'P/N Ward' matching wards.geojson (centroid distance 3.51 km, plausible given P-North's large areal extent)."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [72.8667520, 19.2171116] },
+      "properties": {
+        "name": "Sanskruti Bldg. 304, 3rd Floor, A-Wing, CTS No. 167/C, Magathane Village, Borivali East",
+        "zone": "Mumbai Zone 4",
+        "ward": "R - Central",
+        "capacity": 120,
+        "avg_occupancy": 100,
+        "agency": "Salaam Balaak Trust",
+        "day_service": null,
+        "status": "In Operation",
+        "source": "MCGM Planning Department, List of existing shelters for urban homeless (mcgm.gov.in)",
+        "geocode_confidence": "approximate",
+        "notes": "Nominatim resolved the Magathane locality/landmark (not the specific building), tagged 'R/C Ward' matching wards.geojson R - Central (centroid distance 4.16 km, plausible given R-Central's large areal extent)."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [72.8513183, 19.0346756] },
+      "properties": {
+        "name": "Municipal Chowky, Andhra Valley Road, Matunga Labour Camp, Mahim (East)",
+        "zone": "Mumbai Zone 2",
+        "ward": "G - North",
+        "capacity": null,
+        "avg_occupancy": null,
+        "agency": "Vande Mataram Foundation",
+        "day_service": null,
+        "status": "Needs refurbishment; not yet operational as shelter for urban homeless per source",
+        "source": "MCGM Planning Department, List of existing shelters for urban homeless (mcgm.gov.in)",
+        "geocode_confidence": "good",
+        "notes": "Named locality (Matunga Labour Camp) geocoded precisely, tagged 'G/N Ward' matching wards.geojson G - North (centroid distance 0.52 km). Source states no capacity figure because the site was undergoing repair/refurbishment and not yet operating as a shelter at time of document; not counted in this project's actual-capacity total."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [72.8532865, 19.0286720] },
+      "properties": {
+        "name": "Municipal Chowky, Behind F/North Ward Office, Telang Road",
+        "zone": "Mumbai Zone 2",
+        "ward": "F - North",
+        "capacity": null,
+        "avg_occupancy": null,
+        "agency": "Niradhar Vidyarthi Pragatik Sanstha",
+        "day_service": null,
+        "status": "Not yet operational as shelter for urban homeless per source",
+        "source": "MCGM Planning Department, List of existing shelters for urban homeless (mcgm.gov.in)",
+        "geocode_confidence": "good",
+        "notes": "Location explicitly named after the F/North ward office and geocoded precisely to Telang Road, Matunga East; Nominatim tagged 'F/N Ward' matching wards.geojson F - North exactly (centroid distance 1.34 km). Source states no capacity figure because the site was not yet operational; not counted in this project's actual-capacity total."
+      }
+    }
+  ]
+}

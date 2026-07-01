@@ -6,6 +6,7 @@ from pathlib import Path
 from sevent4.build_city_console import (
     CITY_READINESS,
     READY_CITIES,
+    _city_extra_links,
     _feature_options,
     _css,
     _governance_for_city,
@@ -13,6 +14,7 @@ from sevent4.build_city_console import (
     _js,
     _layer_json,
     _macro_links,
+    _officials_context,
     _toggles,
 )
 from sevent4.city_dataset import CityDataset
@@ -220,6 +222,21 @@ class FeatureOptionsTest(unittest.TestCase):
         self.assertEqual(_governance_for_city("delhi")["police"]["control"], "union")
         self.assertEqual(_governance_for_city("kolkata")["metro"]["control"], "union")
 
+    def test_governance_card_states_ahmedabad_shelter_shortfall(self) -> None:
+        card = _governance_for_city("ahmedabad")["shelters"]
+
+        self.assertEqual(card["control"], "shared")
+        self.assertIn("39% short", card["line"])
+        self.assertIn("11,293 homeless", card["line"])
+
+    def test_governance_shelters_layer_uses_shared_template_elsewhere(self) -> None:
+        # a city with no Ahmedabad-specific override still gets the generic
+        # NULM/Union-scheme framing, not a KeyError
+        card = _governance_for_city("bengaluru")["shelters"]
+
+        self.assertEqual(card["control"], "shared")
+        self.assertIn("NULM", card["line"])
+
     def test_governance_links_corp_money_layers_to_finance_page(self) -> None:
         # with a finance page, the corporation's own money-axis layers point to it;
         # state/parastatal layers (and the no-finance case) do not.
@@ -289,6 +306,119 @@ class FeatureOptionsTest(unittest.TestCase):
         self.assertIn("@media(max-width:760px)", css)
         self.assertIn("grid-template-columns:minmax(0,1fr) minmax(0,1fr)", css)
         self.assertIn(".filterbar #pcsel{grid-column:1/-1}", css)
+
+
+class OfficialsContextTest(unittest.TestCase):
+    def test_officials_context_returns_empty_maps_when_file_absent(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            context = _officials_context(Path(tmp))
+
+        self.assertEqual(context, {"acs": {}, "pcs": {}, "as_of": ""})
+
+    def test_officials_context_joins_ac_and_pc_by_numeric_code(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "officials.json"
+            path.write_text(
+                json.dumps(
+                    {
+                        "as_of": "2026-06-30",
+                        "records": [
+                            {
+                                "department": "election_ac",
+                                "area": "Ghatlodia (AC 41)",
+                                "designation": "Member of the Legislative Assembly (MLA)",
+                                "name": "Bhupendrabhai Rajnikant Patel",
+                                "source": "https://example.org/ac41",
+                            },
+                            {
+                                "department": "election_pc",
+                                "area": "Mahesana (PC 4)",
+                                "designation": "Member of Parliament",
+                                "name": "Haribhai Patel",
+                                "source": "https://example.org/pc4",
+                            },
+                            {
+                                # not an election record — must not pollute the ac/pc maps
+                                "department": "municipal_corp_hq",
+                                "area": "citywide",
+                                "designation": "Municipal Commissioner",
+                                "name": "Someone, IAS",
+                            },
+                        ],
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            context = _officials_context(Path(tmp))
+
+        self.assertEqual(
+            context["acs"]["41"],
+            {
+                "designation": "Member of the Legislative Assembly (MLA)",
+                "name": "Bhupendrabhai Rajnikant Patel",
+                "source": "https://example.org/ac41",
+            },
+        )
+        self.assertEqual(
+            context["pcs"]["4"],
+            {
+                "designation": "Member of Parliament",
+                "name": "Haribhai Patel",
+                "source": "https://example.org/pc4",
+            },
+        )
+        self.assertEqual(context["as_of"], "2026-06-30")
+
+    def test_officials_context_keeps_blank_records_for_the_ghost_row(self) -> None:
+        # A tracked-but-unverified seat must still resolve to an entry (blank name),
+        # not be dropped — the click-popup renders that as a ghost row, not silence.
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "officials.json"
+            path.write_text(
+                json.dumps(
+                    {
+                        "as_of": "2026-06-30",
+                        "records": [
+                            {
+                                "department": "election_ac",
+                                "area": "Kalol (AC 38)",
+                                "designation": "Member of the Legislative Assembly (MLA)",
+                                "name": "",
+                                "source": "",
+                            },
+                        ],
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            context = _officials_context(Path(tmp))
+
+        self.assertIn("38", context["acs"])
+        self.assertEqual(context["acs"]["38"]["name"], "")
+
+    def test_every_city_with_an_officials_directory_parses(self) -> None:
+        officials_files = list(Path("data/cities").glob("*/layers/officials.json"))
+        if not officials_files:
+            self.skipTest("officials directories live under gitignored data/ and are absent on this checkout")
+
+        for path in officials_files:
+            context = _officials_context(path.parent)
+            self.assertIsInstance(context["acs"], dict)
+            self.assertIsInstance(context["pcs"], dict)
+
+
+class CityExtraLinksTest(unittest.TestCase):
+    def test_officials_link_appears_only_when_the_page_exists(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            out_dir = Path(tmp)
+            self.assertNotIn(("Officials", "officials/index.html"), _city_extra_links(out_dir))
+
+            (out_dir / "officials").mkdir()
+            (out_dir / "officials" / "index.html").write_text("<html></html>", encoding="utf-8")
+
+            self.assertIn(("Officials", "officials/index.html"), _city_extra_links(out_dir))
 
 
 if __name__ == "__main__":

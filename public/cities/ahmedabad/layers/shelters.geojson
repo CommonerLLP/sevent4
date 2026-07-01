@@ -1,0 +1,705 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.615273,
+     23.029801
+    ]
+   },
+   "properties": {
+    "name": "TP-16, FP-73, Nr. Amdupura Petrol Pump, Raichand Meghraj Chawl, New Gujarat Synthetic Mill Compound, India Colony",
+    "zone": "North",
+    "ward": "Saraspur",
+    "capacity": 90,
+    "day_service": true,
+    "source": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2640",
+    "geocode_confidence": "approximate",
+    "notes": "Nominatim landmark search returned a distinct 'New India Colony' 6.8km away in Nava Naroda (likely a different, same-named locality); discarded as unreliable. Placed at ward centroid (Saraspur-Rakhiyal, AMC 48-ward polygon, this repo's wards.geojson)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.63405,
+     23.080409
+    ]
+   },
+   "properties": {
+    "name": "Under Memco Bridge, Opp. Sai Baba Society, Kubernagar",
+    "zone": "North",
+    "ward": "Kubernagar",
+    "capacity": 40,
+    "day_service": true,
+    "source": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2640",
+    "geocode_confidence": "approximate",
+    "notes": "Resolved to Kubernagar locality (OSM), not the specific 'Under Memco Bridge' site."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.641437,
+     23.059665
+    ]
+   },
+   "properties": {
+    "name": "Under Memco Bridge, Opp. Ambedkar Nagar Saijpur Bogha",
+    "zone": "North",
+    "ward": "Saijpur Bogha",
+    "capacity": 40,
+    "day_service": true,
+    "source": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2640",
+    "geocode_confidence": "approximate",
+    "notes": "Resolved to Saijpur Lake, the nearest named OSM feature to Saijpur Bogha locality; not the specific bridge/Ambedkar Nagar site."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.658095,
+     23.08541
+    ]
+   },
+   "properties": {
+    "name": "T.P.-1, F.P.-470, Next to Nobal nagar Ward office, Near Urban Health Centre, Opp. Bhagavati Flour Mill, Naroda",
+    "zone": "North",
+    "ward": "Naroda",
+    "capacity": 90,
+    "day_service": true,
+    "source": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2640",
+    "geocode_confidence": "approximate",
+    "notes": "Resolved to Naroda locality/flyover (OSM), not the specific ward-office site."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.640553,
+     23.041208
+    ]
+   },
+   "properties": {
+    "name": "Anil Starch Compound, Opp. Thakkarnagar New Bridge, Bapunagar",
+    "zone": "North",
+    "ward": "Bapunagar",
+    "capacity": 40,
+    "day_service": true,
+    "source": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2640",
+    "geocode_confidence": "good",
+    "notes": "Resolved to 'Thakkar Nagar Approach' bus stop near Thakkarbapa Nagar Flyover, directly matching the address's 'Opp. Thakkarnagar New Bridge' landmark."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.612317,
+     23.021919
+    ]
+   },
+   "properties": {
+    "name": "Everest Cross Road, Opp. Fruit Vadi Chawl Plot, Opp. Muni. Swimming Pool, Saraspur",
+    "zone": "North",
+    "ward": "Saraspur",
+    "capacity": 48,
+    "day_service": true,
+    "source": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2640",
+    "geocode_confidence": "approximate",
+    "notes": "Resolved to Rakhial Road locality (Saraspur-Rakhiyal ward), not the specific Everest Cross Road site."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.601295,
+     22.98113
+    ]
+   },
+   "properties": {
+    "name": "Under Ishanpur Bridge, Near EWS Quarters, Isanpur",
+    "zone": "South",
+    "ward": "Isanpur",
+    "capacity": 50,
+    "day_service": true,
+    "source": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2640",
+    "geocode_confidence": "approximate",
+    "notes": "Resolved to Isanpur locality (OSM), not the specific bridge site."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.610944,
+     22.9987
+    ]
+   },
+   "properties": {
+    "name": "Under Nathalal Zaghadiya Bridge, Nr. Maninagar Railway Station, Maninagar",
+    "zone": "South",
+    "ward": "Maninagar",
+    "capacity": 40,
+    "day_service": true,
+    "source": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2640",
+    "geocode_confidence": "good",
+    "notes": "Resolved directly to Maninagar Railway Station, matching the address landmark."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.618632,
+     23.000842
+    ]
+   },
+   "properties": {
+    "name": "Under Guruji Bridge, East Side & Guruji Bridge, West Side, Khokhra",
+    "zone": "South",
+    "ward": "Khokhra",
+    "capacity": 80,
+    "day_service": true,
+    "source": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2640",
+    "geocode_confidence": "approximate",
+    "notes": "Resolved to Khokhra locality (OSM), not the specific Guruji Bridge site."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.630334,
+     23.008022
+    ]
+   },
+   "properties": {
+    "name": "Under Jashoda Bridge, Near Jashoda Cross Road & Under Jashoda Bridge, Opp. Fire Station, Ramol Ward",
+    "zone": "South",
+    "ward": "Khokhra",
+    "capacity": 80,
+    "day_service": true,
+    "source": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2640",
+    "geocode_confidence": "approximate",
+    "notes": "Resolved to Jantanagar-Ramol locality, matching the 'Ramol Ward' cross-reference in the address; not the specific Jashoda Bridge site."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.618632,
+     23.000842
+    ]
+   },
+   "properties": {
+    "name": "TP-16, FP-307/P, Opp Aperal Park, Ambika Mill Compound, Nr. Katariya Show Room",
+    "zone": "South",
+    "ward": "Khokhara",
+    "capacity": 90,
+    "day_service": true,
+    "source": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2640",
+    "geocode_confidence": "approximate",
+    "notes": "Resolved to Khokhra locality (OSM), not the specific Ambika Mill Compound site."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.629798,
+     22.958998
+    ]
+   },
+   "properties": {
+    "name": "Shelter 1 & 2, Under Midco Bridge, On Way to EWS Quarters, Vatva",
+    "zone": "South",
+    "ward": "Vatva",
+    "capacity": 100,
+    "day_service": true,
+    "source": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2640",
+    "geocode_confidence": "approximate",
+    "notes": "Resolved to Vatva locality (OSM), not the specific Midco Bridge site."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.589598,
+     22.972977
+    ]
+   },
+   "properties": {
+    "name": "TP 62, Fa.Plo.No. 92, Narol-Lambha Ward",
+    "zone": "South",
+    "ward": "Lambha",
+    "capacity": 482,
+    "day_service": true,
+    "source": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2640",
+    "geocode_confidence": "approximate",
+    "notes": "Resolved to Narol BRTS Station, matching the 'Narol-Lambha Ward' address; not the specific TP-62 plot."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.520842,
+     23.006937
+    ]
+   },
+   "properties": {
+    "name": "Under Jivaraj Bridge, Jivaraj Cross Road & Under Shyama Prashad Railway Over Bridge, Vejalpur",
+    "zone": "South West",
+    "ward": "Vejalpur",
+    "capacity": 100,
+    "day_service": true,
+    "source": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2640",
+    "geocode_confidence": "approximate",
+    "notes": "Resolved to Vejalpur locality (OSM), not the specific Jivaraj Bridge site."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.540836,
+     23.101
+    ]
+   },
+   "properties": {
+    "name": "Shelter 01, Under Chankyapuri Over Bridge, Gota",
+    "zone": "North West",
+    "ward": "Gota",
+    "capacity": 40,
+    "day_service": true,
+    "source": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2640",
+    "geocode_confidence": "approximate",
+    "notes": "Resolved to Gota locality (OSM), not the specific Chankyapuri overbridge site."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.530328,
+     23.084852
+    ]
+   },
+   "properties": {
+    "name": "TP-02, FP-94, Near Urban Health Centre, Ghatlodiya",
+    "zone": "North West",
+    "ward": "Ghatlodiya",
+    "capacity": 40,
+    "day_service": true,
+    "source": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2640",
+    "geocode_confidence": "approximate",
+    "notes": "Resolved to Ghatlodiya Lake/Chanakyapuri locality, not the specific Urban Health Centre plot."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.552083,
+     23.083649
+    ]
+   },
+   "properties": {
+    "name": "Shelter-01 & 02, Under Gota bridge, Opp Vishvakarma Temple, Chandlodia",
+    "zone": "North West",
+    "ward": "Chandlodia",
+    "capacity": 60,
+    "day_service": true,
+    "source": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2640",
+    "geocode_confidence": "approximate",
+    "notes": "Resolved to Chandlodia Lake locality, not the specific Gota-bridge shelter site."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.535227,
+     23.035126
+    ]
+   },
+   "properties": {
+    "name": "Andhajan Mandal Char Rasta, under Over Bridge, New I.I.M. In front of the campus, Bodakdev",
+    "zone": "North West",
+    "ward": "Bodakdev",
+    "capacity": 60,
+    "day_service": true,
+    "source": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2640",
+    "geocode_confidence": "good",
+    "notes": "Resolved directly to the Andhajan Mandal BRTS station, matching the address's 'Andhajan Mandal Char Rasta' landmark."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.509348,
+     23.034638
+    ]
+   },
+   "properties": {
+    "name": "Rajiv Awas Yojana, Behind Rajpath Club, Bodakdev Ward",
+    "zone": "North West",
+    "ward": "Bodakdev",
+    "capacity": 400,
+    "day_service": false,
+    "source": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2640",
+    "geocode_confidence": "good",
+    "notes": "Resolved directly to Rajpath Club, matching the address's 'Behind Rajpath Club' landmark."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.531295,
+     23.024304
+    ]
+   },
+   "properties": {
+    "name": "Near Statue of Zansi ki Rani, Bimanagar Garden, Near Shivranjani BRTS Stop",
+    "zone": "West",
+    "ward": "Navrangpura",
+    "capacity": 48,
+    "day_service": true,
+    "source": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2640",
+    "geocode_confidence": "good",
+    "notes": "Resolved directly to the Shivranjani BRTS station, matching the address's 'Shivranjani BRTS Stop' landmark."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.549686,
+     23.036232
+    ]
+   },
+   "properties": {
+    "name": "Gulbai Tekra, near police Chocki, Navarangpura",
+    "zone": "West",
+    "ward": "Navrangpura",
+    "capacity": 40,
+    "day_service": false,
+    "source": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2640",
+    "geocode_confidence": "good",
+    "notes": "Resolved directly to Gulbai Tekra, matching the address landmark."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.583823,
+     23.066869
+    ]
+   },
+   "properties": {
+    "name": "Under Keshavnath Bridge on the way Sabarmati Central Jail",
+    "zone": "West",
+    "ward": "SP Stadium",
+    "capacity": 40,
+    "day_service": true,
+    "source": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2640",
+    "geocode_confidence": "good",
+    "notes": "Resolved to a site on Sabarmati Jail Road, directly matching the address's Sabarmati Central Jail landmark."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.546802,
+     23.052723
+    ]
+   },
+   "properties": {
+    "name": "132 Ft Ring Road, AEC Cross Road, Opp. Sola Cross Road BRTS",
+    "zone": "West",
+    "ward": "Naranpura",
+    "capacity": 45,
+    "day_service": true,
+    "source": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2640",
+    "geocode_confidence": "good",
+    "notes": "Resolved directly to the Sola Cross Road BRTS stand, matching the address landmark."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.595287,
+     23.108909
+    ]
+   },
+   "properties": {
+    "name": "TP Scheme-22, Plot No-273, Opposite Utsav Duplex, Opposite Devanandan Sky, New CG Road, Chandkheda",
+    "zone": "West",
+    "ward": "Chandkheda",
+    "capacity": 518,
+    "day_service": true,
+    "source": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2640",
+    "geocode_confidence": "approximate",
+    "notes": "Resolved to a street-level match on New CG Road, Chandkheda (matching road name), not the specific plot."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.547241,
+     23.002005
+    ]
+   },
+   "properties": {
+    "name": "TP 26, Fa.Plo.No. 76, Near Prathama Blood Bank, Vasana Ward",
+    "zone": "West",
+    "ward": "Vasna",
+    "capacity": 442,
+    "day_service": true,
+    "source": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2640",
+    "geocode_confidence": "approximate",
+    "notes": "Resolved to Vasna locality (OSM), not the specific Prathama Blood Bank site."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.665351,
+     23.02558
+    ]
+   },
+   "properties": {
+    "name": "TP-01, FP-188, Near Bharawad Vas, Opp. Janta Nagar, Near Navranag School, Near Manmohan Cross Road",
+    "zone": "East",
+    "ward": "Odhav",
+    "capacity": 90,
+    "day_service": true,
+    "source": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2640",
+    "geocode_confidence": "approximate",
+    "notes": "Resolved to Odhav Talav locality (OSM), not the specific TP-01/FP-188 plot."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.665351,
+     23.02558
+    ]
+   },
+   "properties": {
+    "name": "TP-02, FP-09, B/H Bhikshuk Gruh, Opp. Sarvoday Society, Odhav",
+    "zone": "East",
+    "ward": "Odhav",
+    "capacity": 90,
+    "day_service": true,
+    "source": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2640",
+    "geocode_confidence": "approximate",
+    "notes": "Resolved to Odhav Talav locality (OSM), not the specific Bhikshuk Gruh site."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.665351,
+     23.02558
+    ]
+   },
+   "properties": {
+    "name": "Municipal Plot, Opp. Uday Estate, B/H Muni. Modern School, Odhav",
+    "zone": "East",
+    "ward": "Odhav",
+    "capacity": 40,
+    "day_service": true,
+    "source": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2640",
+    "geocode_confidence": "approximate",
+    "notes": "Resolved to Odhav Talav locality (OSM), not the specific Uday Estate site."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.624513,
+     22.999335
+    ]
+   },
+   "properties": {
+    "name": "Under CTM bridge, on the way Hatkeshvar & Under CTM Bridge On Way to Indrapuri, Bhaipura Hatkeshwar",
+    "zone": "East",
+    "ward": "Bhaipura Hatkeshwar",
+    "capacity": 80,
+    "day_service": true,
+    "source": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2640",
+    "geocode_confidence": "approximate",
+    "notes": "Resolved to Hatkeshwar Circle, near the CTM Bridge landmark named in the address."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.672498,
+     23.02594
+    ]
+   },
+   "properties": {
+    "name": "Odhav Ring Road, Opposite Relines Smart Bazar, Odhav Ring Road Circle, Odhav",
+    "zone": "East",
+    "ward": "Odhav",
+    "capacity": 494,
+    "day_service": true,
+    "source": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2640",
+    "geocode_confidence": "approximate",
+    "notes": "Resolved to Odhav police station on Sardar Patel Ring Road, matching the address's 'Odhav Ring Road Circle' generally."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.671874,
+     23.058933
+    ]
+   },
+   "properties": {
+    "name": "TP 111, Fa.Plo.No. 160, Nikol Ward",
+    "zone": "East",
+    "ward": "Nikol",
+    "capacity": 244,
+    "day_service": true,
+    "source": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2640",
+    "geocode_confidence": "approximate",
+    "notes": "Resolved to a locality point in Nikol (OSM), not the specific TP-111 plot."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.584138,
+     23.055955
+    ]
+   },
+   "properties": {
+    "name": "Under Maharshi Dadhichi Bridge, Nr. Dudheshwar water tank, Shahpur",
+    "zone": "Central",
+    "ward": "Shahpur",
+    "capacity": 54,
+    "day_service": true,
+    "source": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2640",
+    "geocode_confidence": "approximate",
+    "notes": "Resolved to Dudheshwar locality (OSM), matching the address's water-tank landmark generally."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.590791,
+     23.043354
+    ]
+   },
+   "properties": {
+    "name": "Above Shahibag Under Bridge, Near Madhupura Muni Road Store, Shahibag",
+    "zone": "Central",
+    "ward": "Shahibag",
+    "capacity": 40,
+    "day_service": true,
+    "source": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2640",
+    "geocode_confidence": "approximate",
+    "notes": "Resolved to Madhupura locality (OSM), matching the address generally."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.597892,
+     23.050214
+    ]
+   },
+   "properties": {
+    "name": "Under Acharya Mahapragnyji Overbridge, Girdharnagar, Shahibag",
+    "zone": "Central",
+    "ward": "Shahibag",
+    "capacity": 40,
+    "day_service": true,
+    "source": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2640",
+    "geocode_confidence": "good",
+    "notes": "Resolved directly to Girdharnagar, matching the address landmark closely (Acharya Mahapragnyji Overbridge is Girdharnagar's main flyover)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.582062,
+     23.013924
+    ]
+   },
+   "properties": {
+    "name": "Under Shree Ashokbhai Bhatt over bridge, Near A.P.M.C. Market, Jamalpur",
+    "zone": "Central",
+    "ward": "Jamalpur",
+    "capacity": 40,
+    "day_service": false,
+    "source": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2640",
+    "geocode_confidence": "approximate",
+    "notes": "Resolved to Jamalpur locality (OSM), not the specific APMC Market bridge site."
+   }
+  }
+ ]
+}
