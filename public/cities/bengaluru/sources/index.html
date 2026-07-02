@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script>(function(){try{var t=localStorage.getItem('atlas-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sources — Bengaluru</title>
+  <link rel="icon" type="image/png" href="../../../assets/ixa-mark.png">
+  <link rel="stylesheet" href="../../../assets/theme.css">
+  <style>
+*{box-sizing:border-box;margin:0}body{font:400 16px/1.6 var(--sans);color:var(--ink);background:var(--bg)}
+.wrap{max-width:860px;margin:0 auto;padding:32px 22px 80px}
+.crumb{font:700 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-bottom:18px}
+.crumb a{color:var(--blue);text-decoration:none}.crumb span{margin:0 6px;color:var(--line)}
+h1{font:700 30px/1.15 var(--serif);letter-spacing:-.01em;margin-bottom:8px}
+.lede{color:var(--mut);font-size:16px;max-width:70ch;margin-bottom:10px}
+.stat{font:700 12px/1 var(--mono);letter-spacing:.04em;color:var(--gold);margin-bottom:18px}
+.osearch{width:100%;min-height:44px;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);padding:9px 12px;font:600 14px var(--sans);margin-bottom:12px}
+.osearch::placeholder{color:var(--mut)}
+.onoresults{color:var(--mut);font-size:13px;margin:18px 0}
+.is-hidden{display:none}
+.rows{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+.row{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:var(--r);padding:9px 12px}
+.row-ghost{border-left-style:dashed;border-left-color:var(--mut)}
+.rhead{display:block;color:var(--mut);font:700 10px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px}
+.rwho{font-size:14.5px}
+.rname{color:var(--ink);font-weight:700}
+.rsrc{color:var(--gold);font:700 11px var(--mono);text-decoration:none;margin-left:6px}
+.rsrc-text{color:var(--mut);font-weight:400}
+.rnote{color:var(--mut);font-size:12.5px;line-height:1.5;margin-top:5px;max-width:70ch}
+.prov{margin-top:44px;border-top:1px solid var(--line);padding-top:20px;color:var(--mut);font-size:13px}
+.prov h3{font:700 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+.prov p{max-width:74ch}.prov a{color:var(--blue)}
+.prov code{font:600 12px var(--mono);color:var(--ink)}
+@media(max-width:640px){h1{font-size:25px}}
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <nav class="crumb"><a href="../">&larr; Atlas</a> <span>/</span> <b>Sources</b></nav>
+    <h1>Where this console's data comes from</h1>
+    <p class="lede">
+      Every layer, number, and name on the Bengaluru console traces
+      to one of the source records below. A record without a link means the
+      source's public URL was never captured at acquisition time — that gap is
+      reported, not papered over with a guessed link.
+    </p>
+    <p class="stat">15 source records &middot; 2 with no public URL recorded &middot; compiled 2026-07-01</p>
+
+    <input id="osearch" class="osearch" type="search"
+      placeholder="Search by source, kind, or note (e.g. &quot;budget&quot;, &quot;DataMeet&quot;, &quot;GTFS&quot;)">
+    <p id="onoresults" class="onoresults" hidden>No match. Clear the search to see all sources.</p>
+
+    <div class="rows">
+      <div class="row" data-search="boundary dataset gba 369-ward delimitation (dec 2025), greater bengaluru authority via opencity primary ward frame: backs wards.geojson (369 features, incl. baked-in census attributes tot_p/sc_p/st_p, corporation, ac, ro/aro fields) and the geometry+attributes of ward_heat.geojson. also one of the three inputs to jurisdiction_crosswalk.json (spatial join of wards/acs/pcs, per that file&#x27;s own &#x27;source&#x27; field). cite chain: publisher -&gt; opencity -&gt; sevent4 (processed by scripts/recipes/bengaluru/acquire_boundaries.py).">
+        <span class="rhead">boundary dataset</span>
+        <div class="rwho"><span class="rname">GBA 369-ward delimitation (Dec 2025), Greater Bengaluru Authority via OpenCity</span> <a class="rsrc" href="https://data.opencity.in/dataset/gba-wards-delimitation-2025">source</a></div>
+        <p class="rnote">Primary ward frame: backs wards.geojson (369 features, incl. baked-in Census attributes TOT_P/SC_P/ST_P, corporation, AC, RO/ARO fields) and the geometry+attributes of ward_heat.geojson. Also one of the three inputs to jurisdiction_crosswalk.json (spatial join of wards/ACs/PCs, per that file&#x27;s own &#x27;source&#x27; field). Cite chain: publisher -&gt; OpenCity -&gt; sevent4 (processed by scripts/recipes/bengaluru/acquire_boundaries.py).</p>
+      </div>
+
+      <div class="row" data-search="boundary dataset bbmp 198-ward (2023 republication) delimitation, bbmp via opencity the old-bbmp ward frame (wards_bbmp198.geojson, with population / sc_population / st_population attributes) used as the canonical 198-ward polygons for ward_analysis.geojson (population, sc_st_share_pct, assembly/parliament joins; see sevent4/adapters/bengaluru_ward_analysis_geospatial.py) and for the ward polygons of ward_workorders.geojson / ward_workorders_yearly.geojson.">
+        <span class="rhead">boundary dataset</span>
+        <div class="rwho"><span class="rname">BBMP 198-ward (2023 republication) delimitation, BBMP via OpenCity</span> <a class="rsrc" href="https://data.opencity.in/dataset/bbmp-wards-delimitation-2023">source</a></div>
+        <p class="rnote">The old-BBMP ward frame (wards_bbmp198.geojson, with population / sc_population / st_population attributes) used as the canonical 198-ward polygons for ward_analysis.geojson (population, sc_st_share_pct, assembly/parliament joins; see sevent4/adapters/bengaluru_ward_analysis_geospatial.py) and for the ward polygons of ward_workorders.geojson / ward_workorders_yearly.geojson.</p>
+      </div>
+
+      <div class="row" data-search="boundary dataset karnataka &amp; bengaluru assembly-constituency maps (karnataka sec / eci) via opencity backs acs.geojson (28 bengaluru acs) and the ac leg of jurisdiction_crosswalk.json.">
+        <span class="rhead">boundary dataset</span>
+        <div class="rwho"><span class="rname">Karnataka &amp; Bengaluru assembly-constituency maps (Karnataka SEC / ECI) via OpenCity</span> <a class="rsrc" href="https://data.opencity.in/dataset/karnataka-and-bengaluru-assembly-constituency-maps">source</a></div>
+        <p class="rnote">Backs acs.geojson (28 Bengaluru ACs) and the AC leg of jurisdiction_crosswalk.json.</p>
+      </div>
+
+      <div class="row" data-search="boundary dataset karnataka &amp; bengaluru parliamentary-constituency maps (eci) via opencity backs pcs.geojson (5 features) and the pc leg of jurisdiction_crosswalk.json.">
+        <span class="rhead">boundary dataset</span>
+        <div class="rwho"><span class="rname">Karnataka &amp; Bengaluru parliamentary-constituency maps (ECI) via OpenCity</span> <a class="rsrc" href="https://data.opencity.in/dataset/karnataka-and-bengaluru-parliamentary-constituency-maps">source</a></div>
+        <p class="rnote">Backs pcs.geojson (5 features) and the PC leg of jurisdiction_crosswalk.json.</p>
+      </div>
+
+      <div class="row" data-search="community geodata datameet maps (census 2011 district boundaries) backs districts.geojson (1 feature, bengaluru urban; census name &#x27;bangalore&#x27;), converted from districts/census_2011/2011_dist.shp. license cc-by-sa / odbl per the provenance record.">
+        <span class="rhead">community geodata</span>
+        <div class="rwho"><span class="rname">DataMeet maps (Census 2011 district boundaries)</span> <a class="rsrc" href="https://github.com/datameet/maps">source</a></div>
+        <p class="rnote">Backs districts.geojson (1 feature, Bengaluru Urban; Census name &#x27;Bangalore&#x27;), converted from Districts/Census_2011/2011_Dist.shp. License CC-BY-SA / ODbL per the provenance record.</p>
+      </div>
+
+      <div class="row row-ghost" data-search="osm extract openstreetmap contributors via overpass api (odbl) no full url is recorded on disk — the provenance record names only the endpoints &#x27;overpass-api.de / overpass.kumi.systems&#x27; (bbox 12.83,77.45,13.15,77.80, fetched 2026-06), so url is left null rather than guessed. backs roads.geojson (7170), metro_lines.geojson (550), metro.geojson (89 stations), stops.geojson (3378 bus stops), health.geojson (1849 hospitals/clinics), schools.geojson (620), libraries.geojson (73), toilets.geojson (423), police.geojson (71). feature counts of the public layers match this record exactly.">
+        <span class="rhead">osm extract</span>
+        <div class="rwho"><span class="rname">OpenStreetMap contributors via Overpass API (ODbL)</span> <span class="rsrc rsrc-text">no public URL recorded</span></div>
+        <p class="rnote">No full URL is recorded on disk — the provenance record names only the endpoints &#x27;overpass-api.de / overpass.kumi.systems&#x27; (bbox 12.83,77.45,13.15,77.80, fetched 2026-06), so url is left null rather than guessed. Backs roads.geojson (7170), metro_lines.geojson (550), metro.geojson (89 stations), stops.geojson (3378 bus stops), health.geojson (1849 hospitals/clinics), schools.geojson (620), libraries.geojson (73), toilets.geojson (423), police.geojson (71). Feature counts of the public layers match this record exactly.</p>
+      </div>
+
+      <div class="row" data-search="jurisdiction dataset gba five-corporations &amp; zones delimitation 2025 (gba) via opencity backs gba_corporations.geojson (5 corporations) and gba_zones.geojson. license &#x27;other (public domain)&#x27;. raw kml archived with sha256 in the _raw manifest; curated by scripts/recipes/bengaluru/build_opencity_jurisdiction_layers.py (see also data/cities/bengaluru/source/opencity/sources.json).">
+        <span class="rhead">jurisdiction dataset</span>
+        <div class="rwho"><span class="rname">GBA five-corporations &amp; zones delimitation 2025 (GBA) via OpenCity</span> <a class="rsrc" href="https://data.opencity.in/dataset/greater-bengaluru-authority-corporations-delimitation-2025">source</a></div>
+        <p class="rnote">Backs gba_corporations.geojson (5 corporations) and gba_zones.geojson. License &#x27;Other (Public Domain)&#x27;. Raw KML archived with sha256 in the _raw manifest; curated by scripts/recipes/bengaluru/build_opencity_jurisdiction_layers.py (see also data/cities/bengaluru/source/opencity/sources.json).</p>
+      </div>
+
+      <div class="row" data-search="jurisdiction dataset bda jurisdiction and boundary (bangalore development authority) via opencity backs bda_zones.geojson (bda zones &amp; subdivisions). license &#x27;other (public domain)&#x27;.">
+        <span class="rhead">jurisdiction dataset</span>
+        <div class="rwho"><span class="rname">BDA jurisdiction and boundary (Bangalore Development Authority) via OpenCity</span> <a class="rsrc" href="https://data.opencity.in/dataset/bda-jurisdiction-and-boundary">source</a></div>
+        <p class="rnote">Backs bda_zones.geojson (BDA zones &amp; subdivisions). License &#x27;Other (Public Domain)&#x27;.</p>
+      </div>
+
+      <div class="row" data-search="jurisdiction dataset bwssb boundary maps (bangalore water supply and sewerage board) via opencity backs bwssb_divisions.geojson (water-board division boundaries). license &#x27;other (public domain)&#x27;.">
+        <span class="rhead">jurisdiction dataset</span>
+        <div class="rwho"><span class="rname">BWSSB boundary maps (Bangalore Water Supply and Sewerage Board) via OpenCity</span> <a class="rsrc" href="https://data.opencity.in/dataset/bwssb-boundary-maps">source</a></div>
+        <p class="rnote">Backs bwssb_divisions.geojson (water-board division boundaries). License &#x27;Other (Public Domain)&#x27;.</p>
+      </div>
+
+      <div class="row" data-search="jurisdiction dataset bengaluru traffic police jurisdictions (2022) via opencity backs traffic_police_jurisdiction.geojson. license &#x27;other (public domain)&#x27;.">
+        <span class="rhead">jurisdiction dataset</span>
+        <div class="rwho"><span class="rname">Bengaluru Traffic Police jurisdictions (2022) via OpenCity</span> <a class="rsrc" href="https://data.opencity.in/dataset/bengaluru-traffic-police-jurisdictions">source</a></div>
+        <p class="rnote">Backs traffic_police_jurisdiction.geojson. License &#x27;Other (Public Domain)&#x27;.</p>
+      </div>
+
+      <div class="row" data-search="facility dataset bbmp solid waste management data via opencity backs bbmp_dry_waste_centres.geojson (dwcc sites) and bbmp_landfills.geojson. manifest records license as null/none for this dataset.">
+        <span class="rhead">facility dataset</span>
+        <div class="rwho"><span class="rname">BBMP solid waste management data via OpenCity</span> <a class="rsrc" href="https://data.opencity.in/dataset/bbmp-solid-waste-management-data">source</a></div>
+        <p class="rnote">Backs bbmp_dry_waste_centres.geojson (DWCC sites) and bbmp_landfills.geojson. Manifest records license as null/None for this dataset.</p>
+      </div>
+
+      <div class="row" data-search="finance dataset bbmp work orders by ward (2013-2022), bbmp via opencity per-ward work-order csvs (raw copies + resource urls archived in the manifest). backs ward_workorders.geojson and ward_workorders_yearly.geojson (works_spend_cr, work_count, top_contractor, top_budget_head, flagged_works) and the spend axis of ward_analysis.geojson via data/cities/bengaluru/source/finance/ward_workorders*.json.">
+        <span class="rhead">finance dataset</span>
+        <div class="rwho"><span class="rname">BBMP Work Orders by Ward (2013-2022), BBMP via OpenCity</span> <a class="rsrc" href="https://data.opencity.in/dataset/bbmp-work-orders-by-ward-2013-2022">source</a></div>
+        <p class="rnote">Per-ward work-order CSVs (raw copies + resource URLs archived in the manifest). Backs ward_workorders.geojson and ward_workorders_yearly.geojson (works_spend_cr, work_count, top_contractor, top_budget_head, flagged_works) and the spend axis of ward_analysis.geojson via data/cities/bengaluru/source/finance/ward_workorders*.json.</p>
+      </div>
+
+      <div class="row" data-search="shelter register bbmp/nulm homeless-shelter list (pdf resource) via opencity backs shelters.geojson (48 features, labelled &#x27;homeless shelters (nulm)&#x27; in sevent4/build_city_console.py). every feature carries this same resource-download url in its per-feature &#x27;source&#x27; property, plus geocode_confidence/notes fields (geocoded via photon/nominatim). the dataset landing-page slug is not recorded on disk — only this resource url — so no prettier dataset url is claimed.">
+        <span class="rhead">shelter register</span>
+        <div class="rwho"><span class="rname">BBMP/NULM homeless-shelter list (PDF resource) via OpenCity</span> <a class="rsrc" href="https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf">source</a></div>
+        <p class="rnote">Backs shelters.geojson (48 features, labelled &#x27;Homeless shelters (NULM)&#x27; in sevent4/build_city_console.py). Every feature carries this same resource-download URL in its per-feature &#x27;source&#x27; property, plus geocode_confidence/notes fields (geocoded via Photon/Nominatim). The dataset landing-page slug is NOT recorded on disk — only this resource URL — so no prettier dataset URL is claimed.</p>
+      </div>
+
+      <div class="row" data-search="satellite derivation usgs landsat collection 2 level-2 (landsat 8/9) surface temperature via microsoft planetary computer stac recorded derivation source for the heat layers: stac_api constant in the adapter, collections=[&#x27;landsat-c2-l2&#x27;], platform landsat-8/landsat-9, qa-masked median lst in celsius. backs ward_heat.geojson (mean_lst_c/max_lst_c), heat30m.png, heat30m_bounds.json and ward_heat_summary.json (current window 2024-04-01/2026-07-01 per that summary file). quarterly refresh wired in .github/workflows/heat-refresh.yml.">
+        <span class="rhead">satellite derivation</span>
+        <div class="rwho"><span class="rname">USGS Landsat Collection 2 Level-2 (Landsat 8/9) surface temperature via Microsoft Planetary Computer STAC</span> <a class="rsrc" href="https://planetarycomputer.microsoft.com/api/stac/v1">source</a></div>
+        <p class="rnote">Recorded derivation source for the heat layers: STAC_API constant in the adapter, collections=[&#x27;landsat-c2-l2&#x27;], platform landsat-8/landsat-9, QA-masked median LST in Celsius. Backs ward_heat.geojson (mean_lst_c/max_lst_c), heat30m.png, heat30m_bounds.json and ward_heat_summary.json (current window 2024-04-01/2026-07-01 per that summary file). Quarterly refresh wired in .github/workflows/heat-refresh.yml.</p>
+      </div>
+
+      <div class="row row-ghost" data-search="electoral results myneta (karnataka 2023) / election commission of india — mla &amp; mp roster backs the representative/party/office popup fields on acs.geojson and pcs.geojson. the on-disk csv cites &#x27;myneta karnataka 2023 / eci&#x27; as the source per row but records no url, so url is left null rather than guessed.">
+        <span class="rhead">electoral results</span>
+        <div class="rwho"><span class="rname">MyNeta (Karnataka 2023) / Election Commission of India — MLA &amp; MP roster</span> <span class="rsrc rsrc-text">no public URL recorded</span></div>
+        <p class="rnote">Backs the representative/party/office popup fields on acs.geojson and pcs.geojson. The on-disk CSV cites &#x27;MyNeta Karnataka 2023 / ECI&#x27; as the source per row but records NO URL, so url is left null rather than guessed.</p>
+      </div>
+</div>
+
+    <footer class="prov">
+      <h3>Handling &amp; reuse</h3>
+      <p>
+        This inventory is compiled from the repo&#x27;s own acquisition records:
+        each entry is backed by a named internal record whose existence is
+        verified every time this page is built. It is also published as
+        <a href="sources.json">machine-readable JSON</a>
+        (schema <code>sevent4.public_sources.v1</code>) so other projects can
+        reuse the sourcing without re-deriving it.
+      </p>
+    </footer>
+  </main>
+  <script>
+  document.getElementById("osearch").addEventListener("input", (event) => {
+    const q = event.target.value.trim().toLowerCase();
+    let anyVisible = false;
+    document.querySelectorAll(".row").forEach((row) => {
+      const match = !q || (row.dataset.search || "").includes(q);
+      row.classList.toggle("is-hidden", !match);
+      if (match) anyVisible = true;
+    });
+    document.getElementById("onoresults").hidden = anyVisible || !q;
+  });
+</script>
+</body>
+</html>

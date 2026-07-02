@@ -93,8 +93,13 @@ class PublicSiteLinksTest(unittest.TestCase):
         for page in self.pages:
             for href in self._links_from(page):
                 target = self._resolved_target_page(page, href)
-                if target is not None and target not in self.page_ids:
-                    missing.append(f"{_page_id(page) or 'index.html'} -> {href}")
+                if target is None or target in self.page_ids:
+                    continue
+                # non-page file targets (e.g. the machine-readable sources.json
+                # endpoints) are live as long as the file actually ships
+                if (PUBLIC / target).is_file():
+                    continue
+                missing.append(f"{_page_id(page) or 'index.html'} -> {href}")
 
         self.assertEqual([], missing)
 

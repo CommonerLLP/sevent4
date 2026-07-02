@@ -1,0 +1,149 @@
+{
+ "schema": "sevent4.public_sources.v1",
+ "city": "delhi",
+ "city_name": "Delhi",
+ "compiled": "2026-07-01",
+ "count": 20,
+ "sources": [
+  {
+   "id": "datameet_maps_ac_pc",
+   "kind": "boundary_dataset",
+   "label": "ECI assembly/parliamentary constituency boundaries via DataMeet (datameet/maps)",
+   "url": "https://raw.githubusercontent.com/datameet/maps/master/assembly-constituencies/India_AC.shp",
+   "notes": "Election Commission of India delimitation geometry redistributed by DataMeet. Backs acs.geojson (70 ACs, 2008 delimitation) and pcs.geojson (7 PCs; PC file URL recorded as https://raw.githubusercontent.com/datameet/maps/master/parliamentary-constituencies/india_pc_2019_simplified.geojson in the same record). Also feeds the derived jurisdiction_crosswalk.json. License recorded as 'DataMeet community data'."
+  },
+  {
+   "id": "datameet_municipal_wards",
+   "kind": "boundary_dataset",
+   "label": "Delhi municipal wards (pre-2022 interim) via DataMeet (datameet/Municipal_Spatial_Data)",
+   "url": "https://raw.githubusercontent.com/datameet/Municipal_Spatial_Data/master/Delhi/Delhi_Wards.geojson",
+   "notes": "Backs wards.geojson (~290 pre-2022 charges incl. NDMC + Cantonment; predates the 2022 unified-MCD 250-ward delimitation — shipped as labelled interim per CREDITS.md caveat). Ward geometry also underlies ward_heat.geojson, ward_heat_summary.json, ward_aqi.geojson, jurisdiction_crosswalk.json, and the ward attribution inside shelters.geojson. License CC BY-SA 2.5 IN."
+  },
+  {
+   "id": "opencity_villages_maps",
+   "kind": "boundary_dataset",
+   "label": "Villages Maps of Delhi (OpenCity, Government of Delhi KML, 2022)",
+   "url": "https://data.opencity.in/dataset/villages-maps-of-delhi",
+   "notes": "Backs villages.geojson (district-tagged village polygons, 2022) and districts.geojson (11 districts dissolved from the village polygons per scripts/recipes/delhi/build_opencity_layers.py). Per-resource download URLs and checksums are in data/cities/delhi/source/opencity/_raw/_manifest.json."
+  },
+  {
+   "id": "opencity_water_bodies_census",
+   "kind": "facility_register",
+   "label": "Delhi Water Bodies Census Data (OpenCity, 2023 KML)",
+   "url": "https://data.opencity.in/dataset/delhi-water-bodies-census-data",
+   "notes": "Backs water.geojson (893 water-body points, 2023), converted from KML by build_opencity_layers.py."
+  },
+  {
+   "id": "opencity_cpcb_hourly_aqi",
+   "kind": "air_quality_dataset",
+   "label": "Delhi Hourly Air Quality Reports (CPCB/DPCC/IMD CAAQMS data via OpenCity)",
+   "url": "https://data.opencity.in/dataset/delhi-hourly-air-quality-reports",
+   "notes": "Publisher recorded as central-pollution-control-board; per-station CSVs 2017-2023 (DPCC/IMD monitors). Backs air_quality.geojson and ward_aqi.geojson (built by scripts/recipes/delhi/build_air_quality.py from _raw/delhi-hourly-air-quality-reports/)."
+  },
+  {
+   "id": "cpcb_caaqms_station_master",
+   "kind": "air_quality_stations",
+   "label": "CAAQMS monitoring-station coordinates (station_master.csv, source tag 'cpcb_caaqms')",
+   "url": null,
+   "notes": "Station lat/lon and operating agency (DPCC/IMD etc.) for the air_quality.geojson / ward_aqi.geojson station points. The on-disk record tags each row source=cpcb_caaqms but records no URL for the CPCB portal itself — honest blank; the build script header confirms coordinates come from this curated master, not Google Maps."
+  },
+  {
+   "id": "otd_delhi_static_gtfs",
+   "kind": "gtfs_feed",
+   "label": "Open Transit Data Delhi — static GTFS bundle (GNCTD)",
+   "url": "https://otd.delhi.gov.in/data/static/",
+   "notes": "Public no-key static GTFS download (OTD_STATIC_URL in the delhi-acquire adapter). Backs bus_routes.geojson (route LineStrings from shapes.txt / longest-trip reconstruction per scripts/recipes/delhi/acquire_gtfs.py)."
+  },
+  {
+   "id": "osm_overpass",
+   "kind": "osm_extract",
+   "label": "OpenStreetMap via Overpass API (amenity/transit/road queries)",
+   "url": "https://overpass-api.de/api/interpreter",
+   "notes": "Overpass queries defined in sevent4/domain/delhi_acquire.py back stops.geojson (highway=bus_stop), metro.geojson (subway stations), metro_lines.geojson, rrts.geojson (Namo Bharat), rail.geojson, roads.geojson (motorway/trunk/primary 'Major roads'), health.geojson, schools.geojson, police.geojson, fire.geojson, toilets.geojson. OSM is reference-tier in this atlas, ODbL 1.0."
+  },
+  {
+   "id": "osm_bbbike_newdelhi_extract",
+   "kind": "osm_extract",
+   "label": "New Delhi OSM shapefile extract (BBBike, OpenStreetMap contributors)",
+   "url": "https://extract.bbbike.org/",
+   "notes": "2026-01-09 snapshot, ODbL 1.0. Only the waterways layer was ingested — backs drains.geojson (975 drainage/canal/river segments clipped to the NCT ward union); roads/rail/points/buildings explicitly NOT ingested (recorded as redundant/rejected in the same sources.json)."
+  },
+  {
+   "id": "dpl_zone_pages",
+   "kind": "facility_register",
+   "label": "Delhi Public Library zone pages (branch locations register)",
+   "url": "https://dpl.gov.in/index.php/central-zone",
+   "notes": "DPL-published branch/sub-branch locations parsed from dpl.gov.in zone pages (source_url column per row), geocoded with confidence flags. Backs dpl_libraries.geojson."
+  },
+  {
+   "id": "dpl_annual_reports",
+   "kind": "library_annual_reports",
+   "label": "Delhi Public Library annual reports (dpl.gov.in)",
+   "url": "https://dpl.gov.in/index.php/annual-reports",
+   "notes": "Per-year report PDFs with sha256 in the fetch manifest (e.g. https://dpl.gov.in/images/annualreport910.pdf). Backs the DPL metrics time series (dpl_annual_metrics.csv, dpl_ten_year_time_series.csv) used by the library analysis behind dpl_libraries.geojson attributes — not a separate map layer. The archive manifest records that a later re-fetch of dpl.gov.in failed (connection timeouts) and that 2012-13 was obtained via a Google Drive mirror URL recorded therein (data/cities/delhi/source/libraries/dpl_annual_report_archive_manifest.csv)."
+  },
+  {
+   "id": "dusib_night_shelter_register",
+   "kind": "shelter_register",
+   "label": "DUSIB (Delhi Urban Shelter Improvement Board) district-wise night shelters / live occupancy report",
+   "url": "https://delhishelterboard.in/occupancy-report/index-ag2.php",
+   "notes": "Backs shelters.geojson. Provenance is embedded per-feature ('source' field: DUSIB District wise Night Shelters List, live occupancy report, fetched 2026-07-01 11:03 IST), with per-feature geocode_confidence and ward-vintage caveat notes."
+  },
+  {
+   "id": "planetary_computer_landsat",
+   "kind": "satellite_derivation",
+   "label": "Microsoft Planetary Computer STAC — USGS Landsat Collection 2 Level-2 (Landsat 8/9) land surface temperature",
+   "url": "https://planetarycomputer.microsoft.com/api/stac/v1",
+   "notes": "Heat layers are a derivation, not a downloaded dataset: the adapter queries collection 'landsat-c2-l2' filtered to platforms landsat-8/landsat-9 and computes a QA-masked LST median. Backs ward_heat.geojson, ward_heat_summary.json (window 2024-04-01/2026-07-01 recorded in the file), heat30m.png and heat30m_bounds.json. Quarterly refresh via .github/workflows/heat-refresh.yml."
+  },
+  {
+   "id": "gnctd_finance_portal",
+   "kind": "finance_pdf_index",
+   "label": "GNCTD Finance Department budget portal (finance.delhi.gov.in)",
+   "url": "https://finance.delhi.gov.in/finance/budget-glance",
+   "notes": "Manifest indexes Budget at a Glance 2007-08..2026-27, Budget Speeches, Receipts Budgets, Gender Budgets and Detailed Demands for Grants with per-document URLs (most status 'discovered', not yet fetched). Backs the Delhi finance work under data/cities/delhi/source/budget/ — no public map layer in public/cities/delhi/layers/ yet."
+  },
+  {
+   "id": "mcd_budget_portal",
+   "kind": "finance_pdf_index",
+   "label": "Municipal Corporation of Delhi budget documents (mcdonline.nic.in)",
+   "url": "https://mcdonline.nic.in/portal/officialLink",
+   "notes": "MCD seed URLs plus 22 discovered budget PDFs (e.g. mcdonline.nic.in/portal/downloadFile/expenditure_rbe__12-13_south_mcd_*.pdf). Backs municipal-finance claims; no public map layer yet."
+  },
+  {
+   "id": "ndmc_budget",
+   "kind": "finance_pdf_index",
+   "label": "New Delhi Municipal Council budgets and NDMC Act 1994 (ndmc.gov.in)",
+   "url": "https://www.ndmc.gov.in/budget_2026-27.aspx",
+   "notes": "Vision-verified NDMC Budget at a Glance 2026-27 and 2025-26, Budget Speech, Vol 1, plus the NDMC Act 1994 page grounding the no-elected-council governance note; local PDFs under budget/ndmc/pdfs/. Backs finance/governance claims (also context for governance.json); no public map layer."
+  },
+  {
+   "id": "cpr_spcb_study",
+   "kind": "regulator_capacity_research",
+   "label": "Centre for Policy Research SPCB study working papers (Delhi PCC staffing and finances)",
+   "url": "https://cprindia.org/wp-content/uploads/2022/10/03-Staff-WP_CPR-SPCB-study_281022.pdf",
+   "notes": "CPR 'Who is in the field?' (2022-10) and 'Are they in the green?' (2023-04, URL also recorded in the same file) — DPCC sanctioned posts 184→343, consents 3,224→11,698. Backs the pollution regulator-capacity material (data/cities/delhi/source/pollution/capacity.json); no public map layer in the Delhi layers dir."
+  },
+  {
+   "id": "dpcc_rti_disclosures",
+   "kind": "rti_disclosure",
+   "label": "DPCC primary records: post-creation order 2019, RTI replies on vacancies (2021) and finance (2022)",
+   "url": "https://dpcc.delhigovt.nic.in/",
+   "notes": "Primary DPCC records held locally under data/cities/delhi/source/pollution/raw/ (Office_order_28.06.2019.pdf; RTI 60075 — 218 of 343 posts vacant as of 1 Aug 2021; RTI 60047 finance FY18-21, OCR too poor for line items). The recorded web URL is the DPCC official site marked 'to_acquire'. Backs regulator-capacity claims; no public map layer."
+  },
+  {
+   "id": "census_2011_population",
+   "kind": "census_dataset",
+   "label": "Census of India 2011 — NCT population denominators",
+   "url": "https://censusindia.gov.in/",
+   "notes": "NCT of Delhi 2011 population 16,787,941, held audit-only per the row's own note (not the current DPL denominator). Backs population denominators in the library-access analysis behind dpl_libraries.geojson-adjacent metrics."
+  },
+  {
+   "id": "census_2011_hlpca_h14",
+   "kind": "census_dataset",
+   "label": "Census of India 2011 Houselisting (HLPCA) Table H-14 — household vehicle ownership, New Delhi district",
+   "url": "https://censusindia.gov.in/nada/index.php/catalog/9392/download/12504/HLPCA-07094-2011_H14_census.xlsx",
+   "notes": "Raw file on disk at data/cities/delhi/source/vehicle_ownership_census/HLPCA-07094-NewDelhi-2011_H14.xlsx plus a ward sample CSV; the source directory itself records no URL — the verbatim NADA catalog download URL is documented in the mobility scoping note. Backs vehicle-ownership claims; no public map layer yet."
+  }
+ ]
+}

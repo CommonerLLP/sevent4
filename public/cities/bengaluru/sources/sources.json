@@ -1,0 +1,114 @@
+{
+ "schema": "sevent4.public_sources.v1",
+ "city": "bengaluru",
+ "city_name": "Bengaluru",
+ "compiled": "2026-07-01",
+ "count": 15,
+ "sources": [
+  {
+   "id": "opencity_gba_wards_delimitation_2025",
+   "kind": "boundary_dataset",
+   "label": "GBA 369-ward delimitation (Dec 2025), Greater Bengaluru Authority via OpenCity",
+   "url": "https://data.opencity.in/dataset/gba-wards-delimitation-2025",
+   "notes": "Primary ward frame: backs wards.geojson (369 features, incl. baked-in Census attributes TOT_P/SC_P/ST_P, corporation, AC, RO/ARO fields) and the geometry+attributes of ward_heat.geojson. Also one of the three inputs to jurisdiction_crosswalk.json (spatial join of wards/ACs/PCs, per that file's own 'source' field). Cite chain: publisher -> OpenCity -> sevent4 (processed by scripts/recipes/bengaluru/acquire_boundaries.py)."
+  },
+  {
+   "id": "opencity_bbmp_wards_delimitation_2023",
+   "kind": "boundary_dataset",
+   "label": "BBMP 198-ward (2023 republication) delimitation, BBMP via OpenCity",
+   "url": "https://data.opencity.in/dataset/bbmp-wards-delimitation-2023",
+   "notes": "The old-BBMP ward frame (wards_bbmp198.geojson, with population / sc_population / st_population attributes) used as the canonical 198-ward polygons for ward_analysis.geojson (population, sc_st_share_pct, assembly/parliament joins; see sevent4/adapters/bengaluru_ward_analysis_geospatial.py) and for the ward polygons of ward_workorders.geojson / ward_workorders_yearly.geojson."
+  },
+  {
+   "id": "opencity_karnataka_bengaluru_ac_maps",
+   "kind": "boundary_dataset",
+   "label": "Karnataka & Bengaluru assembly-constituency maps (Karnataka SEC / ECI) via OpenCity",
+   "url": "https://data.opencity.in/dataset/karnataka-and-bengaluru-assembly-constituency-maps",
+   "notes": "Backs acs.geojson (28 Bengaluru ACs) and the AC leg of jurisdiction_crosswalk.json."
+  },
+  {
+   "id": "opencity_karnataka_bengaluru_pc_maps",
+   "kind": "boundary_dataset",
+   "label": "Karnataka & Bengaluru parliamentary-constituency maps (ECI) via OpenCity",
+   "url": "https://data.opencity.in/dataset/karnataka-and-bengaluru-parliamentary-constituency-maps",
+   "notes": "Backs pcs.geojson (5 features) and the PC leg of jurisdiction_crosswalk.json."
+  },
+  {
+   "id": "datameet_maps_census2011",
+   "kind": "community_geodata",
+   "label": "DataMeet maps (Census 2011 district boundaries)",
+   "url": "https://github.com/datameet/maps",
+   "notes": "Backs districts.geojson (1 feature, Bengaluru Urban; Census name 'Bangalore'), converted from Districts/Census_2011/2011_Dist.shp. License CC-BY-SA / ODbL per the provenance record."
+  },
+  {
+   "id": "openstreetmap_overpass",
+   "kind": "osm_extract",
+   "label": "OpenStreetMap contributors via Overpass API (ODbL)",
+   "url": null,
+   "notes": "No full URL is recorded on disk — the provenance record names only the endpoints 'overpass-api.de / overpass.kumi.systems' (bbox 12.83,77.45,13.15,77.80, fetched 2026-06), so url is left null rather than guessed. Backs roads.geojson (7170), metro_lines.geojson (550), metro.geojson (89 stations), stops.geojson (3378 bus stops), health.geojson (1849 hospitals/clinics), schools.geojson (620), libraries.geojson (73), toilets.geojson (423), police.geojson (71). Feature counts of the public layers match this record exactly."
+  },
+  {
+   "id": "opencity_gba_corporations_delimitation_2025",
+   "kind": "jurisdiction_dataset",
+   "label": "GBA five-corporations & zones delimitation 2025 (GBA) via OpenCity",
+   "url": "https://data.opencity.in/dataset/greater-bengaluru-authority-corporations-delimitation-2025",
+   "notes": "Backs gba_corporations.geojson (5 corporations) and gba_zones.geojson. License 'Other (Public Domain)'. Raw KML archived with sha256 in the _raw manifest; curated by scripts/recipes/bengaluru/build_opencity_jurisdiction_layers.py (see also data/cities/bengaluru/source/opencity/sources.json)."
+  },
+  {
+   "id": "opencity_bda_jurisdiction",
+   "kind": "jurisdiction_dataset",
+   "label": "BDA jurisdiction and boundary (Bangalore Development Authority) via OpenCity",
+   "url": "https://data.opencity.in/dataset/bda-jurisdiction-and-boundary",
+   "notes": "Backs bda_zones.geojson (BDA zones & subdivisions). License 'Other (Public Domain)'."
+  },
+  {
+   "id": "opencity_bwssb_boundary_maps",
+   "kind": "jurisdiction_dataset",
+   "label": "BWSSB boundary maps (Bangalore Water Supply and Sewerage Board) via OpenCity",
+   "url": "https://data.opencity.in/dataset/bwssb-boundary-maps",
+   "notes": "Backs bwssb_divisions.geojson (water-board division boundaries). License 'Other (Public Domain)'."
+  },
+  {
+   "id": "opencity_traffic_police_jurisdictions",
+   "kind": "jurisdiction_dataset",
+   "label": "Bengaluru Traffic Police jurisdictions (2022) via OpenCity",
+   "url": "https://data.opencity.in/dataset/bengaluru-traffic-police-jurisdictions",
+   "notes": "Backs traffic_police_jurisdiction.geojson. License 'Other (Public Domain)'."
+  },
+  {
+   "id": "opencity_bbmp_solid_waste",
+   "kind": "facility_dataset",
+   "label": "BBMP solid waste management data via OpenCity",
+   "url": "https://data.opencity.in/dataset/bbmp-solid-waste-management-data",
+   "notes": "Backs bbmp_dry_waste_centres.geojson (DWCC sites) and bbmp_landfills.geojson. Manifest records license as null/None for this dataset."
+  },
+  {
+   "id": "opencity_bbmp_work_orders_2013_2022",
+   "kind": "finance_dataset",
+   "label": "BBMP Work Orders by Ward (2013-2022), BBMP via OpenCity",
+   "url": "https://data.opencity.in/dataset/bbmp-work-orders-by-ward-2013-2022",
+   "notes": "Per-ward work-order CSVs (raw copies + resource URLs archived in the manifest). Backs ward_workorders.geojson and ward_workorders_yearly.geojson (works_spend_cr, work_count, top_contractor, top_budget_head, flagged_works) and the spend axis of ward_analysis.geojson via data/cities/bengaluru/source/finance/ward_workorders*.json."
+  },
+  {
+   "id": "opencity_nulm_shelters_pdf",
+   "kind": "shelter_register",
+   "label": "BBMP/NULM homeless-shelter list (PDF resource) via OpenCity",
+   "url": "https://data.opencity.in/dataset/e834fbea-6606-4535-938f-0e563aabe35f/resource/32781fe4-cd99-4f77-bfc3-1a2e863ec105/download/b55f389d-59e0-4f76-8ba9-532e6d56a2a1.pdf",
+   "notes": "Backs shelters.geojson (48 features, labelled 'Homeless shelters (NULM)' in sevent4/build_city_console.py). Every feature carries this same resource-download URL in its per-feature 'source' property, plus geocode_confidence/notes fields (geocoded via Photon/Nominatim). The dataset landing-page slug is NOT recorded on disk — only this resource URL — so no prettier dataset URL is claimed."
+  },
+  {
+   "id": "landsat_c2l2_planetary_computer",
+   "kind": "satellite_derivation",
+   "label": "USGS Landsat Collection 2 Level-2 (Landsat 8/9) surface temperature via Microsoft Planetary Computer STAC",
+   "url": "https://planetarycomputer.microsoft.com/api/stac/v1",
+   "notes": "Recorded derivation source for the heat layers: STAC_API constant in the adapter, collections=['landsat-c2-l2'], platform landsat-8/landsat-9, QA-masked median LST in Celsius. Backs ward_heat.geojson (mean_lst_c/max_lst_c), heat30m.png, heat30m_bounds.json and ward_heat_summary.json (current window 2024-04-01/2026-07-01 per that summary file). Quarterly refresh wired in .github/workflows/heat-refresh.yml."
+  },
+  {
+   "id": "myneta_eci_representatives",
+   "kind": "electoral_results",
+   "label": "MyNeta (Karnataka 2023) / Election Commission of India — MLA & MP roster",
+   "url": null,
+   "notes": "Backs the representative/party/office popup fields on acs.geojson and pcs.geojson. The on-disk CSV cites 'MyNeta Karnataka 2023 / ECI' as the source per row but records NO URL, so url is left null rather than guessed."
+  }
+ ]
+}

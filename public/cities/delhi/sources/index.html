@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script>(function(){try{var t=localStorage.getItem('atlas-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sources — Delhi</title>
+  <link rel="icon" type="image/png" href="../../../assets/ixa-mark.png">
+  <link rel="stylesheet" href="../../../assets/theme.css">
+  <style>
+*{box-sizing:border-box;margin:0}body{font:400 16px/1.6 var(--sans);color:var(--ink);background:var(--bg)}
+.wrap{max-width:860px;margin:0 auto;padding:32px 22px 80px}
+.crumb{font:700 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-bottom:18px}
+.crumb a{color:var(--blue);text-decoration:none}.crumb span{margin:0 6px;color:var(--line)}
+h1{font:700 30px/1.15 var(--serif);letter-spacing:-.01em;margin-bottom:8px}
+.lede{color:var(--mut);font-size:16px;max-width:70ch;margin-bottom:10px}
+.stat{font:700 12px/1 var(--mono);letter-spacing:.04em;color:var(--gold);margin-bottom:18px}
+.osearch{width:100%;min-height:44px;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);padding:9px 12px;font:600 14px var(--sans);margin-bottom:12px}
+.osearch::placeholder{color:var(--mut)}
+.onoresults{color:var(--mut);font-size:13px;margin:18px 0}
+.is-hidden{display:none}
+.rows{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+.row{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:var(--r);padding:9px 12px}
+.row-ghost{border-left-style:dashed;border-left-color:var(--mut)}
+.rhead{display:block;color:var(--mut);font:700 10px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px}
+.rwho{font-size:14.5px}
+.rname{color:var(--ink);font-weight:700}
+.rsrc{color:var(--gold);font:700 11px var(--mono);text-decoration:none;margin-left:6px}
+.rsrc-text{color:var(--mut);font-weight:400}
+.rnote{color:var(--mut);font-size:12.5px;line-height:1.5;margin-top:5px;max-width:70ch}
+.prov{margin-top:44px;border-top:1px solid var(--line);padding-top:20px;color:var(--mut);font-size:13px}
+.prov h3{font:700 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+.prov p{max-width:74ch}.prov a{color:var(--blue)}
+.prov code{font:600 12px var(--mono);color:var(--ink)}
+@media(max-width:640px){h1{font-size:25px}}
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <nav class="crumb"><a href="../">&larr; Atlas</a> <span>/</span> <b>Sources</b></nav>
+    <h1>Where this console's data comes from</h1>
+    <p class="lede">
+      Every layer, number, and name on the Delhi console traces
+      to one of the source records below. A record without a link means the
+      source's public URL was never captured at acquisition time — that gap is
+      reported, not papered over with a guessed link.
+    </p>
+    <p class="stat">20 source records &middot; 1 with no public URL recorded &middot; compiled 2026-07-01</p>
+
+    <input id="osearch" class="osearch" type="search"
+      placeholder="Search by source, kind, or note (e.g. &quot;budget&quot;, &quot;DataMeet&quot;, &quot;GTFS&quot;)">
+    <p id="onoresults" class="onoresults" hidden>No match. Clear the search to see all sources.</p>
+
+    <div class="rows">
+      <div class="row" data-search="boundary dataset eci assembly/parliamentary constituency boundaries via datameet (datameet/maps) election commission of india delimitation geometry redistributed by datameet. backs acs.geojson (70 acs, 2008 delimitation) and pcs.geojson (7 pcs; pc file url recorded as https://raw.githubusercontent.com/datameet/maps/master/parliamentary-constituencies/india_pc_2019_simplified.geojson in the same record). also feeds the derived jurisdiction_crosswalk.json. license recorded as &#x27;datameet community data&#x27;.">
+        <span class="rhead">boundary dataset</span>
+        <div class="rwho"><span class="rname">ECI assembly/parliamentary constituency boundaries via DataMeet (datameet/maps)</span> <a class="rsrc" href="https://raw.githubusercontent.com/datameet/maps/master/assembly-constituencies/India_AC.shp">source</a></div>
+        <p class="rnote">Election Commission of India delimitation geometry redistributed by DataMeet. Backs acs.geojson (70 ACs, 2008 delimitation) and pcs.geojson (7 PCs; PC file URL recorded as https://raw.githubusercontent.com/datameet/maps/master/parliamentary-constituencies/india_pc_2019_simplified.geojson in the same record). Also feeds the derived jurisdiction_crosswalk.json. License recorded as &#x27;DataMeet community data&#x27;.</p>
+      </div>
+
+      <div class="row" data-search="boundary dataset delhi municipal wards (pre-2022 interim) via datameet (datameet/municipal_spatial_data) backs wards.geojson (~290 pre-2022 charges incl. ndmc + cantonment; predates the 2022 unified-mcd 250-ward delimitation — shipped as labelled interim per credits.md caveat). ward geometry also underlies ward_heat.geojson, ward_heat_summary.json, ward_aqi.geojson, jurisdiction_crosswalk.json, and the ward attribution inside shelters.geojson. license cc by-sa 2.5 in.">
+        <span class="rhead">boundary dataset</span>
+        <div class="rwho"><span class="rname">Delhi municipal wards (pre-2022 interim) via DataMeet (datameet/Municipal_Spatial_Data)</span> <a class="rsrc" href="https://raw.githubusercontent.com/datameet/Municipal_Spatial_Data/master/Delhi/Delhi_Wards.geojson">source</a></div>
+        <p class="rnote">Backs wards.geojson (~290 pre-2022 charges incl. NDMC + Cantonment; predates the 2022 unified-MCD 250-ward delimitation — shipped as labelled interim per CREDITS.md caveat). Ward geometry also underlies ward_heat.geojson, ward_heat_summary.json, ward_aqi.geojson, jurisdiction_crosswalk.json, and the ward attribution inside shelters.geojson. License CC BY-SA 2.5 IN.</p>
+      </div>
+
+      <div class="row" data-search="boundary dataset villages maps of delhi (opencity, government of delhi kml, 2022) backs villages.geojson (district-tagged village polygons, 2022) and districts.geojson (11 districts dissolved from the village polygons per scripts/recipes/delhi/build_opencity_layers.py). per-resource download urls and checksums are in data/cities/delhi/source/opencity/_raw/_manifest.json.">
+        <span class="rhead">boundary dataset</span>
+        <div class="rwho"><span class="rname">Villages Maps of Delhi (OpenCity, Government of Delhi KML, 2022)</span> <a class="rsrc" href="https://data.opencity.in/dataset/villages-maps-of-delhi">source</a></div>
+        <p class="rnote">Backs villages.geojson (district-tagged village polygons, 2022) and districts.geojson (11 districts dissolved from the village polygons per scripts/recipes/delhi/build_opencity_layers.py). Per-resource download URLs and checksums are in data/cities/delhi/source/opencity/_raw/_manifest.json.</p>
+      </div>
+
+      <div class="row" data-search="facility register delhi water bodies census data (opencity, 2023 kml) backs water.geojson (893 water-body points, 2023), converted from kml by build_opencity_layers.py.">
+        <span class="rhead">facility register</span>
+        <div class="rwho"><span class="rname">Delhi Water Bodies Census Data (OpenCity, 2023 KML)</span> <a class="rsrc" href="https://data.opencity.in/dataset/delhi-water-bodies-census-data">source</a></div>
+        <p class="rnote">Backs water.geojson (893 water-body points, 2023), converted from KML by build_opencity_layers.py.</p>
+      </div>
+
+      <div class="row" data-search="air quality dataset delhi hourly air quality reports (cpcb/dpcc/imd caaqms data via opencity) publisher recorded as central-pollution-control-board; per-station csvs 2017-2023 (dpcc/imd monitors). backs air_quality.geojson and ward_aqi.geojson (built by scripts/recipes/delhi/build_air_quality.py from _raw/delhi-hourly-air-quality-reports/).">
+        <span class="rhead">air quality dataset</span>
+        <div class="rwho"><span class="rname">Delhi Hourly Air Quality Reports (CPCB/DPCC/IMD CAAQMS data via OpenCity)</span> <a class="rsrc" href="https://data.opencity.in/dataset/delhi-hourly-air-quality-reports">source</a></div>
+        <p class="rnote">Publisher recorded as central-pollution-control-board; per-station CSVs 2017-2023 (DPCC/IMD monitors). Backs air_quality.geojson and ward_aqi.geojson (built by scripts/recipes/delhi/build_air_quality.py from _raw/delhi-hourly-air-quality-reports/).</p>
+      </div>
+
+      <div class="row row-ghost" data-search="air quality stations caaqms monitoring-station coordinates (station_master.csv, source tag &#x27;cpcb_caaqms&#x27;) station lat/lon and operating agency (dpcc/imd etc.) for the air_quality.geojson / ward_aqi.geojson station points. the on-disk record tags each row source=cpcb_caaqms but records no url for the cpcb portal itself — honest blank; the build script header confirms coordinates come from this curated master, not google maps.">
+        <span class="rhead">air quality stations</span>
+        <div class="rwho"><span class="rname">CAAQMS monitoring-station coordinates (station_master.csv, source tag &#x27;cpcb_caaqms&#x27;)</span> <span class="rsrc rsrc-text">no public URL recorded</span></div>
+        <p class="rnote">Station lat/lon and operating agency (DPCC/IMD etc.) for the air_quality.geojson / ward_aqi.geojson station points. The on-disk record tags each row source=cpcb_caaqms but records no URL for the CPCB portal itself — honest blank; the build script header confirms coordinates come from this curated master, not Google Maps.</p>
+      </div>
+
+      <div class="row" data-search="gtfs feed open transit data delhi — static gtfs bundle (gnctd) public no-key static gtfs download (otd_static_url in the delhi-acquire adapter). backs bus_routes.geojson (route linestrings from shapes.txt / longest-trip reconstruction per scripts/recipes/delhi/acquire_gtfs.py).">
+        <span class="rhead">gtfs feed</span>
+        <div class="rwho"><span class="rname">Open Transit Data Delhi — static GTFS bundle (GNCTD)</span> <a class="rsrc" href="https://otd.delhi.gov.in/data/static/">source</a></div>
+        <p class="rnote">Public no-key static GTFS download (OTD_STATIC_URL in the delhi-acquire adapter). Backs bus_routes.geojson (route LineStrings from shapes.txt / longest-trip reconstruction per scripts/recipes/delhi/acquire_gtfs.py).</p>
+      </div>
+
+      <div class="row" data-search="osm extract openstreetmap via overpass api (amenity/transit/road queries) overpass queries defined in sevent4/domain/delhi_acquire.py back stops.geojson (highway=bus_stop), metro.geojson (subway stations), metro_lines.geojson, rrts.geojson (namo bharat), rail.geojson, roads.geojson (motorway/trunk/primary &#x27;major roads&#x27;), health.geojson, schools.geojson, police.geojson, fire.geojson, toilets.geojson. osm is reference-tier in this atlas, odbl 1.0.">
+        <span class="rhead">osm extract</span>
+        <div class="rwho"><span class="rname">OpenStreetMap via Overpass API (amenity/transit/road queries)</span> <a class="rsrc" href="https://overpass-api.de/api/interpreter">source</a></div>
+        <p class="rnote">Overpass queries defined in sevent4/domain/delhi_acquire.py back stops.geojson (highway=bus_stop), metro.geojson (subway stations), metro_lines.geojson, rrts.geojson (Namo Bharat), rail.geojson, roads.geojson (motorway/trunk/primary &#x27;Major roads&#x27;), health.geojson, schools.geojson, police.geojson, fire.geojson, toilets.geojson. OSM is reference-tier in this atlas, ODbL 1.0.</p>
+      </div>
+
+      <div class="row" data-search="osm extract new delhi osm shapefile extract (bbbike, openstreetmap contributors) 2026-01-09 snapshot, odbl 1.0. only the waterways layer was ingested — backs drains.geojson (975 drainage/canal/river segments clipped to the nct ward union); roads/rail/points/buildings explicitly not ingested (recorded as redundant/rejected in the same sources.json).">
+        <span class="rhead">osm extract</span>
+        <div class="rwho"><span class="rname">New Delhi OSM shapefile extract (BBBike, OpenStreetMap contributors)</span> <a class="rsrc" href="https://extract.bbbike.org/">source</a></div>
+        <p class="rnote">2026-01-09 snapshot, ODbL 1.0. Only the waterways layer was ingested — backs drains.geojson (975 drainage/canal/river segments clipped to the NCT ward union); roads/rail/points/buildings explicitly NOT ingested (recorded as redundant/rejected in the same sources.json).</p>
+      </div>
+
+      <div class="row" data-search="facility register delhi public library zone pages (branch locations register) dpl-published branch/sub-branch locations parsed from dpl.gov.in zone pages (source_url column per row), geocoded with confidence flags. backs dpl_libraries.geojson.">
+        <span class="rhead">facility register</span>
+        <div class="rwho"><span class="rname">Delhi Public Library zone pages (branch locations register)</span> <a class="rsrc" href="https://dpl.gov.in/index.php/central-zone">source</a></div>
+        <p class="rnote">DPL-published branch/sub-branch locations parsed from dpl.gov.in zone pages (source_url column per row), geocoded with confidence flags. Backs dpl_libraries.geojson.</p>
+      </div>
+
+      <div class="row" data-search="library annual reports delhi public library annual reports (dpl.gov.in) per-year report pdfs with sha256 in the fetch manifest (e.g. https://dpl.gov.in/images/annualreport910.pdf). backs the dpl metrics time series (dpl_annual_metrics.csv, dpl_ten_year_time_series.csv) used by the library analysis behind dpl_libraries.geojson attributes — not a separate map layer. the archive manifest records that a later re-fetch of dpl.gov.in failed (connection timeouts) and that 2012-13 was obtained via a google drive mirror url recorded therein (data/cities/delhi/source/libraries/dpl_annual_report_archive_manifest.csv).">
+        <span class="rhead">library annual reports</span>
+        <div class="rwho"><span class="rname">Delhi Public Library annual reports (dpl.gov.in)</span> <a class="rsrc" href="https://dpl.gov.in/index.php/annual-reports">source</a></div>
+        <p class="rnote">Per-year report PDFs with sha256 in the fetch manifest (e.g. https://dpl.gov.in/images/annualreport910.pdf). Backs the DPL metrics time series (dpl_annual_metrics.csv, dpl_ten_year_time_series.csv) used by the library analysis behind dpl_libraries.geojson attributes — not a separate map layer. The archive manifest records that a later re-fetch of dpl.gov.in failed (connection timeouts) and that 2012-13 was obtained via a Google Drive mirror URL recorded therein (data/cities/delhi/source/libraries/dpl_annual_report_archive_manifest.csv).</p>
+      </div>
+
+      <div class="row" data-search="shelter register dusib (delhi urban shelter improvement board) district-wise night shelters / live occupancy report backs shelters.geojson. provenance is embedded per-feature (&#x27;source&#x27; field: dusib district wise night shelters list, live occupancy report, fetched 2026-07-01 11:03 ist), with per-feature geocode_confidence and ward-vintage caveat notes.">
+        <span class="rhead">shelter register</span>
+        <div class="rwho"><span class="rname">DUSIB (Delhi Urban Shelter Improvement Board) district-wise night shelters / live occupancy report</span> <a class="rsrc" href="https://delhishelterboard.in/occupancy-report/index-ag2.php">source</a></div>
+        <p class="rnote">Backs shelters.geojson. Provenance is embedded per-feature (&#x27;source&#x27; field: DUSIB District wise Night Shelters List, live occupancy report, fetched 2026-07-01 11:03 IST), with per-feature geocode_confidence and ward-vintage caveat notes.</p>
+      </div>
+
+      <div class="row" data-search="satellite derivation microsoft planetary computer stac — usgs landsat collection 2 level-2 (landsat 8/9) land surface temperature heat layers are a derivation, not a downloaded dataset: the adapter queries collection &#x27;landsat-c2-l2&#x27; filtered to platforms landsat-8/landsat-9 and computes a qa-masked lst median. backs ward_heat.geojson, ward_heat_summary.json (window 2024-04-01/2026-07-01 recorded in the file), heat30m.png and heat30m_bounds.json. quarterly refresh via .github/workflows/heat-refresh.yml.">
+        <span class="rhead">satellite derivation</span>
+        <div class="rwho"><span class="rname">Microsoft Planetary Computer STAC — USGS Landsat Collection 2 Level-2 (Landsat 8/9) land surface temperature</span> <a class="rsrc" href="https://planetarycomputer.microsoft.com/api/stac/v1">source</a></div>
+        <p class="rnote">Heat layers are a derivation, not a downloaded dataset: the adapter queries collection &#x27;landsat-c2-l2&#x27; filtered to platforms landsat-8/landsat-9 and computes a QA-masked LST median. Backs ward_heat.geojson, ward_heat_summary.json (window 2024-04-01/2026-07-01 recorded in the file), heat30m.png and heat30m_bounds.json. Quarterly refresh via .github/workflows/heat-refresh.yml.</p>
+      </div>
+
+      <div class="row" data-search="finance pdf index gnctd finance department budget portal (finance.delhi.gov.in) manifest indexes budget at a glance 2007-08..2026-27, budget speeches, receipts budgets, gender budgets and detailed demands for grants with per-document urls (most status &#x27;discovered&#x27;, not yet fetched). backs the delhi finance work under data/cities/delhi/source/budget/ — no public map layer in public/cities/delhi/layers/ yet.">
+        <span class="rhead">finance pdf index</span>
+        <div class="rwho"><span class="rname">GNCTD Finance Department budget portal (finance.delhi.gov.in)</span> <a class="rsrc" href="https://finance.delhi.gov.in/finance/budget-glance">source</a></div>
+        <p class="rnote">Manifest indexes Budget at a Glance 2007-08..2026-27, Budget Speeches, Receipts Budgets, Gender Budgets and Detailed Demands for Grants with per-document URLs (most status &#x27;discovered&#x27;, not yet fetched). Backs the Delhi finance work under data/cities/delhi/source/budget/ — no public map layer in public/cities/delhi/layers/ yet.</p>
+      </div>
+
+      <div class="row" data-search="finance pdf index municipal corporation of delhi budget documents (mcdonline.nic.in) mcd seed urls plus 22 discovered budget pdfs (e.g. mcdonline.nic.in/portal/downloadfile/expenditure_rbe__12-13_south_mcd_*.pdf). backs municipal-finance claims; no public map layer yet.">
+        <span class="rhead">finance pdf index</span>
+        <div class="rwho"><span class="rname">Municipal Corporation of Delhi budget documents (mcdonline.nic.in)</span> <a class="rsrc" href="https://mcdonline.nic.in/portal/officialLink">source</a></div>
+        <p class="rnote">MCD seed URLs plus 22 discovered budget PDFs (e.g. mcdonline.nic.in/portal/downloadFile/expenditure_rbe__12-13_south_mcd_*.pdf). Backs municipal-finance claims; no public map layer yet.</p>
+      </div>
+
+      <div class="row" data-search="finance pdf index new delhi municipal council budgets and ndmc act 1994 (ndmc.gov.in) vision-verified ndmc budget at a glance 2026-27 and 2025-26, budget speech, vol 1, plus the ndmc act 1994 page grounding the no-elected-council governance note; local pdfs under budget/ndmc/pdfs/. backs finance/governance claims (also context for governance.json); no public map layer.">
+        <span class="rhead">finance pdf index</span>
+        <div class="rwho"><span class="rname">New Delhi Municipal Council budgets and NDMC Act 1994 (ndmc.gov.in)</span> <a class="rsrc" href="https://www.ndmc.gov.in/budget_2026-27.aspx">source</a></div>
+        <p class="rnote">Vision-verified NDMC Budget at a Glance 2026-27 and 2025-26, Budget Speech, Vol 1, plus the NDMC Act 1994 page grounding the no-elected-council governance note; local PDFs under budget/ndmc/pdfs/. Backs finance/governance claims (also context for governance.json); no public map layer.</p>
+      </div>
+
+      <div class="row" data-search="regulator capacity research centre for policy research spcb study working papers (delhi pcc staffing and finances) cpr &#x27;who is in the field?&#x27; (2022-10) and &#x27;are they in the green?&#x27; (2023-04, url also recorded in the same file) — dpcc sanctioned posts 184→343, consents 3,224→11,698. backs the pollution regulator-capacity material (data/cities/delhi/source/pollution/capacity.json); no public map layer in the delhi layers dir.">
+        <span class="rhead">regulator capacity research</span>
+        <div class="rwho"><span class="rname">Centre for Policy Research SPCB study working papers (Delhi PCC staffing and finances)</span> <a class="rsrc" href="https://cprindia.org/wp-content/uploads/2022/10/03-Staff-WP_CPR-SPCB-study_281022.pdf">source</a></div>
+        <p class="rnote">CPR &#x27;Who is in the field?&#x27; (2022-10) and &#x27;Are they in the green?&#x27; (2023-04, URL also recorded in the same file) — DPCC sanctioned posts 184→343, consents 3,224→11,698. Backs the pollution regulator-capacity material (data/cities/delhi/source/pollution/capacity.json); no public map layer in the Delhi layers dir.</p>
+      </div>
+
+      <div class="row" data-search="rti disclosure dpcc primary records: post-creation order 2019, rti replies on vacancies (2021) and finance (2022) primary dpcc records held locally under data/cities/delhi/source/pollution/raw/ (office_order_28.06.2019.pdf; rti 60075 — 218 of 343 posts vacant as of 1 aug 2021; rti 60047 finance fy18-21, ocr too poor for line items). the recorded web url is the dpcc official site marked &#x27;to_acquire&#x27;. backs regulator-capacity claims; no public map layer.">
+        <span class="rhead">rti disclosure</span>
+        <div class="rwho"><span class="rname">DPCC primary records: post-creation order 2019, RTI replies on vacancies (2021) and finance (2022)</span> <a class="rsrc" href="https://dpcc.delhigovt.nic.in/">source</a></div>
+        <p class="rnote">Primary DPCC records held locally under data/cities/delhi/source/pollution/raw/ (Office_order_28.06.2019.pdf; RTI 60075 — 218 of 343 posts vacant as of 1 Aug 2021; RTI 60047 finance FY18-21, OCR too poor for line items). The recorded web URL is the DPCC official site marked &#x27;to_acquire&#x27;. Backs regulator-capacity claims; no public map layer.</p>
+      </div>
+
+      <div class="row" data-search="census dataset census of india 2011 — nct population denominators nct of delhi 2011 population 16,787,941, held audit-only per the row&#x27;s own note (not the current dpl denominator). backs population denominators in the library-access analysis behind dpl_libraries.geojson-adjacent metrics.">
+        <span class="rhead">census dataset</span>
+        <div class="rwho"><span class="rname">Census of India 2011 — NCT population denominators</span> <a class="rsrc" href="https://censusindia.gov.in/">source</a></div>
+        <p class="rnote">NCT of Delhi 2011 population 16,787,941, held audit-only per the row&#x27;s own note (not the current DPL denominator). Backs population denominators in the library-access analysis behind dpl_libraries.geojson-adjacent metrics.</p>
+      </div>
+
+      <div class="row" data-search="census dataset census of india 2011 houselisting (hlpca) table h-14 — household vehicle ownership, new delhi district raw file on disk at data/cities/delhi/source/vehicle_ownership_census/hlpca-07094-newdelhi-2011_h14.xlsx plus a ward sample csv; the source directory itself records no url — the verbatim nada catalog download url is documented in the mobility scoping note. backs vehicle-ownership claims; no public map layer yet.">
+        <span class="rhead">census dataset</span>
+        <div class="rwho"><span class="rname">Census of India 2011 Houselisting (HLPCA) Table H-14 — household vehicle ownership, New Delhi district</span> <a class="rsrc" href="https://censusindia.gov.in/nada/index.php/catalog/9392/download/12504/HLPCA-07094-2011_H14_census.xlsx">source</a></div>
+        <p class="rnote">Raw file on disk at data/cities/delhi/source/vehicle_ownership_census/HLPCA-07094-NewDelhi-2011_H14.xlsx plus a ward sample CSV; the source directory itself records no URL — the verbatim NADA catalog download URL is documented in the mobility scoping note. Backs vehicle-ownership claims; no public map layer yet.</p>
+      </div>
+</div>
+
+    <footer class="prov">
+      <h3>Handling &amp; reuse</h3>
+      <p>
+        This inventory is compiled from the repo&#x27;s own acquisition records:
+        each entry is backed by a named internal record whose existence is
+        verified every time this page is built. It is also published as
+        <a href="sources.json">machine-readable JSON</a>
+        (schema <code>sevent4.public_sources.v1</code>) so other projects can
+        reuse the sourcing without re-deriving it.
+      </p>
+    </footer>
+  </main>
+  <script>
+  document.getElementById("osearch").addEventListener("input", (event) => {
+    const q = event.target.value.trim().toLowerCase();
+    let anyVisible = false;
+    document.querySelectorAll(".row").forEach((row) => {
+      const match = !q || (row.dataset.search || "").includes(q);
+      row.classList.toggle("is-hidden", !match);
+      if (match) anyVisible = true;
+    });
+    document.getElementById("onoresults").hidden = anyVisible || !q;
+  });
+</script>
+</body>
+</html>

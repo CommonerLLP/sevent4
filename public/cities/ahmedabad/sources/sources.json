@@ -1,0 +1,65 @@
+{
+ "schema": "sevent4.public_sources.v1",
+ "city": "ahmedabad",
+ "city_name": "Ahmedabad",
+ "compiled": null,
+ "count": 8,
+ "sources": [
+  {
+   "id": "amc_budget_books",
+   "kind": "finance_pdf_index",
+   "label": "AMC Budget",
+   "url": "https://ahmedabadcity.gov.in/SP/Budget",
+   "notes": "Public index of Ahmedabad municipal budget PDFs."
+  },
+  {
+   "id": "amc_balance_sheets",
+   "kind": "finance_pdf_index",
+   "label": "AMC Balance Sheet",
+   "url": "https://ahmedabadcity.gov.in/SP/BalanceSheet",
+   "notes": "Public index of balance sheets and audit reports."
+  },
+  {
+   "id": "amc_finance_context",
+   "kind": "finance_context_page",
+   "label": "About AMC Finance",
+   "url": "https://ahmedabadcity.gov.in/SP/AboutAMCFinance",
+   "notes": "Finance department context, accounting basis, budget branch, controls, and officials."
+  },
+  {
+   "id": "amc_departments",
+   "kind": "department_index",
+   "label": "AMC Departments",
+   "url": "https://ahmedabadcity.gov.in/StaticPage/Departments",
+   "notes": "Public department index for office attribution."
+  },
+  {
+   "id": "amc_city_civic_centers",
+   "kind": "citizen_facility_index",
+   "label": "City Civic Centers",
+   "url": "https://ahmedabadcity.gov.in/StaticPage/CityCivicCenters",
+   "notes": "Public civic-center page listing municipal services and citywide center counts."
+  },
+  {
+   "id": "amc_officers_contact_directory",
+   "kind": "officer_contact_directory_pdf",
+   "label": "AMC Contact Directory",
+   "url": "https://ahmedabad.gujarat.gov.in/assets/downloads/AMC_Contact_Directory_.pdf",
+   "notes": "Public officer directory used for municipal commissioner attribution."
+  },
+  {
+   "id": "amc_ward_councillors_2026_27",
+   "kind": "representative_pdf",
+   "label": "Councillors 2026-27",
+   "url": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2638",
+   "notes": "Ward councillor names and information."
+  },
+  {
+   "id": "amc_standing_committee_english_2026_27",
+   "kind": "representative_pdf",
+   "label": "Standing Committee Member List - English",
+   "url": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2645",
+   "notes": "Standing Committee member list in English."
+  }
+ ]
+}
