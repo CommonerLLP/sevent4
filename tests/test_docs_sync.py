@@ -47,7 +47,9 @@ class DocsSyncTest(unittest.TestCase):
     def test_contributing_documents_current_full_suite_count(self) -> None:
         contributing = (ROOT / "CONTRIBUTING.md").read_text(encoding="utf-8")
 
-        self.assertIn("currently 321 tests", contributing)
+        self.assertIn("currently 330 tests", contributing)
+        self.assertNotIn("currently 327 tests", contributing)
+        self.assertNotIn("currently 321 tests", contributing)
         self.assertNotIn("currently 319 tests", contributing)
         self.assertNotIn("currently 315 tests", contributing)
         self.assertNotIn("currently 93 tests", contributing)

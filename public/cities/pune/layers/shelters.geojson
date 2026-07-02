@@ -1,0 +1,110 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     73.8866882,
+     18.5453173
+    ]
+   },
+   "properties": {
+    "name": "Mother Teresa Hall, Yerwada",
+    "zone": null,
+    "ward": "Yerwada (Ward 14, 2012 prabhag)",
+    "capacity": 23,
+    "day_service": true,
+    "day_only_night_gender": "men only",
+    "source": "https://www.freepressjournal.in/pune/pune-why-do-homeless-people-refuse-shelter-homes-despite-the-bitter-cold (Dec 24, 2024); corroborated by https://www.punekarnews.in/pune-provides-shelter-food-to-its-homeless-needy-people-and-students/ (Mar 27, 2020, naming 'Mother Teresa Hall, Yerawada' as the specific site)",
+    "geocode_confidence": "approximate",
+    "notes": "Nominatim resolved to the Yerwada locality centroid, not the specific Mother Teresa Hall building; no street address found. Point-in-polygon against this repo's wards.geojson (DataMeet 2012 76-prabhag set, numbered only, no ward names) places it in Ward 14. One of PMC's 5 current PMC-run SUH shelters (as of Dec 2024 reporting); men-only, 23-bed capacity per Free Press Journal."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     73.8381029,
+     18.5696611
+    ]
+   },
+   "properties": {
+    "name": "Dudh Bhatti / Samaj Mandir, Bopodi",
+    "zone": null,
+    "ward": "Bopodi (Ward 6, 2012 prabhag)",
+    "capacity": 17,
+    "day_service": true,
+    "day_only_night_gender": "men only",
+    "source": "https://www.freepressjournal.in/pune/pune-why-do-homeless-people-refuse-shelter-homes-despite-the-bitter-cold (Dec 24, 2024); corroborated by https://www.punekarnews.in/pune-provides-shelter-food-to-its-needy-people-and-students/ (Mar 27, 2020, naming 'Dudh Bhatti - Samaj Temple, Bopodi')",
+    "geocode_confidence": "approximate",
+    "notes": "Geocoded (via Photon/OSM) to the Bopodi locality centroid, not the specific temple/hall. Point-in-polygon places it in Ward 6 of this repo's wards.geojson. Men-only, 17-bed capacity per Free Press Journal, Dec 2024."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     73.8496602,
+     18.532172
+    ]
+   },
+   "properties": {
+    "name": "Shivaji Nagar shelter (women)",
+    "zone": null,
+    "ward": "Shivaji Nagar (Ward 13, 2012 prabhag)",
+    "capacity": 60,
+    "day_service": null,
+    "day_only_night_gender": "women only",
+    "source": "https://www.freepressjournal.in/pune/pune-why-do-homeless-people-refuse-shelter-homes-despite-the-bitter-cold (Dec 24, 2024)",
+    "geocode_confidence": "approximate",
+    "notes": "Source names only the locality 'Shivaji Nagar', no street address; not present in the earlier (Mar 2020) PMC shelter list, so likely added later. Geocoded to the Shivaji Nagar locality centroid. Point-in-polygon places it in Ward 13. Women-only, 60-bed capacity — the largest single facility in PMC's current 5-shelter roster."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     73.8446033,
+     18.5052065
+    ]
+   },
+   "properties": {
+    "name": "Sena Dutta Police Chowky (Senadutt Cultural Hall, Senadutt Peth)",
+    "zone": null,
+    "ward": "Senadutt Peth / Sangamwadi area (Ward 52, 2012 prabhag)",
+    "capacity": null,
+    "day_service": true,
+    "day_only_night_gender": "not specified",
+    "source": "https://www.freepressjournal.in/pune/pune-why-do-homeless-people-refuse-shelter-homes-despite-the-bitter-cold (Dec 24, 2024); corroborated by https://www.punekarnews.in/pune-provides-shelter-food-to-its-homeless-needy-people-and-students/ (Mar 27, 2020, naming 'Senadutt Cultural Hall, Senadutt Peth')",
+    "geocode_confidence": "good",
+    "notes": "OSM/Photon returned a direct match: 'Senadatta Police Chowki', Pune — matching the source's 'Sena Dutta Police Chowky' landmark closely. Individual bed capacity not stated in either source; this site plus the Pune Station site together account for the remaining 109 of the 209-bed PMC total (209 minus Yerwada 23, Bopodi 17, Shivaji Nagar 60 = 109 combined, unattributed between these two)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     73.8775274,
+     18.5189016
+    ]
+   },
+   "properties": {
+    "name": "Pune Station shelter (Moledina Parking Plaza)",
+    "zone": null,
+    "ward": "near Ward 40, 2012 prabhag (nearest; point falls just outside all mapped prabhag polygons)",
+    "capacity": null,
+    "day_service": true,
+    "day_only_night_gender": "not specified",
+    "source": "https://www.freepressjournal.in/pune/pune-why-do-homeless-people-refuse-shelter-homes-despite-the-bitter-cold (Dec 24, 2024); corroborated by https://www.punekarnews.in/pune-provides-shelter-food-to-its-homeless-needy-people-and-students/ (Mar 27, 2020, naming 'Moledina Parking Plaza, Pune Station')",
+    "geocode_confidence": "good",
+    "notes": "Geocoded directly to Moledina Road, immediately adjacent to Pune Railway Station, matching the source's 'Moledina Parking Plaza, Pune Station' address closely. Falls ~116m outside the nearest mapped 2012-prabhag polygon (Ward 40) in this repo's wards.geojson -- likely an edge/gap in that 2012 boundary set near the station, not a placement error. Individual bed capacity not stated; see the Sena Dutta Police Chowky note for the shared 109-bed remainder."
+   }
+  }
+ ]
+}

@@ -71,6 +71,17 @@ class WhyAirBoardsTest(unittest.TestCase):
             self.assertEqual(boards[0]["capacity_claim_id"], "claim-why-air-kspcb-vacancy-2025")
 
     def test_published_table_matches_fresh_builder_output(self) -> None:
+        # Reproducing the published table needs every city's capacity source. Those
+        # records are gitignored, so require the complete set the table was built
+        # from — a partial checkout would otherwise rebuild a smaller table and
+        # fail the comparison against the committed five-city boards.json.
+        expected_cities = {row["city"] for row in json.loads(BOARDS_PATH.read_text(encoding="utf-8"))["boards"]}
+        present_cities = {
+            path.parent.parent.parent.name
+            for path in Path("data/cities").glob("*/source/pollution/capacity.json")
+        }
+        if not expected_cities <= present_cities:
+            self.skipTest("pollution capacity records live under gitignored data/; full source set absent on this checkout")
         with tempfile.TemporaryDirectory() as tmp:
             out = Path(tmp) / "boards.json"
             build(out=out, verbose=False)

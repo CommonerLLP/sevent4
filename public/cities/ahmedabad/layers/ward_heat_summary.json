@@ -1,0 +1,26 @@
+{
+  "top": [
+    {
+      "ward": "14 KUBERNAGR",
+      "lst": 42.4
+    },
+    {
+      "ward": "47 VATVA",
+      "lst": 42.3
+    },
+    {
+      "ward": "40 ODHAV",
+      "lst": 42.3
+    },
+    {
+      "ward": "45 ISANPUR",
+      "lst": 42.2
+    },
+    {
+      "ward": "42 INDRAPURI",
+      "lst": 42.2
+    }
+  ],
+  "n": 48,
+  "window": "2023-04-01/2025-06-30"
+}

@@ -17,8 +17,10 @@ ask: **whose jurisdiction is this, and why isn't it the city's?**
   Bhubaneswar, Chennai, Delhi, Hyderabad, Jaipur, Kanpur, Kochi, Kolkata,
   Lucknow, Mumbai, Pune, Visakhapatnam.
 - **The reading layer** — the argument over the maps:
-  `/why/` (explanatory chapters: the air, the roads…), `/findings/` (devolution
-  scoreboard + the Ambedkar / Bombay city-state pieces), `/devolution/`, `/about/`.
+  `/why/` (explanatory chapters: the air, the roads, the heat…), `/findings/`
+  (devolution scoreboard + the Ambedkar / Bombay city-state pieces),
+  `/devolution/`, `/about/`. Each console also carries a sidebar heat strip
+  naming its hottest wards from the atlas's own Landsat land-surface temperature.
 
 No backend — HTML, map assets and processed GeoJSON are static files.
 
@@ -84,13 +86,20 @@ public/         the built static atlas (consoles + reading layer + assets)
 - [City data contract](docsx/city-data-contract.md) — `city.yaml`, layer
   manifest, the jurisdiction crosswalk, add-a-city, entry points
 - [Data recipes](docsx/data-recipes.md) — rebuilding the Ahmedabad seed
-- [Reading](docsx/reading.md) — Constitution, NITI Aayog, RBI, Janaagraha
+- [Reading](docsx/reading.md) — Ambedkar, Teltumbde, Lefebvre/Harvey on the right
+  to the city; the 74th Amendment as the promise; the technocratic governance
+  discourse read against
 
 ## Deployment
 
 GitHub Pages deploys `public/` from `main` through the
 `Deploy Pages` workflow. The canonical public URL is
 <https://commonerllp.org/sevent4/>.
+
+A scheduled `Heat refresh` workflow (`.github/workflows/heat-refresh.yml`,
+quarterly + manual dispatch) re-pulls each city's Landsat land-surface-temperature
+median, rebuilds the per-city `ward_heat_summary.json` the strips read, and opens
+a PR — it never pushes to `main`.
 
 ## License & attribution
 

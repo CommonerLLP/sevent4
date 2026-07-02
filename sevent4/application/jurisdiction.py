@@ -88,7 +88,10 @@ def build_overlap_crosswalk(
             "pc_name": _clean_value(row.get("pc_name")),
             "ac_no": _clean_number(row.get("ac_no")),
             "ac_name": _clean_value(row.get("ac_name")),
-            "ward_no": _clean_number(row.get("ward_no")),
+            # Keep ward_no as the source string: zero-padded IDs like "02" are the
+            # canonical form in the public crosswalk and representative parser.
+            # _clean_number would strip the pad ("02" -> "2") and break those joins.
+            "ward_no": _clean_value(row.get("ward_no")),
             "ward_name": _clean_value(row.get("ward_name")),
             "overlap_area_m2": round(float(row.get("overlap_area_m2") or 0.0), 2),
             "overlap_pct_of_ward": round(float(row.get("overlap_pct_of_ward") or 0.0), 5),

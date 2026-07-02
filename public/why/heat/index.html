@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="application-name" content="Part IXA: The Municipalities">
+<title>Whose neighbourhood is the oven? — The Unelected City</title>
+<link rel="icon" type="image/png" href="../../assets/ixa-mark.png">
+<link rel="manifest" href="../../site.webmanifest">
+<meta name="theme-color" content="#0a0c10" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f3f1ea" media="(prefers-color-scheme: light)">
+<script>(function(){try{var t=localStorage.getItem('atlas-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<link rel="stylesheet" href="../../assets/atlas-ui.css">
+<link rel="stylesheet" href="../../assets/why.css">
+<link rel="stylesheet" href="../../assets/masthead.css">
+</head>
+<body>
+  <header data-masthead="bar"></header>
+
+  <main class="wrap">
+
+    <section class="hero">
+      <div class="sech accent kick rise">Chapter 05 · burden → who → why → act</div>
+      <h1 class="display rise">Delhi's heat<br>has an address.<br><em>It's the half of the city<br>the plan skipped.</em></h1>
+      <p class="lede rise">Every summer the city discovers it is hot, and blames the planet. Part of that is
+        true. The more local truth is less convenient: Delhi has been <b>built to retain heat</b>, and the
+        hottest rooms were handed to the people it never planned for. On 25 May 2026 the land surface
+        temperature reached <b>54.61°C</b> — not the air, the heat stored in roads, roofs and walls that
+        radiates back after dark. <b>75.78%</b> of the city is now persistently heat-stressed. And the
+        choices that built that oven — the master plan, the land, which colonies got parks and which got
+        nothing — were made by an authority <b>the government Delhi elects does not control.</b> The heat
+        is what an unelected city feels like at noon.</p>
+    </section>
+
+    <section>
+      <div class="sech kick rise">1 · What you live with</div>
+      <h2 class="display rise">The city keeps the heat. Some of you keep more.</h2>
+      <p class="body rise">Land surface temperature is not the number on the weather bulletin. It is the
+        heat the built city <b>stores by day and gives back at night</b> — the heat that makes sleep without
+        a cooler a health risk. On a single May afternoon it ran from <b>31.59°C to 54.61°C</b> across Delhi,
+        a 23-degree gap between one neighbourhood and another in the same city, on the same day.</p>
+      <div class="strip rise">
+        <div class="cell"><div class="big">54.61°C</div><div class="lab">peak land surface temperature, 25 May 2026 — city mean 43.15°C <span class="mut">(CSE, satellite LST)</span></div></div>
+        <div class="cell"><div class="big">75.78%</div><div class="lab">of Delhi's area persistently heat-stressed — most of it stressed for six summers or more</div></div>
+        <div class="cell"><div class="big">3.8°C</div><div class="lab">less that Delhi's dense core cools at night than its peri-urban edge — the heat never leaves</div></div>
+        <div class="cell"><div class="big">6</div><div class="lab">of the hottest pockets — Karala, Mundka, Begumpur, Bawana, Chhawla, Khera — all on the western and north-western fringe</div></div>
+      </div>
+      <p class="body rise" style="margin-top:24px">And these are not just labels on a press release. The
+        atlas built <b>its own heat surface</b> — a 30-metre Landsat land-surface-temperature median — and
+        summed it ward by ward. Ranked by that independent measure, on a different method and a different
+        period, Delhi's hottest wards are <b>the same names</b>:</p>
+      <!-- Data-driven from the same ward_heat_summary.json the console strip reads, so these never
+           drift from the layer: the figures and the window below come straight from the data. -->
+      <div class="strip rise" id="atlas-hot" aria-busy="true">
+        <div class="cell"><div class="big">·</div><div class="lab">loading the atlas's hottest wards…</div></div>
+      </div>
+      <p class="cite rise" id="atlas-hot-src" style="margin-top:8px"></p>
+      <p class="body rise" style="margin-top:24px">Five of CSE's six named hotspots are the atlas's own
+        <b>top five</b> — a single-day satellite snapshot and a multi-year median, two readings, <b>one
+        geography</b>, all on the western and north-western fringe. These are where construction workers,
+        factory hands, street vendors and delivery workers live and work — and they are not where heat
+        deaths are usually counted. Open the
+        <a href="../../cities/delhi/index.html"><b>Delhi heat layer</b></a> and the deepest reds sit on
+        exactly these wards: the plan thinned out, and the heat moved in.</p>
+    </section>
+
+    <section>
+      <div class="sech kick rise">2 · Why it persists</div>
+      <h2 class="display rise">Green cover halved. The water nearly gone.</h2>
+      <p class="body rise">Concrete and asphalt bank the sun's energy through the day and release it after
+        sunset. Soil, water and trees do the opposite — they cool through shade and evaporation. Remove
+        enough of them and the city loses its night-time recovery, so the next day starts from a hotter
+        base. Over a single decade Delhi did exactly that.</p>
+      <div class="div rise">
+        <div class="divrow">
+          <div class="lab"><span>Green cover, 2014</span><span>25.36% of the city</span></div>
+          <div class="track"><div class="fill work" data-w="100"></div></div>
+        </div>
+        <div class="divrow">
+          <div class="lab"><span>Green cover, 2024</span><span>14.14% &nbsp;(−44% in ten years)</span></div>
+          <div class="track"><div class="fill staff" data-w="56"></div></div>
+        </div>
+      </div>
+      <p class="body rise" style="margin-top:24px">And the cooling sinks went with the trees. Delhi's
+        <b>waterbody footprint fell from 1.25% to 0.99%</b> of the city in the same decade — ponds and
+        wetlands built over, the evaporation they offered gone with them. This is not an accident of
+        weather. It is the physical form of the city: low-rise density, narrow lanes, little
+        cross-ventilation, vanished water, thin tree cover. <b>The heat has nowhere to go.</b></p>
+    </section>
+
+    <section>
+      <div class="sech kick rise">3 · Who decided</div>
+      <h2 class="display rise">The hottest wards are the ones the state never planned.</h2>
+      <p class="body rise">Delhi's housing market pushed migrants and low-income families into
+        <b>unauthorised colonies</b> for decades — neighbourhoods built outside the framework that fixes
+        road width, open space, parks, drainage and tree cover. The city tolerated them because it was
+        cheaper than building legal affordable housing at the scale it needed. The thermal cost is now
+        visible: where there was no room for trees there is no shade; where lanes are too narrow and houses
+        press together, the heat is trapped.</p>
+      <div class="strip rise">
+        <div class="cell"><div class="big">1,731</div><div class="lab">unauthorised colonies in Delhi — home to an estimated 40 lakh residents the plan never reached <span class="mut">(DDA)</span></div></div>
+        <div class="cell"><div class="big">1,511</div><div class="lab">of them now set for regularisation on an "as-is, where-is" basis — layout plans no longer required <span class="mut">(Centre + GNCTD, PM-UDAY, 2026)</span></div></div>
+        <div class="cell"><div class="big">as-is</div><div class="lab">the legal status quo, frozen: recognition without retrofit — no new room for shade, drainage or a cooling sink</div></div>
+      </div>
+      <p class="body rise" style="margin-top:24px">And ask who drew that plan. Delhi's land and its master
+        plan belong to the <b>Delhi Development Authority</b> — a body of the Union government, chaired by
+        the Lieutenant-Governor, that <b>answers to the Centre, not to the government Delhi elects.</b> The
+        city's own elected government does not control its land. So the decisions that set where the parks
+        went, which colonies stayed unplanned, and now which get regularised "as-is" were taken by an office
+        <b>the city's vote does not reach</b> — and regularisation without retrofit simply freezes that into
+        law. The hottest neighbourhoods are the ones an authority the city does not control declined to
+        plan, and is now about to ratify, unchanged.</p>
+      <p class="pull rise">Delhi's heat is called a climate problem arriving from outside. In the colonies
+        where people suffer most, <em>it has an address, a paper trail — and an authority the city it sits
+        in does not control.</em></p>
+    </section>
+
+    <section>
+      <div class="sech accent kick rise">Your money · your mandate</div>
+      <h2 class="display rise">You live in it. They work in it.</h2>
+      <p class="body rise">For most of Delhi, heat protection is not a clause in any contract. <b>80% of the
+        city's workforce is informal</b> — and three of every four of its women workers. A worker who stays
+        home in 45°C heat loses the day's wage; a worker who goes out risks collapse. The cost of the city's
+        thermal form is paid first, and hardest, by the people who earn least and choose least about how it
+        is built.</p>
+      <div class="strip rise">
+        <div class="cell"><div class="big">80%</div><div class="lab">of Delhi's workforce is informal — no sick leave, no heat clause, no cooler at the worksite <span class="mut">(CSE)</span></div></div>
+        <div class="cell"><div class="big">247bn</div><div class="lab">potential labour-hours India lost to heat in 2024 — 419 hours per person, up 124% on the 1990s <span class="mut">(Lancet Countdown 2025)</span></div></div>
+        <div class="cell"><div class="big">20%</div><div class="lab">of that loss fell on construction alone — the trade that builds the city it cannot shelter from <span class="mut">(Lancet Countdown 2025)</span></div></div>
+      </div>
+      <p class="pull rise">A heat action plan hands out advisories, water points and shelters. Useful for a
+        spell of extreme heat. <em>None of it changes the temperature of a roof, the absence of shade on a
+        street, or the heat trapped in a room at midnight.</em></p>
+    </section>
+
+    <section>
+      <div class="sech accent kick rise">4 · The question you're left with</div>
+      <h2 class="display rise">Then who is left to cool the city?</h2>
+      <p class="body rise">The durable fixes are known — cool roofs in the building rules, tree cover that
+        cannot be waived in the narrowest lanes precisely because that is where it is needed most,
+        enforceable protection for the water bodies, minimum ventilation wherever reconstruction is allowed.
+        Every one of them is a decision of the master plan, the land authority, the building code — and
+        <b>not one of those bodies is on your ballot.</b> That is the real finding under the heat: you
+        cannot vote the oven cool, because <b>you do not yet control the city that built it.</b> The fixes
+        come second. Bringing the city under the people who live in it comes first.</p>
+      <div class="acts rise">
+        <div class="actitem"><div class="t"><b>Who makes the durable fixes mandatory?</b><span>An advisory cools no one at midnight. Cool roofs, lane-level shade, waterbody protection and ventilation norms are building-rule decisions — taken by agencies you do not elect. So who attaches them to the regularisation that is coming anyway, before "as-is, where-is" freezes the heat into law?</span></div></div>
+        <div class="actitem"><div class="t"><b>Who even counts the dead?</b><span>Heat deaths are rarely counted in Mundka or Bawana — the wards are not where the toll is tallied, though they are where the exposure is worst. If the hottest neighbourhoods are invisible in the record, what pressure does any office ever feel to cool them?</span></div></div>
+        <div class="actitem"><div class="t"><b>What body speaks for the worker in the heat?</b><span>Eighty per cent of Delhi works informally — no contract, no heat clause, no shaded worksite. The resident bodies that claim a neighbourhood answer to flat-owners, not to the delivery rider or the mason out in 45°C. So whose membership card is a day's exposure, and what would a body built from them ask for?</span></div></div>
+        <div class="actitem"><div class="t"><b>What does your vote even decide here?</b><span>The city plan, the green cover, the terms of regularisation, the building rules — trace each back and ask which one your councillor, your MLA, or an unelected authority actually controls. One question for every candidate, on the record: what will you do to cool the wards the plan skipped? And if the answer is "that isn't ours" — what is your vote for?</span></div></div>
+      </div>
+      <p class="pull rise">The heat is the symptom. The <em>unelected city</em> is the disease. So the
+        first question isn't how to cool one roof — it is how a city this hot comes to answer to the people
+        who live in it <b>at all.</b> Take the city back, and the rest is reachable. Until then, the oven is
+        someone else's to switch off.</p>
+
+      <div class="cite rise" style="margin-top:26px">Sources — heat, green cover, waterbody and land-surface
+        figures from the <b>Centre for Science and Environment</b>, <i>Making Delhi Heat-Resilient</i>
+        (released 2 June 2026): 75.78% persistently heat-stressed, green cover 25.36%→14.14% (2014-24),
+        waterbody 1.25%→0.99%, core-vs-peri night cooling gap 3.8°C, land surface temperature 31.59-54.61°C
+        (city mean 43.15°C) on 25 May 2026, hottest pockets Karala/Mundka/Begumpur/Bawana/Chhawla/Khera,
+        80% informal workforce. Labour-hour losses from the <b>Lancet Countdown on Health and Climate
+        Change 2025</b> (India): 247 billion potential labour-hours lost in 2024, 419 hours/person, +124%
+        vs 1990-99, construction 20% of the loss. Unauthorised-colony counts and regularisation from
+        <b>DDA</b> and the <b>Centre/GNCTD "as-is, where-is" regularisation</b> of 1,511 of 1,731 colonies
+        (PM-UDAY, 2026, PIB). The per-ward ranking shown above is the <b>atlas's own</b> computation — a
+        30-metre Landsat land-surface-temperature median (Microsoft Planetary Computer), summed over each
+        ward, read live from the published layer (its window is printed beneath the ranking); it
+        corroborates CSE's single-day hotspots on an independent method. The heat reading is ours.</div>
+
+      <div class="endnav rise">
+        <a class="btn" href="../index.html">← All chapters</a>
+        <a class="btn ghost" href="../../cities/delhi/index.html">Open the Delhi heat layer</a>
+      </div>
+    </section>
+
+    <div class="foot">
+      A research reading of public records, built for <b>The Unelected City</b>. Surface-temperature, green
+      cover and waterbody figures are city-level from the CSE report named above; labour-hour losses are the
+      Lancet Countdown's national India figures, named as such. The accountability reading — that the city's
+      thermal geography tracks where the plan was withheld — is ours.
+      <div class="src">CSE · Making Delhi Heat-Resilient (2 Jun 2026) · Lancet Countdown on Health and Climate Change 2025 (India) ·<br>DDA + Centre/GNCTD regularisation of 1,511 of 1,731 unauthorised colonies (PM-UDAY, 2026)</div>
+    </div>
+  </main>
+
+  <script>
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(!e.isIntersecting) return;
+        const el=e.target; el.classList.add('in');
+        el.querySelectorAll('.seg').forEach(s=>s.style.width=s.dataset.w+'%');
+        el.querySelectorAll('.fill').forEach(f=>f.style.width=f.dataset.w+'%');
+        el.querySelectorAll('.col').forEach(c=>c.style.height=c.dataset.h+'%');
+        el.querySelectorAll('[data-count]').forEach(stat=>{
+          if(!stat.dataset.done){stat.dataset.done=1;countUp(stat);}
+        });
+        io.unobserve(el);
+      });
+    },{threshold:.18});
+    document.querySelectorAll('.rise').forEach(el=>io.observe(el));
+
+    function countUp(node){
+      const target=+node.dataset.count, unit=node.querySelector('.u').outerHTML;
+      let n=0,step=Math.max(1,Math.round(target/40));
+      const t=setInterval(()=>{n+=step;if(n>=target){n=target;clearInterval(t);}node.innerHTML=n+unit;},22);
+    }
+
+    // The atlas's hottest Delhi wards + the window, read live from the same
+    // ward_heat_summary.json the console strip reads — never hardcoded, so a
+    // layer refresh updates the chapter too.
+    fetch('../../cities/delhi/layers/ward_heat_summary.json').then(r=>r.json()).then(s=>{
+      const host=document.getElementById('atlas-hot');
+      if(!host||!s.top||!s.top.length) return;
+      const ord=['the atlas’s hottest Delhi ward by mean LST','2nd','3rd','4th','5th'];
+      host.innerHTML=s.top.map((w,i)=>
+        '<div class="cell"><div class="big">'+w.lst+'°C</div><div class="lab"><b>'+w.ward+'</b> — '+(ord[i]||(i+1)+'th')+'</div></div>'
+      ).join('');
+      host.removeAttribute('aria-busy');
+      const src=document.getElementById('atlas-hot-src');
+      if(src&&s.window){
+        const w=s.window.split('/');
+        src.innerHTML='The atlas’s own Landsat land-surface-temperature median, <b>'+w[0]+' – '+w[1]+'</b> ('+s.n+' wards) — read live from the published layer, not hardcoded.';
+      }
+    }).catch(function(){});
+  </script>
+  <script src="../../assets/masthead.js"></script>
+  <script src="../../assets/theme.js"></script>
+</body>
+</html>

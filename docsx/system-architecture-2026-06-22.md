@@ -93,6 +93,7 @@ Implemented package boundaries:
 - `sevent4.ports.kanpur`
 - `sevent4.ports.library_access`
 - `sevent4.ports.metrics`
+- `sevent4.ports.officials`
 - `sevent4.ports.publication`
 - `sevent4.ports.rbi_finance`
 - `sevent4.ports.representatives`
@@ -128,6 +129,7 @@ Implemented package boundaries:
 - `sevent4.application.library_exclusion`
 - `sevent4.application.metrics`
 - `sevent4.application.mj_library`
+- `sevent4.application.officials`
 - `sevent4.application.public_site`
 - `sevent4.application.rbi_finance`
 - `sevent4.application.representatives`
@@ -166,6 +168,7 @@ Implemented package boundaries:
 - `sevent4.adapters.library_networks_filesystem`
 - `sevent4.adapters.metrics_filesystem`
 - `sevent4.adapters.mj_library_filesystem`
+- `sevent4.adapters.officials_filesystem`
 - `sevent4.adapters.rbi_finance_filesystem`
 - `sevent4.adapters.representatives_filesystem`
 - `sevent4.adapters.roads_filesystem`

@@ -1,0 +1,26 @@
+{
+  "top": [
+    {
+      "ward": "Ward 54 · Zone-4",
+      "lst": 45.0
+    },
+    {
+      "ward": "Ward 2 · Zone-1",
+      "lst": 44.9
+    },
+    {
+      "ward": "Ward 96 · Zone-6",
+      "lst": 44.7
+    },
+    {
+      "ward": "Ward 7",
+      "lst": 44.3
+    },
+    {
+      "ward": "Ward 97 · Zone-6",
+      "lst": 44.2
+    }
+  ],
+  "n": 47,
+  "window": "2023-04-01/2025-06-30"
+}

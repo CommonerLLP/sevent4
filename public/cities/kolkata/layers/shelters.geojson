@@ -1,0 +1,119 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     88.3887333,
+     22.6105315
+    ]
+   },
+   "properties": {
+    "name": "Amar Ashroy Unit-I",
+    "ward": "5",
+    "capacity": 26,
+    "day_service": false,
+    "source": "https://sudawb.org/uploads/nulm/1st%20Quarterly%20Quality%20Audit%20Report%20of%2040%20functional%20Shelter%20Homes%20under%20different%20Urban%20Local%20Bodies%20of%20West%20Bengal.pdf",
+    "geocode_confidence": "approximate",
+    "notes": "Presidency University/SUDA West Bengal quality-audit report (site visit 25/08/2023); run by RNL Force; est. 05/2019; occupancy 34 at audit vs capacity 26 (over capacity). Address: 'ward no. 5, Raja Manindra Road, near Tala tank, Paikpara'. Geocoded to the Raja Manindra Road / Paikpara street segment (Photon/OSM, postcode 700037 matches Paikpara). Point-in-polygon against this repo's wards.geojson places it in Ward 4 (661m from Ward-4 centroid, 896m from Ward-5 centroid) -- near the 4/5 boundary; source document's stated ward (5) kept as the authoritative label."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     88.3887333,
+     22.6105315
+    ]
+   },
+   "properties": {
+    "name": "Amar Ashroy Unit-II",
+    "ward": "5",
+    "capacity": 26,
+    "day_service": false,
+    "source": "https://sudawb.org/uploads/nulm/1st%20Quarterly%20Quality%20Audit%20Report%20of%2040%20functional%20Shelter%20Homes%20under%20different%20Urban%20Local%20Bodies%20of%20West%20Bengal.pdf",
+    "geocode_confidence": "approximate",
+    "notes": "Presidency University/SUDA West Bengal quality-audit report (site visit 25/08/2023); run by RNL Force; est. 05/2020; occupancy 34 at audit vs capacity 26 (over capacity). Same address/site as Amar Ashroy Unit-I ('ward no. 5, Raja Manindra Road, near Tala tank, Paikpara'). Same geocode caveat: point-in-polygon lands in this repo's Ward 4, near the 4/5 boundary; source document's stated ward (5) kept as the authoritative label."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     88.3780343,
+     22.5941995
+    ]
+   },
+   "properties": {
+    "name": "Gauri Bari",
+    "ward": null,
+    "capacity": 35,
+    "day_service": false,
+    "source": "https://sudawb.org/uploads/nulm/1st%20Quarterly%20Quality%20Audit%20Report%20of%2040%20functional%20Shelter%20Homes%20under%20different%20Urban%20Local%20Bodies%20of%20West%20Bengal.pdf",
+    "geocode_confidence": "approximate",
+    "notes": "Presidency University/SUDA West Bengal quality-audit report (site visit 22/08/2023); run by 'Gauri Bari BADS'; est. 15/04/2019; described as 'a collection of nine temporary night shelters used as a shelter home now', flagged in the audit as unsuitable for long-term/permanent use. Address given only as 'Gauri Bari Lane' (no ward stated in source). Geocoded to Gauri Bari Lane (Photon/OSM, single unambiguous match, postcode 700004, Simla locality). Point-in-polygon against this repo's wards.geojson places it in Ward 12. Matches a shelter of the same name/lane cited in a 2017 news report as one of KMC's own long-running night shelters (Gauribari Lane)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     88.3413887,
+     22.5202517
+    ]
+   },
+   "properties": {
+    "name": "Kalighat Unit I",
+    "ward": null,
+    "capacity": 100,
+    "day_service": false,
+    "source": "https://sudawb.org/uploads/nulm/1st%20Quarterly%20Quality%20Audit%20Report%20of%2040%20functional%20Shelter%20Homes%20under%20different%20Urban%20Local%20Bodies%20of%20West%20Bengal.pdf",
+    "geocode_confidence": "approximate",
+    "notes": "Presidency University/SUDA West Bengal quality-audit report (site visit 29/08/2023); run by Maya Foundation; est. Feb 2020; occupancy 94 at audit. Address: '242, Kalighat Road, Kolkata-700026' (no ward stated in source). Nominatim was rate-limited/unreachable in this environment; geocoded via Photon (Komoot) to a Kalighat Road street segment matching postcode 700026 exactly (Bhowanipore locality) -- street-level, not the exact house number. Point-in-polygon against this repo's wards.geojson places it in Ward 83."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     88.3413887,
+     22.5202517
+    ]
+   },
+   "properties": {
+    "name": "Kalighat Unit II",
+    "ward": null,
+    "capacity": 140,
+    "day_service": false,
+    "source": "https://sudawb.org/uploads/nulm/1st%20Quarterly%20Quality%20Audit%20Report%20of%2040%20functional%20Shelter%20Homes%20under%20different%20Urban%20Local%20Bodies%20of%20West%20Bengal.pdf",
+    "geocode_confidence": "approximate",
+    "notes": "Presidency University/SUDA West Bengal quality-audit report (site visit 29/08/2023); run by Aastha Jadabpur; est. Feb 2020; occupancy 140 at audit (at capacity). Same address as Kalighat Unit I: '242, Kalighat Road, Kolkata-700026' (no ward stated in source). Same geocode caveat: street-level match via Photon, postcode 700026 (Bhowanipore); Ward 83 in this repo's wards.geojson."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     88.3672261,
+     22.5734311
+    ]
+   },
+   "properties": {
+    "name": "Ashray",
+    "ward": null,
+    "capacity": 110,
+    "day_service": false,
+    "source": "https://sudawb.org/uploads/nulm/1st%20Quarterly%20Quality%20Audit%20Report%20of%2040%20functional%20Shelter%20Homes%20under%20different%20Urban%20Local%20Bodies%20of%20West%20Bengal.pdf",
+    "geocode_confidence": "approximate",
+    "notes": "Presidency University/SUDA West Bengal quality-audit report (site visit 28/08/2023); run by Participatory Research and Action Network (PRAN); est. 01/2020; occupancy 103 at audit. Address: '1, Raja Ram Mohan Sarani, pin-700009, District-Kolkata' (no ward stated in source). Geocoded via Photon/OSM to Raja Ram Mohan Sarani with exact postcode match (700009, Baitakkhana North locality) -- street-level, not the exact house number. Point-in-polygon against this repo's wards.geojson places it in Ward 40. Ranked #1 of 40 statewide SUH facilities in the audit's performance-grading table (score 27.4, 'Outstanding')."
+   }
+  }
+ ]
+}

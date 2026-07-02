@@ -115,6 +115,42 @@ def ward_lst_stats(values: np.ndarray | None, nodata: float | None) -> tuple[flo
     return round(float(finite.mean()), 2), round(float(finite.max()), 2), int(finite.size)
 
 
+# Ward-name fields differ by city layer: most carry the usable name in ward_name,
+# KGIS-derived layers (Bengaluru) put it in KGISWardName while Name is a bare "Ward ".
+WARD_NAME_FIELDS = ("ward_name", "KGISWardName", "Name")
+
+
+def hottest_wards(
+    features: Sequence[Mapping[str, Any]], top_n: int = 3
+) -> dict[str, Any] | None:
+    """Top-N distinct hottest wards by mean LST from a ward-heat feature list.
+
+    Keeps the hottest reading per distinct ward name (some city layers split one
+    ward across several features, which would otherwise repeat in the top list).
+    Returns {"top": [{"ward", "lst"}, ...], "n": distinct_wards} or None when no
+    usable ward is present.
+    """
+    best: dict[str, float] = {}
+    for feature in features:
+        props = feature.get("properties", {})
+        mean_lst = props.get("mean_lst_c")
+        name = ""
+        for field in WARD_NAME_FIELDS:
+            value = str(props.get(field) or "").strip()
+            if value:
+                name = value
+                break
+        if mean_lst is None or not name or name.lower() == "ward":
+            continue
+        lst = round(float(mean_lst), 1)
+        if name not in best or lst > best[name]:
+            best[name] = lst
+    if not best:
+        return None
+    rows = sorted(({"ward": ward, "lst": lst} for ward, lst in best.items()), key=lambda row: -row["lst"])
+    return {"top": rows[:top_n], "n": len(rows)}
+
+
 def patched_manifest_layers(
     existing: Sequence[Mapping[str, Any]],
     entries: Sequence[Mapping[str, Any]],

@@ -1,0 +1,111 @@
+name: Heat refresh
+
+# Re-pulls each city's Landsat land-surface-temperature median (the heat layer)
+# on a rolling window and opens a PR with the refreshed layers. Scheduled
+# quarterly; also runnable on demand. It does NOT push to main — review the PR.
+#
+# VALIDATE FIRST: run once via "Run workflow" (workflow_dispatch) before trusting
+# the schedule. The geo stack (.[heat] — rasterio/planetary-computer/…) and the
+# Planetary Computer network fetch cannot be exercised in unit tests, so the
+# first real run is the validation.
+#
+# SCOPE: this refreshes the layer data (ward_heat.geojson + heat30m.png) from the
+# committed public/ wards (HEAT_LAYERS_ROOT=public). The console heat strip's
+# embedded hottest-ward names are rebuilt by a local console regen
+# (`bash scripts/build-city.sh <city>`), which depends on the gitignored data/
+# tree — so after merging a refresh, regenerate the affected consoles locally.
+
+on:
+  schedule:
+    - cron: "0 4 1 1,4,7,10 *"   # 04:00 UTC on the 1st of Jan/Apr/Jul/Oct
+  workflow_dispatch:
+    inputs:
+      window:
+        description: 'STAC date window (start/end). Blank = rolling ~27 months ending today.'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install with the heat extra
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e '.[heat]'
+
+      - name: Resolve the rolling window
+        id: window
+        env:
+          WINDOW_INPUT: ${{ github.event.inputs.window }}
+        run: |
+          if [ -n "$WINDOW_INPUT" ]; then
+            if ! printf '%s' "$WINDOW_INPUT" | grep -Eq '^[0-9]{4}-[0-9]{2}-[0-9]{2}/[0-9]{4}-[0-9]{2}-[0-9]{2}$'; then
+              echo "Invalid window format (want YYYY-MM-DD/YYYY-MM-DD): $WINDOW_INPUT" >&2
+              exit 1
+            fi
+            echo "value=$WINDOW_INPUT" >> "$GITHUB_OUTPUT"
+          else
+            END=$(date -u +%Y-%m-%d)
+            START=$(date -u -d '27 months ago' +%Y-%m-%d)
+            echo "value=${START}/${END}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Refresh the Landsat heat layers (committed public/ tree)
+        env:
+          HEAT_LAYERS_ROOT: public
+          HEAT_WINDOW: ${{ steps.window.outputs.value }}
+        run: |
+          python scripts/recipes/ahmedabad/_run_all_heat.py \
+            ahmedabad bengaluru bhubaneswar chennai delhi hyderabad jaipur \
+            kanpur kochi kolkata mumbai pune visakhapatnam
+
+      - name: Rebuild the console heat-strip summaries
+        # The strips read layers/ward_heat_summary.json at runtime, so refreshing
+        # them here updates the live strips without rebuilding the consoles. Pass
+        # the same window so the summary's self-dating matches the refreshed layers.
+        env:
+          HEAT_WINDOW: ${{ steps.window.outputs.value }}
+        run: python scripts/recipes/build_heat_summaries.py --tree public
+
+      - name: Keep workflow files in lockstep with main
+        # The Actions token cannot push workflow-file changes; if main advanced
+        # since checkout, realign .github so the PR branch carries no workflow diff.
+        run: |
+          git fetch origin main
+          git checkout origin/main -- .github/ 2>/dev/null || true
+
+      # Under public/, the heat30m.tif / _heat30m_* intermediates are NOT covered by
+      # .gitignore (which only ignores data/), so restrict the PR to the published
+      # layer artifacts — never the large raster intermediates.
+
+      - name: Open a PR with the refreshed layers
+        uses: peter-evans/create-pull-request@v6
+        with:
+          add-paths: |
+            public/cities/*/layers/ward_heat.geojson
+            public/cities/*/layers/ward_heat_summary.json
+            public/cities/*/layers/heat30m.png
+            public/cities/*/layers/heat30m_bounds.json
+          branch: chore/heat-refresh
+          title: "chore(heat): refresh Landsat heat layers (${{ steps.window.outputs.value }})"
+          commit-message: "chore(heat): refresh Landsat heat layers (${{ steps.window.outputs.value }})"
+          body: |
+            Automated quarterly refresh of the per-city Landsat land-surface-temperature
+            layers (`ward_heat.geojson` + `heat30m.png`) over window `${{ steps.window.outputs.value }}`.
+
+            **Before merging:** sanity-check a couple of cities' ward LST ranges, then regenerate
+            the affected consoles locally so the heat-strip hottest-ward names match
+            (`bash scripts/build-city.sh <city>`), since that step needs the local data/ tree.
+          delete-branch: true

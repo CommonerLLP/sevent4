@@ -30,4 +30,15 @@ cd "$ROOT"
   --layers "$MANIFEST" \
   --out "$OUT"
 
+# The strip reads layers/ward_heat_summary.json at runtime. Only publish it when
+# the manifest actually includes the heat layer — otherwise a console that
+# intentionally dropped heat could still render the strip. When present, build it
+# from the SOURCE data/ layer (the truth), writing the sidecar into public/; when
+# absent, remove any stale published sidecar so the strip hides.
+if grep -q '"ward_heat"' "$MANIFEST"; then
+  "$PY" scripts/recipes/build_heat_summaries.py --tree data --write-tree public "$CITY"
+else
+  rm -f "$ROOT/public/cities/$CITY/layers/ward_heat_summary.json"
+fi
+
 echo "Built $CITY console: $OUT"

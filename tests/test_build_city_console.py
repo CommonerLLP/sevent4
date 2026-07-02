@@ -6,6 +6,7 @@ from pathlib import Path
 from sevent4.build_city_console import (
     CITY_READINESS,
     READY_CITIES,
+    _city_extra_links,
     _feature_options,
     _css,
     _governance_for_city,
@@ -13,6 +14,7 @@ from sevent4.build_city_console import (
     _js,
     _layer_json,
     _macro_links,
+    _officials_context,
     _toggles,
 )
 from sevent4.city_dataset import CityDataset
@@ -220,6 +222,21 @@ class FeatureOptionsTest(unittest.TestCase):
         self.assertEqual(_governance_for_city("delhi")["police"]["control"], "union")
         self.assertEqual(_governance_for_city("kolkata")["metro"]["control"], "union")
 
+    def test_governance_card_states_ahmedabad_shelter_shortfall(self) -> None:
+        card = _governance_for_city("ahmedabad")["shelters"]
+
+        self.assertEqual(card["control"], "shared")
+        self.assertIn("39% short", card["line"])
+        self.assertIn("11,293 homeless", card["line"])
+
+    def test_governance_shelters_layer_uses_shared_template_elsewhere(self) -> None:
+        # a city with no Ahmedabad-specific override still gets the generic
+        # NULM/Union-scheme framing, not a KeyError
+        card = _governance_for_city("bengaluru")["shelters"]
+
+        self.assertEqual(card["control"], "shared")
+        self.assertIn("NULM", card["line"])
+
     def test_governance_links_corp_money_layers_to_finance_page(self) -> None:
         # with a finance page, the corporation's own money-axis layers point to it;
         # state/parastatal layers (and the no-finance case) do not.
@@ -236,6 +253,14 @@ class FeatureOptionsTest(unittest.TestCase):
         self.assertIn("window.__govShow", script)
         self.assertIn("govcard", script)
         self.assertIn("govchip", script)
+
+    def test_official_row_html_only_linkifies_a_real_url(self) -> None:
+        # a non-URL provenance note (e.g. reused from this repo's own layer
+        # file) must render as plain text in the AC/PC click-popup, never as
+        # a broken <a href> — caught by automated review on PR #103
+        script = _js()
+        self.assertIn('firstSource.startsWith("http://")', script)
+        self.assertIn("pfsrc-text", script)
 
     def test_generated_script_keeps_maplibre_qa_hooks_valid(self) -> None:
         script = _js()
@@ -272,7 +297,9 @@ class FeatureOptionsTest(unittest.TestCase):
         self.assertIn(".jurisdictionbar select", css)
         self.assertIn("height:44px;padding:0 8px;width:100%", css)
         self.assertIn(".search,.fsel{width:100%;min-height:44px", css)
-        self.assertIn(".tog{align-items:center;display:flex;min-height:44px", css)
+        self.assertIn(".tog{align-items:center;display:flex;flex-wrap:wrap;min-height:44px", css)
+        # year controls wrap onto their own full-width line instead of overflowing the rail
+        self.assertIn(".yearctl{align-items:center;display:flex;flex-basis:100%", css)
         self.assertIn("grid-template-columns:minmax(160px,1fr) minmax(150px,1fr) minmax(150px,1fr) auto 44px", css)
         self.assertIn(".filterbar .fsel,.filterbar .fbtn2,.filterbar .tbtn{height:44px", css)
         self.assertIn(".tbtn{", css)
@@ -287,6 +314,119 @@ class FeatureOptionsTest(unittest.TestCase):
         self.assertIn("@media(max-width:760px)", css)
         self.assertIn("grid-template-columns:minmax(0,1fr) minmax(0,1fr)", css)
         self.assertIn(".filterbar #pcsel{grid-column:1/-1}", css)
+
+
+class OfficialsContextTest(unittest.TestCase):
+    def test_officials_context_returns_empty_maps_when_file_absent(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            context = _officials_context(Path(tmp))
+
+        self.assertEqual(context, {"acs": {}, "pcs": {}, "as_of": ""})
+
+    def test_officials_context_joins_ac_and_pc_by_numeric_code(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "officials.json"
+            path.write_text(
+                json.dumps(
+                    {
+                        "as_of": "2026-06-30",
+                        "records": [
+                            {
+                                "department": "election_ac",
+                                "area": "Ghatlodia (AC 41)",
+                                "designation": "Member of the Legislative Assembly (MLA)",
+                                "name": "Bhupendrabhai Rajnikant Patel",
+                                "source": "https://example.org/ac41",
+                            },
+                            {
+                                "department": "election_pc",
+                                "area": "Mahesana (PC 4)",
+                                "designation": "Member of Parliament",
+                                "name": "Haribhai Patel",
+                                "source": "https://example.org/pc4",
+                            },
+                            {
+                                # not an election record — must not pollute the ac/pc maps
+                                "department": "municipal_corp_hq",
+                                "area": "citywide",
+                                "designation": "Municipal Commissioner",
+                                "name": "Someone, IAS",
+                            },
+                        ],
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            context = _officials_context(Path(tmp))
+
+        self.assertEqual(
+            context["acs"]["41"],
+            {
+                "designation": "Member of the Legislative Assembly (MLA)",
+                "name": "Bhupendrabhai Rajnikant Patel",
+                "source": "https://example.org/ac41",
+            },
+        )
+        self.assertEqual(
+            context["pcs"]["4"],
+            {
+                "designation": "Member of Parliament",
+                "name": "Haribhai Patel",
+                "source": "https://example.org/pc4",
+            },
+        )
+        self.assertEqual(context["as_of"], "2026-06-30")
+
+    def test_officials_context_keeps_blank_records_for_the_ghost_row(self) -> None:
+        # A tracked-but-unverified seat must still resolve to an entry (blank name),
+        # not be dropped — the click-popup renders that as a ghost row, not silence.
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "officials.json"
+            path.write_text(
+                json.dumps(
+                    {
+                        "as_of": "2026-06-30",
+                        "records": [
+                            {
+                                "department": "election_ac",
+                                "area": "Kalol (AC 38)",
+                                "designation": "Member of the Legislative Assembly (MLA)",
+                                "name": "",
+                                "source": "",
+                            },
+                        ],
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            context = _officials_context(Path(tmp))
+
+        self.assertIn("38", context["acs"])
+        self.assertEqual(context["acs"]["38"]["name"], "")
+
+    def test_every_city_with_an_officials_directory_parses(self) -> None:
+        officials_files = list(Path("data/cities").glob("*/layers/officials.json"))
+        if not officials_files:
+            self.skipTest("officials directories live under gitignored data/ and are absent on this checkout")
+
+        for path in officials_files:
+            context = _officials_context(path.parent)
+            self.assertIsInstance(context["acs"], dict)
+            self.assertIsInstance(context["pcs"], dict)
+
+
+class CityExtraLinksTest(unittest.TestCase):
+    def test_officials_link_appears_only_when_the_page_exists(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            out_dir = Path(tmp)
+            self.assertNotIn(("Officials", "officials/index.html"), _city_extra_links(out_dir))
+
+            (out_dir / "officials").mkdir()
+            (out_dir / "officials" / "index.html").write_text("<html></html>", encoding="utf-8")
+
+            self.assertIn(("Officials", "officials/index.html"), _city_extra_links(out_dir))
 
 
 if __name__ == "__main__":

@@ -15,11 +15,14 @@ import geopandas as gpd
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import pandas as pd
+from mpl_toolkits.axes_grid1 import make_axes_locatable
 from shapely.geometry import Point
 
 from sevent4.domain.delhi_library_spatial import compass_label
 
 M = "EPSG:32643"
+MIN_PER_KM = 12.5   # walk-minutes per km (1.2 km ≈ 15-min walk); unifies the scale with the Ahmedabad map
+WALK_VMAX = 80      # shared colour scale ceiling, walk-minutes, both cities
 INK, BLUE, MUTED, RULE, ALERT, GREEN = "#172126", "#1B4E6B", "#66737A", "#D6DEE2", "#B0412B", "#1f9e6b"
 mpl.rcParams.update({"font.family": "Helvetica", "font.size": 10.5,
                      "axes.edgecolor": MUTED, "figure.dpi": 150})
@@ -159,9 +162,16 @@ class DelhiLibrarySpatial:
     def render_walk_access(self, a: SpatialAnalysis, conf_note: str) -> None:
         m = a.metrics
         fig, ax = plt.subplots(figsize=(7.4, 7.0))
-        a.wards.to_crs(4326).plot(ax=ax, column="dpl_km", cmap="YlOrRd", vmin=0, vmax=12,
-                                  edgecolor="#ffffff", linewidth=0.15, legend=True,
-                                  legend_kwds={"label": "Distance to nearest fixed DPL (km)", "shrink": 0.6})
+        _div = make_axes_locatable(ax)
+        cax = _div.append_axes("right", size="3.5%", pad=0.2)
+        _sp = _div.append_axes("left", size="3.5%", pad=0.2)   # balances the colorbar so the map centres
+        _sp.set_xticks([]); _sp.set_yticks([])
+        for _s in _sp.spines.values():
+            _s.set_visible(False)
+        a.wards.assign(walk_min=a.wards["dpl_km"] * MIN_PER_KM).to_crs(4326).plot(
+                                  ax=ax, column="walk_min", cmap="YlOrRd", vmin=0, vmax=WALK_VMAX,
+                                  edgecolor="#ffffff", linewidth=0.15, legend=True, cax=cax,
+                                  legend_kwds={"label": "Walk minutes to nearest library (ward centroid)"})
         a.districts.boundary.plot(ax=ax, color=INK, linewidth=0.6)
         a.dpl.plot(ax=ax, color="#11304a", markersize=22, marker="o", edgecolor="white", linewidth=0.6, zorder=5)
         # the lopsided network: library mean-centre (star) vs city centroid (plus), with
@@ -184,12 +194,25 @@ class DelhiLibrarySpatial:
     def render_transit_siting(self, a: SpatialAnalysis) -> None:
         m = a.metrics
         fig, ax = plt.subplots(figsize=(7.4, 7.0))
-        a.districts.boundary.plot(ax=ax, color=RULE, linewidth=0.8)
+        _div = make_axes_locatable(ax)
+        cax = _div.append_axes("right", size="3.5%", pad=0.2)
+        _sp = _div.append_axes("left", size="3.5%", pad=0.2)   # balances the colorbar so the map centres
+        _sp.set_xticks([]); _sp.set_yticks([])
+        for _s in _sp.spines.values():
+            _s.set_visible(False)
+        # same walk-minutes heat surface as the access map, so the two Delhi maps match
+        a.wards.assign(walk_min=a.wards["dpl_km"] * MIN_PER_KM).to_crs(4326).plot(
+                                  ax=ax, column="walk_min", cmap="YlOrRd", vmin=0, vmax=WALK_VMAX,
+                                  edgecolor="#ffffff", linewidth=0.15, legend=True, cax=cax,
+                                  legend_kwds={"label": "Walk minutes to nearest library (ward centroid)"},
+                                  zorder=0)
+        a.districts.boundary.plot(ax=ax, color=INK, linewidth=0.6, zorder=1)
         # faint bus-stop density shows the DTC/cluster web the libraries mostly sit within
         if a.bus_path.exists():
-            gpd.read_file(a.bus_path).to_crs(4326).plot(ax=ax, color="#b9a779", markersize=0.5, alpha=0.22, zorder=1)
-        a.metro_lines.to_crs(4326).plot(ax=ax, color="#c9603a", linewidth=0.9, alpha=0.8, zorder=2)
-        a.metro.plot(ax=ax, color=MUTED, markersize=4, alpha=0.55, zorder=3)
+            gpd.read_file(a.bus_path).to_crs(4326).plot(ax=ax, color="#3f3a2f", markersize=0.5, alpha=0.28, zorder=2)
+        # Metro in contrasting purple so it reads over the red heat (as BRTS/Metro do on the Ahmedabad map)
+        a.metro_lines.to_crs(4326).plot(ax=ax, color="#5b2a86", linewidth=1.4, alpha=0.95, zorder=4, label="Metro line")
+        a.metro.plot(ax=ax, color="#5b2a86", markersize=4, alpha=0.6, zorder=4)
         metro_ok = a.dpl[a.dpl["metro_m"] <= 800]
         bus_only = a.dpl[(a.dpl["metro_m"] > 800) & (a.dpl["bus_m"] <= 400)]
         isolated = a.dpl[(a.dpl["metro_m"] > 800) & (a.dpl["bus_m"] > 400)]

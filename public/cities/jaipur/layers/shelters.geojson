@@ -1,0 +1,154 @@
+{
+  "type": "FeatureCollection",
+  "properties": {
+    "city": "jaipur",
+    "layer": "shelters",
+    "note": "This facility list covers Greater Jaipur Municipal Corporation's TEMPORARY winter 'rain basera' night-shelter camps (cold-wave season, reported Dec 2021), NOT the permanent NULM Shelter for Urban Homeless (SUH) stock. The permanent SUH tier is only publicly known in AGGREGATE for Jaipur (total capacity ~1,875, per the Justice Kailash Gambhir Committee report on urban homeless shelters, 2017, as cited in Citizen Matters, 'Rain, chill or heatwave, homeless poor have few places to turn to'). A facility-level list of Jaipur's permanent SUH shelters (with individual names/addresses/capacities) could not be located publicly in this research pass; 14 permanent shelter locations are referenced in Rajasthan Patrika reporting by generic site-type only (hospital grounds, railway stations, temples), without individual capacities or addresses, so they are not represented as separate features here to avoid inventing site records.",
+    "source": "https://www.patrika.com/jaipur-news/grater-nagar-nigam-rain-basera-sheel-dahabhai-social-distancing-jaipur-7225019 (Rajasthan Patrika, Dec 2021)",
+    "aggregate_permanent_suh_capacity": 1875,
+    "aggregate_source": "Justice Kailash Gambhir Committee report on shelters in India (2017), as cited in https://citizenmatters.in/india-urban-homeless-poor-shelters/",
+    "total_temporary_capacity_this_layer": 900
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [75.7971889, 26.87174] },
+      "properties": {
+        "name": "Behind Gandhi Nagar Railway Station (temporary winter rain basera)",
+        "zone": "Greater Jaipur Municipal Corporation",
+        "ward": null,
+        "capacity": 50,
+        "day_service": false,
+        "source": "https://www.patrika.com/jaipur-news/grater-nagar-nigam-rain-basera-sheel-dahabhai-social-distancing-jaipur-7225019",
+        "geocode_confidence": "good",
+        "notes": "Direct Nominatim match on 'Gandhi Nagar Railway Station, Jaipur, Rajasthan, India'. This is a TEMPORARY cold-season night shelter (winter 2021 reporting), not a permanent NULM SUH facility."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [75.8079888, 26.8281087] },
+      "properties": {
+        "name": "Sanganer Airport area (temporary winter rain basera)",
+        "zone": "Greater Jaipur Municipal Corporation",
+        "ward": null,
+        "capacity": 100,
+        "day_service": false,
+        "source": "https://www.patrika.com/jaipur-news/grater-nagar-nigam-rain-basera-sheel-dahabhai-social-distancing-jaipur-7225019",
+        "geocode_confidence": "approximate",
+        "notes": "Placed at Jaipur International Airport as the named-area anchor; article gives an area reference ('Sanganer Airport area') rather than a precise street address. Temporary cold-season night shelter, not a permanent NULM SUH facility."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [75.7782573, 26.8501389] },
+      "properties": {
+        "name": "Under Maharani Farm Pulia (temporary winter rain basera)",
+        "zone": "Greater Jaipur Municipal Corporation",
+        "ward": null,
+        "capacity": 100,
+        "day_service": false,
+        "source": "https://www.patrika.com/jaipur-news/grater-nagar-nigam-rain-basera-sheel-dahabhai-social-distancing-jaipur-7225019",
+        "geocode_confidence": "approximate",
+        "notes": "Nominatim resolved 'Maharani Farm, Jaipur' to a commercial address in the Maharani Farm/Durgapura locality; the shelter itself is reported as sited 'under' a flyover (pulia) in this locality, so treat as locality-level, not exact-site, precision. Temporary cold-season night shelter, not a permanent NULM SUH facility."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [75.7748097, 26.9607854] },
+      "properties": {
+        "name": "Vidyadhar Nagar Sector 6 (temporary winter rain basera)",
+        "zone": "Greater Jaipur Municipal Corporation",
+        "ward": null,
+        "capacity": 50,
+        "day_service": false,
+        "source": "https://www.patrika.com/jaipur-news/grater-nagar-nigam-rain-basera-sheel-dahabhai-social-distancing-jaipur-7225019",
+        "geocode_confidence": "approximate",
+        "notes": "Nominatim only resolved the locality 'Vidyadhar Nagar'; Sector 6 specifically did not return a distinct match. Temporary cold-season night shelter, not a permanent NULM SUH facility."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [75.7988, 26.9013] },
+      "properties": {
+        "name": "Behind Ramnivas Bagh (temporary winter rain basera)",
+        "zone": "Greater Jaipur Municipal Corporation",
+        "ward": null,
+        "capacity": 150,
+        "day_service": false,
+        "source": "https://www.patrika.com/jaipur-news/grater-nagar-nigam-rain-basera-sheel-dahabhai-social-distancing-jaipur-7225019",
+        "geocode_confidence": "unplaced",
+        "notes": "Nominatim geocoding was rate-limited for this site during this research session and could not be completed; geometry is a placeholder at the Jaipur city centroid (per data/cities/jaipur/city.yaml), NOT the actual site. Ramniwas Bagh/Albert Hall Museum area is in central Jaipur; re-geocode before using this point for placement. Temporary cold-season night shelter, not a permanent NULM SUH facility."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [75.7988, 26.9013] },
+      "properties": {
+        "name": "Near JK Lone Hospital Gate (temporary winter rain basera)",
+        "zone": "Greater Jaipur Municipal Corporation",
+        "ward": null,
+        "capacity": 100,
+        "day_service": false,
+        "source": "https://www.patrika.com/jaipur-news/grater-nagar-nigam-rain-basera-sheel-dahabhai-social-distancing-jaipur-7225019",
+        "geocode_confidence": "unplaced",
+        "notes": "Nominatim geocoding was rate-limited for this site and could not be completed; geometry is a placeholder at the Jaipur city centroid, NOT the actual site. J.K. Lon Hospital is part of the SMS Hospital medical campus in central Jaipur; re-geocode before using this point for placement. Temporary cold-season night shelter, not a permanent NULM SUH facility."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [75.7988, 26.9013] },
+      "properties": {
+        "name": "JK Lone, opposite Carewell (temporary winter rain basera)",
+        "zone": "Greater Jaipur Municipal Corporation",
+        "ward": null,
+        "capacity": 100,
+        "day_service": false,
+        "source": "https://www.patrika.com/jaipur-news/grater-nagar-nigam-rain-basera-sheel-dahabhai-social-distancing-jaipur-7225019",
+        "geocode_confidence": "unplaced",
+        "notes": "Distinct site from 'Near JK Lone Hospital Gate' per the source but same immediate vicinity. Nominatim geocoding was rate-limited and could not be completed; geometry is a placeholder at the Jaipur city centroid, NOT the actual site. Temporary cold-season night shelter, not a permanent NULM SUH facility."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [75.7988, 26.9013] },
+      "properties": {
+        "name": "Under GT Pulia (temporary winter rain basera)",
+        "zone": "Greater Jaipur Municipal Corporation",
+        "ward": null,
+        "capacity": 50,
+        "day_service": false,
+        "source": "https://www.patrika.com/jaipur-news/grater-nagar-nigam-rain-basera-sheel-dahabhai-social-distancing-jaipur-7225019",
+        "geocode_confidence": "unplaced",
+        "notes": "Could not confidently identify or geocode this flyover/underpass ('GT Pulia') during this session; geometry is a placeholder at the Jaipur city centroid, NOT the actual site. Temporary cold-season night shelter, not a permanent NULM SUH facility."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [75.7988, 26.9013] },
+      "properties": {
+        "name": "Under Gopalpura Triveni Pulia (temporary winter rain basera)",
+        "zone": "Greater Jaipur Municipal Corporation",
+        "ward": null,
+        "capacity": 100,
+        "day_service": false,
+        "source": "https://www.patrika.com/jaipur-news/grater-nagar-nigam-rain-basera-sheel-dahabhai-social-distancing-jaipur-7225019",
+        "geocode_confidence": "unplaced",
+        "notes": "Nominatim geocoding was rate-limited for this site and could not be completed; geometry is a placeholder at the Jaipur city centroid, NOT the actual site. Likely near the Triveni Circle / Gopalpura Bypass junction in south Jaipur; re-geocode before using this point for placement. Temporary cold-season night shelter, not a permanent NULM SUH facility."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [75.7988, 26.9013] },
+      "properties": {
+        "name": "200 Feet Bypass, Delhi-Ajmer Road (temporary winter rain basera)",
+        "zone": "Greater Jaipur Municipal Corporation",
+        "ward": null,
+        "capacity": 100,
+        "day_service": false,
+        "source": "https://www.patrika.com/jaipur-news/grater-nagar-nigam-rain-basera-sheel-dahabhai-social-distancing-jaipur-7225019",
+        "geocode_confidence": "unplaced",
+        "notes": "Nominatim geocoding was rate-limited for this site and could not be completed; geometry is a placeholder at the Jaipur city centroid, NOT the actual site. Distinct from the '200 Feet Road, Sitapura' location in south Jaipur that Nominatim resolves by default. Temporary cold-season night shelter, not a permanent NULM SUH facility."
+      }
+    }
+  ]
+}
