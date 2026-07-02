@@ -1,26 +1,26 @@
 {
   "top": [
     {
-      "ward": "Ward 3",
-      "lst": 47.4
+      "ward": "Ward 22",
+      "lst": 43.9
+    },
+    {
+      "ward": "Ward 11",
+      "lst": 43.2
     },
     {
       "ward": "Ward 2",
-      "lst": 45.9
+      "lst": 42.9
     },
     {
-      "ward": "Ward 5",
-      "lst": 45.9
+      "ward": "Ward 3",
+      "lst": 42.5
     },
     {
-      "ward": "Ward 4",
-      "lst": 45.5
-    },
-    {
-      "ward": "Ward 8",
-      "lst": 45.4
+      "ward": "Ward 24",
+      "lst": 42.5
     }
   ],
   "n": 68,
-  "window": "2023-04-01/2025-06-30"
+  "window": "2024-04-01/2026-07-01"
 }

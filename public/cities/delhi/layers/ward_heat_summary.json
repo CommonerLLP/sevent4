@@ -10,17 +10,17 @@
     },
     {
       "ward": "Karala",
-      "lst": 45.5
-    },
-    {
-      "ward": "Begumpur",
-      "lst": 45.4
+      "lst": 45.6
     },
     {
       "ward": "Bawana",
-      "lst": 45.4
+      "lst": 45.6
+    },
+    {
+      "ward": "Begumpur",
+      "lst": 45.5
     }
   ],
   "n": 288,
-  "window": "2023-04-01/2025-06-30"
+  "window": "2024-04-01/2026-07-01"
 }

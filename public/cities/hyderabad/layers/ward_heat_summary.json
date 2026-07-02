@@ -1,26 +1,26 @@
 {
   "top": [
     {
-      "ward": "Ward 34-TALABCHANCHALAM · CHARMINAR ZONE",
-      "lst": 45.0
-    },
-    {
       "ward": "Ward 47-NAWABSAHEBKUNTA · CHARMINAR ZONE",
-      "lst": 44.9
-    },
-    {
-      "ward": "Ward BANDLA GUDA · BANDLAGUDA",
       "lst": 44.8
     },
     {
-      "ward": "Ward 130-SUBHASH NAGAR · KUKATPALLY ZONE",
+      "ward": "Ward 34-TALABCHANCHALAM · CHARMINAR ZONE",
       "lst": 44.7
     },
     {
-      "ward": "Ward 31-REIN BAZAR · CHARMINAR ZONE",
-      "lst": 44.7
+      "ward": "Ward BANDLA GUDA · BANDLAGUDA",
+      "lst": 44.6
+    },
+    {
+      "ward": "Ward 46-FALAKNUMA · CHARMINAR ZONE",
+      "lst": 44.6
+    },
+    {
+      "ward": "Ward 54-JAHANUMA · CHARMINAR ZONE",
+      "lst": 44.4
     }
   ],
   "n": 155,
-  "window": "2023-04-01/2025-06-30"
+  "window": "2024-04-01/2026-07-01"
 }

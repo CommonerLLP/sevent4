@@ -10,10 +10,10 @@ name: Heat refresh
 # first real run is the validation.
 #
 # SCOPE: this refreshes the layer data (ward_heat.geojson + heat30m.png) from the
-# committed public/ wards (HEAT_LAYERS_ROOT=public). The console heat strip's
-# embedded hottest-ward names are rebuilt by a local console regen
-# (`bash scripts/build-city.sh <city>`), which depends on the gitignored data/
-# tree — so after merging a refresh, regenerate the affected consoles locally.
+# committed public/ wards (HEAT_LAYERS_ROOT=public). No console regen is needed
+# after merging: the console heat strips read layers/ward_heat_summary.json at
+# runtime, and this workflow rebuilds those summaries below. Review the PR data
+# (LST ranges, ward names in the geojson properties) before merging.
 
 on:
   schedule:
@@ -105,7 +105,8 @@ jobs:
             Automated quarterly refresh of the per-city Landsat land-surface-temperature
             layers (`ward_heat.geojson` + `heat30m.png`) over window `${{ steps.window.outputs.value }}`.
 
-            **Before merging:** sanity-check a couple of cities' ward LST ranges, then regenerate
-            the affected consoles locally so the heat-strip hottest-ward names match
-            (`bash scripts/build-city.sh <city>`), since that step needs the local data/ tree.
+            **Before merging:** sanity-check a couple of cities' ward LST ranges and pixel
+            counts (`lst_px_count`), and confirm ward-name properties survived the join
+            (popup titles read `Name`/`name`). No console regen is needed — the heat
+            strips read `layers/ward_heat_summary.json` at runtime.
           delete-branch: true

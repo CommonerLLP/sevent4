@@ -2,25 +2,25 @@
   "top": [
     {
       "ward": "Ward 159 · ALANDUR",
-      "lst": 48.3
+      "lst": 47.6
     },
     {
       "ward": "Ward 84 · AMBATTUR",
-      "lst": 46.3
+      "lst": 46.1
     },
     {
-      "ward": "Ward 65 · THIRU-VI-KA-NAGAR",
-      "lst": 46.0
+      "ward": "Ward 86 · AMBATTUR",
+      "lst": 45.5
     },
     {
-      "ward": "Ward 161 · ALANDUR",
-      "lst": 46.0
+      "ward": "Ward 87 · AMBATTUR",
+      "lst": 45.5
     },
     {
-      "ward": "Ward 26 · MADHAVARAM",
-      "lst": 45.9
+      "ward": "Ward 145 · VALASARAVAKKAM",
+      "lst": 45.5
     }
   ],
   "n": 200,
-  "window": "2023-04-01/2025-06-30"
+  "window": "2024-04-01/2026-07-01"
 }

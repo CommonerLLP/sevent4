@@ -2,25 +2,25 @@
   "top": [
     {
       "ward": "Jajmau North",
-      "lst": 47.2
+      "lst": 46.5
     },
     {
       "ward": "Munshi Purwa",
-      "lst": 46.8
-    },
-    {
-      "ward": "Bakar Ganj",
-      "lst": 46.7
-    },
-    {
-      "ward": "Juhi Hamirpur Road",
-      "lst": 46.2
+      "lst": 45.6
     },
     {
       "ward": "Transport Nagar",
-      "lst": 46.2
+      "lst": 45.3
+    },
+    {
+      "ward": "Jajmau South",
+      "lst": 45.3
+    },
+    {
+      "ward": "Bakar Ganj",
+      "lst": 45.3
     }
   ],
   "n": 56,
-  "window": "2023-04-01/2025-06-30"
+  "window": "2024-04-01/2026-07-01"
 }

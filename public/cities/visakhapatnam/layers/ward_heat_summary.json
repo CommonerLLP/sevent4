@@ -1,26 +1,26 @@
 {
   "top": [
     {
+      "ward": "Ward 96 · Zone-6",
+      "lst": 44.4
+    },
+    {
       "ward": "Ward 54 · Zone-4",
-      "lst": 45.0
+      "lst": 44.1
     },
     {
       "ward": "Ward 2 · Zone-1",
-      "lst": 44.9
-    },
-    {
-      "ward": "Ward 96 · Zone-6",
-      "lst": 44.7
-    },
-    {
-      "ward": "Ward 7",
-      "lst": 44.3
+      "lst": 44.0
     },
     {
       "ward": "Ward 97 · Zone-6",
-      "lst": 44.2
+      "lst": 44.0
+    },
+    {
+      "ward": "Ward 52 · Zone-4",
+      "lst": 43.6
     }
   ],
   "n": 47,
-  "window": "2023-04-01/2025-06-30"
+  "window": "2024-04-01/2026-07-01"
 }

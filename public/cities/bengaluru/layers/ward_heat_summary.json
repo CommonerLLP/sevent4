@@ -1,26 +1,26 @@
 {
   "top": [
     {
-      "ward": "Munnekollala",
-      "lst": 44.8
+      "ward": "27 - Vibhootipura",
+      "lst": 43.0
     },
     {
-      "ward": "HAL Airport",
-      "lst": 44.5
+      "ward": "72 - Kaveripura",
+      "lst": 42.7
     },
     {
-      "ward": "Varthuru",
-      "lst": 44.4
+      "ward": "41 - Periyar Nagar",
+      "lst": 42.6
     },
     {
-      "ward": "Anjanapura",
-      "lst": 44.3
+      "ward": "27 - Srigandada Kaval",
+      "lst": 42.5
     },
     {
-      "ward": "Naganathapura",
-      "lst": 44.2
+      "ward": "7 - Rajagopala Nagara",
+      "lst": 42.4
     }
   ],
-  "n": 243,
-  "window": "2023-04-01/2025-06-30"
+  "n": 369,
+  "window": "2024-04-01/2026-07-01"
 }
