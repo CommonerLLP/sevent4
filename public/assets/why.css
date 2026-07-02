@@ -162,7 +162,7 @@ a.dcell:focus-visible{border-color:var(--blue);transform:translateY(-2px)}
 .actitem .t b{color:var(--gold);font-weight:700}
 .actitem .t span{display:block;color:var(--mut);font-size:13px;margin-top:3px}
 
-.cite{font:600 12px/1.55 var(--mono);color:var(--mut);margin-top:16px;max-width:62ch}
+.cite{font:600 12px/1.55 var(--mono);color:var(--mut);margin-top:16px}
 .cite b{color:var(--ink)}
 .endnav{display:flex;gap:11px;flex-wrap:wrap;margin-top:30px}
 .endnav .btn{align-items:center;display:inline-flex;min-height:44px}
