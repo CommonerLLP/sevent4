@@ -1,0 +1,100 @@
+{
+ "schema": "sevent4.public_sources.v1",
+ "city": "kolkata",
+ "city_name": "Kolkata",
+ "compiled": "2026-07-01",
+ "count": 13,
+ "sources": [
+  {
+   "id": "datameet_maps_census_admin",
+   "kind": "boundary_dataset",
+   "label": "DataMeet maps (Census 2011 districts, Assembly and Parliamentary constituencies)",
+   "url": "https://raw.githubusercontent.com/datameet/maps/master/docs/data/geojson/dists11.geojson",
+   "notes": "DataMeet community maps repo, CC-BY-SA 2.5 IN. Backs districts.geojson (dists11.geojson filtered DISTRICT=Kolkata), acs.geojson (ac.geojson filtered DIST_NAME=KOLKATA, ACs 158-168), pcs.geojson (pc_14.geojson filtered to Kolkata Uttar/Dakshin). The ac.geojson and pc_14.geojson URLs are recorded verbatim in the same file. Also the AC/PC inputs to the derived jurisdiction_crosswalk.json (spatial join of ward/AC/PC layers, per the crosswalk's own embedded source field)."
+  },
+  {
+   "id": "datameet_municipal_spatial_data_kmc_wards",
+   "kind": "boundary_dataset",
+   "label": "DataMeet Municipal_Spatial_Data — KMC ward polygons (via J. Meyers/DataMeet thread)",
+   "url": "https://raw.githubusercontent.com/datameet/Municipal_Spatial_Data/master/Kolkata/kolkata.geojson",
+   "notes": "CC-BY-SA 2.5 IN; 141 of 144 KMC wards (142-144 missing, no open geometry found). Backs wards.geojson, ward_heat.geojson and ward_heat_summary.json (ward frames), the ward input to jurisdiction_crosswalk.json, and the borough dissolve used for subdistricts (data-side)."
+  },
+  {
+   "id": "openstreetmap_overpass",
+   "kind": "osm_extract",
+   "label": "OpenStreetMap via Overpass API",
+   "url": null,
+   "notes": "ODbL 1.0; provenance records list the Overpass filters and bbox (S22.40 W88.20 N22.70 E88.50) but record no resource URL (resource_url is null on disk) — honest blank. Backs roads.geojson, metro_lines.geojson, metro.geojson (stations), stops.geojson (bus stops), health.geojson (hospitals; features carry osm_id), schools.geojson, libraries.geojson, toilets.geojson, police.geojson, and suburban_rail.geojson (separate record flags it NON-AUTHORITATIVE, illustrative first pass)."
+  },
+  {
+   "id": "worldpop_population_2020",
+   "kind": "population_raster_api",
+   "label": "WorldPop wpgppop 2020 stats API",
+   "url": "https://api.worldpop.org/v1/services/stats",
+   "notes": "CC-BY 4.0. Per-ward population_2020 property written onto wards.geojson and carried into ward_heat.geojson; covers the 141 wards with geometry."
+  },
+  {
+   "id": "suda_wb_presidency_shelter_audit_2023",
+   "kind": "shelter_register",
+   "label": "WB SUDA / Presidency University quality audit of 40 functional NULM shelter homes (2023)",
+   "url": "https://sudawb.org/uploads/nulm/1st%20Quarterly%20Quality%20Audit%20Report%20of%2040%20functional%20Shelter%20Homes%20under%20different%20Urban%20Local%20Bodies%20of%20West%20Bengal.pdf",
+   "notes": "Sole source for shelters.geojson — all 6 Kolkata features carry this URL in their per-feature source field, with geocode-confidence and site-visit notes embedded per feature (6 NULM-registered shelters, 437 beds)."
+  },
+  {
+   "id": "nulm_suh_guidelines",
+   "kind": "scheme_norm_pdf",
+   "label": "DAY-NULM Scheme of Shelters for Urban Homeless (SUH) operational guidelines",
+   "url": "https://nulm.gov.in/PDF/NULM_Mission/NULM-SUH-Guidelines.pdf",
+   "notes": "PRIMARY-VERIFIED 2026-07-01 (Section 3.1, printed p. 2); local copy at data/sources/nulm-suh-guidelines-day-nulm-2019.pdf. Provides the shelter-capacity norm behind the Kolkata shortfall benchmark (~90% short, 437 beds vs ~4,497 norm-implied) that contextualizes shelters.geojson."
+  },
+  {
+   "id": "landsat_c2l2_planetary_computer",
+   "kind": "satellite_derivation",
+   "label": "Landsat Collection-2 Level-2 (Landsat 8/9) via Microsoft Planetary Computer STAC API",
+   "url": "https://planetarycomputer.microsoft.com/api/stac/v1",
+   "notes": "Derivation source for the heat layers: heat30m.png, heat30m_bounds.json, ward_heat.geojson (lst fields) and ward_heat_summary.json (window 2024-04-01/2026-07-01 recorded in the summary). Adapter queries collection landsat-c2-l2, platforms landsat-8/9, ST_B10/lwir11 surface-temperature band; quarterly refresh wired in .github/workflows/heat-refresh.yml."
+  },
+  {
+   "id": "kmc_official_site",
+   "kind": "municipal_official",
+   "label": "Kolkata Municipal Corporation official site (kmcgov.in) — councillor pages, budget books, facility PDFs",
+   "url": "https://www.kmcgov.in/KMCPortal/downloads/",
+   "notes": "Backs the councillor names on ward_heat.geojson/wards (councillors, councillor_count from Councillors2-10.jsp; wards 1-15 via the SEC-result transcription because Councillors1.jsp 404s), plus data-side KMC budget PDF index (FY2022-23 to 2026-27, HTTP-verified 2026-06-09), health/school/parks facility PDFs, and the Mayors page. Individual document URLs recorded in budget_index.json and facilities/README.md."
+  },
+  {
+   "id": "wbsec_2021_kmc_election_via_wikipedia",
+   "kind": "electoral_results",
+   "label": "2021 KMC election result — WB State Election Commission via Wikipedia transcription",
+   "url": "https://en.wikipedia.org/wiki/2021_Kolkata_Municipal_Corporation_election",
+   "notes": "Backs councillor_parties on ward_heat.geojson and the council-status facts (AITC 134/144). Integrity note on disk: the official SEC PDF at wbsec.gov.in was unreachable (expired TLS, HTTP 503) on 2026-06-09, so party data rests on Wikipedia's transcription; inferred-party rows are flagged AITC* pending SEC verification."
+  },
+  {
+   "id": "census2011_pca_slum_orgi",
+   "kind": "census_table",
+   "label": "Census 2011 Primary Census Abstract for Slum (PCA-Slum), ORGI NADA catalog 6190",
+   "url": "https://censusindia.gov.in/nada/index.php/catalog/6190",
+   "notes": "Kolkata (M Corp.) slum population 1,409,721 (31.35% of 4,496,694) with MD5-verified source XLS. Backs no public layer file directly; the city_total_population_2011 figure underpins the shelter-shortfall benchmark in docs/nulm-shelter-shortfall-findings.md. Data-side record."
+  },
+  {
+   "id": "wbpcb_records_cpr_bundle",
+   "kind": "regulator_capacity_research",
+   "label": "WBPCB primary records (employee roster, RTI finance reply) + CPR SPCB study working papers",
+   "url": "https://cprindia.org/wp-content/uploads/2023/04/04-Finances-WP_CPR-SPCB-study_270423.pdf",
+   "notes": "Regulator-capacity source set: WBPCB April-2022 employee roster and RTI finance reply held locally in source/pollution/raw/, plus CPR finances/staff working papers, the CPR RTI-response zip, wbpcb.gov.in, and a Down To Earth Rajya Sabha-answer article (all URLs recorded in the sources file). Backs NO public Kolkata layer file yet — grep of public/cities/kolkata/index.html finds zero WBPCB mentions; acquired for the pollution/regulator-capacity layer."
+  },
+  {
+   "id": "officer_appointment_press_records",
+   "kind": "press_record",
+   "label": "Officer-appointment press records (APAC News Network; Deccan Herald)",
+   "url": "https://apacnewsnetwork.com/2026/03/west-bengal-govt-transfers-12-ias-officers-ias-anshul-gupta-made-municipal-commissioner-kolkata-municipal-corporation/",
+   "notes": "Backs the municipal-commissioner (Anshul Gupta, IAS) and police-commissioner names in data/cities/kolkata/layers/governance.json (data-side governance card; not one of the public layer files). Per-record source URLs on disk in officers.json."
+  },
+  {
+   "id": "ghosh_2020_municipal_calcutta_thesis",
+   "kind": "academic",
+   "label": "Anwesha Ghosh, Municipal Calcutta: Urban Governance in a Colonial City (UofT PhD)",
+   "url": null,
+   "notes": "No URL recorded on disk — honest blank; local PDF at data/sources/ghosh-2020-municipal-calcutta-uoft-thesis.pdf, Zotero key I6363ZWJ noted in the reading file. Grep of public/cities/kolkata/index.html finds no Ghosh citation, so it currently backs no public Kolkata layer or claim; it is an interpretive reference under close reading."
+  }
+ ]
+}

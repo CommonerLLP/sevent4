@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script>(function(){try{var t=localStorage.getItem('atlas-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sources — Ahmedabad</title>
+  <link rel="icon" type="image/png" href="../../../assets/ixa-mark.png">
+  <link rel="stylesheet" href="../../../assets/theme.css">
+  <style>
+*{box-sizing:border-box;margin:0}body{font:400 16px/1.6 var(--sans);color:var(--ink);background:var(--bg)}
+.wrap{max-width:860px;margin:0 auto;padding:32px 22px 80px}
+.crumb{font:700 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-bottom:18px}
+.crumb a{color:var(--blue);text-decoration:none}.crumb span{margin:0 6px;color:var(--line)}
+h1{font:700 30px/1.15 var(--serif);letter-spacing:-.01em;margin-bottom:8px}
+.lede{color:var(--mut);font-size:16px;max-width:70ch;margin-bottom:10px}
+.stat{font:700 12px/1 var(--mono);letter-spacing:.04em;color:var(--gold);margin-bottom:18px}
+.osearch{width:100%;min-height:44px;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);padding:9px 12px;font:600 14px var(--sans);margin-bottom:12px}
+.osearch::placeholder{color:var(--mut)}
+.onoresults{color:var(--mut);font-size:13px;margin:18px 0}
+.is-hidden{display:none}
+.rows{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+.row{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:var(--r);padding:9px 12px}
+.row-ghost{border-left-style:dashed;border-left-color:var(--mut)}
+.rhead{display:block;color:var(--mut);font:700 10px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px}
+.rwho{font-size:14.5px}
+.rname{color:var(--ink);font-weight:700}
+.rsrc{color:var(--gold);font:700 11px var(--mono);text-decoration:none;margin-left:6px}
+.rsrc-text{color:var(--mut);font-weight:400}
+.rnote{color:var(--mut);font-size:12.5px;line-height:1.5;margin-top:5px;max-width:70ch}
+.prov{margin-top:44px;border-top:1px solid var(--line);padding-top:20px;color:var(--mut);font-size:13px}
+.prov h3{font:700 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+.prov p{max-width:74ch}.prov a{color:var(--blue)}
+.prov code{font:600 12px var(--mono);color:var(--ink)}
+@media(max-width:640px){h1{font-size:25px}}
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <nav class="crumb"><a href="../">&larr; Atlas</a> <span>/</span> <b>Sources</b></nav>
+    <h1>Where this console's data comes from</h1>
+    <p class="lede">
+      Every layer, number, and name on the Ahmedabad console traces
+      to one of the source records below. A record without a link means the
+      source's public URL was never captured at acquisition time — that gap is
+      reported, not papered over with a guessed link.
+    </p>
+    <p class="stat">8 source records &middot; 0 with no public URL recorded</p>
+
+    <input id="osearch" class="osearch" type="search"
+      placeholder="Search by source, kind, or note (e.g. &quot;budget&quot;, &quot;DataMeet&quot;, &quot;GTFS&quot;)">
+    <p id="onoresults" class="onoresults" hidden>No match. Clear the search to see all sources.</p>
+
+    <div class="rows">
+      <div class="row" data-search="finance pdf index amc budget public index of ahmedabad municipal budget pdfs.">
+        <span class="rhead">finance pdf index</span>
+        <div class="rwho"><span class="rname">AMC Budget</span> <a class="rsrc" href="https://ahmedabadcity.gov.in/SP/Budget">source</a></div>
+        <p class="rnote">Public index of Ahmedabad municipal budget PDFs.</p>
+      </div>
+
+      <div class="row" data-search="finance pdf index amc balance sheet public index of balance sheets and audit reports.">
+        <span class="rhead">finance pdf index</span>
+        <div class="rwho"><span class="rname">AMC Balance Sheet</span> <a class="rsrc" href="https://ahmedabadcity.gov.in/SP/BalanceSheet">source</a></div>
+        <p class="rnote">Public index of balance sheets and audit reports.</p>
+      </div>
+
+      <div class="row" data-search="finance context page about amc finance finance department context, accounting basis, budget branch, controls, and officials.">
+        <span class="rhead">finance context page</span>
+        <div class="rwho"><span class="rname">About AMC Finance</span> <a class="rsrc" href="https://ahmedabadcity.gov.in/SP/AboutAMCFinance">source</a></div>
+        <p class="rnote">Finance department context, accounting basis, budget branch, controls, and officials.</p>
+      </div>
+
+      <div class="row" data-search="department index amc departments public department index for office attribution.">
+        <span class="rhead">department index</span>
+        <div class="rwho"><span class="rname">AMC Departments</span> <a class="rsrc" href="https://ahmedabadcity.gov.in/StaticPage/Departments">source</a></div>
+        <p class="rnote">Public department index for office attribution.</p>
+      </div>
+
+      <div class="row" data-search="citizen facility index city civic centers public civic-center page listing municipal services and citywide center counts.">
+        <span class="rhead">citizen facility index</span>
+        <div class="rwho"><span class="rname">City Civic Centers</span> <a class="rsrc" href="https://ahmedabadcity.gov.in/StaticPage/CityCivicCenters">source</a></div>
+        <p class="rnote">Public civic-center page listing municipal services and citywide center counts.</p>
+      </div>
+
+      <div class="row" data-search="officer contact directory pdf amc contact directory public officer directory used for municipal commissioner attribution.">
+        <span class="rhead">officer contact directory pdf</span>
+        <div class="rwho"><span class="rname">AMC Contact Directory</span> <a class="rsrc" href="https://ahmedabad.gujarat.gov.in/assets/downloads/AMC_Contact_Directory_.pdf">source</a></div>
+        <p class="rnote">Public officer directory used for municipal commissioner attribution.</p>
+      </div>
+
+      <div class="row" data-search="representative pdf councillors 2026-27 ward councillor names and information.">
+        <span class="rhead">representative pdf</span>
+        <div class="rwho"><span class="rname">Councillors 2026-27</span> <a class="rsrc" href="https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2638">source</a></div>
+        <p class="rnote">Ward councillor names and information.</p>
+      </div>
+
+      <div class="row" data-search="representative pdf standing committee member list - english standing committee member list in english.">
+        <span class="rhead">representative pdf</span>
+        <div class="rwho"><span class="rname">Standing Committee Member List - English</span> <a class="rsrc" href="https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2645">source</a></div>
+        <p class="rnote">Standing Committee member list in English.</p>
+      </div>
+</div>
+
+    <footer class="prov">
+      <h3>Handling &amp; reuse</h3>
+      <p>
+        This inventory is compiled from the repo&#x27;s own acquisition records:
+        each entry is backed by a named internal record whose existence is
+        verified every time this page is built. It is also published as
+        <a href="sources.json">machine-readable JSON</a>
+        (schema <code>sevent4.public_sources.v1</code>) so other projects can
+        reuse the sourcing without re-deriving it.
+      </p>
+    </footer>
+  </main>
+  <script>
+  document.getElementById("osearch").addEventListener("input", (event) => {
+    const q = event.target.value.trim().toLowerCase();
+    let anyVisible = false;
+    document.querySelectorAll(".row").forEach((row) => {
+      const match = !q || (row.dataset.search || "").includes(q);
+      row.classList.toggle("is-hidden", !match);
+      if (match) anyVisible = true;
+    });
+    document.getElementById("onoresults").hidden = anyVisible || !q;
+  });
+</script>
+</body>
+</html>

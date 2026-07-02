@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script>(function(){try{var t=localStorage.getItem('atlas-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sources — Chennai</title>
+  <link rel="icon" type="image/png" href="../../../assets/ixa-mark.png">
+  <link rel="stylesheet" href="../../../assets/theme.css">
+  <style>
+*{box-sizing:border-box;margin:0}body{font:400 16px/1.6 var(--sans);color:var(--ink);background:var(--bg)}
+.wrap{max-width:860px;margin:0 auto;padding:32px 22px 80px}
+.crumb{font:700 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-bottom:18px}
+.crumb a{color:var(--blue);text-decoration:none}.crumb span{margin:0 6px;color:var(--line)}
+h1{font:700 30px/1.15 var(--serif);letter-spacing:-.01em;margin-bottom:8px}
+.lede{color:var(--mut);font-size:16px;max-width:70ch;margin-bottom:10px}
+.stat{font:700 12px/1 var(--mono);letter-spacing:.04em;color:var(--gold);margin-bottom:18px}
+.osearch{width:100%;min-height:44px;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);padding:9px 12px;font:600 14px var(--sans);margin-bottom:12px}
+.osearch::placeholder{color:var(--mut)}
+.onoresults{color:var(--mut);font-size:13px;margin:18px 0}
+.is-hidden{display:none}
+.rows{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+.row{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:var(--r);padding:9px 12px}
+.row-ghost{border-left-style:dashed;border-left-color:var(--mut)}
+.rhead{display:block;color:var(--mut);font:700 10px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px}
+.rwho{font-size:14.5px}
+.rname{color:var(--ink);font-weight:700}
+.rsrc{color:var(--gold);font:700 11px var(--mono);text-decoration:none;margin-left:6px}
+.rsrc-text{color:var(--mut);font-weight:400}
+.rnote{color:var(--mut);font-size:12.5px;line-height:1.5;margin-top:5px;max-width:70ch}
+.prov{margin-top:44px;border-top:1px solid var(--line);padding-top:20px;color:var(--mut);font-size:13px}
+.prov h3{font:700 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+.prov p{max-width:74ch}.prov a{color:var(--blue)}
+.prov code{font:600 12px var(--mono);color:var(--ink)}
+@media(max-width:640px){h1{font-size:25px}}
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <nav class="crumb"><a href="../">&larr; Atlas</a> <span>/</span> <b>Sources</b></nav>
+    <h1>Where this console's data comes from</h1>
+    <p class="lede">
+      Every layer, number, and name on the Chennai console traces
+      to one of the source records below. A record without a link means the
+      source's public URL was never captured at acquisition time — that gap is
+      reported, not papered over with a guessed link.
+    </p>
+    <p class="stat">29 source records &middot; 2 with no public URL recorded &middot; compiled 2026-07-01</p>
+
+    <input id="osearch" class="osearch" type="search"
+      placeholder="Search by source, kind, or note (e.g. &quot;budget&quot;, &quot;DataMeet&quot;, &quot;GTFS&quot;)">
+    <p id="onoresults" class="onoresults" hidden>No match. Clear the search to see all sources.</p>
+
+    <div class="rows">
+      <div class="row" data-search="boundary dataset datameet maps — census 2011 district boundaries cc-by-4.0 datameet district shapes (chennai + thiruvallur + kancheepuram, the gcc catchment). backs districts.geojson.">
+        <span class="rhead">boundary dataset</span>
+        <div class="rwho"><span class="rname">DataMeet maps — Census 2011 district boundaries</span> <a class="rsrc" href="https://raw.githubusercontent.com/datameet/maps/master/Districts/Census_2011/2011_Dist.shp">source</a></div>
+        <p class="rnote">CC-BY-4.0 DataMeet district shapes (Chennai + Thiruvallur + Kancheepuram, the GCC catchment). Backs districts.geojson.</p>
+      </div>
+
+      <div class="row" data-search="boundary dataset datameet maps — india_ac assembly-constituency boundaries cc-by-4.0 datameet ac shapes; 16 chennai-district acs. backs acs.geojson geometry and (with wards/pcs) the derived jurisdiction_crosswalk.json built by scripts/recipes/build_jurisdiction_crosswalk.py.">
+        <span class="rhead">boundary dataset</span>
+        <div class="rwho"><span class="rname">DataMeet maps — India_AC assembly-constituency boundaries</span> <a class="rsrc" href="https://raw.githubusercontent.com/datameet/maps/master/assembly-constituencies/India_AC.shp">source</a></div>
+        <p class="rnote">CC-BY-4.0 DataMeet AC shapes; 16 Chennai-district ACs. Backs acs.geojson geometry and (with wards/pcs) the derived jurisdiction_crosswalk.json built by scripts/recipes/build_jurisdiction_crosswalk.py.</p>
+      </div>
+
+      <div class="row" data-search="boundary dataset datameet maps — india_pc_2019 parliamentary-constituency boundaries cc-by-4.0 datameet pc shapes; 6 pcs incl. chennai north/central/south. backs pcs.geojson geometry and the derived jurisdiction_crosswalk.json.">
+        <span class="rhead">boundary dataset</span>
+        <div class="rwho"><span class="rname">DataMeet maps — india_pc_2019 parliamentary-constituency boundaries</span> <a class="rsrc" href="https://raw.githubusercontent.com/datameet/maps/master/parliamentary-constituencies/india_pc_2019_simplified.geojson">source</a></div>
+        <p class="rnote">CC-BY-4.0 DataMeet PC shapes; 6 PCs incl. Chennai North/Central/South. Backs pcs.geojson geometry and the derived jurisdiction_crosswalk.json.</p>
+      </div>
+
+      <div class="row" data-search="boundary dataset datameet municipal_spatial_data — chennai gcc 200-ward boundaries cc-by-4.0 datameet mirror of the gcc 2011-delimitation 200-ward / 15-zone map. backs wards.geojson geometry, the ward dissolve behind zone_finance.geojson (15 zones), the ward frame for ward_heat.geojson/ward_heat_summary.json, and jurisdiction_crosswalk.json.">
+        <span class="rhead">boundary dataset</span>
+        <div class="rwho"><span class="rname">DataMeet Municipal_Spatial_Data — Chennai GCC 200-ward boundaries</span> <a class="rsrc" href="https://raw.githubusercontent.com/datameet/Municipal_Spatial_Data/master/Chennai/Wards.geojson">source</a></div>
+        <p class="rnote">CC-BY-4.0 DataMeet mirror of the GCC 2011-delimitation 200-ward / 15-zone map. Backs wards.geojson geometry, the ward dissolve behind zone_finance.geojson (15 zones), the ward frame for ward_heat.geojson/ward_heat_summary.json, and jurisdiction_crosswalk.json.</p>
+      </div>
+
+      <div class="row" data-search="osm extract openstreetmap via overpass api (odbl 1.0, bbox 12.83-13.25 n / 80.10-80.34 e, 2026-06) backs roads.geojson (4214), metro_lines.geojson (136), metro.geojson (metro stations, 69), stops.geojson (mtc bus stops, 971), health.geojson (hospitals, 835), schools.geojson (630), toilets.geojson (105), police.geojson (105), fire.geojson (fire stations, 15). feature counts and osm_id properties in the public files match the osm source layers. note: public libraries.geojson is not osm (see opencity_chennai_civic_amenities).">
+        <span class="rhead">osm extract</span>
+        <div class="rwho"><span class="rname">OpenStreetMap via Overpass API (ODbL 1.0, bbox 12.83-13.25 N / 80.10-80.34 E, 2026-06)</span> <a class="rsrc" href="https://overpass-api.de/api/interpreter">source</a></div>
+        <p class="rnote">Backs roads.geojson (4214), metro_lines.geojson (136), metro.geojson (metro stations, 69), stops.geojson (MTC bus stops, 971), health.geojson (hospitals, 835), schools.geojson (630), toilets.geojson (105), police.geojson (105), fire.geojson (fire stations, 15). Feature counts and osm_id properties in the public files match the OSM source layers. Note: public libraries.geojson is NOT OSM (see opencity_chennai_civic_amenities).</p>
+      </div>
+
+      <div class="row" data-search="population raster api worldpop stats api — wpgppop 2020 (100m constrained grid, per-ward zonal stats) backs the population_2020 attribute on wards.geojson. url is recorded on disk exactly as shown (no https:// scheme in the record).">
+        <span class="rhead">population raster api</span>
+        <div class="rwho"><span class="rname">WorldPop stats API — wpgppop 2020 (100m constrained grid, per-ward zonal stats)</span> <a class="rsrc" href="https://api.worldpop.org/v1/services/stats">source</a></div>
+        <p class="rnote">Backs the population_2020 attribute on wards.geojson. URL is recorded on disk exactly as shown (no https:// scheme in the record).</p>
+      </div>
+
+      <div class="row" data-search="opencity dataset opencity — chennai flooding data (publisher: greater chennai corporation) license &#x27;other (public domain)&#x27;. backs flood_hazard.geojson, flood_inundation.geojson, flood_2015.geojson (kml -&gt; wgs84 geojson via scripts/recipes/chennai/build_opencity_water_layers.py; raw kml/kmz sha256-manifested in source/opencity/_raw/_manifest.json).">
+        <span class="rhead">opencity dataset</span>
+        <div class="rwho"><span class="rname">OpenCity — Chennai Flooding Data (publisher: Greater Chennai Corporation)</span> <a class="rsrc" href="https://data.opencity.in/dataset/chennai-flooding-data">source</a></div>
+        <p class="rnote">License &#x27;Other (Public Domain)&#x27;. Backs flood_hazard.geojson, flood_inundation.geojson, flood_2015.geojson (KML -&gt; WGS84 GeoJSON via scripts/recipes/chennai/build_opencity_water_layers.py; raw KML/KMZ sha256-manifested in source/opencity/_raw/_manifest.json).</p>
+      </div>
+
+      <div class="row" data-search="opencity dataset opencity — chennai stormwater drain (swd) maps (publisher: gcc) license &#x27;other (public domain)&#x27;. backs stormwater_drains.geojson (consolidated &#x27;swd map 2023&#x27; kml; 10254 features; 114 per-ward pdf maps left unparsed in source).">
+        <span class="rhead">opencity dataset</span>
+        <div class="rwho"><span class="rname">OpenCity — Chennai Stormwater Drain (SWD) Maps (publisher: GCC)</span> <a class="rsrc" href="https://data.opencity.in/dataset/chennai-stormwater-drain-swd-maps">source</a></div>
+        <p class="rnote">License &#x27;Other (Public Domain)&#x27;. Backs stormwater_drains.geojson (consolidated &#x27;SWD Map 2023&#x27; KML; 10254 features; 114 per-ward PDF maps left unparsed in source).</p>
+      </div>
+
+      <div class="row" data-search="opencity dataset opencity — cmwssb administrative boundaries (publisher: cmwssb) license &#x27;other (public domain)&#x27;. backs cmwssb_depots.geojson (199 depot boundaries).">
+        <span class="rhead">opencity dataset</span>
+        <div class="rwho"><span class="rname">OpenCity — CMWSSB Administrative Boundaries (publisher: CMWSSB)</span> <a class="rsrc" href="https://data.opencity.in/dataset/cmwssb-administrative-boundaries">source</a></div>
+        <p class="rnote">License &#x27;Other (Public Domain)&#x27;. Backs cmwssb_depots.geojson (199 depot boundaries).</p>
+      </div>
+
+      <div class="row" data-search="opencity dataset opencity — chennai sewerage collection system (publisher: cmwssb) license &#x27;other (public domain)&#x27;. backs sewer_command_area.geojson (365 sewerage command areas).">
+        <span class="rhead">opencity dataset</span>
+        <div class="rwho"><span class="rname">OpenCity — Chennai Sewerage Collection System (publisher: CMWSSB)</span> <a class="rsrc" href="https://data.opencity.in/dataset/chennai-sewerage-collection-system">source</a></div>
+        <p class="rnote">License &#x27;Other (Public Domain)&#x27;. Backs sewer_command_area.geojson (365 sewerage command areas).</p>
+      </div>
+
+      <div class="row" data-search="opencity dataset opencity — chennai water distribution stations (publisher: cmwssb) license &#x27;other (public domain)&#x27;. backs water_overhead_tanks.geojson (278 overhead tanks).">
+        <span class="rhead">opencity dataset</span>
+        <div class="rwho"><span class="rname">OpenCity — Chennai Water Distribution Stations (publisher: CMWSSB)</span> <a class="rsrc" href="https://data.opencity.in/dataset/chennai-water-distribution-stations">source</a></div>
+        <p class="rnote">License &#x27;Other (Public Domain)&#x27;. Backs water_overhead_tanks.geojson (278 overhead tanks).</p>
+      </div>
+
+      <div class="row" data-search="opencity dataset opencity — chennai sewage pumping network (publisher: cmwssb) acquired and archived in source/opencity/_raw only; backs no public layer (operational pumping-asset inventory not promoted to a console layer in this pass).">
+        <span class="rhead">opencity dataset</span>
+        <div class="rwho"><span class="rname">OpenCity — Chennai Sewage Pumping Network (publisher: CMWSSB)</span> <a class="rsrc" href="https://data.opencity.in/dataset/chennai-sewage-pumping-network">source</a></div>
+        <p class="rnote">Acquired and archived in source/opencity/_raw only; backs NO public layer (operational pumping-asset inventory not promoted to a console layer in this pass).</p>
+      </div>
+
+      <div class="row" data-search="finance dataset opencity — great chennai corporation finances (publisher: gcc) backs zone_finance.geojson: 2013-14 capex actuals joined to 15 zones (200 wards dissolved), plus source/finance/chennai_budget.json. vintage 2012-16 — the latest gcc accounts on opencity, explicitly recorded as not current. there is no separate public/cities/chennai/finance/ sub-page; zone_finance.geojson is the only public finance surface.">
+        <span class="rhead">finance dataset</span>
+        <div class="rwho"><span class="rname">OpenCity — Great Chennai Corporation Finances (publisher: GCC)</span> <a class="rsrc" href="https://data.opencity.in/dataset/great-chennai-corporation-finances">source</a></div>
+        <p class="rnote">Backs zone_finance.geojson: 2013-14 capex actuals joined to 15 zones (200 wards dissolved), plus source/finance/chennai_budget.json. Vintage 2012-16 — the latest GCC accounts on OpenCity, explicitly recorded as not current. There is no separate public/cities/chennai/finance/ sub-page; zone_finance.geojson is the only public finance surface.</p>
+      </div>
+
+      <div class="row" data-search="facility register opencity — chennai civic amenities (org: greater chennai corporation) url shown is the chennai libraries resource (161 records); dataset also supplied burial-grounds, night-shelters and ward-wise public-toilets csvs (local only, no public layer yet — the night-shelter csv at source/corporation/facilities/chennai_night_shelters.csv is the mappable register flagged in todo). backs libraries.geojson — the public layer carries sl_no/authority/geocode_* properties (149 geocoded facilities via data/cities/chennai/geocode_libraries.py), i.e. it is this gcc facility register, not osm. collection landing: https://data.opencity.in/dataset?organization=greater-chennai-corporation.">
+        <span class="rhead">facility register</span>
+        <div class="rwho"><span class="rname">OpenCity — Chennai Civic Amenities (org: Greater Chennai Corporation)</span> <a class="rsrc" href="https://data.opencity.in/dataset/chennai-civic-amenities/resource/4f826a66-288d-4612-b807-1940e8d275e5">source</a></div>
+        <p class="rnote">URL shown is the Chennai Libraries resource (161 records); dataset also supplied burial-grounds, night-shelters and ward-wise public-toilets CSVs (local only, no public layer yet — the night-shelter CSV at source/corporation/facilities/chennai_night_shelters.csv is the mappable register flagged in TODO). Backs libraries.geojson — the public layer carries sl_no/authority/geocode_* properties (149 geocoded facilities via data/cities/chennai/geocode_libraries.py), i.e. it is this GCC facility register, not OSM. Collection landing: https://data.opencity.in/dataset?organization=greater-chennai-corporation.</p>
+      </div>
+
+      <div class="row" data-search="facility register opencity — chennai schools (aided / high / higher-secondary csvs) local csvs only (chennai_schools_aided/high/hr_sec.csv). backs no public layer — public schools.geojson is the osm layer (630 features, osm_id properties).">
+        <span class="rhead">facility register</span>
+        <div class="rwho"><span class="rname">OpenCity — Chennai Schools (aided / high / higher-secondary CSVs)</span> <a class="rsrc" href="https://data.opencity.in/dataset/chennai-schools">source</a></div>
+        <p class="rnote">Local CSVs only (chennai_schools_aided/high/hr_sec.csv). Backs NO public layer — public schools.geojson is the OSM layer (630 features, osm_id properties).</p>
+      </div>
+
+      <div class="row" data-search="facility register opencity — chennai health centres, uphcs and uchcs (updated 2025-11-27) local csvs only (159 uphcs, 18 uchcs). backs no public layer — public health.geojson is the osm hospitals layer (835 features, osm_id properties).">
+        <span class="rhead">facility register</span>
+        <div class="rwho"><span class="rname">OpenCity — Chennai Health Centres, UPHCs and UCHCs (updated 2025-11-27)</span> <a class="rsrc" href="https://data.opencity.in/dataset/chennai-healthcare-uphcs-and-uchcs">source</a></div>
+        <p class="rnote">Local CSVs only (159 UPHCs, 18 UCHCs). Backs NO public layer — public health.geojson is the OSM hospitals layer (835 features, osm_id properties).</p>
+      </div>
+
+      <div class="row" data-search="municipal official greater chennai corporation — official council pages and councillor directory scraped 2026-06-09 into source/corporation/councillors.csv (200 ward rows; 194 named, 4 vacant, 2 unlisted; party field deliberately blank — the official directory omits party). backs the councillors/councillor_phones popups on wards.geojson and the council-status fields of data/cities/chennai/layers/governance.json (elected council since feb 2022; mayor r. priya). companion about-council page: https://chennaicorporation.gov.in/gcc/council/about-council/. corroboration recorded on disk: wikipedia (2022 tn local elections; priya rajan) and citizen matters.">
+        <span class="rhead">municipal official</span>
+        <div class="rwho"><span class="rname">Greater Chennai Corporation — official council pages and councillor directory</span> <a class="rsrc" href="https://chennaicorporation.gov.in/gcc/council/council-address/">source</a></div>
+        <p class="rnote">Scraped 2026-06-09 into source/corporation/councillors.csv (200 ward rows; 194 named, 4 vacant, 2 unlisted; party field deliberately blank — the official directory omits party). Backs the councillors/councillor_phones popups on wards.geojson and the council-status fields of data/cities/chennai/layers/governance.json (elected council since Feb 2022; Mayor R. Priya). Companion about-council page: https://chennaicorporation.gov.in/gcc/council/about-council/. Corroboration recorded on disk: Wikipedia (2022 TN local elections; Priya Rajan) and Citizen Matters.</p>
+      </div>
+
+      <div class="row" data-search="finance pdf index gcc budget books 2019-20 to 2026-27 (opencity per-year mirrors of official gcc pdfs) official landing pages (chennaicorporation.gov.in/gcc/budget_yyyy-yyyy/) 404 to programmatic fetch, so opencity mirrors are the working source; 2024-25 resolved to 14 direct pdfs in budget_index.json. backs no public layer — the chennai finance page was not built; only zone_finance.geojson (separate 2012-16 dataset) is public.">
+        <span class="rhead">finance pdf index</span>
+        <div class="rwho"><span class="rname">GCC budget books 2019-20 to 2026-27 (OpenCity per-year mirrors of official GCC PDFs)</span> <a class="rsrc" href="https://data.opencity.in/dataset/gcc-budget-2024-25">source</a></div>
+        <p class="rnote">Official landing pages (chennaicorporation.gov.in/gcc/Budget_YYYY-YYYY/) 404 to programmatic fetch, so OpenCity mirrors are the working source; 2024-25 resolved to 14 direct PDFs in budget_index.json. Backs NO public layer — the Chennai finance page was not built; only zone_finance.geojson (separate 2012-16 dataset) is public.</p>
+      </div>
+
+      <div class="row" data-search="satellite derivation usgs landsat collection 2 level-2 (landsat 8/9) via microsoft planetary computer stac api land-surface-temperature median derivation: stac search on collections=[&#x27;landsat-c2-l2&#x27;], platform landsat-8/9, qa-masked, converted by sevent4/domain/heat.py. backs ward_heat.geojson, ward_heat_summary.json (window 2024-04-01/2026-07-01, n=200 wards), heat30m.png and heat30m_bounds.json. refresh automated in .github/workflows/heat-refresh.yml.">
+        <span class="rhead">satellite derivation</span>
+        <div class="rwho"><span class="rname">USGS Landsat Collection 2 Level-2 (Landsat 8/9) via Microsoft Planetary Computer STAC API</span> <a class="rsrc" href="https://planetarycomputer.microsoft.com/api/stac/v1">source</a></div>
+        <p class="rnote">Land-surface-temperature median derivation: STAC search on collections=[&#x27;landsat-c2-l2&#x27;], platform landsat-8/9, QA-masked, converted by sevent4/domain/heat.py. Backs ward_heat.geojson, ward_heat_summary.json (window 2024-04-01/2026-07-01, n=200 wards), heat30m.png and heat30m_bounds.json. Refresh automated in .github/workflows/heat-refresh.yml.</p>
+      </div>
+
+      <div class="row row-ghost" data-search="electoral results myneta tamil nadu 2021 / eci — mla and mp names and parties backs the office/representative/party popup fields on acs.geojson and pcs.geojson. the on-disk record (source column of representatives_mla_mp.csv) says only &#x27;myneta tamil nadu 2021 / eci&#x27; with no url recorded — honest blank, not a guess.">
+        <span class="rhead">electoral results</span>
+        <div class="rwho"><span class="rname">MyNeta Tamil Nadu 2021 / ECI — MLA and MP names and parties</span> <span class="rsrc rsrc-text">no public URL recorded</span></div>
+        <p class="rnote">Backs the office/representative/party popup fields on acs.geojson and pcs.geojson. The on-disk record (source column of representatives_mla_mp.csv) says only &#x27;MyNeta Tamil Nadu 2021 / ECI&#x27; with NO URL recorded — honest blank, not a guess.</p>
+      </div>
+
+      <div class="row" data-search="press record egov (elets) — tn ias transfers; g s sameeran appointed gcc commissioner backs the municipal_commissioner field (&#x27;g s sameeran&#x27;, ias) in data/cities/chennai/layers/governance.json (as_of 2026-06). no public layer file; feeds the governance card.">
+        <span class="rhead">press record</span>
+        <div class="rwho"><span class="rname">eGov (Elets) — TN IAS transfers; G S Sameeran appointed GCC Commissioner</span> <a class="rsrc" href="https://egov.eletsonline.com/2026/05/tamil-nadu-transfers-17-ias-officers-g-s-sameeran-appointed-chennai-corporation-commissioner/">source</a></div>
+        <p class="rnote">Backs the municipal_commissioner field (&#x27;G S Sameeran&#x27;, IAS) in data/cities/chennai/layers/governance.json (as_of 2026-06). No public layer file; feeds the governance card.</p>
+      </div>
+
+      <div class="row" data-search="press record indian masterminds — tn ips reshuffle; a. amalraj chennai police commissioner backs the police_commissioner field (&#x27;a. amalraj&#x27;, ips) in data/cities/chennai/layers/governance.json. no public layer file; feeds the governance card.">
+        <span class="rhead">press record</span>
+        <div class="rwho"><span class="rname">Indian Masterminds — TN IPS reshuffle; A. Amalraj Chennai Police Commissioner</span> <a class="rsrc" href="https://indianmasterminds.com/news/tamil-nadu-ips-reshuffle-a-amalraj-chennai-police-commissioner-205760/">source</a></div>
+        <p class="rnote">Backs the police_commissioner field (&#x27;A. Amalraj&#x27;, IPS) in data/cities/chennai/layers/governance.json. No public layer file; feeds the governance card.</p>
+      </div>
+
+      <div class="row" data-search="census table census 2011 pca for slum (town level), orgi nada catalog 6190 acquired 2026-06-14 (download url and md5 recorded on disk; orgi attribution). backs no public chennai layer yet — informal-settlements data is local-only under source/informal/.">
+        <span class="rhead">census table</span>
+        <div class="rwho"><span class="rname">Census 2011 PCA for Slum (town level), ORGI NADA catalog 6190</span> <a class="rsrc" href="https://censusindia.gov.in/nada/index.php/catalog/6190">source</a></div>
+        <p class="rnote">Acquired 2026-06-14 (download URL and md5 recorded on disk; ORGI attribution). Backs NO public Chennai layer yet — informal-settlements data is local-only under source/informal/.</p>
+      </div>
+
+      <div class="row" data-search="parliamentary answer rajya sabha unstarred q.3096 &#x27;vacancies in pollution control boards&#x27; (27.03.2025), moef&amp;cc tnpcb 1118 sanctioned / 493 vacant (44%). backs pollution regulator-capacity claims for chennai/tnpcb; no chennai public layer file carries this yet.">
+        <span class="rhead">parliamentary answer</span>
+        <div class="rwho"><span class="rname">Rajya Sabha Unstarred Q.3096 &#x27;Vacancies in Pollution Control Boards&#x27; (27.03.2025), MoEF&amp;CC</span> <a class="rsrc" href="https://sansad.in/getFile/annex/267/AU3096_mHvALB.pdf?source=pqars">source</a></div>
+        <p class="rnote">TNPCB 1118 sanctioned / 493 vacant (44%). Backs pollution regulator-capacity claims for Chennai/TNPCB; no Chennai public layer file carries this yet.</p>
+      </div>
+
+      <div class="row" data-search="parliamentary answer rajya sabha unstarred q.57 &#x27;vacant positions in pollution control boards&#x27; (02.02.2023), moef&amp;cc tnpcb 1036 sanctioned / 383 vacant (37%) — 2023 baseline for the same regulator-capacity claims; no chennai public layer file.">
+        <span class="rhead">parliamentary answer</span>
+        <div class="rwho"><span class="rname">Rajya Sabha Unstarred Q.57 &#x27;Vacant Positions in Pollution Control Boards&#x27; (02.02.2023), MoEF&amp;CC</span> <a class="rsrc" href="https://sansad.in/getFile/annex/259/AU57.pdf?source=pqars">source</a></div>
+        <p class="rnote">TNPCB 1036 sanctioned / 383 vacant (37%) — 2023 baseline for the same regulator-capacity claims; no Chennai public layer file.</p>
+      </div>
+
+      <div class="row" data-search="annual report tnpcb annual report 2024-25 (audited accounts) primary for tnpcb finance/capacity: income rs 499.89 cr (nil govt grant), surplus rs 142.83 cr, 18 labs, 38,158 inspections. backs pollution regulator-capacity claims; no chennai public layer file. board site root also recorded: https://tnpcb.gov.in/.">
+        <span class="rhead">annual report</span>
+        <div class="rwho"><span class="rname">TNPCB Annual Report 2024-25 (audited accounts)</span> <a class="rsrc" href="https://tnpcb.gov.in/annual-reports.php">source</a></div>
+        <p class="rnote">PRIMARY for TNPCB finance/capacity: income Rs 499.89 cr (NIL govt grant), surplus Rs 142.83 cr, 18 labs, 38,158 inspections. Backs pollution regulator-capacity claims; no Chennai public layer file. Board site root also recorded: https://tnpcb.gov.in/.</p>
+      </div>
+
+      <div class="row" data-search="press record down to earth (citing cse &#x27;turnaround&#x27; 2009) on spcb staffing secondary: tnpcb 57% administrative staff (2009); ngt finding on tn working strength. backs pollution-capacity context; no chennai public layer file.">
+        <span class="rhead">press record</span>
+        <div class="rwho"><span class="rname">Down To Earth (citing CSE &#x27;Turnaround&#x27; 2009) on SPCB staffing</span> <a class="rsrc" href="https://www.downtoearth.org.in/pollution/india-s-pollution-control-boards-were-weakened-over-the-last-14-years-as-environment-ministry-lacks-roadmap-87627">source</a></div>
+        <p class="rnote">Secondary: TNPCB 57% administrative staff (2009); NGT finding on TN working strength. Backs pollution-capacity context; no Chennai public layer file.</p>
+      </div>
+
+      <div class="row row-ghost" data-search="academic banik, &#x27;the transfer raj: indian civil servants on the move&#x27; (tnpcb leadership churn) in-corpus academic source held in the project research library (zotero item xhxbl2b6; no public url recorded on disk): 18 tnpcb chairmen 1982-2000. backs pollution regulator-capacity narrative; no chennai public layer file.">
+        <span class="rhead">academic</span>
+        <div class="rwho"><span class="rname">Banik, &#x27;The Transfer Raj: Indian Civil Servants on the Move&#x27; (TNPCB leadership churn)</span> <span class="rsrc rsrc-text">no public URL recorded</span></div>
+        <p class="rnote">In-corpus academic source held in the project research library (Zotero item XHXBL2B6; no public URL recorded on disk): 18 TNPCB chairmen 1982-2000. Backs pollution regulator-capacity narrative; no Chennai public layer file.</p>
+      </div>
+
+      <div class="row" data-search="press record citizen matters — &#x27;who governs chennai?&#x27; + 2022 councillor winners list verbatim on-disk url (docs/kolkata-chennai-devolution.md, sources section); companion winners-list url also recorded: https://citizenmatters.in/chennai-local-body-poll-results-winning-councillors-dmk-mayor-38740 (corporation.md). backs the devolution/who-governs framing and corroborates the 2022 council result; the winners table was not machine-extractable, so ward-level party is deliberately absent from councillors.csv.">
+        <span class="rhead">press record</span>
+        <div class="rwho"><span class="rname">Citizen Matters — &#x27;Who governs Chennai?&#x27; + 2022 councillor winners list</span> <a class="rsrc" href="https://citizenmatters.in/chennai-governance-corporation-mtc-railways-cmrl-tnpcb-tnhb-32855">source</a></div>
+        <p class="rnote">Verbatim on-disk URL (docs/kolkata-chennai-devolution.md, Sources section); companion winners-list URL also recorded: https://citizenmatters.in/chennai-local-body-poll-results-winning-councillors-dmk-mayor-38740 (CORPORATION.md). Backs the devolution/who-governs framing and corroborates the 2022 council result; the winners table was NOT machine-extractable, so ward-level party is deliberately absent from councillors.csv.</p>
+      </div>
+</div>
+
+    <footer class="prov">
+      <h3>Handling &amp; reuse</h3>
+      <p>
+        This inventory is compiled from the repo&#x27;s own acquisition records:
+        each entry is backed by a named internal record whose existence is
+        verified every time this page is built. It is also published as
+        <a href="sources.json">machine-readable JSON</a>
+        (schema <code>sevent4.public_sources.v1</code>) so other projects can
+        reuse the sourcing without re-deriving it.
+      </p>
+    </footer>
+  </main>
+  <script>
+  document.getElementById("osearch").addEventListener("input", (event) => {
+    const q = event.target.value.trim().toLowerCase();
+    let anyVisible = false;
+    document.querySelectorAll(".row").forEach((row) => {
+      const match = !q || (row.dataset.search || "").includes(q);
+      row.classList.toggle("is-hidden", !match);
+      if (match) anyVisible = true;
+    });
+    document.getElementById("onoresults").hidden = anyVisible || !q;
+  });
+</script>
+</body>
+</html>

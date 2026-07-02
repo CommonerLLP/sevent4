@@ -297,6 +297,8 @@ def _city_extra_links(out_dir: Path | None) -> tuple[tuple[str, str], ...]:
         links.append(("Money", "money/index.html"))
     if (out_dir / "officials" / "index.html").exists():
         links.append(("Officials", "officials/index.html"))
+    if (out_dir / "sources" / "index.html").exists():
+        links.append(("Sources", "sources/index.html"))
     return tuple(links)
 
 

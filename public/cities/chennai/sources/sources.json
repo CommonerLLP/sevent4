@@ -1,0 +1,212 @@
+{
+ "schema": "sevent4.public_sources.v1",
+ "city": "chennai",
+ "city_name": "Chennai",
+ "compiled": "2026-07-01",
+ "count": 29,
+ "sources": [
+  {
+   "id": "datameet_districts_census2011",
+   "kind": "boundary_dataset",
+   "label": "DataMeet maps — Census 2011 district boundaries",
+   "url": "https://raw.githubusercontent.com/datameet/maps/master/Districts/Census_2011/2011_Dist.shp",
+   "notes": "CC-BY-4.0 DataMeet district shapes (Chennai + Thiruvallur + Kancheepuram, the GCC catchment). Backs districts.geojson."
+  },
+  {
+   "id": "datameet_assembly_constituencies",
+   "kind": "boundary_dataset",
+   "label": "DataMeet maps — India_AC assembly-constituency boundaries",
+   "url": "https://raw.githubusercontent.com/datameet/maps/master/assembly-constituencies/India_AC.shp",
+   "notes": "CC-BY-4.0 DataMeet AC shapes; 16 Chennai-district ACs. Backs acs.geojson geometry and (with wards/pcs) the derived jurisdiction_crosswalk.json built by scripts/recipes/build_jurisdiction_crosswalk.py."
+  },
+  {
+   "id": "datameet_parliamentary_constituencies",
+   "kind": "boundary_dataset",
+   "label": "DataMeet maps — india_pc_2019 parliamentary-constituency boundaries",
+   "url": "https://raw.githubusercontent.com/datameet/maps/master/parliamentary-constituencies/india_pc_2019_simplified.geojson",
+   "notes": "CC-BY-4.0 DataMeet PC shapes; 6 PCs incl. Chennai North/Central/South. Backs pcs.geojson geometry and the derived jurisdiction_crosswalk.json."
+  },
+  {
+   "id": "datameet_gcc_wards",
+   "kind": "boundary_dataset",
+   "label": "DataMeet Municipal_Spatial_Data — Chennai GCC 200-ward boundaries",
+   "url": "https://raw.githubusercontent.com/datameet/Municipal_Spatial_Data/master/Chennai/Wards.geojson",
+   "notes": "CC-BY-4.0 DataMeet mirror of the GCC 2011-delimitation 200-ward / 15-zone map. Backs wards.geojson geometry, the ward dissolve behind zone_finance.geojson (15 zones), the ward frame for ward_heat.geojson/ward_heat_summary.json, and jurisdiction_crosswalk.json."
+  },
+  {
+   "id": "openstreetmap_overpass",
+   "kind": "osm_extract",
+   "label": "OpenStreetMap via Overpass API (ODbL 1.0, bbox 12.83-13.25 N / 80.10-80.34 E, 2026-06)",
+   "url": "https://overpass-api.de/api/interpreter",
+   "notes": "Backs roads.geojson (4214), metro_lines.geojson (136), metro.geojson (metro stations, 69), stops.geojson (MTC bus stops, 971), health.geojson (hospitals, 835), schools.geojson (630), toilets.geojson (105), police.geojson (105), fire.geojson (fire stations, 15). Feature counts and osm_id properties in the public files match the OSM source layers. Note: public libraries.geojson is NOT OSM (see opencity_chennai_civic_amenities)."
+  },
+  {
+   "id": "worldpop_stats_api",
+   "kind": "population_raster_api",
+   "label": "WorldPop stats API — wpgppop 2020 (100m constrained grid, per-ward zonal stats)",
+   "url": "https://api.worldpop.org/v1/services/stats",
+   "notes": "Backs the population_2020 attribute on wards.geojson. URL is recorded on disk exactly as shown (no https:// scheme in the record)."
+  },
+  {
+   "id": "opencity_gcc_flooding_data",
+   "kind": "opencity_dataset",
+   "label": "OpenCity — Chennai Flooding Data (publisher: Greater Chennai Corporation)",
+   "url": "https://data.opencity.in/dataset/chennai-flooding-data",
+   "notes": "License 'Other (Public Domain)'. Backs flood_hazard.geojson, flood_inundation.geojson, flood_2015.geojson (KML -> WGS84 GeoJSON via scripts/recipes/chennai/build_opencity_water_layers.py; raw KML/KMZ sha256-manifested in source/opencity/_raw/_manifest.json)."
+  },
+  {
+   "id": "opencity_gcc_stormwater_drains",
+   "kind": "opencity_dataset",
+   "label": "OpenCity — Chennai Stormwater Drain (SWD) Maps (publisher: GCC)",
+   "url": "https://data.opencity.in/dataset/chennai-stormwater-drain-swd-maps",
+   "notes": "License 'Other (Public Domain)'. Backs stormwater_drains.geojson (consolidated 'SWD Map 2023' KML; 10254 features; 114 per-ward PDF maps left unparsed in source)."
+  },
+  {
+   "id": "opencity_cmwssb_admin_boundaries",
+   "kind": "opencity_dataset",
+   "label": "OpenCity — CMWSSB Administrative Boundaries (publisher: CMWSSB)",
+   "url": "https://data.opencity.in/dataset/cmwssb-administrative-boundaries",
+   "notes": "License 'Other (Public Domain)'. Backs cmwssb_depots.geojson (199 depot boundaries)."
+  },
+  {
+   "id": "opencity_cmwssb_sewerage_collection",
+   "kind": "opencity_dataset",
+   "label": "OpenCity — Chennai Sewerage Collection System (publisher: CMWSSB)",
+   "url": "https://data.opencity.in/dataset/chennai-sewerage-collection-system",
+   "notes": "License 'Other (Public Domain)'. Backs sewer_command_area.geojson (365 sewerage command areas)."
+  },
+  {
+   "id": "opencity_cmwssb_water_distribution",
+   "kind": "opencity_dataset",
+   "label": "OpenCity — Chennai Water Distribution Stations (publisher: CMWSSB)",
+   "url": "https://data.opencity.in/dataset/chennai-water-distribution-stations",
+   "notes": "License 'Other (Public Domain)'. Backs water_overhead_tanks.geojson (278 overhead tanks)."
+  },
+  {
+   "id": "opencity_cmwssb_sewage_pumping",
+   "kind": "opencity_dataset",
+   "label": "OpenCity — Chennai Sewage Pumping Network (publisher: CMWSSB)",
+   "url": "https://data.opencity.in/dataset/chennai-sewage-pumping-network",
+   "notes": "Acquired and archived in source/opencity/_raw only; backs NO public layer (operational pumping-asset inventory not promoted to a console layer in this pass)."
+  },
+  {
+   "id": "opencity_gcc_finances",
+   "kind": "finance_dataset",
+   "label": "OpenCity — Great Chennai Corporation Finances (publisher: GCC)",
+   "url": "https://data.opencity.in/dataset/great-chennai-corporation-finances",
+   "notes": "Backs zone_finance.geojson: 2013-14 capex actuals joined to 15 zones (200 wards dissolved), plus source/finance/chennai_budget.json. Vintage 2012-16 — the latest GCC accounts on OpenCity, explicitly recorded as not current. There is no separate public/cities/chennai/finance/ sub-page; zone_finance.geojson is the only public finance surface."
+  },
+  {
+   "id": "opencity_chennai_civic_amenities",
+   "kind": "facility_register",
+   "label": "OpenCity — Chennai Civic Amenities (org: Greater Chennai Corporation)",
+   "url": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4f826a66-288d-4612-b807-1940e8d275e5",
+   "notes": "URL shown is the Chennai Libraries resource (161 records); dataset also supplied burial-grounds, night-shelters and ward-wise public-toilets CSVs (local only, no public layer yet — the night-shelter CSV at source/corporation/facilities/chennai_night_shelters.csv is the mappable register flagged in TODO). Backs libraries.geojson — the public layer carries sl_no/authority/geocode_* properties (149 geocoded facilities via data/cities/chennai/geocode_libraries.py), i.e. it is this GCC facility register, not OSM. Collection landing: https://data.opencity.in/dataset?organization=greater-chennai-corporation."
+  },
+  {
+   "id": "opencity_chennai_schools",
+   "kind": "facility_register",
+   "label": "OpenCity — Chennai Schools (aided / high / higher-secondary CSVs)",
+   "url": "https://data.opencity.in/dataset/chennai-schools",
+   "notes": "Local CSVs only (chennai_schools_aided/high/hr_sec.csv). Backs NO public layer — public schools.geojson is the OSM layer (630 features, osm_id properties)."
+  },
+  {
+   "id": "opencity_chennai_health_centres",
+   "kind": "facility_register",
+   "label": "OpenCity — Chennai Health Centres, UPHCs and UCHCs (updated 2025-11-27)",
+   "url": "https://data.opencity.in/dataset/chennai-healthcare-uphcs-and-uchcs",
+   "notes": "Local CSVs only (159 UPHCs, 18 UCHCs). Backs NO public layer — public health.geojson is the OSM hospitals layer (835 features, osm_id properties)."
+  },
+  {
+   "id": "gcc_official_council_site",
+   "kind": "municipal_official",
+   "label": "Greater Chennai Corporation — official council pages and councillor directory",
+   "url": "https://chennaicorporation.gov.in/gcc/council/council-address/",
+   "notes": "Scraped 2026-06-09 into source/corporation/councillors.csv (200 ward rows; 194 named, 4 vacant, 2 unlisted; party field deliberately blank — the official directory omits party). Backs the councillors/councillor_phones popups on wards.geojson and the council-status fields of data/cities/chennai/layers/governance.json (elected council since Feb 2022; Mayor R. Priya). Companion about-council page: https://chennaicorporation.gov.in/gcc/council/about-council/. Corroboration recorded on disk: Wikipedia (2022 TN local elections; Priya Rajan) and Citizen Matters."
+  },
+  {
+   "id": "gcc_budget_books_opencity_mirror",
+   "kind": "finance_pdf_index",
+   "label": "GCC budget books 2019-20 to 2026-27 (OpenCity per-year mirrors of official GCC PDFs)",
+   "url": "https://data.opencity.in/dataset/gcc-budget-2024-25",
+   "notes": "Official landing pages (chennaicorporation.gov.in/gcc/Budget_YYYY-YYYY/) 404 to programmatic fetch, so OpenCity mirrors are the working source; 2024-25 resolved to 14 direct PDFs in budget_index.json. Backs NO public layer — the Chennai finance page was not built; only zone_finance.geojson (separate 2012-16 dataset) is public."
+  },
+  {
+   "id": "landsat_c2l2_planetary_computer",
+   "kind": "satellite_derivation",
+   "label": "USGS Landsat Collection 2 Level-2 (Landsat 8/9) via Microsoft Planetary Computer STAC API",
+   "url": "https://planetarycomputer.microsoft.com/api/stac/v1",
+   "notes": "Land-surface-temperature median derivation: STAC search on collections=['landsat-c2-l2'], platform landsat-8/9, QA-masked, converted by sevent4/domain/heat.py. Backs ward_heat.geojson, ward_heat_summary.json (window 2024-04-01/2026-07-01, n=200 wards), heat30m.png and heat30m_bounds.json. Refresh automated in .github/workflows/heat-refresh.yml."
+  },
+  {
+   "id": "myneta_eci_tn2021_representatives",
+   "kind": "electoral_results",
+   "label": "MyNeta Tamil Nadu 2021 / ECI — MLA and MP names and parties",
+   "url": null,
+   "notes": "Backs the office/representative/party popup fields on acs.geojson and pcs.geojson. The on-disk record (source column of representatives_mla_mp.csv) says only 'MyNeta Tamil Nadu 2021 / ECI' with NO URL recorded — honest blank, not a guess."
+  },
+  {
+   "id": "egov_eletsonline_commissioner",
+   "kind": "press_record",
+   "label": "eGov (Elets) — TN IAS transfers; G S Sameeran appointed GCC Commissioner",
+   "url": "https://egov.eletsonline.com/2026/05/tamil-nadu-transfers-17-ias-officers-g-s-sameeran-appointed-chennai-corporation-commissioner/",
+   "notes": "Backs the municipal_commissioner field ('G S Sameeran', IAS) in data/cities/chennai/layers/governance.json (as_of 2026-06). No public layer file; feeds the governance card."
+  },
+  {
+   "id": "indianmasterminds_police_commissioner",
+   "kind": "press_record",
+   "label": "Indian Masterminds — TN IPS reshuffle; A. Amalraj Chennai Police Commissioner",
+   "url": "https://indianmasterminds.com/news/tamil-nadu-ips-reshuffle-a-amalraj-chennai-police-commissioner-205760/",
+   "notes": "Backs the police_commissioner field ('A. Amalraj', IPS) in data/cities/chennai/layers/governance.json. No public layer file; feeds the governance card."
+  },
+  {
+   "id": "census2011_pca_slum",
+   "kind": "census_table",
+   "label": "Census 2011 PCA for Slum (town level), ORGI NADA catalog 6190",
+   "url": "https://censusindia.gov.in/nada/index.php/catalog/6190",
+   "notes": "Acquired 2026-06-14 (download URL and md5 recorded on disk; ORGI attribution). Backs NO public Chennai layer yet — informal-settlements data is local-only under source/informal/."
+  },
+  {
+   "id": "rajya_sabha_au3096_2025_spcb_vacancies",
+   "kind": "parliamentary_answer",
+   "label": "Rajya Sabha Unstarred Q.3096 'Vacancies in Pollution Control Boards' (27.03.2025), MoEF&CC",
+   "url": "https://sansad.in/getFile/annex/267/AU3096_mHvALB.pdf?source=pqars",
+   "notes": "TNPCB 1118 sanctioned / 493 vacant (44%). Backs pollution regulator-capacity claims for Chennai/TNPCB; no Chennai public layer file carries this yet."
+  },
+  {
+   "id": "rajya_sabha_au57_2023_spcb_vacancies",
+   "kind": "parliamentary_answer",
+   "label": "Rajya Sabha Unstarred Q.57 'Vacant Positions in Pollution Control Boards' (02.02.2023), MoEF&CC",
+   "url": "https://sansad.in/getFile/annex/259/AU57.pdf?source=pqars",
+   "notes": "TNPCB 1036 sanctioned / 383 vacant (37%) — 2023 baseline for the same regulator-capacity claims; no Chennai public layer file."
+  },
+  {
+   "id": "tnpcb_annual_report_2024_25",
+   "kind": "annual_report",
+   "label": "TNPCB Annual Report 2024-25 (audited accounts)",
+   "url": "https://tnpcb.gov.in/annual-reports.php",
+   "notes": "PRIMARY for TNPCB finance/capacity: income Rs 499.89 cr (NIL govt grant), surplus Rs 142.83 cr, 18 labs, 38,158 inspections. Backs pollution regulator-capacity claims; no Chennai public layer file. Board site root also recorded: https://tnpcb.gov.in/."
+  },
+  {
+   "id": "dte_cse_turnaround_spcb",
+   "kind": "press_record",
+   "label": "Down To Earth (citing CSE 'Turnaround' 2009) on SPCB staffing",
+   "url": "https://www.downtoearth.org.in/pollution/india-s-pollution-control-boards-were-weakened-over-the-last-14-years-as-environment-ministry-lacks-roadmap-87627",
+   "notes": "Secondary: TNPCB 57% administrative staff (2009); NGT finding on TN working strength. Backs pollution-capacity context; no Chennai public layer file."
+  },
+  {
+   "id": "banik_transfer_raj_tnpcb",
+   "kind": "academic",
+   "label": "Banik, 'The Transfer Raj: Indian Civil Servants on the Move' (TNPCB leadership churn)",
+   "url": null,
+   "notes": "In-corpus academic source held in the project research library (Zotero item XHXBL2B6; no public URL recorded on disk): 18 TNPCB chairmen 1982-2000. Backs pollution regulator-capacity narrative; no Chennai public layer file."
+  },
+  {
+   "id": "citizen_matters_chennai_governance",
+   "kind": "press_record",
+   "label": "Citizen Matters — 'Who governs Chennai?' + 2022 councillor winners list",
+   "url": "https://citizenmatters.in/chennai-governance-corporation-mtc-railways-cmrl-tnpcb-tnhb-32855",
+   "notes": "Verbatim on-disk URL (docs/kolkata-chennai-devolution.md, Sources section); companion winners-list URL also recorded: https://citizenmatters.in/chennai-local-body-poll-results-winning-councillors-dmk-mayor-38740 (CORPORATION.md). Backs the devolution/who-governs framing and corroborates the 2022 council result; the winners table was NOT machine-extractable, so ward-level party is deliberately absent from councillors.csv."
+  }
+ ]
+}

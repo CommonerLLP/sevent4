@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script>(function(){try{var t=localStorage.getItem('atlas-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sources — Kolkata</title>
+  <link rel="icon" type="image/png" href="../../../assets/ixa-mark.png">
+  <link rel="stylesheet" href="../../../assets/theme.css">
+  <style>
+*{box-sizing:border-box;margin:0}body{font:400 16px/1.6 var(--sans);color:var(--ink);background:var(--bg)}
+.wrap{max-width:860px;margin:0 auto;padding:32px 22px 80px}
+.crumb{font:700 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-bottom:18px}
+.crumb a{color:var(--blue);text-decoration:none}.crumb span{margin:0 6px;color:var(--line)}
+h1{font:700 30px/1.15 var(--serif);letter-spacing:-.01em;margin-bottom:8px}
+.lede{color:var(--mut);font-size:16px;max-width:70ch;margin-bottom:10px}
+.stat{font:700 12px/1 var(--mono);letter-spacing:.04em;color:var(--gold);margin-bottom:18px}
+.osearch{width:100%;min-height:44px;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);padding:9px 12px;font:600 14px var(--sans);margin-bottom:12px}
+.osearch::placeholder{color:var(--mut)}
+.onoresults{color:var(--mut);font-size:13px;margin:18px 0}
+.is-hidden{display:none}
+.rows{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+.row{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:var(--r);padding:9px 12px}
+.row-ghost{border-left-style:dashed;border-left-color:var(--mut)}
+.rhead{display:block;color:var(--mut);font:700 10px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px}
+.rwho{font-size:14.5px}
+.rname{color:var(--ink);font-weight:700}
+.rsrc{color:var(--gold);font:700 11px var(--mono);text-decoration:none;margin-left:6px}
+.rsrc-text{color:var(--mut);font-weight:400}
+.rnote{color:var(--mut);font-size:12.5px;line-height:1.5;margin-top:5px;max-width:70ch}
+.prov{margin-top:44px;border-top:1px solid var(--line);padding-top:20px;color:var(--mut);font-size:13px}
+.prov h3{font:700 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+.prov p{max-width:74ch}.prov a{color:var(--blue)}
+.prov code{font:600 12px var(--mono);color:var(--ink)}
+@media(max-width:640px){h1{font-size:25px}}
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <nav class="crumb"><a href="../">&larr; Atlas</a> <span>/</span> <b>Sources</b></nav>
+    <h1>Where this console's data comes from</h1>
+    <p class="lede">
+      Every layer, number, and name on the Kolkata console traces
+      to one of the source records below. A record without a link means the
+      source's public URL was never captured at acquisition time — that gap is
+      reported, not papered over with a guessed link.
+    </p>
+    <p class="stat">13 source records &middot; 2 with no public URL recorded &middot; compiled 2026-07-01</p>
+
+    <input id="osearch" class="osearch" type="search"
+      placeholder="Search by source, kind, or note (e.g. &quot;budget&quot;, &quot;DataMeet&quot;, &quot;GTFS&quot;)">
+    <p id="onoresults" class="onoresults" hidden>No match. Clear the search to see all sources.</p>
+
+    <div class="rows">
+      <div class="row" data-search="boundary dataset datameet maps (census 2011 districts, assembly and parliamentary constituencies) datameet community maps repo, cc-by-sa 2.5 in. backs districts.geojson (dists11.geojson filtered district=kolkata), acs.geojson (ac.geojson filtered dist_name=kolkata, acs 158-168), pcs.geojson (pc_14.geojson filtered to kolkata uttar/dakshin). the ac.geojson and pc_14.geojson urls are recorded verbatim in the same file. also the ac/pc inputs to the derived jurisdiction_crosswalk.json (spatial join of ward/ac/pc layers, per the crosswalk&#x27;s own embedded source field).">
+        <span class="rhead">boundary dataset</span>
+        <div class="rwho"><span class="rname">DataMeet maps (Census 2011 districts, Assembly and Parliamentary constituencies)</span> <a class="rsrc" href="https://raw.githubusercontent.com/datameet/maps/master/docs/data/geojson/dists11.geojson">source</a></div>
+        <p class="rnote">DataMeet community maps repo, CC-BY-SA 2.5 IN. Backs districts.geojson (dists11.geojson filtered DISTRICT=Kolkata), acs.geojson (ac.geojson filtered DIST_NAME=KOLKATA, ACs 158-168), pcs.geojson (pc_14.geojson filtered to Kolkata Uttar/Dakshin). The ac.geojson and pc_14.geojson URLs are recorded verbatim in the same file. Also the AC/PC inputs to the derived jurisdiction_crosswalk.json (spatial join of ward/AC/PC layers, per the crosswalk&#x27;s own embedded source field).</p>
+      </div>
+
+      <div class="row" data-search="boundary dataset datameet municipal_spatial_data — kmc ward polygons (via j. meyers/datameet thread) cc-by-sa 2.5 in; 141 of 144 kmc wards (142-144 missing, no open geometry found). backs wards.geojson, ward_heat.geojson and ward_heat_summary.json (ward frames), the ward input to jurisdiction_crosswalk.json, and the borough dissolve used for subdistricts (data-side).">
+        <span class="rhead">boundary dataset</span>
+        <div class="rwho"><span class="rname">DataMeet Municipal_Spatial_Data — KMC ward polygons (via J. Meyers/DataMeet thread)</span> <a class="rsrc" href="https://raw.githubusercontent.com/datameet/Municipal_Spatial_Data/master/Kolkata/kolkata.geojson">source</a></div>
+        <p class="rnote">CC-BY-SA 2.5 IN; 141 of 144 KMC wards (142-144 missing, no open geometry found). Backs wards.geojson, ward_heat.geojson and ward_heat_summary.json (ward frames), the ward input to jurisdiction_crosswalk.json, and the borough dissolve used for subdistricts (data-side).</p>
+      </div>
+
+      <div class="row row-ghost" data-search="osm extract openstreetmap via overpass api odbl 1.0; provenance records list the overpass filters and bbox (s22.40 w88.20 n22.70 e88.50) but record no resource url (resource_url is null on disk) — honest blank. backs roads.geojson, metro_lines.geojson, metro.geojson (stations), stops.geojson (bus stops), health.geojson (hospitals; features carry osm_id), schools.geojson, libraries.geojson, toilets.geojson, police.geojson, and suburban_rail.geojson (separate record flags it non-authoritative, illustrative first pass).">
+        <span class="rhead">osm extract</span>
+        <div class="rwho"><span class="rname">OpenStreetMap via Overpass API</span> <span class="rsrc rsrc-text">no public URL recorded</span></div>
+        <p class="rnote">ODbL 1.0; provenance records list the Overpass filters and bbox (S22.40 W88.20 N22.70 E88.50) but record no resource URL (resource_url is null on disk) — honest blank. Backs roads.geojson, metro_lines.geojson, metro.geojson (stations), stops.geojson (bus stops), health.geojson (hospitals; features carry osm_id), schools.geojson, libraries.geojson, toilets.geojson, police.geojson, and suburban_rail.geojson (separate record flags it NON-AUTHORITATIVE, illustrative first pass).</p>
+      </div>
+
+      <div class="row" data-search="population raster api worldpop wpgppop 2020 stats api cc-by 4.0. per-ward population_2020 property written onto wards.geojson and carried into ward_heat.geojson; covers the 141 wards with geometry.">
+        <span class="rhead">population raster api</span>
+        <div class="rwho"><span class="rname">WorldPop wpgppop 2020 stats API</span> <a class="rsrc" href="https://api.worldpop.org/v1/services/stats">source</a></div>
+        <p class="rnote">CC-BY 4.0. Per-ward population_2020 property written onto wards.geojson and carried into ward_heat.geojson; covers the 141 wards with geometry.</p>
+      </div>
+
+      <div class="row" data-search="shelter register wb suda / presidency university quality audit of 40 functional nulm shelter homes (2023) sole source for shelters.geojson — all 6 kolkata features carry this url in their per-feature source field, with geocode-confidence and site-visit notes embedded per feature (6 nulm-registered shelters, 437 beds).">
+        <span class="rhead">shelter register</span>
+        <div class="rwho"><span class="rname">WB SUDA / Presidency University quality audit of 40 functional NULM shelter homes (2023)</span> <a class="rsrc" href="https://sudawb.org/uploads/nulm/1st%20Quarterly%20Quality%20Audit%20Report%20of%2040%20functional%20Shelter%20Homes%20under%20different%20Urban%20Local%20Bodies%20of%20West%20Bengal.pdf">source</a></div>
+        <p class="rnote">Sole source for shelters.geojson — all 6 Kolkata features carry this URL in their per-feature source field, with geocode-confidence and site-visit notes embedded per feature (6 NULM-registered shelters, 437 beds).</p>
+      </div>
+
+      <div class="row" data-search="scheme norm pdf day-nulm scheme of shelters for urban homeless (suh) operational guidelines primary-verified 2026-07-01 (section 3.1, printed p. 2); local copy at data/sources/nulm-suh-guidelines-day-nulm-2019.pdf. provides the shelter-capacity norm behind the kolkata shortfall benchmark (~90% short, 437 beds vs ~4,497 norm-implied) that contextualizes shelters.geojson.">
+        <span class="rhead">scheme norm pdf</span>
+        <div class="rwho"><span class="rname">DAY-NULM Scheme of Shelters for Urban Homeless (SUH) operational guidelines</span> <a class="rsrc" href="https://nulm.gov.in/PDF/NULM_Mission/NULM-SUH-Guidelines.pdf">source</a></div>
+        <p class="rnote">PRIMARY-VERIFIED 2026-07-01 (Section 3.1, printed p. 2); local copy at data/sources/nulm-suh-guidelines-day-nulm-2019.pdf. Provides the shelter-capacity norm behind the Kolkata shortfall benchmark (~90% short, 437 beds vs ~4,497 norm-implied) that contextualizes shelters.geojson.</p>
+      </div>
+
+      <div class="row" data-search="satellite derivation landsat collection-2 level-2 (landsat 8/9) via microsoft planetary computer stac api derivation source for the heat layers: heat30m.png, heat30m_bounds.json, ward_heat.geojson (lst fields) and ward_heat_summary.json (window 2024-04-01/2026-07-01 recorded in the summary). adapter queries collection landsat-c2-l2, platforms landsat-8/9, st_b10/lwir11 surface-temperature band; quarterly refresh wired in .github/workflows/heat-refresh.yml.">
+        <span class="rhead">satellite derivation</span>
+        <div class="rwho"><span class="rname">Landsat Collection-2 Level-2 (Landsat 8/9) via Microsoft Planetary Computer STAC API</span> <a class="rsrc" href="https://planetarycomputer.microsoft.com/api/stac/v1">source</a></div>
+        <p class="rnote">Derivation source for the heat layers: heat30m.png, heat30m_bounds.json, ward_heat.geojson (lst fields) and ward_heat_summary.json (window 2024-04-01/2026-07-01 recorded in the summary). Adapter queries collection landsat-c2-l2, platforms landsat-8/9, ST_B10/lwir11 surface-temperature band; quarterly refresh wired in .github/workflows/heat-refresh.yml.</p>
+      </div>
+
+      <div class="row" data-search="municipal official kolkata municipal corporation official site (kmcgov.in) — councillor pages, budget books, facility pdfs backs the councillor names on ward_heat.geojson/wards (councillors, councillor_count from councillors2-10.jsp; wards 1-15 via the sec-result transcription because councillors1.jsp 404s), plus data-side kmc budget pdf index (fy2022-23 to 2026-27, http-verified 2026-06-09), health/school/parks facility pdfs, and the mayors page. individual document urls recorded in budget_index.json and facilities/readme.md.">
+        <span class="rhead">municipal official</span>
+        <div class="rwho"><span class="rname">Kolkata Municipal Corporation official site (kmcgov.in) — councillor pages, budget books, facility PDFs</span> <a class="rsrc" href="https://www.kmcgov.in/KMCPortal/downloads/">source</a></div>
+        <p class="rnote">Backs the councillor names on ward_heat.geojson/wards (councillors, councillor_count from Councillors2-10.jsp; wards 1-15 via the SEC-result transcription because Councillors1.jsp 404s), plus data-side KMC budget PDF index (FY2022-23 to 2026-27, HTTP-verified 2026-06-09), health/school/parks facility PDFs, and the Mayors page. Individual document URLs recorded in budget_index.json and facilities/README.md.</p>
+      </div>
+
+      <div class="row" data-search="electoral results 2021 kmc election result — wb state election commission via wikipedia transcription backs councillor_parties on ward_heat.geojson and the council-status facts (aitc 134/144). integrity note on disk: the official sec pdf at wbsec.gov.in was unreachable (expired tls, http 503) on 2026-06-09, so party data rests on wikipedia&#x27;s transcription; inferred-party rows are flagged aitc* pending sec verification.">
+        <span class="rhead">electoral results</span>
+        <div class="rwho"><span class="rname">2021 KMC election result — WB State Election Commission via Wikipedia transcription</span> <a class="rsrc" href="https://en.wikipedia.org/wiki/2021_Kolkata_Municipal_Corporation_election">source</a></div>
+        <p class="rnote">Backs councillor_parties on ward_heat.geojson and the council-status facts (AITC 134/144). Integrity note on disk: the official SEC PDF at wbsec.gov.in was unreachable (expired TLS, HTTP 503) on 2026-06-09, so party data rests on Wikipedia&#x27;s transcription; inferred-party rows are flagged AITC* pending SEC verification.</p>
+      </div>
+
+      <div class="row" data-search="census table census 2011 primary census abstract for slum (pca-slum), orgi nada catalog 6190 kolkata (m corp.) slum population 1,409,721 (31.35% of 4,496,694) with md5-verified source xls. backs no public layer file directly; the city_total_population_2011 figure underpins the shelter-shortfall benchmark in docs/nulm-shelter-shortfall-findings.md. data-side record.">
+        <span class="rhead">census table</span>
+        <div class="rwho"><span class="rname">Census 2011 Primary Census Abstract for Slum (PCA-Slum), ORGI NADA catalog 6190</span> <a class="rsrc" href="https://censusindia.gov.in/nada/index.php/catalog/6190">source</a></div>
+        <p class="rnote">Kolkata (M Corp.) slum population 1,409,721 (31.35% of 4,496,694) with MD5-verified source XLS. Backs no public layer file directly; the city_total_population_2011 figure underpins the shelter-shortfall benchmark in docs/nulm-shelter-shortfall-findings.md. Data-side record.</p>
+      </div>
+
+      <div class="row" data-search="regulator capacity research wbpcb primary records (employee roster, rti finance reply) + cpr spcb study working papers regulator-capacity source set: wbpcb april-2022 employee roster and rti finance reply held locally in source/pollution/raw/, plus cpr finances/staff working papers, the cpr rti-response zip, wbpcb.gov.in, and a down to earth rajya sabha-answer article (all urls recorded in the sources file). backs no public kolkata layer file yet — grep of public/cities/kolkata/index.html finds zero wbpcb mentions; acquired for the pollution/regulator-capacity layer.">
+        <span class="rhead">regulator capacity research</span>
+        <div class="rwho"><span class="rname">WBPCB primary records (employee roster, RTI finance reply) + CPR SPCB study working papers</span> <a class="rsrc" href="https://cprindia.org/wp-content/uploads/2023/04/04-Finances-WP_CPR-SPCB-study_270423.pdf">source</a></div>
+        <p class="rnote">Regulator-capacity source set: WBPCB April-2022 employee roster and RTI finance reply held locally in source/pollution/raw/, plus CPR finances/staff working papers, the CPR RTI-response zip, wbpcb.gov.in, and a Down To Earth Rajya Sabha-answer article (all URLs recorded in the sources file). Backs NO public Kolkata layer file yet — grep of public/cities/kolkata/index.html finds zero WBPCB mentions; acquired for the pollution/regulator-capacity layer.</p>
+      </div>
+
+      <div class="row" data-search="press record officer-appointment press records (apac news network; deccan herald) backs the municipal-commissioner (anshul gupta, ias) and police-commissioner names in data/cities/kolkata/layers/governance.json (data-side governance card; not one of the public layer files). per-record source urls on disk in officers.json.">
+        <span class="rhead">press record</span>
+        <div class="rwho"><span class="rname">Officer-appointment press records (APAC News Network; Deccan Herald)</span> <a class="rsrc" href="https://apacnewsnetwork.com/2026/03/west-bengal-govt-transfers-12-ias-officers-ias-anshul-gupta-made-municipal-commissioner-kolkata-municipal-corporation/">source</a></div>
+        <p class="rnote">Backs the municipal-commissioner (Anshul Gupta, IAS) and police-commissioner names in data/cities/kolkata/layers/governance.json (data-side governance card; not one of the public layer files). Per-record source URLs on disk in officers.json.</p>
+      </div>
+
+      <div class="row row-ghost" data-search="academic anwesha ghosh, municipal calcutta: urban governance in a colonial city (uoft phd) no url recorded on disk — honest blank; local pdf at data/sources/ghosh-2020-municipal-calcutta-uoft-thesis.pdf, zotero key i6363zwj noted in the reading file. grep of public/cities/kolkata/index.html finds no ghosh citation, so it currently backs no public kolkata layer or claim; it is an interpretive reference under close reading.">
+        <span class="rhead">academic</span>
+        <div class="rwho"><span class="rname">Anwesha Ghosh, Municipal Calcutta: Urban Governance in a Colonial City (UofT PhD)</span> <span class="rsrc rsrc-text">no public URL recorded</span></div>
+        <p class="rnote">No URL recorded on disk — honest blank; local PDF at data/sources/ghosh-2020-municipal-calcutta-uoft-thesis.pdf, Zotero key I6363ZWJ noted in the reading file. Grep of public/cities/kolkata/index.html finds no Ghosh citation, so it currently backs no public Kolkata layer or claim; it is an interpretive reference under close reading.</p>
+      </div>
+</div>
+
+    <footer class="prov">
+      <h3>Handling &amp; reuse</h3>
+      <p>
+        This inventory is compiled from the repo&#x27;s own acquisition records:
+        each entry is backed by a named internal record whose existence is
+        verified every time this page is built. It is also published as
+        <a href="sources.json">machine-readable JSON</a>
+        (schema <code>sevent4.public_sources.v1</code>) so other projects can
+        reuse the sourcing without re-deriving it.
+      </p>
+    </footer>
+  </main>
+  <script>
+  document.getElementById("osearch").addEventListener("input", (event) => {
+    const q = event.target.value.trim().toLowerCase();
+    let anyVisible = false;
+    document.querySelectorAll(".row").forEach((row) => {
+      const match = !q || (row.dataset.search || "").includes(q);
+      row.classList.toggle("is-hidden", !match);
+      if (match) anyVisible = true;
+    });
+    document.getElementById("onoresults").hidden = anyVisible || !q;
+  });
+</script>
+</body>
+</html>
