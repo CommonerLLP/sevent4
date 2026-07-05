@@ -394,15 +394,9 @@ def _sources(
         },
         "coverage_scope": BMRCL_SAMPLE_COVERAGE_SCOPE,
         "access_note": (
-            "IUDX catalogue metadata is public. Authenticated probe on "
-            "2026-07-04 confirmed the provided portal client credentials work "
-            "against authorization.iudx.org.in for a COS resource-server "
-            "consumer token. BMTC GTFS table resources plus BMRCL network/"
-            "schedule/fare resources remain SECURE; BMTC and BMRCL "
-            "resource-level consumer token requests returned APD evaluation "
-            "failed: No policy exist for given item's Resource Group, and "
-            "resource-server-token reads returned 401 invalidAuthorizationToken "
-            "from rs.cos.iudx.org.in."
+            "IUDX catalogue metadata is public. BMTC GTFS table resources plus "
+            "BMRCL network/schedule/fare resources remain SECURE and require "
+            "IUDX policy approval before protected records can be read."
         ),
     }
     if constructed_gtfs and args.gtfs_zip and args.gtfs_provenance:

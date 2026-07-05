@@ -96,7 +96,7 @@
      "route_layer": "metro_gtfs_routes.geojson",
      "stop_features": null,
      "route_features": null,
-     "missing_reason": "Full/current BMRCL IUDX access remains gated. Public sample files cover Purple and Green only; the operational Yellow Line is missing from the sample. Secure resource IDs found in the IUDX catalogue are network lines e2c3b8a9-e03c-4045-9c80-66d463ca5cda, station locations 938d4b2d-565b-4cee-afca-fe6dbf628ccf, fare 9588656f-63b0-4f7d-960f-25db7b0b79b7, and schedule 7da0557c-3e79-480f-b75e-44b0a933fbfb. Authenticated probes on 2026-07-04 returned APD policy denial / invalidAuthorizationToken before these resources could be read.",
+     "missing_reason": "Full/current BMRCL IUDX access remains gated. Public sample files cover Purple and Green only; the operational Yellow Line is missing from the sample. Secure resource IDs found in the IUDX catalogue are network lines e2c3b8a9-e03c-4045-9c80-66d463ca5cda, station locations 938d4b2d-565b-4cee-afca-fe6dbf628ccf, fare 9588656f-63b0-4f7d-960f-25db7b0b79b7, and schedule 7da0557c-3e79-480f-b75e-44b0a933fbfb. These resources require IUDX policy approval before protected records can be read.",
      "public_layer_files": {
       "stop_layer_exists": true,
       "route_layer_exists": true
@@ -171,7 +171,7 @@
      "route_layer": "bus_routes.geojson",
      "stop_features": null,
      "route_features": null,
-     "missing_reason": "Authenticated IUDX probe on 2026-07-04 used authorization.iudx.org.in successfully for a COS resource-server consumer token, but BMTC GTFS resource-level consumer token requests returned APD evaluation failed: No policy exist for given item's Resource Group. Reading BMTC GTFS resource IDs with the resource-server token returned 401 invalidAuthorizationToken from rs.cos.iudx.org.in.",
+     "missing_reason": "BMTC full static GTFS remains gated behind IUDX policy approval; protected records were not readable in the 2026-07-04 access check.",
      "public_layer_files": {
       "stop_layer_exists": true,
       "route_layer_exists": true

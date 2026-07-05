@@ -138,14 +138,14 @@ class IudxAccessProbeTest(unittest.TestCase):
         ok = classify_token_response(
             resource,
             200,
-            {"results": {"accessToken": "secret-token-value"}},
+            {"results": {"accessToken": "redacted-marker"}},
         )
 
         self.assertEqual(gated["status"], "gated")
         self.assertIn("No policy exist", gated["detail"])
         self.assertEqual(ok["status"], "ok")
         self.assertTrue(ok["token_available"])
-        self.assertNotIn("secret-token-value", json.dumps(ok))
+        self.assertNotIn("redacted-marker", json.dumps(ok))
 
     def test_probe_result_summary_groups_statuses_without_credentials(self) -> None:
         results = [

@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 from datetime import datetime, timezone
 import json
+import os
 import subprocess
 import urllib.error
 import urllib.request
@@ -44,6 +45,10 @@ def main() -> None:
         help="Normalize an existing probe-result JSON file without reading credentials or contacting IUDX.",
     )
     parser.add_argument("--token-url", default=AUTH_TOKEN_URL)
+    parser.add_argument("--client-id-service", default=os.environ.get("IUDX_CLIENT_ID_KEYCHAIN_SERVICE"))
+    parser.add_argument("--client-id-account", default=os.environ.get("IUDX_CLIENT_ID_KEYCHAIN_ACCOUNT"))
+    parser.add_argument("--client-secret-service", default=os.environ.get("IUDX_CLIENT_SECRET_KEYCHAIN_SERVICE"))
+    parser.add_argument("--client-secret-account", default=os.environ.get("IUDX_CLIENT_SECRET_KEYCHAIN_ACCOUNT"))
     args = parser.parse_args()
 
     generated_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
@@ -56,8 +61,16 @@ def main() -> None:
         out.write_text(text, encoding="utf-8")
         return
 
-    client_id = _read_keychain_password("iudx-portal-client-id", "client_id")
-    client_secret = _read_keychain_password("iudx-portal-client-secret", "client_secret")
+    client_id = _read_keychain_password(
+        label="client id",
+        service=args.client_id_service,
+        account=args.client_id_account,
+    )
+    client_secret = _read_keychain_password(
+        label="client secret",
+        service=args.client_secret_service,
+        account=args.client_secret_account,
+    )
     packet = load_access_request_packet(args.packet)
     resources = list(
         iter_request_resources(
@@ -126,7 +139,12 @@ def _load_json_response(body: bytes) -> dict[str, Any]:
     return loaded if isinstance(loaded, dict) else {"results": loaded}
 
 
-def _read_keychain_password(service: str, account: str) -> str:
+def _read_keychain_password(*, label: str, service: str | None, account: str | None) -> str:
+    if not service or not account:
+        raise SystemExit(
+            f"missing Keychain lookup configuration for {label}; "
+            "set the matching IUDX_*_KEYCHAIN_* environment variables or pass CLI arguments"
+        )
     try:
         completed = subprocess.run(
             ["security", "find-generic-password", "-s", service, "-a", account, "-w"],
@@ -135,10 +153,10 @@ def _read_keychain_password(service: str, account: str) -> str:
             text=True,
         )
     except subprocess.CalledProcessError as exc:
-        raise SystemExit(f"missing Keychain credential: service={service} account={account}") from exc
+        raise SystemExit(f"missing Keychain entry for {label}") from exc
     value = completed.stdout.strip()
     if not value:
-        raise SystemExit(f"empty Keychain credential: service={service} account={account}")
+        raise SystemExit(f"empty Keychain entry for {label}")
     return value
 
 

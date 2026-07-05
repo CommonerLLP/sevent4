@@ -335,8 +335,8 @@ class TransitPortsTest(unittest.TestCase):
 
         self.assertIn("bengaluru_bmtc_iudx_full_gtfs", feeds)
         self.assertEqual(feeds["bengaluru_bmtc_iudx_full_gtfs"]["status"], "gated")
-        self.assertIn("authorization.iudx.org.in", feeds["bengaluru_bmtc_iudx_full_gtfs"]["missing_reason"])
-        self.assertIn("APD evaluation failed", feeds["bengaluru_bmtc_iudx_full_gtfs"]["missing_reason"])
+        self.assertIn("IUDX policy approval", feeds["bengaluru_bmtc_iudx_full_gtfs"]["missing_reason"])
+        self.assertNotIn("authorization.iudx.org.in", feeds["bengaluru_bmtc_iudx_full_gtfs"]["missing_reason"])
         self.assertFalse(feeds["bengaluru_bmtc_iudx_full_gtfs"]["public_coverage"])
 
     def test_multimodal_builder_preserves_unofficial_constructed_status(self) -> None:
@@ -889,7 +889,8 @@ class TransitPortsTest(unittest.TestCase):
             self.assertTrue(out_zip.exists())
             self.assertEqual(sources["constructed_gtfs"]["local"], str(out_zip))
             self.assertEqual(sources["constructed_gtfs"]["counts"]["stop_times"], 4)
-            self.assertIn("authorization.iudx.org.in", sources["access_note"])
+            self.assertIn("IUDX policy approval", sources["access_note"])
+            self.assertNotIn("client credentials", sources["access_note"])
 
     def test_osm_metro_builder_writes_fallback_layers_and_provenance(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
