@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script>(function(){try{var t=localStorage.getItem('atlas-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sources — Jaipur</title>
+  <link rel="icon" type="image/png" href="../../../assets/ixa-mark.png">
+  <link rel="stylesheet" href="../../../assets/theme.css">
+  <style>
+*{box-sizing:border-box;margin:0}body{font:400 16px/1.6 var(--sans);color:var(--ink);background:var(--bg)}
+.wrap{max-width:860px;margin:0 auto;padding:32px 22px 80px}
+.crumb{font:700 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-bottom:18px}
+.crumb a{color:var(--blue);text-decoration:none}.crumb span{margin:0 6px;color:var(--line)}
+h1{font:700 30px/1.15 var(--serif);letter-spacing:-.01em;margin-bottom:8px}
+.lede{color:var(--mut);font-size:16px;max-width:70ch;margin-bottom:10px}
+.stat{font:700 12px/1 var(--mono);letter-spacing:.04em;color:var(--gold);margin-bottom:18px}
+.osearch{width:100%;min-height:44px;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);padding:9px 12px;font:600 14px var(--sans);margin-bottom:12px}
+.osearch::placeholder{color:var(--mut)}
+.onoresults{color:var(--mut);font-size:13px;margin:18px 0}
+.is-hidden{display:none}
+.rows{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+.row{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:var(--r);padding:9px 12px}
+.row-ghost{border-left-style:dashed;border-left-color:var(--mut)}
+.rhead{display:block;color:var(--mut);font:700 10px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px}
+.rwho{font-size:14.5px}
+.rname{color:var(--ink);font-weight:700}
+.rsrc{color:var(--gold);font:700 11px var(--mono);text-decoration:none;margin-left:6px}
+.rsrc-text{color:var(--mut);font-weight:400}
+.rnote{color:var(--mut);font-size:12.5px;line-height:1.5;margin-top:5px;max-width:70ch}
+.prov{margin-top:44px;border-top:1px solid var(--line);padding-top:20px;color:var(--mut);font-size:13px}
+.prov h3{font:700 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+.prov p{max-width:74ch}.prov a{color:var(--blue)}
+.prov code{font:600 12px var(--mono);color:var(--ink)}
+@media(max-width:640px){h1{font-size:25px}}
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <nav class="crumb"><a href="../">&larr; Atlas</a> <span>/</span> <b>Sources</b></nav>
+    <h1>Where this console's data comes from</h1>
+    <p class="lede">
+      Every layer, number, and name on the Jaipur console traces
+      to one of the source records below. A record without a link means the
+      source's public URL was never captured at acquisition time — that gap is
+      reported, not papered over with a guessed link.
+    </p>
+    <p class="stat">5 source records &middot; 2 with no public URL recorded &middot; compiled 2026-07-04</p>
+
+    <input id="osearch" class="osearch" type="search"
+      placeholder="Search by source, kind, or note (e.g. &quot;budget&quot;, &quot;DataMeet&quot;, &quot;GTFS&quot;)">
+    <p id="onoresults" class="onoresults" hidden>No match. Clear the search to see all sources.</p>
+
+    <div class="rows">
+      <div class="row" data-search="gtfs constructed jaipur metro unofficial constructed static gtfs backs metro_gtfs_stops.geojson (11) and metro_gtfs_routes.geojson (1). constructed from public jaipur metro route/station material plus saved osm station geometry; not an agency-published gtfs feed.">
+        <span class="rhead">gtfs constructed</span>
+        <div class="rwho"><span class="rname">Jaipur Metro unofficial constructed static GTFS</span> <a class="rsrc" href="https://www.jaipurmetrorail.in/">source</a></div>
+        <p class="rnote">Backs metro_gtfs_stops.geojson (11) and metro_gtfs_routes.geojson (1). Constructed from public Jaipur Metro route/station material plus saved OSM station geometry; not an agency-published GTFS feed.</p>
+      </div>
+
+      <div class="row" data-search="osm extract openstreetmap via overpass/osm api - jaipur metro fallback geometry backs metro.geojson (11 stations) and metro_lines.geojson (44 line features). osm fallback geometry; official jaipur metro static gtfs remains a separate missing-source row.">
+        <span class="rhead">osm extract</span>
+        <div class="rwho"><span class="rname">OpenStreetMap via Overpass/OSM API - Jaipur Metro fallback geometry</span> <a class="rsrc" href="https://overpass-api.de/api/interpreter">source</a></div>
+        <p class="rnote">Backs metro.geojson (11 stations) and metro_lines.geojson (44 line features). OSM fallback geometry; official Jaipur Metro static GTFS remains a separate missing-source row.</p>
+      </div>
+
+      <div class="row" data-search="gtfs constructed jaipur jctsl osm route-relation fallback gtfs backs bus_stops.geojson (72 endpoint stops) and bus_routes.geojson (36 route-direction geometries). constructed from osm route relations tagged operator=jctsl; endpoint stops come from relation from/to tags and route way endpoints, not agency stop-level schedules.">
+        <span class="rhead">gtfs constructed</span>
+        <div class="rwho"><span class="rname">Jaipur JCTSL OSM route-relation fallback GTFS</span> <a class="rsrc" href="https://overpass-api.de/api/interpreter">source</a></div>
+        <p class="rnote">Backs bus_stops.geojson (72 endpoint stops) and bus_routes.geojson (36 route-direction geometries). Constructed from OSM route relations tagged operator=JCTSL; endpoint stops come from relation from/to tags and route way endpoints, not agency stop-level schedules.</p>
+      </div>
+
+      <div class="row row-ghost" data-search="official route list jctsl official route-list pdf, archived 2026-07-04 archived source context for jaipur city-bus routes. it is not a static gtfs feed and does not by itself provide stop-level geometry.">
+        <span class="rhead">official route list</span>
+        <div class="rwho"><span class="rname">JCTSL official route-list PDF, archived 2026-07-04</span> <span class="rsrc rsrc-text">no public URL recorded</span></div>
+        <p class="rnote">Archived source context for Jaipur city-bus routes. It is not a static GTFS feed and does not by itself provide stop-level geometry.</p>
+      </div>
+
+      <div class="row row-ghost" data-search="source status manifest jaipur transit source status manifest records the official jaipur metro and jctsl static-gtfs gaps separately from the constructed/fallback public layers.">
+        <span class="rhead">source status manifest</span>
+        <div class="rwho"><span class="rname">Jaipur transit source status manifest</span> <span class="rsrc rsrc-text">no public URL recorded</span></div>
+        <p class="rnote">Records the official Jaipur Metro and JCTSL static-GTFS gaps separately from the constructed/fallback public layers.</p>
+      </div>
+</div>
+
+    <footer class="prov">
+      <h3>Handling &amp; reuse</h3>
+      <p>
+        This inventory is compiled from the repo&#x27;s own acquisition records:
+        each entry is backed by a named internal record whose existence is
+        verified every time this page is built. It is also published as
+        <a href="sources.json">machine-readable JSON</a>
+        (schema <code>sevent4.public_sources.v1</code>) so other projects can
+        reuse the sourcing without re-deriving it.
+      </p>
+    </footer>
+  </main>
+  <script>
+  document.getElementById("osearch").addEventListener("input", (event) => {
+    const q = event.target.value.trim().toLowerCase();
+    let anyVisible = false;
+    document.querySelectorAll(".row").forEach((row) => {
+      const match = !q || (row.dataset.search || "").includes(q);
+      row.classList.toggle("is-hidden", !match);
+      if (match) anyVisible = true;
+    });
+    document.getElementById("onoresults").hidden = anyVisible || !q;
+  });
+</script>
+</body>
+</html>

@@ -11,6 +11,7 @@ CKAN_API = "https://data.opencity.in/api/3/action"
 CKAN_UA = {"User-Agent": "sevent4-atlas-catalogue/1.0 (open-data harvest)"}
 RAIL_ENDPOINTS = ["https://overpass-api.de/api/interpreter", "https://overpass.kumi.systems/api/interpreter"]
 RAIL_UA = {"User-Agent": "sevent4-atlas/1.0 (74th-amendment atlas)"}
+RAIL_TIMEOUT_SECONDS = 120
 
 
 def ckan_api(action: str, **params) -> dict:
@@ -52,7 +53,7 @@ def overpass_rail(query: str) -> dict:
     for ep in RAIL_ENDPOINTS:
         try:
             data = urlencode({"data": query}).encode()
-            with urlopen(Request(ep, data=data, headers=RAIL_UA), timeout=300) as r:
+            with urlopen(Request(ep, data=data, headers=RAIL_UA), timeout=RAIL_TIMEOUT_SECONDS) as r:
                 j = json.loads(r.read())
             rk = j.get("remark", "")
             if "error" in rk.lower() or "timed out" in rk.lower():

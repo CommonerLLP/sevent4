@@ -1,0 +1,44 @@
+{
+ "schema": "sevent4.public_sources.v1",
+ "city": "lucknow",
+ "city_name": "Lucknow",
+ "compiled": "2026-07-04",
+ "count": 5,
+ "sources": [
+  {
+   "id": "lucknow_metro_unofficial_constructed_gtfs",
+   "kind": "gtfs_constructed",
+   "label": "Lucknow Metro unofficial constructed static GTFS",
+   "url": "https://lucknow.upmetrorail.com/",
+   "notes": "Backs metro_gtfs_stops.geojson (21) and metro_gtfs_routes.geojson (1). Constructed from UPMRC public route/station material plus saved OSM station geometry; not an agency-published GTFS feed."
+  },
+  {
+   "id": "lucknow_metro_osm_fallback",
+   "kind": "osm_extract",
+   "label": "OpenStreetMap via Overpass - Lucknow Metro fallback geometry",
+   "url": "https://overpass-api.de/api/interpreter",
+   "notes": "Backs metro.geojson (21 stations) and metro_lines.geojson (63 line features). OSM fallback geometry; official UPMRC static GTFS remains a separate missing-source row."
+  },
+  {
+   "id": "lucknow_bus_gap_probe",
+   "kind": "gap_record",
+   "label": "Lucknow city-bus GTFS and OSM fallback probe",
+   "url": null,
+   "notes": "Records the failed/weak bus-source probe: no public Lucknow/LCTSL static GTFS found in checked registries/source pages, one weak Overpass bus relation lacked usable operator/network/sequence evidence, and the checked IUDX GIS URL resolved to a parked-domain lander."
+  },
+  {
+   "id": "lucknow_iudx_gis_lander_probe",
+   "kind": "gap_record",
+   "label": "Lucknow IUDX GIS endpoint probe, archived 2026-07-04",
+   "url": null,
+   "notes": "Archived evidence that the checked Lucknow GIS endpoint did not provide usable transit GTFS/table resources in this session."
+  },
+  {
+   "id": "lucknow_transit_status_manifest",
+   "kind": "source_status_manifest",
+   "label": "Lucknow transit source status manifest",
+   "url": null,
+   "notes": "Records the official UPMRC metro and Lucknow city-bus static-GTFS gaps separately from the constructed metro public layer."
+  }
+ ]
+}

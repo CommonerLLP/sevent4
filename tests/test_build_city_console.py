@@ -6,6 +6,7 @@ from pathlib import Path
 from sevent4.build_city_console import (
     CITY_READINESS,
     READY_CITIES,
+    _canon_layers,
     _city_extra_links,
     _feature_options,
     _css,
@@ -180,6 +181,153 @@ class FeatureOptionsTest(unittest.TestCase):
         self.assertIn("class='layerGroup'", html)
         self.assertIn("class='lgh'", html)
 
+    def test_canonical_metro_gtfs_labels_do_not_assume_bengaluru_source(self) -> None:
+        layers = _canon_layers(
+            (
+                LayerSpec(
+                    id="metro_gtfs_stops",
+                    label="Metro stations (GTFS)",
+                    file="metro_gtfs_stops.geojson",
+                    kind="circle",
+                    default=False,
+                    group="Transit",
+                    popup=("name",),
+                    paint={"circle-color": "#dc4c4c"},
+                ),
+                LayerSpec(
+                    id="metro_gtfs_routes",
+                    label="Metro routes (GTFS)",
+                    file="metro_gtfs_routes.geojson",
+                    kind="line",
+                    default=False,
+                    group="Transit",
+                    popup=("name",),
+                    paint={"line-color": "#dc4c4c"},
+                ),
+            )
+        )
+
+        self.assertEqual(layers[0].label, "Metro stations (GTFS)")
+        self.assertEqual(layers[0].paint["circle-color"], "#36a3d9")
+        self.assertEqual(layers[1].label, "Metro routes (GTFS)")
+        self.assertEqual(layers[1].paint["line-color"], "#7857d6")
+
+    def test_canonical_metro_gtfs_labels_preserve_iudx_bmrcl_source(self) -> None:
+        layers = _canon_layers(
+            (
+                LayerSpec(
+                    id="metro_gtfs_stops",
+                    label="Metro stations (IUDX/BMRCL)",
+                    file="metro_gtfs_stops.geojson",
+                    kind="circle",
+                    default=False,
+                    group="Transit",
+                    popup=("name",),
+                    paint={"circle-color": "#dc4c4c"},
+                ),
+                LayerSpec(
+                    id="metro_gtfs_routes",
+                    label="Metro routes (IUDX/BMRCL)",
+                    file="metro_gtfs_routes.geojson",
+                    kind="line",
+                    default=False,
+                    group="Transit",
+                    popup=("name",),
+                    paint={"line-color": "#dc4c4c"},
+                ),
+            )
+        )
+
+        self.assertEqual(layers[0].label, "Metro stations (IUDX/BMRCL)")
+        self.assertEqual(layers[1].label, "Metro routes (IUDX/BMRCL)")
+
+    def test_canonical_bus_layers_preserve_iudx_sample_labels(self) -> None:
+        layers = _canon_layers(
+            (
+                LayerSpec(
+                    id="bus_stops",
+                    label="Bus stops (IUDX sample)",
+                    file="bus_stops.geojson",
+                    kind="circle",
+                    default=False,
+                    group="Transit",
+                    popup=("stop_name",),
+                    paint={"circle-color": "#9ca3ad"},
+                ),
+                LayerSpec(
+                    id="bus_routes",
+                    label="Bus routes (IUDX sample)",
+                    file="bus_routes.geojson",
+                    kind="line",
+                    default=False,
+                    group="Transit",
+                    popup=("route_long_name",),
+                    paint={"line-color": "#9ca3ad"},
+                ),
+            )
+        )
+
+        self.assertEqual(layers[0].label, "Bus routes (IUDX sample)")
+        self.assertEqual(layers[1].label, "Bus stops (IUDX sample)")
+
+    def test_canonical_metro_layers_preserve_osm_fallback_labels(self) -> None:
+        layers = _canon_layers(
+            (
+                LayerSpec(
+                    id="metro_lines",
+                    label="Metro lines (OSM fallback)",
+                    file="metro_lines.geojson",
+                    kind="line",
+                    default=False,
+                    group="Transit",
+                    popup=("name",),
+                    paint={"line-color": "#dc4c4c"},
+                ),
+                LayerSpec(
+                    id="metro",
+                    label="Metro stations (OSM fallback)",
+                    file="metro.geojson",
+                    kind="circle",
+                    default=False,
+                    group="Transit",
+                    popup=("name",),
+                    paint={"circle-color": "#dc4c4c"},
+                ),
+            )
+        )
+
+        self.assertEqual(layers[0].label, "Metro lines (OSM fallback)")
+        self.assertEqual(layers[1].label, "Metro stations (OSM fallback)")
+
+    def test_canonical_metro_gtfs_layers_preserve_unofficial_labels(self) -> None:
+        layers = _canon_layers(
+            (
+                LayerSpec(
+                    id="metro_gtfs_stops",
+                    label="Metro stops (unofficial GTFS)",
+                    file="metro_gtfs_stops.geojson",
+                    kind="circle",
+                    default=False,
+                    group="Transit",
+                    popup=("name",),
+                    paint={"circle-color": "#dc4c4c"},
+                ),
+                LayerSpec(
+                    id="metro_gtfs_routes",
+                    label="Metro routes (unofficial GTFS)",
+                    file="metro_gtfs_routes.geojson",
+                    kind="line",
+                    default=False,
+                    group="Transit",
+                    popup=("name",),
+                    paint={"line-color": "#dc4c4c"},
+                ),
+            )
+        )
+
+        self.assertEqual(layers[0].label, "Metro stops (unofficial GTFS)")
+        self.assertEqual(layers[1].label, "Metro routes (unofficial GTFS)")
+
     def test_governance_card_states_water_control_per_city(self) -> None:
         # the atlas thesis made interactive: the same water layer is a parastatal
         # in Bengaluru but the elected corporation's own in Ahmedabad.
@@ -193,6 +341,20 @@ class FeatureOptionsTest(unittest.TestCase):
         self.assertEqual(amd["water"]["control"], "city")
         self.assertIn("AMC Water Supply", amd["water"]["line"])
         self.assertIn("Your vote reaches it", amd["water"]["verdict"])
+
+    def test_governance_card_maps_bengaluru_endpoint_bmtc_layers_to_bmtc(self) -> None:
+        blr = _governance_for_city("bengaluru")
+
+        self.assertEqual(blr["bus_endpoint_routes"]["control"], "parastatal")
+        self.assertIn("BMTC", blr["bus_endpoint_routes"]["line"])
+        self.assertEqual(blr["bus_endpoint_stops"]["control"], "parastatal")
+        self.assertIn("BMTC", blr["bus_endpoint_stops"]["line"])
+
+    def test_bengaluru_public_console_names_endpoint_layers_as_bmtc(self) -> None:
+        html = Path("public/cities/bengaluru/index.html").read_text(encoding="utf-8")
+
+        self.assertIn("BMTC routes (unofficial endpoint GTFS)", html)
+        self.assertIn("BMTC stops (unofficial endpoint GTFS)", html)
 
     def test_governance_card_marks_ahmedabad_libraries_by_grace(self) -> None:
         # right2read crux: Ahmedabad libraries are AMC-funded by discretion, not duty —

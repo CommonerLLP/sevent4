@@ -45,7 +45,7 @@ h1{font:700 30px/1.15 var(--serif);letter-spacing:-.01em;margin-bottom:8px}
       source's public URL was never captured at acquisition time — that gap is
       reported, not papered over with a guessed link.
     </p>
-    <p class="stat">29 source records &middot; 2 with no public URL recorded &middot; compiled 2026-07-01</p>
+    <p class="stat">33 source records &middot; 2 with no public URL recorded &middot; compiled 2026-07-03</p>
 
     <input id="osearch" class="osearch" type="search"
       placeholder="Search by source, kind, or note (e.g. &quot;budget&quot;, &quot;DataMeet&quot;, &quot;GTFS&quot;)">
@@ -80,6 +80,24 @@ h1{font:700 30px/1.15 var(--serif);letter-spacing:-.01em;margin-bottom:8px}
         <span class="rhead">osm extract</span>
         <div class="rwho"><span class="rname">OpenStreetMap via Overpass API (ODbL 1.0, bbox 12.83-13.25 N / 80.10-80.34 E, 2026-06)</span> <a class="rsrc" href="https://overpass-api.de/api/interpreter">source</a></div>
         <p class="rnote">Backs roads.geojson (4214), metro_lines.geojson (136), metro.geojson (metro stations, 69), stops.geojson (MTC bus stops, 971), health.geojson (hospitals, 835), schools.geojson (630), toilets.geojson (105), police.geojson (105), fire.geojson (fire stations, 15). Feature counts and osm_id properties in the public files match the OSM source layers. Note: public libraries.geojson is NOT OSM (see opencity_chennai_civic_amenities).</p>
+      </div>
+
+      <div class="row" data-search="open data dataset cscl open data portal — sub urban rail, chennai, as on 20 june 2019 official cscl station/line inventory csv. backs suburban_rail_stations.geojson (49 unique stations from 54 station-line rows) and suburban_rail.geojson (4 corridors: south, north, west, mrts), joined to osm station coordinates by station code/name.">
+        <span class="rhead">open data dataset</span>
+        <div class="rwho"><span class="rname">CSCL Open Data Portal — Sub Urban Rail, Chennai, as on 20 June 2019</span> <a class="rsrc" href="https://opendata.cscl.co.in/dataset/sub-urban-rail">source</a></div>
+        <p class="rnote">Official CSCL station/line inventory CSV. Backs suburban_rail_stations.geojson (49 unique stations from 54 station-line rows) and suburban_rail.geojson (4 corridors: South, North, West, MRTS), joined to OSM station coordinates by station code/name.</p>
+      </div>
+
+      <div class="row" data-search="official press release southern railway chennai division — chennai suburban railway network press release, 31 may 2026 official southern railway context for chennai suburban rail history and corridors. it identifies four major corridors: chennai beach-chengalpattu, chennai central-arakkonam, chennai central-gummidipoondi/sullurpeta, and mrts. used as corridor provenance/context; station geometry comes from cscl + osm.">
+        <span class="rhead">official press release</span>
+        <div class="rwho"><span class="rname">Southern Railway Chennai Division — Chennai suburban railway network press release, 31 May 2026</span> <a class="rsrc" href="https://sr.indianrailways.gov.in/cris//uploads/files/1780294962278-No.PUB-MAS-2026-05-28.pdf">source</a></div>
+        <p class="rnote">Official Southern Railway context for Chennai suburban rail history and corridors. It identifies four major corridors: Chennai Beach-Chengalpattu, Chennai Central-Arakkonam, Chennai Central-Gummidipoondi/Sullurpeta, and MRTS. Used as corridor provenance/context; station geometry comes from CSCL + OSM.</p>
+      </div>
+
+      <div class="row" data-search="gtfs feed chennaigtfs — mtc bus + cmrl metro gtfs feeds odbl feed package from ungalsoththu/chennaigtfs. backs bus_stops.geojson (5580), bus_routes.geojson (3934), metro_gtfs_stops.geojson (44), and metro_gtfs_routes.geojson (2). feed notes record mtc as app-inspected unofficial data and cmrl as pdf/site-derived gtfs; southern railway suburban/mrts remains absent from this feed.">
+        <span class="rhead">gtfs feed</span>
+        <div class="rwho"><span class="rname">ChennaiGTFS — MTC bus + CMRL metro GTFS feeds</span> <a class="rsrc" href="https://github.com/ungalsoththu/ChennaiGTFS">source</a></div>
+        <p class="rnote">ODbL feed package from UngalSoththu/ChennaiGTFS. Backs bus_stops.geojson (5580), bus_routes.geojson (3934), metro_gtfs_stops.geojson (44), and metro_gtfs_routes.geojson (2). Feed notes record MTC as app-inspected unofficial data and CMRL as PDF/site-derived GTFS; Southern Railway suburban/MRTS remains absent from this feed.</p>
       </div>
 
       <div class="row" data-search="population raster api worldpop stats api — wpgppop 2020 (100m constrained grid, per-ward zonal stats) backs the population_2020 attribute on wards.geojson. url is recorded on disk exactly as shown (no https:// scheme in the record).">
@@ -224,6 +242,12 @@ h1{font:700 30px/1.15 var(--serif);letter-spacing:-.01em;margin-bottom:8px}
         <span class="rhead">press record</span>
         <div class="rwho"><span class="rname">Citizen Matters — &#x27;Who governs Chennai?&#x27; + 2022 councillor winners list</span> <a class="rsrc" href="https://citizenmatters.in/chennai-governance-corporation-mtc-railways-cmrl-tnpcb-tnhb-32855">source</a></div>
         <p class="rnote">Verbatim on-disk URL (docs/kolkata-chennai-devolution.md, Sources section); companion winners-list URL also recorded: https://citizenmatters.in/chennai-local-body-poll-results-winning-councillors-dmk-mayor-38740 (CORPORATION.md). Backs the devolution/who-governs framing and corroborates the 2022 council result; the winners table was NOT machine-extractable, so ward-level party is deliberately absent from councillors.csv.</p>
+      </div>
+
+      <div class="row" data-search="gtfs feed lead mobilitydata — indian railways gtfs city extract for chennai local/emu services unofficial mobilitydata indian railways gtfs archive. backs suburban_rail_gtfs_stations.geojson (76) and suburban_rail_gtfs_routes.geojson (483) using chennai bbox plus local/emu/memu filters. it is a schedule lead, not an official southern railway suburban gtfs disclosure.">
+        <span class="rhead">gtfs feed lead</span>
+        <div class="rwho"><span class="rname">MobilityData — Indian Railways GTFS city extract for Chennai local/EMU services</span> <a class="rsrc" href="https://storage.googleapis.com/storage/v1/b/mdb-latest/o/in-unknown-indian-railways-gtfs-2867.zip?alt=media">source</a></div>
+        <p class="rnote">Unofficial MobilityData Indian Railways GTFS archive. Backs suburban_rail_gtfs_stations.geojson (76) and suburban_rail_gtfs_routes.geojson (483) using Chennai bbox plus LOCAL/EMU/MEMU filters. It is a schedule lead, not an official Southern Railway suburban GTFS disclosure.</p>
       </div>
 </div>
 
