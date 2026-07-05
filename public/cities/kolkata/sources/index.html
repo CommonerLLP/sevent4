@@ -45,7 +45,7 @@ h1{font:700 30px/1.15 var(--serif);letter-spacing:-.01em;margin-bottom:8px}
       source's public URL was never captured at acquisition time — that gap is
       reported, not papered over with a guessed link.
     </p>
-    <p class="stat">13 source records &middot; 2 with no public URL recorded &middot; compiled 2026-07-01</p>
+    <p class="stat">20 source records &middot; 3 with no public URL recorded &middot; compiled 2026-07-04</p>
 
     <input id="osearch" class="osearch" type="search"
       placeholder="Search by source, kind, or note (e.g. &quot;budget&quot;, &quot;DataMeet&quot;, &quot;GTFS&quot;)">
@@ -128,6 +128,48 @@ h1{font:700 30px/1.15 var(--serif);letter-spacing:-.01em;margin-bottom:8px}
         <span class="rhead">academic</span>
         <div class="rwho"><span class="rname">Anwesha Ghosh, Municipal Calcutta: Urban Governance in a Colonial City (UofT PhD)</span> <span class="rsrc rsrc-text">no public URL recorded</span></div>
         <p class="rnote">No URL recorded on disk — honest blank; local PDF at data/sources/ghosh-2020-municipal-calcutta-uoft-thesis.pdf, Zotero key I6363ZWJ noted in the reading file. Grep of public/cities/kolkata/index.html finds no Ghosh citation, so it currently backs no public Kolkata layer or claim; it is an interpretive reference under close reading.</p>
+      </div>
+
+      <div class="row row-ghost" data-search="osm extract openstreetmap via overpass api — kolkata suburban rail geometry rebuild odbl 1.0. backs suburban_rail.geojson and suburban_rail_stations.geojson after the july 2026 rebuild. rail lines use railway=rail over bbox s21.50 w86.00 n24.50 e89.90; station points are matched against the saved kolkata suburban station membership snapshot to avoid inflating the layer with every rail station in the broad bbox. non-authoritative geometry; route membership still needs official railway timetable/gtfs verification.">
+        <span class="rhead">osm extract</span>
+        <div class="rwho"><span class="rname">OpenStreetMap via Overpass API — Kolkata suburban rail geometry rebuild</span> <span class="rsrc rsrc-text">no public URL recorded</span></div>
+        <p class="rnote">ODbL 1.0. Backs suburban_rail.geojson and suburban_rail_stations.geojson after the July 2026 rebuild. Rail lines use railway=rail over bbox S21.50 W86.00 N24.50 E89.90; station points are matched against the saved Kolkata Suburban station membership snapshot to avoid inflating the layer with every rail station in the broad bbox. Non-authoritative geometry; route membership still needs official railway timetable/GTFS verification.</p>
+      </div>
+
+      <div class="row" data-search="secondary station membership wikipedia — list of kolkata suburban railway stations secondary station-membership snapshot used only to filter osm station geometry for the kolkata suburban station layer. the saved table had 411 rows; 346 rows matched osm station geometry in this build. it is not treated as official timetable, gtfs, or authoritative railway publication.">
+        <span class="rhead">secondary station membership</span>
+        <div class="rwho"><span class="rname">Wikipedia — List of Kolkata Suburban Railway stations</span> <a class="rsrc" href="https://en.wikipedia.org/wiki/List_of_Kolkata_Suburban_Railway_stations">source</a></div>
+        <p class="rnote">Secondary station-membership snapshot used only to filter OSM station geometry for the Kolkata suburban station layer. The saved table had 411 rows; 346 rows matched OSM station geometry in this build. It is not treated as official timetable, GTFS, or authoritative railway publication.</p>
+      </div>
+
+      <div class="row" data-search="official transit lead eastern railway — sdah suburban tracking system page official eastern railway page for the sealdah suburban tracking system, saved as a source lead. it corroborates an official er digital suburban-tracking surface but was not a downloadable static gtfs or station geometry dataset in this build.">
+        <span class="rhead">official transit lead</span>
+        <div class="rwho"><span class="rname">Eastern Railway — SDAH Suburban Tracking System page</span> <a class="rsrc" href="https://er.indianrailways.gov.in/view_section.jsp?lang=0&amp;id=0,6,442,462,1711,2026">source</a></div>
+        <p class="rnote">Official Eastern Railway page for the Sealdah suburban tracking system, saved as a source lead. It corroborates an official ER digital suburban-tracking surface but was not a downloadable static GTFS or station geometry dataset in this build.</p>
+      </div>
+
+      <div class="row" data-search="gtfs feed lead mobilitydata — indian railways gtfs city extract for kolkata local/emu services unofficial mobilitydata indian railways gtfs archive. backs suburban_rail_gtfs_stations.geojson (438) and suburban_rail_gtfs_routes.geojson (1563) using kolkata-region bbox plus local/emu/memu filters. it is a schedule lead, not an official eastern/south eastern railway gtfs disclosure.">
+        <span class="rhead">gtfs feed lead</span>
+        <div class="rwho"><span class="rname">MobilityData — Indian Railways GTFS city extract for Kolkata local/EMU services</span> <a class="rsrc" href="https://storage.googleapis.com/storage/v1/b/mdb-latest/o/in-unknown-indian-railways-gtfs-2867.zip?alt=media">source</a></div>
+        <p class="rnote">Unofficial MobilityData Indian Railways GTFS archive. Backs suburban_rail_gtfs_stations.geojson (438) and suburban_rail_gtfs_routes.geojson (1563) using Kolkata-region bbox plus LOCAL/EMU/MEMU filters. It is a schedule lead, not an official Eastern/South Eastern Railway GTFS disclosure.</p>
+      </div>
+
+      <div class="row" data-search="constructed gtfs feed metro railway kolkata timetable-derived gtfs backs metro_gtfs_stops.geojson (57) and metro_gtfs_routes.geojson (5). this is an unofficial skeleton gtfs generated from metro railway kolkata public line/timetable context, osm station geometry, and two coordinate fallbacks for missing osm station points; it is not an agency-published gtfs feed.">
+        <span class="rhead">constructed gtfs feed</span>
+        <div class="rwho"><span class="rname">Metro Railway Kolkata timetable-derived GTFS</span> <a class="rsrc" href="https://mtp.indianrailways.gov.in/">source</a></div>
+        <p class="rnote">Backs metro_gtfs_stops.geojson (57) and metro_gtfs_routes.geojson (5). This is an unofficial skeleton GTFS generated from Metro Railway Kolkata public line/timetable context, OSM station geometry, and two coordinate fallbacks for missing OSM station points; it is not an agency-published GTFS feed.</p>
+      </div>
+
+      <div class="row" data-search="gtfs constructed wbtc city-bus route-table constructed gtfs backs bus_stops.geojson (192) and bus_routes.geojson (130). constructed from the official wbtc city bus routes table archived on 2026-07-04 plus local osm bus-stop geometry and source-backed transit anchor points from kolkata private-bus, metro, and suburban-rail layers; not an agency-published gtfs feed. the builder now skips 1 wbtc route row with fewer than two matched anchors and records it in provenance.">
+        <span class="rhead">gtfs constructed</span>
+        <div class="rwho"><span class="rname">WBTC city-bus route-table constructed GTFS</span> <a class="rsrc" href="https://wbtconline.in/wbtc-city-bus-routes">source</a></div>
+        <p class="rnote">Backs bus_stops.geojson (192) and bus_routes.geojson (130). Constructed from the official WBTC City Bus Routes table archived on 2026-07-04 plus local OSM bus-stop geometry and source-backed transit anchor points from Kolkata private-bus, metro, and suburban-rail layers; not an agency-published GTFS feed. The builder now skips 1 WBTC route row with fewer than two matched anchors and records it in provenance.</p>
+      </div>
+
+      <div class="row" data-search="osm gtfs fallback kolkata regulated private-bus osm route-relation constructed gtfs backs regulated_private_bus_stops.geojson (810 endpoint stops) and regulated_private_bus_routes.geojson (405 routes). constructed on 2026-07-04 from osm route relations tagged network=kolkata private bus; endpoint stops come from relation from/to tags and relation way endpoints, not agency stop-level schedules. this is not an agency-published gtfs feed.">
+        <span class="rhead">osm gtfs fallback</span>
+        <div class="rwho"><span class="rname">Kolkata regulated private-bus OSM route-relation constructed GTFS</span> <a class="rsrc" href="https://overpass.kumi.systems/api/interpreter">source</a></div>
+        <p class="rnote">Backs regulated_private_bus_stops.geojson (810 endpoint stops) and regulated_private_bus_routes.geojson (405 routes). Constructed on 2026-07-04 from OSM route relations tagged network=Kolkata Private Bus; endpoint stops come from relation from/to tags and relation way endpoints, not agency stop-level schedules. This is not an agency-published GTFS feed.</p>
       </div>
 </div>
 

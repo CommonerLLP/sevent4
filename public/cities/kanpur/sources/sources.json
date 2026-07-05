@@ -1,0 +1,37 @@
+{
+ "schema": "sevent4.public_sources.v1",
+ "city": "kanpur",
+ "city_name": "Kanpur",
+ "compiled": "2026-07-04",
+ "count": 4,
+ "sources": [
+  {
+   "id": "kanpur_metro_unofficial_constructed_gtfs",
+   "kind": "gtfs_constructed",
+   "label": "Kanpur Metro unofficial constructed static GTFS",
+   "url": "https://kanpur.upmetrorail.com/",
+   "notes": "Backs metro_gtfs_stops.geojson (14) and metro_gtfs_routes.geojson (1). Constructed from UPMRC public route/station material plus saved OSM station geometry; not an agency-published GTFS feed."
+  },
+  {
+   "id": "kanpur_metro_osm_fallback",
+   "kind": "osm_extract",
+   "label": "OpenStreetMap via Overpass - Kanpur Metro fallback geometry",
+   "url": "https://overpass-api.de/api/interpreter",
+   "notes": "Backs metro.geojson (14 stations) and metro_lines.geojson (77 line features). OSM fallback geometry; official UPMRC static GTFS remains a separate missing-source row."
+  },
+  {
+   "id": "kanpur_bus_gap_probe",
+   "kind": "gap_record",
+   "label": "Kanpur city-bus GTFS and OSM fallback probe",
+   "url": null,
+   "notes": "Records the failed/weak bus-source probe: no public Kanpur/KMBS/KCTSL static GTFS found in checked registries/source pages, and the saved Overpass bus-route relation query returned zero usable route=bus relations in the city bbox."
+  },
+  {
+   "id": "kanpur_transit_status_manifest",
+   "kind": "source_status_manifest",
+   "label": "Kanpur transit source status manifest",
+   "url": null,
+   "notes": "Records the official UPMRC metro and Kanpur city-bus static-GTFS gaps separately from the constructed metro public layer."
+  }
+ ]
+}

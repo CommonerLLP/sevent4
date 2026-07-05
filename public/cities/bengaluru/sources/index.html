@@ -45,7 +45,7 @@ h1{font:700 30px/1.15 var(--serif);letter-spacing:-.01em;margin-bottom:8px}
       source's public URL was never captured at acquisition time — that gap is
       reported, not papered over with a guessed link.
     </p>
-    <p class="stat">15 source records &middot; 2 with no public URL recorded &middot; compiled 2026-07-01</p>
+    <p class="stat">18 source records &middot; 2 with no public URL recorded &middot; compiled 2026-07-04</p>
 
     <input id="osearch" class="osearch" type="search"
       placeholder="Search by source, kind, or note (e.g. &quot;budget&quot;, &quot;DataMeet&quot;, &quot;GTFS&quot;)">
@@ -140,6 +140,24 @@ h1{font:700 30px/1.15 var(--serif);letter-spacing:-.01em;margin-bottom:8px}
         <span class="rhead">electoral results</span>
         <div class="rwho"><span class="rname">MyNeta (Karnataka 2023) / Election Commission of India — MLA &amp; MP roster</span> <span class="rsrc rsrc-text">no public URL recorded</span></div>
         <p class="rnote">Backs the representative/party/office popup fields on acs.geojson and pcs.geojson. The on-disk CSV cites &#x27;MyNeta Karnataka 2023 / ECI&#x27; as the source per row but records NO URL, so url is left null rather than guessed.</p>
+      </div>
+
+      <div class="row" data-search="transit catalogue iudx bengaluru transit catalogue records for bmrcl metro and bmtc gtfs resources backs metro_gtfs_stops.geojson (45) and metro_gtfs_routes.geojson (2) from the public iudx bmrcl sample files exposed by the metro rail network dataset; this is a sample-derived constructed static gtfs layer, not a full bmrcl schedule/fare feed. the public sample line file covers purple and green only and is missing the operational yellow line, so it is not complete 2026 bmrcl operational coverage. the same catalogue probe found bmtc gtfs agency/calendar/routes/stops/trips resources plus secure bmrcl network-line, station-location, fare, and schedule resources. `public/cities/transit_coverage.json` now records those full bmrcl resources as `bengaluru_bmrcl_iudx_full_network_schedule`, status gated. authenticated token probes on 2026-07-04 returned apd policy denial for the secure resources, so the full bmtc/bmrcl iudx feed target remains secure-gated rather than absent.">
+        <span class="rhead">transit catalogue</span>
+        <div class="rwho"><span class="rname">IUDX Bengaluru transit catalogue records for BMRCL metro and BMTC GTFS resources</span> <a class="rsrc" href="https://catalogue.iudx.org.in/bengaluru">source</a></div>
+        <p class="rnote">Backs metro_gtfs_stops.geojson (45) and metro_gtfs_routes.geojson (2) from the public IUDX BMRCL sample files exposed by the Metro Rail Network dataset; this is a sample-derived constructed static GTFS layer, not a full BMRCL schedule/fare feed. The public sample line file covers Purple and Green only and is missing the operational Yellow Line, so it is not complete 2026 BMRCL operational coverage. The same catalogue probe found BMTC GTFS agency/calendar/routes/stops/trips resources plus secure BMRCL network-line, station-location, fare, and schedule resources. `public/cities/transit_coverage.json` now records those full BMRCL resources as `bengaluru_bmrcl_iudx_full_network_schedule`, status gated. Authenticated token probes on 2026-07-04 returned APD policy denial for the secure resources, so the full BMTC/BMRCL IUDX feed target remains secure-gated rather than absent.</p>
+      </div>
+
+      <div class="row" data-search="gtfs feed mobilitydata — bmtc gtfs archive archived and validated public bmtc gtfs snapshot. backs bus_stops.geojson (4433). the feed validates but its stop_times contain only one stop per trip, so the original bus_routes.geojson has 0 usable corridor features in the route builder. treat this as a real stop layer plus incomplete route-sequence feed; the separate endpoint-constructed derivative provides unofficial route visibility while full iudx bmtc stop-sequence access remains secure-gated.">
+        <span class="rhead">gtfs feed</span>
+        <div class="rwho"><span class="rname">MobilityData — BMTC GTFS archive</span> <a class="rsrc" href="https://storage.googleapis.com/storage/v1/b/mdb-latest/o/in-karnataka-bangalore-metropolitan-transport-corporation-bmtc-gtfs-2013.zip?alt=media">source</a></div>
+        <p class="rnote">Archived and validated public BMTC GTFS snapshot. Backs bus_stops.geojson (4433). The feed validates but its stop_times contain only one stop per trip, so the original bus_routes.geojson has 0 usable corridor features in the route builder. Treat this as a real stop layer plus incomplete route-sequence feed; the separate endpoint-constructed derivative provides unofficial route visibility while full IUDX BMTC stop-sequence access remains secure-gated.</p>
+      </div>
+
+      <div class="row" data-search="gtfs constructed bmtc endpoint-constructed bus gtfs backs bus_endpoint_stops.geojson (1666) and bus_endpoint_routes.geojson (4137). constructed on 2026-07-04 from bmtc route_long_name endpoints and bmtc stop coordinates because the archived gtfs stop_times have only one stop per trip. this is the current usable unofficial bmtc route layer for bengaluru, but it is endpoint-to-endpoint route geometry, not full stop-by-stop path geometry; 134 source routes were skipped and recorded in the provenance file.">
+        <span class="rhead">gtfs constructed</span>
+        <div class="rwho"><span class="rname">BMTC endpoint-constructed bus GTFS</span> <a class="rsrc" href="https://storage.googleapis.com/storage/v1/b/mdb-latest/o/in-karnataka-bangalore-metropolitan-transport-corporation-bmtc-gtfs-2013.zip?alt=media">source</a></div>
+        <p class="rnote">Backs bus_endpoint_stops.geojson (1666) and bus_endpoint_routes.geojson (4137). Constructed on 2026-07-04 from BMTC route_long_name endpoints and BMTC stop coordinates because the archived GTFS stop_times have only one stop per trip. This is the current usable unofficial BMTC route layer for Bengaluru, but it is endpoint-to-endpoint route geometry, not full stop-by-stop path geometry; 134 source routes were skipped and recorded in the provenance file.</p>
       </div>
 </div>
 

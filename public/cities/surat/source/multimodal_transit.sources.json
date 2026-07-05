@@ -1,0 +1,34 @@
+{
+ "schema": "sevent4.multimodal_transit.sources.v1",
+ "feeds": [
+  {
+   "feed_id": "surat_sitilink_bus_iudx_sample_constructed_gtfs",
+   "city": "surat",
+   "mode": "bus",
+   "operator": "Surat Sitilink / Surat Municipal transit systems",
+   "status": "sample_public_constructed_gtfs",
+   "source_url": "https://cos.iudx.org.in/iudx/cat/v1/internal/ui/dataset",
+   "license": "IUDX catalogue metadata and public sample files; authenticated full resources are SECURE-gated.",
+   "stop_layer": "bus_stops.geojson",
+   "route_layer": "bus_routes.geojson",
+   "stop_features": 978,
+   "route_features": 1,
+   "notes": "Static GTFS constructed from public IUDX sample stops/routes on 2026-07-04. Full authenticated IUDX resources remain SECURE-gated."
+  },
+  {
+   "feed_id": "surat_sitilink_bus_iudx_realtime",
+   "city": "surat",
+   "mode": "bus_realtime",
+   "operator": "Surat Sitilink / Surat Municipal transit systems",
+   "status": "gated",
+   "source_url": "https://cos.iudx.org.in/iudx/cat/v1/internal/ui/dataset",
+   "license": "IUDX catalogue metadata is public; realtime resources remain SECURE-gated.",
+   "stop_layer": "bus_realtime_stops.geojson",
+   "route_layer": "bus_realtime_routes.geojson",
+   "stop_features": 0,
+   "route_features": 0,
+   "missing_reason": "Realtime IUDX resources remain SECURE-gated; no public GTFS-RT endpoint was acquired on 2026-07-04.",
+   "notes": "Static sample GTFS is recorded separately from realtime resources."
+  }
+ ]
+}

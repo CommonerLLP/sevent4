@@ -166,6 +166,35 @@ class SourcesPortsTest(unittest.TestCase):
             self.assertEqual(payload["sources"][1]["url"], None)
             self.assertTrue(all("evidence" not in s for s in payload["sources"]))
 
+    def test_transit_gtfs_fallback_console_layers_have_public_sources_endpoint(self) -> None:
+        for city in ("jaipur", "kanpur", "lucknow"):
+            with self.subTest(city=city):
+                layers_dir = Path("public/cities") / city / "layers"
+                self.assertTrue(
+                    any(layers_dir.glob("*gtfs_*.geojson"))
+                    or any(layers_dir.glob("bus_*.geojson"))
+                )
+                sources_json = Path("public/cities") / city / "sources" / "sources.json"
+                self.assertTrue(
+                    sources_json.exists(),
+                    f"{city} transit layers need public source provenance",
+                )
+
+    def test_bengaluru_transit_sources_distinguish_unofficial_layers_from_gated_iudx(self) -> None:
+        sources_json = Path("public/cities/bengaluru/sources/sources.json")
+        payload = json.loads(sources_json.read_text(encoding="utf-8"))
+        sources = {source["id"]: source for source in payload["sources"]}
+
+        iudx_notes = sources["iudx_bengaluru_bmrcl_bmtc_transit"]["notes"]
+        bmtc_notes = sources["mobilitydata_bengaluru_bmtc_endpoint_constructed_gtfs"]["notes"]
+
+        self.assertIn("sample-derived constructed static GTFS", iudx_notes)
+        self.assertIn("Purple and Green only", iudx_notes)
+        self.assertIn("missing the operational Yellow Line", iudx_notes)
+        self.assertIn("full BMTC/BMRCL IUDX feed target remains secure-gated", iudx_notes)
+        self.assertIn("current usable unofficial BMTC route layer", bmtc_notes)
+        self.assertIn("not full stop-by-stop path geometry", bmtc_notes)
+
 
 if __name__ == "__main__":
     unittest.main()

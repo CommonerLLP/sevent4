@@ -2,8 +2,8 @@
  "schema": "sevent4.public_sources.v1",
  "city": "ahmedabad",
  "city_name": "Ahmedabad",
- "compiled": null,
- "count": 8,
+ "compiled": "2026-07-04",
+ "count": 10,
  "sources": [
   {
    "id": "amc_budget_books",
@@ -60,6 +60,20 @@
    "label": "Standing Committee Member List - English",
    "url": "https://ahmedabadcity.gov.in/ViewFile/ViewFile?TYPE=FileRepository,2645",
    "notes": "Standing Committee member list in English."
+  },
+  {
+   "id": "mobilitydata_ahmedabad_janmarg_amts_gtfs",
+   "kind": "gtfs_feed",
+   "label": "MobilityData — Ahmedabad Janmarg / AMTS GTFS archive",
+   "url": "https://storage.googleapis.com/storage/v1/b/mdb-latest/o/in-gujarat-ahmedabad-janmarg-ltd-gtfs-3131.zip?alt=media",
+   "notes": "Backs bus_stops.geojson (6599) and bus_routes.geojson (492). MobilityData source record points to the public croyla/amd-gtfs compatibility archive for Ahmedabad Janmarg Ltd and Ahmedabad Municipal Transport Service."
+  },
+  {
+   "id": "gmrc_ahmedabad_metro_unofficial_constructed_gtfs",
+   "kind": "constructed_gtfs_feed",
+   "label": "GMRC Ahmedabad Metro timetable-derived GTFS",
+   "url": "https://www.gujaratmetrorail.com/ahmedabad/",
+   "notes": "Backs metro_gtfs_stops.geojson (53) and metro_gtfs_routes.geojson (4). This is an unofficial constructed GTFS generated from GMRC passenger-page station scope, official GMRC timetable links, and saved OSM/Overpass station geometry; it is not an agency-published GTFS feed."
   }
  ]
 }

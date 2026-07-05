@@ -2,8 +2,8 @@
  "schema": "sevent4.public_sources.v1",
  "city": "bengaluru",
  "city_name": "Bengaluru",
- "compiled": "2026-07-01",
- "count": 15,
+ "compiled": "2026-07-04",
+ "count": 18,
  "sources": [
   {
    "id": "opencity_gba_wards_delimitation_2025",
@@ -109,6 +109,27 @@
    "label": "MyNeta (Karnataka 2023) / Election Commission of India — MLA & MP roster",
    "url": null,
    "notes": "Backs the representative/party/office popup fields on acs.geojson and pcs.geojson. The on-disk CSV cites 'MyNeta Karnataka 2023 / ECI' as the source per row but records NO URL, so url is left null rather than guessed."
+  },
+  {
+   "id": "iudx_bengaluru_bmrcl_bmtc_transit",
+   "kind": "transit_catalogue",
+   "label": "IUDX Bengaluru transit catalogue records for BMRCL metro and BMTC GTFS resources",
+   "url": "https://catalogue.iudx.org.in/bengaluru",
+   "notes": "Backs metro_gtfs_stops.geojson (45) and metro_gtfs_routes.geojson (2) from the public IUDX BMRCL sample files exposed by the Metro Rail Network dataset; this is a sample-derived constructed static GTFS layer, not a full BMRCL schedule/fare feed. The public sample line file covers Purple and Green only and is missing the operational Yellow Line, so it is not complete 2026 BMRCL operational coverage. The same catalogue probe found BMTC GTFS agency/calendar/routes/stops/trips resources plus secure BMRCL network-line, station-location, fare, and schedule resources. `public/cities/transit_coverage.json` now records those full BMRCL resources as `bengaluru_bmrcl_iudx_full_network_schedule`, status gated. Authenticated token probes on 2026-07-04 returned APD policy denial for the secure resources, so the full BMTC/BMRCL IUDX feed target remains secure-gated rather than absent."
+  },
+  {
+   "id": "mobilitydata_bengaluru_bmtc_gtfs",
+   "kind": "gtfs_feed",
+   "label": "MobilityData — BMTC GTFS archive",
+   "url": "https://storage.googleapis.com/storage/v1/b/mdb-latest/o/in-karnataka-bangalore-metropolitan-transport-corporation-bmtc-gtfs-2013.zip?alt=media",
+   "notes": "Archived and validated public BMTC GTFS snapshot. Backs bus_stops.geojson (4433). The feed validates but its stop_times contain only one stop per trip, so the original bus_routes.geojson has 0 usable corridor features in the route builder. Treat this as a real stop layer plus incomplete route-sequence feed; the separate endpoint-constructed derivative provides unofficial route visibility while full IUDX BMTC stop-sequence access remains secure-gated."
+  },
+  {
+   "id": "mobilitydata_bengaluru_bmtc_endpoint_constructed_gtfs",
+   "kind": "gtfs_constructed",
+   "label": "BMTC endpoint-constructed bus GTFS",
+   "url": "https://storage.googleapis.com/storage/v1/b/mdb-latest/o/in-karnataka-bangalore-metropolitan-transport-corporation-bmtc-gtfs-2013.zip?alt=media",
+   "notes": "Backs bus_endpoint_stops.geojson (1666) and bus_endpoint_routes.geojson (4137). Constructed on 2026-07-04 from BMTC route_long_name endpoints and BMTC stop coordinates because the archived GTFS stop_times have only one stop per trip. This is the current usable unofficial BMTC route layer for Bengaluru, but it is endpoint-to-endpoint route geometry, not full stop-by-stop path geometry; 134 source routes were skipped and recorded in the provenance file."
   }
  ]
 }

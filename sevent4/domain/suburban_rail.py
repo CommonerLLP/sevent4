@@ -9,8 +9,9 @@ from __future__ import annotations
 
 # (south, west, north, east) — generous, to capture the network beyond the corp boundary
 BBOX = {
-    "kolkata":   (22.00, 88.00, 23.15, 88.65),
+    "kolkata":   (21.50, 86.00, 24.50, 89.90),
     "chennai":   (12.55, 79.55, 13.32, 80.40),
+    "mumbai":    (18.75, 72.70, 19.45, 73.35),
     "bengaluru": (12.70, 77.30, 13.25, 77.95),
 }
 CONSTRUCTION = {"bengaluru": True}
@@ -52,7 +53,12 @@ def collect_ways(elements, ways: dict) -> None:
 
 def collect_stations(elements, snodes: dict) -> None:
     for el in elements:
-        if el.get("type") == "node" and "lat" in el and el["id"] not in snodes:
+        if (
+            el.get("type") == "node"
+            and "lat" in el
+            and el["id"] not in snodes
+            and not _is_metro_station(el.get("tags", {}))
+        ):
             snodes[el["id"]] = el
 
 
@@ -76,13 +82,34 @@ def line_features(ways: dict) -> list[dict]:
 
 
 def station_features(snodes: dict) -> list[dict]:
-    return [{
-        "type": "Feature",
-        "geometry": {"type": "Point", "coordinates": [el["lon"], el["lat"]]},
-        "properties": {"name": (el.get("tags") or {}).get("name", "Station"),
-                       "operator": (el.get("tags") or {}).get("operator") or "Indian Railways",
-                       "source": "OpenStreetMap"},
-    } for el in snodes.values()]
+    features = []
+    for el in snodes.values():
+        tags = el.get("tags") or {}
+        props = {
+            "name": tags.get("name", "Station"),
+            "operator": tags.get("operator") or "Indian Railways",
+            "source": "OpenStreetMap",
+        }
+        if tags.get("kolkata_suburban_line"):
+            props["line"] = tags["kolkata_suburban_line"]
+        if tags.get("membership_source"):
+            props["membership_source"] = tags["membership_source"]
+        features.append(
+            {
+                "type": "Feature",
+                "geometry": {"type": "Point", "coordinates": [el["lon"], el["lat"]]},
+                "properties": props,
+            }
+        )
+    return features
+
+
+def _is_metro_station(tags: dict) -> bool:
+    text = " ".join(
+        str(tags.get(key, ""))
+        for key in ("name", "operator", "network", "station", "railway:ref")
+    ).lower()
+    return "metro" in text or "kmrc" in text
 
 
 def rail_sources(city: str) -> dict:

@@ -451,9 +451,13 @@ _CANON: tuple[tuple[str, str, str, str | None], ...] = (
     ("rrts", "RRTS (Namo Bharat)", "Transit", "#9b59b6"),
     ("rail", "Suburban rail", "Transit", "#8a8f98"),
     ("suburban_rail", "Suburban rail", "Transit", "#8a8f98"),
+    ("suburban_rail_stations", "Suburban rail stations", "Transit", "#edc233"),
     ("corr_amts", "AMTS corridors", "Transit", None),
     ("corr_brts", "BRTS corridors", "Transit", None),
     ("bus_routes", "Bus routes", "Transit", "#e0913a"),
+    ("bus_stops", "Bus stops (GTFS)", "Transit", "#9ca3ad"),
+    ("metro_gtfs_stops", "Metro stations (GTFS)", "Transit", "#36a3d9"),
+    ("metro_gtfs_routes", "Metro routes (GTFS)", "Transit", "#7857d6"),
     ("stops", "Bus stops", "Transit", "#9ca3ad"),
     ("libraries", "Libraries", "Public services", "#e0b84d"),
     ("ward_library_exclusion", "Library exclusion", "Public services", None),
@@ -506,6 +510,11 @@ def _canon_layers(layers: tuple[LayerSpec, ...]) -> list[LayerSpec]:
                 for key in ("fill-color", "line-color", "circle-color"):
                     if key in paint and not isinstance(paint[key], list):  # keep expressions
                         paint[key] = color
+            if any(
+                marker in layer.label.lower()
+                for marker in ("iudx", "sample", "fallback", "unofficial", "constructed")
+            ):
+                label = layer.label
             layer = dataclasses.replace(layer, label=label, group=group, paint=paint)
         out.append(layer)
     return out
@@ -663,9 +672,12 @@ _GOV_LAYER: dict[str, str] = {
     "water": "water", "water_overhead_tanks": "water", "bwssb_divisions": "water",
     "cmwssb_depots": "water", "sewer_command_area": "water",
     "landuse": "planning", "bda_zones": "planning",
-    "bus_routes": "transit_bus", "stops": "transit_bus", "corr_amts": "transit_bus", "corr_brts": "transit_bus",
-    "metro": "metro", "metro_lines": "metro", "rrts": "metro",
-    "rail": "rail", "suburban_rail": "rail",
+    "bus_routes": "transit_bus", "bus_stops": "transit_bus",
+    "bus_endpoint_routes": "transit_bus", "bus_endpoint_stops": "transit_bus",
+    "stops": "transit_bus", "corr_amts": "transit_bus", "corr_brts": "transit_bus",
+    "metro": "metro", "metro_lines": "metro", "metro_gtfs_stops": "metro",
+    "metro_gtfs_routes": "metro", "rrts": "metro",
+    "rail": "rail", "suburban_rail": "rail", "suburban_rail_stations": "rail",
     "police": "police", "traffic_police_jurisdiction": "police",
     "fire": "fire",
     "libraries": "libraries", "schools": "education", "universities": "education", "health": "health",

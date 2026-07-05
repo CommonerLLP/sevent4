@@ -35,7 +35,7 @@ def build_suburban_rail(city: str, overpass_fn):
         collect_ways(j.get("elements", []), ways)
 
     snodes: dict = {}
-    for bb in tiles(bbox, 2, 2):
+    for bb in tiles(bbox, 4, 4):
         try:
             j = overpass_fn(q_stations(bb))
         except RuntimeError as e:

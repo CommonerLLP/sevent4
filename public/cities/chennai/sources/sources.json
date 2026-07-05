@@ -2,8 +2,8 @@
  "schema": "sevent4.public_sources.v1",
  "city": "chennai",
  "city_name": "Chennai",
- "compiled": "2026-07-01",
- "count": 29,
+ "compiled": "2026-07-03",
+ "count": 33,
  "sources": [
   {
    "id": "datameet_districts_census2011",
@@ -39,6 +39,27 @@
    "label": "OpenStreetMap via Overpass API (ODbL 1.0, bbox 12.83-13.25 N / 80.10-80.34 E, 2026-06)",
    "url": "https://overpass-api.de/api/interpreter",
    "notes": "Backs roads.geojson (4214), metro_lines.geojson (136), metro.geojson (metro stations, 69), stops.geojson (MTC bus stops, 971), health.geojson (hospitals, 835), schools.geojson (630), toilets.geojson (105), police.geojson (105), fire.geojson (fire stations, 15). Feature counts and osm_id properties in the public files match the OSM source layers. Note: public libraries.geojson is NOT OSM (see opencity_chennai_civic_amenities)."
+  },
+  {
+   "id": "cscl_sub_urban_rail_2019",
+   "kind": "open_data_dataset",
+   "label": "CSCL Open Data Portal — Sub Urban Rail, Chennai, as on 20 June 2019",
+   "url": "https://opendata.cscl.co.in/dataset/sub-urban-rail",
+   "notes": "Official CSCL station/line inventory CSV. Backs suburban_rail_stations.geojson (49 unique stations from 54 station-line rows) and suburban_rail.geojson (4 corridors: South, North, West, MRTS), joined to OSM station coordinates by station code/name."
+  },
+  {
+   "id": "southern_railway_chennai_suburban_2026_press_release",
+   "kind": "official_press_release",
+   "label": "Southern Railway Chennai Division — Chennai suburban railway network press release, 31 May 2026",
+   "url": "https://sr.indianrailways.gov.in/cris//uploads/files/1780294962278-No.PUB-MAS-2026-05-28.pdf",
+   "notes": "Official Southern Railway context for Chennai suburban rail history and corridors. It identifies four major corridors: Chennai Beach-Chengalpattu, Chennai Central-Arakkonam, Chennai Central-Gummidipoondi/Sullurpeta, and MRTS. Used as corridor provenance/context; station geometry comes from CSCL + OSM."
+  },
+  {
+   "id": "chennaigtfs_mtc_cmrl",
+   "kind": "gtfs_feed",
+   "label": "ChennaiGTFS — MTC bus + CMRL metro GTFS feeds",
+   "url": "https://github.com/ungalsoththu/ChennaiGTFS",
+   "notes": "ODbL feed package from UngalSoththu/ChennaiGTFS. Backs bus_stops.geojson (5580), bus_routes.geojson (3934), metro_gtfs_stops.geojson (44), and metro_gtfs_routes.geojson (2). Feed notes record MTC as app-inspected unofficial data and CMRL as PDF/site-derived GTFS; Southern Railway suburban/MRTS remains absent from this feed."
   },
   {
    "id": "worldpop_stats_api",
@@ -207,6 +228,13 @@
    "label": "Citizen Matters — 'Who governs Chennai?' + 2022 councillor winners list",
    "url": "https://citizenmatters.in/chennai-governance-corporation-mtc-railways-cmrl-tnpcb-tnhb-32855",
    "notes": "Verbatim on-disk URL (docs/kolkata-chennai-devolution.md, Sources section); companion winners-list URL also recorded: https://citizenmatters.in/chennai-local-body-poll-results-winning-councillors-dmk-mayor-38740 (CORPORATION.md). Backs the devolution/who-governs framing and corroborates the 2022 council result; the winners table was NOT machine-extractable, so ward-level party is deliberately absent from councillors.csv."
+  },
+  {
+   "id": "mobilitydata_indian_railways_chennai_gtfs_lead",
+   "kind": "gtfs_feed_lead",
+   "label": "MobilityData — Indian Railways GTFS city extract for Chennai local/EMU services",
+   "url": "https://storage.googleapis.com/storage/v1/b/mdb-latest/o/in-unknown-indian-railways-gtfs-2867.zip?alt=media",
+   "notes": "Unofficial MobilityData Indian Railways GTFS archive. Backs suburban_rail_gtfs_stations.geojson (76) and suburban_rail_gtfs_routes.geojson (483) using Chennai bbox plus LOCAL/EMU/MEMU filters. It is a schedule lead, not an official Southern Railway suburban GTFS disclosure."
   }
  ]
 }

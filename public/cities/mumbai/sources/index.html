@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script>(function(){try{var t=localStorage.getItem('atlas-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sources — Mumbai</title>
+  <link rel="icon" type="image/png" href="../../../assets/ixa-mark.png">
+  <link rel="stylesheet" href="../../../assets/theme.css">
+  <style>
+*{box-sizing:border-box;margin:0}body{font:400 16px/1.6 var(--sans);color:var(--ink);background:var(--bg)}
+.wrap{max-width:860px;margin:0 auto;padding:32px 22px 80px}
+.crumb{font:700 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-bottom:18px}
+.crumb a{color:var(--blue);text-decoration:none}.crumb span{margin:0 6px;color:var(--line)}
+h1{font:700 30px/1.15 var(--serif);letter-spacing:-.01em;margin-bottom:8px}
+.lede{color:var(--mut);font-size:16px;max-width:70ch;margin-bottom:10px}
+.stat{font:700 12px/1 var(--mono);letter-spacing:.04em;color:var(--gold);margin-bottom:18px}
+.osearch{width:100%;min-height:44px;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);padding:9px 12px;font:600 14px var(--sans);margin-bottom:12px}
+.osearch::placeholder{color:var(--mut)}
+.onoresults{color:var(--mut);font-size:13px;margin:18px 0}
+.is-hidden{display:none}
+.rows{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+.row{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:var(--r);padding:9px 12px}
+.row-ghost{border-left-style:dashed;border-left-color:var(--mut)}
+.rhead{display:block;color:var(--mut);font:700 10px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px}
+.rwho{font-size:14.5px}
+.rname{color:var(--ink);font-weight:700}
+.rsrc{color:var(--gold);font:700 11px var(--mono);text-decoration:none;margin-left:6px}
+.rsrc-text{color:var(--mut);font-weight:400}
+.rnote{color:var(--mut);font-size:12.5px;line-height:1.5;margin-top:5px;max-width:70ch}
+.prov{margin-top:44px;border-top:1px solid var(--line);padding-top:20px;color:var(--mut);font-size:13px}
+.prov h3{font:700 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+.prov p{max-width:74ch}.prov a{color:var(--blue)}
+.prov code{font:600 12px var(--mono);color:var(--ink)}
+@media(max-width:640px){h1{font-size:25px}}
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <nav class="crumb"><a href="../">&larr; Atlas</a> <span>/</span> <b>Sources</b></nav>
+    <h1>Where this console's data comes from</h1>
+    <p class="lede">
+      Every layer, number, and name on the Mumbai console traces
+      to one of the source records below. A record without a link means the
+      source's public URL was never captured at acquisition time — that gap is
+      reported, not papered over with a guessed link.
+    </p>
+    <p class="stat">4 source records &middot; 0 with no public URL recorded &middot; compiled 2026-07-04</p>
+
+    <input id="osearch" class="osearch" type="search"
+      placeholder="Search by source, kind, or note (e.g. &quot;budget&quot;, &quot;DataMeet&quot;, &quot;GTFS&quot;)">
+    <p id="onoresults" class="onoresults" hidden>No match. Clear the search to see all sources.</p>
+
+    <div class="rows">
+      <div class="row" data-search="gtfs feed mobilitydata — mumbai best/kdmt bus gtfs archive backs bus_stops.geojson (7195) and bus_routes.geojson (581). mobilitydata source record points to a public mumbai-gtfs compatibility archive for best/kdmt bus schedules.">
+        <span class="rhead">gtfs feed</span>
+        <div class="rwho"><span class="rname">MobilityData — Mumbai BEST/KDMT bus GTFS archive</span> <a class="rsrc" href="https://storage.googleapis.com/storage/v1/b/mdb-latest/o/in-maharashtra-mumbai-bus-best-gtfs-3138.zip?alt=media">source</a></div>
+        <p class="rnote">Backs bus_stops.geojson (7195) and bus_routes.geojson (581). MobilityData source record points to a public mumbai-gtfs compatibility archive for BEST/KDMT bus schedules.</p>
+      </div>
+
+      <div class="row" data-search="gtfs lead mobilitydata — indian railways gtfs city extract for mumbai local/emu services unofficial mobilitydata indian railways gtfs archive. backs suburban_rail_gtfs_stations.geojson (98) and suburban_rail_gtfs_routes.geojson (207) using mumbai-region bbox plus local/emu/memu filters. it is a schedule lead, not an official western/central railway suburban gtfs disclosure.">
+        <span class="rhead">gtfs lead</span>
+        <div class="rwho"><span class="rname">MobilityData — Indian Railways GTFS city extract for Mumbai local/EMU services</span> <a class="rsrc" href="https://storage.googleapis.com/storage/v1/b/mdb-latest/o/in-unknown-indian-railways-gtfs-2867.zip?alt=media">source</a></div>
+        <p class="rnote">Unofficial MobilityData Indian Railways GTFS archive. Backs suburban_rail_gtfs_stations.geojson (98) and suburban_rail_gtfs_routes.geojson (207) using Mumbai-region bbox plus LOCAL/EMU/MEMU filters. It is a schedule lead, not an official Western/Central Railway suburban GTFS disclosure.</p>
+      </div>
+
+      <div class="row" data-search="osm extract bbbike bombay osm extract — suburban rail geometry backs suburban_rail.geojson (2545 line segments) and suburban_rail_stations.geojson (88 stations). this is osm-derived geometry and remains non-authoritative.">
+        <span class="rhead">osm extract</span>
+        <div class="rwho"><span class="rname">BBBike Bombay OSM extract — suburban rail geometry</span> <a class="rsrc" href="https://download.bbbike.org/osm/bbbike/Bombay/">source</a></div>
+        <p class="rnote">Backs suburban_rail.geojson (2545 line segments) and suburban_rail_stations.geojson (88 stations). This is OSM-derived geometry and remains non-authoritative.</p>
+      </div>
+
+      <div class="row" data-search="gtfs constructed mumbai metro unofficial constructed static gtfs backs metro_gtfs_stops.geojson (79) and metro_gtfs_routes.geojson (6). constructed from mmrda/mmmocl/mmrc public station/source material plus local osm route/station geometry; not an agency-published gtfs feed. includes operational/partly operational lines 1, 2a, 2b phase 1, 3, 7, and 9 phase 1; planned lines such as line 14 are excluded until operational status is verified.">
+        <span class="rhead">gtfs constructed</span>
+        <div class="rwho"><span class="rname">Mumbai Metro unofficial constructed static GTFS</span> <a class="rsrc" href="https://mmrda.maharashtra.gov.in/en/division/mmmocl/overview">source</a></div>
+        <p class="rnote">Backs metro_gtfs_stops.geojson (79) and metro_gtfs_routes.geojson (6). Constructed from MMRDA/MMMOCL/MMRC public station/source material plus local OSM route/station geometry; not an agency-published GTFS feed. Includes operational/partly operational Lines 1, 2A, 2B Phase 1, 3, 7, and 9 Phase 1; planned lines such as Line 14 are excluded until operational status is verified.</p>
+      </div>
+</div>
+
+    <footer class="prov">
+      <h3>Handling &amp; reuse</h3>
+      <p>
+        This inventory is compiled from the repo&#x27;s own acquisition records:
+        each entry is backed by a named internal record whose existence is
+        verified every time this page is built. It is also published as
+        <a href="sources.json">machine-readable JSON</a>
+        (schema <code>sevent4.public_sources.v1</code>) so other projects can
+        reuse the sourcing without re-deriving it.
+      </p>
+    </footer>
+  </main>
+  <script>
+  document.getElementById("osearch").addEventListener("input", (event) => {
+    const q = event.target.value.trim().toLowerCase();
+    let anyVisible = false;
+    document.querySelectorAll(".row").forEach((row) => {
+      const match = !q || (row.dataset.search || "").includes(q);
+      row.classList.toggle("is-hidden", !match);
+      if (match) anyVisible = true;
+    });
+    document.getElementById("onoresults").hidden = anyVisible || !q;
+  });
+</script>
+</body>
+</html>

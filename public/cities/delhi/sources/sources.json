@@ -2,7 +2,7 @@
  "schema": "sevent4.public_sources.v1",
  "city": "delhi",
  "city_name": "Delhi",
- "compiled": "2026-07-01",
+ "compiled": "2026-07-03",
  "count": 20,
  "sources": [
   {
@@ -52,7 +52,7 @@
    "kind": "gtfs_feed",
    "label": "Open Transit Data Delhi — static GTFS bundle (GNCTD)",
    "url": "https://otd.delhi.gov.in/data/static/",
-   "notes": "Public no-key static GTFS download (OTD_STATIC_URL in the delhi-acquire adapter). Backs bus_routes.geojson (route LineStrings from shapes.txt / longest-trip reconstruction per scripts/recipes/delhi/acquire_gtfs.py)."
+   "notes": "Public no-key static GTFS download archived locally on 2026-07-03. Backs bus_stops.geojson (10559) and bus_routes.geojson (2403), reconstructed from stop_times by the GTFS layer builder."
   },
   {
    "id": "osm_overpass",

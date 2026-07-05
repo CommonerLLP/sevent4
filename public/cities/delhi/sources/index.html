@@ -45,7 +45,7 @@ h1{font:700 30px/1.15 var(--serif);letter-spacing:-.01em;margin-bottom:8px}
       source's public URL was never captured at acquisition time — that gap is
       reported, not papered over with a guessed link.
     </p>
-    <p class="stat">20 source records &middot; 1 with no public URL recorded &middot; compiled 2026-07-01</p>
+    <p class="stat">20 source records &middot; 1 with no public URL recorded &middot; compiled 2026-07-03</p>
 
     <input id="osearch" class="osearch" type="search"
       placeholder="Search by source, kind, or note (e.g. &quot;budget&quot;, &quot;DataMeet&quot;, &quot;GTFS&quot;)">
@@ -88,10 +88,10 @@ h1{font:700 30px/1.15 var(--serif);letter-spacing:-.01em;margin-bottom:8px}
         <p class="rnote">Station lat/lon and operating agency (DPCC/IMD etc.) for the air_quality.geojson / ward_aqi.geojson station points. The on-disk record tags each row source=cpcb_caaqms but records no URL for the CPCB portal itself — honest blank; the build script header confirms coordinates come from this curated master, not Google Maps.</p>
       </div>
 
-      <div class="row" data-search="gtfs feed open transit data delhi — static gtfs bundle (gnctd) public no-key static gtfs download (otd_static_url in the delhi-acquire adapter). backs bus_routes.geojson (route linestrings from shapes.txt / longest-trip reconstruction per scripts/recipes/delhi/acquire_gtfs.py).">
+      <div class="row" data-search="gtfs feed open transit data delhi — static gtfs bundle (gnctd) public no-key static gtfs download archived locally on 2026-07-03. backs bus_stops.geojson (10559) and bus_routes.geojson (2403), reconstructed from stop_times by the gtfs layer builder.">
         <span class="rhead">gtfs feed</span>
         <div class="rwho"><span class="rname">Open Transit Data Delhi — static GTFS bundle (GNCTD)</span> <a class="rsrc" href="https://otd.delhi.gov.in/data/static/">source</a></div>
-        <p class="rnote">Public no-key static GTFS download (OTD_STATIC_URL in the delhi-acquire adapter). Backs bus_routes.geojson (route LineStrings from shapes.txt / longest-trip reconstruction per scripts/recipes/delhi/acquire_gtfs.py).</p>
+        <p class="rnote">Public no-key static GTFS download archived locally on 2026-07-03. Backs bus_stops.geojson (10559) and bus_routes.geojson (2403), reconstructed from stop_times by the GTFS layer builder.</p>
       </div>
 
       <div class="row" data-search="osm extract openstreetmap via overpass api (amenity/transit/road queries) overpass queries defined in sevent4/domain/delhi_acquire.py back stops.geojson (highway=bus_stop), metro.geojson (subway stations), metro_lines.geojson, rrts.geojson (namo bharat), rail.geojson, roads.geojson (motorway/trunk/primary &#x27;major roads&#x27;), health.geojson, schools.geojson, police.geojson, fire.geojson, toilets.geojson. osm is reference-tier in this atlas, odbl 1.0.">

@@ -5,6 +5,7 @@ from pathlib import Path
 from sevent4.application.comparators import build_opencity_catalogue, build_suburban_rail
 from sevent4.domain.opencity_catalogue import build_catalogue, human_bytes, to_int
 from sevent4.domain.suburban_rail import (
+    BBOX,
     collect_ways,
     line_features,
     q_rail,
@@ -67,6 +68,7 @@ class SuburbanRailDomainTest(unittest.TestCase):
     def test_tiles_and_query(self) -> None:
         ts = list(tiles((0, 0, 3, 3), nx=3, ny=3))
         self.assertEqual(len(ts), 9)
+        self.assertIn("mumbai", BBOX)
         self.assertIn('railway"="rail"', q_rail((0, 0, 1, 1)))
         self.assertIn("(0,0,1,1)", q_rail((0, 0, 1, 1)))
 

@@ -1,0 +1,44 @@
+{
+ "schema": "sevent4.public_sources.v1",
+ "city": "jaipur",
+ "city_name": "Jaipur",
+ "compiled": "2026-07-04",
+ "count": 5,
+ "sources": [
+  {
+   "id": "jaipur_metro_unofficial_constructed_gtfs",
+   "kind": "gtfs_constructed",
+   "label": "Jaipur Metro unofficial constructed static GTFS",
+   "url": "https://www.jaipurmetrorail.in/",
+   "notes": "Backs metro_gtfs_stops.geojson (11) and metro_gtfs_routes.geojson (1). Constructed from public Jaipur Metro route/station material plus saved OSM station geometry; not an agency-published GTFS feed."
+  },
+  {
+   "id": "jaipur_metro_osm_fallback",
+   "kind": "osm_extract",
+   "label": "OpenStreetMap via Overpass/OSM API - Jaipur Metro fallback geometry",
+   "url": "https://overpass-api.de/api/interpreter",
+   "notes": "Backs metro.geojson (11 stations) and metro_lines.geojson (44 line features). OSM fallback geometry; official Jaipur Metro static GTFS remains a separate missing-source row."
+  },
+  {
+   "id": "jaipur_jctsl_osm_fallback_gtfs",
+   "kind": "gtfs_constructed",
+   "label": "Jaipur JCTSL OSM route-relation fallback GTFS",
+   "url": "https://overpass-api.de/api/interpreter",
+   "notes": "Backs bus_stops.geojson (72 endpoint stops) and bus_routes.geojson (36 route-direction geometries). Constructed from OSM route relations tagged operator=JCTSL; endpoint stops come from relation from/to tags and route way endpoints, not agency stop-level schedules."
+  },
+  {
+   "id": "jaipur_jctsl_official_route_list_pdf",
+   "kind": "official_route_list",
+   "label": "JCTSL official route-list PDF, archived 2026-07-04",
+   "url": null,
+   "notes": "Archived source context for Jaipur city-bus routes. It is not a static GTFS feed and does not by itself provide stop-level geometry."
+  },
+  {
+   "id": "jaipur_transit_status_manifest",
+   "kind": "source_status_manifest",
+   "label": "Jaipur transit source status manifest",
+   "url": null,
+   "notes": "Records the official Jaipur Metro and JCTSL static-GTFS gaps separately from the constructed/fallback public layers."
+  }
+ ]
+}
