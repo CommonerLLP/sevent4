@@ -16,6 +16,7 @@ SMOKE_PATHS = (
     "/index.html",
     "/public/index.html",
     "/public/cities/ahmedabad/index.html",
+    "/public/cities/bengaluru/finance/index.html",
 )
 
 

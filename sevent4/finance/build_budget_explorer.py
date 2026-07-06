@@ -150,7 +150,7 @@ def line_chart(
         for x, y in pts:
             parts.append(f'<circle class="dot" cx="{px(x):.1f}" cy="{py(y):.1f}" r="2.6" style="fill:{color}"/>')
 
-    parts.append(f'<text class="unit" x="{pad_l - 8:.1f}" y="{pad_t - 4:.1f}">{html.escape(unit)}</text>')
+    parts.append(f'<text class="unit" x="{width - pad_r:.1f}" y="{pad_t - 4:.1f}">{html.escape(unit)}</text>')
     parts.append("</svg>")
     return "".join(parts)
 
@@ -207,6 +207,7 @@ def render_html(
     headline: list[dict[str, Any]],
     civic_meta: dict[str, Any],
     civic_rows: list[dict[str, Any]],
+    budget_stages: list[dict[str, Any]] | None = None,
 ) -> str:
     amts = amts_series(headline, civic_rows)
     total = headline_series(headline, "total_cr")
@@ -239,10 +240,14 @@ def render_html(
   <title>Part IXA: The Municipalities - {html.escape(city.name)} city finance</title>
   <link rel="icon" type="image/png" href="../../../assets/ixa-mark.png">
   <link rel="stylesheet" href="../../../assets/theme.css">
+  <link rel="stylesheet" href="../../../assets/masthead.css">
   <link rel="stylesheet" href="../../../assets/maplibre-gl.css">
   <style>{_css()}</style>
+  <script src="../../../assets/masthead.js"></script>
+  <script src="../../../assets/theme.js" defer></script>
 </head>
 <body>
+  <header data-masthead="bar"></header>
   <main class="wrap">
     <header class="head">
       <nav class="crumb"><a href="../">&larr; Atlas</a> <span>/</span> <b>City finance</b></nav>
@@ -272,6 +277,8 @@ def render_html(
         <div class="s">AMTS allocation as a share of the total</div>
       </div>
     </section>
+
+    {_budget_stage_section(budget_stages or [])}
 
     <section class="block">
       <h2>The city bus, funded over two decades</h2>
@@ -308,6 +315,10 @@ def render_html(
         confidence rating. Where a figure could not be cleanly isolated from the
         scanned table, it is left blank rather than guessed.
       </p>
+      <p class="note">
+        For the selected source-backed expenditure flow over time, see the
+        <a href="../finance-flow/">budget-line Sankey</a>.
+      </p>
       {_table(headline)}
     </section>
 
@@ -339,7 +350,7 @@ def amts_recent(amts: list[tuple[int, float]]) -> list[tuple[int, float]]:
 def _table(headline: list[dict[str, Any]]) -> str:
     head = (
         "<tr><th>Year</th><th>AMTS (bus)</th><th>M.J. Library</th>"
-        "<th>Property tax</th><th>Total budget</th><th>Conf.</th><th>Pg.</th></tr>"
+        "<th>Property tax</th><th>Total revenue budget</th><th>Conf.</th><th>Pg.</th></tr>"
     )
     body = []
     for row in headline:
@@ -359,6 +370,36 @@ def _table(headline: list[dict[str, Any]]) -> str:
     return f'<div class="tablewrap"><table class="fin"><thead>{head}</thead><tbody>{"".join(body)}</tbody></table></div>'
 
 
+def _budget_stage_section(rows: list[dict[str, Any]]) -> str:
+    visible = [row for row in rows if row.get("amount_cr") is not None]
+    if not visible:
+        return ""
+    cards = []
+    for row in visible:
+        source = row.get("source_url") or ""
+        label = html.escape(row.get("label") or row.get("stage") or "Budget stage")
+        source_label = html.escape(row.get("source_label") or "source")
+        source_html = f'<a href="{html.escape(source)}">{source_label}</a>' if source else source_label
+        note = html.escape(row.get("note") or "")
+        cards.append(
+            "<div class=\"stage-card\">"
+            f"<div class=\"k\">{label}</div>"
+            f"<div class=\"v\">&#8377;{float(row['amount_cr']):,.0f} cr</div>"
+            f"<div class=\"s\">{html.escape(row.get('year') or '')} &middot; {source_html}</div>"
+            f"<p>{note}</p>"
+            "</div>"
+        )
+    return (
+        '<section class="block">'
+        '<h2>2026-27 budget stages</h2>'
+        '<p class="note">These total-budget stage figures are kept separate from the '
+        'long revenue-budget series above. The AMC budget book separately gives '
+        '2026-27 revenue income of &#8377;10,500.09 crore.</p>'
+        f'<div class="stage-grid">{"".join(cards)}</div>'
+        '</section>'
+    )
+
+
 def _first_caveat(civic_meta: dict[str, Any]) -> str:
     caveats = civic_meta.get("caveats", [])
     return caveats[0] if caveats else ""
@@ -375,11 +416,17 @@ h1{font:700 30px/1.18 var(--serif);letter-spacing:-.01em;margin-bottom:12px}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px 0}
 .card{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:var(--r);padding:14px 15px}
 .card .k{font:700 10px/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
-.card .v{font:700 22px/1.2 var(--serif);margin:7px 0 4px}
+.card .v{font:700 20px/1.2 var(--serif);margin:7px 0 4px}
 .card .s{font:600 11px/1.3 var(--mono);color:var(--mut)}
 .block{margin:40px 0;border-top:1px solid var(--hair);padding-top:26px}
 h2{font:700 21px/1.25 var(--serif);margin-bottom:8px}
 .note{color:var(--mut);font-size:14.5px;max-width:64ch;margin-bottom:16px}
+.stage-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.stage-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px 15px}
+.stage-card .k{font:700 10px/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+.stage-card .v{font:700 23px/1.15 var(--serif);margin:7px 0 4px}
+.stage-card .s{font:600 11px/1.3 var(--mono);color:var(--mut)}
+.stage-card p{font-size:13px;color:var(--mut);margin-top:8px}.stage-card a{color:var(--blue)}
 .chart{width:100%;height:auto;display:block;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:8px}
 .chart .grid{stroke:var(--hair);stroke-width:1}
 .chart .ln{fill:none;stroke-width:2.2;stroke-linejoin:round;stroke-linecap:round}
@@ -401,7 +448,7 @@ table.fin tr:last-child td{border-bottom:none}
 .prov{margin-top:48px;border-top:1px solid var(--line);padding-top:22px;color:var(--mut);font-size:13.5px}
 .prov h3{font:700 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
 .prov p{max-width:70ch;margin-bottom:10px}.prov .caveat{font-style:italic;border-left:2px solid var(--gold);padding-left:10px}
-@media(max-width:620px){.cards{grid-template-columns:1fr}h1{font-size:25px}}
+@media(max-width:620px){.cards,.stage-grid{grid-template-columns:1fr}h1{font-size:25px}}
 """
 
 

@@ -85,6 +85,63 @@ class BengaluruOpenCityAcquisitionApplicationTest(unittest.TestCase):
         self.assertEqual(store.manifest[0]["format"], "CSV")
         self.assertEqual(store.manifest[0]["bytes"], 123)
 
+    def test_acquire_finance_falls_back_to_package_show_for_catalogue_miss(self) -> None:
+        from sevent4.application.bengaluru_opencity import acquire_finance_resources
+
+        class Store:
+            def archive_exists(self) -> bool:
+                return True
+
+            def read_catalogue(self) -> dict:
+                return {"datasets": []}
+
+            def package_show(self, slug: str) -> dict:
+                self.slug = slug
+                return {
+                    "success": True,
+                    "result": {
+                        "name": slug,
+                        "title": "GBA Corporation Budgets 2026-27",
+                        "organization": {"title": "Greater Bengaluru Authority (GBA)"},
+                        "resources": [
+                            {
+                                "name": "Bengaluru Central City Corporation Budget Tables",
+                                "format": "XLSX",
+                                "url": "https://example.test/bccc.xlsx",
+                                "last_modified": "2026-06-17T04:12:04.107941",
+                            },
+                            {
+                                "name": "Budget Book - Bengaluru Central City Corporation",
+                                "format": "PDF",
+                                "url": "https://example.test/bccc.pdf",
+                            },
+                        ],
+                    },
+                }
+
+            def fetch_finance_resource(self, slug: str, filename: str, url: str) -> int:
+                self.fetch = (slug, filename, url)
+                return 456
+
+            def write_finance_manifest(self, manifest: list[dict[str, str]]) -> None:
+                self.manifest = manifest
+
+        store = Store()
+        result = acquire_finance_resources(store, slugs=["gba-corporation-budgets-2026-27"])
+
+        self.assertEqual(store.slug, "gba-corporation-budgets-2026-27")
+        self.assertEqual(
+            store.fetch,
+            (
+                "gba-corporation-budgets-2026-27",
+                "Bengaluru_Central_City_Corporation_Budget_Tables.xlsx",
+                "https://example.test/bccc.xlsx",
+            ),
+        )
+        self.assertEqual(result["missing"], [])
+        self.assertEqual(result["done"], 1)
+        self.assertEqual(store.manifest[0]["publisher_org"], "Greater Bengaluru Authority (GBA)")
+
     def test_acquire_boundary_spine_fetches_converts_and_writes_credit(self) -> None:
         from sevent4.application.bengaluru_opencity import acquire_boundary_spine
 

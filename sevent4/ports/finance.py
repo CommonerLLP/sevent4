@@ -16,11 +16,23 @@ class BudgetExplorerInput:
     headline: list[dict[str, Any]]
     civic_meta: dict[str, Any]
     civic_rows: list[dict[str, Any]]
+    budget_stages: list[dict[str, Any]] | None = None
 
 
 @dataclass(frozen=True)
 class MoneyFlowInput:
     city: FinanceCity
+
+
+@dataclass(frozen=True)
+class FinanceFlowInput:
+    city: FinanceCity
+    title: str
+    subtitle: str
+    links: list[dict[str, Any]]
+    notes: list[str]
+    flow_years: list[dict[str, Any]] | None = None
+    default_year: str | None = None
 
 
 class BudgetExplorerInputRepository(Protocol):
@@ -30,6 +42,11 @@ class BudgetExplorerInputRepository(Protocol):
 
 class MoneyFlowInputRepository(Protocol):
     def load(self) -> MoneyFlowInput:
+        ...
+
+
+class FinanceFlowInputRepository(Protocol):
+    def load(self) -> FinanceFlowInput:
         ...
 
 
@@ -45,10 +62,25 @@ class BudgetExplorerRenderer(Protocol):
         headline: list[dict[str, Any]],
         civic_meta: dict[str, Any],
         civic_rows: list[dict[str, Any]],
+        budget_stages: list[dict[str, Any]] | None = None,
     ) -> str:
         ...
 
 
 class MoneyFlowRenderer(Protocol):
     def __call__(self, city: FinanceCity) -> str:
+        ...
+
+
+class FinanceFlowRenderer(Protocol):
+    def __call__(
+        self,
+        city: FinanceCity,
+        title: str,
+        subtitle: str,
+        links: list[dict[str, Any]],
+        notes: list[str],
+        flow_years: list[dict[str, Any]] | None = None,
+        default_year: str | None = None,
+    ) -> str:
         ...

@@ -1,0 +1,733 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script>(function(){try{var t=localStorage.getItem('atlas-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ahmedabad budget-line flow over time - Ahmedabad</title>
+  <link rel="icon" type="image/png" href="../../../assets/ixa-mark.png">
+  <link rel="stylesheet" href="../../../assets/theme.css">
+  <link rel="stylesheet" href="../../../assets/masthead.css">
+  <style>
+*{box-sizing:border-box;margin:0}body{font:400 16px/1.6 var(--sans);background:var(--bg);color:var(--ink)}
+:root{--flow-receipts:#42c8b8;--flow-payments:#ff6b73;--flow-head:#f2cf55;--flow-other:var(--mut);--flow-opacity:.58}
+@media (prefers-color-scheme: light){:root:not([data-theme=dark]){--flow-receipts:#147d72;--flow-payments:#c93b44;--flow-head:#a67f0d;--flow-opacity:.5}}
+:root[data-theme=light]{--flow-receipts:#147d72;--flow-payments:#c93b44;--flow-head:#a67f0d;--flow-opacity:.5}
+.wrap{max-width:1080px;margin:0 auto;padding:30px 20px 78px}
+.crumb{font:700 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-bottom:20px}
+.crumb a{color:var(--blue);text-decoration:none}.crumb span{margin:0 6px;color:var(--line)}
+h1{font:700 32px/1.12 var(--serif);margin-bottom:8px}.lede{max-width:72ch;color:var(--mut);margin-bottom:18px}
+.flow-controls{display:flex;align-items:center;gap:14px;margin:18px 0 8px}.control-label{font:700 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+.year-switcher{display:flex;flex-wrap:wrap;gap:8px}.year-btn{appearance:none;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--ink);padding:7px 10px;text-align:left;cursor:pointer}
+.year-btn span{display:block;font:700 12px var(--mono)}.year-btn small{display:block;margin-top:2px;font:700 9px var(--mono);text-transform:uppercase;color:var(--mut)}
+.year-btn.active{border-color:var(--blue);box-shadow:inset 3px 0 0 var(--blue)}.status-note{color:var(--mut);font-size:13px;margin-bottom:12px}.has-flow-js .year-panel[hidden]{display:none}
+.year-panel{margin-top:18px}.year-panel h2{font:700 22px var(--serif);margin-bottom:10px}.year-panel h2 span{font:700 10px var(--mono);text-transform:uppercase;color:var(--mut);margin-left:8px}
+.viz-scroll{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);margin:18px 0 22px}
+.sankey{display:block;width:100%;min-width:760px;height:auto;background:var(--panel)}
+.caption{font:700 11px var(--mono);fill:var(--mut);letter-spacing:.08em;text-transform:uppercase}.node{fill:var(--bg);stroke:var(--line)}
+.band{fill-opacity:var(--flow-opacity)}.band-receipts{fill:var(--flow-receipts)}.band-payments{fill:var(--flow-payments)}.band-payment-head{fill:var(--flow-head)}.band-other{fill:var(--flow-other)}
+.node-label{font:700 13px var(--sans);fill:var(--ink)}.node-value{font:600 11px var(--mono);fill:var(--mut)}
+.panel{margin-top:20px}.panel h2,.panel h3{font:700 18px var(--serif);margin-bottom:8px}
+table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);font-size:13px;text-align:left}th{font:700 11px var(--mono);text-transform:uppercase;color:var(--mut)}
+.num{text-align:right;font-variant-numeric:tabular-nums}.notes{color:var(--mut);padding-left:20px;max-width:82ch}
+@media(max-width:680px){h1{font-size:25px}.wrap{padding:22px 14px 60px}.flow-controls{display:block}.year-switcher{margin-top:8px}th,td{font-size:12px;padding:7px 6px}}
+</style>
+  <script src="../../../assets/masthead.js"></script>
+  <script src="../../../assets/theme.js" defer></script>
+</head>
+<body>
+  <header data-masthead="bar"></header>
+  <main class="wrap">
+    <nav class="crumb"><a href="../">&larr; Atlas</a> <span>/</span> <b>Finance</b></nav>
+    <h1>Ahmedabad budget-line flow over time</h1>
+    <p class="lede">Selected source-backed AMC expenditure lines from the canonical budget database</p>
+    
+    <section class="flow-controls" aria-label="Budget year">
+      <div class="control-label">Budget year</div>
+      <div class="year-switcher"><button type="button" class="year-btn" data-year="2018-19" aria-pressed="false"><span>2018-19</span><small>complete</small></button><button type="button" class="year-btn" data-year="2019-20" aria-pressed="false"><span>2019-20</span><small>complete</small></button><button type="button" class="year-btn" data-year="2020-21" aria-pressed="false"><span>2020-21</span><small>complete</small></button><button type="button" class="year-btn" data-year="2022-23" aria-pressed="false"><span>2022-23</span><small>complete</small></button><button type="button" class="year-btn active" data-year="2023-24" aria-pressed="true"><span>2023-24</span><small>complete</small></button></div>
+    </section>
+    <p class="status-note">Years without clean Budget Estimate flow rows are omitted rather than interpolated; partial years have fewer source-backed heads.</p>
+    <div id="flow-panels">
+    <section class="year-panel" data-year-panel="2018-19">
+      <h2>2018-19 <span>complete</span></h2>
+      <div class="viz-scroll"><svg class="sankey" role="img" aria-label="Public finance Sankey chart" viewBox="0 0 980 560" preserveAspectRatio="xMidYMid meet"><text class="caption" x="30" y="28">Corporation</text><text class="caption" x="420" y="28">Budget view</text><text class="caption" x="700" y="28">Largest payment heads</text><path d="M244.0,56.0 C332.0,56.0 332.0,56.0 420.0,56.0 L420.0,98.7 C332.0,98.7 332.0,98.7 244.0,98.7 Z" class="band band-payments"/><path d="M244.0,98.7 C332.0,98.7 332.0,112.7 420.0,112.7 L420.0,132.4 C332.0,132.4 332.0,118.4 244.0,118.4 Z" class="band band-payments"/><path d="M630.0,56.0 C665.0,56.0 665.0,224.0 700.0,224.0 L700.0,248.9 C665.0,248.9 665.0,80.8 630.0,80.8 Z" class="band band-payment-head"/><path d="M630.0,112.7 C665.0,112.7 665.0,56.0 700.0,56.0 L700.0,71.3 C665.0,71.3 665.0,128.0 630.0,128.0 Z" class="band band-payment-head"/><path d="M630.0,80.8 C665.0,80.8 665.0,280.0 700.0,280.0 L700.0,293.6 C665.0,293.6 665.0,94.5 630.0,94.5 Z" class="band band-payment-head"/><path d="M630.0,94.5 C665.0,94.5 665.0,336.0 700.0,336.0 L700.0,340.2 C665.0,340.2 665.0,98.7 630.0,98.7 Z" class="band band-payment-head"/><path d="M630.0,128.0 C665.0,128.0 665.0,168.0 700.0,168.0 L700.0,171.6 C665.0,171.6 665.0,131.7 630.0,131.7 Z" class="band band-payment-head"/><path d="M630.0,131.7 C665.0,131.7 665.0,112.0 700.0,112.0 L700.0,114.5 C665.0,114.5 665.0,134.2 630.0,134.2 Z" class="band band-payment-head"/><rect class="node" x="34.0" y="56.0" width="210.0" height="62.4" rx="4"/><text class="node-label" x="42.0" y="74.0">Ahmedabad Municipal Corporation</text><text class="node-value" x="42.0" y="90.0">Rs. 891.73 cr</text><rect class="node" x="420.0" y="56.0" width="210.0" height="42.7" rx="4"/><text class="node-label" x="428.0" y="74.0">Capital expenditure</text><text class="node-value" x="428.0" y="90.0">Rs. 610 cr</text><rect class="node" x="420.0" y="112.7" width="210.0" height="42.0" rx="4"/><text class="node-label" x="428.0" y="130.7">Revenue expenditure</text><text class="node-value" x="428.0" y="146.7">Rs. 281.73 cr</text><rect class="node" x="700.0" y="56.0" width="210.0" height="42.0" rx="4"/><text class="node-label" x="708.0" y="74.0">Grant to Municipal School Board</text><text class="node-value" x="708.0" y="90.0">Rs. 219 cr</text><rect class="node" x="700.0" y="112.0" width="210.0" height="42.0" rx="4"/><text class="node-label" x="708.0" y="130.0">Grant to Sheth M.J. Library</text><text class="node-value" x="708.0" y="146.0">Rs. 10.78 cr</text><rect class="node" x="700.0" y="168.0" width="210.0" height="42.0" rx="4"/><text class="node-label" x="708.0" y="186.0">Grant to V.S. Hospital</text><text class="node-value" x="708.0" y="202.0">Rs. 51.95 cr</text><rect class="node" x="700.0" y="224.0" width="210.0" height="42.0" rx="4"/><text class="node-label" x="708.0" y="242.0">Loan/support to AMTS (city bus)</text><text class="node-value" x="708.0" y="258.0">Rs. 355 cr</text><rect class="node" x="700.0" y="280.0" width="210.0" height="42.0" rx="4"/><text class="node-label" x="708.0" y="298.0">Sabarmati Riverfront (SRFDCL)</text><text class="node-value" x="708.0" y="314.0">Rs. 195 cr</text><rect class="node" x="700.0" y="336.0" width="210.0" height="42.0" rx="4"/><text class="node-label" x="708.0" y="354.0">Support to Ahmedabad Janmarg Lt...</text><text class="node-value" x="708.0" y="370.0">Rs. 60 cr</text></svg></div>
+      <section class="panel">
+        <h3>Flow Table</h3>
+        <table><thead><tr><th>From</th><th>To</th><th>Rs. crore</th><th>Type</th></tr></thead><tbody><tr><td>Ahmedabad Municipal Corporation</td><td>Capital expenditure</td><td class='num'>610</td><td>payments</td></tr><tr><td>Ahmedabad Municipal Corporation</td><td>Revenue expenditure</td><td class='num'>281.73</td><td>payments</td></tr><tr><td>Capital expenditure</td><td>Loan/support to AMTS (city bus)</td><td class='num'>355</td><td>payment_head</td></tr><tr><td>Capital expenditure</td><td>Sabarmati Riverfront (SRFDCL)</td><td class='num'>195</td><td>payment_head</td></tr><tr><td>Capital expenditure</td><td>Support to Ahmedabad Janmarg Ltd (BRTS)</td><td class='num'>60</td><td>payment_head</td></tr><tr><td>Revenue expenditure</td><td>Grant to Municipal School Board</td><td class='num'>219</td><td>payment_head</td></tr><tr><td>Revenue expenditure</td><td>Grant to Sheth M.J. Library</td><td class='num'>10.78</td><td>payment_head</td></tr><tr><td>Revenue expenditure</td><td>Grant to V.S. Hospital</td><td class='num'>51.95</td><td>payment_head</td></tr></tbody></table>
+      </section>
+      <section class="panel">
+        <h3>Source Rows</h3>
+        <table><thead><tr><th>Section</th><th>Head</th><th>Rs. crore</th><th>Source</th><th>Page</th><th>Confidence</th></tr></thead><tbody><tr><td>Capital expenditure</td><td>Loan/support to AMTS (city bus)</td><td class='num'>355</td><td>AMC_Budget_2018-19_English9026.pdf</td><td>142.0</td><td>high</td></tr><tr><td>Capital expenditure</td><td>Sabarmati Riverfront (SRFDCL)</td><td class='num'>195</td><td>AMC_Budget_2018-19_English9026.pdf</td><td>158.0</td><td>high</td></tr><tr><td>Capital expenditure</td><td>Support to Ahmedabad Janmarg Ltd (BRTS)</td><td class='num'>60</td><td>AMC_Budget_2018-19_English9026.pdf</td><td>142.0</td><td>high</td></tr><tr><td>Revenue expenditure</td><td>Grant to Municipal School Board</td><td class='num'>219</td><td>AMC_Budget_2018-19_English9026.pdf</td><td>28.0</td><td>high</td></tr><tr><td>Revenue expenditure</td><td>Grant to Sheth M.J. Library</td><td class='num'>10.78</td><td>AMC_Budget_2018-19_English9026.pdf</td><td>29.0</td><td>high</td></tr><tr><td>Revenue expenditure</td><td>Grant to V.S. Hospital</td><td class='num'>51.95</td><td>AMC_Budget_2018-19_English9026.pdf</td><td>29.0</td><td>high</td></tr></tbody></table>
+      </section>
+      <section class="panel">
+        <h3>Handling Notes</h3>
+        <ul class="notes"><li>Flow uses 2018-19 Budget Estimate expenditure rows from data/cities/ahmedabad/db/budget_line.csv.</li><li>This is a selected, source-backed civic-line view, not the full municipal budget total.</li><li>Amounts are normalised to rupees crore; low-confidence and blank extractions are excluded.</li><li>Source PDFs: AMC_Budget_2018-19_English9026.pdf.</li></ul>
+      </section>
+    </section>
+
+    <section class="year-panel" data-year-panel="2019-20">
+      <h2>2019-20 <span>complete</span></h2>
+      <div class="viz-scroll"><svg class="sankey" role="img" aria-label="Public finance Sankey chart" viewBox="0 0 980 560" preserveAspectRatio="xMidYMid meet"><text class="caption" x="30" y="28">Corporation</text><text class="caption" x="420" y="28">Budget view</text><text class="caption" x="700" y="28">Largest payment heads</text><path d="M244.0,56.0 C332.0,56.0 332.0,56.0 420.0,56.0 L420.0,97.9 C332.0,97.9 332.0,97.9 244.0,97.9 Z" class="band band-payments"/><path d="M244.0,97.9 C332.0,97.9 332.0,112.0 420.0,112.0 L420.0,133.7 C332.0,133.7 332.0,119.6 244.0,119.6 Z" class="band band-payments"/><path d="M630.0,56.0 C665.0,56.0 665.0,224.0 700.0,224.0 L700.0,247.7 C665.0,247.7 665.0,79.7 630.0,79.7 Z" class="band band-payment-head"/><path d="M630.0,112.0 C665.0,112.0 665.0,56.0 700.0,56.0 L700.0,69.5 C665.0,69.5 665.0,125.5 630.0,125.5 Z" class="band band-payment-head"/><path d="M630.0,79.7 C665.0,79.7 665.0,280.0 700.0,280.0 L700.0,291.2 C665.0,291.2 665.0,90.9 630.0,90.9 Z" class="band band-payment-head"/><path d="M630.0,125.5 C665.0,125.5 665.0,168.0 700.0,168.0 L700.0,175.3 C665.0,175.3 665.0,132.8 630.0,132.8 Z" class="band band-payment-head"/><path d="M630.0,90.9 C665.0,90.9 665.0,336.0 700.0,336.0 L700.0,343.0 C665.0,343.0 665.0,97.9 630.0,97.9 Z" class="band band-payment-head"/><path d="M630.0,132.8 C665.0,132.8 665.0,112.0 700.0,112.0 L700.0,114.5 C665.0,114.5 665.0,135.3 630.0,135.3 Z" class="band band-payment-head"/><rect class="node" x="34.0" y="56.0" width="210.0" height="63.6" rx="4"/><text class="node-label" x="42.0" y="74.0">Ahmedabad Municipal Corporation</text><text class="node-value" x="42.0" y="90.0">Rs. 908.95 cr</text><rect class="node" x="420.0" y="56.0" width="210.0" height="42.0" rx="4"/><text class="node-label" x="428.0" y="74.0">Capital expenditure</text><text class="node-value" x="428.0" y="90.0">Rs. 599 cr</text><rect class="node" x="420.0" y="112.0" width="210.0" height="42.0" rx="4"/><text class="node-label" x="428.0" y="130.0">Revenue expenditure</text><text class="node-value" x="428.0" y="146.0">Rs. 309.95 cr</text><rect class="node" x="700.0" y="56.0" width="210.0" height="42.0" rx="4"/><text class="node-label" x="708.0" y="74.0">Grant to Municipal School Board</text><text class="node-value" x="708.0" y="90.0">Rs. 193 cr</text><rect class="node" x="700.0" y="112.0" width="210.0" height="42.0" rx="4"/><text class="node-label" x="708.0" y="130.0">Grant to Sheth M.J. Library</text><text class="node-value" x="708.0" y="146.0">Rs. 12.86 cr</text><rect class="node" x="700.0" y="168.0" width="210.0" height="42.0" rx="4"/><text class="node-label" x="708.0" y="186.0">Grant to V.S. Hospital</text><text class="node-value" x="708.0" y="202.0">Rs. 104.09 cr</text><rect class="node" x="700.0" y="224.0" width="210.0" height="42.0" rx="4"/><text class="node-label" x="708.0" y="242.0">Loan/support to AMTS (city bus)</text><text class="node-value" x="708.0" y="258.0">Rs. 339 cr</text><rect class="node" x="700.0" y="280.0" width="210.0" height="42.0" rx="4"/><text class="node-label" x="708.0" y="298.0">Sabarmati Riverfront (SRFDCL)</text><text class="node-value" x="708.0" y="314.0">Rs. 160 cr</text><rect class="node" x="700.0" y="336.0" width="210.0" height="42.0" rx="4"/><text class="node-label" x="708.0" y="354.0">Support to Ahmedabad Janmarg Lt...</text><text class="node-value" x="708.0" y="370.0">Rs. 100 cr</text></svg></div>
+      <section class="panel">
+        <h3>Flow Table</h3>
+        <table><thead><tr><th>From</th><th>To</th><th>Rs. crore</th><th>Type</th></tr></thead><tbody><tr><td>Ahmedabad Municipal Corporation</td><td>Capital expenditure</td><td class='num'>599</td><td>payments</td></tr><tr><td>Ahmedabad Municipal Corporation</td><td>Revenue expenditure</td><td class='num'>309.95</td><td>payments</td></tr><tr><td>Capital expenditure</td><td>Loan/support to AMTS (city bus)</td><td class='num'>339</td><td>payment_head</td></tr><tr><td>Capital expenditure</td><td>Sabarmati Riverfront (SRFDCL)</td><td class='num'>160</td><td>payment_head</td></tr><tr><td>Capital expenditure</td><td>Support to Ahmedabad Janmarg Ltd (BRTS)</td><td class='num'>100</td><td>payment_head</td></tr><tr><td>Revenue expenditure</td><td>Grant to Municipal School Board</td><td class='num'>193</td><td>payment_head</td></tr><tr><td>Revenue expenditure</td><td>Grant to Sheth M.J. Library</td><td class='num'>12.86</td><td>payment_head</td></tr><tr><td>Revenue expenditure</td><td>Grant to V.S. Hospital</td><td class='num'>104.09</td><td>payment_head</td></tr></tbody></table>
+      </section>
+      <section class="panel">
+        <h3>Source Rows</h3>
+        <table><thead><tr><th>Section</th><th>Head</th><th>Rs. crore</th><th>Source</th><th>Page</th><th>Confidence</th></tr></thead><tbody><tr><td>Capital expenditure</td><td>Loan/support to AMTS (city bus)</td><td class='num'>339</td><td>AMC_Budget_2019-20_English9594.pdf</td><td>138.0</td><td>high</td></tr><tr><td>Capital expenditure</td><td>Sabarmati Riverfront (SRFDCL)</td><td class='num'>160</td><td>AMC_Budget_2019-20_English9594.pdf</td><td>154.0</td><td>high</td></tr><tr><td>Capital expenditure</td><td>Support to Ahmedabad Janmarg Ltd (BRTS)</td><td class='num'>100</td><td>AMC_Budget_2019-20_English9594.pdf</td><td>137.0</td><td>high</td></tr><tr><td>Revenue expenditure</td><td>Grant to Municipal School Board</td><td class='num'>193</td><td>AMC_Budget_2019-20_English9594.pdf</td><td>25.0</td><td>high</td></tr><tr><td>Revenue expenditure</td><td>Grant to Sheth M.J. Library</td><td class='num'>12.86</td><td>AMC_Budget_2019-20_English9594.pdf</td><td>26.0</td><td>high</td></tr><tr><td>Revenue expenditure</td><td>Grant to V.S. Hospital</td><td class='num'>104.09</td><td>AMC_Budget_2019-20_English9594.pdf</td><td>26.0</td><td>high</td></tr></tbody></table>
+      </section>
+      <section class="panel">
+        <h3>Handling Notes</h3>
+        <ul class="notes"><li>Flow uses 2019-20 Budget Estimate expenditure rows from data/cities/ahmedabad/db/budget_line.csv.</li><li>This is a selected, source-backed civic-line view, not the full municipal budget total.</li><li>Amounts are normalised to rupees crore; low-confidence and blank extractions are excluded.</li><li>Source PDFs: AMC_Budget_2019-20_English9594.pdf.</li></ul>
+      </section>
+    </section>
+
+    <section class="year-panel" data-year-panel="2020-21">
+      <h2>2020-21 <span>complete</span></h2>
+      <div class="viz-scroll"><svg class="sankey" role="img" aria-label="Public finance Sankey chart" viewBox="0 0 980 560" preserveAspectRatio="xMidYMid meet"><text class="caption" x="30" y="28">Corporation</text><text class="caption" x="420" y="28">Budget view</text><text class="caption" x="700" y="28">Largest payment heads</text><path d="M244.0,56.0 C332.0,56.0 332.0,56.0 420.0,56.0 L420.0,98.7 C332.0,98.7 332.0,98.7 244.0,98.7 Z" class="band band-payments"/><path d="M244.0,98.7 C332.0,98.7 332.0,112.7 420.0,112.7 L420.0,131.3 C332.0,131.3 332.0,117.3 244.0,117.3 Z" class="band band-payments"/><path d="M630.0,56.0 C665.0,56.0 665.0,224.0 700.0,224.0 L700.0,248.9 C665.0,248.9 665.0,80.8 630.0,80.8 Z" class="band band-payment-head"/><path d="M630.0,112.7 C665.0,112.7 665.0,56.0 700.0,56.0 L700.0,68.1 C665.0,68.1 665.0,124.8 630.0,124.8 Z" class="band band-payment-head"/><path d="M630.0,80.8 C665.0,80.8 665.0,280.0 700.0,280.0 L700.0,289.1 C665.0,289.1 665.0,89.9 630.0,89.9 Z" class="band band-payment-head"/><path d="M630.0,90.0 C665.0,90.0 665.0,336.0 700.0,336.0 L700.0,344.8 C665.0,344.8 665.0,98.7 630.0,98.7 Z" class="band band-payment-head"/><path d="M630.0,124.8 C665.0,124.8 665.0,168.0 700.0,168.0 L700.0,173.3 C665.0,173.3 665.0,130.1 630.0,130.1 Z" class="band band-payment-head"/><path d="M630.0,130.1 C665.0,130.1 665.0,112.0 700.0,112.0 L700.0,114.5 C665.0,114.5 665.0,132.6 630.0,132.6 Z" class="band band-payment-head"/><rect class="node" x="34.0" y="56.0" width="210.0" height="61.3" rx="4"/><text class="node-label" x="42.0" y="74.0">Ahmedabad Municipal Corporation</text><text class="node-value" x="42.0" y="90.0">Rs. 875.16 cr</text><rect class="node" x="420.0" y="56.0" width="210.0" height="42.7" rx="4"/><text class="node-label" x="428.0" y="74.0">Capital expenditure</text><text class="node-value" x="428.0" y="90.0">Rs. 610 cr</text><rect class="node" x="420.0" y="112.7" width="210.0" height="42.0" rx="4"/><text class="node-label" x="428.0" y="130.7">Revenue expenditure</text><text class="node-value" x="428.0" y="146.7">Rs. 265.16 cr</text><rect class="node" x="700.0" y="56.0" width="210.0" height="42.0" rx="4"/><text class="node-label" x="708.0" y="74.0">Grant to Municipal School Board</text><text class="node-value" x="708.0" y="90.0">Rs. 172.75 cr</text><rect class="node" x="700.0" y="112.0" width="210.0" height="42.0" rx="4"/><text class="node-label" x="708.0" y="130.0">Grant to Sheth M.J. Library</text><text class="node-value" x="708.0" y="146.0">Rs. 16.69 cr</text><rect class="node" x="700.0" y="168.0" width="210.0" height="42.0" rx="4"/><text class="node-label" x="708.0" y="186.0">Grant to V.S. Hospital</text><text class="node-value" x="708.0" y="202.0">Rs. 75.72 cr</text><rect class="node" x="700.0" y="224.0" width="210.0" height="42.0" rx="4"/><text class="node-label" x="708.0" y="242.0">Loan/support to AMTS (city bus)</text><text class="node-value" x="708.0" y="258.0">Rs. 355 cr</text><rect class="node" x="700.0" y="280.0" width="210.0" height="42.0" rx="4"/><text class="node-label" x="708.0" y="298.0">Sabarmati Riverfront (SRFDCL)</text><text class="node-value" x="708.0" y="314.0">Rs. 130 cr</text><rect class="node" x="700.0" y="336.0" width="210.0" height="42.0" rx="4"/><text class="node-label" x="708.0" y="354.0">Support to Ahmedabad Janmarg Lt...</text><text class="node-value" x="708.0" y="370.0">Rs. 125 cr</text></svg></div>
+      <section class="panel">
+        <h3>Flow Table</h3>
+        <table><thead><tr><th>From</th><th>To</th><th>Rs. crore</th><th>Type</th></tr></thead><tbody><tr><td>Ahmedabad Municipal Corporation</td><td>Capital expenditure</td><td class='num'>610</td><td>payments</td></tr><tr><td>Ahmedabad Municipal Corporation</td><td>Revenue expenditure</td><td class='num'>265.16</td><td>payments</td></tr><tr><td>Capital expenditure</td><td>Loan/support to AMTS (city bus)</td><td class='num'>355</td><td>payment_head</td></tr><tr><td>Capital expenditure</td><td>Sabarmati Riverfront (SRFDCL)</td><td class='num'>130</td><td>payment_head</td></tr><tr><td>Capital expenditure</td><td>Support to Ahmedabad Janmarg Ltd (BRTS)</td><td class='num'>125</td><td>payment_head</td></tr><tr><td>Revenue expenditure</td><td>Grant to Municipal School Board</td><td class='num'>172.75</td><td>payment_head</td></tr><tr><td>Revenue expenditure</td><td>Grant to Sheth M.J. Library</td><td class='num'>16.69</td><td>payment_head</td></tr><tr><td>Revenue expenditure</td><td>Grant to V.S. Hospital</td><td class='num'>75.72</td><td>payment_head</td></tr></tbody></table>
+      </section>
+      <section class="panel">
+        <h3>Source Rows</h3>
+        <table><thead><tr><th>Section</th><th>Head</th><th>Rs. crore</th><th>Source</th><th>Page</th><th>Confidence</th></tr></thead><tbody><tr><td>Capital expenditure</td><td>Loan/support to AMTS (city bus)</td><td class='num'>355</td><td>AMC_Budget_2020-21_English7550.pdf</td><td>130.0</td><td>high</td></tr><tr><td>Capital expenditure</td><td>Sabarmati Riverfront (SRFDCL)</td><td class='num'>130</td><td>AMC_Budget_2020-21_English7550.pdf</td><td>148.0</td><td>high</td></tr><tr><td>Capital expenditure</td><td>Support to Ahmedabad Janmarg Ltd (BRTS)</td><td class='num'>125</td><td>AMC_Budget_2020-21_English7550.pdf</td><td>129.0</td><td>high</td></tr><tr><td>Revenue expenditure</td><td>Grant to Municipal School Board</td><td class='num'>172.75</td><td>AMC_Budget_2020-21_English7550.pdf</td><td>25.0</td><td>high</td></tr><tr><td>Revenue expenditure</td><td>Grant to Sheth M.J. Library</td><td class='num'>16.69</td><td>AMC_Budget_2020-21_English7550.pdf</td><td>26.0</td><td>high</td></tr><tr><td>Revenue expenditure</td><td>Grant to V.S. Hospital</td><td class='num'>75.72</td><td>AMC_Budget_2020-21_English7550.pdf</td><td>26.0</td><td>high</td></tr></tbody></table>
+      </section>
+      <section class="panel">
+        <h3>Handling Notes</h3>
+        <ul class="notes"><li>Flow uses 2020-21 Budget Estimate expenditure rows from data/cities/ahmedabad/db/budget_line.csv.</li><li>This is a selected, source-backed civic-line view, not the full municipal budget total.</li><li>Amounts are normalised to rupees crore; low-confidence and blank extractions are excluded.</li><li>Source PDFs: AMC_Budget_2020-21_English7550.pdf.</li></ul>
+      </section>
+    </section>
+
+    <section class="year-panel" data-year-panel="2022-23">
+      <h2>2022-23 <span>complete</span></h2>
+      <div class="viz-scroll"><svg class="sankey" role="img" aria-label="Public finance Sankey chart" viewBox="0 0 980 560" preserveAspectRatio="xMidYMid meet"><text class="caption" x="30" y="28">Corporation</text><text class="caption" x="420" y="28">Budget view</text><text class="caption" x="700" y="28">Largest payment heads</text><path d="M244.0,56.0 C332.0,56.0 332.0,56.0 420.0,56.0 L420.0,95.5 C332.0,95.5 332.0,95.5 244.0,95.5 Z" class="band band-payments"/><path d="M244.0,95.5 C332.0,95.5 332.0,112.0 420.0,112.0 L420.0,138.5 C332.0,138.5 332.0,122.0 244.0,122.0 Z" class="band band-payments"/><path d="M630.0,56.0 C665.0,56.0 665.0,168.0 700.0,168.0 L700.0,195.3 C665.0,195.3 665.0,83.3 630.0,83.3 Z" class="band band-payment-head"/><path d="M630.0,112.0 C665.0,112.0 665.0,56.0 700.0,56.0 L700.0,81.3 C665.0,81.3 665.0,137.3 630.0,137.3 Z" class="band band-payment-head"/><path d="M630.0,83.3 C665.0,83.3 665.0,280.0 700.0,280.0 L700.0,286.3 C665.0,286.3 665.0,89.6 630.0,89.6 Z" class="band band-payment-head"/><path d="M630.0,89.6 C665.0,89.6 665.0,224.0 700.0,224.0 L700.0,229.9 C665.0,229.9 665.0,95.5 630.0,95.5 Z" class="band band-payment-head"/><path d="M630.0,137.3 C665.0,137.3 665.0,112.0 700.0,112.0 L700.0,114.5 C665.0,114.5 665.0,139.8 630.0,139.8 Z" class="band band-payment-head"/><rect class="node" x="34.0" y="56.0" width="210.0" height="66.0" rx="4"/><text class="node-label" x="42.0" y="74.0">Ahmedabad Municipal Corporation</text><text class="node-value" x="42.0" y="90.0">Rs. 942.5 cr</text><rect class="node" x="420.0" y="56.0" width="210.0" height="42.0" rx="4"/><text class="node-label" x="428.0" y="74.0">Capital expenditure</text><text class="node-value" x="428.0" y="90.0">Rs. 564 cr</text><rect class="node" x="420.0" y="112.0" width="210.0" height="42.0" rx="4"/><text class="node-label" x="428.0" y="130.0">Revenue expenditure</text><text class="node-value" x="428.0" y="146.0">Rs. 378.5 cr</text><rect class="node" x="700.0" y="56.0" width="210.0" height="42.0" rx="4"/><text class="node-label" x="708.0" y="74.0">Grant to Municipal School Board</text><text class="node-value" x="708.0" y="90.0">Rs. 362 cr</text><rect class="node" x="700.0" y="112.0" width="210.0" height="42.0" rx="4"/><text class="node-label" x="708.0" y="130.0">Grant to Sheth M.J. Library</text><text class="node-value" x="708.0" y="146.0">Rs. 16.5 cr</text><rect class="node" x="700.0" y="168.0" width="210.0" height="42.0" rx="4"/><text class="node-label" x="708.0" y="186.0">Loan/support to AMTS (city bus)</text><text class="node-value" x="708.0" y="202.0">Rs. 390 cr</text><rect class="node" x="700.0" y="224.0" width="210.0" height="42.0" rx="4"/><text class="node-label" x="708.0" y="242.0">Sabarmati Riverfront (SRFDCL)</text><text class="node-value" x="708.0" y="258.0">Rs. 84 cr</text><rect class="node" x="700.0" y="280.0" width="210.0" height="42.0" rx="4"/><text class="node-label" x="708.0" y="298.0">Support to Ahmedabad Janmarg Lt...</text><text class="node-value" x="708.0" y="314.0">Rs. 90 cr</text></svg></div>
+      <section class="panel">
+        <h3>Flow Table</h3>
+        <table><thead><tr><th>From</th><th>To</th><th>Rs. crore</th><th>Type</th></tr></thead><tbody><tr><td>Ahmedabad Municipal Corporation</td><td>Capital expenditure</td><td class='num'>564</td><td>payments</td></tr><tr><td>Ahmedabad Municipal Corporation</td><td>Revenue expenditure</td><td class='num'>378.5</td><td>payments</td></tr><tr><td>Capital expenditure</td><td>Loan/support to AMTS (city bus)</td><td class='num'>390</td><td>payment_head</td></tr><tr><td>Capital expenditure</td><td>Sabarmati Riverfront (SRFDCL)</td><td class='num'>84</td><td>payment_head</td></tr><tr><td>Capital expenditure</td><td>Support to Ahmedabad Janmarg Ltd (BRTS)</td><td class='num'>90</td><td>payment_head</td></tr><tr><td>Revenue expenditure</td><td>Grant to Municipal School Board</td><td class='num'>362</td><td>payment_head</td></tr><tr><td>Revenue expenditure</td><td>Grant to Sheth M.J. Library</td><td class='num'>16.5</td><td>payment_head</td></tr></tbody></table>
+      </section>
+      <section class="panel">
+        <h3>Source Rows</h3>
+        <table><thead><tr><th>Section</th><th>Head</th><th>Rs. crore</th><th>Source</th><th>Page</th><th>Confidence</th></tr></thead><tbody><tr><td>Capital expenditure</td><td>Loan/support to AMTS (city bus)</td><td class='num'>390</td><td>AMC_Budget_2022-23_English2679.pdf</td><td>131.0</td><td>high</td></tr><tr><td>Capital expenditure</td><td>Sabarmati Riverfront (SRFDCL)</td><td class='num'>84</td><td>AMC_Budget_2022-23_English2679.pdf</td><td>148.0</td><td>high</td></tr><tr><td>Capital expenditure</td><td>Support to Ahmedabad Janmarg Ltd (BRTS)</td><td class='num'>90</td><td>AMC_Budget_2022-23_English2679.pdf</td><td>130.0</td><td>high</td></tr><tr><td>Revenue expenditure</td><td>Grant to Municipal School Board</td><td class='num'>362</td><td>AMC_Budget_2022-23_English2679.pdf</td><td>18.0</td><td>high</td></tr><tr><td>Revenue expenditure</td><td>Grant to Sheth M.J. Library</td><td class='num'>16.5</td><td>AMC_Budget_2022-23_English2679.pdf</td><td>18.0</td><td>high</td></tr></tbody></table>
+      </section>
+      <section class="panel">
+        <h3>Handling Notes</h3>
+        <ul class="notes"><li>Flow uses 2022-23 Budget Estimate expenditure rows from data/cities/ahmedabad/db/budget_line.csv.</li><li>This is a selected, source-backed civic-line view, not the full municipal budget total.</li><li>Amounts are normalised to rupees crore; low-confidence and blank extractions are excluded.</li><li>Source PDFs: AMC_Budget_2022-23_English2679.pdf.</li></ul>
+      </section>
+    </section>
+
+    <section class="year-panel active" data-year-panel="2023-24">
+      <h2>2023-24 <span>complete</span></h2>
+      <div class="viz-scroll"><svg class="sankey" role="img" aria-label="Public finance Sankey chart" viewBox="0 0 980 560" preserveAspectRatio="xMidYMid meet"><text class="caption" x="30" y="28">Corporation</text><text class="caption" x="420" y="28">Budget view</text><text class="caption" x="700" y="28">Largest payment heads</text><path d="M244.0,56.0 C332.0,56.0 332.0,56.0 420.0,56.0 L420.0,105.1 C332.0,105.1 332.0,105.1 244.0,105.1 Z" class="band band-payments"/><path d="M244.0,105.1 C332.0,105.1 332.0,119.1 420.0,119.1 L420.0,159.0 C332.0,159.0 332.0,145.0 244.0,145.0 Z" class="band band-payments"/><path d="M630.0,119.1 C665.0,119.1 665.0,56.0 700.0,56.0 L700.0,91.4 C665.0,91.4 665.0,154.5 630.0,154.5 Z" class="band band-payment-head"/><path d="M630.0,56.0 C665.0,56.0 665.0,224.0 700.0,224.0 L700.0,251.9 C665.0,251.9 665.0,83.9 630.0,83.9 Z" class="band band-payment-head"/><path d="M630.0,83.9 C665.0,83.9 665.0,280.0 700.0,280.0 L700.0,291.2 C665.0,291.2 665.0,95.1 630.0,95.1 Z" class="band band-payment-head"/><path d="M630.0,95.1 C665.0,95.1 665.0,336.0 700.0,336.0 L700.0,346.0 C665.0,346.0 665.0,105.1 630.0,105.1 Z" class="band band-payment-head"/><path d="M630.0,154.5 C665.0,154.5 665.0,168.0 700.0,168.0 L700.0,171.5 C665.0,171.5 665.0,157.9 630.0,157.9 Z" class="band band-payment-head"/><path d="M630.0,157.9 C665.0,157.9 665.0,112.0 700.0,112.0 L700.0,114.5 C665.0,114.5 665.0,160.4 630.0,160.4 Z" class="band band-payment-head"/><rect class="node" x="34.0" y="56.0" width="210.0" height="89.0" rx="4"/><text class="node-label" x="42.0" y="74.0">Ahmedabad Municipal Corporation</text><text class="node-value" x="42.0" y="90.0">Rs. 1,271.52 cr</text><rect class="node" x="420.0" y="56.0" width="210.0" height="49.1" rx="4"/><text class="node-label" x="428.0" y="74.0">Capital expenditure</text><text class="node-value" x="428.0" y="90.0">Rs. 701 cr</text><rect class="node" x="420.0" y="119.1" width="210.0" height="42.0" rx="4"/><text class="node-label" x="428.0" y="137.1">Revenue expenditure</text><text class="node-value" x="428.0" y="153.1">Rs. 570.52 cr</text><rect class="node" x="700.0" y="56.0" width="210.0" height="42.0" rx="4"/><text class="node-label" x="708.0" y="74.0">Grant to Municipal School Board</text><text class="node-value" x="708.0" y="90.0">Rs. 506 cr</text><rect class="node" x="700.0" y="112.0" width="210.0" height="42.0" rx="4"/><text class="node-label" x="708.0" y="130.0">Grant to Sheth M.J. Library</text><text class="node-value" x="708.0" y="146.0">Rs. 15.21 cr</text><rect class="node" x="700.0" y="168.0" width="210.0" height="42.0" rx="4"/><text class="node-label" x="708.0" y="186.0">Grant to V.S. Hospital</text><text class="node-value" x="708.0" y="202.0">Rs. 49.31 cr</text><rect class="node" x="700.0" y="224.0" width="210.0" height="42.0" rx="4"/><text class="node-label" x="708.0" y="242.0">Loan/support to AMTS (city bus)</text><text class="node-value" x="708.0" y="258.0">Rs. 398 cr</text><rect class="node" x="700.0" y="280.0" width="210.0" height="42.0" rx="4"/><text class="node-label" x="708.0" y="298.0">Sabarmati Riverfront (SRFDCL)</text><text class="node-value" x="708.0" y="314.0">Rs. 160 cr</text><rect class="node" x="700.0" y="336.0" width="210.0" height="42.0" rx="4"/><text class="node-label" x="708.0" y="354.0">Support to Ahmedabad Janmarg Lt...</text><text class="node-value" x="708.0" y="370.0">Rs. 143 cr</text></svg></div>
+      <section class="panel">
+        <h3>Flow Table</h3>
+        <table><thead><tr><th>From</th><th>To</th><th>Rs. crore</th><th>Type</th></tr></thead><tbody><tr><td>Ahmedabad Municipal Corporation</td><td>Capital expenditure</td><td class='num'>701</td><td>payments</td></tr><tr><td>Ahmedabad Municipal Corporation</td><td>Revenue expenditure</td><td class='num'>570.52</td><td>payments</td></tr><tr><td>Capital expenditure</td><td>Loan/support to AMTS (city bus)</td><td class='num'>398</td><td>payment_head</td></tr><tr><td>Capital expenditure</td><td>Sabarmati Riverfront (SRFDCL)</td><td class='num'>160</td><td>payment_head</td></tr><tr><td>Capital expenditure</td><td>Support to Ahmedabad Janmarg Ltd (BRTS)</td><td class='num'>143</td><td>payment_head</td></tr><tr><td>Revenue expenditure</td><td>Grant to Municipal School Board</td><td class='num'>506</td><td>payment_head</td></tr><tr><td>Revenue expenditure</td><td>Grant to Sheth M.J. Library</td><td class='num'>15.21</td><td>payment_head</td></tr><tr><td>Revenue expenditure</td><td>Grant to V.S. Hospital</td><td class='num'>49.31</td><td>payment_head</td></tr></tbody></table>
+      </section>
+      <section class="panel">
+        <h3>Source Rows</h3>
+        <table><thead><tr><th>Section</th><th>Head</th><th>Rs. crore</th><th>Source</th><th>Page</th><th>Confidence</th></tr></thead><tbody><tr><td>Capital expenditure</td><td>Loan/support to AMTS (city bus)</td><td class='num'>398</td><td>AMC_Budget_2023-24_English (1)6444.pdf</td><td>174.0</td><td>high</td></tr><tr><td>Capital expenditure</td><td>Sabarmati Riverfront (SRFDCL)</td><td class='num'>160</td><td>AMC_Budget_2023-24_English (1)6444.pdf</td><td>188.0</td><td>high</td></tr><tr><td>Capital expenditure</td><td>Support to Ahmedabad Janmarg Ltd (BRTS)</td><td class='num'>143</td><td>AMC_Budget_2023-24_English (1)6444.pdf</td><td>173.0</td><td>high</td></tr><tr><td>Revenue expenditure</td><td>Grant to Municipal School Board</td><td class='num'>506</td><td>AMC_Budget_2023-24_English (1)6444.pdf</td><td>28.0</td><td>high</td></tr><tr><td>Revenue expenditure</td><td>Grant to Sheth M.J. Library</td><td class='num'>15.21</td><td>AMC_Budget_2023-24_English (1)6444.pdf</td><td>28.0</td><td>high</td></tr><tr><td>Revenue expenditure</td><td>Grant to V.S. Hospital</td><td class='num'>49.31</td><td>AMC_Budget_2023-24_English (1)6444.pdf</td><td>29.0</td><td>high</td></tr></tbody></table>
+      </section>
+      <section class="panel">
+        <h3>Handling Notes</h3>
+        <ul class="notes"><li>Flow uses 2023-24 Budget Estimate expenditure rows from data/cities/ahmedabad/db/budget_line.csv.</li><li>This is a selected, source-backed civic-line view, not the full municipal budget total.</li><li>Amounts are normalised to rupees crore; low-confidence and blank extractions are excluded.</li><li>Source PDFs: AMC_Budget_2023-24_English (1)6444.pdf.</li></ul>
+      </section>
+    </section>
+</div>
+
+  </main>
+  
+  <script id="finance-flow-data" type="application/json">{
+  "defaultYear": "2023-24",
+  "flowYears": [
+    {
+      "year": "2018-19",
+      "status": "complete",
+      "links": [
+        {
+          "source": "Ahmedabad Municipal Corporation",
+          "target": "Capital expenditure",
+          "amount_cr": 610.0,
+          "group": "payments"
+        },
+        {
+          "source": "Ahmedabad Municipal Corporation",
+          "target": "Revenue expenditure",
+          "amount_cr": 281.73,
+          "group": "payments"
+        },
+        {
+          "source": "Capital expenditure",
+          "target": "Loan/support to AMTS (city bus)",
+          "amount_cr": 355.0,
+          "group": "payment_head"
+        },
+        {
+          "source": "Revenue expenditure",
+          "target": "Grant to Municipal School Board",
+          "amount_cr": 219.0,
+          "group": "payment_head"
+        },
+        {
+          "source": "Capital expenditure",
+          "target": "Sabarmati Riverfront (SRFDCL)",
+          "amount_cr": 195.0,
+          "group": "payment_head"
+        },
+        {
+          "source": "Capital expenditure",
+          "target": "Support to Ahmedabad Janmarg Ltd (BRTS)",
+          "amount_cr": 60.0,
+          "group": "payment_head"
+        },
+        {
+          "source": "Revenue expenditure",
+          "target": "Grant to V.S. Hospital",
+          "amount_cr": 51.95,
+          "group": "payment_head"
+        },
+        {
+          "source": "Revenue expenditure",
+          "target": "Grant to Sheth M.J. Library",
+          "amount_cr": 10.78,
+          "group": "payment_head"
+        }
+      ],
+      "notes": [
+        "Flow uses 2018-19 Budget Estimate expenditure rows from data/cities/ahmedabad/db/budget_line.csv.",
+        "This is a selected, source-backed civic-line view, not the full municipal budget total.",
+        "Amounts are normalised to rupees crore; low-confidence and blank extractions are excluded.",
+        "Source PDFs: AMC_Budget_2018-19_English9026.pdf."
+      ],
+      "rows": [
+        {
+          "year": "2018-19",
+          "section": "Capital expenditure",
+          "head": "Loan/support to AMTS (city bus)",
+          "amount_cr": 355.0,
+          "source_pdf": "AMC_Budget_2018-19_English9026.pdf",
+          "page": "142.0",
+          "confidence": "high"
+        },
+        {
+          "year": "2018-19",
+          "section": "Capital expenditure",
+          "head": "Sabarmati Riverfront (SRFDCL)",
+          "amount_cr": 195.0,
+          "source_pdf": "AMC_Budget_2018-19_English9026.pdf",
+          "page": "158.0",
+          "confidence": "high"
+        },
+        {
+          "year": "2018-19",
+          "section": "Capital expenditure",
+          "head": "Support to Ahmedabad Janmarg Ltd (BRTS)",
+          "amount_cr": 60.0,
+          "source_pdf": "AMC_Budget_2018-19_English9026.pdf",
+          "page": "142.0",
+          "confidence": "high"
+        },
+        {
+          "year": "2018-19",
+          "section": "Revenue expenditure",
+          "head": "Grant to Municipal School Board",
+          "amount_cr": 219.0,
+          "source_pdf": "AMC_Budget_2018-19_English9026.pdf",
+          "page": "28.0",
+          "confidence": "high"
+        },
+        {
+          "year": "2018-19",
+          "section": "Revenue expenditure",
+          "head": "Grant to Sheth M.J. Library",
+          "amount_cr": 10.78,
+          "source_pdf": "AMC_Budget_2018-19_English9026.pdf",
+          "page": "29.0",
+          "confidence": "high"
+        },
+        {
+          "year": "2018-19",
+          "section": "Revenue expenditure",
+          "head": "Grant to V.S. Hospital",
+          "amount_cr": 51.95,
+          "source_pdf": "AMC_Budget_2018-19_English9026.pdf",
+          "page": "29.0",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "year": "2019-20",
+      "status": "complete",
+      "links": [
+        {
+          "source": "Ahmedabad Municipal Corporation",
+          "target": "Capital expenditure",
+          "amount_cr": 599.0,
+          "group": "payments"
+        },
+        {
+          "source": "Ahmedabad Municipal Corporation",
+          "target": "Revenue expenditure",
+          "amount_cr": 309.95,
+          "group": "payments"
+        },
+        {
+          "source": "Capital expenditure",
+          "target": "Loan/support to AMTS (city bus)",
+          "amount_cr": 339.0,
+          "group": "payment_head"
+        },
+        {
+          "source": "Revenue expenditure",
+          "target": "Grant to Municipal School Board",
+          "amount_cr": 193.0,
+          "group": "payment_head"
+        },
+        {
+          "source": "Capital expenditure",
+          "target": "Sabarmati Riverfront (SRFDCL)",
+          "amount_cr": 160.0,
+          "group": "payment_head"
+        },
+        {
+          "source": "Revenue expenditure",
+          "target": "Grant to V.S. Hospital",
+          "amount_cr": 104.09,
+          "group": "payment_head"
+        },
+        {
+          "source": "Capital expenditure",
+          "target": "Support to Ahmedabad Janmarg Ltd (BRTS)",
+          "amount_cr": 100.0,
+          "group": "payment_head"
+        },
+        {
+          "source": "Revenue expenditure",
+          "target": "Grant to Sheth M.J. Library",
+          "amount_cr": 12.86,
+          "group": "payment_head"
+        }
+      ],
+      "notes": [
+        "Flow uses 2019-20 Budget Estimate expenditure rows from data/cities/ahmedabad/db/budget_line.csv.",
+        "This is a selected, source-backed civic-line view, not the full municipal budget total.",
+        "Amounts are normalised to rupees crore; low-confidence and blank extractions are excluded.",
+        "Source PDFs: AMC_Budget_2019-20_English9594.pdf."
+      ],
+      "rows": [
+        {
+          "year": "2019-20",
+          "section": "Capital expenditure",
+          "head": "Loan/support to AMTS (city bus)",
+          "amount_cr": 339.0,
+          "source_pdf": "AMC_Budget_2019-20_English9594.pdf",
+          "page": "138.0",
+          "confidence": "high"
+        },
+        {
+          "year": "2019-20",
+          "section": "Capital expenditure",
+          "head": "Sabarmati Riverfront (SRFDCL)",
+          "amount_cr": 160.0,
+          "source_pdf": "AMC_Budget_2019-20_English9594.pdf",
+          "page": "154.0",
+          "confidence": "high"
+        },
+        {
+          "year": "2019-20",
+          "section": "Capital expenditure",
+          "head": "Support to Ahmedabad Janmarg Ltd (BRTS)",
+          "amount_cr": 100.0,
+          "source_pdf": "AMC_Budget_2019-20_English9594.pdf",
+          "page": "137.0",
+          "confidence": "high"
+        },
+        {
+          "year": "2019-20",
+          "section": "Revenue expenditure",
+          "head": "Grant to Municipal School Board",
+          "amount_cr": 193.0,
+          "source_pdf": "AMC_Budget_2019-20_English9594.pdf",
+          "page": "25.0",
+          "confidence": "high"
+        },
+        {
+          "year": "2019-20",
+          "section": "Revenue expenditure",
+          "head": "Grant to Sheth M.J. Library",
+          "amount_cr": 12.86,
+          "source_pdf": "AMC_Budget_2019-20_English9594.pdf",
+          "page": "26.0",
+          "confidence": "high"
+        },
+        {
+          "year": "2019-20",
+          "section": "Revenue expenditure",
+          "head": "Grant to V.S. Hospital",
+          "amount_cr": 104.09,
+          "source_pdf": "AMC_Budget_2019-20_English9594.pdf",
+          "page": "26.0",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "year": "2020-21",
+      "status": "complete",
+      "links": [
+        {
+          "source": "Ahmedabad Municipal Corporation",
+          "target": "Capital expenditure",
+          "amount_cr": 610.0,
+          "group": "payments"
+        },
+        {
+          "source": "Ahmedabad Municipal Corporation",
+          "target": "Revenue expenditure",
+          "amount_cr": 265.16,
+          "group": "payments"
+        },
+        {
+          "source": "Capital expenditure",
+          "target": "Loan/support to AMTS (city bus)",
+          "amount_cr": 355.0,
+          "group": "payment_head"
+        },
+        {
+          "source": "Revenue expenditure",
+          "target": "Grant to Municipal School Board",
+          "amount_cr": 172.75,
+          "group": "payment_head"
+        },
+        {
+          "source": "Capital expenditure",
+          "target": "Sabarmati Riverfront (SRFDCL)",
+          "amount_cr": 130.0,
+          "group": "payment_head"
+        },
+        {
+          "source": "Capital expenditure",
+          "target": "Support to Ahmedabad Janmarg Ltd (BRTS)",
+          "amount_cr": 125.0,
+          "group": "payment_head"
+        },
+        {
+          "source": "Revenue expenditure",
+          "target": "Grant to V.S. Hospital",
+          "amount_cr": 75.72,
+          "group": "payment_head"
+        },
+        {
+          "source": "Revenue expenditure",
+          "target": "Grant to Sheth M.J. Library",
+          "amount_cr": 16.69,
+          "group": "payment_head"
+        }
+      ],
+      "notes": [
+        "Flow uses 2020-21 Budget Estimate expenditure rows from data/cities/ahmedabad/db/budget_line.csv.",
+        "This is a selected, source-backed civic-line view, not the full municipal budget total.",
+        "Amounts are normalised to rupees crore; low-confidence and blank extractions are excluded.",
+        "Source PDFs: AMC_Budget_2020-21_English7550.pdf."
+      ],
+      "rows": [
+        {
+          "year": "2020-21",
+          "section": "Capital expenditure",
+          "head": "Loan/support to AMTS (city bus)",
+          "amount_cr": 355.0,
+          "source_pdf": "AMC_Budget_2020-21_English7550.pdf",
+          "page": "130.0",
+          "confidence": "high"
+        },
+        {
+          "year": "2020-21",
+          "section": "Capital expenditure",
+          "head": "Sabarmati Riverfront (SRFDCL)",
+          "amount_cr": 130.0,
+          "source_pdf": "AMC_Budget_2020-21_English7550.pdf",
+          "page": "148.0",
+          "confidence": "high"
+        },
+        {
+          "year": "2020-21",
+          "section": "Capital expenditure",
+          "head": "Support to Ahmedabad Janmarg Ltd (BRTS)",
+          "amount_cr": 125.0,
+          "source_pdf": "AMC_Budget_2020-21_English7550.pdf",
+          "page": "129.0",
+          "confidence": "high"
+        },
+        {
+          "year": "2020-21",
+          "section": "Revenue expenditure",
+          "head": "Grant to Municipal School Board",
+          "amount_cr": 172.75,
+          "source_pdf": "AMC_Budget_2020-21_English7550.pdf",
+          "page": "25.0",
+          "confidence": "high"
+        },
+        {
+          "year": "2020-21",
+          "section": "Revenue expenditure",
+          "head": "Grant to Sheth M.J. Library",
+          "amount_cr": 16.69,
+          "source_pdf": "AMC_Budget_2020-21_English7550.pdf",
+          "page": "26.0",
+          "confidence": "high"
+        },
+        {
+          "year": "2020-21",
+          "section": "Revenue expenditure",
+          "head": "Grant to V.S. Hospital",
+          "amount_cr": 75.72,
+          "source_pdf": "AMC_Budget_2020-21_English7550.pdf",
+          "page": "26.0",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "year": "2022-23",
+      "status": "complete",
+      "links": [
+        {
+          "source": "Ahmedabad Municipal Corporation",
+          "target": "Capital expenditure",
+          "amount_cr": 564.0,
+          "group": "payments"
+        },
+        {
+          "source": "Ahmedabad Municipal Corporation",
+          "target": "Revenue expenditure",
+          "amount_cr": 378.5,
+          "group": "payments"
+        },
+        {
+          "source": "Capital expenditure",
+          "target": "Loan/support to AMTS (city bus)",
+          "amount_cr": 390.0,
+          "group": "payment_head"
+        },
+        {
+          "source": "Revenue expenditure",
+          "target": "Grant to Municipal School Board",
+          "amount_cr": 362.0,
+          "group": "payment_head"
+        },
+        {
+          "source": "Capital expenditure",
+          "target": "Support to Ahmedabad Janmarg Ltd (BRTS)",
+          "amount_cr": 90.0,
+          "group": "payment_head"
+        },
+        {
+          "source": "Capital expenditure",
+          "target": "Sabarmati Riverfront (SRFDCL)",
+          "amount_cr": 84.0,
+          "group": "payment_head"
+        },
+        {
+          "source": "Revenue expenditure",
+          "target": "Grant to Sheth M.J. Library",
+          "amount_cr": 16.5,
+          "group": "payment_head"
+        }
+      ],
+      "notes": [
+        "Flow uses 2022-23 Budget Estimate expenditure rows from data/cities/ahmedabad/db/budget_line.csv.",
+        "This is a selected, source-backed civic-line view, not the full municipal budget total.",
+        "Amounts are normalised to rupees crore; low-confidence and blank extractions are excluded.",
+        "Source PDFs: AMC_Budget_2022-23_English2679.pdf."
+      ],
+      "rows": [
+        {
+          "year": "2022-23",
+          "section": "Capital expenditure",
+          "head": "Loan/support to AMTS (city bus)",
+          "amount_cr": 390.0,
+          "source_pdf": "AMC_Budget_2022-23_English2679.pdf",
+          "page": "131.0",
+          "confidence": "high"
+        },
+        {
+          "year": "2022-23",
+          "section": "Capital expenditure",
+          "head": "Sabarmati Riverfront (SRFDCL)",
+          "amount_cr": 84.0,
+          "source_pdf": "AMC_Budget_2022-23_English2679.pdf",
+          "page": "148.0",
+          "confidence": "high"
+        },
+        {
+          "year": "2022-23",
+          "section": "Capital expenditure",
+          "head": "Support to Ahmedabad Janmarg Ltd (BRTS)",
+          "amount_cr": 90.0,
+          "source_pdf": "AMC_Budget_2022-23_English2679.pdf",
+          "page": "130.0",
+          "confidence": "high"
+        },
+        {
+          "year": "2022-23",
+          "section": "Revenue expenditure",
+          "head": "Grant to Municipal School Board",
+          "amount_cr": 362.0,
+          "source_pdf": "AMC_Budget_2022-23_English2679.pdf",
+          "page": "18.0",
+          "confidence": "high"
+        },
+        {
+          "year": "2022-23",
+          "section": "Revenue expenditure",
+          "head": "Grant to Sheth M.J. Library",
+          "amount_cr": 16.5,
+          "source_pdf": "AMC_Budget_2022-23_English2679.pdf",
+          "page": "18.0",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "year": "2023-24",
+      "status": "complete",
+      "links": [
+        {
+          "source": "Ahmedabad Municipal Corporation",
+          "target": "Capital expenditure",
+          "amount_cr": 701.0,
+          "group": "payments"
+        },
+        {
+          "source": "Ahmedabad Municipal Corporation",
+          "target": "Revenue expenditure",
+          "amount_cr": 570.52,
+          "group": "payments"
+        },
+        {
+          "source": "Revenue expenditure",
+          "target": "Grant to Municipal School Board",
+          "amount_cr": 506.0,
+          "group": "payment_head"
+        },
+        {
+          "source": "Capital expenditure",
+          "target": "Loan/support to AMTS (city bus)",
+          "amount_cr": 398.0,
+          "group": "payment_head"
+        },
+        {
+          "source": "Capital expenditure",
+          "target": "Sabarmati Riverfront (SRFDCL)",
+          "amount_cr": 160.0,
+          "group": "payment_head"
+        },
+        {
+          "source": "Capital expenditure",
+          "target": "Support to Ahmedabad Janmarg Ltd (BRTS)",
+          "amount_cr": 143.0,
+          "group": "payment_head"
+        },
+        {
+          "source": "Revenue expenditure",
+          "target": "Grant to V.S. Hospital",
+          "amount_cr": 49.31,
+          "group": "payment_head"
+        },
+        {
+          "source": "Revenue expenditure",
+          "target": "Grant to Sheth M.J. Library",
+          "amount_cr": 15.21,
+          "group": "payment_head"
+        }
+      ],
+      "notes": [
+        "Flow uses 2023-24 Budget Estimate expenditure rows from data/cities/ahmedabad/db/budget_line.csv.",
+        "This is a selected, source-backed civic-line view, not the full municipal budget total.",
+        "Amounts are normalised to rupees crore; low-confidence and blank extractions are excluded.",
+        "Source PDFs: AMC_Budget_2023-24_English (1)6444.pdf."
+      ],
+      "rows": [
+        {
+          "year": "2023-24",
+          "section": "Capital expenditure",
+          "head": "Loan/support to AMTS (city bus)",
+          "amount_cr": 398.0,
+          "source_pdf": "AMC_Budget_2023-24_English (1)6444.pdf",
+          "page": "174.0",
+          "confidence": "high"
+        },
+        {
+          "year": "2023-24",
+          "section": "Capital expenditure",
+          "head": "Sabarmati Riverfront (SRFDCL)",
+          "amount_cr": 160.0,
+          "source_pdf": "AMC_Budget_2023-24_English (1)6444.pdf",
+          "page": "188.0",
+          "confidence": "high"
+        },
+        {
+          "year": "2023-24",
+          "section": "Capital expenditure",
+          "head": "Support to Ahmedabad Janmarg Ltd (BRTS)",
+          "amount_cr": 143.0,
+          "source_pdf": "AMC_Budget_2023-24_English (1)6444.pdf",
+          "page": "173.0",
+          "confidence": "high"
+        },
+        {
+          "year": "2023-24",
+          "section": "Revenue expenditure",
+          "head": "Grant to Municipal School Board",
+          "amount_cr": 506.0,
+          "source_pdf": "AMC_Budget_2023-24_English (1)6444.pdf",
+          "page": "28.0",
+          "confidence": "high"
+        },
+        {
+          "year": "2023-24",
+          "section": "Revenue expenditure",
+          "head": "Grant to Sheth M.J. Library",
+          "amount_cr": 15.21,
+          "source_pdf": "AMC_Budget_2023-24_English (1)6444.pdf",
+          "page": "28.0",
+          "confidence": "high"
+        },
+        {
+          "year": "2023-24",
+          "section": "Revenue expenditure",
+          "head": "Grant to V.S. Hospital",
+          "amount_cr": 49.31,
+          "source_pdf": "AMC_Budget_2023-24_English (1)6444.pdf",
+          "page": "29.0",
+          "confidence": "high"
+        }
+      ]
+    }
+  ]
+}</script>
+  <script>
+  function renderFinanceFlow(year) {
+    document.body.classList.add('has-flow-js');
+    document.querySelectorAll('[data-year-panel]').forEach(function(panel) {
+      panel.hidden = panel.getAttribute('data-year-panel') !== year;
+      panel.classList.toggle('active', !panel.hidden);
+    });
+    document.querySelectorAll('.year-btn').forEach(function(button) {
+      var active = button.getAttribute('data-year') === year;
+      button.classList.toggle('active', active);
+      button.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+  }
+  (function() {
+    var data = JSON.parse(document.getElementById('finance-flow-data').textContent);
+    document.querySelectorAll('.year-btn').forEach(function(button) {
+      button.addEventListener('click', function() { renderFinanceFlow(button.getAttribute('data-year')); });
+    });
+    renderFinanceFlow(data.defaultYear);
+  })();
+  </script>
+
+</body>
+</html>

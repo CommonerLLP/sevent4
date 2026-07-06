@@ -45,7 +45,7 @@ h1{font:700 30px/1.15 var(--serif);letter-spacing:-.01em;margin-bottom:8px}
       source's public URL was never captured at acquisition time — that gap is
       reported, not papered over with a guessed link.
     </p>
-    <p class="stat">18 source records &middot; 2 with no public URL recorded &middot; compiled 2026-07-04</p>
+    <p class="stat">19 source records &middot; 2 with no public URL recorded &middot; compiled 2026-07-04</p>
 
     <input id="osearch" class="osearch" type="search"
       placeholder="Search by source, kind, or note (e.g. &quot;budget&quot;, &quot;DataMeet&quot;, &quot;GTFS&quot;)">
@@ -122,6 +122,12 @@ h1{font:700 30px/1.15 var(--serif);letter-spacing:-.01em;margin-bottom:8px}
         <span class="rhead">finance dataset</span>
         <div class="rwho"><span class="rname">BBMP Work Orders by Ward (2013-2022), BBMP via OpenCity</span> <a class="rsrc" href="https://data.opencity.in/dataset/bbmp-work-orders-by-ward-2013-2022">source</a></div>
         <p class="rnote">Per-ward work-order CSVs (raw copies + resource URLs archived in the manifest). Backs ward_workorders.geojson and ward_workorders_yearly.geojson (works_spend_cr, work_count, top_contractor, top_budget_head, flagged_works) and the spend axis of ward_analysis.geojson via data/cities/bengaluru/source/finance/ward_workorders*.json.</p>
+      </div>
+
+      <div class="row" data-search="finance dataset gba corporation budgets 2026-27, greater bengaluru authority via opencity opencity dataset records 19 gba budget resources for the five city corporations. the five xlsx budget-table workbooks are archived locally with bytes and sha256 in the raw opencity finance manifest; these workbooks back the gba 2026-27 finance sankey page.">
+        <span class="rhead">finance dataset</span>
+        <div class="rwho"><span class="rname">GBA Corporation Budgets 2026-27, Greater Bengaluru Authority via OpenCity</span> <a class="rsrc" href="https://data.opencity.in/dataset/gba-corporation-budgets-2026-27">source</a></div>
+        <p class="rnote">OpenCity dataset records 19 GBA budget resources for the five city corporations. The five XLSX budget-table workbooks are archived locally with bytes and sha256 in the raw OpenCity finance manifest; these workbooks back the GBA 2026-27 finance Sankey page.</p>
       </div>
 
       <div class="row" data-search="shelter register bbmp/nulm homeless-shelter list (pdf resource) via opencity backs shelters.geojson (48 features, labelled &#x27;homeless shelters (nulm)&#x27; in sevent4/build_city_console.py). every feature carries this same resource-download url in its per-feature &#x27;source&#x27; property, plus geocode_confidence/notes fields (geocoded via photon/nominatim). the dataset landing-page slug is not recorded on disk — only this resource url — so no prettier dataset url is claimed.">
