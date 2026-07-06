@@ -26,7 +26,7 @@
   var SECTIONS = [
     { label: "Atlas",    href: "cities/",            match: /\/cities\//,                title: "Explore your city on the map" },
     { label: "Why",      href: "why/",               match: /\/why\//,                   title: "Why is your city governed this way?" },
-    { label: "Findings", href: "findings/",          match: /\/(findings|devolution)\//, title: "What the data shows" },
+    { label: "Findings", href: "findings/",          match: /\/(findings|devolution|labour)\//, title: "What the data shows" },
     { label: "About",    href: "about/",             match: /\/about\//,                 title: "What this is, and how to read it" },
   ];
 

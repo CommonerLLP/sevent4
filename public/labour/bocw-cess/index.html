@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="application-name" content="Part IXA: The Municipalities">
+<title>Where does the construction-worker cess actually go? — The Unelected City</title>
+<link rel="icon" type="image/png" href="../../assets/ixa-mark.png?v=stitch-color">
+<link rel="manifest" href="../../site.webmanifest">
+<meta name="theme-color" content="#0a0c10" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f3f1ea" media="(prefers-color-scheme: light)">
+<script>(function(){try{var t=localStorage.getItem('atlas-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<link rel="stylesheet" href="../../assets/atlas-ui.css">
+<link rel="stylesheet" href="../../assets/masthead.css">
+<style>
+  body{display:flex;flex-direction:column;min-height:100dvh}
+  .wrap{flex:1;width:100%;max-width:980px;margin:0 auto;padding:40px 20px 64px}
+  .crumb{font:800 9px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-bottom:14px}
+  .crumb a{color:var(--mut);text-decoration:none}.crumb a:hover{color:var(--blue)}
+  h1{font:800 clamp(28px,5.6vw,44px)/1.08 var(--serif);letter-spacing:-.01em;margin-bottom:16px;max-width:26ch}
+  .lede{font-size:17px;line-height:1.65;color:var(--mut);max-width:74ch;margin-bottom:8px}
+  .lede b{color:var(--ink)}
+  h2{font:800 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mut);
+    margin:38px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+  p{font-size:15px;line-height:1.7;color:var(--ink);margin:0 0 14px;max-width:74ch}
+  p .mut{color:var(--mut)}
+
+  .tbl{width:100%;overflow-x:auto}
+  table{border-collapse:collapse;width:100%;font-size:13px;min-width:760px}
+  thead th{font:800 9px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mut);
+    text-align:left;padding:0 10px 10px;vertical-align:bottom;border-bottom:1px solid var(--line)}
+  tbody td{padding:12px 10px;border-bottom:1px solid var(--hair,#1b1f28);vertical-align:top}
+  tbody tr:hover{background:var(--panel)}
+  .st{font:700 14px/1.2 var(--serif);color:var(--ink)} .st small{display:block;font:600 11px/1.3 var(--mono);color:var(--mut);margin-top:3px;letter-spacing:.02em}
+  .di{font:800 16px/1 var(--mono)} .di small{font:700 10px var(--mono);color:var(--mut)}
+  .bar{height:4px;border-radius:2px;background:#1b1f28;margin-top:6px;overflow:hidden;max-width:120px}
+  .bar i{display:block;height:100%}
+  .hi{color:var(--red)}.mid{color:var(--gold)}.lo{color:#3a9b67}
+  .hib{background:#9f2d2d}.midb{background:#b8860b}.lob{background:#2c7a55}
+  .cell{font-size:12.5px;line-height:1.5;color:var(--mut)} .cell b{color:var(--ink)}
+  .flag{display:inline-block;font:800 8px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;
+    padding:3px 6px;border-radius:3px;margin-top:5px}
+  .flag.red{background:#241015;color:var(--red);border:1px solid var(--red)}
+  .flag.grn{background:#10231a;color:#4fb286;border:1px solid #2c7a55}
+  .rowasterisk{opacity:.85}
+
+  .find{border-left:3px solid var(--blue);padding:2px 0 2px 16px;margin:20px 0}
+  .find.key{border-left-color:var(--gold)}
+  .find h3{font:800 15px/1.3 var(--serif);margin-bottom:7px}
+  .find p{font-size:14.5px;line-height:1.6;color:var(--mut)} .find b{color:var(--ink)}
+
+  .pose{border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:8px;
+    background:var(--panel);padding:18px 20px;margin:26px 0}
+  .pose b{color:var(--ink)}.pose p:last-child{margin-bottom:0}
+
+  .soon{border:1px dashed var(--line);border-radius:8px;padding:16px 18px;margin:24px 0;background:var(--panel)}
+  .soon .tag{display:block;font:800 8px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+  .soon p{font-size:13.5px;color:var(--mut);margin-bottom:0}
+
+  .note{margin-top:36px;font-size:12.5px;line-height:1.65;color:var(--mut);border-top:1px solid var(--line);padding-top:16px}
+  .note b{color:var(--ink)} .note a{color:var(--blue)}
+  .back{display:inline-block;margin-top:26px;font:800 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--blue);text-decoration:none}
+  .back:hover{color:var(--gold)}
+</style>
+</head>
+<body>
+<header data-masthead="bar"></header>
+<main class="wrap">
+  <div class="crumb"><a href="../../findings/">Findings</a> · Construction-worker cess</div>
+  <h1>Where does the construction-worker cess actually go?</h1>
+  <p class="lede">Every construction project in India pays a <b>1% cess</b> on its cost into a state
+    welfare board built for one purpose: to fund the workers who build it — safety kits, maternity
+    benefit, school scholarships, medical aid. Nine state boards' own <b>CAG performance audits</b>
+    (2021–2025) answer two separate questions: <b>how much of that money reached anyone</b>, and
+    <b>how many registered workers the board can even confirm still exist.</b> Read city by city, or
+    read it as one pattern.</p>
+
+  <h2>A 1% tax that funds itself</h2>
+  <p>The Building &amp; Other Construction Workers (Regulation of Employment &amp; Conditions of Service)
+    Act, 1996 and its companion Cess Act require every employer to pay 1% of construction cost to a state
+    Welfare Board, which registers workers and disburses benefits. Nationally the pattern is already
+    visible at the top: the Ministry of Labour told Parliament the <b>unspent balance rose from ₹27,881 cr
+    (30-09-2018) to ₹48,137 cr (31-03-2024)</b> — collection consistently outruns spending, and the gap
+    compounds every year.<sup>1</sup></p>
+
+  <h2>How much reaches workers — ranked by idle share</h2>
+  <div class="tbl">
+  <table>
+    <thead><tr>
+      <th>State board<br>(atlas city)</th>
+      <th>Audit window</th>
+      <th>Funds available (₹cr)</th>
+      <th>Spent on workers (₹cr)</th>
+      <th>Idle share</th>
+      <th>Base / caveat</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td class="st">Gujarat<small>Ahmedabad · Surat</small></td>
+        <td class="cell">2006–23</td>
+        <td class="cell">4,787.60<div class="cell">cess deposited</div></td>
+        <td class="cell">808.49</td>
+        <td><span class="di hi">83.1%<small>#1 worst</small></span><div class="bar"><i class="hib" style="width:100%"></i></div></td>
+        <td class="cell"><b>Two-stage hoard.</b> No Welfare Fund was ever constituted — 47% of deposited
+          cess (₹2,242.79 cr) never left the State's own account. Of what the Board did receive, it spent
+          only 31.8% (idle 68.2% of the released grant) — the rest parked in a state NBFC (GSFSL), earning
+          ₹489.49 cr interest.</td>
+      </tr>
+      <tr>
+        <td class="st">Telangana<small>Hyderabad</small></td>
+        <td class="cell">2017–22</td>
+        <td class="cell">3,643.86</td>
+        <td class="cell">695.03</td>
+        <td><span class="di hi">80.9%</span><div class="bar"><i class="hib" style="width:97%"></i></div></td>
+        <td class="cell">Opening balance nearly tripled, 699 cr → 2,366 cr, in 4 years. ₹1,004.82 cr was
+          separately loaned out against the Board's own FDs for a COVID ration scheme; ₹746.78 cr of that
+          was never refunded.</td>
+      </tr>
+      <tr>
+        <td class="st">West Bengal<small>Kolkata</small></td>
+        <td class="cell">2015–20</td>
+        <td class="cell">3,312.04</td>
+        <td class="cell">808.67</td>
+        <td><span class="di hi">75.6%</span><div class="bar"><i class="hib" style="width:91%"></i></div></td>
+        <td class="cell">Closing fund balance rose 1,178 cr → 2,470 cr while annual spend <em>fell</em>,
+          224 cr → 110 cr, over the same five years.</td>
+      </tr>
+      <tr>
+        <td class="st">Maharashtra<small>Mumbai · Pune · Nagpur</small></td>
+        <td class="cell">2017–22</td>
+        <td class="cell">16,151.82</td>
+        <td class="cell">4,253.77</td>
+        <td><span class="di hi">73.7%</span><div class="bar"><i class="hib" style="width:89%"></i></div></td>
+        <td class="cell">CAG's own stated figure (Executive Summary) — the largest absolute hoard of the
+          nine states, ~₹11,898 cr unspent.</td>
+      </tr>
+      <tr>
+        <td class="st">Tamil Nadu<small>Chennai</small></td>
+        <td class="cell">2017–22</td>
+        <td class="cell">4,318.33</td>
+        <td class="cell">1,277.14</td>
+        <td><span class="di mid">70.4%</span><div class="bar"><i class="midb" style="width:85%"></i></div></td>
+        <td class="cell">Cash closing balance held near ~235 cr because the surplus was swept into fixed
+          deposits — that FD corpus grew ₹1,360 cr (2017) → ₹4,170 cr (2022), 3.07×.</td>
+      </tr>
+      <tr>
+        <td class="st">Haryana<small></small></td>
+        <td class="cell">2017–23</td>
+        <td class="cell">5,553.71</td>
+        <td class="cell">1,714.03</td>
+        <td><span class="di mid">69.1%</span><div class="bar"><i class="midb" style="width:83%"></i></div></td>
+        <td class="cell">CAG separately quotes a 5.3–10.7%/yr spend rate against each year's own available
+          funds; closing balance rose 2,407 cr → 3,840 cr over the window.</td>
+      </tr>
+      <tr>
+        <td class="st">Uttar Pradesh<small>Kanpur</small></td>
+        <td class="cell">2017–22</td>
+        <td class="cell">9,286.70</td>
+        <td class="cell">3,402.52</td>
+        <td><span class="di mid">63.4%</span><div class="bar"><i class="midb" style="width:76%"></i></div></td>
+        <td class="cell">Excludes ₹1,890 cr the Board siphoned into a separate "Atal Residential Schools"
+          corpus — count that as non-welfare spend and the idle+diverted share is closer to 57% spent, not
+          63% idle.</td>
+      </tr>
+      <tr class="rowasterisk">
+        <td class="st">Delhi<small>NCT</small></td>
+        <td class="cell">2019–23</td>
+        <td class="cell">1,774.42<div class="cell">receipts only, no OB in chapter</div></td>
+        <td class="cell">605.02</td>
+        <td><span class="di mid">~66%*</span></td>
+        <td class="cell"><b>Different base — not directly rankable</b> against the rows above (no opening
+          balance given in this chapter). Accumulated fund stood at ₹3,579.05 cr as of March 2023; welfare
+          spend ran 9.5–11.3% of receipts most years, spiking only for a one-off COVID ex-gratia payment.</td>
+      </tr>
+      <tr>
+        <td class="st">Karnataka<small>Bengaluru</small></td>
+        <td class="cell">since inception → 2024</td>
+        <td class="cell">10,874<div class="cell">cess collected</div></td>
+        <td class="cell">7,028.05</td>
+        <td><span class="di lo">35.4%<small>outlier</small></span><div class="bar"><i class="lob" style="width:43%"></i></div></td>
+        <td class="cell"><span class="flag red">SECONDARY (RS265)</span> The one state that breaks the
+          pattern — but on its own 2018–23 audit window it actually <em>drew down</em> reserves (spend
+          5,704 cr against cess of 4,960 cr collected). Included because it's the honest exception, not
+          because it's on the same footing as the primary rows above.</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="cell" style="margin-top:10px">Idle share = 100 − (welfare+admin spend ÷ funds available in the
+    audit window). <span class="hi">Red</span> ≥ 70% idle · <span class="mid">amber</span> 60–70% ·
+    <span class="lo">green</span> below 60%. Eight of nine rows are computed from primary CAG tables (base
+    differs per report — read the caveat column, not just the percentage). Ranked
+    <b>Gujarat (83%) &gt; Telangana (81%) &gt; West Bengal (76%) &gt; Maharashtra (74%) &gt; Tamil Nadu
+    (70%) &gt; Haryana (69%) &gt; Uttar Pradesh (63%)</b>; Delhi and Karnataka sit outside the ranking on
+    different bases.</p>
+
+  <div class="find key">
+    <h3>Gujarat's cess never even reaches its own Board.</h3>
+    <p>Of the nine states, Gujarat is the only one where the state government itself — not the welfare
+      board — holds most of the money. No Welfare Fund was ever constituted, so cess sits in the
+      Government Account by default. Only 53% of what was deposited was ever released to the Board at all.
+      That is a distinct failure from "the board hoards it" — here the money doesn't even get that far.</p>
+  </div>
+
+  <div class="find">
+    <h3>Karnataka is the one state whose audit doesn't fit the pattern.</h3>
+    <p>Spend improved sharply from 2021-22 onward (two scheme payouts of 1,997 cr and 2,076 cr), enough
+      that on a cumulative since-inception basis it looks like the healthiest board of the nine. That figure
+      is secondary (RS265, see below) — but even taken at face value, it shows the pattern isn't
+      structural to how BOCW boards work everywhere; something changed in Karnataka that didn't change in
+      the other eight.</p>
+  </div>
+
+  <h2>How many workers the boards can even confirm they have</h2>
+  <p>This is a harder question than it sounds, because the nine audits don't measure the same thing.
+    Some report an active-registration renewal rate; others report coverage of the eligible workforce;
+    others report scheme uptake; two report on how much of their own registration data they can actually
+    verify. Forcing all nine into a single percentage would misrepresent what the reports say — so here is
+    each state's own registration finding, honestly labelled.</p>
+
+  <div class="tbl">
+  <table>
+    <thead><tr>
+      <th>State</th>
+      <th>What's actually measured</th>
+      <th>Figure</th>
+      <th>The catch</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td class="st">Telangana</td>
+        <td class="cell">Active/renewed ÷ total registered, 2017–22</td>
+        <td class="di lo" style="font-size:14px">77.5%</td>
+        <td class="cell">The cleanest base in the sample — but still a state-specific renewal-completion
+          rate, not directly comparable to any other row here.</td>
+      </tr>
+      <tr>
+        <td class="st">Uttar Pradesh</td>
+        <td class="cell">Active (renewed) ÷ registered stock, end Mar-2022</td>
+        <td class="di mid" style="font-size:14px">33.3–50.0%</td>
+        <td class="cell">Same underlying data, two answers: CAG's own preferred denominator (start-of-year
+          stock) gives 49.97%; end-of-year stock gives 33.3%. Separately, 23.33 lakh of the registered total
+          is flagged as wrongly enrolled (mining, MGNREGS, brick-kiln workers who don't qualify).</td>
+      </tr>
+      <tr>
+        <td class="st">Gujarat</td>
+        <td class="cell">Renewal completion ÷ due-for-renewal, cumulative 2017–22</td>
+        <td class="di hi" style="font-size:14px">~8.1%</td>
+        <td class="cell">The active-registered count itself collapsed, 4.68 lakh (Mar-18) → 1.57 lakh
+          (Mar-22) — a decline the audit documents without fully explaining.</td>
+      </tr>
+      <tr>
+        <td class="st">Tamil Nadu</td>
+        <td class="cell">Registered ÷ GoI-estimated eligible workforce</td>
+        <td class="di mid" style="font-size:14px">44.7%</td>
+        <td class="cell">CAG's own framing is a "55% shortage" — this measures workforce coverage, a
+          different question from Telangana's or Gujarat's renewal rates above.</td>
+      </tr>
+      <tr>
+        <td class="st">Maharashtra</td>
+        <td class="cell">Health check-up scheme uptake ÷ registered</td>
+        <td class="di hi" style="font-size:14px">15%</td>
+        <td class="cell">CAG's own stated figure — but the denominator is a three-year <em>sum</em> of
+          annual flow totals, not a deduplicated headcount. A worker renewing three years running is
+          counted three times, so the true reach rate is unknown, not 15%.</td>
+      </tr>
+      <tr>
+        <td class="st">Haryana</td>
+        <td class="cell">Benefit-disbursed ÷ "live" registered, single date</td>
+        <td class="di mid" style="font-size:14px">~34.75%<small>(our computation)</small></td>
+        <td class="cell">Numerator is a six-year cumulative flow against a single-date stock — different
+          time windows. CAG separately found no district-level correlation between registrations and
+          benefits actually paid out.</td>
+      </tr>
+      <tr>
+        <td class="st">Delhi</td>
+        <td class="cell">Audit-verifiable records ÷ claimed registrations</td>
+        <td class="di hi" style="font-size:14px">28.4%</td>
+        <td class="cell">Measures recordkeeping completeness, not active-vs-lapsed status. Delhi's actual
+          renewal claim — 7.3% vs. an all-India 74% benchmark — appears in the report with no supporting
+          table at all; the two figures should not be conflated.</td>
+      </tr>
+      <tr>
+        <td class="st">Karnataka</td>
+        <td class="cell">— not computable</td>
+        <td class="di hi" style="font-size:13px">no figure given</td>
+        <td class="cell">42.5 lakh registered beneficiaries sit on the Seva Sindhu portal, but CAG states
+          this data "was inadequately validated before being entered"; the one sample beneficiary table it
+          could check disagreed with the Board's own HQ figures by 88–91%. CAG's words: <i>"the veracity of
+          the data could not be ascertained in audit."</i></td>
+      </tr>
+      <tr>
+        <td class="st">West Bengal</td>
+        <td class="cell">Field-sample un-registration rate</td>
+        <td class="di hi" style="font-size:14px">95%<small>of 496 sampled</small></td>
+        <td class="cell">A 40-site convenience sample, not the statewide administrative registry (31.57 lakh
+          cumulative registrations). The report doesn't link the two populations, and neither do we.</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="find key">
+    <h3>The more defensible finding isn't any single ratio — it's that six boards can't trust their own numbers.</h3>
+    <p>At least <b>six of the nine states' own audits</b> — Karnataka, Delhi, Maharashtra, Uttar Pradesh,
+      Gujarat, and (for establishment registration specifically) West Bengal — flag their <b>own</b>
+      registration data as containing duplicate entries, no unique worker ID, self-certification accepted
+      without verification, or unreconciled parallel databases. That is a stronger, plainer claim than any
+      percentage above: <b>most of these welfare boards cannot currently say, with data they trust
+      themselves, how many workers they actually serve.</b></p>
+  </div>
+
+  <div class="pose">
+    <p><b>So the question isn't "which state spends the least" or "which ratio is worst."</b> A cess exists
+      because construction work is dangerous, informal and cash-in-hand — the fund is supposed to be the one
+      place a bricklayer or a scaffolder can turn for a safety net paid for out of the very project that
+      employs them. If six of nine boards can't say how many workers are actually on their books, and eight
+      of nine have spent less than two-fifths of what came in, <b>what is the cess fund currently doing
+      instead of that job — and for whom?</b></p>
+  </div>
+
+  <div class="soon">
+    <span class="tag">Pending</span>
+    <p>One clean cross-state snapshot would settle the ranking above on a single date: the Rajya Sabha's
+      2024 state-wise cumulative cess-collected-vs-spent answer (Session 265, Unstarred Question 411).
+      It sits behind a Parliament portal token that has resisted every automated retrieval route tried so
+      far. Karnataka's row above is drawn from that same answer as a secondary lead, included for honesty
+      rather than waiting on the primary — everything else on this page is a primary CAG finding.</p>
+  </div>
+
+  <p class="note">
+    <b>Sources.</b> All fiscal and registration figures are drawn from each state's own Comptroller &amp;
+    Auditor General performance/compliance audit report on Building &amp; Other Construction Workers'
+    welfare, tabled 2021–2025:
+    <a href="https://cag.gov.in/webroot/uploads/download_audit_report/2024/Report-No-3-of-2024-Labour-Cess-English-066826f742ed780.59836690.pdf">Tamil Nadu, Report 3/2024</a>,
+    <a href="https://cag.gov.in/uploads/download_audit_report/2024/Report-of-the-Comptroller-and-Auditor-General-of-India-on-Welfare-of-Building-and-Other-Construction-Workers-for-the-year-ended-March-2022_English-069ca258d72fd18.11391005.pdf">Telangana, Report 5/2024</a>,
+    <a href="https://cag.gov.in/webroot/uploads/download_audit_report/2025/PA-on-Welfare-of-Building-and-Other-Construction-workers-in-Karnataka-English-068a5aa5c9a9f80.37316414.pdf">Karnataka, Report 2/2025</a>,
+    <a href="https://cag.gov.in/uploads/download_audit_report/2025/Haryana-Report-No2-English-068b56e061673f1.41953240.pdf">Haryana, Report 2/2025</a>,
+    <a href="https://cag.gov.in/uploads/download_audit_report/2025/337-Ch-AG-Report-Eng-for-Mail-068c951ab53dca2.52715740.pdf">Gujarat, Report 2/2025</a>,
+    <a href="https://cag.gov.in/uploads/download_audit_report/2025/Final-rReport-No.04-WOBCW-English-UP---signed-07-05-2025-0689b2ec7244ad9.46184642.pdf">Uttar Pradesh, Report 4/2025</a>,
+    <a href="https://cag.gov.in/uploads/download_audit_report/2025/06_Chapter-2-06890a34150e479.83131634.pdf">Delhi (GNCTD), Report 2/2025</a>,
+    <a href="https://cag.gov.in/uploads/download_audit_report/2025/8-Chapter-3-0693e9ae0b537b6.57830736.pdf">Maharashtra, Report 4/2025</a>,
+    <a href="https://cag.gov.in/uploads/subsite_whats_new/Report-No-5-of-2021-Compliance-Audit-Report-Government-of-West-Bengal-of-2019-20-062443462ccc1a7-37598033.pdf">West Bengal, Report 5/2021</a>.
+    All-India 2018 balance: PIB PRID 1558135 (Ministry of Labour &amp; Employment, Rajya Sabha reply).
+    All-India 2024 balance and Karnataka's cumulative row: Rajya Sabha Session 265, Unstarred Question 411
+    (25-07-2024) — reported secondhand pending primary retrieval (see Pending, above). Every percentage on
+    this page is computed from the primary tables cited; where the audit states its own figure, this page
+    says so explicitly.
+  </p>
+  <a class="back" href="../../findings/">← Back to Findings</a>
+</main>
+<script src="../../assets/masthead.js"></script>
+<script src="../../assets/theme.js" defer></script>
+</body>
+</html>
