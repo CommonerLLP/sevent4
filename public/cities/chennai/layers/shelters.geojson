@@ -1,0 +1,971 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.31035744335149,
+     13.177600000838279
+    ]
+   },
+   "properties": {
+    "name": "Rehobath educational trust,No.7, Thiru nagar Extn. Thirunagar, Thiruvotiyur, Chennai",
+    "zone": "THIRUVOTTIYUR",
+    "ward": "Ward 5",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Men",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.30704339614124,
+     13.166213712912842
+    ]
+   },
+   "properties": {
+    "name": "Rehobath educational trust,NO.392, TH Road, Thiruvotiyur, Chennai.",
+    "zone": "THIRUVOTTIYUR",
+    "ward": "Ward 8",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Women",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.24038964061867,
+     13.172826455412718
+    ]
+   },
+   "properties": {
+    "name": "ARM ,R 55, No.106th street, 3rd Main road, Mathur, Manali, Ch -68",
+    "zone": "MANALI",
+    "ward": "Ward 19",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Men",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.21766901382115,
+     13.14444750953507
+    ]
+   },
+   "properties": {
+    "name": "Village education women and children re habitations societyCMDA trunk terminal Madhavaram, Chennai-60",
+    "zone": "MADHAVARAM",
+    "ward": "Ward 26",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Men",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.24877053735001,
+     13.131787744162475
+    ]
+   },
+   "properties": {
+    "name": "Don Bosco Anbu lllam,No.12, Karunanithi street, Kodunkaiyur, Chennai - 118",
+    "zone": "TONDIARPET",
+    "ward": "Ward 35",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Girls",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.26648268700221,
+     13.13230011577687
+    ]
+   },
+   "properties": {
+    "name": "Don Bosco Anbu lllam,No.6, Sarvapalli street, Mallishwari Nagar, Erukkancheri, Chennai - 118.",
+    "zone": "TONDIARPET",
+    "ward": "Ward 37",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Boys",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.26648268700221,
+     13.13230011577687
+    ]
+   },
+   "properties": {
+    "name": "Arunodhaya,Raja Rathinam Nagar, Kodungaiyur, Chennai-118",
+    "zone": "TONDIARPET",
+    "ward": "Ward 37",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Care and protection centre for children (Boys",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.26648268700221,
+     13.13230011577687
+    ]
+   },
+   "properties": {
+    "name": "Real Charitable trust,No.1350/33, 19thEast Cross Street, MKB Nagar, Chennai-39",
+    "zone": "TONDIARPET",
+    "ward": "Ward 37",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Men",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.29429345193795,
+     13.139425608323453
+    ]
+   },
+   "properties": {
+    "name": "Karunalaya,Cheriyan Nagar, Old Community hall, 3rdstreet. New Washermenpet, Chennai-21",
+    "zone": "TONDIARPET",
+    "ward": "Ward 39",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Care and protection centre for children (Girls)",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.29403788811422,
+     13.126258967147029
+    ]
+   },
+   "properties": {
+    "name": "Anbagam,CDH Hospital, Tontaiyar pet, Chennai-81",
+    "zone": "TONDIARPET",
+    "ward": "Ward 43",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Mentally challenged Women",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.29403788811422,
+     13.126258967147029
+    ]
+   },
+   "properties": {
+    "name": "Anbagam,CDH Hospital, Tondaiyar pet, Chennai-81",
+    "zone": "TONDIARPET",
+    "ward": "Ward 43",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Mentally challenged Men",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.28897710070194,
+     13.10677460389699
+    ]
+   },
+   "properties": {
+    "name": "INDIA,Stanley Hospital, Old Jail Road, Chennai-01",
+    "zone": "ROYAPURAM",
+    "ward": "Ward 52",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Women",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.28897710070194,
+     13.10677460389699
+    ]
+   },
+   "properties": {
+    "name": "Turning Point Foundation,Stanley Hospital, Old Jail Road, Chennai-01",
+    "zone": "ROYAPURAM",
+    "ward": "Ward 52",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Men",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.28897710070194,
+     13.10677460389699
+    ]
+   },
+   "properties": {
+    "name": "Rojavanam Senior citizens care centre,RSRM Hospital, Cemetery Road, Royapuram, Chennai-13.",
+    "zone": "ROYAPURAM",
+    "ward": "Ward 52",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Men",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.28897710070194,
+     13.10677460389699
+    ]
+   },
+   "properties": {
+    "name": "Gracious Home,RSRM Hospital, Cemetery Road, Royapuram, Chennai-13.",
+    "zone": "ROYAPURAM",
+    "ward": "Ward 52",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Women",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.28713002383307,
+     13.100446960703437
+    ]
+   },
+   "properties": {
+    "name": "PLANT Trust,Chennai Middle School, B.R.N. Colony, Chennai",
+    "zone": "ROYAPURAM",
+    "ward": "Ward 56",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Boys",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.26508057633744,
+     13.08501788264375
+    ]
+   },
+   "properties": {
+    "name": "Society for Women empowerment & development education (SWEDEN),Rajiv Gandhi General Hospital, Park Town, Chennai.",
+    "zone": "ROYAPURAM",
+    "ward": "Ward 58",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Special shelter- Women",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.29016181556996,
+     13.084681103984227
+    ]
+   },
+   "properties": {
+    "name": "Siga,Rajaji salai, Ibrahim street, Chennai-01",
+    "zone": "ROYAPURAM",
+    "ward": "Ward 60",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Women & Children",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.25882986107118,
+     13.07224554472054
+    ]
+   },
+   "properties": {
+    "name": "Your Hope is Remaining,Institue of obstetrics and gynecology Government Hospital, Egmore, Chennai.",
+    "zone": "ROYAPURAM",
+    "ward": "Ward 61",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Special shelter - Men",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.25882986107118,
+     13.07224554472054
+    ]
+   },
+   "properties": {
+    "name": "Trust Organization for Women Environment and Rural (TOWER),Institute of Child Health, Egmore, Chennai.",
+    "zone": "ROYAPURAM",
+    "ward": "Ward 61",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Special shelter- Women",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.25882986107118,
+     13.07224554472054
+    ]
+   },
+   "properties": {
+    "name": "SEESHA,Institute of obstetrics and gynecology Government Hospital, Egmore, Chennai.",
+    "zone": "ROYAPURAM",
+    "ward": "Ward 61",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Special shelter- Women",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.27014201699681,
+     13.074599482178467
+    ]
+   },
+   "properties": {
+    "name": "VizhiththezhuCox colony Chindaripet, Chennai-02",
+    "zone": "ROYAPURAM",
+    "ward": "Ward 62",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Men and Women",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2363076782423,
+     13.118512773288488
+    ]
+   },
+   "properties": {
+    "name": "Pioneer trade,Teeds garden. Near Venus theatre Chembiyam, Che-11",
+    "zone": "THIRU-VI-KA-NAGAR",
+    "ward": "Ward 68",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Elderly Men and Women",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.26750684063278,
+     13.095443399981313
+    ]
+   },
+   "properties": {
+    "name": "ICWO,Thatangulam, Temelous road, Pattalam, Che -12",
+    "zone": "THIRU-VI-KA-NAGAR",
+    "ward": "Ward 77",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Elderly Men and Women",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.17837277527586,
+     13.106844947835777
+    ]
+   },
+   "properties": {
+    "name": "WORLD Trust,No.l49A, Kannan Koil street, Pattravakkam, Chennai-98",
+    "zone": "AMBATTUR",
+    "ward": "Ward 84",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Men",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.16048612375297,
+     13.09349629991979
+    ]
+   },
+   "properties": {
+    "name": "Integrated women development institute,Bharathiyar street, VGN Shanthi nagar, Ti miller, Ambattur, Che-50",
+    "zone": "AMBATTUR",
+    "ward": "Ward 86",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Men",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.17134305891433,
+     13.082560606062867
+    ]
+   },
+   "properties": {
+    "name": "ECOMWELLow Cost Health Care, No.1/91 A, Second Floor, Kalamegam Salai, Mogappair West, Chennai -37.",
+    "zone": "AMBATTUR",
+    "ward": "Ward 91",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Women",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.24028901912902,
+     13.081427580492917
+    ]
+   },
+   "properties": {
+    "name": "Surabi trust,Corporation School kellys, Chennai-10",
+    "zone": "ANNANAGAR",
+    "ward": "Ward 103",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "All group except mentally challenged",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.24028901912902,
+     13.081427580492917
+    ]
+   },
+   "properties": {
+    "name": "New Life Social Welfare centre,Kilpauk Medical College hospital campus, Chennai.",
+    "zone": "ANNANAGAR",
+    "ward": "Ward 103",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Special shelter- Women",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.24028901912902,
+     13.081427580492917
+    ]
+   },
+   "properties": {
+    "name": "Hope Vision India,Kilpauk Medical College hospital campus, Chennai.",
+    "zone": "ANNANAGAR",
+    "ward": "Ward 103",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Special shelter - Men",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.22263817560088,
+     13.071163753877194
+    ]
+   },
+   "properties": {
+    "name": "Hope Charitable Trust,Chennai Primary School, Erulandi St., Amandakari, Chennai - 29",
+    "zone": "ANNANAGAR",
+    "ward": "Ward 106",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Mentally Retarded Boys",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.23951073227472,
+     13.072564937304517
+    ]
+   },
+   "properties": {
+    "name": "SIP,Me Nicholas Road, Dasspuram Junction, Chetpet, Chennai",
+    "zone": "ANNANAGAR",
+    "ward": "Ward 107",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Transgender",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2373770964898,
+     13.061398874276719
+    ]
+   },
+   "properties": {
+    "name": "Dorcas Research Centre for Education, Art and Culture,No.10, Kamdar Nagar, Chennai- 600003.",
+    "zone": "TEYNAMPET",
+    "ward": "Ward 110",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Physically Challenged women",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.28004687471339,
+     13.062508396499661
+    ]
+   },
+   "properties": {
+    "name": "Glorious Gospel Mission Charitable Trust,Chennai primary school. Lock nagar, Chennai",
+    "zone": "TEYNAMPET",
+    "ward": "Ward 114",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Girl children",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.26692950156635,
+     13.056007791217613
+    ]
+   },
+   "properties": {
+    "name": "RVKCorporation school. Old No.25, New No 12, Subramania Garden, Thangavelu street. Triplica ne, Chennai-600005",
+    "zone": "TEYNAMPET",
+    "ward": "Ward 115",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Women",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.2470708744631,
+     13.028975394822378
+    ]
+   },
+   "properties": {
+    "name": "Selvi memorial trust,Pasumpon Muthuramalingam salai. Old chamiyars road, Teynampet, Che-18",
+    "zone": "TEYNAMPET",
+    "ward": "Ward 122",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Women",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.26901766015413,
+     13.034367134124665
+    ]
+   },
+   "properties": {
+    "name": "Rajina charitable trust ,No.l Market street, Mandaveli, Ch-21",
+    "zone": "TEYNAMPET",
+    "ward": "Ward 124",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Men",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.27632088756334,
+     13.036097571090298
+    ]
+   },
+   "properties": {
+    "name": "Banyan,No.7 Dummi kuppam lane, Dummi kuppam Santhome, Che-04",
+    "zone": "TEYNAMPET",
+    "ward": "Ward 125",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Men with psycho social disability",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.19890244759101,
+     13.066992995538108
+    ]
+   },
+   "properties": {
+    "name": "Loyola Shelter HomeAyappa Nagar Main Road, Round Building, Koyambedu -107.",
+    "zone": "KODAMBAKKAM",
+    "ward": "Ward 127",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Men",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.16991914687779,
+     13.052580500464378
+    ]
+   },
+   "properties": {
+    "name": "Paadhai,No.6, Ashtalakshmi Nagar, 23rdstreet, Alapakkam, Chennai-116.",
+    "zone": "VALASARAVAKKAM",
+    "ward": "Ward 147",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Care for boys",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.16991914687779,
+     13.052580500464378
+    ]
+   },
+   "properties": {
+    "name": "Integrated women development institute,No.47 Dasari Padma nagar, Sudalai madasami koil street, maduravoyal, Chennai-75",
+    "zone": "VALASARAVAKKAM",
+    "ward": "Ward 147",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Women",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.20125511613016,
+     12.99040602247395
+    ]
+   },
+   "properties": {
+    "name": "Form Trust,Parthasarathy 1st street, Adambakkam, Chennai-88",
+    "zone": "ALANDUR",
+    "ward": "Ward 163",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Men",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.23253272471871,
+     13.018373120344165
+    ]
+   },
+   "properties": {
+    "name": "Selvi Memorial lllam Society,No.l Railway Border road, Appavu nagar. Near Amma Unavagam, Che-15",
+    "zone": "ADYAR",
+    "ward": "Ward 171",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Men",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.26555152875058,
+     13.004106204620923
+    ]
+   },
+   "properties": {
+    "name": "Montfort Siragugal,Corporation School Damodharapuram, Besant Nagar, Chennai-20",
+    "zone": "ADYAR",
+    "ward": "Ward 176",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Care and Protection centre for children",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.25062414295604,
+     12.92213257347328
+    ]
+   },
+   "properties": {
+    "name": "Kannagi nagar podhunala sangamInjambakkam, ECR Road, Chennai-115",
+    "zone": "SOZHINGANALLUR",
+    "ward": "Ward 196",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Men",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.23590898563157,
+     12.88827086519722
+    ]
+   },
+   "properties": {
+    "name": "Little HeartsPlot no.123, J.Nagar, Panayur, Chennai-119",
+    "zone": "SOZHINGANALLUR",
+    "ward": "Ward 198",
+    "capacity": null,
+    "day_service": null,
+    "shelter_type": "Women with Child",
+    "source": "https://data.opencity.in/dataset/chennai-civic-amenities/resource/4bcbb9cf-e9f6-47bd-b726-679703e71875",
+    "geocode_confidence": "approximate",
+    "notes": "OpenCity/GCC Chennai Civic Amenities register gives zone, ward, and address only -- no coordinates and no capacity figures. Capacity is undisclosed here: GCC's own night-shelter dashboard login-gates per-shelter bed counts (the public aggregate reported elsewhere is 50 shelters citywide = 32 adult + 5 children + 13 special, not attributable to this specific site). Placed at this shelter's ward centroid (this repo's wards.geojson), not a street-level geocode."
+   }
+  }
+ ]
+}
