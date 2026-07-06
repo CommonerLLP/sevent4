@@ -12,6 +12,7 @@ class BrowserSmokeTest(unittest.TestCase):
                 "/index.html",
                 "/public/index.html",
                 "/public/cities/ahmedabad/index.html",
+                "/public/cities/bengaluru/finance/index.html",
             ),
         )
 
@@ -35,6 +36,10 @@ class BrowserSmokeTest(unittest.TestCase):
         self.assertEqual(
             screenshot_path("/public/cities/ahmedabad/index.html", "desktop"),
             "desktop-public-cities-ahmedabad-index.html.png",
+        )
+        self.assertEqual(
+            screenshot_path("/public/cities/bengaluru/finance/index.html", "desktop"),
+            "desktop-public-cities-bengaluru-finance-index.html.png",
         )
 
     def test_screenshot_command_sets_viewport_size(self) -> None:

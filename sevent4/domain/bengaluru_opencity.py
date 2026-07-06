@@ -39,6 +39,7 @@ FINANCE_SLUGS = [
     "bbmp-budget-2023-24",
     "bbmp-budget-2024-25",
     "bbmp-budget-2025-26",
+    "gba-corporation-budgets-2026-27",
     "bbmp-work-orders-by-ward-2013-2022",
     "bbmp-work-orders-and-bill-payment",
     "bengaluru-mla-local-area-development-funds",
@@ -128,6 +129,33 @@ def finance_download_jobs(catalogue: dict, slugs: list[str] | None = None) -> tu
                 }
             )
     return jobs, missing
+
+
+def finance_dataset_from_package(package_meta: dict | None, slug: str) -> dict | None:
+    if not package_meta or not package_meta.get("success"):
+        return None
+    result = package_meta.get("result") or {}
+    organization = result.get("organization") or {}
+    if isinstance(organization, dict):
+        org = organization.get("title") or organization.get("name") or ""
+    else:
+        org = str(organization)
+    return {
+        "name": result.get("name") or slug,
+        "title": result.get("title") or slug,
+        "organization": org,
+        "url": f"https://data.opencity.in/dataset/{slug}",
+        "resources": [
+            {
+                "name": resource.get("name"),
+                "format": resource.get("format"),
+                "url": resource.get("url"),
+                "last_modified": resource.get("last_modified"),
+            }
+            for resource in result.get("resources", [])
+            if resource.get("url")
+        ],
+    }
 
 
 def jurisdiction_resource_jobs(package_meta: dict, slug: str, cap: int = PER_DATASET_CAP) -> list[dict]:

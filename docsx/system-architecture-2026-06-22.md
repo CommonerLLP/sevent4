@@ -71,6 +71,7 @@ Implemented package boundaries:
 - `sevent4.domain.dpl_geocode`
 - `sevent4.domain.dpl_hierarchy`
 - `sevent4.domain.evidence`
+- `sevent4.domain.finance_flow`
 - `sevent4.domain.gujarat_transport`
 - `sevent4.domain.heat`
 - `sevent4.domain.kanpur_wards`

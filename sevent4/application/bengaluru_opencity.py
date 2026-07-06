@@ -6,6 +6,7 @@ from sevent4.domain.bengaluru_opencity import (
     CURATED_JURISDICTION_LAYERS,
     JURISDICTION_SLUGS,
     boundary_provenance_record,
+    finance_dataset_from_package,
     finance_download_jobs,
     jurisdiction_resource_jobs,
 )
@@ -14,7 +15,15 @@ from sevent4.domain.bengaluru_opencity import (
 def acquire_finance_resources(store, slugs: list[str] | None = None) -> dict[str, object]:
     if not store.archive_exists():
         raise FileNotFoundError("OpenCity archive root is not present")
-    jobs, missing = finance_download_jobs(store.read_catalogue(), slugs)
+    catalogue = store.read_catalogue()
+    jobs, missing = finance_download_jobs(catalogue, slugs)
+    if missing and hasattr(store, "package_show"):
+        datasets = list(catalogue.get("datasets", []))
+        for slug in missing:
+            dataset = finance_dataset_from_package(store.package_show(slug), slug)
+            if dataset:
+                datasets.append(dataset)
+        jobs, missing = finance_download_jobs({**catalogue, "datasets": datasets}, slugs)
     manifest: list[dict] = []
     done = 0
     errors: list[tuple[str, str]] = []

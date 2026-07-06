@@ -3,7 +3,7 @@
  "city": "bengaluru",
  "city_name": "Bengaluru",
  "compiled": "2026-07-04",
- "count": 18,
+ "count": 19,
  "sources": [
   {
    "id": "opencity_gba_wards_delimitation_2025",
@@ -88,6 +88,13 @@
    "label": "BBMP Work Orders by Ward (2013-2022), BBMP via OpenCity",
    "url": "https://data.opencity.in/dataset/bbmp-work-orders-by-ward-2013-2022",
    "notes": "Per-ward work-order CSVs (raw copies + resource URLs archived in the manifest). Backs ward_workorders.geojson and ward_workorders_yearly.geojson (works_spend_cr, work_count, top_contractor, top_budget_head, flagged_works) and the spend axis of ward_analysis.geojson via data/cities/bengaluru/source/finance/ward_workorders*.json."
+  },
+  {
+   "id": "opencity_gba_corporation_budgets_2026_27",
+   "kind": "finance_dataset",
+   "label": "GBA Corporation Budgets 2026-27, Greater Bengaluru Authority via OpenCity",
+   "url": "https://data.opencity.in/dataset/gba-corporation-budgets-2026-27",
+   "notes": "OpenCity dataset records 19 GBA budget resources for the five city corporations. The five XLSX budget-table workbooks are archived locally with bytes and sha256 in the raw OpenCity finance manifest; these workbooks back the GBA 2026-27 finance Sankey page."
   },
   {
    "id": "opencity_nulm_shelters_pdf",
