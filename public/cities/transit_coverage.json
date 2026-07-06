@@ -1,6 +1,6 @@
 {
  "schema": "sevent4.transit_coverage.v1",
- "compiled": "2026-07-05",
+ "compiled": "2026-07-06",
  "coverage_statuses": [
   "official_inventory_fallback",
   "ok",
@@ -253,6 +253,22 @@
      "public_coverage": false
     },
     {
+     "feed_id": "chennai_southern_rail_suburban_cscl_osm_fallback",
+     "mode": "suburban_rail",
+     "operator": "Southern Railway",
+     "status": "official_inventory_fallback",
+     "stop_layer": "suburban_rail_stations.geojson",
+     "route_layer": "suburban_rail.geojson",
+     "stop_features": 49,
+     "route_features": 4,
+     "missing_reason": null,
+     "public_layer_files": {
+      "stop_layer_exists": true,
+      "route_layer_exists": true
+     },
+     "public_coverage": true
+    },
+    {
      "feed_id": "chennai_indian_railways_gtfs_lead",
      "mode": "suburban_rail",
      "operator": "Indian Railways GTFS lead for Chennai suburban services",
@@ -314,6 +330,22 @@
      "route_layer": "bus_routes.geojson",
      "stop_features": 10559,
      "route_features": 2403,
+     "missing_reason": null,
+     "public_layer_files": {
+      "stop_layer_exists": true,
+      "route_layer_exists": true
+     },
+     "public_coverage": true
+    },
+    {
+     "feed_id": "delhi_dmrc_metro_gtfs",
+     "mode": "metro",
+     "operator": "Delhi Metro Rail Corporation",
+     "status": "ok",
+     "stop_layer": "metro_gtfs_stops.geojson",
+     "route_layer": "metro_gtfs_routes.geojson",
+     "stop_features": 262,
+     "route_features": 36,
      "missing_reason": null,
      "public_layer_files": {
       "stop_layer_exists": true,
@@ -553,6 +585,22 @@
       "route_layer_exists": true
      },
      "public_coverage": false
+    },
+    {
+     "feed_id": "kolkata_eastern_se_suburban_osm_fallback",
+     "mode": "suburban_rail",
+     "operator": "Eastern Railway / South Eastern Railway",
+     "status": "osm_fallback_constructed",
+     "stop_layer": "suburban_rail_stations.geojson",
+     "route_layer": "suburban_rail.geojson",
+     "stop_features": 346,
+     "route_features": 3671,
+     "missing_reason": null,
+     "public_layer_files": {
+      "stop_layer_exists": true,
+      "route_layer_exists": true
+     },
+     "public_coverage": true
     },
     {
      "feed_id": "kolkata_indian_railways_gtfs_lead",

@@ -52,7 +52,10 @@ def build_multimodal_gtfs_layers(
     feeds = []
     for spec in feed_specs:
         inputs = inputs_by_feed.get(spec.feed_id)
-        if spec.status != "available" or inputs is None:
+        if spec.status != "available":
+            feeds.append(_feed_provenance(spec, spec.status, 0, 0))
+            continue
+        if inputs is None:
             feeds.append(_feed_provenance(spec, "missing", 0, 0))
             continue
 
@@ -280,6 +283,8 @@ def _feed_provenance(spec: TransitFeedSpec, status: str, stop_count: int, route_
     }
     if status == "missing":
         entry["missing_reason"] = spec.missing_reason or "Feed not supplied to this run."
+    elif spec.missing_reason:
+        entry["missing_reason"] = spec.missing_reason
     if spec.notes:
         entry["notes"] = spec.notes
     if spec.route_types:

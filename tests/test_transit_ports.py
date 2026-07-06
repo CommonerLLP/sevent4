@@ -13,7 +13,7 @@ from sevent4.application.transit import (
     coastal_multimodal_feed_specs,
 )
 from sevent4.ports.transit import GtfsCorridorInput
-from sevent4.transit.coverage_index import build_transit_coverage_index
+from sevent4.transit.coverage_index import build_transit_coverage_index, find_orphaned_not_found_feeds
 from sevent4.transit.gtfs_corridors import build_corridors
 from sevent4.transit.multimodal_layers import build_city_multimodal_layers, feed_run_specs_from_manifest
 from sevent4.transit.multimodal_layers import _route_label, _stop_label
@@ -272,6 +272,97 @@ class TransitPortsTest(unittest.TestCase):
             self.assertTrue(feeds["official_metro"]["public_layer_files"]["stop_layer_exists"])
             self.assertTrue(feeds["constructed_metro"]["public_coverage"])
             self.assertTrue(feeds["inventory_mrts"]["public_coverage"])
+
+    def test_orphaned_not_found_feed_flagged_when_own_layer_has_real_features(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            base = Path(tmp)
+            city_root = base / "data" / "cities"
+            public_root = base / "public" / "cities"
+            source = city_root / "railcity" / "source" / "transit"
+            layers = public_root / "railcity" / "layers"
+            source.mkdir(parents=True)
+            layers.mkdir(parents=True)
+            (layers / "suburban_rail_stations.geojson").write_text(
+                json.dumps({"type": "FeatureCollection", "features": [{"type": "Feature"}]})
+            )
+            (layers / "suburban_rail.geojson").write_text(
+                json.dumps({"type": "FeatureCollection", "features": [{"type": "Feature"}]})
+            )
+            (source / "multimodal_transit.sources.json").write_text(
+                json.dumps(
+                    {
+                        "schema": "sevent4.multimodal_transit.sources.v1",
+                        "feeds": [
+                            {
+                                "feed_id": "orphaned_suburban",
+                                "city": "railcity",
+                                "mode": "suburban_rail",
+                                "operator": "Some Railway",
+                                "status": "not_found",
+                                "stop_layer": "suburban_rail_stations.geojson",
+                                "route_layer": "suburban_rail.geojson",
+                            },
+                        ],
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            payload = build_transit_coverage_index(city_root, public_root, compiled="2026-07-06")
+            orphans = find_orphaned_not_found_feeds(payload, public_root)
+
+            self.assertEqual(orphans, [{"city": "railcity", "feed_id": "orphaned_suburban"}])
+
+    def test_benign_not_found_duplicate_with_counted_sibling_is_not_flagged(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            base = Path(tmp)
+            city_root = base / "data" / "cities"
+            public_root = base / "public" / "cities"
+            source = city_root / "railcity" / "source" / "transit"
+            layers = public_root / "railcity" / "layers"
+            source.mkdir(parents=True)
+            layers.mkdir(parents=True)
+            (layers / "suburban_rail_stations.geojson").write_text(
+                json.dumps({"type": "FeatureCollection", "features": [{"type": "Feature"}]})
+            )
+            (layers / "suburban_rail.geojson").write_text(
+                json.dumps({"type": "FeatureCollection", "features": [{"type": "Feature"}]})
+            )
+            (source / "multimodal_transit.sources.json").write_text(
+                json.dumps(
+                    {
+                        "schema": "sevent4.multimodal_transit.sources.v1",
+                        "feeds": [
+                            {
+                                "feed_id": "official_gap",
+                                "city": "railcity",
+                                "mode": "suburban_rail",
+                                "operator": "Some Railway",
+                                "status": "not_found",
+                                "stop_layer": "suburban_rail_stations.geojson",
+                                "route_layer": "suburban_rail.geojson",
+                            },
+                            {
+                                "feed_id": "official_gap_osm_fallback",
+                                "city": "railcity",
+                                "mode": "suburban_rail",
+                                "operator": "Some Railway",
+                                "status": "osm_fallback_constructed",
+                                "stop_layer": "suburban_rail_stations.geojson",
+                                "route_layer": "suburban_rail.geojson",
+                                "stop_features": 1,
+                                "route_features": 1,
+                            },
+                        ],
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            payload = build_transit_coverage_index(city_root, public_root, compiled="2026-07-06")
+            orphans = find_orphaned_not_found_feeds(payload, public_root)
+
+            self.assertEqual(orphans, [])
 
     def test_bengaluru_bmrcl_metro_layers_are_in_transit_coverage_index(self) -> None:
         payload = build_transit_coverage_index(
