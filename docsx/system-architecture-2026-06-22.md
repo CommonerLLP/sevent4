@@ -61,6 +61,7 @@ Implemented package boundaries:
 - `sevent4.domain.budget`
 - `sevent4.domain.chennai_finance`
 - `sevent4.domain.chennai_opencity_water`
+- `sevent4.domain.deflator`
 - `sevent4.domain.delhi_acquire`
 - `sevent4.domain.delhi_air_quality`
 - `sevent4.domain.delhi_dpl_extract`
@@ -234,6 +235,12 @@ Compatibility surfaces remain:
 - Budget explorer and money-flow CLIs now route through the finance application
   service. Filesystem adapters load city and budget inputs, while the
   application depends on `sevent4.ports.finance` rather than concrete files.
+  The nominal-to-real rupee deflator (REQ-0011, consumed from public-finance)
+  follows the same split: `sevent4.domain.deflator` is pure computation over a
+  plain series dict, the vendored CPI series file is loaded once by
+  `sevent4.adapters.finance_filesystem.load_deflator_series` and carried on
+  `BudgetExplorerInput.deflator_series`, and the budget-explorer renderer
+  receives it as data rather than reading the file itself.
 - `sevent4.metrics.ward_service_access` is now a thin CLI adapter over the
   metrics application service. The filesystem adapter loads ward, service, and
   GTFS stop layers before the application computes ward service-access rows.

@@ -46,7 +46,7 @@ class FinancePortsTest(unittest.TestCase):
         result = publish_budget_explorer(
             Repository(),
             writer,
-            lambda city, headline, civic_meta, civic_rows, budget_stages=None: f"{city.name}:{headline[0]['year']}:{budget_stages[0]['amount_cr']}",
+            lambda city, headline, civic_meta, civic_rows, budget_stages=None, deflator_series=None: f"{city.name}:{headline[0]['year']}:{budget_stages[0]['amount_cr']}",
         )
 
         self.assertEqual(writer.html, "Testville:2024-25:17018.0")

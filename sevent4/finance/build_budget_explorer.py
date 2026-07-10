@@ -22,6 +22,7 @@ from typing import Any
 from sevent4.adapters.finance_filesystem import FileBudgetExplorerInputRepository, HtmlFileWriter
 from sevent4.application.finance import publish_budget_explorer
 from sevent4.city_dataset import CityDataset
+from sevent4.domain.deflator import deflate, latest_confirmed_year
 from sevent4.finance.budget_data import fy_start, load_civic_lines, load_headline
 
 
@@ -192,6 +193,35 @@ def _delta(series: list[tuple[int, float]]) -> tuple[float, float, int, int]:
     return first[1], last[1], first[0], last[0]
 
 
+def _fy(start_year: int) -> str:
+    return f"{start_year}-{str(start_year + 1)[-2:]}"
+
+
+def _real_value_note(deflator_series: dict[str, float] | None, first: float, first_year_start: int, last: float) -> str:
+    """Real-value companion to a nominal multi-year rupee comparison
+    (standing rule, memory `feedback-nominal-and-real-values.md`; series
+    consumed from public-finance, REQ-0011, loaded by the adapter and passed
+    in as plain data — this function does no IO of its own).
+
+    Deflates `first` from its own fiscal year into the latest CPI-confirmed
+    fiscal year, then compares against `last` at face value. When `last`'s
+    own fiscal year is newer than the deflator's confirmed coverage (as with
+    a FY2026-27 budget-book figure against a series confirmed through
+    FY2024-25), this treats the newer nominal rupees as approximately
+    equivalent to the latest confirmed year's price level — a small,
+    explicitly caveated approximation, not an estimated CPI value.
+    """
+    if not deflator_series:
+        return ""
+    to_year = latest_confirmed_year(deflator_series)
+    real_first = deflate(deflator_series, first, _fy(first_year_start), to_year)
+    real_multiple = last / real_first if real_first else 0.0
+    return (
+        f'<div class="real">{real_multiple:.1f}&times; in real {to_year} rupees'
+        f'<sup><a href="#sources-method">*</a></sup></div>'
+    )
+
+
 def _legend(lines: list[dict[str, Any]]) -> str:
     chips = []
     for line in lines:
@@ -208,6 +238,7 @@ def render_html(
     civic_meta: dict[str, Any],
     civic_rows: list[dict[str, Any]],
     budget_stages: list[dict[str, Any]] | None = None,
+    deflator_series: dict[str, float] | None = None,
 ) -> str:
     amts = amts_series(headline, civic_rows)
     total = headline_series(headline, "total_cr")
@@ -264,12 +295,14 @@ def render_html(
       <div class="card">
         <div class="k">City bus (AMTS) allocation</div>
         <div class="v">&#8377;{amts_first:,.0f} cr &rarr; &#8377;{amts_last:,.0f} cr</div>
-        <div class="s">{amts_y0}&ndash;{str(amts_y0 + 1)[-2:]} to {amts_y1}&ndash;{str(amts_y1 + 1)[-2:]} &middot; {amts_last / amts_first:.1f}&times;</div>
+        <div class="s">{amts_y0}&ndash;{str(amts_y0 + 1)[-2:]} to {amts_y1}&ndash;{str(amts_y1 + 1)[-2:]} &middot; {amts_last / amts_first:.1f}&times; nominal</div>
+        {_real_value_note(deflator_series, amts_first, amts_y0, amts_last)}
       </div>
       <div class="card">
         <div class="k">Total revenue budget</div>
         <div class="v">&#8377;{total_first:,.0f} cr &rarr; &#8377;{total_last:,.0f} cr</div>
-        <div class="s">{total_y0}&ndash;{str(total_y0 + 1)[-2:]} to {total_y1}&ndash;{str(total_y1 + 1)[-2:]} &middot; {total_last / total_first:.1f}&times;</div>
+        <div class="s">{total_y0}&ndash;{str(total_y0 + 1)[-2:]} to {total_y1}&ndash;{str(total_y1 + 1)[-2:]} &middot; {total_last / total_first:.1f}&times; nominal</div>
+        {_real_value_note(deflator_series, total_first, total_y0, total_last)}
       </div>
       <div class="card">
         <div class="k">Bus share of budget</div>
@@ -322,7 +355,7 @@ def render_html(
       {_table(headline)}
     </section>
 
-    <footer class="prov">
+    <footer class="prov" id="sources-method">
       <h3>Sources &amp; method</h3>
       <p>
         Figures are extracted from {html.escape(city.name)} Municipal Corporation
@@ -333,6 +366,19 @@ def render_html(
         Figures are human-verified from the source PDFs and carry per-row
         confidence; they are a research reading of public documents, not an
         official account. Treat low-confidence and blank cells with caution.
+      </p>
+      <p>
+        <b>Real-value method:</b> a two-decade nominal rupee comparison mostly
+        reflects inflation, not real budget growth, so each multi-year card also
+        shows the same comparison in constant rupees. The price deflator (annual
+        CPI-Combined, base CY2012=100, CPI-IW-spliced before FY2011-12) is
+        RBI/MoSPI-sourced and confirmed through FY2024-25; it is public-finance's
+        series, consumed here, not derived locally. Where a card's newer figure
+        is from a fiscal year past the series' confirmed coverage (FY2026-27
+        here), the real comparison treats that nominal amount as approximately
+        the latest confirmed year's (FY2024-25) price level rather than
+        estimating an unconfirmed CPI value &mdash; a small approximation over a
+        two-year gap, not a projection.
       </p>
       <p class="caveat">{html.escape(_first_caveat(civic_meta))}</p>
     </footer>
@@ -418,6 +464,8 @@ h1{font:700 30px/1.18 var(--serif);letter-spacing:-.01em;margin-bottom:12px}
 .card .k{font:700 10px/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
 .card .v{font:700 20px/1.2 var(--serif);margin:7px 0 4px}
 .card .s{font:600 11px/1.3 var(--mono);color:var(--mut)}
+.card .real{font:600 11px/1.3 var(--mono);color:var(--mut);margin-top:2px}
+.card .real a{color:var(--blue);text-decoration:none}
 .block{margin:40px 0;border-top:1px solid var(--hair);padding-top:26px}
 h2{font:700 21px/1.25 var(--serif);margin-bottom:8px}
 .note{color:var(--mut);font-size:14.5px;max-width:64ch;margin-bottom:16px}
