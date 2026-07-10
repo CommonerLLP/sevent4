@@ -1,7 +1,9 @@
 # The Unelected City System Architecture
 
 Status: binding target architecture for The Unelected City.
-Last updated: 2026-06-25T03:53:31Z.
+Last updated: 2026-07-10 (ports/domain/adapters snapshot resynced against disk;
+added officials, sources, deflator, finance_flow, Delhi library-paper figures,
+Gujarat transport adapter).
 
 ## Purpose
 
@@ -883,10 +885,12 @@ Current port modules:
 - `sevent4.ports.kanpur`
 - `sevent4.ports.library_access`
 - `sevent4.ports.metrics`
+- `sevent4.ports.officials`
 - `sevent4.ports.publication`
 - `sevent4.ports.rbi_finance`
 - `sevent4.ports.representatives`
 - `sevent4.ports.roads`
+- `sevent4.ports.sources`
 - `sevent4.ports.transit`
 
 Current application services include acquisition, Ahmedabad budget/heat/roads
@@ -894,24 +898,29 @@ and library-paper figures, Bengaluru finance/OpenCity/ward analysis, Chennai
 finance/OpenCity water, city build, city console, comparators, Delhi
 acquisition/finance/DPL/geocoding/hierarchy/OpenCity/library spatial/air
 quality/library-paper figures, finance, Gujarat transport, jurisdiction,
-Kanpur, library access, library exclusion, metrics, MJ library, public-site
-publication, RBI finance, representatives, roads, transit, and WHY/air.
+Kanpur, library access, library exclusion, metrics, MJ library, officials,
+public-site publication, RBI finance, representatives, roads, sources,
+transit, and WHY/air.
 
 Current domain modules include evidence, pollution, budget, heat, roads, RBI
 finance, Ahmedabad library-paper figures and AMC budget, Bengaluru finance,
 Bengaluru OpenCity, Bengaluru ward analysis, Chennai finance, Chennai OpenCity
-water, Delhi acquisition, Delhi air quality, Delhi DPL extraction, Delhi
-finance, Delhi library spatial, Delhi OpenCity, DPL geocoding, DPL hierarchy,
-Gujarat transport, Kanpur wards, library exclusion, library networks, MJ
-library, OpenCity catalogue, and suburban rail.
+water, the nominal-to-real rupee deflator, Delhi acquisition, Delhi air
+quality, Delhi DPL extraction, Delhi finance, Delhi library spatial, Delhi
+library-paper figures, Delhi OpenCity, DPL geocoding, DPL hierarchy,
+finance-flow (Sankey link shaping), Gujarat transport, Kanpur wards, library
+exclusion, library networks, MJ library, OpenCity catalogue, and suburban
+rail.
 
 Current adapters own concrete I/O for acquisition files, budget filesystem/HTTP
-/OCR, AMC budget files, Ahmedabad and Delhi figure rendering, Bengaluru and
-Chennai files/geospatial sources, city-build files, comparators, Delhi
-acquisition/finance/DPL/geocoding/hierarchy/OpenCity/library spatial/air
-quality files, finance files, heat filesystem/Planetary Computer access,
-jurisdiction geospatial joins, Kanpur files, library access/exclusion/network
-files, MJ library files, RBI finance files, representative files, road files,
+/OCR, AMC budget files, Ahmedabad and Delhi figure rendering (including Delhi
+library-paper figures), Bengaluru and Chennai files/geospatial sources,
+city-build files, comparators, Delhi acquisition/finance/DPL/geocoding/
+hierarchy/OpenCity/library spatial/air quality files, finance files (including
+the vendored CPI deflator series), Gujarat transport files, heat filesystem/
+Planetary Computer access, jurisdiction geospatial joins, Kanpur files,
+library access/exclusion/network files, MJ library files, officials files,
+RBI finance files, representative files, road files, source-inventory files,
 and transit files.
 
 Compatibility surfaces remain where public recipes or tests import legacy
