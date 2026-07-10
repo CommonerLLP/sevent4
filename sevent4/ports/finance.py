@@ -17,6 +17,7 @@ class BudgetExplorerInput:
     civic_meta: dict[str, Any]
     civic_rows: list[dict[str, Any]]
     budget_stages: list[dict[str, Any]] | None = None
+    deflator_series: dict[str, float] | None = None
 
 
 @dataclass(frozen=True)
@@ -63,6 +64,7 @@ class BudgetExplorerRenderer(Protocol):
         civic_meta: dict[str, Any],
         civic_rows: list[dict[str, Any]],
         budget_stages: list[dict[str, Any]] | None = None,
+        deflator_series: dict[str, float] | None = None,
     ) -> str:
         ...
 

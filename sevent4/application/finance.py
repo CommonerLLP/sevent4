@@ -24,7 +24,14 @@ def publish_budget_explorer(
     render: BudgetExplorerRenderer,
 ) -> FinancePageBuildResult:
     inputs = repository.load()
-    html = render(inputs.city, inputs.headline, inputs.civic_meta, inputs.civic_rows, getattr(inputs, "budget_stages", None))
+    html = render(
+        inputs.city,
+        inputs.headline,
+        inputs.civic_meta,
+        inputs.civic_rows,
+        getattr(inputs, "budget_stages", None),
+        getattr(inputs, "deflator_series", None),
+    )
     writer.write_html(html)
     return FinancePageBuildResult(html=html)
 

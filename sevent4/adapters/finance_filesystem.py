@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import re
 from pathlib import Path
 
@@ -17,6 +18,14 @@ from sevent4.ports.finance import BudgetExplorerInput, FinanceFlowInput, MoneyFl
 
 ROOT = Path(__file__).resolve().parents[2]
 GBA_RAW = ROOT / "data" / "sources" / "opencity" / "bengaluru" / "raw" / "gba-corporation-budgets-2026-27"
+DEFLATOR_SERIES_PATH = ROOT / "data" / "references" / "deflator" / "cpi_combined_fy2005_06_to_latest.json"
+
+
+def load_deflator_series(path: Path = DEFLATOR_SERIES_PATH) -> dict[str, float]:
+    """Read the CPI series vendored from public-finance (REQ-0011). Pure IO,
+    no computation — the deflate() logic lives in sevent4.domain.deflator."""
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    return {row["fy"]: float(row["index_value"]) for row in payload["years"]}
 
 
 class FileBudgetExplorerInputRepository:
@@ -40,6 +49,7 @@ class FileBudgetExplorerInputRepository:
             civic_meta=civic_meta,
             civic_rows=civic_rows,
             budget_stages=budget_stages,
+            deflator_series=load_deflator_series(),
         )
 
 
