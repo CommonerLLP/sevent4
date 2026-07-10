@@ -4,7 +4,8 @@ No filesystem IO lives here — the adapter loads the vendored CPI series and
 passes it in as a plain dict; every function here is a pure computation over
 that dict. sevent4 does not derive its own CPI series or deflate() logic; the
 series and its methodology are public-finance's (owner_repo: public-finance),
-vendored at data/references/deflator/cpi_combined_fy2005_06_to_latest.json.
+vendored at references/deflator/cpi_combined_fy2005_06_to_latest.json (tracked,
+not under data/, since a build must work from a fresh clone).
 """
 from __future__ import annotations
 

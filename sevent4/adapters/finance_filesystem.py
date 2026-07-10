@@ -18,7 +18,11 @@ from sevent4.ports.finance import BudgetExplorerInput, FinanceFlowInput, MoneyFl
 
 ROOT = Path(__file__).resolve().parents[2]
 GBA_RAW = ROOT / "data" / "sources" / "opencity" / "bengaluru" / "raw" / "gba-corporation-budgets-2026-27"
-DEFLATOR_SERIES_PATH = ROOT / "data" / "references" / "deflator" / "cpi_combined_fy2005_06_to_latest.json"
+# Tracked (not under data/, which is gitignored) — this is small, versioned
+# reference data vendored from public-finance, the same convention public-
+# finance itself uses for references/deflator/. A build must work from a
+# fresh clone with no external data volume mounted.
+DEFLATOR_SERIES_PATH = ROOT / "references" / "deflator" / "cpi_combined_fy2005_06_to_latest.json"
 
 
 def load_deflator_series(path: Path = DEFLATOR_SERIES_PATH) -> dict[str, float]:
